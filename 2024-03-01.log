@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-03-01.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="141149"><span class="nick" style="color:#389600"><a href="#141149" label="[14:11:49]">&lt;webczat&gt;</a></span><span class="message">oriansj: suspected assembler bug. :)</span></div><div class="line" id="141219"><span class="nick" style="color:#389600"><a href="#141219" label="[14:12:19]">&lt;webczat&gt;</a></span><span class="message">linker usually gets it right for some reason. except when it doesn't and this causes the failure to use set_thread_area.</span></div><div class="line" id="141304"><span class="nick" style="color:#389600"><a href="#141304" label="[14:13:04]">&lt;webczat&gt;</a></span><span class="message">i am not competent enough to debug this myself but I can provide a binary which exhibits this behavior + the __set_thread_area.o object file.</span></div><div class="line" id="141351"><span class="nick" style="color:#389600"><a href="#141351" label="[14:13:51]">&lt;webczat&gt;</a></span><span class="message">i mean i don't know enough about things like relocations and such like</span></div><div class="line" id="163042"><span class="nick" style="color:#8dd3c7"><a href="#163042" label="[16:30:42]">&lt;oriansj&gt;</a></span><span class="message">webczat: well relocations come in two types: data and code. Code tends to either depend upon a hard coded address to contain the new address or Position Independent Code (which loads relative to the current PC address); Data just tends to be an update to where the code is looking (passed value or some address being populated)</span></div><div class="line" id="163347"><span class="nick" style="color:#389600"><a href="#163347" label="[16:33:47]">&lt;webczat&gt;</a></span><span class="message">i haven't tried looking at relocation tables.</span></div><div class="line" id="201451"><span class="nick" style="color:#389600"><a href="#201451" label="[20:14:51]">&lt;webczat&gt;</a></span><span class="message">discovered tcc -ar bug.</span></div><div class="line" id="201506"><span class="nick" style="color:#389600"><a href="#201506" label="[20:15:06]">&lt;webczat&gt;</a></span><span class="message">repeatedly using it will always truncate the archive instead of adding onto it.</span></div><div class="line" id="201528"><span class="nick" style="color:#389600"><a href="#201528" label="[20:15:28]">&lt;webczat&gt;</a></span><span class="message">so binutils 2.4x build breaks on bfd</span></div><div class="line" id="205049"><span class="nick" style="color:#2e2a4a"><a href="#205049" label="[20:50:49]">&lt;stikonas&gt;</a></span><span class="message">webczat: can tcc even build binutils 2.4x...?</span></div><div class="line" id="205057"><span class="nick" style="color:#2e2a4a"><a href="#205057" label="[20:50:57]">&lt;stikonas&gt;</a></span><span class="message">I had quite a bit of trouble last I tried</span></div><div class="line" id="205102"><span class="nick" style="color:#389600"><a href="#205102" label="[20:51:02]">&lt;webczat&gt;</a></span><span class="message">stikonas: mob version just did</span></div><div class="line" id="205105"><span class="nick" style="color:#2e2a4a"><a href="#205105" label="[20:51:05]">&lt;stikonas&gt;</a></span><span class="message">ok, mob maybe</span></div><div class="line" id="205111"><span class="nick" style="color:#2e2a4a"><a href="#205111" label="[20:51:11]">&lt;stikonas&gt;</a></span><span class="message">I used 0.9.27</span></div><div class="line" id="205157"><span class="nick" style="color:#389600"><a href="#205157" label="[20:51:57]">&lt;webczat&gt;</a></span><span class="message">although there are problems because tcc doesn't support TLS and binutils has a bug that doesn't really accommodate for this even though configure checks. so you need to define a TLS macro to empty value, then you need to work around the above ar bug, and then it seems to work</span></div><br /></div></body></html>

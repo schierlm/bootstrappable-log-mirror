@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-01-26.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000613"><span class="nick" style="color:#389600"><a href="#000613" label="[00:06:13]">&lt;oriansj&gt;</a></span><span class="message">(sorry mean to express less likely for the disk read/write block to not be in memory than a 2 page buffer) but yes that block miss would only occur a couple times max per stage0 step.</span></div><div class="line" id="024102"><span class="nick" style="color:#8dd3c7"><a href="#024102" label="[02:41:02]">&lt;muurkha&gt;</a></span><span class="message">oriansj: agreed, though at some point you have to set ebx to the buffer you pick, and with three or mour buffers I think you might as well write a loop (mov ecx, nbufs; search: cmp eax, [bufbase + ecx]; je found; loop search; mov ecx, [nextbuf]; inc ecx; and ecx, nbufs-1; mov [nextbuf], ecx; found:) 8 instructions instead of 10 and accommodates any power-of-2 number of buffers, though with enough</span></div><div class="line" id="024108"><span class="nick" style="color:#8dd3c7"><a href="#024108" label="[02:41:08]">&lt;muurkha&gt;</a></span><span class="message">of them it gets slower to check the buffer cache than just loading the page</span></div><div class="line" id="061357"><span class="nick" style="color:#2e2a4a"><a href="#061357" label="[06:13:57]">&lt;lrvick&gt;</a></span><span class="message">No luck with --disable-separate-code. The thing that flips around depending on what host system I am building on is always libsframe. Found this recent fix which is suspect: <a rel="nofollow" href="https://github.com/distrust-foundation/EnclaveOS/blob/master/src/system/src/lib.rs">https://github.com/distrust-foundation/EnclaveOS/blob/master/src/system/src/lib.rs</a> </span></div><div class="line" id="061451"><span class="nick" style="color:#2e2a4a"><a href="#061451" label="[06:14:51]">&lt;lrvick&gt;</a></span><span class="message">it isn't obvious to me how this could cause a determinisim bug, but it is also the only related change in a couple years as far as I can tell</span></div><div class="line" id="061526"><span class="nick" style="color:#2e2a4a"><a href="#061526" label="[06:15:26]">&lt;lrvick&gt;</a></span><span class="message">I'll apply the patch and see wht happens</span></div><div class="line" id="134007"><span class="nick" style="color:#389600"><a href="#134007" label="[13:40:07]">&lt;oriansj&gt;</a></span><span class="message">muurkha: fair point but one only needs 2 blocks per file buffer</span></div><div class="line" id="134824"><span class="nick" style="color:#389600"><a href="#134824" label="[13:48:24]">&lt;oriansj&gt;</a></span><span class="message">only if one is providing one shared buffer for multiple processes talking to multiple files would one need something much more carefully designed.</span></div><br /></div></body></html>

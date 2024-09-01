@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-03-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="160930"><span class="nick" style="color:#389600"><a href="#160930" label="[16:09:30]">&lt;ekaitz&gt;</a></span><span class="message">hi! anyone knows if x86 or arm have an option stack like RISC-V assembler does?</span></div><div class="line" id="160938"><span class="nick" style="color:#389600"><a href="#160938" label="[16:09:38]">&lt;ekaitz&gt;</a></span><span class="message">i'm talking about `.option norelax`</span></div><div class="line" id="160944"><span class="nick" style="color:#389600"><a href="#160944" label="[16:09:44]">&lt;ekaitz&gt;</a></span><span class="message">and `.option push/pop`</span></div><div class="line" id="160948"><span class="nick" style="color:#389600"><a href="#160948" label="[16:09:48]">&lt;ekaitz&gt;</a></span><span class="message">that kind of stuff</span></div><div class="line" id="161248"><span class="nick" style="color:#8dd3c7"><a href="#161248" label="[16:12:48]">&lt;Googulator&gt;</a></span><span class="message">Is that a thing architecturally on RISC-V (i.e. there are opcodes in machine code corresponding to such statements)?</span></div><div class="line" id="161254"><span class="nick" style="color:#8dd3c7"><a href="#161254" label="[16:12:54]">&lt;Googulator&gt;</a></span><span class="message">Or just an assembler feature</span></div><div class="line" id="161330"><span class="nick" style="color:#8dd3c7"><a href="#161330" label="[16:13:30]">&lt;Googulator&gt;</a></span><span class="message">Some x86 assemblers certainly have `.pragma`</span></div><div class="line" id="161644"><span class="nick" style="color:#389600"><a href="#161644" label="[16:16:44]">&lt;ekaitz&gt;</a></span><span class="message">assembler feature</span></div><div class="line" id="161702"><span class="nick" style="color:#389600"><a href="#161702" label="[16:17:02]">&lt;ekaitz&gt;</a></span><span class="message"> <a rel="nofollow" href="https://sourceware.org/binutils/docs-2.31/as/RISC_002dV_002dDirectives.html#RISC_002dV_002dDirectives">https://sourceware.org/binutils/docs-2.31/as/RISC_002dV_002dDirectives.html#RISC_002dV_002dDirectives</a> </span></div><div class="line" id="161716"><span class="nick" style="color:#389600"><a href="#161716" label="[16:17:16]">&lt;ekaitz&gt;</a></span><span class="message">it has some push/pop thing i need to understand better</span></div><div class="line" id="161807"><span class="nick" style="color:#389600"><a href="#161807" label="[16:18:07]">&lt;ekaitz&gt;</a></span><span class="message">how does the push/pop system work? does it keep all the options in the stack plus the one I pushed?</span></div><div class="line" id="161809"><span class="nick" style="color:#8dd3c7"><a href="#161809" label="[16:18:09]">&lt;Googulator&gt;</a></span><span class="message">I guess it's like pragma on x86 then</span></div><div class="line" id="161814"><span class="nick" style="color:#389600"><a href="#161814" label="[16:18:14]">&lt;ekaitz&gt;</a></span><span class="message">and when I pop it just ignores?</span></div><div class="line" id="161831"><span class="nick" style="color:#389600"><a href="#161831" label="[16:18:31]">&lt;ekaitz&gt;</a></span><span class="message">but pragma doesn't have this kind of push/pop thing, right?</span></div><div class="line" id="161846"><span class="nick" style="color:#389600"><a href="#161846" label="[16:18:46]">&lt;ekaitz&gt;</a></span><span class="message">i'm thinking on the easiest way to implement this</span></div><div class="line" id="164600"><span class="nick" style="color:#2e2a4a"><a href="#164600" label="[16:46:00]">&lt;deesix&gt;</a></span><span class="message">So, basically that allows saving and restoring three bool flags, right?</span></div><div class="line" id="172733"><span class="nick" style="color:#389600"><a href="#172733" label="[17:27:33]">&lt;ekaitz&gt;</a></span><span class="message">deesix: yep</span></div><div class="line" id="172743"><span class="nick" style="color:#389600"><a href="#172743" label="[17:27:43]">&lt;ekaitz&gt;</a></span><span class="message">so what should I do?</span></div><div class="line" id="172759"><span class="nick" style="color:#389600"><a href="#172759" label="[17:27:59]">&lt;ekaitz&gt;</a></span><span class="message">make a small array of options, that is a char with some bits set or what?</span></div><br /></div></body></html>

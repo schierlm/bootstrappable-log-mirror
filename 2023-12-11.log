@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-12-11.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002309"><span class="nick" style="color:#389600"><a href="#002309" label="[00:23:09]">&lt;stikonas&gt;</a></span><span class="message">oriansj: if you have a few minutes, do you see anything outrageos here? <a rel="nofollow" href="https://git.stikonas.eu/andrius/stage0-uefi/commit/dde77cdb0f59797d355fa72b8dc8c63dc324286a">https://git.stikonas.eu/andrius/stage0-uefi/commit/dde77cdb0f59797d355fa72b8dc8c63dc324286a</a> </span></div><div class="line" id="002342"><span class="nick" style="color:#389600"><a href="#002342" label="[00:23:42]">&lt;stikonas&gt;</a></span><span class="message">well, something is probably broken, because with this commit kaem.hex0 file somehow gets corrupted</span></div><div class="line" id="003632"><span class="nick" style="color:#8dd3c7"><a href="#003632" label="[00:36:32]">&lt;oriansj&gt;</a></span><span class="message">well and_rsp, !-16 would make the stack align but I don't see you adding 16 to the stack to prevent stack overwrites nor you cleaning up that operation</span></div><div class="line" id="003717"><span class="nick" style="color:#389600"><a href="#003717" label="[00:37:17]">&lt;stikonas&gt;</a></span><span class="message">in read function 88B6424 10     ; mov_rsp,[rsp+BYTE] !16  should clean it back</span></div><div class="line" id="003736"><span class="nick" style="color:#389600"><a href="#003736" label="[00:37:36]">&lt;stikonas&gt;</a></span><span class="message">(and same in write)</span></div><div class="line" id="003806"><span class="nick" style="color:#389600"><a href="#003806" label="[00:38:06]">&lt;stikonas&gt;</a></span><span class="message">hmm, wouldn't and rsp, -16 either leave stack in place</span></div><div class="line" id="003826"><span class="nick" style="color:#389600"><a href="#003826" label="[00:38:26]">&lt;stikonas&gt;</a></span><span class="message">or allocate 8 more bytes (i.e. like one more push)</span></div><div class="line" id="003855"><span class="nick" style="color:#8dd3c7"><a href="#003855" label="[00:38:55]">&lt;oriansj&gt;</a></span><span class="message">the and would move the stack down</span></div><div class="line" id="003906"><span class="nick" style="color:#8dd3c7"><a href="#003906" label="[00:39:06]">&lt;oriansj&gt;</a></span><span class="message">towards zero</span></div><div class="line" id="004020"><span class="nick" style="color:#8dd3c7"><a href="#004020" label="[00:40:20]">&lt;oriansj&gt;</a></span><span class="message">and not all pushes push 8bytes, some push single bytes</span></div><div class="line" id="004049"><span class="nick" style="color:#389600"><a href="#004049" label="[00:40:49]">&lt;stikonas&gt;</a></span><span class="message">not in hex0, I think...</span></div><div class="line" id="004058"><span class="nick" style="color:#389600"><a href="#004058" label="[00:40:58]">&lt;stikonas&gt;</a></span><span class="message">even push 0 I think pushes 64-bit number</span></div><div class="line" id="004111"><span class="nick" style="color:#8dd3c7"><a href="#004111" label="[00:41:11]">&lt;oriansj&gt;</a></span><span class="message">depends on the opcode used</span></div><div class="line" id="004455"><span class="nick" style="color:#8dd3c7"><a href="#004455" label="[00:44:55]">&lt;oriansj&gt;</a></span><span class="message">well x86/amd64 does grow down; I'd make a label like RSP_HOLD; do a store then the andi and after the call do a load from the label to clean up</span></div><div class="line" id="004512"><span class="nick" style="color:#8dd3c7"><a href="#004512" label="[00:45:12]">&lt;oriansj&gt;</a></span><span class="message">as we don't do nested syscalls</span></div><div class="line" id="004806"><span class="nick" style="color:#389600"><a href="#004806" label="[00:48:06]">&lt;stikonas&gt;</a></span><span class="message">well, we could though, that's extra jump in hex0 code...</span></div><div class="line" id="004932"><span class="nick" style="color:#8dd3c7"><a href="#004932" label="[00:49:32]">&lt;oriansj&gt;</a></span><span class="message">yeah, something to avoid</span></div><div class="line" id="004952"><span class="nick" style="color:#8dd3c7"><a href="#004952" label="[00:49:52]">&lt;oriansj&gt;</a></span><span class="message">none of the syscall functions are falling into right?</span></div><div class="line" id="005027"><span class="nick" style="color:#8dd3c7"><a href="#005027" label="[00:50:27]">&lt;oriansj&gt;</a></span><span class="message">you could do a RSP_HOLD_$name ahead of the function $name</span></div><div class="line" id="005048"><span class="nick" style="color:#8dd3c7"><a href="#005048" label="[00:50:48]">&lt;oriansj&gt;</a></span><span class="message">so that each syscall has their own and you can just do -8 to get its address</span></div><div class="line" id="005232"><span class="nick" style="color:#389600"><a href="#005232" label="[00:52:32]">&lt;stikonas&gt;</a></span><span class="message">hmm, true...</span></div><div class="line" id="005316"><span class="nick" style="color:#389600"><a href="#005316" label="[00:53:16]">&lt;stikonas&gt;</a></span><span class="message">though that  extra storage for each syscall, but maybe cheaper to restore...</span></div><div class="line" id="005504"><span class="nick" style="color:#8dd3c7"><a href="#005504" label="[00:55:04]">&lt;oriansj&gt;</a></span><span class="message">well it is a tradeoff between memory size and reducing the number of addresses and offsets you need to manually calculate</span></div><div class="line" id="005517"><span class="nick" style="color:#8dd3c7"><a href="#005517" label="[00:55:17]">&lt;oriansj&gt;</a></span><span class="message">a tradeoff that only ever appears in hex0</span></div><div class="line" id="005549"><span class="nick" style="color:#389600"><a href="#005549" label="[00:55:49]">&lt;stikonas&gt;</a></span><span class="message">indeed...</span></div><div class="line" id="005556"><span class="nick" style="color:#389600"><a href="#005556" label="[00:55:56]">&lt;stikonas&gt;</a></span><span class="message">well, in C code all that would be fairly simple</span></div><div class="line" id="005631"><span class="nick" style="color:#389600"><a href="#005631" label="[00:56:31]">&lt;stikonas&gt;</a></span><span class="message">all UEFI calls are using common wrappers (only depending on number of args) in M2libc...</span></div><div class="line" id="020627"><span class="nick" style="color:#389600"><a href="#020627" label="[02:06:27]">&lt;stikonas&gt;</a></span><span class="message">I wonder if I misread another thing too from the calling convention...</span></div><div class="line" id="020641"><span class="nick" style="color:#389600"><a href="#020641" label="[02:06:41]">&lt;stikonas&gt;</a></span><span class="message">it might be that shadow space has to be 32-bytes even for functions with less than 4 arguments...</span></div><div class="line" id="021036"><span class="nick" style="color:#8dd3c7"><a href="#021036" label="[02:10:36]">&lt;oriansj&gt;</a></span><span class="message">might as well make an even 256bytes; not that wasting of stack space really counts for anything if you do it only during syscalls</span></div><div class="line" id="022137"><span class="nick" style="color:#8dd3c7"><a href="#022137" label="[02:21:37]">&lt;oriansj&gt;</a></span><span class="message">after it works perfectly, you then can shrink it down when you feel like it or leave it for someone else to have an easy win</span></div><div class="line" id="022851"><span class="nick" style="color:#2e2a4a"><a href="#022851" label="[02:28:51]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Anyway, I'll have to try various things...</span></div><div class="line" id="022905"><span class="nick" style="color:#2e2a4a"><a href="#022905" label="[02:29:05]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Probably will take a while...</span></div><div class="line" id="022919"><span class="nick" style="color:#2e2a4a"><a href="#022919" label="[02:29:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But we are not in a rush</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-08-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="061122"><span class="nick" style="color:#389600"><a href="#061122" label="[06:11:22]">&lt;aggi&gt;</a></span><span class="message">i fear musl-libc may not support dynamic linking with libc.so when compiled/linked by tcc-toolchain</span></div><div class="line" id="061213"><span class="nick" style="color:#389600"><a href="#061213" label="[06:12:13]">&lt;aggi&gt;</a></span><span class="message">tcc-linker is missing -e&lt;ENTRY&gt; option, which i wouldn't know how to quickly implement this</span></div><div class="line" id="061307"><span class="nick" style="color:#389600"><a href="#061307" label="[06:13:07]">&lt;aggi&gt;</a></span><span class="message">nor a way to hack around this (libc.so dynamic loader got it's entry point at a function named _dlstart, whose -T&lt;text-address&gt; is variable)</span></div><div class="line" id="061351"><span class="nick" style="color:#389600"><a href="#061351" label="[06:13:51]">&lt;aggi&gt;</a></span><span class="message">next, i tried to compile all musl object files with tcc (which works), and link with gcc/ld temporarily -&gt; this segfaults libc.so</span></div><div class="line" id="061426"><span class="nick" style="color:#389600"><a href="#061426" label="[06:14:26]">&lt;aggi&gt;</a></span><span class="message">otherwise, when statically linking against libc.a, this does work already as it should (for the few binaries that i chose explicitely for static linking)</span></div><div class="line" id="140325"><span class="nick" style="color:#389600"><a href="#140325" label="[14:03:25]">&lt;aggi&gt;</a></span><span class="message">i'll have to postpone dynamic linking support with tcc, and switch the entire profile to static linking</span></div><div class="line" id="153636"><span class="nick" style="color:#8dd3c7"><a href="#153636" label="[15:36:36]">&lt;andydude&gt;</a></span><span class="message">aggi: dynamic linking is a nightmare</span></div><div class="line" id="175554"><span class="nick" style="color:#389600"><a href="#175554" label="[17:55:54]">&lt;aggi&gt;</a></span><span class="message">now i remember, how the entire GNU-buildsystem tree collapsed: static linking</span></div><div class="line" id="175714"><span class="nick" style="color:#389600"><a href="#175714" label="[17:57:14]">&lt;aggi&gt;</a></span><span class="message">if for some reason, static-linking was necessary, perl with it's XSLoader doesn't work, that is needed for the installperl target however</span></div><div class="line" id="175808"><span class="nick" style="color:#389600"><a href="#175808" label="[17:58:08]">&lt;aggi&gt;</a></span><span class="message">then next, of cause, automake will be missing perl that it needs, and without automake, GNU-buildsystem is completely defunct</span></div><div class="line" id="175857"><span class="nick" style="color:#389600"><a href="#175857" label="[17:58:57]">&lt;aggi&gt;</a></span><span class="message">back to musl-libc where this problem originated, it can't be used with dynamic linking when compiled by tcc</span></div><div class="line" id="180036"><span class="nick" style="color:#389600"><a href="#180036" label="[18:00:36]">&lt;aggi&gt;</a></span><span class="message">for example, tcc linker can't do tcc -e _dlstart, to set a special executable entry point</span></div><div class="line" id="180216"><span class="nick" style="color:#389600"><a href="#180216" label="[18:02:16]">&lt;aggi&gt;</a></span><span class="message">as a consequency, currently, the entire system profile is locked against gcc/binutils and gnu-buildsystem</span></div><div class="line" id="180403"><span class="nick" style="color:#389600"><a href="#180403" label="[18:04:03]">&lt;aggi&gt;</a></span><span class="message">next i tried to compile musl-libc with tcc, and link it with binutils-ld -&gt; Segfault (for no obvious reason yet, because static linking against the exact same libc objects yields working executables)</span></div><div class="line" id="180532"><span class="nick" style="color:#389600"><a href="#180532" label="[18:05:32]">&lt;aggi&gt;</a></span><span class="message">i'll be loosing several crucial build-time depenencies all at once: python/portage, perl, automake</span></div><div class="line" id="180622"><span class="nick" style="color:#389600"><a href="#180622" label="[18:06:22]">&lt;aggi&gt;</a></span><span class="message">since this seems unavoidable, i may not waste too much time, and transition towards the lua/oasis-linux style system integration soon</span></div><div class="line" id="180721"><span class="nick" style="color:#389600"><a href="#180721" label="[18:07:21]">&lt;aggi&gt;</a></span><span class="message">it is probably no coincidence, the developer restricted his approach to static linking too (i think he chose musl+cproc+binutils)</span></div><div class="line" id="180956"><span class="nick" style="color:#389600"><a href="#180956" label="[18:09:56]">&lt;aggi&gt;</a></span><span class="message">currently it is _not_ feasible to keep gentoo/portage/perl/gnu-buildsystem self-hosting with tcc-toolchain</span></div><div class="line" id="181146"><span class="nick" style="color:#389600"><a href="#181146" label="[18:11:46]">&lt;aggi&gt;</a></span><span class="message">oriansj: besides, there seems an important difference between oasis-linux and guix/scheme</span></div><div class="line" id="181259"><span class="nick" style="color:#389600"><a href="#181259" label="[18:12:59]">&lt;aggi&gt;</a></span><span class="message">oasis-linux re-implements both, the packaging (ebuild equivalent) AND GNU-buildsystem (completely removing automake/configure etc); while guix/scheme seem to implement the packaging but relies upon GNU-buildsystem still</span></div><div class="line" id="181555"><span class="nick" style="color:#389600"><a href="#181555" label="[18:15:55]">&lt;aggi&gt;</a></span><span class="message">even if i managed to hack into tcc linker for -e&lt;entrypoint&gt; support (required for dynamic linking against libc.so), then the whole python/portage/libffi issue remains unresolved, and patching libffi is beyond my abilities i fear</span></div><div class="line" id="181654"><span class="nick" style="color:#389600"><a href="#181654" label="[18:16:54]">&lt;aggi&gt;</a></span><span class="message">so there was either notable amounts of efforts needed to maintain something i wouldn't necessarily want, that is python/portage/gnu-buildsystem</span></div><div class="line" id="181738"><span class="nick" style="color:#389600"><a href="#181738" label="[18:17:38]">&lt;aggi&gt;</a></span><span class="message">or there is giant amounts of efforts needed to approach oasis-linux doing a full re-integration for tcc-toolchain and the no-c++ system-profile over there</span></div><div class="line" id="232819"><span class="nick" style="color:#8dd3c7"><a href="#232819" label="[23:28:19]">&lt;andydude&gt;</a></span><span class="message">aggi: this just reinforces my irrational fear of perl5</span></div><div class="line" id="232842"><span class="nick" style="color:#8dd3c7"><a href="#232842" label="[23:28:42]">&lt;andydude&gt;</a></span><span class="message">or rather, gives it justification and brings it closer to rational</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-08-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002125"><span class="nick" style="color:#389600"><a href="#002125" label="[00:21:25]">&lt;oriansj&gt;</a></span><span class="message">lrvick: well with binutils and gcc; it shouldn't be hard</span></div><div class="line" id="002503"><span class="nick" style="color:#8dd3c7"><a href="#002503" label="[00:25:03]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; lrvick: yes, there is a document to even build gentoo</span></div><div class="line" id="002518"><span class="nick" style="color:#8dd3c7"><a href="#002518" label="[00:25:18]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; By mid-kid</span></div><div class="line" id="002701"><span class="nick" style="color:#8dd3c7"><a href="#002701" label="[00:27:01]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; <a rel="nofollow" href="https://mid-kid.root.sx/git/mid-kid/bootstrap/src/branch/master/gentoo-2024.8">https://mid-kid.root.sx/git/mid-kid/bootstrap/src/branch/master/gentoo-2024.8</a> </span></div><div class="line" id="014111"><span class="nick" style="color:#2e2a4a"><a href="#014111" label="[01:41:11]">&lt;lrvick&gt;</a></span><span class="message">Nice. Was able to glean the bits I needed to make a native glibc package for stagex. Thanks!</span></div><div class="line" id="014117"><span class="nick" style="color:#2e2a4a"><a href="#014117" label="[01:41:17]">&lt;lrvick&gt;</a></span><span class="message">was overcomplicating it</span></div><div class="line" id="014119"><span class="nick" style="color:#2e2a4a"><a href="#014119" label="[01:41:19]">&lt;lrvick&gt;</a></span><span class="message">as is tradition</span></div><div class="line" id="024350"><span class="nick" style="color:#389600"><a href="#024350" label="[02:43:50]">&lt;oriansj&gt;</a></span><span class="message">lrvick: yeah, we all learn from each other and the parts you might not feel are interesting today might end up being super useful later; And the things you think impossible might end up being far easier than anyone of us guess.</span></div><div class="line" id="150358"><span class="nick" style="color:#6b8072"><a href="#150358" label="[15:03:58]">&lt;ludocode&gt;</a></span><span class="message">Has anyone worked on bootstrapping Go from source? Is there something like mrustc for Go?</span></div><div class="line" id="151040"><span class="nick" style="color:#80b1d3"><a href="#151040" label="[15:10:40]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">ludocode: Go is already supported by GCC</span></div><div class="line" id="151106"><span class="nick" style="color:#80b1d3"><a href="#151106" label="[15:11:06]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">so the bootstrap is just from GCC's Go to the main version</span></div><div class="line" id="152047"><span class="nick" style="color:#6d2462"><a href="#152047" label="[15:20:47]">&lt;nikolar&gt;</a></span><span class="message">Or from go 1.14 I think (which was in c) to a newer version</span></div><div class="line" id="152407"><span class="nick" style="color:#6b8072"><a href="#152407" label="[15:24:07]">&lt;ludocode&gt;</a></span><span class="message">Doesn't GCC use gofrontend which is written in Go?</span></div><div class="line" id="154622"><span class="nick" style="color:#234e69"><a href="#154622" label="[15:46:22]">&lt;sam_&gt;</a></span><span class="message">building gccgo does not require go</span></div><div class="line" id="155131"><span class="nick" style="color:#6b8072"><a href="#155131" label="[15:51:31]">&lt;ludocode&gt;</a></span><span class="message">Ah, it appears you're right. This is confusing because there's a project called gofrontend written in Go, but GCC also calls its frontend gofrontend which is written in C++</span></div><div class="line" id="155207"><span class="nick" style="color:#6b8072"><a href="#155207" label="[15:52:07]">&lt;ludocode&gt;</a></span><span class="message">I guess the projects are related somehow</span></div><div class="line" id="182246"><span class="nick" style="color:#6c3d55"><a href="#182246" label="[18:22:46]">&lt;nimaje&gt;</a></span><span class="message">I throught the go team decided that the go compiler will be written in go 1.4 forever starting with go 1.5, so build g0 1.4 and then build the current version (?) (or was it 1.14 and 1.15?)</span></div><div class="line" id="185810"><span class="nick" style="color:#d9d9d9"><a href="#185810" label="[18:58:10]">&lt;lanodan&gt;</a></span><span class="message">Yeah Go 1.4 can also be used as a bootstrap path, it's documented on <a rel="nofollow" href="https://go.dev/doc/install/source">https://go.dev/doc/install/source</a> </span></div><div class="line" id="200655"><span class="nick" style="color:#8dd3c7"><a href="#200655" label="[20:06:55]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; incidentally <a rel="nofollow" href="https://github.com/golang/go/blob/release-branch.go1.4/src/cmd/cc/y.tab.c">https://github.com/golang/go/blob/release-branch.go1.4/src/cmd/cc/y.tab.c</a>  looks like a pregenerated file</span></div><div class="line" id="200733"><span class="nick" style="color:#8dd3c7"><a href="#200733" label="[20:07:33]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; bison output that is</span></div><div class="line" id="202630"><span class="nick" style="color:#389600"><a href="#202630" label="[20:26:30]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://files.bootstrapping.world/">https://files.bootstrapping.world/</a>  just had a deploy process update and will just be a mirror of: <a rel="nofollow" href="https://git.sr.ht/~oriansj/sources">https://git.sr.ht/~oriansj/sources</a> </span></div><div class="line" id="203358"><span class="nick" style="color:#bc80bd"><a href="#203358" label="[20:33:58]">&lt;andydude&gt;</a></span><span class="message">What is stringprep</span></div><div class="line" id="203639"><span class="nick" style="color:#bc80bd"><a href="#203639" label="[20:36:39]">&lt;andydude&gt;</a></span><span class="message">Whoever is in charge of that directory should probably rename &quot;v2&quot; and &quot;v10&quot; to have the package name first</span></div><div class="line" id="204203"><span class="nick" style="color:#389600"><a href="#204203" label="[20:42:03]">&lt;oriansj&gt;</a></span><span class="message">andydude: those are the upstream packae names that live-bootstrap downloads</span></div><div class="line" id="204216"><span class="nick" style="color:#389600"><a href="#204216" label="[20:42:16]">&lt;oriansj&gt;</a></span><span class="message">^packae^package^</span></div><div class="line" id="204654"><span class="nick" style="color:#389600"><a href="#204654" label="[20:46:54]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://docs.python.org/3/library/stringprep.html">https://docs.python.org/3/library/stringprep.html</a> </span></div><div class="line" id="211025"><span class="nick" style="color:#bc80bd"><a href="#211025" label="[21:10:25]">&lt;andydude&gt;</a></span><span class="message">&quot;&quot;v10.0.1.tar.gz&quot; is not a package name</span></div><br /></div></body></html>

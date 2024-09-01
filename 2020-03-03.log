@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-03-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013845"><span class="nick" style="color:#8dd3c7"><a href="#013845" label="[01:38:45]">&lt;OriansJ&gt;</a></span><span class="message">pder: thank you for the patch, it is applied and uploaded</span></div><div class="line" id="014101"><span class="nick" style="color:#8dd3c7"><a href="#014101" label="[01:41:01]">&lt;OriansJ&gt;</a></span><span class="message">fossy: unfortunate when I introduce regressions but a solid justification for the question of what sort of fuzzing results should be included as tests. Short answer the ones users are likely to hit.</span></div><div class="line" id="014707"><span class="nick" style="color:#2e2a4a"><a href="#014707" label="[01:47:07]">&lt;fossy&gt;</a></span><span class="message">right</span></div><div class="line" id="014731"><span class="nick" style="color:#2e2a4a"><a href="#014731" label="[01:47:31]">&lt;fossy&gt;</a></span><span class="message">OriansJ: of course we are all human and all will introduce bugs</span></div><div class="line" id="033615"><span class="nick" style="color:#6b8072"><a href="#033615" label="[03:36:15]">&lt;xentrac&gt;</a></span><span class="message">unless we don't introduce code!</span></div><div class="line" id="101156"><span class="nick" style="color:#2e2a4a"><a href="#101156" label="[10:11:56]">&lt;fossy&gt;</a></span><span class="message">OriansJ: does this address all your concerns (new kaem.c) <a rel="nofollow" href="https://ttm.sh/E_N.txt">https://ttm.sh/E_N.txt</a> </span></div><div class="line" id="101202"><span class="nick" style="color:#2e2a4a"><a href="#101202" label="[10:12:02]">&lt;fossy&gt;</a></span><span class="message">please once again critically review</span></div><div class="line" id="120930"><span class="nick" style="color:#8dd3c7"><a href="#120930" label="[12:09:30]">&lt;OriansJ&gt;</a></span><span class="message">fossy: in collect_comment; convert the if(EOF == c) into require(EOF != c, ..</span></div><div class="line" id="120949"><span class="nick" style="color:#8dd3c7"><a href="#120949" label="[12:09:49]">&lt;OriansJ&gt;</a></span><span class="message">It'll make the function a little bit tighter</span></div><div class="line" id="121801"><span class="nick" style="color:#8dd3c7"><a href="#121801" label="[12:18:01]">&lt;OriansJ&gt;</a></span><span class="message">in variable_substitute_ifset, you don't need postpend_char; as it callocs a whole copy of the string everytime you call it.</span></div><div class="line" id="121930"><span class="nick" style="color:#8dd3c7"><a href="#121930" label="[12:19:30]">&lt;OriansJ&gt;</a></span><span class="message">just add an int i=0 and do var_name[i] = input[i]; and i = i + 1;</span></div><div class="line" id="122409"><span class="nick" style="color:#8dd3c7"><a href="#122409" label="[12:24:09]">&lt;OriansJ&gt;</a></span><span class="message">move the check for : from variable_substitute and put it into variable_substitute_ifset; have it return TRUE if it did the work, otherwise return FALSE and then variable_substitute will know if it needs to execute</span></div><div class="line" id="122629"><span class="nick" style="color:#8dd3c7"><a href="#122629" label="[12:26:29]">&lt;OriansJ&gt;</a></span><span class="message">you should probably break out the actual substitution into a seperate function</span></div><div class="line" id="122640"><span class="nick" style="color:#8dd3c7"><a href="#122640" label="[12:26:40]">&lt;OriansJ&gt;</a></span><span class="message">that way it can be leveraged both times</span></div><div class="line" id="122748"><span class="nick" style="color:#8dd3c7"><a href="#122748" label="[12:27:48]">&lt;OriansJ&gt;</a></span><span class="message">postpend_char is not the sort of thing you want in loops</span></div><div class="line" id="123130"><span class="nick" style="color:#8dd3c7"><a href="#123130" label="[12:31:30]">&lt;OriansJ&gt;</a></span><span class="message">The collect_variable function doesn't support multiple variables in the same string but that might just be a design choice of yours</span></div><div class="line" id="123231"><span class="nick" style="color:#8dd3c7"><a href="#123231" label="[12:32:31]">&lt;OriansJ&gt;</a></span><span class="message">in is_envar, it should be equal_found = TRUE;</span></div><div class="line" id="123335"><span class="nick" style="color:#8dd3c7"><a href="#123335" label="[12:33:35]">&lt;OriansJ&gt;</a></span><span class="message">and I ran out of time for the rest, so I'll get back to it later</span></div><div class="line" id="123342"><span class="nick" style="color:#8dd3c7"><a href="#123342" label="[12:33:42]">&lt;OriansJ&gt;</a></span><span class="message">good luck fossy</span></div><div class="line" id="143249"><span class="nick">***</span><span class="message notice">deesix_ is now known as deesix</span></div><div class="line" id="143314"><span class="nick" style="color:#80b1d3"><a href="#143314" label="[14:33:14]">&lt;deesix&gt;</a></span><span class="message">fossy, in echo... What's the point of allocating if n ends up pointing somewhere else? struct Token* n = calloc(1, sizeof(struct Token)); n = token;</span></div><div class="line" id="143345"><span class="nick" style="color:#80b1d3"><a href="#143345" label="[14:33:45]">&lt;deesix&gt;</a></span><span class="message">Same thing in collect_command.</span></div><div class="line" id="145106"><span class="nick" style="color:#80b1d3"><a href="#145106" label="[14:51:06]">&lt;deesix&gt;</a></span><span class="message">About is_envar, I'd return TRUE when = is just found. The callers should check for TRUE instead of 1.</span></div><div class="line" id="145347"><span class="nick" style="color:#80b1d3"><a href="#145347" label="[14:53:47]">&lt;deesix&gt;</a></span><span class="message">I guess string_length is also not the sort of thing you want in loops either. But we can talk about this kind of optimizations later on.</span></div><div class="line" id="145555"><span class="nick" style="color:#80b1d3"><a href="#145555" label="[14:55:55]">&lt;deesix&gt;</a></span><span class="message">(more advanced compilers do the optimization for you, but M2-Planet does not)</span></div><div class="line" id="150318"><span class="nick" style="color:#80b1d3"><a href="#150318" label="[15:03:18]">&lt;deesix&gt;</a></span><span class="message">In main env calloc is not really checked (token is checked again instead).</span></div><div class="line" id="150706"><span class="nick" style="color:#80b1d3"><a href="#150706" label="[15:07:06]">&lt;deesix&gt;</a></span><span class="message">Lots of calloc are unchecked in fact, all around.</span></div><div class="line" id="151305"><span class="nick" style="color:#80b1d3"><a href="#151305" label="[15:13:05]">&lt;deesix&gt;</a></span><span class="message">I'm just starting to familiarize with kaem code, so this was not a proper review. Looking forward for your improvements!</span></div><div class="line" id="152449"><span class="nick" style="color:#80b1d3"><a href="#152449" label="[15:24:49]">&lt;deesix&gt;</a></span><span class="message">struct_to_array does like echo/collect_command: allocating only to overwrite the pointer in the next statement. Check for this weird pattern elsewhere. It's common to make the same mistake more than once, so everytime you fix a thing, it's wise to look for more instances of it.</span></div><div class="line" id="153657"><span class="nick" style="color:#80b1d3"><a href="#153657" label="[15:36:57]">&lt;deesix&gt;</a></span><span class="message">Why does escape handling in collect_token always drop the char after the slash? Is in only expecting a newline? This is not clear enough if that's the case.</span></div><div class="line" id="153921"><span class="nick" style="color:#80b1d3"><a href="#153921" label="[15:39:21]">&lt;deesix&gt;</a></span><span class="message">I can spot some typos, but we'll get there.</span></div><div class="line" id="153946"><span class="nick" style="color:#80b1d3"><a href="#153946" label="[15:39:46]">&lt;deesix&gt;</a></span><span class="message">... in comments.</span></div><div class="line" id="205644"><span class="nick" style="color:#2e2a4a"><a href="#205644" label="[20:56:44]">&lt;fossy&gt;</a></span><span class="message">&lt;OriansJ&gt; The collect_variable function doesn't support multiple variables in the same string but that might just be a design choice of yours</span></div><div class="line" id="205650"><span class="nick" style="color:#2e2a4a"><a href="#205650" label="[20:56:50]">&lt;fossy&gt;</a></span><span class="message">That is correct for now</span></div><div class="line" id="205737"><span class="nick" style="color:#2e2a4a"><a href="#205737" label="[20:57:37]">&lt;fossy&gt;</a></span><span class="message">thanks OriansJ, deesix, ill fix that up soonish</span></div><div class="line" id="222352"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><br /></div></body></html>

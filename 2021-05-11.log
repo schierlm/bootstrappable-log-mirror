@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-05-11.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010000"><span class="nick" style="color:#8dd3c7"><a href="#010000" label="[01:00:00]">&lt;fossy&gt;</a></span><span class="message">melg8: you should squash some of the fixing commits in ur PR, the branch is v messy</span></div><div class="line" id="010115"><span class="nick" style="color:#2e2a4a"><a href="#010115" label="[01:01:15]">&lt;melg8&gt;</a></span><span class="message">okay) i've asked on channel some time ago (beginning to implement this flag part) can you elaborate on your vision?</span></div><div class="line" id="010348"><span class="nick" style="color:#2e2a4a"><a href="#010348" label="[01:03:48]">&lt;melg8&gt;</a></span><span class="message">1) single file with all future flags from sysa, or a bunch of files each for it's own usecase. 2) single more general option - like enforce-reproducibility or few more small one (force-timestamps, remove-unreproducible-logs etc)? 3) create this config file inside repo and just copy it to sysa, or combine it by options to console?</span></div><div class="line" id="013545"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="045817"><span class="nick" style="color:#8dd3c7"><a href="#045817" label="[04:58:17]">&lt;fossy&gt;</a></span><span class="message">&lt;melg8&gt; 1) single file with all future flags from sysa, or a bunch of files each for it's own usecase. 2) single more general option - like enforce-reproducibility or few more small one (force-timestamps, remove-unreproducible-logs etc)? 3) create this config file inside repo and just copy it to sysa, or combine it by options to console?</span></div><div class="line" id="045903"><span class="nick" style="color:#8dd3c7"><a href="#045903" label="[04:59:03]">&lt;fossy&gt;</a></span><span class="message">combine by command line flags: a single file could be better but a bunch is easier.</span></div><div class="line" id="095250"><span class="nick" style="color:#6b8072"><a href="#095250" label="[09:52:50]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: single file might be easy if we source it, I.e. if it contains var=value entries</span></div><div class="line" id="210502"><span class="nick">***</span><span class="message notice">Noisytoot is now known as Sigyn</span></div><div class="line" id="210513"><span class="nick">***</span><span class="message notice">Sigyn is now known as Noisytoot</span></div><div class="line" id="215852"><span class="nick" style="color:#2e2a4a"><a href="#215852" label="[21:58:52]">&lt;melg8&gt;</a></span><span class="message">Hi, can maybe somebody help, i'm running same live-bootstrap with qemu but with two different kernels - 5.4.100 and 4.4.267, and i get different binaries for coreutils 8.32. Inspection for program &quot;yes&quot; for example show difference as such:</span></div><div class="line" id="215949"><span class="nick" style="color:#2e2a4a"><a href="#215949" label="[21:59:49]">&lt;melg8&gt;</a></span><span class="message">infomap.4080 vs infomap.4077</span></div><div class="line" id="215957"><span class="nick" style="color:#2e2a4a"><a href="#215957" label="[21:59:57]">&lt;melg8&gt;</a></span><span class="message">C.18.4821 vs C.18.4818</span></div><div class="line" id="220004"><span class="nick" style="color:#2e2a4a"><a href="#220004" label="[22:00:04]">&lt;melg8&gt;</a></span><span class="message">old_line_number.34.18 vs old_line_number.34.15</span></div><div class="line" id="220010"><span class="nick" style="color:#2e2a4a"><a href="#220010" label="[22:00:10]">&lt;melg8&gt;</a></span><span class="message">old_file_name.34.17 vs old_file_name.3414</span></div><div class="line" id="220020"><span class="nick" style="color:#2e2a4a"><a href="#220020" label="[22:00:20]">&lt;melg8&gt;</a></span><span class="message">thats with readelf --wide --symbols {}</span></div><div class="line" id="220034"><span class="nick" style="color:#2e2a4a"><a href="#220034" label="[22:00:34]">&lt;melg8&gt;</a></span><span class="message">any ideas, what this is and why this happens?</span></div><div class="line" id="220140"><span class="nick" style="color:#80b1d3"><a href="#220140" label="[22:01:40]">&lt;stikonas&gt;</a></span><span class="message">maybe best to dissassemble first</span></div><div class="line" id="220144"><span class="nick" style="color:#80b1d3"><a href="#220144" label="[22:01:44]">&lt;stikonas&gt;</a></span><span class="message">and then run diff</span></div><div class="line" id="220200"><span class="nick" style="color:#2e2a4a"><a href="#220200" label="[22:02:00]">&lt;melg8&gt;</a></span><span class="message">i use diffoscope it shows whole thing</span></div><div class="line" id="220224"><span class="nick" style="color:#2e2a4a"><a href="#220224" label="[22:02:24]">&lt;melg8&gt;</a></span><span class="message">18     ··0x000000f0·6c6c6172·795f696e·666f0069·6e666f6d·llary_info.infom    18     ··0x000000f0·6c6c6172·795f696e·666f0069·6e666f6d·llary_info.infom</span></div><div class="line" id="220225"><span class="nick" style="color:#2e2a4a"><a href="#220225" label="[22:02:25]">&lt;melg8&gt;</a></span><span class="message">19     ··0x00000100·61702e34·30383000·76657273·696f6e2e·ap.4080.version.    19     ··0x00000100·61702e34·30373700·76657273·696f6e2e·ap.4077.version.</span></div><div class="line" id="220228"><span class="nick" style="color:#2e2a4a"><a href="#220228" label="[22:02:28]">&lt;melg8&gt;</a></span><span class="message">for example</span></div><div class="line" id="220247"><span class="nick" style="color:#80b1d3"><a href="#220247" label="[22:02:47]">&lt;stikonas&gt;</a></span><span class="message">yeah, but this is unreadable...</span></div><div class="line" id="220329"><span class="nick" style="color:#80b1d3"><a href="#220329" label="[22:03:29]">&lt;stikonas&gt;</a></span><span class="message">I would first run objdump -D</span></div><div class="line" id="220331"><span class="nick" style="color:#80b1d3"><a href="#220331" label="[22:03:31]">&lt;stikonas&gt;</a></span><span class="message">on files</span></div><div class="line" id="220339"><span class="nick" style="color:#2e2a4a"><a href="#220339" label="[22:03:39]">&lt;melg8&gt;</a></span><span class="message">    logname.c    358     logname.c</span></div><div class="line" id="220340"><span class="nick" style="color:#2e2a4a"><a href="#220340" label="[22:03:40]">&lt;melg8&gt;</a></span><span class="message">359     emit_ancillary_info    359     emit_ancillary_info</span></div><div class="line" id="220340"><span class="nick" style="color:#2e2a4a"><a href="#220340" label="[22:03:40]">&lt;melg8&gt;</a></span><span class="message">360     infomap.4080    360     infomap.4077</span></div><div class="line" id="220341"><span class="nick" style="color:#2e2a4a"><a href="#220341" label="[22:03:41]">&lt;melg8&gt;</a></span><span class="message">361     version.c    361     version.c</span></div><div class="line" id="220341"><span class="nick" style="color:#2e2a4a"><a href="#220341" label="[22:03:41]">&lt;melg8&gt;</a></span><span class="message">362     closeout.c    362     closeout.c</span></div><div class="line" id="220342"><span class="nick" style="color:#2e2a4a"><a href="#220342" label="[22:03:42]">&lt;melg8&gt;</a></span><span class="message">363     file_name    363     file_name</span></div><div class="line" id="220342"><span class="nick" style="color:#2e2a4a"><a href="#220342" label="[22:03:42]">&lt;melg8&gt;</a></span><span class="message">364     ignore_EPIPE    364     ignore_EPIPE</span></div><div class="line" id="220343"><span class="nick" style="color:#2e2a4a"><a href="#220343" label="[22:03:43]">&lt;melg8&gt;</a></span><span class="message">365     exitfail.c</span></div><div class="line" id="220357"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="220359"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><div class="line" id="220442"><span class="nick" style="color:#2e2a4a"><a href="#220442" label="[22:04:42]">&lt;melg8&gt;</a></span><span class="message"> <a rel="nofollow" href="https://ibb.co/K74zLJV">https://ibb.co/K74zLJV</a> </span></div><div class="line" id="220508"><span class="nick" style="color:#2e2a4a"><a href="#220508" label="[22:05:08]">&lt;melg8&gt;</a></span><span class="message"> <a rel="nofollow" href="https://ibb.co/T29CRyt">https://ibb.co/T29CRyt</a> </span></div><div class="line" id="220715"><span class="nick" style="color:#80b1d3"><a href="#220715" label="[22:07:15]">&lt;stikonas&gt;</a></span><span class="message">hmm, no idea ...</span></div><div class="line" id="220800"><span class="nick" style="color:#80b1d3"><a href="#220800" label="[22:08:00]">&lt;stikonas&gt;</a></span><span class="message">maybe some defines were different</span></div><div class="line" id="220810"><span class="nick" style="color:#80b1d3"><a href="#220810" label="[22:08:10]">&lt;stikonas&gt;</a></span><span class="message">when compiling</span></div><div class="line" id="220840"><span class="nick" style="color:#80b1d3"><a href="#220840" label="[22:08:40]">&lt;stikonas&gt;</a></span><span class="message">I'm not really sure what those numbers e.g. 4080 vs 4077 mean</span></div><div class="line" id="220916"><span class="nick" style="color:#2e2a4a"><a href="#220916" label="[22:09:16]">&lt;melg8&gt;</a></span><span class="message">that's interesting, gnu missing</span></div><div class="line" id="220917"><span class="nick" style="color:#2e2a4a"><a href="#220917" label="[22:09:17]">&lt;melg8&gt;</a></span><span class="message"> <a rel="nofollow" href="https://ibb.co/DY0yZ6s">https://ibb.co/DY0yZ6s</a> </span></div><div class="line" id="221002"><span class="nick" style="color:#2e2a4a"><a href="#221002" label="[22:10:02]">&lt;melg8&gt;</a></span><span class="message">(for tail program)</span></div><div class="line" id="221058"><span class="nick" style="color:#2e2a4a"><a href="#221058" label="[22:10:58]">&lt;melg8&gt;</a></span><span class="message">hmm i see  i guess</span></div><div class="line" id="221212"><span class="nick" style="color:#2e2a4a"><a href="#221212" label="[22:12:12]">&lt;melg8&gt;</a></span><span class="message">it looks like few lines were missing, and this is line numbers or identifier numbers - which decreased</span></div><div class="line" id="221227"><span class="nick" style="color:#2e2a4a"><a href="#221227" label="[22:12:27]">&lt;melg8&gt;</a></span><span class="message">all by 3</span></div><div class="line" id="235314"><span class="nick" style="color:#2e2a4a"><a href="#235314" label="[23:53:14]">&lt;melg8&gt;</a></span><span class="message">@fossy my mr found really interesting issue. It happens so on kernel 4.4 (or what concrete number in ci idk) nanosleep works really well, so it doesn't need fix-up implementation from gnulib, but newer kernels (like 5.4) have buggy implementation, and they need this additional function. Because of that - nanosleep.c is not linked in case of 4.4 and</span></div><div class="line" id="235314"><span class="nick" style="color:#2e2a4a"><a href="#235314" label="[23:53:14]">&lt;melg8&gt;</a></span><span class="message">is linked in 5.4 to each of coreutils binaries. And than - hashes mismatch strikes. What roads would you suggest? i can try to patch this (by artificially introducing error code to test, which is run at configure time, that would force it to always use implementation from gnulib when compiling coreutils.)(im in process of testing this solution), or</span></div><div class="line" id="235315"><span class="nick" style="color:#2e2a4a"><a href="#235315" label="[23:53:15]">&lt;melg8&gt;</a></span><span class="message">just update kernel to newer in ci (as stikonas suggested)? or you see other possibilities?</span></div><br /></div></body></html>

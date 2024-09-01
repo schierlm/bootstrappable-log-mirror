@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-06-26.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001209"><span class="nick" style="color:#8dd3c7"><a href="#001209" label="[00:12:09]">&lt;Hagfish&gt;</a></span><span class="message">if we're guessing directory names that don't work, my guess is /..</span></div><div class="line" id="002113"><span class="nick" style="color:#2e2a4a"><a href="#002113" label="[00:21:13]">&lt;stikonas&gt;</a></span><span class="message">well, / was alraedy messed up by stage0-posix :D</span></div><div class="line" id="002124"><span class="nick" style="color:#2e2a4a"><a href="#002124" label="[00:21:24]">&lt;stikonas&gt;</a></span><span class="message">so live-bootstrap tries to escape into some subdirectory</span></div><div class="line" id="002154"><span class="nick" style="color:#2e2a4a"><a href="#002154" label="[00:21:54]">&lt;stikonas&gt;</a></span><span class="message">(that's basically because we don't have cd in the initial kaem, which is fine I guess)</span></div><div class="line" id="032257"><span class="nick" style="color:#6b8072"><a href="#032257" label="[03:22:57]">&lt;oriansj&gt;</a></span><span class="message">stikonas: there are solutions available for that issue with stage0-posix if you consider them enough of an issue that needs to be addressed.</span></div><div class="line" id="104044"><span class="nick" style="color:#80b1d3"><a href="#104044" label="[10:40:44]">&lt;Melg8[m]&gt;</a></span><span class="message"> oriansj i'm in process of re-check of issues after fixes, added comment in <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/issues/18">https://github.com/oriansj/M2-Planet/issues/18</a> </span></div><div class="line" id="123737"><span class="nick" style="color:#2e2a4a"><a href="#123737" label="[12:37:37]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I think it's fine for now (regarding statge0-posix), there are definitely higher priority issues</span></div><div class="line" id="162617"><span class="nick" style="color:#6b8072"><a href="#162617" label="[16:26:17]">&lt;oriansj&gt;</a></span><span class="message">Melg8[m]: thank you for checking my work ^_^</span></div><div class="line" id="165514"><span class="nick" style="color:#6b8072"><a href="#165514" label="[16:55:14]">&lt;oriansj&gt;</a></span><span class="message">and I have a new fix for the global arrays up</span></div><div class="line" id="174942"><span class="nick" style="color:#6b8072"><a href="#174942" label="[17:49:42]">&lt;oriansj&gt;</a></span><span class="message">program is getting rather large dealing with globals, so I probably should clean that up a bit</span></div><div class="line" id="175939"><span class="nick" style="color:#6b8072"><a href="#175939" label="[17:59:39]">&lt;oriansj&gt;</a></span><span class="message">and now struct foo a[100]; and char bar[42]; do the correct thing.</span></div><div class="line" id="200201"><span class="nick" style="color:#2e2a4a"><a href="#200201" label="[20:02:01]">&lt;stikonas&gt;</a></span><span class="message">oh, now I'm moving installed stuff into a separte directory and perl is huge</span></div><div class="line" id="200239"><span class="nick" style="color:#2e2a4a"><a href="#200239" label="[20:02:39]">&lt;stikonas&gt;</a></span><span class="message">the whole installed image before perl 5.32 was 105 MiB (that's including gcc). After perl it is 159 MiB</span></div><div class="line" id="200347"><span class="nick" style="color:#8dd3c7"><a href="#200347" label="[20:03:47]">&lt;Hagfish&gt;</a></span><span class="message">does Perl come with a load of modules that aren't actually used?</span></div><div class="line" id="200413"><span class="nick" style="color:#8dd3c7"><a href="#200413" label="[20:04:13]">&lt;Hagfish&gt;</a></span><span class="message">(it would be interesting to get some code coverage report to see which parts of which source files actually make it into the binaries)</span></div><div class="line" id="200443"><span class="nick" style="color:#8dd3c7"><a href="#200443" label="[20:04:43]">&lt;Hagfish&gt;</a></span><span class="message">(that would probably require completely rewriting the compilers, though, to keep track of that sort of thing)</span></div><div class="line" id="200536"><span class="nick" style="color:#2e2a4a"><a href="#200536" label="[20:05:36]">&lt;stikonas&gt;</a></span><span class="message">Hagfish: well, probably we are not using most of the modules</span></div><div class="line" id="200547"><span class="nick" style="color:#2e2a4a"><a href="#200547" label="[20:05:47]">&lt;stikonas&gt;</a></span><span class="message">but it's mostly unnecessary work to trim it down</span></div><div class="line" id="200600"><span class="nick" style="color:#8dd3c7"><a href="#200600" label="[20:06:00]">&lt;Hagfish&gt;</a></span><span class="message">of course, yes</span></div><div class="line" id="200606"><span class="nick" style="color:#2e2a4a"><a href="#200606" label="[20:06:06]">&lt;stikonas&gt;</a></span><span class="message">but it's a modern perl...</span></div><div class="line" id="200626"><span class="nick" style="color:#8dd3c7"><a href="#200626" label="[20:06:26]">&lt;Hagfish&gt;</a></span><span class="message">it would perhaps only be interesting to have this data from the perspective of which parts of the code should be audited more carefully</span></div><br /></div></body></html>

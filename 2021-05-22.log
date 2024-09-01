@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-05-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="021721"><span class="nick">***</span><span class="message notice">terpri is now known as robin</span></div><div class="line" id="091122"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><div class="line" id="091124"><span class="nick" style="color:#8dd3c7"><a href="#091124" label="[09:11:24]">&lt;rekado&gt;</a></span><span class="message">oriansj: done.</span></div><div class="line" id="123844"><span class="nick" style="color:#2e2a4a"><a href="#123844" label="[12:38:44]">&lt;oriansj&gt;</a></span><span class="message">thank you rekado</span></div><div class="line" id="132049"><span class="nick" style="color:#2e2a4a"><a href="#132049" label="[13:20:49]">&lt;oriansj&gt;</a></span><span class="message">one warning for those using untar.c is it does *NOT* preserve file permissions but sets file permissions to the environmental default (usually 644 or 640 depending on your umask) So binaries in tar files become non-executable by default</span></div><div class="line" id="133259"><span class="nick" style="color:#2e2a4a"><a href="#133259" label="[13:32:59]">&lt;oriansj&gt;</a></span><span class="message">I figure this is a non-issue as one should only be downloading source code and building from it not distributing binaries.</span></div><div class="line" id="133445"><span class="nick" style="color:#6b8072"><a href="#133445" label="[13:34:45]">&lt;stikonas&gt;</a></span><span class="message">I think that's fine</span></div><div class="line" id="133459"><span class="nick" style="color:#6b8072"><a href="#133459" label="[13:34:59]">&lt;stikonas&gt;</a></span><span class="message">and we also replace untar with GNU tar 1.12 fairly quickly</span></div><div class="line" id="133620"><span class="nick" style="color:#6b8072"><a href="#133620" label="[13:36:20]">&lt;stikonas&gt;</a></span><span class="message">untar.c is needed only for early stuff (I think only for tar, gzip, two versions of tcc, mes and possibly messcc-tools-extra</span></div><div class="line" id="133816"><span class="nick" style="color:#6b8072"><a href="#133816" label="[13:38:16]">&lt;stikonas&gt;</a></span><span class="message">oriansj: next thing to update is <a rel="nofollow" href="https://bootstrappable.org/who.html">https://bootstrappable.org/who.html</a> </span></div><div class="line" id="133827"><span class="nick" style="color:#6b8072"><a href="#133827" label="[13:38:27]">&lt;stikonas&gt;</a></span><span class="message">we need to replace old channel with this one</span></div><div class="line" id="133848"><span class="nick" style="color:#6b8072"><a href="#133848" label="[13:38:48]">&lt;stikonas&gt;</a></span><span class="message">do you remember where this web site lives</span></div><div class="line" id="134234"><span class="nick" style="color:#6b8072"><a href="#134234" label="[13:42:34]">&lt;stikonas&gt;</a></span><span class="message">and regarding non-executable binaries in untar.c, we also have similar issue with first pre-coreutils cp. It also does not preserve executable bit. But we have pre-coreutils chmod to deal with that</span></div><div class="line" id="134238"><span class="nick" style="color:#2e2a4a"><a href="#134238" label="[13:42:38]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/guix/bootstrappable.git/">https://git.savannah.gnu.org/cgit/guix/bootstrappable.git/</a> </span></div><div class="line" id="134326"><span class="nick" style="color:#2e2a4a"><a href="#134326" label="[13:43:26]">&lt;oriansj&gt;</a></span><span class="message">and I believe rekado would be the one who is able to update the site.</span></div><div class="line" id="141755"><span class="nick" style="color:#6b8072"><a href="#141755" label="[14:17:55]">&lt;stikonas&gt;</a></span><span class="message">ok, I've sent a patch to replace it in mes</span></div><div class="line" id="143437"><span class="nick">***</span><span class="message notice">qyliss is now known as ^_^</span></div><div class="line" id="143446"><span class="nick">***</span><span class="message notice">^_^ is now known as qyliss</span></div><div class="line" id="145044"><span class="nick" style="color:#80b1d3"><a href="#145044" label="[14:50:44]">&lt;Melg8&gt;</a></span><span class="message">HI, any news on fossy's online?)</span></div><div class="line" id="145051"><span class="nick" style="color:#6d2462"><a href="#145051" label="[14:50:51]">&lt;fossy&gt;</a></span><span class="message">hi</span></div><div class="line" id="145054"><span class="nick" style="color:#6d2462"><a href="#145054" label="[14:50:54]">&lt;fossy&gt;</a></span><span class="message">what's up</span></div><div class="line" id="145157"><span class="nick" style="color:#80b1d3"><a href="#145157" label="[14:51:57]">&lt;Melg8&gt;</a></span><span class="message">i just want to get feedback on my pr)</span></div><div class="line" id="145248"><span class="nick" style="color:#80b1d3"><a href="#145248" label="[14:52:48]">&lt;Melg8&gt;</a></span><span class="message">Hi)</span></div><div class="line" id="145300"><span class="nick" style="color:#6d2462"><a href="#145300" label="[14:53:00]">&lt;fossy&gt;</a></span><span class="message">Oohh</span></div><div class="line" id="145358"><span class="nick" style="color:#6d2462"><a href="#145358" label="[14:53:58]">&lt;fossy&gt;</a></span><span class="message">It is getting late here. But it is now on my todo list for first thing tomorrow morning.</span></div><div class="line" id="145408"><span class="nick" style="color:#80b1d3"><a href="#145408" label="[14:54:08]">&lt;Melg8&gt;</a></span><span class="message">thanks!)</span></div><div class="line" id="153942"><span class="nick" style="color:#2e2a4a"><a href="#153942" label="[15:39:42]">&lt;oriansj&gt;</a></span><span class="message">screw it, I am jsut going to add --blood to get_machine so that clunky logic for determining what flags you need to pass to blood-elf is just a solved problem.</span></div><div class="line" id="154234"><span class="nick">***</span><span class="message notice">Noisytoot is now known as [[</span></div><div class="line" id="182517"><span class="nick">***</span><span class="message notice">[[ is now known as Noisytoot</span></div><div class="line" id="193506"><span class="nick">***</span><span class="message notice">terpri_ is now known as robin</span></div><div class="line" id="195010"><span class="nick">***</span><span class="message notice">drakonis1 is now known as drakonis</span></div><div class="line" id="204758"><span class="nick">***</span><span class="message notice">drakonis1 is now known as drakonis</span></div><div class="line" id="205417"><span class="nick">***</span><span class="message notice">wowaname is now known as opal</span></div><div class="line" id="210411"><span class="nick">***</span><span class="message notice">Noisytoot is now known as [[</span></div><div class="line" id="210614"><span class="nick">***</span><span class="message notice">wowaname is now known as opal</span></div><div class="line" id="210933"><span class="nick">***</span><span class="message notice">[[ is now known as Noisytoot</span></div><div class="line" id="212657"><span class="nick" style="color:#234e69"><a href="#212657" label="[21:26:57]">&lt;mihi&gt;</a></span><span class="message">FTR, when autojoining #bootstrappable on Freenode, I saw the topic and that I was immediately banned, but no ENTRYMSG. (MLOCK +m might have been a bit more friendly instead)</span></div><div class="line" id="213342"><span class="nick" style="color:#6c3d55"><a href="#213342" label="[21:33:42]">*</a></span><span class="message">mihi still would like if whoever has access to that znc on bayfront-log could copy the old logfiles back, like they did for #guix :)</span></div><div class="line" id="221339"><span class="nick" style="color:#6b8072"><a href="#221339" label="[22:13:39]">&lt;stikonas&gt;</a></span><span class="message">yeah, I get the same issue on the old channel, it's probably a bit too strict</span></div><div class="line" id="222200"><span class="nick">***</span><span class="message notice">jackhill is now known as KM4MBG</span></div><div class="line" id="222221"><span class="nick">***</span><span class="message notice">KM4MBG is now known as jackhill</span></div><br /></div></body></html>

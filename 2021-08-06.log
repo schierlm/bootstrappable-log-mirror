@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-08-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000448"><span class="nick" style="color:#389600"><a href="#000448" label="[00:04:48]">&lt;oriansj&gt;</a></span><span class="message">well as the stage-posix steps are done for RISC-V, we will prove and get everything working</span></div><div class="line" id="001247"><span class="nick" style="color:#8dd3c7"><a href="#001247" label="[00:12:47]">&lt;vagrantc&gt;</a></span><span class="message">nice! :)</span></div><div class="line" id="001609"><span class="nick" style="color:#2e2a4a"><a href="#001609" label="[00:16:09]">&lt;stikonas&gt;</a></span><span class="message">yeah, I should have kaem-minimal.hex0 in the near future...</span></div><div class="line" id="002142"><span class="nick" style="color:#2e2a4a"><a href="#002142" label="[00:21:42]">&lt;stikonas&gt;</a></span><span class="message">for hex1 we probably need to implement all label calculations ~!@$ but I guess combining with . is not necessary...</span></div><div class="line" id="003311"><span class="nick" style="color:#389600"><a href="#003311" label="[00:33:11]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well the . is needed for the M1 output</span></div><div class="line" id="003343"><span class="nick" style="color:#389600"><a href="#003343" label="[00:33:43]">&lt;oriansj&gt;</a></span><span class="message">so hex2 will need to support it along with % and &amp;</span></div><div class="line" id="003427"><span class="nick" style="color:#389600"><a href="#003427" label="[00:34:27]">&lt;oriansj&gt;</a></span><span class="message">but @ and $ might be the minimal subset for hex1</span></div><div class="line" id="003434"><span class="nick" style="color:#2e2a4a"><a href="#003434" label="[00:34:34]">&lt;stikonas&gt;</a></span><span class="message">by the way, am I correct in assuming that signed bit (11-th) is not yet dealt with in auipc/lui combos?</span></div><div class="line" id="003543"><span class="nick" style="color:#389600"><a href="#003543" label="[00:35:43]">&lt;oriansj&gt;</a></span><span class="message">if you are referring to U format, it is dealt with</span></div><div class="line" id="003552"><span class="nick" style="color:#2e2a4a"><a href="#003552" label="[00:35:52]">&lt;stikonas&gt;</a></span><span class="message">oh ok...</span></div><div class="line" id="003555"><span class="nick" style="color:#389600"><a href="#003555" label="[00:35:55]">&lt;oriansj&gt;</a></span><span class="message">with the: (value &amp; 0xfffff000) + 0x1000</span></div><div class="line" id="003635"><span class="nick" style="color:#2e2a4a"><a href="#003635" label="[00:36:35]">&lt;stikonas&gt;</a></span><span class="message">hmm, something seemed odd to me when I tried negative value...</span></div><div class="line" id="003704"><span class="nick" style="color:#389600"><a href="#003704" label="[00:37:04]">&lt;oriansj&gt;</a></span><span class="message">you mean -3 when used in U format?</span></div><div class="line" id="003714"><span class="nick" style="color:#389600"><a href="#003714" label="[00:37:14]">&lt;oriansj&gt;</a></span><span class="message">yeah it threw me too</span></div><div class="line" id="003717"><span class="nick" style="color:#2e2a4a"><a href="#003717" label="[00:37:17]">&lt;stikonas&gt;</a></span><span class="message">if value = -1 then  hex((value &amp; 0xfffff000) + 0x1000) is 0x100000000</span></div><div class="line" id="003730"><span class="nick" style="color:#2e2a4a"><a href="#003730" label="[00:37:30]">&lt;stikonas&gt;</a></span><span class="message">shouldn't it have a lot of f's?</span></div><div class="line" id="003756"><span class="nick" style="color:#2e2a4a"><a href="#003756" label="[00:37:56]">&lt;stikonas&gt;</a></span><span class="message">oh, ok U itself is fine</span></div><div class="line" id="003804"><span class="nick" style="color:#389600"><a href="#003804" label="[00:38:04]">&lt;oriansj&gt;</a></span><span class="message">stikonas: -1 == 0xFFFFFFFF</span></div><div class="line" id="003830"><span class="nick" style="color:#389600"><a href="#003830" label="[00:38:30]">&lt;oriansj&gt;</a></span><span class="message">so FFFFFFFF &amp; FFFFF000 == FFFFF000</span></div><div class="line" id="003853"><span class="nick" style="color:#389600"><a href="#003853" label="[00:38:53]">&lt;oriansj&gt;</a></span><span class="message">and FFFFF000 + 1000 = 00000000</span></div><div class="line" id="003853"><span class="nick" style="color:#2e2a4a"><a href="#003853" label="[00:38:53]">&lt;stikonas&gt;</a></span><span class="message">yeah, ignore that, U seems fine</span></div><div class="line" id="003920"><span class="nick" style="color:#2e2a4a"><a href="#003920" label="[00:39:20]">&lt;stikonas&gt;</a></span><span class="message">cause those are just upper bits...</span></div><div class="line" id="003921"><span class="nick" style="color:#389600"><a href="#003921" label="[00:39:21]">&lt;oriansj&gt;</a></span><span class="message">and that is what the documentation says to do.</span></div><div class="line" id="004003"><span class="nick" style="color:#389600"><a href="#004003" label="[00:40:03]">&lt;oriansj&gt;</a></span><span class="message">as 00000000 - 1000 is FFFFF000</span></div><div class="line" id="004013"><span class="nick" style="color:#389600"><a href="#004013" label="[00:40:13]">&lt;oriansj&gt;</a></span><span class="message">which is what RISC-V will do with the sign bit</span></div><div class="line" id="004102"><span class="nick" style="color:#389600"><a href="#004102" label="[00:41:02]">&lt;oriansj&gt;</a></span><span class="message">and If I am wrong, it is trivial to fix</span></div><div class="line" id="004126"><span class="nick" style="color:#389600"><a href="#004126" label="[00:41:26]">&lt;oriansj&gt;</a></span><span class="message">just delete the IF statement and leave value &amp; 0xfffff000</span></div><div class="line" id="004156"><span class="nick" style="color:#389600"><a href="#004156" label="[00:41:56]">&lt;oriansj&gt;</a></span><span class="message">but the DEADBEEF example they provided seems to support the behavior implemented.</span></div><div class="line" id="004453"><span class="nick" style="color:#2e2a4a"><a href="#004453" label="[00:44:53]">&lt;stikonas&gt;</a></span><span class="message">no, I think it's correct too now</span></div><div class="line" id="021223"><span class="nick" style="color:#80b1d3"><a href="#021223" label="[02:12:23]">&lt;fossy&gt;</a></span><span class="message">hmm, how weird</span></div><div class="line" id="021245"><span class="nick" style="color:#80b1d3"><a href="#021245" label="[02:12:45]">&lt;fossy&gt;</a></span><span class="message">gnulib-tool does not seem to work properly for coreutils under new linux kernel or something</span></div><div class="line" id="022026"><span class="nick" style="color:#389600"><a href="#022026" label="[02:20:26]">&lt;oriansj&gt;</a></span><span class="message">fossy: sounds like a bug report to me</span></div><div class="line" id="022817"><span class="nick" style="color:#2e2a4a"><a href="#022817" label="[02:28:17]">&lt;stikonas&gt;</a></span><span class="message">there is an option of trying different gnulib-tool...</span></div><div class="line" id="022821"><span class="nick" style="color:#2e2a4a"><a href="#022821" label="[02:28:21]">&lt;stikonas&gt;</a></span><span class="message">maybe newer coreutils would work</span></div><div class="line" id="042350"><span class="nick" style="color:#80b1d3"><a href="#042350" label="[04:23:50]">&lt;fossy&gt;</a></span><span class="message">well actually its &quot;old&quot; linux kernel but not that old (4.9)</span></div><div class="line" id="043024"><span class="nick" style="color:#80b1d3"><a href="#043024" label="[04:30:24]">&lt;fossy&gt;</a></span><span class="message">wtf, it appears that gnulib-tool is straight up ignoring some of its arguments :O</span></div><div class="line" id="050329"><span class="nick" style="color:#6d2462"><a href="#050329" label="[05:03:29]">&lt;xentrac&gt;</a></span><span class="message">for compatibility with third-party software?</span></div><div class="line" id="064307"><span class="nick" style="color:#80b1d3"><a href="#064307" label="[06:43:07]">&lt;fossy&gt;</a></span><span class="message">?</span></div><div class="line" id="065148"><span class="nick" style="color:#6d2462"><a href="#065148" label="[06:51:48]">&lt;xentrac&gt;</a></span><span class="message">that's the usual reason GNU software has arguments it ignores.  pretty unlikely explanation for libtool ;)</span></div><div class="line" id="074918"><span class="nick" style="color:#80b1d3"><a href="#074918" label="[07:49:18]">&lt;fossy&gt;</a></span><span class="message">oh, lol</span></div><div class="line" id="075357"><span class="nick" style="color:#234e69"><a href="#075357" label="[07:53:57]">&lt;siraben&gt;</a></span><span class="message">Why doesn't this have a function return true when matching with the empty string?</span></div><div class="line" id="075359"><span class="nick" style="color:#234e69"><a href="#075359" label="[07:53:59]">&lt;siraben&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/kaem/blob/fab0724347141af9595a475034d4e689270660ea/functions/match.c#L23">https://github.com/oriansj/kaem/blob/fab0724347141af9595a475034d4e689270660ea/functions/match.c#L23</a> </span></div><div class="line" id="075404"><span class="nick" style="color:#234e69"><a href="#075404" label="[07:54:04]">&lt;siraben&gt;</a></span><span class="message">s/this have/this/</span></div><div class="line" id="075942"><span class="nick" style="color:#234e69"><a href="#075942" label="[07:59:42]">&lt;siraben&gt;</a></span><span class="message">oops I mean</span></div><div class="line" id="075947"><span class="nick" style="color:#234e69"><a href="#075947" label="[07:59:47]">&lt;siraben&gt;</a></span><span class="message">Why does it return false when matching with the empty string?</span></div><div class="line" id="080005"><span class="nick" style="color:#234e69"><a href="#080005" label="[08:00:05]">&lt;siraben&gt;</a></span><span class="message">here is my rewrite</span></div><div class="line" id="080008"><span class="nick" style="color:#6c3d55"><a href="#080008" label="[08:00:08]">*</a></span><span class="message">siraben  &lt; <a rel="nofollow" href="https://libera.ems.host/_matrix/media/r0/download/libera.chat/611401b865a271d1082a4f2098210198750d2054/message.txt">https://libera.ems.host/_matrix/media/r0/download/libera.chat/611401b865a271d1082a4f2098210198750d2054/message.txt</a>  &gt;</span></div><div class="line" id="080029"><span class="nick" style="color:#234e69"><a href="#080029" label="[08:00:29]">&lt;siraben&gt;</a></span><span class="message">which I also formally verified that it returns true if one of the strings is a prefix of another</span></div><div class="line" id="080245"><span class="nick" style="color:#234e69"><a href="#080245" label="[08:02:45]">&lt;siraben&gt;</a></span><span class="message">ah never mind</span></div><div class="line" id="080248"><span class="nick" style="color:#234e69"><a href="#080248" label="[08:02:48]">&lt;siraben&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/kaem/blob/fab0724347141af9595a475034d4e689270660ea/kaem.c#L77">https://github.com/oriansj/kaem/blob/fab0724347141af9595a475034d4e689270660ea/kaem.c#L77</a> </span></div><div class="line" id="080255"><span class="nick" style="color:#234e69"><a href="#080255" label="[08:02:55]">&lt;siraben&gt;</a></span><span class="message">my function would always return true</span></div><div class="line" id="121911"><span class="nick" style="color:#389600"><a href="#121911" label="[12:19:11]">&lt;oriansj&gt;</a></span><span class="message">siraben: well that is an old kaem as kaem is currently part of mescc-tools and currently uses M2libc's match function: <a rel="nofollow" href="https://github.com/oriansj/M2libc/blob/main/bootstrappable.c#L36">https://github.com/oriansj/M2libc/blob/main/bootstrappable.c#L36</a> </span></div><div class="line" id="122016"><span class="nick" style="color:#d9d9d9"><a href="#122016" label="[12:20:16]">&lt;stikonas[m]&gt;</a></span><span class="message">maybe archive the repository?</span></div><div class="line" id="122323"><span class="nick" style="color:#389600"><a href="#122323" label="[12:23:23]">&lt;oriansj&gt;</a></span><span class="message">probably a good idea</span></div><div class="line" id="132246"><span class="nick" style="color:#234e69"><a href="#132246" label="[13:22:46]">&lt;siraben&gt;</a></span><span class="message">Ah I had no idea it was old. Thanks</span></div><div class="line" id="132611"><span class="nick" style="color:#234e69"><a href="#132611" label="[13:26:11]">&lt;siraben&gt;</a></span><span class="message">What's the intended behavior of the function?</span></div><div class="line" id="135333"><span class="nick" style="color:#389600"><a href="#135333" label="[13:53:33]">&lt;oriansj&gt;</a></span><span class="message">to return false if the strings don't exactly match.</span></div><div class="line" id="135359"><span class="nick" style="color:#389600"><a href="#135359" label="[13:53:59]">&lt;oriansj&gt;</a></span><span class="message">So mull matches null but doesn't match an empty string</span></div><br /></div></body></html>

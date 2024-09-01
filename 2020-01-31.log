@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-01-31.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003142"><span class="nick" style="color:#8dd3c7"><a href="#003142" label="[00:31:42]">&lt;oriansj&gt;</a></span><span class="message">markjenkinsznc: I could knock out a cc_knight.s in 2 hours</span></div><div class="line" id="003508"><span class="nick" style="color:#8dd3c7"><a href="#003508" label="[00:35:08]">&lt;oriansj&gt;</a></span><span class="message">It only requires me to change a dozen strings and like 2 calculations</span></div><div class="line" id="003831"><span class="nick" style="color:#8dd3c7"><a href="#003831" label="[00:38:31]">&lt;oriansj&gt;</a></span><span class="message">dddddd: I found a new segfault class in M2-Planet inputs (only made it 7 hours of fuzzing before I hit it)</span></div><div class="line" id="005507"><span class="nick" style="color:#2e2a4a"><a href="#005507" label="[00:55:07]">&lt;dddddd&gt;</a></span><span class="message">Nice. I'm looking at rough edges in my libc. exit was too clever &quot;not reading&quot; the argument. There were a couple of extra returns. malloc is still not detecting error condition from the syscall. chmod is empty. getcwd is missing..</span></div><div class="line" id="005750"><span class="nick" style="color:#8dd3c7"><a href="#005750" label="[00:57:50]">&lt;oriansj&gt;</a></span><span class="message">dddddd: There will be plenty of time to clear out the rough edges in M2-Planet (I promise my cc_AArch64 port will be far worse)</span></div><div class="line" id="010829"><span class="nick" style="color:#2e2a4a"><a href="#010829" label="[01:08:29]">&lt;dddddd&gt;</a></span><span class="message">There's no mescc-tools release with AArch64 support, so I guess I'd say just &gt;0.6.1 required somewhere.</span></div><div class="line" id="011415"><span class="nick" style="color:#8dd3c7"><a href="#011415" label="[01:14:15]">&lt;oriansj&gt;</a></span><span class="message">dddddd: you are right, we are long past due for a mescc-tools release</span></div><div class="line" id="020802"><span class="nick" style="color:#8dd3c7"><a href="#020802" label="[02:08:02]">&lt;oriansj&gt;</a></span><span class="message">Release 0.7.0 of mescc-tools is now out</span></div><div class="line" id="022229"><span class="nick" style="color:#2e2a4a"><a href="#022229" label="[02:22:29]">&lt;dddddd&gt;</a></span><span class="message">Thanks! What's the protocol to update the reported --version? I think it affects some M2-Planet tests and I guess that's the reason there's no commit along the new 0.7.0 tag.</span></div><div class="line" id="022409"><span class="nick" style="color:#8dd3c7"><a href="#022409" label="[02:24:09]">&lt;oriansj&gt;</a></span><span class="message">I guess I should have bumped the version number reported;</span></div><div class="line" id="022536"><span class="nick" style="color:#2e2a4a"><a href="#022536" label="[02:25:36]">&lt;dddddd&gt;</a></span><span class="message">oh, nevermind. The tests are running internal versions of the tools (old copies).</span></div><div class="line" id="022622"><span class="nick" style="color:#2e2a4a"><a href="#022622" label="[02:26:22]">&lt;dddddd&gt;</a></span><span class="message">I was thinking of checks like: [ &quot;$out&quot; = &quot;blood-elf 0.1 .....</span></div><div class="line" id="022634"><span class="nick" style="color:#8dd3c7"><a href="#022634" label="[02:26:34]">&lt;oriansj&gt;</a></span><span class="message">yep, only ever sync when the tools start doing something new enough to worry about</span></div><div class="line" id="022754"><span class="nick" style="color:#2e2a4a"><a href="#022754" label="[02:27:54]">&lt;dddddd&gt;</a></span><span class="message">exactly, like the incoming kaem.c</span></div><div class="line" id="022919"><span class="nick" style="color:#8dd3c7"><a href="#022919" label="[02:29:19]">&lt;oriansj&gt;</a></span><span class="message">indeed; when it uses something we previously haven't tested it will be updated and all of the tests around it updated</span></div><div class="line" id="023000"><span class="nick" style="color:#8dd3c7"><a href="#023000" label="[02:30:00]">&lt;oriansj&gt;</a></span><span class="message">I rewrote the release to update the version strings</span></div><div class="line" id="023110"><span class="nick" style="color:#8dd3c7"><a href="#023110" label="[02:31:10]">&lt;oriansj&gt;</a></span><span class="message">dddddd: shall I update the talk-notes to list M2-Planet as supporting AArch64 (because potentially we could release this weekend before janneke's talk) ?</span></div><div class="line" id="023358"><span class="nick" style="color:#2e2a4a"><a href="#023358" label="[02:33:58]">&lt;dddddd&gt;</a></span><span class="message">Sure, even if not part of a release the code will be available.</span></div><div class="line" id="023410"><span class="nick" style="color:#2e2a4a"><a href="#023410" label="[02:34:10]">&lt;dddddd&gt;</a></span><span class="message">... by then.</span></div><div class="line" id="023606"><span class="nick" style="color:#8dd3c7"><a href="#023606" label="[02:36:06]">&lt;oriansj&gt;</a></span><span class="message">dddddd: good, because I was hoping to make it a release (Since a new Arch is important in bootstrapping terms)</span></div><div class="line" id="023846"><span class="nick" style="color:#2e2a4a"><a href="#023846" label="[02:38:46]">&lt;dddddd&gt;</a></span><span class="message">The talk is on sunday, it seems doable.</span></div><div class="line" id="024009"><span class="nick" style="color:#8dd3c7"><a href="#024009" label="[02:40:09]">&lt;oriansj&gt;</a></span><span class="message">Should be as the tests are passing</span></div><div class="line" id="024409"><span class="nick" style="color:#2e2a4a"><a href="#024409" label="[02:44:09]">&lt;dddddd&gt;</a></span><span class="message">I'm about to rebase the new master and retest.</span></div><div class="line" id="024636"><span class="nick" style="color:#8dd3c7"><a href="#024636" label="[02:46:36]">&lt;oriansj&gt;</a></span><span class="message">just remember perfect isn't required to change the world</span></div><div class="line" id="024715"><span class="nick" style="color:#6b8072"><a href="#024715" label="[02:47:15]">&lt;xentrac&gt;</a></span><span class="message">ring the bell that still can ring / forget your perfect offering / there's a crack in everything / that's how the light gets in</span></div><div class="line" id="030349"><span class="nick" style="color:#2e2a4a"><a href="#030349" label="[03:03:49]">&lt;dddddd&gt;</a></span><span class="message">After adapting the scripts for test19 and test26 everything seems fine again.</span></div><div class="line" id="030540"><span class="nick" style="color:#8dd3c7"><a href="#030540" label="[03:05:40]">&lt;oriansj&gt;</a></span><span class="message">good</span></div><div class="line" id="030931"><span class="nick" style="color:#8dd3c7"><a href="#030931" label="[03:09:31]">&lt;oriansj&gt;</a></span><span class="message">and I am updating the Current bootstrap to better match the multiarch bootstrap situation</span></div><div class="line" id="032529"><span class="nick" style="color:#2e2a4a"><a href="#032529" label="[03:25:29]">&lt;dddddd&gt;</a></span><span class="message">oh, one more commit in master</span></div><div class="line" id="033031"><span class="nick" style="color:#8dd3c7"><a href="#033031" label="[03:30:31]">&lt;oriansj&gt;</a></span><span class="message">I was tempted to add knightpies to talk-notes markjenkinsznc but I wasn't sure if you wanted it included and if so were willing to put current status info in about it</span></div><div class="line" id="033116"><span class="nick" style="color:#2e2a4a"><a href="#033116" label="[03:31:16]">&lt;dddddd&gt;</a></span><span class="message">no problems with this rebase</span></div><div class="line" id="033148"><span class="nick" style="color:#8dd3c7"><a href="#033148" label="[03:31:48]">&lt;oriansj&gt;</a></span><span class="message">good</span></div><div class="line" id="033352"><span class="nick" style="color:#8dd3c7"><a href="#033352" label="[03:33:52]">&lt;oriansj&gt;</a></span><span class="message">talk-note patches are up janneke; please let us know if you have any questions</span></div><div class="line" id="052527"><span class="nick" style="color:#80b1d3"><a href="#052527" label="[05:25:27]">&lt;fossy&gt;</a></span><span class="message">oriansj: I will make the m2 planet tests merge worthy hopefully tonight</span></div><div class="line" id="110915"><span class="nick" style="color:#8dd3c7"><a href="#110915" label="[11:09:15]">&lt;oriansj&gt;</a></span><span class="message">fossy: sounds good</span></div><div class="line" id="112536"><span class="nick" style="color:#8dd3c7"><a href="#112536" label="[11:25:36]">&lt;oriansj&gt;</a></span><span class="message">markjenkinsznc: I'll tell you what, I'll try to knock out cc_knight.s, cc_amd64.s and cc_armv7l.s today before midnight (you'll love the diffs when I'm done)</span></div><div class="line" id="113229"><span class="nick" style="color:#8dd3c7"><a href="#113229" label="[11:32:29]">&lt;oriansj&gt;</a></span><span class="message">Which reminds me, I need to be sending out the mescc-tools release emails today</span></div><div class="line" id="163719"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="215747"><span class="nick" style="color:#8dd3c7"><a href="#215747" label="[21:57:47]">&lt;oriansj&gt;</a></span><span class="message">and cc_knight-native in C is done; (now to do cc_knight-native.s)</span></div><div class="line" id="215848"><span class="nick" style="color:#8dd3c7"><a href="#215848" label="[21:58:48]">&lt;oriansj&gt;</a></span><span class="message">and the creation of cc-minimal.c will be done shortly (as knight-native can't physically support args or envp)</span></div><div class="line" id="220831"><span class="nick" style="color:#8dd3c7"><a href="#220831" label="[22:08:31]">&lt;oriansj&gt;</a></span><span class="message">(that way stage0 can just git submodule M2-Planet and mes-m2 [and the future posix])</span></div><div class="line" id="223024"><span class="nick" style="color:#6d2462"><a href="#223024" label="[22:30:24]">&lt;vagrantc&gt;</a></span><span class="message">oriansj: where can one find the gpg key used to sign mescc-tools releases?</span></div><div class="line" id="223407"><span class="nick" style="color:#8dd3c7"><a href="#223407" label="[22:34:07]">&lt;oriansj&gt;</a></span><span class="message">vagrantc: well I haven't been distributing it as you are literally the first person to ask about it</span></div><div class="line" id="223809"><span class="nick" style="color:#8dd3c7"><a href="#223809" label="[22:38:09]">&lt;oriansj&gt;</a></span><span class="message">but it is rather easy to get a copy: <a rel="nofollow" href="https://api.github.com/users/oriansj/gpg_keys">https://api.github.com/users/oriansj/gpg_keys</a> </span></div><div class="line" id="224106"><span class="nick" style="color:#234e69"><a href="#224106" label="[22:41:06]">*</a></span><span class="message">vagrantc knew github probably had that somewhere but there's no user-facing interface for it</span></div><div class="line" id="224244"><span class="nick" style="color:#8dd3c7"><a href="#224244" label="[22:42:44]">&lt;oriansj&gt;</a></span><span class="message">actually if you just replace oriansj with the user name of your choice, it will return all gpg keys they have uploaded</span></div><div class="line" id="224303"><span class="nick" style="color:#6d2462"><a href="#224303" label="[22:43:03]">&lt;vagrantc&gt;</a></span><span class="message">sure</span></div><div class="line" id="224312"><span class="nick" style="color:#6d2462"><a href="#224312" label="[22:43:12]">&lt;vagrantc&gt;</a></span><span class="message">i mean, i get what an API is :)</span></div><div class="line" id="224313"><span class="nick" style="color:#8dd3c7"><a href="#224313" label="[22:43:13]">&lt;oriansj&gt;</a></span><span class="message">just don't try to download more than 1000 in an hour or they will ip ban you for a couple days</span></div><div class="line" id="224340"><span class="nick" style="color:#234e69"><a href="#224340" label="[22:43:40]">*</a></span><span class="message">vagrantc tries to massage the json into something gpg can consume</span></div><div class="line" id="224357"><span class="nick" style="color:#8dd3c7"><a href="#224357" label="[22:43:57]">&lt;oriansj&gt;</a></span><span class="message">just copy out the field</span></div><div class="line" id="224427"><span class="nick" style="color:#8dd3c7"><a href="#224427" label="[22:44:27]">&lt;oriansj&gt;</a></span><span class="message">Specifically the field: raw_key</span></div><div class="line" id="224500"><span class="nick" style="color:#8dd3c7"><a href="#224500" label="[22:45:00]">&lt;oriansj&gt;</a></span><span class="message">(replace the \r\n accordingly)</span></div><div class="line" id="225530"><span class="nick" style="color:#8dd3c7"><a href="#225530" label="[22:55:30]">&lt;oriansj&gt;</a></span><span class="message">darn, I got the numbers wrong for what a 16bit signed value can store</span></div><div class="line" id="225637"><span class="nick" style="color:#8dd3c7"><a href="#225637" label="[22:56:37]">&lt;oriansj&gt;</a></span><span class="message">(thank god I wrote hex32 in M0.s)</span></div><div class="line" id="230001"><span class="nick" style="color:#8dd3c7"><a href="#230001" label="[23:00:01]">&lt;oriansj&gt;</a></span><span class="message">markjenkinsznc: may I present to you cc_knight-native.s; completed in 1 hour and 38 minutes of effort</span></div><div class="line" id="230017"><span class="nick" style="color:#8dd3c7"><a href="#230017" label="[23:00:17]">&lt;oriansj&gt;</a></span><span class="message">up next cc_amd64 for stage0</span></div><div class="line" id="230333"><span class="nick" style="color:#80b1d3"><a href="#230333" label="[23:03:33]">&lt;fossy&gt;</a></span><span class="message">nice</span></div><div class="line" id="230351"><span class="nick" style="color:#80b1d3"><a href="#230351" label="[23:03:51]">&lt;fossy&gt;</a></span><span class="message">sorry I didnt get to m2 planet last night</span></div><div class="line" id="230356"><span class="nick" style="color:#80b1d3"><a href="#230356" label="[23:03:56]">&lt;fossy&gt;</a></span><span class="message">I had pressing issues</span></div><div class="line" id="230359"><span class="nick" style="color:#80b1d3"><a href="#230359" label="[23:03:59]">&lt;fossy&gt;</a></span><span class="message">with IRL stuff</span></div><div class="line" id="230403"><span class="nick" style="color:#80b1d3"><a href="#230403" label="[23:04:03]">&lt;fossy&gt;</a></span><span class="message">today it'll happen</span></div><div class="line" id="230426"><span class="nick" style="color:#8dd3c7"><a href="#230426" label="[23:04:26]">&lt;oriansj&gt;</a></span><span class="message">fossy: no worries; always deal with personal matters first, we understand</span></div><div class="line" id="230437"><span class="nick" style="color:#8dd3c7"><a href="#230437" label="[23:04:37]">&lt;oriansj&gt;</a></span><span class="message">also checkout if you do: cat test/common_knight/functions/file.c test/common_knight/functions/malloc.c functions/calloc.c test/common_knight/functions/exit.c functions/match.c functions/in_set.c functions/numerate_number.c functions/file_print.c functions/number_pack.c functions/string.c functions/require.c cc.h cc_reader.c cc_strings.c cc_types.c cc_core.c cc-minimal.c &gt;| tape_01</span></div><div class="line" id="230459"><span class="nick" style="color:#8dd3c7"><a href="#230459" label="[23:04:59]">&lt;oriansj&gt;</a></span><span class="message">and compare cc_knight-native and M2-Planet --architecture knight-native</span></div><div class="line" id="230506"><span class="nick" style="color:#8dd3c7"><a href="#230506" label="[23:05:06]">&lt;oriansj&gt;</a></span><span class="message">(identical outputs)</span></div><div class="line" id="230709"><span class="nick" style="color:#8dd3c7"><a href="#230709" label="[23:07:09]">&lt;oriansj&gt;</a></span><span class="message">(If I have time tonight, I'll hit knight-posix too)</span></div><div class="line" id="232149"><span class="nick" style="color:#6d2462"><a href="#232149" label="[23:21:49]">&lt;vagrantc&gt;</a></span><span class="message">oriansj: you mentioned in your release announcement that aarch64 was fixed, but mescc-tools 0.6.1 build just fine on debian: <a rel="nofollow" href="https://buildd.debian.org/mescc-tools">https://buildd.debian.org/mescc-tools</a>  ... or did it build but not work?</span></div><div class="line" id="232321"><span class="nick" style="color:#6d2462"><a href="#232321" label="[23:23:21]">&lt;vagrantc&gt;</a></span><span class="message">oddly, it almost always fails to build on armhf for the reproducible builds infrastructure: <a rel="nofollow" href="https://tests.reproducible-builds.org/debian/mescc-tools">https://tests.reproducible-builds.org/debian/mescc-tools</a> </span></div><div class="line" id="232353"><span class="nick" style="color:#8dd3c7"><a href="#232353" label="[23:23:53]">&lt;oriansj&gt;</a></span><span class="message">vagrantc: hopefully the changes in the ARMv7l ELF header will fix that</span></div><div class="line" id="232433"><span class="nick" style="color:#6d2462"><a href="#232433" label="[23:24:33]">&lt;vagrantc&gt;</a></span><span class="message">would be nice :)</span></div><div class="line" id="232438"><span class="nick" style="color:#6d2462"><a href="#232438" label="[23:24:38]">&lt;vagrantc&gt;</a></span><span class="message">will find out soon enough</span></div><div class="line" id="232542"><span class="nick" style="color:#6d2462"><a href="#232542" label="[23:25:42]">&lt;vagrantc&gt;</a></span><span class="message">testing building mes with the new mescc-tools on amd64 and i386 ... hopefully i get the same hashes :)</span></div><div class="line" id="232752"><span class="nick" style="color:#8dd3c7"><a href="#232752" label="[23:27:52]">&lt;oriansj&gt;</a></span><span class="message">The only way for a M1 file to generate a different hash is: 1) wrong arguments (little endian instead of big, etc) 2) different elf header 3) not the same M1 4) compromised binaries</span></div><div class="line" id="232941"><span class="nick" style="color:#6d2462"><a href="#232941" label="[23:29:41]">&lt;vagrantc&gt;</a></span><span class="message">that's the theory :)</span></div><div class="line" id="233137"><span class="nick" style="color:#8dd3c7"><a href="#233137" label="[23:31:37]">&lt;oriansj&gt;</a></span><span class="message">well the only change in M1's output was when we made the hex2 newline output prettier (the binaries generated from them remained identical)</span></div><div class="line" id="233300"><span class="nick" style="color:#8dd3c7"><a href="#233300" label="[23:33:00]">&lt;oriansj&gt;</a></span><span class="message">So until someone finds that --octal or --binary is broken; it wouldn't be possible for the binaries to generate a different output</span></div><div class="line" id="233417"><span class="nick" style="color:#8dd3c7"><a href="#233417" label="[23:34:17]">&lt;oriansj&gt;</a></span><span class="message">The core of hex2 is literally add 2 hex characters together and output a byte; it is really hard to justify it ever outputting anything different</span></div><div class="line" id="233422"><span class="nick" style="color:#6d2462"><a href="#233422" label="[23:34:22]">&lt;vagrantc&gt;</a></span><span class="message">pretty much only expected changes for amd64: <a rel="nofollow" href="https://try.diffoscope.org/ybcpaptdpkqq.html">https://try.diffoscope.org/ybcpaptdpkqq.html</a> </span></div><div class="line" id="233530"><span class="nick" style="color:#6d2462"><a href="#233530" label="[23:35:30]">&lt;vagrantc&gt;</a></span><span class="message">waiting on the i386 build</span></div><div class="line" id="233821"><span class="nick" style="color:#8dd3c7"><a href="#233821" label="[23:38:21]">&lt;oriansj&gt;</a></span><span class="message">and cc_amd64 prototyped in C for stage0</span></div><div class="line" id="233901"><span class="nick" style="color:#234e69"><a href="#233901" label="[23:39:01]">*</a></span><span class="message">vagrantc eagerly awaits!</span></div><div class="line" id="234004"><span class="nick" style="color:#8dd3c7"><a href="#234004" label="[23:40:04]">&lt;oriansj&gt;</a></span><span class="message">patches are up</span></div><br /></div></body></html>

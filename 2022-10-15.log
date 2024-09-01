@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-10-15.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013800"><span class="nick" style="color:#8dd3c7"><a href="#013800" label="[01:38:00]">&lt;oriansj&gt;</a></span><span class="message">stikonas: and here I was thinking M2libc would be getting a proper slab allocator ;-p</span></div><div class="line" id="013910"><span class="nick" style="color:#8dd3c7"><a href="#013910" label="[01:39:10]">&lt;oriansj&gt;</a></span><span class="message">also there is only a few syscalls we even use paths; so we could potentially just have / =&gt; \ replacement just in those</span></div><div class="line" id="014644"><span class="nick" style="color:#8dd3c7"><a href="#014644" label="[01:46:44]">&lt;oriansj&gt;</a></span><span class="message">we just need it in fopen, remove, mkstemp, access, chdir, execve, unlink, getcwd, getwd, (possibly get_current_dir_name), chmod, mkdir, mknod and I can't think of any more that might need a UEFI work around</span></div><div class="line" id="091851"><span class="nick">***</span><span class="message notice">roptat is now known as Guest2228</span></div><div class="line" id="092116"><span class="nick">***</span><span class="message notice">Guest2228 is now known as roptat_</span></div><div class="line" id="095458"><span class="nick">***</span><span class="message notice">roptat_ is now known as roptat</span></div><div class="line" id="095515"><span class="nick">***</span><span class="message notice">roptat is now known as help</span></div><div class="line" id="233653"><span class="nick" style="color:#2e2a4a"><a href="#233653" label="[23:36:53]">&lt;stikonas&gt;</a></span><span class="message">hmm, opening new file for writing also behaves a bit strangely (at least compared to posix). There doesn't seem to be any option to do O_TRUNC ...</span></div><div class="line" id="233706"><span class="nick" style="color:#2e2a4a"><a href="#233706" label="[23:37:06]">&lt;stikonas&gt;</a></span><span class="message">although so far I've ignored it...</span></div><div class="line" id="233722"><span class="nick" style="color:#2e2a4a"><a href="#233722" label="[23:37:22]">&lt;stikonas&gt;</a></span><span class="message">possibly one can open the file, delete it and open again...</span></div><div class="line" id="233811"><span class="nick" style="color:#2e2a4a"><a href="#233811" label="[23:38:11]">&lt;stikonas&gt;</a></span><span class="message">though if we do that, possibly only for C programs...</span></div><div class="line" id="233817"><span class="nick" style="color:#2e2a4a"><a href="#233817" label="[23:38:17]">&lt;stikonas&gt;</a></span><span class="message">not for e.g. hex0</span></div><div class="line" id="234151"><span class="nick" style="color:#2e2a4a"><a href="#234151" label="[23:41:51]">&lt;stikonas&gt;</a></span><span class="message">(or we can just ignore the problem completely and rely on users not putting files with the same names into boot file system)</span></div><br /></div></body></html>

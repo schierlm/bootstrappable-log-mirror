@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-11-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004815"><span class="nick" style="color:#389600"><a href="#004815" label="[00:48:15]">&lt;stikonas&gt;</a></span><span class="message">even M2-Planet code with blood-elf footers is a bit hard to debug... I'll probably have to extract relavant bits of malloc/free code to a separate file buildable with gcc to debug remaining issues...</span></div><div class="line" id="004857"><span class="nick" style="color:#389600"><a href="#004857" label="[00:48:57]">&lt;stikonas&gt;</a></span><span class="message">I guess one can improve M2/blood-elf to spit out more debug info but that's a much larger project</span></div><div class="line" id="010241"><span class="nick" style="color:#389600"><a href="#010241" label="[01:02:41]">&lt;stikonas&gt;</a></span><span class="message">building with gcc was a useful exercise... Just compililng caught some bugs and things seems to be working better</span></div><div class="line" id="015621"><span class="nick" style="color:#8dd3c7"><a href="#015621" label="[01:56:21]">&lt;muurkha&gt;</a></span><span class="message">great!</span></div><div class="line" id="120047"><span class="nick" style="color:#2e2a4a"><a href="#120047" label="[12:00:47]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well blood-elf was orginally a quick hack to create the bare minimal amount of debug information and that is where the improvements would be (unless they needed information from the C code itself in which case we would need to figure an information passing method between M2-Planet and Blood-elf that doesn't impact M1 or hex2)</span></div><div class="line" id="120218"><span class="nick" style="color:#389600"><a href="#120218" label="[12:02:18]">&lt;stikonas&gt;</a></span><span class="message">oriansj: anyway, I think I now have a working free implementation</span></div><div class="line" id="120236"><span class="nick" style="color:#2e2a4a"><a href="#120236" label="[12:02:36]">&lt;oriansj&gt;</a></span><span class="message">very nice</span></div><div class="line" id="120248"><span class="nick" style="color:#389600"><a href="#120248" label="[12:02:48]">&lt;stikonas&gt;</a></span><span class="message">it's fairly simple and goes only part-way (for now it never reduced brk) but at least it reuses freed space</span></div><div class="line" id="120311"><span class="nick" style="color:#389600"><a href="#120311" label="[12:03:11]">&lt;stikonas&gt;</a></span><span class="message">I'm not fully convinced yet that it is bug free</span></div><div class="line" id="120318"><span class="nick" style="color:#389600"><a href="#120318" label="[12:03:18]">&lt;stikonas&gt;</a></span><span class="message">but stage0-posix seems to work</span></div><div class="line" id="120331"><span class="nick" style="color:#389600"><a href="#120331" label="[12:03:31]">&lt;stikonas&gt;</a></span><span class="message">so might be good enough for review</span></div><div class="line" id="120428"><span class="nick" style="color:#389600"><a href="#120428" label="[12:04:28]">&lt;stikonas&gt;</a></span><span class="message">I've used that very simple first fit free list, it migt not be as good as that buddy or slab allocator but very simple</span></div><div class="line" id="120446"><span class="nick" style="color:#389600"><a href="#120446" label="[12:04:46]">&lt;stikonas&gt;</a></span><span class="message">even then I had to adapt quite a bit to M2 dialecct</span></div><div class="line" id="120448"><span class="nick" style="color:#2e2a4a"><a href="#120448" label="[12:04:48]">&lt;oriansj&gt;</a></span><span class="message">well if you are worried about the free logic having bugs, we can always set a -D variable to disable that bit of logic</span></div><div class="line" id="120550"><span class="nick" style="color:#389600"><a href="#120550" label="[12:05:50]">&lt;stikonas&gt;</a></span><span class="message">or in case of bugs we can debug them later. Still stage0-posix working means it's not fundamentally broken</span></div><div class="line" id="120602"><span class="nick" style="color:#389600"><a href="#120602" label="[12:06:02]">&lt;stikonas&gt;</a></span><span class="message">we do have some free statements there</span></div><div class="line" id="120754"><span class="nick" style="color:#389600"><a href="#120754" label="[12:07:54]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/19">https://github.com/oriansj/M2libc/pull/19</a> </span></div><div class="line" id="120833"><span class="nick" style="color:#2e2a4a"><a href="#120833" label="[12:08:33]">&lt;oriansj&gt;</a></span><span class="message">I'd rather have your possibly broken code stikonas, than some of my coworker's &quot;working code&quot; as yours tends to have less bugs and problems</span></div><div class="line" id="121220"><span class="nick" style="color:#2e2a4a"><a href="#121220" label="[12:12:20]">&lt;oriansj&gt;</a></span><span class="message">merged</span></div><div class="line" id="121240"><span class="nick" style="color:#2e2a4a"><a href="#121240" label="[12:12:40]">&lt;oriansj&gt;</a></span><span class="message">I'll give it some testing later today to see if I can find some bugs in it</span></div><div class="line" id="121313"><span class="nick" style="color:#389600"><a href="#121313" label="[12:13:13]">&lt;stikonas&gt;</a></span><span class="message">thanks</span></div><div class="line" id="121648"><span class="nick" style="color:#2e2a4a"><a href="#121648" label="[12:16:48]">&lt;oriansj&gt;</a></span><span class="message">thank you for driving M2libc forward ^_^</span></div><br /></div></body></html>

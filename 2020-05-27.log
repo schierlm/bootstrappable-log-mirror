@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-05-27.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="042523"><span class="nick" style="color:#8dd3c7"><a href="#042523" label="[04:25:23]">&lt;marusich&gt;</a></span><span class="message">I'm reading the commencement.scm code and it seems to me that there is a circular dependency, but I know there must not be, or Guix wouldn't work, so I am wondering if somebody can explain to me what I am missing.</span></div><div class="line" id="042835"><span class="nick" style="color:#8dd3c7"><a href="#042835" label="[04:28:35]">&lt;marusich&gt;</a></span><span class="message">Consider glibc-final.  It appears to inherit glibc (provided by (gnu packages base)), which seems to mean it will be using gnu-build-system, which seems to mean it that the %final-inputs will be implicitly added when the package is (converted to a bag and) built.  However, how can this be?  The %final-inputs contains glibc-final itself, which seems circular.  I must be missing something.</span></div><div class="line" id="050010"><span class="nick" style="color:#8dd3c7"><a href="#050010" label="[05:00:10]">&lt;marusich&gt;</a></span><span class="message">Looking at the list of inputs produced by (bag-direct-inputs (package-&gt;bag glibc-final)), I see that various inputs appear to have been overridden which would otherwise have been implicit inputs of gnu-build-system (such as &quot;gcc&quot;), so I suppose that is why there is no circular dependency, but I cannot see how this comes to be.</span></div><div class="line" id="050113"><span class="nick" style="color:#8dd3c7"><a href="#050113" label="[05:01:13]">&lt;marusich&gt;</a></span><span class="message">I can see how the use of helper procedures like package-with-explicit-inputs (or the procedures that use it, such as with-boot0) might cause a package like glibc-final to use a different set of inputs instead of the usual %final-inputs.  However, I don't see any code that makes it obvious that package-with-explicit-inputs is being used on glibc-final.  What am I missing?</span></div><div class="line" id="051016"><span class="nick" style="color:#8dd3c7"><a href="#051016" label="[05:10:16]">&lt;marusich&gt;</a></span><span class="message">I would also understand what's going on, I think, if glibc-final explicitly declared #:implicit-inputs? #f in its package arguments, but it doesn't.</span></div><div class="line" id="054136"><span class="nick" style="color:#8dd3c7"><a href="#054136" label="[05:41:36]">&lt;marusich&gt;</a></span><span class="message">If someone knows the answer, I'd really appreciate it if you could email me at cmmarusich@gmail.com, since it's eating me alive that I can't figure it out!</span></div><div class="line" id="085744"><span class="nick" style="color:#2e2a4a"><a href="#085744" label="[08:57:44]">&lt;janneke&gt;</a></span><span class="message">marusich: ah, it's coded a bit implicitly...look</span></div><div class="line" id="085806"><span class="nick" style="color:#2e2a4a"><a href="#085806" label="[08:58:06]">&lt;janneke&gt;</a></span><span class="message">glibc-final has:</span></div><div class="line" id="085819"><span class="nick" style="color:#2e2a4a"><a href="#085819" label="[08:58:19]">&lt;janneke&gt;</a></span><span class="message">(arguments</span></div><div class="line" id="085820"><span class="nick" style="color:#2e2a4a"><a href="#085820" label="[08:58:20]">&lt;janneke&gt;</a></span><span class="message">      ...</span></div><div class="line" id="085820"><span class="nick" style="color:#2e2a4a"><a href="#085820" label="[08:58:20]">&lt;janneke&gt;</a></span><span class="message">      ,@(package-arguments glibc-final-with-bootstrap-bash)))))</span></div><div class="line" id="085854"><span class="nick" style="color:#2e2a4a"><a href="#085854" label="[08:58:54]">&lt;janneke&gt;</a></span><span class="message">and glibc-final-with-bootstrap-bash has: (arguments `(#:guile ,%bootstrap-guile #:implicit-inputs? #f ...</span></div><div class="line" id="085856"><span class="nick" style="color:#2e2a4a"><a href="#085856" label="[08:58:56]">&lt;janneke&gt;</a></span><span class="message"> </span></div><div class="line" id="085911"><span class="nick" style="color:#6b8072"><a href="#085911" label="[08:59:11]">*</a></span><span class="message">janneke mails this to them too</span></div><div class="line" id="085948"><span class="nick" style="color:#2e2a4a"><a href="#085948" label="[08:59:48]">&lt;janneke&gt;</a></span><span class="message">thanks for worrying about this, marusich!</span></div><div class="line" id="194137"><span class="nick">***</span><span class="message notice">tazjin is now known as benry</span></div><div class="line" id="194149"><span class="nick">***</span><span class="message notice">benry is now known as tazjin</span></div><br /></div></body></html>

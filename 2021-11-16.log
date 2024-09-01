@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-11-16.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002345"><span class="nick" style="color:#8dd3c7"><a href="#002345" label="[00:23:45]">&lt;oriansj&gt;</a></span><span class="message">rekado: yes, it seems like a good public face for our work.</span></div><div class="line" id="002428"><span class="nick" style="color:#8dd3c7"><a href="#002428" label="[00:24:28]">&lt;oriansj&gt;</a></span><span class="message">Might need to send some updates to reflect the work in stage0 and live-bootstrap but otherwise it is solid</span></div><div class="line" id="004344"><span class="nick" style="color:#2e2a4a"><a href="#004344" label="[00:43:44]">&lt;stikonas&gt;</a></span><span class="message">hmm, kaem-minimal for riscv32 will need non-trivial updates, will skip it for now</span></div><div class="line" id="010527"><span class="nick" style="color:#8dd3c7"><a href="#010527" label="[01:05:27]">&lt;oriansj&gt;</a></span><span class="message">you mean the syscalls are different too?</span></div><div class="line" id="011158"><span class="nick" style="color:#2e2a4a"><a href="#011158" label="[01:11:58]">&lt;stikonas&gt;</a></span><span class="message">oriansj: yes</span></div><div class="line" id="011224"><span class="nick" style="color:#2e2a4a"><a href="#011224" label="[01:12:24]">&lt;stikonas&gt;</a></span><span class="message">waitid instead of wait4</span></div><div class="line" id="011310"><span class="nick" style="color:#2e2a4a"><a href="#011310" label="[01:13:10]">&lt;stikonas&gt;</a></span><span class="message">so one would have to setup correct arguments</span></div><div class="line" id="011316"><span class="nick" style="color:#2e2a4a"><a href="#011316" label="[01:13:16]">&lt;stikonas&gt;</a></span><span class="message">and recalculate all jumps</span></div><div class="line" id="012750"><span class="nick" style="color:#8dd3c7"><a href="#012750" label="[01:27:50]">&lt;oriansj&gt;</a></span><span class="message">umm isn't the only difference struct rusage *rusage which is null?</span></div><div class="line" id="013104"><span class="nick" style="color:#2e2a4a"><a href="#013104" label="[01:31:04]">&lt;stikonas&gt;</a></span><span class="message">not according to manpage...</span></div><div class="line" id="013112"><span class="nick" style="color:#8dd3c7"><a href="#013112" label="[01:31:12]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://man7.org/linux/man-pages/man2/wait.2.html">https://man7.org/linux/man-pages/man2/wait.2.html</a> </span></div><div class="line" id="013119"><span class="nick" style="color:#2e2a4a"><a href="#013119" label="[01:31:19]">&lt;stikonas&gt;</a></span><span class="message">hmm, let me see</span></div><div class="line" id="013120"><span class="nick" style="color:#8dd3c7"><a href="#013120" label="[01:31:20]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://man7.org/linux/man-pages/man2/wait4.2.html">https://man7.org/linux/man-pages/man2/wait4.2.html</a> </span></div><div class="line" id="013143"><span class="nick" style="color:#2e2a4a"><a href="#013143" label="[01:31:43]">&lt;stikonas&gt;</a></span><span class="message">infop</span></div><div class="line" id="013146"><span class="nick" style="color:#2e2a4a"><a href="#013146" label="[01:31:46]">&lt;stikonas&gt;</a></span><span class="message">is different</span></div><div class="line" id="013237"><span class="nick" style="color:#2e2a4a"><a href="#013237" label="[01:32:37]">&lt;stikonas&gt;</a></span><span class="message">and extracting info from infop is not the same</span></div><div class="line" id="013244"><span class="nick" style="color:#2e2a4a"><a href="#013244" label="[01:32:44]">&lt;stikonas&gt;</a></span><span class="message">as from wstatus</span></div><div class="line" id="014108"><span class="nick" style="color:#2e2a4a"><a href="#014108" label="[01:41:08]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I think you might be looking at waitpid</span></div><div class="line" id="014114"><span class="nick" style="color:#2e2a4a"><a href="#014114" label="[01:41:14]">&lt;stikonas&gt;</a></span><span class="message">waitid is yet another different syscall</span></div><div class="line" id="022055"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="022335"><span class="nick" style="color:#8dd3c7"><a href="#022335" label="[02:23:35]">&lt;oriansj&gt;</a></span><span class="message">I guess my brain injected the p into waitid because I couldn't imagine they would be that arbitrary in syscall support</span></div><div class="line" id="145659"><span class="nick" style="color:#6b8072"><a href="#145659" label="[14:56:59]">&lt;gbrlwck&gt;</a></span><span class="message">what is meant with &quot;Turing complete -1&quot; in this sentence: &quot;hex2 is compatible with all Turing complete machines; even the ones that try to be Turing complete -1&quot; ?</span></div><div class="line" id="225644"><span class="nick" style="color:#8dd3c7"><a href="#225644" label="[22:56:44]">&lt;oriansj&gt;</a></span><span class="message">gbrlwck: it is a Cory Doctorow reference about DRM <a rel="nofollow" href="https://archive.org/details/GeneralComputation">https://archive.org/details/GeneralComputation</a> </span></div><div class="line" id="225839"><span class="nick" style="color:#8dd3c7"><a href="#225839" label="[22:58:39]">&lt;oriansj&gt;</a></span><span class="message">and I just got booted from a Jitsi meeting on &quot;open/libre firmware/hardware for true cybersecurity&quot; by just mentioning bootstrappable software; so that was fun</span></div><div class="line" id="225951"><span class="nick" style="color:#8dd3c7"><a href="#225951" label="[22:59:51]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://vpub.dasharo.com/">https://vpub.dasharo.com/</a>  for anyone curious</span></div><div class="line" id="225958"><span class="nick" style="color:#2e2a4a"><a href="#225958" label="[22:59:58]">&lt;stikonas&gt;</a></span><span class="message">hmm, why are they so against bootstrappability...</span></div><div class="line" id="230047"><span class="nick" style="color:#8dd3c7"><a href="#230047" label="[23:00:47]">&lt;oriansj&gt;</a></span><span class="message">No clue; but just a single question in less than 40 chars was enough to be booted</span></div><div class="line" id="233020"><span class="nick" style="color:#80b1d3"><a href="#233020" label="[23:30:20]">&lt;lagash&gt;</a></span><span class="message">This some sort of pattern?</span></div><div class="line" id="233803"><span class="nick" style="color:#2e2a4a"><a href="#233803" label="[23:38:03]">&lt;stikonas&gt;</a></span><span class="message">lagash: I wouldn't say so</span></div><div class="line" id="233820"><span class="nick" style="color:#2e2a4a"><a href="#233820" label="[23:38:20]">&lt;stikonas&gt;</a></span><span class="message">in quite a lot of places there are people saying &quot;interesting work&quot;</span></div><br /></div></body></html>

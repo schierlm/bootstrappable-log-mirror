@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-09-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="014747"><span class="nick" style="color:#8dd3c7"><a href="#014747" label="[01:47:47]">&lt;oriansj&gt;</a></span><span class="message">sam_: there is also a very real possibility that maintaining bootstrap chains outside of functional package managers might already be an impossible task</span></div><div class="line" id="015341"><span class="nick" style="color:#8dd3c7"><a href="#015341" label="[01:53:41]">&lt;oriansj&gt;</a></span><span class="message">which brings about the very hard question about what that means for more traditional distros such as Debian and Gentoo</span></div><div class="line" id="025909"><span class="nick" style="color:#2e2a4a"><a href="#025909" label="[02:59:09]">&lt;stikonas[m]&gt;</a></span><span class="message">For gentoo bootstrap chains are not that much harder to write. There is a bit of issue with availability of old packages but I don't think it's inherently due to not being functional</span></div><div class="line" id="031434"><span class="nick" style="color:#8dd3c7"><a href="#031434" label="[03:14:34]">&lt;oriansj&gt;</a></span><span class="message">well can you imagine a package manager that isn't functional but also doesn't have the lack of availability of old packages problem?</span></div><div class="line" id="033555"><span class="nick" style="color:#6b8072"><a href="#033555" label="[03:35:55]">&lt;sam_&gt;</a></span><span class="message">I think with slotting we can manage at least some of it</span></div><div class="line" id="033607"><span class="nick" style="color:#6b8072"><a href="#033607" label="[03:36:07]">&lt;sam_&gt;</a></span><span class="message">the issue is just directing things which need $lib to find it</span></div><div class="line" id="033610"><span class="nick" style="color:#6b8072"><a href="#033610" label="[03:36:10]">&lt;sam_&gt;</a></span><span class="message">with pkg-config it gets a lot easier</span></div><div class="line" id="044206"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="133549"><span class="nick" style="color:#8dd3c7"><a href="#133549" label="[13:35:49]">&lt;oriansj&gt;</a></span><span class="message">sam_: but the default lifecycle of the distro would be to create new gaps in the chain, so one would spent a growing amount of time dealing with the new issues that arise.</span></div><div class="line" id="134513"><span class="nick" style="color:#80b1d3"><a href="#134513" label="[13:45:13]">&lt;aggi&gt;</a></span><span class="message">meanwhile continued detangling from GNU within the dependency graph... toybox seems to cover most crucial userspace parts</span></div><div class="line" id="134551"><span class="nick" style="color:#80b1d3"><a href="#134551" label="[13:45:51]">&lt;aggi&gt;</a></span><span class="message">there isn't any libressel/openssl dependency remaining, i'll replace ncurses with sabotage linux curses</span></div><div class="line" id="134651"><span class="nick" style="color:#80b1d3"><a href="#134651" label="[13:46:51]">&lt;aggi&gt;</a></span><span class="message">however, an important difference, at this stage within the bootstrapping procedure of yours: i am aiming for a fully capable development system, instead of any intermediate bootstrapping artifact</span></div><div class="line" id="134748"><span class="nick" style="color:#80b1d3"><a href="#134748" label="[13:47:48]">&lt;aggi&gt;</a></span><span class="message">as a consequence, with GNU-buildsystem/toolchain removed, i am missing some crucial components still, which require a manual rewrite of their makefiles</span></div><div class="line" id="135130"><span class="nick" style="color:#8dd3c7"><a href="#135130" label="[13:51:30]">&lt;oriansj&gt;</a></span><span class="message">aggi: would clang be a valid option for you? I ask because I don't think rust can be bootstrapped by less than GCC or Clang.</span></div><div class="line" id="135357"><span class="nick" style="color:#80b1d3"><a href="#135357" label="[13:53:57]">&lt;aggi&gt;</a></span><span class="message">oriansj: no; llvm is written in c++</span></div><div class="line" id="135430"><span class="nick" style="color:#8dd3c7"><a href="#135430" label="[13:54:30]">&lt;oriansj&gt;</a></span><span class="message">well let us hope cproc and qbe is up to the task of building mrustc</span></div><div class="line" id="135505"><span class="nick" style="color:#80b1d3"><a href="#135505" label="[13:55:05]">&lt;aggi&gt;</a></span><span class="message">i am not aiming for any bootstrapping path arriving at rust</span></div><div class="line" id="135534"><span class="nick" style="color:#80b1d3"><a href="#135534" label="[13:55:34]">&lt;aggi&gt;</a></span><span class="message">at best, i can salvage www-client/lynx (mozzila is the rust gang) linked against bearssl</span></div><div class="line" id="135552"><span class="nick" style="color:#8dd3c7"><a href="#135552" label="[13:55:52]">&lt;oriansj&gt;</a></span><span class="message">aggi: my mistake, so what critical parts still remain?</span></div><div class="line" id="135638"><span class="nick" style="color:#80b1d3"><a href="#135638" label="[13:56:38]">&lt;aggi&gt;</a></span><span class="message">i still need to identify various builds depending on pre-generated configure/makefile, to remove/replace those or rewriting their makefiles</span></div><div class="line" id="135714"><span class="nick" style="color:#80b1d3"><a href="#135714" label="[13:57:14]">&lt;aggi&gt;</a></span><span class="message">squashfs-tools, is one such package i want to keep, nfs-utils</span></div><div class="line" id="135728"><span class="nick" style="color:#80b1d3"><a href="#135728" label="[13:57:28]">&lt;aggi&gt;</a></span><span class="message">i haven't assembled a list of those yet</span></div><div class="line" id="135815"><span class="nick" style="color:#8dd3c7"><a href="#135815" label="[13:58:15]">&lt;oriansj&gt;</a></span><span class="message">fair, it is easy to get lost in just trying to figure out how to bootstrap anything to look at how to get anywhere in particular</span></div><div class="line" id="135943"><span class="nick" style="color:#80b1d3"><a href="#135943" label="[13:59:43]">&lt;aggi&gt;</a></span><span class="message">the bootstrapping path to arrive at tcc-toolchain are still very important; however that's where i stop then, roll-back to linux-2.4, and salvage a userspace which complies with acceptance criteria</span></div><div class="line" id="140416"><span class="nick" style="color:#80b1d3"><a href="#140416" label="[14:04:16]">&lt;aggi&gt;</a></span><span class="message">btw. llvm/clang it is why i refrain from switching to BSD</span></div><div class="line" id="140451"><span class="nick" style="color:#80b1d3"><a href="#140451" label="[14:04:51]">&lt;aggi&gt;</a></span><span class="message">from BSD i may salvage some makefiles for www-client/lynx; i think OpenBSD got it inside their base-system, and don't use GNU configure/makefile for this</span></div><div class="line" id="183155"><span class="nick" style="color:#2e2a4a"><a href="#183155" label="[18:31:55]">&lt;stikonas[m]&gt;</a></span><span class="message">oriansj: depends on the chain, so far mrutc-&gt;rust chain is not growing too big since mrustc is getting updates. On the other hand Java chain is growing longer and longer</span></div><div class="line" id="220829"><span class="nick" style="color:#6d2462"><a href="#220829" label="[22:08:29]">&lt;stikonas&gt;</a></span><span class="message">fossy, mihi: I think autogen is now reproducible in live-bootstrap</span></div><div class="line" id="220951"><span class="nick" style="color:#6b8072"><a href="#220951" label="[22:09:51]">&lt;sam_&gt;</a></span><span class="message">oriansj: well, I think it's something I care about</span></div><div class="line" id="221003"><span class="nick" style="color:#6b8072"><a href="#221003" label="[22:10:03]">&lt;sam_&gt;</a></span><span class="message">oriansj: and usually the dep list is not too big, but I understand your point too</span></div><div class="line" id="222312"><span class="nick" style="color:#6d2462"><a href="#222312" label="[22:23:12]">&lt;stikonas&gt;</a></span><span class="message">autogen build system does some legally dubious things...</span></div><div class="line" id="222331"><span class="nick" style="color:#6d2462"><a href="#222331" label="[22:23:31]">&lt;stikonas&gt;</a></span><span class="message">it sets file copyright date to current year...</span></div><div class="line" id="222408"><span class="nick" style="color:#234e69"><a href="#222408" label="[22:24:08]">&lt;vagrantc&gt;</a></span><span class="message">yeah, i've always found that laughable</span></div><div class="line" id="222419"><span class="nick" style="color:#234e69"><a href="#222419" label="[22:24:19]">&lt;vagrantc&gt;</a></span><span class="message">numerous other projects do similar things</span></div><div class="line" id="222436"><span class="nick" style="color:#234e69"><a href="#222436" label="[22:24:36]">&lt;vagrantc&gt;</a></span><span class="message">copyright assertion has nothing to do with when something is built ...</span></div><div class="line" id="222503"><span class="nick" style="color:#6d2462"><a href="#222503" label="[22:25:03]">&lt;stikonas&gt;</a></span><span class="message">anyway, fixed in live-bootstrap</span></div><div class="line" id="222511"><span class="nick" style="color:#6d2462"><a href="#222511" label="[22:25:11]">&lt;stikonas&gt;</a></span><span class="message">cause I don't want build hash to change every year</span></div><div class="line" id="222513"><span class="nick" style="color:#6c3d55"><a href="#222513" label="[22:25:13]">&lt;muurkha&gt;</a></span><span class="message">that would be legally dubious in the US before it joined the Berne Convention</span></div><div class="line" id="222533"><span class="nick" style="color:#6c3d55"><a href="#222533" label="[22:25:33]">&lt;muurkha&gt;</a></span><span class="message">actually it could have caused you to lose the copyright</span></div><div class="line" id="222540"><span class="nick" style="color:#234e69"><a href="#222540" label="[22:25:40]">&lt;vagrantc&gt;</a></span><span class="message">how does the berne convetion allow that?</span></div><div class="line" id="222555"><span class="nick" style="color:#6c3d55"><a href="#222555" label="[22:25:55]">&lt;muurkha&gt;</a></span><span class="message">it's not that the Berne Convention *allows* it exactly</span></div><div class="line" id="222604"><span class="nick" style="color:#6d2462"><a href="#222604" label="[22:26:04]">&lt;stikonas&gt;</a></span><span class="message">probably berne convention just ignores copyright headers</span></div><div class="line" id="222611"><span class="nick" style="color:#6d2462"><a href="#222611" label="[22:26:11]">&lt;stikonas&gt;</a></span><span class="message">you don't need copyright header to claim copyright</span></div><div class="line" id="222615"><span class="nick" style="color:#6c3d55"><a href="#222615" label="[22:26:15]">&lt;muurkha&gt;</a></span><span class="message">yeah, it's that under the Berne Convention, copyright assertions are just unnecessary</span></div><div class="line" id="222623"><span class="nick" style="color:#234e69"><a href="#222623" label="[22:26:23]">&lt;vagrantc&gt;</a></span><span class="message">got it</span></div><div class="line" id="222629"><span class="nick" style="color:#6d2462"><a href="#222629" label="[22:26:29]">&lt;stikonas&gt;</a></span><span class="message">so I guess reverse is also true, copyright header does not imply that you actually have copyright</span></div><div class="line" id="222644"><span class="nick" style="color:#234e69"><a href="#222644" label="[22:26:44]">&lt;vagrantc&gt;</a></span><span class="message">let the courts decide. or something.</span></div><div class="line" id="222700"><span class="nick" style="color:#6c3d55"><a href="#222700" label="[22:27:00]">&lt;muurkha&gt;</a></span><span class="message">the Universal Copyright Convention does care about copyright assertions, but I don't think there are any countries that are UCC signatories that aren't Berne signatories anymore</span></div><div class="line" id="222727"><span class="nick" style="color:#6d2462"><a href="#222727" label="[22:27:27]">&lt;stikonas&gt;</a></span><span class="message">anyway, it was annoying not because of copyright claim but because it breaks reproducibility</span></div><div class="line" id="222814"><span class="nick" style="color:#6c3d55"><a href="#222814" label="[22:28:14]">&lt;muurkha&gt;</a></span><span class="message">fraud always annoys me</span></div><div class="line" id="222855"><span class="nick" style="color:#234e69"><a href="#222855" label="[22:28:55]">&lt;vagrantc&gt;</a></span><span class="message">well, breaking reproducibility is why i know it's even an antipattern in the world</span></div><div class="line" id="222901"><span class="nick" style="color:#6c3d55"><a href="#222901" label="[22:29:01]">&lt;muurkha&gt;</a></span><span class="message">but I agree that the reproducibility is more relevant here :)</span></div><div class="line" id="222911"><span class="nick" style="color:#234e69"><a href="#222911" label="[22:29:11]">&lt;vagrantc&gt;</a></span><span class="message">i was once blissfully ignorant of silly things like that</span></div><div class="line" id="223706"><span class="nick" style="color:#6d2462"><a href="#223706" label="[22:37:06]">&lt;stikonas&gt;</a></span><span class="message">it's probably better for new things, people tend to care more about reproducibility these days</span></div><div class="line" id="223734"><span class="nick" style="color:#6d2462"><a href="#223734" label="[22:37:34]">&lt;stikonas&gt;</a></span><span class="message">there are fewer cases of e.g. using __DATE__ or __TIME__ in the sources</span></div><div class="line" id="224018"><span class="nick" style="color:#6c3d55"><a href="#224018" label="[22:40:18]">&lt;muurkha&gt;</a></span><span class="message">yeah, 20 years ago reproducibility was rarely a consideration at all</span></div><br /></div></body></html>

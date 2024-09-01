@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-04-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002209"><span class="nick" style="color:#389600"><a href="#002209" label="[00:22:09]">&lt;muurkha&gt;</a></span><span class="message">unbootstrapping B with C: <a rel="nofollow" href="https://github.com/aap/b/blob/master/riscv64/xx">https://github.com/aap/b/blob/master/riscv64/xx</a> </span></div><div class="line" id="003241"><span class="nick" style="color:#8dd3c7"><a href="#003241" label="[00:32:41]">&lt;stikonas&gt;</a></span><span class="message">is somebody still using B?</span></div><div class="line" id="003340"><span class="nick" style="color:#8dd3c7"><a href="#003340" label="[00:33:40]">&lt;stikonas&gt;</a></span><span class="message">fossy: I'm almost done with /after -&gt; /sysa renaming, after that we can start removing some stuff from rootfs.py</span></div><div class="line" id="003358"><span class="nick" style="color:#8dd3c7"><a href="#003358" label="[00:33:58]">&lt;stikonas&gt;</a></span><span class="message">and as part of that change, I'm adding automatic checksum generation</span></div><div class="line" id="003432"><span class="nick" style="color:#8dd3c7"><a href="#003432" label="[00:34:32]">&lt;stikonas&gt;</a></span><span class="message">(actually checksums from the moment bash is built but that's still much bettere than before)</span></div><div class="line" id="004220"><span class="nick" style="color:#389600"><a href="#004220" label="[00:42:20]">&lt;muurkha&gt;</a></span><span class="message">not still, no</span></div><div class="line" id="022505"><span class="nick" style="color:#6b8072"><a href="#022505" label="[02:25:05]">&lt;oriansj&gt;</a></span><span class="message">muurkha: I think that would more be classified as rebootstrapping</span></div><div class="line" id="022731"><span class="nick" style="color:#389600"><a href="#022731" label="[02:27:31]">&lt;muurkha&gt;</a></span><span class="message">well, I mean it's &quot;unbootstrapping&quot; in the sense that it gives you a way to compile the B compiler without first having a B compiler to compile it with, what the recent Camlboot paper called &quot;debootstrapping&quot;</span></div><div class="line" id="022803"><span class="nick" style="color:#389600"><a href="#022803" label="[02:28:03]">&lt;muurkha&gt;</a></span><span class="message">unfortunately &quot;debootstrap&quot; is the name of Debian's bootstrapping tool</span></div><div class="line" id="022813"><span class="nick" style="color:#6b8072"><a href="#022813" label="[02:28:13]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well it has a B compiler written in C in that repo</span></div><div class="line" id="022820"><span class="nick" style="color:#389600"><a href="#022820" label="[02:28:20]">&lt;muurkha&gt;</a></span><span class="message">exactly</span></div><div class="line" id="022840"><span class="nick" style="color:#6b8072"><a href="#022840" label="[02:28:40]">&lt;oriansj&gt;</a></span><span class="message">and a B Compiler written in B that can be built by the C version</span></div><div class="line" id="022857"><span class="nick" style="color:#389600"><a href="#022857" label="[02:28:57]">&lt;muurkha&gt;</a></span><span class="message">right, which after that can bootstrap itself</span></div><div class="line" id="022907"><span class="nick" style="color:#6b8072"><a href="#022907" label="[02:29:07]">&lt;oriansj&gt;</a></span><span class="message">So it is a valid bootstrap path (the 12th for the B language I have seen)</span></div><div class="line" id="023326"><span class="nick" style="color:#389600"><a href="#023326" label="[02:33:26]">&lt;muurkha&gt;</a></span><span class="message">yes</span></div><div class="line" id="023423"><span class="nick" style="color:#389600"><a href="#023423" label="[02:34:23]">&lt;muurkha&gt;</a></span><span class="message">but I think using the same term to mean &quot;compile a compiler with itself&quot; and &quot;compile a compiler with something else&quot; is confusing, which is presumably why the Camlboot folks chose &quot;debootstrapping&quot;</span></div><div class="line" id="023710"><span class="nick" style="color:#389600"><a href="#023710" label="[02:37:10]">&lt;muurkha&gt;</a></span><span class="message">I think &quot;compile a compiler with itself&quot; is the standard meaning of &quot;bootstrap [a compiler]&quot;</span></div><div class="line" id="023833"><span class="nick" style="color:#80b1d3"><a href="#023833" label="[02:38:33]">&lt;vagrantc&gt;</a></span><span class="message">well, the pull yourself up by your bootstraps idiom is basically ... starting from an impossible point make something out of almost nothing</span></div><div class="line" id="023917"><span class="nick" style="color:#80b1d3"><a href="#023917" label="[02:39:17]">&lt;vagrantc&gt;</a></span><span class="message">though, most people don't have bootstraps anymore, so the anaology falls a little dead</span></div><div class="line" id="023930"><span class="nick" style="color:#389600"><a href="#023930" label="[02:39:30]">&lt;muurkha&gt;</a></span><span class="message">yup, people often cite the Baron von Munchausen's braid</span></div><div class="line" id="023955"><span class="nick" style="color:#389600"><a href="#023955" label="[02:39:55]">&lt;muurkha&gt;</a></span><span class="message">but specifically you're pulling *yourself* up by the bootstraps, not someone else</span></div><div class="line" id="024411"><span class="nick" style="color:#389600"><a href="#024411" label="[02:44:11]">&lt;muurkha&gt;</a></span><span class="message">we could also call unbootstrapping (building a bootstrap-free path to being able to bootstrap) &quot;dominoing&quot;, as per the illustration on the Wiki</span></div><div class="line" id="112103"><span class="nick" style="color:#6d2462"><a href="#112103" label="[11:21:03]">&lt;unmatched-paren&gt;</a></span><span class="message">so, for camlboot, was the goal only to boot ocaml 4.07? because the paper says it can do 4.07 with no mention of getting further, and the repo is abandoned</span></div><div class="line" id="112129"><span class="nick" style="color:#6d2462"><a href="#112129" label="[11:21:29]">&lt;unmatched-paren&gt;</a></span><span class="message">i guess we'll need to find a bootstrap chain for the rest of the versions?</span></div><div class="line" id="113442"><span class="nick" style="color:#6d2462"><a href="#113442" label="[11:34:42]">&lt;unmatched-paren&gt;</a></span><span class="message">oh, yes, the paper mentions it</span></div><br /></div></body></html>

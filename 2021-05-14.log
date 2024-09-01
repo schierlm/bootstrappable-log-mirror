@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-05-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013650"><span class="nick">***</span><span class="message notice">lukedashjr is now known as luke-jr</span></div><div class="line" id="094924"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><div class="line" id="111435"><span class="nick" style="color:#8dd3c7"><a href="#111435" label="[11:14:35]">&lt;melg8&gt;</a></span><span class="message">hi, anybody know how kaem (and witch version of it) handles env variables? if i want to use it inside kaem script?</span></div><div class="line" id="164908"><span class="nick">***</span><span class="message notice">lukedashjr is now known as luke-jr</span></div><div class="line" id="181823"><span class="nick" style="color:#2e2a4a"><a href="#181823" label="[18:18:23]">&lt;gforce_d11977&gt;</a></span><span class="message">melg8: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/sysa/after.kaem.run">https://github.com/fosslinux/live-bootstrap/blob/master/sysa/after.kaem.run</a> </span></div><div class="line" id="181902"><span class="nick" style="color:#2e2a4a"><a href="#181902" label="[18:19:02]">&lt;gforce_d11977&gt;</a></span><span class="message">this already uses variables: are you speaking really of ENV vars or just $VARS ?</span></div><div class="line" id="184948"><span class="nick" style="color:#8dd3c7"><a href="#184948" label="[18:49:48]">&lt;melg8&gt;</a></span><span class="message">env vars, like if there out=/some/path - and i need my outuput file go to that path.  Btw, how is progress about splitting build process to parts?</span></div><div class="line" id="201729"><span class="nick" style="color:#2e2a4a"><a href="#201729" label="[20:17:29]">&lt;gforce_d11977&gt;</a></span><span class="message">seems, that <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/blob/master/AMD64/kaem-minimal.hex0">https://github.com/oriansj/stage0-posix/blob/master/AMD64/kaem-minimal.hex0</a>  does not like vars</span></div><div class="line" id="201906"><span class="nick" style="color:#2e2a4a"><a href="#201906" label="[20:19:06]">&lt;gforce_d11977&gt;</a></span><span class="message">printf '%s\n%s\n%s\n' &quot;FOO=bar&quot; 'echo $FOO' 'echo $PATH' &gt;foo.kaem</span></div><div class="line" id="202000"><span class="nick" style="color:#2e2a4a"><a href="#202000" label="[20:20:00]">&lt;gforce_d11977&gt;</a></span><span class="message">./kaem.bin foo.kaem ---&gt; +&gt; FOO=bar ---&gt; Subprocess error -&gt; ABORTING HARD</span></div><div class="line" id="202010"><span class="nick" style="color:#2e2a4a"><a href="#202010" label="[20:20:10]">&lt;gforce_d11977&gt;</a></span><span class="message">hmmm!?</span></div><div class="line" id="202216"><span class="nick" style="color:#2e2a4a"><a href="#202216" label="[20:22:16]">&lt;gforce_d11977&gt;</a></span><span class="message">maybe 'full-kaem': <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/blob/master/AMD64/mescc-tools-full-kaem.kaem">https://github.com/oriansj/stage0-posix/blob/master/AMD64/mescc-tools-full-kaem.kaem</a> </span></div><div class="line" id="215205"><span class="nick" style="color:#6b8072"><a href="#215205" label="[21:52:05]">&lt;stikonas&gt;</a></span><span class="message">gforce_d11977: the first kaem does not have vars</span></div><div class="line" id="215217"><span class="nick" style="color:#6b8072"><a href="#215217" label="[21:52:17]">&lt;stikonas&gt;</a></span><span class="message">it just runs commands with arguments</span></div><div class="line" id="215249"><span class="nick" style="color:#6b8072"><a href="#215249" label="[21:52:49]">&lt;stikonas&gt;</a></span><span class="message">then later we build C version of kaem which also has more features</span></div><div class="line" id="215502"><span class="nick" style="color:#8dd3c7"><a href="#215502" label="[21:55:02]">&lt;melg8&gt;</a></span><span class="message">first kaem can't reach out to env variables. that was my question about. final kaem - can</span></div><div class="line" id="220925"><span class="nick" style="color:#2e2a4a"><a href="#220925" label="[22:09:25]">&lt;gforce_d11977&gt;</a></span><span class="message">i always overlooked it, but this line during stage0 seems to be the beginning of kaem-full:</span></div><div class="line" id="220928"><span class="nick" style="color:#2e2a4a"><a href="#220928" label="[22:09:28]">&lt;gforce_d11977&gt;</a></span><span class="message">+&gt; ./M2 --architecture x86 -f ../M2-Planet/test/common_x86/functions/exit.c -f ../M2-Planet/test/common_x86/functions/file.c -f ../M2-Planet/functions/file_print.c -f ../M2-Planet/test/common_x86/functions/malloc.c -f ../M2-Planet/functions/calloc.c -f ../M2-Planet/functions/match.c -f ../M2-Planet/functions/in_set.c -f ../M2-Planet/functions/require.c -f ../mescc-tools/functions/string.c -f</span></div><div class="line" id="220934"><span class="nick" style="color:#2e2a4a"><a href="#220934" label="[22:09:34]">&lt;gforce_d11977&gt;</a></span><span class="message">../M2-Planet/functions/numerate_number.c -f ../M2-Planet/test/common_x86/functions/fork.c -f ../M2-Planet/test/common_x86/functions/execve.c -f ../M2-Planet/test/common_x86/functions/chdir.c -f ../M2-Planet/test/common_x86/functions/getcwd.c -f ../mescc-tools/Kaem/kaem.h -f ../mescc-tools/Kaem/variable.c -f ../mescc-tools/Kaem/kaem_globals.c -f ../mescc-tools/Kaem/kaem.c --debug -o kaem.M1</span></div><div class="line" id="221440"><span class="nick" style="color:#8dd3c7"><a href="#221440" label="[22:14:40]">&lt;melg8&gt;</a></span><span class="message">i spend today a few time to do this.. don't really know why, maybe to figure more stuff out <a rel="nofollow" href="https://ibb.co/r2bv7tR">https://ibb.co/r2bv7tR</a> </span></div><div class="line" id="222625"><span class="nick" style="color:#6b8072"><a href="#222625" label="[22:26:25]">&lt;stikonas&gt;</a></span><span class="message">rewrited is incorrect grammar btw...</span></div><div class="line" id="222725"><span class="nick" style="color:#6b8072"><a href="#222725" label="[22:27:25]">&lt;stikonas&gt;</a></span><span class="message">s/rewrited/rewritten/</span></div><div class="line" id="223207"><span class="nick" style="color:#8dd3c7"><a href="#223207" label="[22:32:07]">&lt;melg8&gt;</a></span><span class="message">thanks) <a rel="nofollow" href="https://ibb.co/KzFfMvN">https://ibb.co/KzFfMvN</a> </span></div><div class="line" id="223351"><span class="nick" style="color:#6b8072"><a href="#223351" label="[22:33:51]">&lt;stikonas&gt;</a></span><span class="message">(double kaem-optional-seed is just to reuse more files from stage0-posix...</span></div><div class="line" id="223410"><span class="nick" style="color:#6b8072"><a href="#223410" label="[22:34:10]">&lt;stikonas&gt;</a></span><span class="message">although it might be possible to just ship our own .kaem script to avoid that</span></div><div class="line" id="223449"><span class="nick" style="color:#6b8072"><a href="#223449" label="[22:34:49]">&lt;stikonas&gt;</a></span><span class="message">i.e. move stuff from mescc-tools-seed.kaem.run to base.kaem.run and adjust it as necessary</span></div><div class="line" id="223522"><span class="nick" style="color:#8dd3c7"><a href="#223522" label="[22:35:22]">&lt;melg8&gt;</a></span><span class="message">btw do we want sometime in future create this scripts not by hand but generate them in sysa? or it will be against spirit of project?</span></div><div class="line" id="223550"><span class="nick" style="color:#6b8072"><a href="#223550" label="[22:35:50]">&lt;stikonas&gt;</a></span><span class="message">which scripts?</span></div><div class="line" id="223615"><span class="nick" style="color:#8dd3c7"><a href="#223615" label="[22:36:15]">&lt;melg8&gt;</a></span><span class="message">live-bootstrap kaems and run.sh run2.sh run123.sh</span></div><div class="line" id="223637"><span class="nick" style="color:#6b8072"><a href="#223637" label="[22:36:37]">&lt;stikonas&gt;</a></span><span class="message">it's not really clear how easily you can generate them...</span></div><div class="line" id="223653"><span class="nick" style="color:#6b8072"><a href="#223653" label="[22:36:53]">&lt;stikonas&gt;</a></span><span class="message">well, you can probably create them from smaller template file</span></div><div class="line" id="223657"><span class="nick" style="color:#6b8072"><a href="#223657" label="[22:36:57]">&lt;stikonas&gt;</a></span><span class="message">but they are not that complicated anyway</span></div><div class="line" id="223716"><span class="nick" style="color:#6b8072"><a href="#223716" label="[22:37:16]">&lt;stikonas&gt;</a></span><span class="message">and we don't really have good way to deal with templates yet</span></div><div class="line" id="223745"><span class="nick" style="color:#6b8072"><a href="#223745" label="[22:37:45]">&lt;stikonas&gt;</a></span><span class="message">run.sh is already mostly just a list of things to build</span></div><div class="line" id="223809"><span class="nick" style="color:#6b8072"><a href="#223809" label="[22:38:09]">&lt;stikonas&gt;</a></span><span class="message">so I don't really see how you can minimize much further even if you allow generating stuff</span></div><div class="line" id="223821"><span class="nick" style="color:#8dd3c7"><a href="#223821" label="[22:38:21]">&lt;melg8&gt;</a></span><span class="message">i'm looking forward live-bootstrap not to be just single bootstrap with fixed number of outputs, but more like bootstrapping factory, so if somebody just needs gcc 4 - it stops there, if somebody need python - go all way to it</span></div><div class="line" id="223900"><span class="nick" style="color:#6b8072"><a href="#223900" label="[22:39:00]">&lt;stikonas&gt;</a></span><span class="message">it doesn't take that much time go go to python though</span></div><div class="line" id="223906"><span class="nick" style="color:#6b8072"><a href="#223906" label="[22:39:06]">&lt;stikonas&gt;</a></span><span class="message">most of the time is spent in mes</span></div><div class="line" id="223911"><span class="nick" style="color:#80b1d3"><a href="#223911" label="[22:39:11]">&lt;bauen1&gt;</a></span><span class="message">oh nice, i just noticed that my last test run with add-gnu-stow ran fine until the very end</span></div><div class="line" id="223928"><span class="nick" style="color:#6b8072"><a href="#223928" label="[22:39:28]">&lt;stikonas&gt;</a></span><span class="message">(at leats on normal system, on cirrus CI something is slowing things down)</span></div><div class="line" id="223947"><span class="nick" style="color:#6b8072"><a href="#223947" label="[22:39:47]">&lt;stikonas&gt;</a></span><span class="message">bauen1: oh nice!</span></div><div class="line" id="223950"><span class="nick" style="color:#80b1d3"><a href="#223950" label="[22:39:50]">&lt;bauen1&gt;</a></span><span class="message">melg8: upkg will make your idea easy (easier) to achieve</span></div><div class="line" id="223959"><span class="nick" style="color:#8dd3c7"><a href="#223959" label="[22:39:59]">&lt;melg8&gt;</a></span><span class="message">and now it's not clear why in kaem/run/run2.sh - some packet D is after A B C is now dependencies graph is embedded in linear form</span></div><div class="line" id="224025"><span class="nick" style="color:#80b1d3"><a href="#224025" label="[22:40:25]">&lt;bauen1&gt;</a></span><span class="message">should also speed up ci massively once there's not as many changes ...</span></div><div class="line" id="224026"><span class="nick" style="color:#8dd3c7"><a href="#224026" label="[22:40:26]">&lt;melg8&gt;</a></span><span class="message">@bauen1 when it arrives? what it's idea? how it works?)</span></div><div class="line" id="224028"><span class="nick" style="color:#6b8072"><a href="#224028" label="[22:40:28]">&lt;stikonas&gt;</a></span><span class="message">there is some explanation in text, sometimes order does not matter too much though</span></div><div class="line" id="224115"><span class="nick" style="color:#6b8072"><a href="#224115" label="[22:41:15]">&lt;stikonas&gt;</a></span><span class="message">melg8: we also have live-bootstrap.dot graph</span></div><div class="line" id="224122"><span class="nick" style="color:#6b8072"><a href="#224122" label="[22:41:22]">&lt;stikonas&gt;</a></span><span class="message">although that is less accurate in later stages</span></div><div class="line" id="224147"><span class="nick" style="color:#80b1d3"><a href="#224147" label="[22:41:47]">&lt;bauen1&gt;</a></span><span class="message">melg8: i've written a bit about it in here, but basically you give it dependencies and a build script and it gives you the result (taking care of hashing, building in a chroot, skipping build if necessary, ...)</span></div><div class="line" id="224217"><span class="nick" style="color:#80b1d3"><a href="#224217" label="[22:42:17]">&lt;bauen1&gt;</a></span><span class="message">melg8: what it doesn't do is dependency resolution or anything like that, so you'd still have to write a script to call it, but then it becomes a lot more obvious what depends on what</span></div><div class="line" id="224228"><span class="nick" style="color:#6b8072"><a href="#224228" label="[22:42:28]">&lt;stikonas&gt;</a></span><span class="message">and it will take some time, I guess it won't be ready in the next few weeks yet</span></div><div class="line" id="224232"><span class="nick" style="color:#80b1d3"><a href="#224232" label="[22:42:32]">&lt;bauen1&gt;</a></span><span class="message">yes</span></div><div class="line" id="224242"><span class="nick" style="color:#8dd3c7"><a href="#224242" label="[22:42:42]">&lt;melg8&gt;</a></span><span class="message">so it's working as command center from sysa into chrooted environment?</span></div><div class="line" id="224302"><span class="nick" style="color:#6b8072"><a href="#224302" label="[22:43:02]">&lt;stikonas&gt;</a></span><span class="message">well, it's working more like building environment of any other distro</span></div><div class="line" id="224306"><span class="nick" style="color:#80b1d3"><a href="#224306" label="[22:43:06]">&lt;bauen1&gt;</a></span><span class="message">melg8: kind of, think of it like dpkg-buildpackage</span></div><div class="line" id="224316"><span class="nick" style="color:#6b8072"><a href="#224316" label="[22:43:16]">&lt;stikonas&gt;</a></span><span class="message">maybe closer to pbuilder</span></div><div class="line" id="224324"><span class="nick" style="color:#6b8072"><a href="#224324" label="[22:43:24]">&lt;stikonas&gt;</a></span><span class="message">dpkg-buildpackage does not use chroot</span></div><div class="line" id="224337"><span class="nick" style="color:#80b1d3"><a href="#224337" label="[22:43:37]">&lt;bauen1&gt;</a></span><span class="message">btw if someone needs something to do, it'd be nice if you can somehow get the early stages of live-bootstrap to &quot;skip&quot; if the ouput is already present and has a corret hash</span></div><div class="line" id="224339"><span class="nick" style="color:#6b8072"><a href="#224339" label="[22:43:39]">&lt;stikonas&gt;</a></span><span class="message">and hence also suffers from magic dependencies</span></div><div class="line" id="224354"><span class="nick" style="color:#8dd3c7"><a href="#224354" label="[22:43:54]">&lt;melg8&gt;</a></span><span class="message">what it will load as first executable if i want to build packet number 34 (for example)</span></div><div class="line" id="224357"><span class="nick" style="color:#6b8072"><a href="#224357" label="[22:43:57]">&lt;stikonas&gt;</a></span><span class="message">bauen1: pder already had that done</span></div><div class="line" id="224407"><span class="nick" style="color:#6b8072"><a href="#224407" label="[22:44:07]">&lt;stikonas&gt;</a></span><span class="message">although, now his commit is broken after we changed some early stuff</span></div><div class="line" id="224432"><span class="nick" style="color:#80b1d3"><a href="#224432" label="[22:44:32]">&lt;bauen1&gt;</a></span><span class="message">stikonas: well, that was more of a dump every binary into git and skip the steps by editing the script, i had a more elegant solution in mind :D</span></div><div class="line" id="224445"><span class="nick" style="color:#6b8072"><a href="#224445" label="[22:44:45]">&lt;stikonas&gt;</a></span><span class="message">well, yeah, I understand</span></div><div class="line" id="224456"><span class="nick" style="color:#6b8072"><a href="#224456" label="[22:44:56]">&lt;stikonas&gt;</a></span><span class="message">it was a hack, but very quick</span></div><div class="line" id="224500"><span class="nick" style="color:#80b1d3"><a href="#224500" label="[22:45:00]">&lt;bauen1&gt;</a></span><span class="message">but we're probably reaching the point where the early bootstraps time will become less relative to everything else</span></div><div class="line" id="224505"><span class="nick" style="color:#6b8072"><a href="#224505" label="[22:45:05]">&lt;stikonas&gt;</a></span><span class="message">longer term something better would be nicer</span></div><div class="line" id="224521"><span class="nick" style="color:#8dd3c7"><a href="#224521" label="[22:45:21]">&lt;melg8&gt;</a></span><span class="message">can we dynamically replace init executable?</span></div><div class="line" id="224528"><span class="nick" style="color:#6b8072"><a href="#224528" label="[22:45:28]">&lt;stikonas&gt;</a></span><span class="message">well, there is a way to massively speed later bootstrap</span></div><div class="line" id="224533"><span class="nick" style="color:#6b8072"><a href="#224533" label="[22:45:33]">&lt;stikonas&gt;</a></span><span class="message">but it changes every hash</span></div><div class="line" id="224537"><span class="nick" style="color:#8dd3c7"><a href="#224537" label="[22:45:37]">&lt;melg8&gt;</a></span><span class="message">from inside of image</span></div><div class="line" id="224550"><span class="nick" style="color:#6b8072"><a href="#224550" label="[22:45:50]">&lt;stikonas&gt;</a></span><span class="message">that's what pder/overlay did</span></div><div class="line" id="224552"><span class="nick" style="color:#80b1d3"><a href="#224552" label="[22:45:52]">&lt;bauen1&gt;</a></span><span class="message">stikonas: &quot;changes every hash&quot; please explain</span></div><div class="line" id="224602"><span class="nick" style="color:#6b8072"><a href="#224602" label="[22:46:02]">&lt;stikonas&gt;</a></span><span class="message">bauen1: gcc -O0</span></div><div class="line" id="224613"><span class="nick" style="color:#6b8072"><a href="#224613" label="[22:46:13]">&lt;stikonas&gt;</a></span><span class="message">it makes gcc almost as fast as tcc</span></div><div class="line" id="224704"><span class="nick" style="color:#6b8072"><a href="#224704" label="[22:47:04]">&lt;stikonas&gt;</a></span><span class="message">basically remove all optimization passes</span></div><div class="line" id="224838"><span class="nick" style="color:#6b8072"><a href="#224838" label="[22:48:38]">&lt;stikonas&gt;</a></span><span class="message">of course binaries compiled with -O0 are a bit slower than standard -O2...</span></div><br /></div></body></html>

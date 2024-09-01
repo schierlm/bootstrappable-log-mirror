@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-12-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="221544"><span class="nick" style="color:#389600"><a href="#221544" label="[22:15:44]">&lt;mihi&gt;</a></span><span class="message">hello :) Been away for a while since I caught COVID, but feeling better now :)</span></div><div class="line" id="221637"><span class="nick" style="color:#389600"><a href="#221637" label="[22:16:37]">&lt;mihi&gt;</a></span><span class="message">logs are a bit confusing due to some missing date switches, so I probably missed some discussions while catching up. I recall at some point some discussion how cwd should be handled on UEFI, though.</span></div><div class="line" id="221741"><span class="nick" style="color:#8dd3c7"><a href="#221741" label="[22:17:41]">&lt;stikonas&gt;</a></span><span class="message">mihi: cwd itself is going to be environmental variable</span></div><div class="line" id="221800"><span class="nick" style="color:#389600"><a href="#221800" label="[22:18:00]">&lt;mihi&gt;</a></span><span class="message">I would have the libc hold a EFI_FILE_PROTOCOL reference pointing to the current directory (initialized from loaded image protocol by using the directory of the currently running application), and use Open() calls on it to change the directory. Open() will handle ..\ and stuff automatically, the only thing it does not handle is volume switching (and I don't know if we need that)</span></div><div class="line" id="221809"><span class="nick" style="color:#8dd3c7"><a href="#221809" label="[22:18:09]">&lt;stikonas&gt;</a></span><span class="message">I'm thinking that I'll just reuse uefi shell guid to share env variables with UEFI shell</span></div><div class="line" id="221907"><span class="nick" style="color:#8dd3c7"><a href="#221907" label="[22:19:07]">&lt;stikonas&gt;</a></span><span class="message">mihi: my first and very limitted prototype is to just store a string</span></div><div class="line" id="221918"><span class="nick" style="color:#8dd3c7"><a href="#221918" label="[22:19:18]">&lt;stikonas&gt;</a></span><span class="message">rather than EFI_FILE_PROTOCOL reference, that might be good enough</span></div><div class="line" id="221927"><span class="nick" style="color:#389600"><a href="#221927" label="[22:19:27]">&lt;mihi&gt;</a></span><span class="message">when you try to store CWD as a string, you'd have to do the ..\ and .\ mangling yourself or risk it to become too long eventually.</span></div><div class="line" id="221945"><span class="nick" style="color:#389600"><a href="#221945" label="[22:19:45]">&lt;mihi&gt;</a></span><span class="message">but as long as I don't use kaem, I think it should not matter too much.</span></div><div class="line" id="221947"><span class="nick" style="color:#8dd3c7"><a href="#221947" label="[22:19:47]">&lt;stikonas&gt;</a></span><span class="message">potentially yes, but we might be able to just steal some code</span></div><div class="line" id="222001"><span class="nick" style="color:#8dd3c7"><a href="#222001" label="[22:20:01]">&lt;stikonas&gt;</a></span><span class="message">there must be somebody doing stuff like that already</span></div><div class="line" id="222006"><span class="nick" style="color:#8dd3c7"><a href="#222006" label="[22:20:06]">&lt;stikonas&gt;</a></span><span class="message">anyway, just that is not enough</span></div><div class="line" id="222018"><span class="nick" style="color:#8dd3c7"><a href="#222018" label="[22:20:18]">&lt;stikonas&gt;</a></span><span class="message">it has to be environmental variable rather than just libc holding it</span></div><div class="line" id="222033"><span class="nick" style="color:#8dd3c7"><a href="#222033" label="[22:20:33]">&lt;stikonas&gt;</a></span><span class="message">otherwise it wouldn't propagate to child processes</span></div><div class="line" id="222042"><span class="nick" style="color:#8dd3c7"><a href="#222042" label="[22:20:42]">&lt;stikonas&gt;</a></span><span class="message">i.e. I can do cd in kaem</span></div><div class="line" id="222052"><span class="nick" style="color:#8dd3c7"><a href="#222052" label="[22:20:52]">&lt;stikonas&gt;</a></span><span class="message">but then M2-Planet wouldn't know that cd changed</span></div><div class="line" id="222132"><span class="nick" style="color:#389600"><a href="#222132" label="[22:21:32]">&lt;mihi&gt;</a></span><span class="message">hmm. Probably never noticed it as usually I start stuff from their own directory...</span></div><div class="line" id="222158"><span class="nick" style="color:#8dd3c7"><a href="#222158" label="[22:21:58]">&lt;stikonas&gt;</a></span><span class="message">well, initially it confused me, why it doesn't work</span></div><div class="line" id="222204"><span class="nick" style="color:#389600"><a href="#222204" label="[22:22:04]">&lt;mihi&gt;</a></span><span class="message">that could get interesting when calling binaries from UEFI shell across volumes.</span></div><div class="line" id="222210"><span class="nick" style="color:#8dd3c7"><a href="#222210" label="[22:22:10]">&lt;stikonas&gt;</a></span><span class="message">until I realized that child processes still had &quot;/&quot; as their cdw</span></div><div class="line" id="222212"><span class="nick" style="color:#8dd3c7"><a href="#222212" label="[22:22:12]">&lt;stikonas&gt;</a></span><span class="message">cwd</span></div><div class="line" id="222227"><span class="nick" style="color:#8dd3c7"><a href="#222227" label="[22:22:27]">&lt;stikonas&gt;</a></span><span class="message">at the moment I was only supporting one volume...</span></div><div class="line" id="222241"><span class="nick" style="color:#8dd3c7"><a href="#222241" label="[22:22:41]">&lt;stikonas&gt;</a></span><span class="message">I thought it should be enough for bootstrapping</span></div><div class="line" id="222257"><span class="nick" style="color:#8dd3c7"><a href="#222257" label="[22:22:57]">&lt;stikonas&gt;</a></span><span class="message">always the same ESP volume</span></div><div class="line" id="222323"><span class="nick" style="color:#389600"><a href="#222323" label="[22:23:23]">&lt;mihi&gt;</a></span><span class="message">which is fine for kaem, of course :) When somebody is bootstrapping from EFI shell, they will have to be made aware that it will not work across volumes.</span></div><div class="line" id="222341"><span class="nick" style="color:#8dd3c7"><a href="#222341" label="[22:23:41]">&lt;stikonas&gt;</a></span><span class="message">that's probably something for README...</span></div><div class="line" id="222359"><span class="nick" style="color:#389600"><a href="#222359" label="[22:23:59]">&lt;mihi&gt;</a></span><span class="message">how to you find &quot;the ESP&quot; volume? On some of my VMS your code could get schizophrenic if it does not use LOADED_IMAGE_PROTOCOL :D</span></div><div class="line" id="222412"><span class="nick" style="color:#8dd3c7"><a href="#222412" label="[22:24:12]">&lt;stikonas&gt;</a></span><span class="message">I use loaded image protocol</span></div><div class="line" id="222444"><span class="nick" style="color:#389600"><a href="#222444" label="[22:24:44]">&lt;mihi&gt;</a></span><span class="message">(they have multiple disk, each containing an ESP, with matching efi shell entries in the boot variables)</span></div><div class="line" id="222458"><span class="nick" style="color:#8dd3c7"><a href="#222458" label="[22:24:58]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/M2libc/blob/main/amd64/uefi/uefi.c#L545">https://github.com/oriansj/M2libc/blob/main/amd64/uefi/uefi.c#L545</a> </span></div><div class="line" id="222529"><span class="nick" style="color:#8dd3c7"><a href="#222529" label="[22:25:29]">&lt;stikonas&gt;</a></span><span class="message">anyway, I was busy with M2-Planet for most of the time you missed here</span></div><div class="line" id="222536"><span class="nick" style="color:#8dd3c7"><a href="#222536" label="[22:25:36]">&lt;stikonas&gt;</a></span><span class="message">had to improve it a bit</span></div><div class="line" id="222554"><span class="nick" style="color:#8dd3c7"><a href="#222554" label="[22:25:54]">&lt;stikonas&gt;</a></span><span class="message">now we have support for fixed length integer type, i.e. stuff like uint32_t</span></div><div class="line" id="222601"><span class="nick" style="color:#389600"><a href="#222601" label="[22:26:01]">&lt;mihi&gt;</a></span><span class="message">looks good: <a rel="nofollow" href="https://github.com/oriansj/M2libc/blob/main/amd64/uefi/uefi.c#L528">https://github.com/oriansj/M2libc/blob/main/amd64/uefi/uefi.c#L528</a>  - just keep in mind it does not have to be the ESP :)</span></div><div class="line" id="222613"><span class="nick" style="color:#8dd3c7"><a href="#222613" label="[22:26:13]">&lt;stikonas&gt;</a></span><span class="message">and also fixed stuff like struc[a].member</span></div><div class="line" id="222632"><span class="nick" style="color:#8dd3c7"><a href="#222632" label="[22:26:32]">&lt;stikonas&gt;</a></span><span class="message">yeah, it's fine if it's not ESP</span></div><div class="line" id="222636"><span class="nick" style="color:#8dd3c7"><a href="#222636" label="[22:26:36]">&lt;stikonas&gt;</a></span><span class="message">as long as UEFI can read it</span></div><div class="line" id="222641"><span class="nick" style="color:#8dd3c7"><a href="#222641" label="[22:26:41]">&lt;stikonas&gt;</a></span><span class="message">and as long as it has enough storage</span></div><div class="line" id="222706"><span class="nick" style="color:#8dd3c7"><a href="#222706" label="[22:27:06]">&lt;stikonas&gt;</a></span><span class="message">could even be btrfs partition if your UEFI implementation supports it...</span></div><div class="line" id="222739"><span class="nick" style="color:#8dd3c7"><a href="#222739" label="[22:27:39]">&lt;stikonas&gt;</a></span><span class="message">though perhaps later once we get to building a 2nd bootstrap kernel, it would matter</span></div><div class="line" id="222806"><span class="nick" style="color:#8dd3c7"><a href="#222806" label="[22:28:06]">&lt;stikonas&gt;</a></span><span class="message">though I doubt that I'll be able to reach all the way to fiwix by myself</span></div><div class="line" id="222819"><span class="nick" style="color:#8dd3c7"><a href="#222819" label="[22:28:19]">&lt;stikonas&gt;</a></span><span class="message">it's quite a long way away from where we are right now</span></div><div class="line" id="223405"><span class="nick" style="color:#389600"><a href="#223405" label="[22:34:05]">&lt;mihi&gt;</a></span><span class="message">you don't have to do it all by yourself :)</span></div><div class="line" id="223429"><span class="nick" style="color:#389600"><a href="#223429" label="[22:34:29]">&lt;mihi&gt;</a></span><span class="message">you are working on so many fronts, and the others are also useful :)</span></div><div class="line" id="223958"><span class="nick" style="color:#2e2a4a"><a href="#223958" label="[22:39:58]">&lt;muurkha&gt;</a></span><span class="message">mihi: I'm glad you're better!</span></div><div class="line" id="225624"><span class="nick" style="color:#8dd3c7"><a href="#225624" label="[22:56:24]">&lt;stikonas&gt;</a></span><span class="message">oh M2libc comment about adding setting 32-bit values (for UEFI protocol GUIDs) is now misplaced...</span></div><div class="line" id="225627"><span class="nick" style="color:#8dd3c7"><a href="#225627" label="[22:56:27]">&lt;stikonas&gt;</a></span><span class="message">should be lower in the code</span></div><div class="line" id="225702"><span class="nick" style="color:#389600"><a href="#225702" label="[22:57:02]">&lt;mihi&gt;</a></span><span class="message">Now that we were talking about, I was curious and tested efivim opening a file when cwd was on a different volume, and to my surprise it worked. Looking at the source, seems that efivim calls into EFI_SHELL_PROTOCOL.GetCurDir() if that protocol is present to find the current directory... Didn't expect UEFI to be such a mess...</span></div><div class="line" id="230032"><span class="nick" style="color:#8dd3c7"><a href="#230032" label="[23:00:32]">&lt;stikonas&gt;</a></span><span class="message">yeah, it is somewhat of a mess and API is somewhat cluncky</span></div><div class="line" id="230051"><span class="nick" style="color:#8dd3c7"><a href="#230051" label="[23:00:51]">&lt;stikonas&gt;</a></span><span class="message">but we only have to do the minimum amount of work for bootstrapping</span></div><div class="line" id="230100"><span class="nick" style="color:#8dd3c7"><a href="#230100" label="[23:01:00]">&lt;stikonas&gt;</a></span><span class="message">and don't have to write full POSIX library</span></div><div class="line" id="230119"><span class="nick" style="color:#8dd3c7"><a href="#230119" label="[23:01:19]">&lt;stikonas&gt;</a></span><span class="message">and I would assume that EFI_SHELL_PROTOCOL is generally not present</span></div><div class="line" id="230209"><span class="nick" style="color:#8dd3c7"><a href="#230209" label="[23:02:09]">&lt;stikonas&gt;</a></span><span class="message">mihi booted volume is always fs0: isn't it?</span></div><div class="line" id="230856"><span class="nick" style="color:#8dd3c7"><a href="#230856" label="[23:08:56]">&lt;stikonas&gt;</a></span><span class="message">I should first write a nicer readme for stage0-uefi, right now it assumes a general familiarity with stage0-posix stages</span></div><div class="line" id="230907"><span class="nick" style="color:#8dd3c7"><a href="#230907" label="[23:09:07]">&lt;stikonas&gt;</a></span><span class="message">would be easier to advertice that repo then</span></div><div class="line" id="233427"><span class="nick" style="color:#389600"><a href="#233427" label="[23:34:27]">&lt;mihi&gt;</a></span><span class="message">stikonas, I don't know how the shell assigns the drive numbers, but on my test VM with many disks of different controller, the boot volume (SATA drive 0) is FS1:. FS0: is the efi partition from an isohybrid ISO mounted in the CDROM drive (ATA primary master) which does not contain any files and is not writable.</span></div><div class="line" id="233501"><span class="nick" style="color:#389600"><a href="#233501" label="[23:35:01]">&lt;mihi&gt;</a></span><span class="message">I recall also having seen the boot volume to be FS2: But cannot really tell the rules.</span></div><div class="line" id="233549"><span class="nick" style="color:#389600"><a href="#233549" label="[23:35:49]">&lt;mihi&gt;</a></span><span class="message">(This is regardless whether I use the shell from within the UEFI, or boot one from a file on disk)</span></div><div class="line" id="233919"><span class="nick" style="color:#8dd3c7"><a href="#233919" label="[23:39:19]">&lt;stikonas&gt;</a></span><span class="message">ok, that's somewhat useful, though that raises the question whether or how I can reuse cwd variable from UEFI shell</span></div><div class="line" id="233948"><span class="nick" style="color:#8dd3c7"><a href="#233948" label="[23:39:48]">&lt;stikonas&gt;</a></span><span class="message">that variable has values like cwd = FS0:\path\to\directory\</span></div><div class="line" id="234046"><span class="nick" style="color:#8dd3c7"><a href="#234046" label="[23:40:46]">&lt;stikonas&gt;</a></span><span class="message">maybe I indeed should use that suggestion to hold EFI_FILE_PROTOCOL reference pointing to the current directory</span></div><div class="line" id="234050"><span class="nick" style="color:#8dd3c7"><a href="#234050" label="[23:40:50]">&lt;stikonas&gt;</a></span><span class="message">rather than just a string</span></div><br /></div></body></html>

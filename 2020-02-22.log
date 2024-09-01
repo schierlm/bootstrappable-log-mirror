@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-02-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="044640"><span class="nick" style="color:#8dd3c7"><a href="#044640" label="[04:46:40]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: I have an idea you might like; I revise M0-macro.{s,hex2} to leverage only 16bit pointers and work withing 64KB and then simply create M0-macro-compact.s which will include architecture specific size detection and have memory reduction optimizations</span></div><div class="line" id="045927"><span class="nick" style="color:#8dd3c7"><a href="#045927" label="[04:59:27]">&lt;OriansJ&gt;</a></span><span class="message">This little tweak will enable M0-minimal.s to self-host in 38KB <a rel="nofollow" href="https://paste.debian.net/1131508/">https://paste.debian.net/1131508/</a> </span></div><div class="line" id="123800"><span class="nick" style="color:#8dd3c7"><a href="#123800" label="[12:38:00]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: so what I am going to do is first prototype a more memory efficient version of M0 for knight and then use it as the map for writing it in M0 macro assembly</span></div><div class="line" id="123911"><span class="nick" style="color:#8dd3c7"><a href="#123911" label="[12:39:11]">&lt;OriansJ&gt;</a></span><span class="message">Then I'll revise the steps to leverage the much more memory efficient version of M0</span></div><div class="line" id="135624"><span class="nick" style="color:#8dd3c7"><a href="#135624" label="[13:56:24]">&lt;OriansJ&gt;</a></span><span class="message">(now just figuring out how to minimize data movements to cut down on CPU cycles)</span></div><div class="line" id="144244"><span class="nick" style="color:#8dd3c7"><a href="#144244" label="[14:42:44]">&lt;OriansJ&gt;</a></span><span class="message">I can probably even add some basic error catching into M0-macro-compact.S</span></div><div class="line" id="144813"><span class="nick" style="color:#8dd3c7"><a href="#144813" label="[14:48:13]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: if we want cc_*'s outputs to run on a 16bit machine; we will probably need to figure out some good size optimizations for M2-Planet's output (which I can then backport)</span></div><div class="line" id="144835"><span class="nick" style="color:#8dd3c7"><a href="#144835" label="[14:48:35]">&lt;OriansJ&gt;</a></span><span class="message">perhaps some seperate Compiler passes</span></div><div class="line" id="144940"><span class="nick" style="color:#8dd3c7"><a href="#144940" label="[14:49:40]">&lt;OriansJ&gt;</a></span><span class="message">like a generic optimizer and then a specializer. It'll be compute inefficient but end up making M2-Planet simpler and ligher in terms of system requirements</span></div><div class="line" id="153356"><span class="nick" style="color:#8dd3c7"><a href="#153356" label="[15:33:56]">&lt;OriansJ&gt;</a></span><span class="message">I probably even could add some basic range checking into M0 to catch obvious problems</span></div><div class="line" id="155417"><span class="nick" style="color:#8dd3c7"><a href="#155417" label="[15:54:17]">&lt;OriansJ&gt;</a></span><span class="message">The high level prototype is up</span></div><div class="line" id="175251"><span class="nick" style="color:#8dd3c7"><a href="#175251" label="[17:52:51]">&lt;OriansJ&gt;</a></span><span class="message">Ironic that this change now means one can put the defines after its use and it'll work. Which is effectively more flexible and might end up being backported to M1 (if such flexiblity is so desired)</span></div><div class="line" id="180018"><span class="nick" style="color:#8dd3c7"><a href="#180018" label="[18:00:18]">&lt;OriansJ&gt;</a></span><span class="message">It also means the last version of a DEFINE is the first applied but M1 already should be throwing flags for duplicate definitions</span></div><div class="line" id="180134"><span class="nick" style="color:#8dd3c7"><a href="#180134" label="[18:01:34]">&lt;OriansJ&gt;</a></span><span class="message">perhaps a code smell to be aware of in M0 programs (DEFINEs should be at the top and alphabetically sorted sort of thing)</span></div><div class="line" id="181553"><span class="nick" style="color:#8dd3c7"><a href="#181553" label="[18:15:53]">&lt;OriansJ&gt;</a></span><span class="message">bauen1_: when you get a chance, test running a copy of mescc-tools-seed on your kernel. If all successful It'll be ready to start converting into M2-Planet form. (Then I can take a wack at getting it into M2-Planet buildable form)</span></div><div class="line" id="200943"><span class="nick" style="color:#2e2a4a"><a href="#200943" label="[20:09:43]">&lt;xentrac&gt;</a></span><span class="message">sorry I fell offline and missed any messags directed to me</span></div><div class="line" id="210724"><span class="nick" style="color:#8dd3c7"><a href="#210724" label="[21:07:24]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: <a rel="nofollow" href="http://logs.guix.gnu.org/bootstrappable">http://logs.guix.gnu.org/bootstrappable</a> </span></div><div class="line" id="214915"><span class="nick" style="color:#6b8072"><a href="#214915" label="[21:49:15]">&lt;fossy&gt;</a></span><span class="message">Woo, finished refactor of kaem</span></div><div class="line" id="214954"><span class="nick" style="color:#6b8072"><a href="#214954" label="[21:49:54]">&lt;fossy&gt;</a></span><span class="message">I now feel like it would make sense to write a testsuite</span></div><div class="line" id="215004"><span class="nick" style="color:#2e2a4a"><a href="#215004" label="[21:50:04]">&lt;xentrac&gt;</a></span><span class="message">it helps with refactoring</span></div><div class="line" id="215007"><span class="nick" style="color:#6b8072"><a href="#215007" label="[21:50:07]">&lt;fossy&gt;</a></span><span class="message">since I am getting a ton of segfaults</span></div><div class="line" id="215305"><span class="nick" style="color:#2e2a4a"><a href="#215305" label="[21:53:05]">&lt;xentrac&gt;</a></span><span class="message">it helps with debugging</span></div><div class="line" id="215311"><span class="nick" style="color:#8dd3c7"><a href="#215311" label="[21:53:11]">&lt;OriansJ&gt;</a></span><span class="message">fossy: don't forget to create a monkey_lives flag</span></div><div class="line" id="215323"><span class="nick" style="color:#6b8072"><a href="#215323" label="[21:53:23]">&lt;fossy&gt;</a></span><span class="message">huh?</span></div><div class="line" id="215348"><span class="nick" style="color:#2e2a4a"><a href="#215348" label="[21:53:48]">&lt;xentrac&gt;</a></span><span class="message">OriansJ: oh, ALON?  ALON might or might not increase longevity over the fused quartz used in, for example, the Arch Mission disc in orbit with Starman</span></div><div class="line" id="215353"><span class="nick" style="color:#8dd3c7"><a href="#215353" label="[21:53:53]">&lt;OriansJ&gt;</a></span><span class="message">fossy: so that when you fuzz the program; it can't execute anything dangerous</span></div><div class="line" id="215418"><span class="nick" style="color:#6b8072"><a href="#215418" label="[21:54:18]">&lt;fossy&gt;</a></span><span class="message">like rm -rf /? :p</span></div><div class="line" id="215436"><span class="nick" style="color:#8dd3c7"><a href="#215436" label="[21:54:36]">&lt;OriansJ&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.folklore.org/StoryView.py?story=Monkey_Lives.txt">https://www.folklore.org/StoryView.py?story=Monkey_Lives.txt</a> </span></div><div class="line" id="215542"><span class="nick" style="color:#8dd3c7"><a href="#215542" label="[21:55:42]">&lt;OriansJ&gt;</a></span><span class="message">fossy: well that is one definite sort of thing you'll want to avoid happening by accident when fuzzing</span></div><div class="line" id="215557"><span class="nick" style="color:#6b8072"><a href="#215557" label="[21:55:57]">&lt;fossy&gt;</a></span><span class="message">yes</span></div><div class="line" id="215618"><span class="nick" style="color:#6b8072"><a href="#215618" label="[21:56:18]">&lt;fossy&gt;</a></span><span class="message">not completely sure how to implement this...</span></div><div class="line" id="215625"><span class="nick" style="color:#2e2a4a"><a href="#215625" label="[21:56:25]">&lt;xentrac&gt;</a></span><span class="message">crystalline materials have some disadvantages for some forms of archival; they're anisotropic, which makes it harder to control engraving processes, and their low-energy state is when the crystal is perfect, which is why you can often reduce defects in gems by heat treatment</span></div><div class="line" id="215629"><span class="nick" style="color:#6b8072"><a href="#215629" label="[21:56:29]">&lt;fossy&gt;</a></span><span class="message">maybe a hardcoded array of dangerous commands?</span></div><div class="line" id="215644"><span class="nick" style="color:#2e2a4a"><a href="#215644" label="[21:56:44]">&lt;xentrac&gt;</a></span><span class="message">no, a hardcoded array of not-dangerous commands</span></div><div class="line" id="215707"><span class="nick" style="color:#8dd3c7"><a href="#215707" label="[21:57:07]">&lt;OriansJ&gt;</a></span><span class="message">fossy: or simply create a variable called int monkey_lives and not execve anything if it is set to TRUE</span></div><div class="line" id="215732"><span class="nick" style="color:#6b8072"><a href="#215732" label="[21:57:32]">&lt;fossy&gt;</a></span><span class="message">well, that'll miss out on some extremely edge cases but thats ok</span></div><div class="line" id="215744"><span class="nick" style="color:#2e2a4a"><a href="#215744" label="[21:57:44]">&lt;xentrac&gt;</a></span><span class="message">anyway, so imperfections in crystals, which are sort of by definition what you need to record information, are unstable over long periods of time; imperfections in glasses are, I think, less so</span></div><div class="line" id="215914"><span class="nick" style="color:#8dd3c7"><a href="#215914" label="[21:59:14]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: thinking deeper on the idea; religious symbols on the outside and the contents of that religion's text internal with the information you want preserved as possible ways to increase the odds of some surviving</span></div><div class="line" id="215940"><span class="nick" style="color:#2e2a4a"><a href="#215940" label="[21:59:40]">&lt;xentrac&gt;</a></span><span class="message">remember the Maya codices tho</span></div><div class="line" id="215953"><span class="nick" style="color:#2e2a4a"><a href="#215953" label="[21:59:53]">&lt;xentrac&gt;</a></span><span class="message">and all the idols of Arabia before Muhammad</span></div><div class="line" id="220029"><span class="nick" style="color:#8dd3c7"><a href="#220029" label="[22:00:29]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: valid point;</span></div><div class="line" id="220205"><span class="nick" style="color:#2e2a4a"><a href="#220205" label="[22:02:05]">&lt;xentrac&gt;</a></span><span class="message">I mean it does reduce the chance of it ending up in an incinerator after not selling at a garage sale</span></div><div class="line" id="220226"><span class="nick" style="color:#2e2a4a"><a href="#220226" label="[22:02:26]">&lt;xentrac&gt;</a></span><span class="message">but it increases the risk of iconoclasm</span></div><div class="line" id="220307"><span class="nick" style="color:#8dd3c7"><a href="#220307" label="[22:03:07]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: true; which is why a variety of external cases reduces the odds that all will be destroyed</span></div><div class="line" id="221036"><span class="nick" style="color:#2e2a4a"><a href="#221036" label="[22:10:36]">&lt;xentrac&gt;</a></span><span class="message">yes!</span></div><div class="line" id="230605"><span class="nick" style="color:#8dd3c7"><a href="#230605" label="[23:06:05]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: I was also thinking of using a different material internally for information storage than externally for protection/optical defense.</span></div><br /></div></body></html>

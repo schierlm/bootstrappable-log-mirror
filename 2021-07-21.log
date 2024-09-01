@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="032420"><span class="nick" style="color:#8dd3c7"><a href="#032420" label="[03:24:20]">&lt;oriansj&gt;</a></span><span class="message">stikonas[m]: not a stupid question at all. See in assembly EOF doesn't actually exist and the implementation of READ needs to have some consistent way to know you reached the end of the file. As the Kernel only will inform you of how many bytes it retrieved for you (zero in the case of you hit End of File or the file is empty)</span></div><div class="line" id="032653"><span class="nick" style="color:#8dd3c7"><a href="#032653" label="[03:26:53]">&lt;oriansj&gt;</a></span><span class="message">So I picked the value -4 because I liked it but any value greater than 7bits in lengt will work for hex1 (or 8 bits if you want to not have the file truncate at 0xFF or something like that) but I could have also set some global value to anything I wanted to indicate EOF.</span></div><div class="line" id="033236"><span class="nick" style="color:#2e2a4a"><a href="#033236" label="[03:32:36]">&lt;xentrac&gt;</a></span><span class="message">traditional stdio eof is -1 fwiw</span></div><div class="line" id="033246"><span class="nick" style="color:#2e2a4a"><a href="#033246" label="[03:32:46]">&lt;xentrac&gt;</a></span><span class="message">which is why getc() and getchar() return int</span></div><div class="line" id="055635"><span class="nick" style="color:#6b8072"><a href="#055635" label="[05:56:35]">&lt;plasma41&gt;</a></span><span class="message">Discovered this tonight: Up-to-date BusyBox/Linux on a single floppy <a rel="nofollow" href="https://bits.p1x.in/floppinux-an-embedded-linux-on-a-single-floppy/">https://bits.p1x.in/floppinux-an-embedded-linux-on-a-single-floppy/</a>  Nice!</span></div><div class="line" id="081255"><span class="nick" style="color:#80b1d3"><a href="#081255" label="[08:12:55]">&lt;fossy&gt;</a></span><span class="message">hell yes</span></div><div class="line" id="081351"><span class="nick" style="color:#80b1d3"><a href="#081351" label="[08:13:51]">&lt;fossy&gt;</a></span><span class="message">hm</span></div><div class="line" id="112534"><span class="nick">***</span><span class="message notice">attila_lendvai_ is now known as attila_lendvai</span></div><div class="line" id="225844"><span class="nick" style="color:#6d2462"><a href="#225844" label="[22:58:44]">&lt;stikonas&gt;</a></span><span class="message">oriansj: fyi, High Level Prototypes/hex1.c and hex2.c seems to be a bit broken. Not yet sure what exactly is wrong but I think something is incorrect with pointer address calculation, hex0.c seems to work fine</span></div><br /></div></body></html>

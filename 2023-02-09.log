@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-02-09.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004405"><span class="nick" style="color:#389600"><a href="#004405" label="[00:44:05]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: merged</span></div><div class="line" id="211401"><span class="nick" style="color:#8dd3c7"><a href="#211401" label="[21:14:01]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: why are you using amd64 arch instead of i386? (&lt;<a rel="nofollow" href="https://github.com/ironmeld/builder-hex0/commit/905f87dd643beae0df8584853c64200e70400d01">https://github.com/ironmeld/builder-hex0/commit/905f87dd643beae0df8584853c64200e70400d01</a>&gt;) </span></div><div class="line" id="211421"><span class="nick" style="color:#8dd3c7"><a href="#211421" label="[21:14:21]">&lt;Mikaku&gt;</a></span><span class="message">I thought bootstrapping was only for i386</span></div><div class="line" id="211441"><span class="nick" style="color:#8dd3c7"><a href="#211441" label="[21:14:41]">&lt;Mikaku&gt;</a></span><span class="message">also, why 4GB of memory?</span></div><div class="line" id="211452"><span class="nick" style="color:#8dd3c7"><a href="#211452" label="[21:14:52]">&lt;Mikaku&gt;</a></span><span class="message">just curious :-)</span></div><div class="line" id="211625"><span class="nick" style="color:#2e2a4a"><a href="#211625" label="[21:16:25]">&lt;rickmasters&gt;</a></span><span class="message">Oh it's just the qemu I found on my machine initially. qemu-system-i386 will work fine. It's all 32-bit code.</span></div><div class="line" id="211659"><span class="nick" style="color:#8dd3c7"><a href="#211659" label="[21:16:59]">&lt;Mikaku&gt;</a></span><span class="message">OK</span></div><div class="line" id="211750"><span class="nick" style="color:#2e2a4a"><a href="#211750" label="[21:17:50]">&lt;rickmasters&gt;</a></span><span class="message">With regards to 4GB of memory, that's probably a bit overkill. I'm using 3GB.</span></div><div class="line" id="211829"><span class="nick" style="color:#8dd3c7"><a href="#211829" label="[21:18:29]">&lt;Mikaku&gt;</a></span><span class="message">3GB on an i386 without PAE?</span></div><div class="line" id="211834"><span class="nick" style="color:#2e2a4a"><a href="#211834" label="[21:18:34]">&lt;rickmasters&gt;</a></span><span class="message">That's what's needed to hold the builder-hex0 file system, the Fiwix file system, and all the builder-hex0 working memory.</span></div><div class="line" id="212023"><span class="nick" style="color:#8dd3c7"><a href="#212023" label="[21:20:23]">&lt;Mikaku&gt;</a></span><span class="message">I think 3GB is too much for a plain i386 arch</span></div><div class="line" id="212032"><span class="nick" style="color:#2e2a4a"><a href="#212032" label="[21:20:32]">&lt;rickmasters&gt;</a></span><span class="message">With qemu I've got 3GB mapped without PAE. I'm not sure how realistic that is.</span></div><div class="line" id="212108"><span class="nick" style="color:#8dd3c7"><a href="#212108" label="[21:21:08]">&lt;Mikaku&gt;</a></span><span class="message">are you sure you are using all this memory really?</span></div><div class="line" id="212126"><span class="nick" style="color:#2e2a4a"><a href="#212126" label="[21:21:26]">&lt;rickmasters&gt;</a></span><span class="message">Yes</span></div><div class="line" id="212251"><span class="nick" style="color:#8dd3c7"><a href="#212251" label="[21:22:51]">&lt;Mikaku&gt;</a></span><span class="message">OK</span></div><div class="line" id="213214"><span class="nick" style="color:#8dd3c7"><a href="#213214" label="[21:32:14]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: builder-hex0 setup a GDT with a flat 4GB segment?</span></div><div class="line" id="213411"><span class="nick" style="color:#2e2a4a"><a href="#213411" label="[21:34:11]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: yes</span></div><div class="line" id="213503"><span class="nick" style="color:#8dd3c7"><a href="#213503" label="[21:35:03]">&lt;Mikaku&gt;</a></span><span class="message">I see, thanks!</span></div><div class="line" id="213625"><span class="nick" style="color:#2e2a4a"><a href="#213625" label="[21:36:25]">&lt;rickmasters&gt;</a></span><span class="message">sure</span></div><div class="line" id="225853"><span class="nick" style="color:#389600"><a href="#225853" label="[22:58:53]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: I guess mes uses quite a bit of memory?</span></div><div class="line" id="230006"><span class="nick" style="color:#2e2a4a"><a href="#230006" label="[23:00:06]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: I believe it used 560MB compiling tcc</span></div><div class="line" id="230259"><span class="nick" style="color:#389600"><a href="#230259" label="[23:02:59]">&lt;stikonas&gt;</a></span><span class="message">yeah, that's quite a lot...</span></div><div class="line" id="230532"><span class="nick" style="color:#2e2a4a"><a href="#230532" label="[23:05:32]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: And it spawns another process and with builder-hex0's single process design, it copies it when its suspended so its really double that.</span></div><div class="line" id="230715"><span class="nick" style="color:#389600"><a href="#230715" label="[23:07:15]">&lt;stikonas&gt;</a></span><span class="message">well, we can't expect it to be optimal, it's a small bootstrap kernel</span></div><div class="line" id="230845"><span class="nick" style="color:#2e2a4a"><a href="#230845" label="[23:08:45]">&lt;rickmasters&gt;</a></span><span class="message">the copy could be avoided with some page mapping code but I haven't had to do that.</span></div><div class="line" id="233846"><span class="nick" style="color:#6b8072"><a href="#233846" label="[23:38:46]">&lt;doras&gt;</a></span><span class="message">fossy: do you have GCC10 already working reasonably well?</span></div><div class="line" id="234129"><span class="nick" style="color:#6b8072"><a href="#234129" label="[23:41:29]">&lt;doras&gt;</a></span><span class="message">If so, do you think you could share your changes soon so we could try it out? It doesn't have to be final yet of course, but if it already works it can give us a headstart in attempting to build upon it.</span></div><br /></div></body></html>

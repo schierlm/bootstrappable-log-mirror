@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-08-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003257"><span class="nick" style="color:#389600"><a href="#003257" label="[00:32:57]">&lt;stikonas&gt;</a></span><span class="message">lrvick: I think haskell there predates bootstrappability of other stuff in guix</span></div><div class="line" id="003308"><span class="nick" style="color:#389600"><a href="#003308" label="[00:33:08]">&lt;stikonas&gt;</a></span><span class="message">well, they had a few attempts at haskell but so far no luckj</span></div><div class="line" id="003538"><span class="nick" style="color:#8dd3c7"><a href="#003538" label="[00:35:38]">&lt;andydude&gt;</a></span><span class="message">Irvise: you mean hugs?</span></div><div class="line" id="004024"><span class="nick" style="color:#8dd3c7"><a href="#004024" label="[00:40:24]">&lt;andydude&gt;</a></span><span class="message">Irvick: iirc, this guy talked about using hugs to bootstrap GHC: <a rel="nofollow" href="https://www.joachim-breitner.de/blog/748-Thoughts_on_bootstrapping_GHC">https://www.joachim-breitner.de/blog/748-Thoughts_on_bootstrapping_GHC</a> </span></div><div class="line" id="005047"><span class="nick" style="color:#389600"><a href="#005047" label="[00:50:47]">&lt;stikonas&gt;</a></span><span class="message">there are some newer updates <a rel="nofollow" href="https://www.joachim-breitner.de/blog/802-More_thoughts_on_a_bootstrappable_GHC">https://www.joachim-breitner.de/blog/802-More_thoughts_on_a_bootstrappable_GHC</a> </span></div><div class="line" id="015722"><span class="nick" style="color:#8dd3c7"><a href="#015722" label="[01:57:22]">&lt;andydude&gt;</a></span><span class="message">I wrote a grep clone in Haskell</span></div><div class="line" id="021243"><span class="nick" style="color:#2e2a4a"><a href="#021243" label="[02:12:43]">&lt;lrvick&gt;</a></span><span class="message">Hmm. Will keep an eye on the hugs path</span></div><div class="line" id="021341"><span class="nick" style="color:#8dd3c7"><a href="#021341" label="[02:13:41]">&lt;andydude&gt;</a></span><span class="message">Also, there seems to be a Haskell=&gt;C option <a rel="nofollow" href="https://gitlab.haskell.org/ghc/ghc/-/wikis/building/unregisterised">https://gitlab.haskell.org/ghc/ghc/-/wikis/building/unregisterised</a> </span></div><div class="line" id="021421"><span class="nick" style="color:#2e2a4a"><a href="#021421" label="[02:14:21]">&lt;lrvick&gt;</a></span><span class="message">So maybe something along the lines of mrustc is possible then</span></div><div class="line" id="021425"><span class="nick" style="color:#8dd3c7"><a href="#021425" label="[02:14:25]">&lt;andydude&gt;</a></span><span class="message">But that seems like it might be outside the spirit of bootstrapping</span></div><div class="line" id="021440"><span class="nick" style="color:#2e2a4a"><a href="#021440" label="[02:14:40]">&lt;lrvick&gt;</a></span><span class="message">convert ghc to C, then compile it with gcc, then use that to compile ghc</span></div><div class="line" id="021454"><span class="nick" style="color:#2e2a4a"><a href="#021454" label="[02:14:54]">&lt;lrvick&gt;</a></span><span class="message">that feels less insane to say now that I have seen mrustc</span></div><div class="line" id="021502"><span class="nick" style="color:#8dd3c7"><a href="#021502" label="[02:15:02]">&lt;andydude&gt;</a></span><span class="message">What's mrustc?</span></div><div class="line" id="021540"><span class="nick" style="color:#2e2a4a"><a href="#021540" label="[02:15:40]">&lt;lrvick&gt;</a></span><span class="message">mrustc is how rust is bootstrapped now. Mutabah straight ports old versions of rust to C++, compiles them with gcc, then you can use those to compile rust itself native</span></div><div class="line" id="021544"><span class="nick" style="color:#2e2a4a"><a href="#021544" label="[02:15:44]">&lt;lrvick&gt;</a></span><span class="message">and bootstrap from there</span></div><div class="line" id="021605"><span class="nick" style="color:#2e2a4a"><a href="#021605" label="[02:16:05]">&lt;lrvick&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/thepowersgang/mrustc">https://github.com/thepowersgang/mrustc</a> </span></div><div class="line" id="021619"><span class="nick" style="color:#8dd3c7"><a href="#021619" label="[02:16:19]">&lt;andydude&gt;</a></span><span class="message">C++ makes a great compilation target</span></div><div class="line" id="021631"><span class="nick" style="color:#2e2a4a"><a href="#021631" label="[02:16:31]">&lt;lrvick&gt;</a></span><span class="message">yeah it is the gcc-&gt;rustc bridge</span></div><div class="line" id="021639"><span class="nick" style="color:#2e2a4a"><a href="#021639" label="[02:16:39]">&lt;lrvick&gt;</a></span><span class="message">so maybe can do similar with ghc</span></div><div class="line" id="021702"><span class="nick" style="color:#2e2a4a"><a href="#021702" label="[02:17:02]">&lt;lrvick&gt;</a></span><span class="message">ghc source -&gt; c++ source -&gt; gcc -&gt; ghc</span></div><div class="line" id="021743"><span class="nick" style="color:#8dd3c7"><a href="#021743" label="[02:17:43]">&lt;andydude&gt;</a></span><span class="message">Zig also has a C++ impl</span></div><div class="line" id="021800"><span class="nick" style="color:#8dd3c7"><a href="#021800" label="[02:18:00]">&lt;andydude&gt;</a></span><span class="message">but I believe it's part of the main repo</span></div><div class="line" id="021812"><span class="nick" style="color:#2e2a4a"><a href="#021812" label="[02:18:12]">&lt;lrvick&gt;</a></span><span class="message">yeah, and zig is stupid easy to bootstrap</span></div><div class="line" id="021817"><span class="nick" style="color:#2e2a4a"><a href="#021817" label="[02:18:17]">&lt;lrvick&gt;</a></span><span class="message">I already do it in stagex</span></div><div class="line" id="021857"><span class="nick" style="color:#2e2a4a"><a href="#021857" label="[02:18:57]">&lt;lrvick&gt;</a></span><span class="message">zig was -built- for bootstrapping. Wish more languages thought about this early</span></div><div class="line" id="021959"><span class="nick" style="color:#2e2a4a"><a href="#021959" label="[02:19:59]">&lt;lrvick&gt;</a></span><span class="message">literally just a &quot;cmake&quot; invocation to bootstrap zig</span></div><div class="line" id="070237"><span class="nick" style="color:#6b8072"><a href="#070237" label="[07:02:37]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Bootstrap from what though? 2.6MB wasm binary? <a rel="nofollow" href="https://github.com/ziglang/zig-bootstrap/blob/master/zig/stage1/zig1.wasm">https://github.com/ziglang/zig-bootstrap/blob/master/zig/stage1/zig1.wasm</a> </span></div><div class="line" id="070333"><span class="nick" style="color:#6b8072"><a href="#070333" label="[07:03:33]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I'm not too familiar with the process, but it seems <a rel="nofollow" href="https://github.com/ziglang/zig-bootstrap/blob/master/zig/bootstrap.c">https://github.com/ziglang/zig-bootstrap/blob/master/zig/bootstrap.c</a>  builds a wasm to c converter then converts zig1.wasm into C?</span></div><div class="line" id="070405"><span class="nick" style="color:#6b8072"><a href="#070405" label="[07:04:05]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; If so then you've got an large binary to audit.</span></div><div class="line" id="070413"><span class="nick" style="color:#6b8072"><a href="#070413" label="[07:04:13]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; * n</span></div><div class="line" id="070418"><span class="nick" style="color:#6b8072"><a href="#070418" label="[07:04:18]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; * a</span></div><div class="line" id="071954"><span class="nick" style="color:#80b1d3"><a href="#071954" label="[07:19:54]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">cosinusoidally: Zig can be bootstrapped from version 0.10.0, which doesn't bootstrap from a wasm binary</span></div><div class="line" id="073443"><span class="nick" style="color:#6b8072"><a href="#073443" label="[07:34:43]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; ah fair enough</span></div><div class="line" id="074007"><span class="nick" style="color:#6b8072"><a href="#074007" label="[07:40:07]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; but does that involve walking up the versions one by one like rust?</span></div><div class="line" id="111509"><span class="nick" style="color:#6d2462"><a href="#111509" label="[11:15:09]">&lt;oriansj&gt;</a></span><span class="message">AwesomeAdam54321: version 0.10.0 was written in zig itself; so you need a 0.9.* to build it from source if I remember correctly.</span></div><div class="line" id="142250"><span class="nick" style="color:#6b8072"><a href="#142250" label="[14:22:50]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But at least for zig there is still a path, even if not direct...</span></div><div class="line" id="142310"><span class="nick" style="color:#6b8072"><a href="#142310" label="[14:23:10]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Haskell or scala don't have any path ...</span></div><div class="line" id="150348"><span class="nick" style="color:#234e69"><a href="#150348" label="[15:03:48]">&lt;lanodan&gt;</a></span><span class="message">Yeah that said I wonder how long the 0.9.x compiler will work as it uses LLVM rather than something more stable.</span></div><div class="line" id="175917"><span class="nick" style="color:#6b8072"><a href="#175917" label="[17:59:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Well, one will have to build old llvm...</span></div><div class="line" id="175924"><span class="nick" style="color:#6b8072"><a href="#175924" label="[17:59:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Just like for rustc</span></div><div class="line" id="184437"><span class="nick" style="color:#2e2a4a"><a href="#184437" label="[18:44:37]">&lt;lrvick&gt;</a></span><span class="message">Though if mrustc .74 ships, I can finally drop all old versions of llvm from the stagex tree...</span></div><div class="line" id="204146"><span class="nick" style="color:#6b8072"><a href="#204146" label="[20:41:46]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; well, in my gentoo-bootstrap overlay I just used vendored llvm source</span></div><div class="line" id="204205"><span class="nick" style="color:#6b8072"><a href="#204205" label="[20:42:05]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; which is a bit inefficient as you need to rebuild them for each rustc version</span></div><div class="line" id="204244"><span class="nick" style="color:#6b8072"><a href="#204244" label="[20:42:44]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; but at least it reduces the amount of maintenance that I have to do</span></div><br /></div></body></html>

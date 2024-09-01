@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-09-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001052"><span class="nick" style="color:#8dd3c7"><a href="#001052" label="[00:10:52]">&lt;stikonas&gt;</a></span><span class="message">so far I checked mihi's bootstrap up to the point where autogen binary is built (there is a bit more after that, in particular &quot;Bootstrapping tpl-config.tlib&quot;) and so far it all seems good</span></div><div class="line" id="001850"><span class="nick" style="color:#8dd3c7"><a href="#001850" label="[00:18:50]">&lt;stikonas&gt;</a></span><span class="message">rest shouldn't be too bad anyway...</span></div><div class="line" id="003954"><span class="nick" style="color:#8dd3c7"><a href="#003954" label="[00:39:54]">&lt;stikonas&gt;</a></span><span class="message">ok, tpl-config.tlib seems fine too</span></div><div class="line" id="004002"><span class="nick" style="color:#8dd3c7"><a href="#004002" label="[00:40:02]">&lt;stikonas&gt;</a></span><span class="message">it's just some bash script running it</span></div><div class="line" id="021923"><span class="nick" style="color:#8dd3c7"><a href="#021923" label="[02:19:23]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: out of curiousity, any reason why you had to write simple-patch.c rather than use replace from stage0-posix?</span></div><div class="line" id="024228"><span class="nick" style="color:#2e2a4a"><a href="#024228" label="[02:42:28]">*</a></span><span class="message">oriansj wonders if adding diff and patch to mescc-tools-extra might have been a superior choice to replace.</span></div><div class="line" id="032020"><span class="nick" style="color:#6b8072"><a href="#032020" label="[03:20:20]">&lt;oriansj&gt;</a></span><span class="message">I can actually use M2-Planet's -D VERSION=1.2.3 functionally and no longer have to update the version string</span></div><div class="line" id="032328"><span class="nick" style="color:#6b8072"><a href="#032328" label="[03:23:28]">&lt;oriansj&gt;</a></span><span class="message">I can just pull it from the build environment and it'll always be correct</span></div><div class="line" id="032608"><span class="nick" style="color:#6b8072"><a href="#032608" label="[03:26:08]">&lt;oriansj&gt;</a></span><span class="message">(although the bootstrap script might need to manually update the -D value</span></div><div class="line" id="032613"><span class="nick" style="color:#6b8072"><a href="#032613" label="[03:26:13]">&lt;oriansj&gt;</a></span><span class="message">)</span></div><div class="line" id="041905"><span class="nick" style="color:#80b1d3"><a href="#041905" label="[04:19:05]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: oh yes, that was fine to merge which</span></div><div class="line" id="111105"><span class="nick" style="color:#8dd3c7"><a href="#111105" label="[11:11:05]">&lt;stikonas&gt;</a></span><span class="message">fossy: regarding autogen, we need to build it in two stages (right now mihi's script does both) but I think we can split it, exit earlier and just do normal build of 2nd stage.</span></div><div class="line" id="111111"><span class="nick" style="color:#8dd3c7"><a href="#111111" label="[11:11:11]">&lt;stikonas&gt;</a></span><span class="message">The question is when to stop</span></div><div class="line" id="111209"><span class="nick" style="color:#8dd3c7"><a href="#111209" label="[11:12:09]">&lt;stikonas&gt;</a></span><span class="message">one option is to stop after config-tpl.tlib is created <a rel="nofollow" href="https://github.com/schierlm/gnu-autogen-bootstrapping/blob/main/bootstrap.sh#L95">https://github.com/schierlm/gnu-autogen-bootstrapping/blob/main/bootstrap.sh#L95</a>  (then next stage is just normal build, basically as much as you need to build when you upgrade from one version of autogen to another)</span></div><div class="line" id="111233"><span class="nick" style="color:#8dd3c7"><a href="#111233" label="[11:12:33]">&lt;stikonas&gt;</a></span><span class="message">another option is to stop after <a rel="nofollow" href="https://github.com/schierlm/gnu-autogen-bootstrapping/blob/main/bootstrap.sh#L80">https://github.com/schierlm/gnu-autogen-bootstrapping/blob/main/bootstrap.sh#L80</a> </span></div><div class="line" id="111256"><span class="nick" style="color:#8dd3c7"><a href="#111256" label="[11:12:56]">&lt;stikonas&gt;</a></span><span class="message">so once tricky parts are over, so once columns, getdefs and autogen binaries are built</span></div><div class="line" id="111349"><span class="nick" style="color:#8dd3c7"><a href="#111349" label="[11:13:49]">&lt;stikonas&gt;</a></span><span class="message">that config-tpl.tlib step is just using sed command to patch some placeholder values and running configure</span></div><div class="line" id="111407"><span class="nick" style="color:#8dd3c7"><a href="#111407" label="[11:14:07]">&lt;stikonas&gt;</a></span><span class="message">any preference?</span></div><div class="line" id="115238"><span class="nick" style="color:#80b1d3"><a href="#115238" label="[11:52:38]">&lt;fossy&gt;</a></span><span class="message">stikonas: i would say probably at L95, that seems the most &quot;normal&quot; part of it all</span></div><div class="line" id="115310"><span class="nick" style="color:#80b1d3"><a href="#115310" label="[11:53:10]">&lt;fossy&gt;</a></span><span class="message">(as in, where it's most like anormal build)</span></div><div class="line" id="120129"><span class="nick" style="color:#8dd3c7"><a href="#120129" label="[12:01:29]">&lt;stikonas&gt;</a></span><span class="message">indeed, that's where a normal build starts</span></div><div class="line" id="120147"><span class="nick" style="color:#8dd3c7"><a href="#120147" label="[12:01:47]">&lt;stikonas&gt;</a></span><span class="message">that previous step is still bootstrapping though  at that point it's an easy bootstrapping</span></div><div class="line" id="120458"><span class="nick">***</span><span class="message notice">Noisytoot_ is now known as Noisytoot</span></div><div class="line" id="123638"><span class="nick" style="color:#80b1d3"><a href="#123638" label="[12:36:38]">&lt;fossy&gt;</a></span><span class="message">yeah, makes more sense to my brain at least, if we're going to separate it, separate it where the bootstrapping portion ends</span></div><div class="line" id="125220"><span class="nick" style="color:#8dd3c7"><a href="#125220" label="[12:52:20]">&lt;stikonas&gt;</a></span><span class="message">possibly the nicer way to refactor that bootstrap.sh is to have main() function in bash that just calls individual stages (each in its own function)</span></div><div class="line" id="125500"><span class="nick" style="color:#8dd3c7"><a href="#125500" label="[12:55:00]">&lt;stikonas&gt;</a></span><span class="message">anyway, I first need to fix static vs dynamic linking stuff in live-bootstrap</span></div><div class="line" id="125652"><span class="nick" style="color:#8dd3c7"><a href="#125652" label="[12:56:52]">&lt;stikonas&gt;</a></span><span class="message">so I'll add CFLAGS=&quot;-static&quot; (or CXXFLAGS=&quot;-static&quot;) for binaries but for libraries I'll build both static and dynamic libraries if possible</span></div><div class="line" id="131425"><span class="nick" style="color:#80b1d3"><a href="#131425" label="[13:14:25]">&lt;fossy&gt;</a></span><span class="message">that sounds reasonable</span></div><div class="line" id="181303"><span class="nick" style="color:#8dd3c7"><a href="#181303" label="[18:13:03]">&lt;stikonas&gt;</a></span><span class="message">hmm, now I've got some build error in automake-1.15</span></div><div class="line" id="181339"><span class="nick" style="color:#8dd3c7"><a href="#181339" label="[18:13:39]">&lt;stikonas&gt;</a></span><span class="message">autom4te-2.69: cannot create autom4te.cache: No such file or directory</span></div><div class="line" id="181954"><span class="nick" style="color:#8dd3c7"><a href="#181954" label="[18:19:54]">&lt;stikonas&gt;</a></span><span class="message">I've reponed <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/184">https://github.com/fosslinux/live-bootstrap/issues/184</a> </span></div><div class="line" id="205914"><span class="nick" style="color:#6d2462"><a href="#205914" label="[20:59:14]">&lt;doras&gt;</a></span><span class="message">stikonas: this looks like the same build failure seen in automake-1.11.2</span></div><div class="line" id="205942"><span class="nick" style="color:#6d2462"><a href="#205942" label="[20:59:42]">&lt;doras&gt;</a></span><span class="message">The one where it was suggested that it may be related to timestamp.s</span></div><div class="line" id="205945"><span class="nick" style="color:#6d2462"><a href="#205945" label="[20:59:45]">&lt;doras&gt;</a></span><span class="message">timestamps*</span></div><div class="line" id="210203"><span class="nick" style="color:#6d2462"><a href="#210203" label="[21:02:03]">&lt;doras&gt;</a></span><span class="message">You can see that it tries to re-run autom4te/autoconf during the `src_compile()` stage.</span></div><div class="line" id="210257"><span class="nick" style="color:#8dd3c7"><a href="#210257" label="[21:02:57]">&lt;stikonas&gt;</a></span><span class="message">doras: strangely I only see it in automake-1.15...</span></div><div class="line" id="210317"><span class="nick" style="color:#8dd3c7"><a href="#210317" label="[21:03:17]">&lt;stikonas&gt;</a></span><span class="message">doras: so do you think we need to add those variables? AUTOCONF=autoconf-.. etc?</span></div><div class="line" id="210450"><span class="nick" style="color:#6d2462"><a href="#210450" label="[21:04:50]">&lt;doras&gt;</a></span><span class="message">stikonas: well, I think it would work around the issue. Perhaps it's not too bad to rely on a workaround for now.</span></div><div class="line" id="210524"><span class="nick" style="color:#6d2462"><a href="#210524" label="[21:05:24]">&lt;doras&gt;</a></span><span class="message">I saw it in both packages, by the way.</span></div><div class="line" id="210532"><span class="nick" style="color:#8dd3c7"><a href="#210532" label="[21:05:32]">&lt;stikonas&gt;</a></span><span class="message">ok...</span></div><div class="line" id="210533"><span class="nick" style="color:#6d2462"><a href="#210533" label="[21:05:33]">&lt;doras&gt;</a></span><span class="message">More often in automake-1.11.2, however.</span></div><div class="line" id="210649"><span class="nick" style="color:#8dd3c7"><a href="#210649" label="[21:06:49]">&lt;stikonas&gt;</a></span><span class="message">doras: I have a change to make gperf build static binary and libffi, gc, libatomic_ops and libunistring to build both shared and static libraries, although I have not yet figured out guile...</span></div><div class="line" id="210700"><span class="nick" style="color:#8dd3c7"><a href="#210700" label="[21:07:00]">&lt;stikonas&gt;</a></span><span class="message">though my changes might conflict a bit with your PR...</span></div><div class="line" id="210711"><span class="nick" style="color:#8dd3c7"><a href="#210711" label="[21:07:11]">&lt;stikonas&gt;</a></span><span class="message">(I gues mostly hash changes)</span></div><div class="line" id="210846"><span class="nick" style="color:#8dd3c7"><a href="#210846" label="[21:08:46]">&lt;stikonas&gt;</a></span><span class="message">anyway, it will probably take a few more rebuilds till I iron out all issues</span></div><div class="line" id="211632"><span class="nick" style="color:#6d2462"><a href="#211632" label="[21:16:32]">&lt;doras&gt;</a></span><span class="message">stikonas: nice.</span></div><div class="line" id="211706"><span class="nick" style="color:#6d2462"><a href="#211706" label="[21:17:06]">&lt;doras&gt;</a></span><span class="message">It may take me a few days to handle the review comments, so don't worry about the hashes.</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-09-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="215436"><span class="nick" style="color:#8dd3c7"><a href="#215436" label="[21:54:36]">&lt;OriansJ&gt;</a></span><span class="message">Hagfish: nice find; it certainly looks like something that could be bootstrappable from M2-Planet with a reasonable amount of work.</span></div><div class="line" id="220346"><span class="nick" style="color:#8dd3c7"><a href="#220346" label="[22:03:46]">&lt;OriansJ&gt;</a></span><span class="message">Then one would be able to do the messy linux/gcc builds upon a posix; which really simplifies several minor techical problems.</span></div><div class="line" id="220402"><span class="nick" style="color:#2e2a4a"><a href="#220402" label="[22:04:02]">&lt;xentrac&gt;</a></span><span class="message">:)</span></div><div class="line" id="220848"><span class="nick" style="color:#8dd3c7"><a href="#220848" label="[22:08:48]">&lt;OriansJ&gt;</a></span><span class="message">Literally there are only 18 pieces left to complete the entire bootstrap (assuming janneke has finally removed the remaining issues from the MesCC to GCC path); that is if we include building trusted hardware (but not including ports to new architectures)</span></div><div class="line" id="225158"><span class="nick" style="color:#8dd3c7"><a href="#225158" label="[22:51:58]">&lt;OriansJ&gt;</a></span><span class="message">Here is my current (probably insanely stupid plan); I create a collection of scheme programs called slow-utils, that all can run on guile/mes-m2 that remove the need for mescc-tools and any other binary besides the scheme interpreter from our bootstrap chain. With the assumption of only mes-m2 [built by M2-Planet] aiming to build guile and gcc via MesCC. Everyone gets to mock how bad I am at programming in scheme and thus solves my need</span></div><div class="line" id="225159"><span class="nick" style="color:#8dd3c7"><a href="#225159" label="[22:51:59]">&lt;OriansJ&gt;</a></span><span class="message">for proper scheme test programs for the mes-m2 binary. Guix's bootstrap reduces to only the mes-m2 binary, which can simply leverage a kaem script to bootstrap guile and gcc</span></div><div class="line" id="225850"><span class="nick" style="color:#8dd3c7"><a href="#225850" label="[22:58:50]">&lt;OriansJ&gt;</a></span><span class="message">Thus eliminating the need for a fixed-point in the guix bootstrap binaries as M2-Planet always produces bit-predictable binaries and when I am done with mes-m2; all non-deterministic features will be stripped.</span></div><div class="line" id="231914"><span class="nick" style="color:#6b8072"><a href="#231914" label="[23:19:14]">&lt;janneke&gt;</a></span><span class="message">OriansJ: that's an interesting idea</span></div><div class="line" id="232258"><span class="nick" style="color:#80b1d3"><a href="#232258" label="[23:22:58]">*</a></span><span class="message">janneke has mes+mescc x86 segfaulting all of a sudden, terrible -&gt; zZzz</span></div><div class="line" id="234527"><span class="nick" style="color:#8dd3c7"><a href="#234527" label="[23:45:27]">&lt;OriansJ&gt;</a></span><span class="message">janneke: I think me rewriting hex2+M1+blood-elf in scheme first probably is a good first step; then MesCC can just depend upon itself and import them as source and thus only depend upon it's interpreter (Thus able to ignore the environment entirely)</span></div><div class="line" id="234746"><span class="nick" style="color:#8dd3c7"><a href="#234746" label="[23:47:46]">&lt;OriansJ&gt;</a></span><span class="message">Then we can import gash, kaem, tar and other pieces to slow-utils until we have everything required for a full and complete bootstrap together.</span></div><br /></div></body></html>

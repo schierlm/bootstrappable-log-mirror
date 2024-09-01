@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="023925"><span class="nick" style="color:#8dd3c7"><a href="#023925" label="[02:39:25]">&lt;stikonas&gt;</a></span><span class="message">ok, switching to i386-unknown-linux-musl triplet definitely helped with g++, all builds errors are gone.</span></div><div class="line" id="024017"><span class="nick" style="color:#8dd3c7"><a href="#024017" label="[02:40:17]">&lt;stikonas&gt;</a></span><span class="message">now just need to disentangle gperf and g++ (gperf is written in C++ bug g++ uses gperf for some headers, but hopefully patchable)</span></div><div class="line" id="024626"><span class="nick" style="color:#2e2a4a"><a href="#024626" label="[02:46:26]">&lt;Hagfish&gt;</a></span><span class="message">that's starting to sound like a fairly textbook piece of bootstrapping work, but it's still impressive to even get that far</span></div><div class="line" id="024754"><span class="nick">***</span><span class="message notice">bandali_ is now known as bandali</span></div><div class="line" id="024959"><span class="nick" style="color:#8dd3c7"><a href="#024959" label="[02:49:59]">&lt;stikonas&gt;</a></span><span class="message">bootstrapping gperf/g++ might turn out way easier than I initially though</span></div><div class="line" id="025006"><span class="nick" style="color:#8dd3c7"><a href="#025006" label="[02:50:06]">&lt;stikonas&gt;</a></span><span class="message">but we'll see...</span></div><div class="line" id="030640"><span class="nick" style="color:#8dd3c7"><a href="#030640" label="[03:06:40]">&lt;stikonas&gt;</a></span><span class="message">hmm, yes, patching gperf out of g++ is fairly trivial</span></div><div class="line" id="030653"><span class="nick" style="color:#8dd3c7"><a href="#030653" label="[03:06:53]">&lt;stikonas&gt;</a></span><span class="message">a couple of sed commands can do it</span></div><div class="line" id="030721"><span class="nick" style="color:#8dd3c7"><a href="#030721" label="[03:07:21]">&lt;stikonas&gt;</a></span><span class="message">maybe it breaks exceptions in a minor way, but resulting g++ can build  gperf</span></div><div class="line" id="030940"><span class="nick" style="color:#8dd3c7"><a href="#030940" label="[03:09:40]">&lt;stikonas&gt;</a></span><span class="message">so tomorrow evening I can try to get g++ PR</span></div><div class="line" id="070446"><span class="nick" style="color:#2e2a4a"><a href="#070446" label="[07:04:46]">&lt;Hagfish&gt;</a></span><span class="message">a g++ PR would be poggers, as they say</span></div><div class="line" id="080506"><span class="nick" style="color:#6b8072"><a href="#080506" label="[08:05:06]">&lt;siraben&gt;</a></span><span class="message">Gen Z has entered the chat</span></div><div class="line" id="080518"><span class="nick" style="color:#6b8072"><a href="#080518" label="[08:05:18]">&lt;siraben&gt;</a></span><span class="message">(I am a Gen Z-er also heh)</span></div><br /></div></body></html>

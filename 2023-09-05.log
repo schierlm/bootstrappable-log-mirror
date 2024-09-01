@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-09-05.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="091534"><span class="nick" style="color:#389600"><a href="#091534" label="[09:15:34]">&lt;[exa]&gt;</a></span><span class="message">muurkha: btw it's cool they squeezed 4MHz out of that; the theoretical limit for the epprom is like 8Mhz there</span></div><div class="line" id="091552"><span class="nick" style="color:#389600"><a href="#091552" label="[09:15:52]">&lt;[exa]&gt;</a></span><span class="message">running on sram this could be wild</span></div><div class="line" id="091926"><span class="nick" style="color:#8dd3c7"><a href="#091926" label="[09:19:26]">&lt;muurkha&gt;</a></span><span class="message">how fast do discrete async srams go?</span></div><div class="line" id="092058"><span class="nick" style="color:#8dd3c7"><a href="#092058" label="[09:20:58]">&lt;muurkha&gt;</a></span><span class="message">I've found 45ns EEPROM</span></div><div class="line" id="092139"><span class="nick" style="color:#8dd3c7"><a href="#092139" label="[09:21:39]">&lt;muurkha&gt;</a></span><span class="message">(by &quot;discrete&quot; I mean a RAM chip as opposed to RAM integrated onto your FPGA or something.  not RAM made out of discrete transistors or cores)</span></div><div class="line" id="095429"><span class="nick" style="color:#389600"><a href="#095429" label="[09:54:29]">&lt;[exa]&gt;</a></span><span class="message">absolutely no idea there but there's not much in the way that would cause it to be very slow</span></div><div class="line" id="095455"><span class="nick" style="color:#389600"><a href="#095455" label="[09:54:55]">&lt;[exa]&gt;</a></span><span class="message">as in, the latency might be O(wire length + mosfet switch delay)</span></div><div class="line" id="095941"><span class="nick" style="color:#8dd3c7"><a href="#095941" label="[09:59:41]">&lt;muurkha&gt;</a></span><span class="message">well, you can build a mux to be quite slow if you don't care how fast it is</span></div><div class="line" id="100028"><span class="nick" style="color:#8dd3c7"><a href="#100028" label="[10:00:28]">&lt;muurkha&gt;</a></span><span class="message">also inside the chip, if you have a tiny little latch driving a huge bitline, it can take a while</span></div><div class="line" id="100053"><span class="nick" style="color:#8dd3c7"><a href="#100053" label="[10:00:53]">&lt;muurkha&gt;</a></span><span class="message">and in DRAM, sense amplifiers can take a while to decide which way they're going; I don't know if there are similar components in SRAM</span></div><div class="line" id="100140"><span class="nick" style="color:#8dd3c7"><a href="#100140" label="[10:01:40]">&lt;muurkha&gt;</a></span><span class="message">the limiting issue is often actually EMI.  with single-ended signals, people limit slew rates on pin drivers to reduce the amount of EMI they're coupling into the power planes</span></div><div class="line" id="100228"><span class="nick" style="color:#8dd3c7"><a href="#100228" label="[10:02:28]">&lt;muurkha&gt;</a></span><span class="message">and a lot of old chips have the Vcc and GND pins maximally far apart, and only one of each, which dramatically increases the area enclosed in the magnetic loop that produces and receives EMI</span></div><div class="line" id="100307"><span class="nick" style="color:#8dd3c7"><a href="#100307" label="[10:03:07]">&lt;muurkha&gt;</a></span><span class="message">not to mention that DIP packaging creates huge and totally unnecessary big loops; PLCC is a bit better, but WLCSP/BGA cuts that shit way the fuck down</span></div><div class="line" id="100535"><span class="nick" style="color:#8dd3c7"><a href="#100535" label="[10:05:35]">&lt;muurkha&gt;</a></span><span class="message">getting past about 33 MHz typically requires a lot of attention to this kind of stuff in your board layout, though differential signaling can reduce the problem a lot</span></div><div class="line" id="100624"><span class="nick" style="color:#8dd3c7"><a href="#100624" label="[10:06:24]">&lt;muurkha&gt;</a></span><span class="message">adding to the problem is that like 80% of EEs have no idea about half the stuff I'm talking about above, and 30 years ago it was more like 97%</span></div><br /></div></body></html>

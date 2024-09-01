@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-08-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004751"><span class="nick" style="color:#389600"><a href="#004751" label="[00:47:51]">&lt;Googulator&gt;</a></span><span class="message">andydude: let me suggest the name &quot;m3&quot; for the C autoconf replacement :)</span></div><div class="line" id="004813"><span class="nick" style="color:#389600"><a href="#004813" label="[00:48:13]">&lt;Googulator&gt;</a></span><span class="message">we already have m0, m1 &amp; m2 early in the bootstrap chain</span></div><div class="line" id="004842"><span class="nick" style="color:#389600"><a href="#004842" label="[00:48:42]">&lt;Googulator&gt;</a></span><span class="message">&amp; then m4 is used by autoconf for macros; IIRC you plan to keep using m4 for the C replacement too</span></div><div class="line" id="004910"><span class="nick" style="color:#389600"><a href="#004910" label="[00:49:10]">&lt;Googulator&gt;</a></span><span class="message">hence the C autoconf replacement kind of fits in the chain between m2 (&amp; many more components), and m4</span></div><div class="line" id="010041"><span class="nick" style="color:#8dd3c7"><a href="#010041" label="[01:00:41]">&lt;stikonas&gt;</a></span><span class="message">oriansj already tried to use m3 for something, though I don't think there was any code written</span></div><div class="line" id="010118"><span class="nick" style="color:#8dd3c7"><a href="#010118" label="[01:01:18]">&lt;stikonas&gt;</a></span><span class="message">or maybe a bit but nothing used in production <a rel="nofollow" href="https://github.com/oriansj/M3-Meteoroid">https://github.com/oriansj/M3-Meteoroid</a> </span></div><div class="line" id="010136"><span class="nick" style="color:#8dd3c7"><a href="#010136" label="[01:01:36]">&lt;stikonas&gt;</a></span><span class="message">I think the intention was to have binutils compatible tools</span></div><div class="line" id="010145"><span class="nick" style="color:#8dd3c7"><a href="#010145" label="[01:01:45]">&lt;stikonas&gt;</a></span><span class="message">rather than what mescc-tools use</span></div><div class="line" id="030317"><span class="nick" style="color:#2e2a4a"><a href="#030317" label="[03:03:17]">&lt;andydude&gt;</a></span><span class="message">Googulator: I was actually considering calling the whole thing &quot;atbox&quot; and the autoconf library &quot;libatm4te&quot; the automake library &quot;libatmake&quot;</span></div><div class="line" id="030411"><span class="nick" style="color:#2e2a4a"><a href="#030411" label="[03:04:11]">&lt;andydude&gt;</a></span><span class="message">I don't want to replace m4, I like m4</span></div><div class="line" id="030617"><span class="nick" style="color:#2e2a4a"><a href="#030617" label="[03:06:17]">&lt;andydude&gt;</a></span><span class="message">I also like the idea of choosing names from some similarity pool, like cat names, mountain names, etc.</span></div><div class="line" id="030744"><span class="nick" style="color:#2e2a4a"><a href="#030744" label="[03:07:44]">&lt;andydude&gt;</a></span><span class="message">Like maybe &quot;autocheese&quot; and &quot;automarinate&quot;</span></div><div class="line" id="030936"><span class="nick" style="color:#2e2a4a"><a href="#030936" label="[03:09:36]">&lt;andydude&gt;</a></span><span class="message">or &quot;libnoperlconf&quot;, &quot;libnoperlmake&quot;</span></div><div class="line" id="055254"><span class="nick" style="color:#6b8072"><a href="#055254" label="[05:52:54]">&lt;fossy&gt;</a></span><span class="message">hey stikonas, i think your forgejo has some problems, just thought i should let you know :) (500 on trying to access gentoo-bootstrap)</span></div><div class="line" id="055308"><span class="nick" style="color:#6b8072"><a href="#055308" label="[05:53:08]">&lt;fossy&gt;</a></span><span class="message">thanks mid-kid for _ctypes + dynlinks for python</span></div><div class="line" id="101655"><span class="nick" style="color:#8dd3c7"><a href="#101655" label="[10:16:55]">&lt;stikonas&gt;</a></span><span class="message">fossy: oops, let me take a look</span></div><div class="line" id="102221"><span class="nick" style="color:#8dd3c7"><a href="#102221" label="[10:22:21]">&lt;stikonas&gt;</a></span><span class="message">fossy: should be fixed now</span></div><div class="line" id="164755"><span class="nick" style="color:#80b1d3"><a href="#164755" label="[16:47:55]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I've been experimenting with running stage0-posix on very old Linux distros. Turns out there is a bug in M0_x86.hex2 that causes it to crash on 2.0 kernels and earlier. M0 expects ebp to be initialised to 0 but Linux 2.0 and earlier don't do that <a rel="nofollow" href="https://asm.sourceforge.net/articles/startup.html">https://asm.sourceforge.net/articles/startup.html</a>  . I fixed that bug that then allowed stage0-posix to run to completion on a 2.0.37 kernel (under slackware...</span></div><div class="line" id="164800"><span class="nick" style="color:#80b1d3"><a href="#164800" label="[16:48:00]">&lt;matrix_bridge&gt;</a></span><span class="message">... 3.9 from 1999). stage0 also nearly runs to completion under earlier kernels, but I think it runs out of memory as kernels before 2.0.36 do not detect more that 64MB of RAM in qemu.</span></div><div class="line" id="164913"><span class="nick" style="color:#80b1d3"><a href="#164913" label="[16:49:13]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Under slackware 2.0.0 (with an 1.0.9 kernel from 1994). stage0-posix fails on &quot;# Phase-15 Build M2-Planet from M2-Planet  #&quot;</span></div><div class="line" id="165051"><span class="nick" style="color:#80b1d3"><a href="#165051" label="[16:50:51]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I think it's probably running out of memory. I managed to get my tcc_bootstrap_alt to run to completion on 1.0.9 but I had to reduce the memory usage of this step <a rel="nofollow" href="https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/master/tcc_10/build.kaem">https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/master/tcc_10/build.kaem</a>  by reducing the number of times I rebuilt tcc (fix is not yet committed to the repo).</span></div><div class="line" id="165301"><span class="nick" style="color:#80b1d3"><a href="#165301" label="[16:53:01]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; getting old distros working can also be a bit fiddly. eg Linux 1.0.9 doesn't seem to be able to detect disks larger that 512MB (or somewhere between there and 1GB). So I ended up scratching my head for ages figuring out why Linux couldn't find my disk image.</span></div><div class="line" id="165610"><span class="nick" style="color:#80b1d3"><a href="#165610" label="[16:56:10]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; For slackware 3.4 to 3.9 I found zipslack to be handy, since no matter what I did I couldn't seem to get the boot floppies to work on any 3.x version of slackware. zipslack allows you to install slackware on a dos partition. I first installed freedos 1.3  unzipped zipslack and then used loadlin to boot into slackware.</span></div><div class="line" id="165658"><span class="nick" style="color:#80b1d3"><a href="#165658" label="[16:56:58]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; (all under qemu)</span></div><div class="line" id="171309"><span class="nick" style="color:#80b1d3"><a href="#171309" label="[17:13:09]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; cosinusoidally: nice catch. Hopefully PR is incoming</span></div><div class="line" id="173132"><span class="nick" style="color:#80b1d3"><a href="#173132" label="[17:31:32]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; yep I'll raise one some point</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-02-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="070459"><span class="nick">***</span><span class="message notice">janneke_ is now known as janneke</span></div><div class="line" id="095320"><span class="nick" style="color:#8dd3c7"><a href="#095320" label="[09:53:20]">&lt;attila_lendvai&gt;</a></span><span class="message">this is simple and has been pending for long. i'm running with it for months: <a rel="nofollow" href="https://issues.guix.gnu.org/50565">https://issues.guix.gnu.org/50565</a> </span></div><div class="line" id="095333"><span class="nick" style="color:#8dd3c7"><a href="#095333" label="[09:53:33]">&lt;attila_lendvai&gt;</a></span><span class="message">sorry, wrong channel</span></div><div class="line" id="121128"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><div class="line" id="121134"><span class="nick" style="color:#2e2a4a"><a href="#121134" label="[12:11:34]">&lt;rekado&gt;</a></span><span class="message">this is my current problem: <a rel="nofollow" href="https://elephly.net/paste/1643800265.html">https://elephly.net/paste/1643800265.html</a> </span></div><div class="line" id="121221"><span class="nick" style="color:#2e2a4a"><a href="#121221" label="[12:12:21]">&lt;rekado&gt;</a></span><span class="message">the mentioned symbols from parts of libbfd.a are all defined in liberty.a</span></div><div class="line" id="122037"><span class="nick" style="color:#6b8072"><a href="#122037" label="[12:20:37]">&lt;stikonas&gt;</a></span><span class="message">rekado: that wouldn't work</span></div><div class="line" id="122123"><span class="nick" style="color:#6b8072"><a href="#122123" label="[12:21:23]">&lt;stikonas&gt;</a></span><span class="message">the linker seems those libiberty.a symbols as unused, drops them and then goes on to libbfd.a and then encounters those symbols</span></div><div class="line" id="122129"><span class="nick" style="color:#6b8072"><a href="#122129" label="[12:21:29]">&lt;stikonas&gt;</a></span><span class="message">rekado: try swapping the linking order</span></div><div class="line" id="122148"><span class="nick" style="color:#2e2a4a"><a href="#122148" label="[12:21:48]">&lt;rekado&gt;</a></span><span class="message">I see.  I had the order swapped before with the same results, but I’ll try again.</span></div><div class="line" id="122149"><span class="nick" style="color:#2e2a4a"><a href="#122149" label="[12:21:49]">&lt;rekado&gt;</a></span><span class="message">b</span></div><div class="line" id="122157"><span class="nick" style="color:#6b8072"><a href="#122157" label="[12:21:57]">&lt;stikonas&gt;</a></span><span class="message">ok, maybe it's not that then...</span></div><div class="line" id="122548"><span class="nick" style="color:#6b8072"><a href="#122548" label="[12:25:48]">&lt;stikonas&gt;</a></span><span class="message">anyway, at least documentation says that linker resolves symbols from left to right and notes unresolved symbols</span></div><div class="line" id="122553"><span class="nick" style="color:#2e2a4a"><a href="#122553" label="[12:25:53]">&lt;rekado&gt;</a></span><span class="message">no, you’re totally right</span></div><div class="line" id="122603"><span class="nick" style="color:#2e2a4a"><a href="#122603" label="[12:26:03]">&lt;rekado&gt;</a></span><span class="message">it does solve the immediate problem</span></div><div class="line" id="122614"><span class="nick" style="color:#6b8072"><a href="#122614" label="[12:26:14]">&lt;stikonas&gt;</a></span><span class="message">ok, what's the next issue?</span></div><div class="line" id="122633"><span class="nick" style="color:#2e2a4a"><a href="#122633" label="[12:26:33]">&lt;rekado&gt;</a></span><span class="message">originally it did “-lbfd -liberty”; that wouldn’t work, so I replaced them with the actual .a file names.</span></div><div class="line" id="122708"><span class="nick" style="color:#2e2a4a"><a href="#122708" label="[12:27:08]">&lt;rekado&gt;</a></span><span class="message">the next issue is simple: I need the haskell C preprocessor.  Hugs has it.</span></div><div class="line" id="123124"><span class="nick" style="color:#6b8072"><a href="#123124" label="[12:31:24]">&lt;stikonas&gt;</a></span><span class="message">ok, let us know here if you get stuck</span></div><div class="line" id="123148"><span class="nick" style="color:#6b8072"><a href="#123148" label="[12:31:48]">&lt;stikonas&gt;</a></span><span class="message">somebody might be able to help</span></div><div class="line" id="134430"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="134918"><span class="nick" style="color:#80b1d3"><a href="#134918" label="[13:49:18]">&lt;oriansj&gt;</a></span><span class="message">well generated files might be a stop gap but by no means should we consider a bootstrap solved till we have eliminated them.</span></div><div class="line" id="135225"><span class="nick" style="color:#6d2462"><a href="#135225" label="[13:52:25]">&lt;bauen1&gt;</a></span><span class="message">oriansj: i think i disagree, if the generated files are good enough to be easily audited (e.g. a ~1kb binary) then it should be fine</span></div><div class="line" id="135230"><span class="nick" style="color:#80b1d3"><a href="#135230" label="[13:52:30]">&lt;oriansj&gt;</a></span><span class="message">just getting a source like root and making a solid path from it will give us a point to target and a chain to follow</span></div><div class="line" id="135248"><span class="nick" style="color:#6d2462"><a href="#135248" label="[13:52:48]">&lt;bauen1&gt;</a></span><span class="message">oriansj: if you have a binary you can audit you will also be able to implement a different implementation if you so desire</span></div><div class="line" id="135440"><span class="nick" style="color:#80b1d3"><a href="#135440" label="[13:54:40]">&lt;oriansj&gt;</a></span><span class="message">bauen1: and once we have those in source form, we will truly be convered.</span></div><div class="line" id="135513"><span class="nick" style="color:#80b1d3"><a href="#135513" label="[13:55:13]">&lt;oriansj&gt;</a></span><span class="message">again this is a thing to improve, not a *scream flailing* situation</span></div><div class="line" id="135556"><span class="nick" style="color:#80b1d3"><a href="#135556" label="[13:55:56]">&lt;oriansj&gt;</a></span><span class="message">it is fine if some people don't think it an issue, just like it is fine for someone to think it is and then do the work required to address it.</span></div><div class="line" id="145324"><span class="nick" style="color:#2e2a4a"><a href="#145324" label="[14:53:24]">&lt;rekado&gt;</a></span><span class="message">I got the modified hugs in GHC 4 to build</span></div><div class="line" id="145358"><span class="nick" style="color:#2e2a4a"><a href="#145358" label="[14:53:58]">&lt;rekado&gt;</a></span><span class="message">the build system is a bit of a mess, though</span></div><div class="line" id="153528"><span class="nick" style="color:#6b8072"><a href="#153528" label="[15:35:28]">&lt;stikonas&gt;</a></span><span class="message">yeah, build system there is indeed a mess...</span></div><div class="line" id="153546"><span class="nick" style="color:#6b8072"><a href="#153546" label="[15:35:46]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I think so far nobody gave any evidence that those files are generated</span></div><div class="line" id="153623"><span class="nick" style="color:#6b8072"><a href="#153623" label="[15:36:23]">&lt;stikonas&gt;</a></span><span class="message">they look handwritten to me, the history in git makes sense</span></div><div class="line" id="153824"><span class="nick" style="color:#6b8072"><a href="#153824" label="[15:38:24]">&lt;stikonas&gt;</a></span><span class="message">and the comments that are in .hc files are not found anywhere else</span></div><div class="line" id="153918"><span class="nick" style="color:#6b8072"><a href="#153918" label="[15:39:18]">&lt;stikonas&gt;</a></span><span class="message">oriansj: take a look yourself: <a rel="nofollow" href="https://github.com/ghc/ghc/blob/fa4769e95b2ceeb4cff8ab71f3b74fc8f2d9d7a0/ghc/rts/Updates.hc">https://github.com/ghc/ghc/blob/fa4769e95b2ceeb4cff8ab71f3b74fc8f2d9d7a0/ghc/rts/Updates.hc</a> </span></div><div class="line" id="162617"><span class="nick" style="color:#2e2a4a"><a href="#162617" label="[16:26:17]">&lt;rekado&gt;</a></span><span class="message">new problem: /tmp/guix-build-ghc-4.08.2.drv-0/ghc-4.08.2/ghc/interpreter/nHandle.so: undefined symbol: atexit</span></div><div class="line" id="162639"><span class="nick" style="color:#2e2a4a"><a href="#162639" label="[16:26:39]">&lt;rekado&gt;</a></span><span class="message">I don’t see “atexit” in the corresponding source file, but it does call “exit”.</span></div><div class="line" id="162732"><span class="nick" style="color:#6b8072"><a href="#162732" label="[16:27:32]">&lt;stikonas&gt;</a></span><span class="message">hmm, isn't that from C library</span></div><div class="line" id="162815"><span class="nick" style="color:#2e2a4a"><a href="#162815" label="[16:28:15]">&lt;rekado&gt;</a></span><span class="message">it’s built like this: gcc -O -Wall -shared -fPIC -o nHandle.so nHandle.c</span></div><div class="line" id="162850"><span class="nick" style="color:#2e2a4a"><a href="#162850" label="[16:28:50]">&lt;rekado&gt;</a></span><span class="message">gcc here is gcc 2.95, glibc is 2.2.5, binutils is 2.14.</span></div><div class="line" id="163041"><span class="nick" style="color:#2e2a4a"><a href="#163041" label="[16:30:41]">&lt;rekado&gt;</a></span><span class="message">also tried with binutils 2.20.1a; there’s no difference</span></div><div class="line" id="165112"><span class="nick" style="color:#6b8072"><a href="#165112" label="[16:51:12]">&lt;stikonas&gt;</a></span><span class="message">it's probably libc, not other components...</span></div><div class="line" id="165115"><span class="nick" style="color:#6b8072"><a href="#165115" label="[16:51:15]">&lt;stikonas&gt;</a></span><span class="message">hmm</span></div><div class="line" id="165120"><span class="nick" style="color:#6b8072"><a href="#165120" label="[16:51:20]">&lt;stikonas&gt;</a></span><span class="message">symbol hidden for some reason? <a rel="nofollow" href="https://sourceware.org/git/?p=glibc.git;a=blob;f=stdlib/atexit.c;h=024381dd439ca4942f70d06c14ebeab56424fcf0;hb=c0fd6e1d648ac5d4ac1a7e964ecf664a8aa5ce94">https://sourceware.org/git/?p=glibc.git;a=blob;f=stdlib/atexit.c;h=024381dd439ca4942f70d06c14ebeab56424fcf0;hb=c0fd6e1d648ac5d4ac1a7e964ecf664a8aa5ce94</a> </span></div><div class="line" id="165200"><span class="nick" style="color:#234e69"><a href="#165200" label="[16:52:00]">&lt;civodul&gt;</a></span><span class="message">maybe it's missing the right include, which does #define atexit __atexit or something like that?</span></div><div class="line" id="182557"><span class="nick" style="color:#2e2a4a"><a href="#182557" label="[18:25:57]">&lt;rekado&gt;</a></span><span class="message">I’m puzzled by this because nHandle.c is just 176 lines of boring C code.  One procedure uses exit().  Its headers are all standard headers.</span></div><div class="line" id="183048"><span class="nick" style="color:#2e2a4a"><a href="#183048" label="[18:30:48]">&lt;rekado&gt;</a></span><span class="message">nHandle.so is accessed from Haskell through the FFI</span></div><div class="line" id="184548"><span class="nick" style="color:#80b1d3"><a href="#184548" label="[18:45:48]">&lt;oriansj&gt;</a></span><span class="message">stikonas: fair point, it doesn't look generated. Perhaps written by an APL programmer.</span></div><div class="line" id="185128"><span class="nick" style="color:#2e2a4a"><a href="#185128" label="[18:51:28]">&lt;rekado&gt;</a></span><span class="message">hah :)</span></div><div class="line" id="185504"><span class="nick" style="color:#80b1d3"><a href="#185504" label="[18:55:04]">&lt;oriansj&gt;</a></span><span class="message">because everyone *just* knows what P_ p means, I mean it is clearly so obvious. :rolleyes:</span></div><div class="line" id="185544"><span class="nick" style="color:#6b8072"><a href="#185544" label="[18:55:44]">&lt;stikonas&gt;</a></span><span class="message">well yes, code could be explained much better...</span></div><div class="line" id="185839"><span class="nick" style="color:#6b8072"><a href="#185839" label="[18:58:39]">&lt;stikonas&gt;</a></span><span class="message">rekado: maybe useless observation, but I can build that file with glibc 2.33</span></div><div class="line" id="185907"><span class="nick" style="color:#6b8072"><a href="#185907" label="[18:59:07]">&lt;stikonas&gt;</a></span><span class="message">so that again points the blame to glibc 2.2.5</span></div><div class="line" id="185911"><span class="nick" style="color:#6b8072"><a href="#185911" label="[18:59:11]">&lt;stikonas&gt;</a></span><span class="message">rekado: maybe you can use something newer?</span></div><div class="line" id="190037"><span class="nick" style="color:#6b8072"><a href="#190037" label="[19:00:37]">&lt;stikonas&gt;</a></span><span class="message">rekado: by the way, do you have a list of steps you are using? I could try building it with newer gcc then...</span></div><div class="line" id="190106"><span class="nick" style="color:#80b1d3"><a href="#190106" label="[19:01:06]">&lt;oriansj&gt;</a></span><span class="message">fortunately that is more of a style (probably audit) problem than a bootstrapping problem. So it is something that could be fixed up but not something I'd burn time on until after major bootstrapping goals are solved.</span></div><div class="line" id="190107"><span class="nick" style="color:#6b8072"><a href="#190107" label="[19:01:07]">&lt;stikonas&gt;</a></span><span class="message">I did briefly look at it but got a bit confused</span></div><div class="line" id="190133"><span class="nick" style="color:#6b8072"><a href="#190133" label="[19:01:33]">&lt;stikonas&gt;</a></span><span class="message">(since then we thought that hugs is not necessary)</span></div><div class="line" id="203334"><span class="nick" style="color:#2e2a4a"><a href="#203334" label="[20:33:34]">&lt;rekado&gt;</a></span><span class="message">I tried glibc 2.16, but the package in Guix seems to be broken.  It refers to /lib/ld-linux.so.2, which doesn’t exist on Guix.</span></div><div class="line" id="203347"><span class="nick" style="color:#2e2a4a"><a href="#203347" label="[20:33:47]">&lt;rekado&gt;</a></span><span class="message">gotta fix that first</span></div><div class="line" id="215153"><span class="nick">***</span><span class="message notice">civodul is now known as civodul`</span></div><div class="line" id="215217"><span class="nick">***</span><span class="message notice">civodul` is now known as civodul</span></div><div class="line" id="221351"><span class="nick">***</span><span class="message notice">iridium.libera.chat sets mode: +o oriansj</span></div><div class="line" id="221517"><span class="nick">***</span><span class="message notice">iridium.libera.chat sets mode: +o janneke</span></div><div class="line" id="223135"><span class="nick">***</span><span class="message notice">iridium.libera.chat sets mode: +o ChanServ</span></div><br /></div></body></html>

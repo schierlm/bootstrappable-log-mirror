@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-12-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="023152"><span class="nick" style="color:#8dd3c7"><a href="#023152" label="[02:31:52]">&lt;oriansj&gt;</a></span><span class="message"> gbrlwck: the logic you are looking for is in the bottom of: boot-0.scm</span></div><div class="line" id="103646"><span class="nick">***</span><span class="message notice">nckx is now known as nckxmas</span></div><div class="line" id="125616"><span class="nick" style="color:#2e2a4a"><a href="#125616" label="[12:56:16]">&lt;gbrlwck&gt;</a></span><span class="message">oriansj: thanks!</span></div><div class="line" id="163311"><span class="nick" style="color:#2e2a4a"><a href="#163311" label="[16:33:11]">&lt;gbrlwck&gt;</a></span><span class="message">fossy: i just opened a pull request for live-bootstrap.  i tested it yesterday and it worked</span></div><div class="line" id="165627"><span class="nick" style="color:#6b8072"><a href="#165627" label="[16:56:27]">*</a></span><span class="message">gbrlwck wonders how mescc can be unhappy about a seemingly trivial c file like lib/mes/eputs.c</span></div><div class="line" id="171324"><span class="nick" style="color:#80b1d3"><a href="#171324" label="[17:13:24]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: you have offended the linter there, can you split the long line?</span></div><div class="line" id="171706"><span class="nick" style="color:#2e2a4a"><a href="#171706" label="[17:17:06]">&lt;gbrlwck&gt;</a></span><span class="message">huh, didn't realize there was a CI script running automatically!  nice</span></div><div class="line" id="171714"><span class="nick" style="color:#2e2a4a"><a href="#171714" label="[17:17:14]">&lt;gbrlwck&gt;</a></span><span class="message">it is now fixed</span></div><div class="line" id="171746"><span class="nick" style="color:#80b1d3"><a href="#171746" label="[17:17:46]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: it used to run the whole bootstrap</span></div><div class="line" id="171806"><span class="nick" style="color:#80b1d3"><a href="#171806" label="[17:18:06]">&lt;stikonas&gt;</a></span><span class="message">but eventually live-bootstrap grew too big</span></div><div class="line" id="171832"><span class="nick" style="color:#2e2a4a"><a href="#171832" label="[17:18:32]">&lt;gbrlwck&gt;</a></span><span class="message">even cooler</span></div><div class="line" id="172036"><span class="nick" style="color:#80b1d3"><a href="#172036" label="[17:20:36]">&lt;stikonas&gt;</a></span><span class="message">(there is 2h limit on linter runtime)</span></div><div class="line" id="174607"><span class="nick" style="color:#80b1d3"><a href="#174607" label="[17:46:07]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: what about the other mescc invocation (when building tcc)?</span></div><div class="line" id="174706"><span class="nick" style="color:#80b1d3"><a href="#174706" label="[17:47:06]">&lt;stikonas&gt;</a></span><span class="message">it still has those options you removed in meslibc build</span></div><div class="line" id="192755"><span class="nick" style="color:#2e2a4a"><a href="#192755" label="[19:27:55]">&lt;gbrlwck&gt;</a></span><span class="message">ah, i haven't gotten that far yet.  but as the use of mescc goes: the -- means ignore the following arguments for the script, initiate an interactive session and use the args for that.  so i guess it is (weirdly) unwanted but still working (which confused me before)</span></div><div class="line" id="192909"><span class="nick" style="color:#2e2a4a"><a href="#192909" label="[19:29:09]">&lt;gbrlwck&gt;</a></span><span class="message">and i'm not really sure what the intentions behind setting the --no-auto-compile option were.  it's useless with MES, but when debugging/running mescc with guile it's kind of a drag (compiled guile is just *so much faster*)</span></div><div class="line" id="193528"><span class="nick" style="color:#80b1d3"><a href="#193528" label="[19:35:28]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: I'm not sure either. Anyway if it works without it then it's fine. And as for tcc, we can do it later</span></div><div class="line" id="193548"><span class="nick" style="color:#2e2a4a"><a href="#193548" label="[19:35:48]">&lt;gbrlwck&gt;</a></span><span class="message">i'm testing it now (with the changes for tcc)</span></div><div class="line" id="193555"><span class="nick" style="color:#80b1d3"><a href="#193555" label="[19:35:55]">&lt;stikonas&gt;</a></span><span class="message">anyway, I've tested that PR, live-bootstrap runs</span></div><div class="line" id="193601"><span class="nick" style="color:#2e2a4a"><a href="#193601" label="[19:36:01]">&lt;gbrlwck&gt;</a></span><span class="message">cool</span></div><div class="line" id="193609"><span class="nick" style="color:#80b1d3"><a href="#193609" label="[19:36:09]">&lt;stikonas&gt;</a></span><span class="message">well, if you want to add tcc first, we can do that too</span></div><div class="line" id="193613"><span class="nick" style="color:#80b1d3"><a href="#193613" label="[19:36:13]">&lt;stikonas&gt;</a></span><span class="message">and merge the whole thing</span></div><div class="line" id="193621"><span class="nick" style="color:#2e2a4a"><a href="#193621" label="[19:36:21]">&lt;gbrlwck&gt;</a></span><span class="message">should i also update the --LittleEndian/--little-endian stuff?</span></div><div class="line" id="193636"><span class="nick" style="color:#80b1d3"><a href="#193636" label="[19:36:36]">&lt;stikonas&gt;</a></span><span class="message">that's a change for mes-m2, not live-bootstrap</span></div><div class="line" id="193703"><span class="nick" style="color:#80b1d3"><a href="#193703" label="[19:37:03]">&lt;stikonas&gt;</a></span><span class="message">that commit is in upstream mes, juts not in m2 fork</span></div><div class="line" id="193713"><span class="nick" style="color:#2e2a4a"><a href="#193713" label="[19:37:13]">&lt;gbrlwck&gt;</a></span><span class="message">ah yes, i thought there needed to be some kaem script patched in live-bootstrap</span></div><div class="line" id="193725"><span class="nick" style="color:#80b1d3"><a href="#193725" label="[19:37:25]">&lt;stikonas&gt;</a></span><span class="message">ok, it's in wip branch <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/mes.git/log/?h=wip">https://git.savannah.gnu.org/cgit/mes.git/log/?h=wip</a> </span></div><div class="line" id="193743"><span class="nick" style="color:#80b1d3"><a href="#193743" label="[19:37:43]">&lt;stikonas&gt;</a></span><span class="message">no, that's mescc internally calling mescc-tools</span></div><div class="line" id="193825"><span class="nick" style="color:#80b1d3"><a href="#193825" label="[19:38:25]">&lt;stikonas&gt;</a></span><span class="message">might be worth cherry-picking it onto mes-m2 though</span></div><div class="line" id="193835"><span class="nick" style="color:#80b1d3"><a href="#193835" label="[19:38:35]">&lt;stikonas&gt;</a></span><span class="message">to silence those warnings</span></div><div class="line" id="193841"><span class="nick" style="color:#80b1d3"><a href="#193841" label="[19:38:41]">&lt;stikonas&gt;</a></span><span class="message">but that's another PR to another repo</span></div><div class="line" id="194803"><span class="nick" style="color:#2e2a4a"><a href="#194803" label="[19:48:03]">&lt;gbrlwck&gt;</a></span><span class="message">huh, now i get &quot;assert fail: alloc: out of memory&quot; when compiling tcc</span></div><div class="line" id="195457"><span class="nick" style="color:#2e2a4a"><a href="#195457" label="[19:54:57]">&lt;gbrlwck&gt;</a></span><span class="message">updated the command line arguments for mes-m2 <a rel="nofollow" href="https://github.com/oriansj/mes-m2/pull/16">https://github.com/oriansj/mes-m2/pull/16</a> </span></div><div class="line" id="195502"><span class="nick" style="color:#2e2a4a"><a href="#195502" label="[19:55:02]">&lt;gbrlwck&gt;</a></span><span class="message">did i miss something?</span></div><div class="line" id="200612"><span class="nick" style="color:#80b1d3"><a href="#200612" label="[20:06:12]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: not sure but maybe let's merge the PR without tcc for now</span></div><div class="line" id="200620"><span class="nick" style="color:#2e2a4a"><a href="#200620" label="[20:06:20]">&lt;gbrlwck&gt;</a></span><span class="message">yes</span></div><div class="line" id="200656"><span class="nick" style="color:#2e2a4a"><a href="#200656" label="[20:06:56]">&lt;gbrlwck&gt;</a></span><span class="message">i am naively giving it another go with MES_MAX_ARENA doubled but i'm not sure that's gonna help</span></div><div class="line" id="200727"><span class="nick" style="color:#80b1d3"><a href="#200727" label="[20:07:27]">&lt;stikonas&gt;</a></span><span class="message">yeah, I'm not sure what's going on</span></div><div class="line" id="200808"><span class="nick" style="color:#2e2a4a"><a href="#200808" label="[20:08:08]">&lt;gbrlwck&gt;</a></span><span class="message">i still suspect some bug in mes</span></div><br /></div></body></html>

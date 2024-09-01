@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-11-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="134653"><span class="nick" style="color:#389600"><a href="#134653" label="[13:46:53]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well we certainly have seen this class of security problems even on Linux (Looking at you RISC-V for not zeroing registers) and the correct course of action is to either provide the fiwix developers a patch or inform them of the security issue; then put in a bit of code to deal with that issue for our side so that when we get ported to the next platform which possibly has the same issue that we don't get slowed down by it.</span></div><div class="line" id="135523"><span class="nick" style="color:#8dd3c7"><a href="#135523" label="[13:55:23]">&lt;muurkha&gt;</a></span><span class="message">yeah, it's important to not accidentally leak possibly confidential information into userspace</span></div><div class="line" id="135545"><span class="nick" style="color:#8dd3c7"><a href="#135545" label="[13:55:45]">&lt;muurkha&gt;</a></span><span class="message">nothing we've seen so far seems like strong evidence that Fiwix is doing the wrong thing, does it?</span></div><div class="line" id="135807"><span class="nick" style="color:#8dd3c7"><a href="#135807" label="[13:58:07]">&lt;muurkha&gt;</a></span><span class="message">there was an on-stack buffer that wasn't zeroed before use, and this uncovered a bug in wstrcpy (in M2libc?), but we don't really know if the dirty stack resulted from Fiwix supplying an unclean stack page or from a previously called function or signal handler?</span></div><div class="line" id="145120"><span class="nick" style="color:#2e2a4a"><a href="#145120" label="[14:51:20]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: right, we don't know for sure that fiwix provided uninitialized memory</span></div><div class="line" id="174423"><span class="nick" style="color:#2e2a4a"><a href="#174423" label="[17:44:23]">&lt;rickmasters&gt;</a></span><span class="message">tcc-musl fails because musl initialization invokes syscall set_thread_area which fiwix does not implement.</span></div><div class="line" id="174518"><span class="nick" style="color:#2e2a4a"><a href="#174518" label="[17:45:18]">&lt;rickmasters&gt;</a></span><span class="message">I *think* the assembly code falls back to syscall modify_ldt in case of failure, but that is also unimplemented.</span></div><div class="line" id="174640"><span class="nick" style="color:#2e2a4a"><a href="#174640" label="[17:46:40]">&lt;rickmasters&gt;</a></span><span class="message">Offhand I'm not sure what to do. I'll be doing holiday stuff for a while so I'll check in later...</span></div><div class="line" id="183109"><span class="nick" style="color:#6b8072"><a href="#183109" label="[18:31:09]">&lt;stikonas[m]&gt;</a></span><span class="message">Have a good holiday, fiwix stuff can wait</span></div><div class="line" id="183132"><span class="nick" style="color:#6b8072"><a href="#183132" label="[18:31:32]">&lt;stikonas[m]&gt;</a></span><span class="message">And maybe you can convince fiwix to implement it</span></div><div class="line" id="194959"><span class="nick" style="color:#389600"><a href="#194959" label="[19:49:59]">&lt;oriansj&gt;</a></span><span class="message">rickmasters: yeah, enjoy the holidays and have a great time</span></div><div class="line" id="195837"><span class="nick" style="color:#2e2a4a"><a href="#195837" label="[19:58:37]">&lt;rickmasters&gt;</a></span><span class="message">oriansj, stikonas: thanks!</span></div><div class="line" id="225703"><span class="nick" style="color:#80b1d3"><a href="#225703" label="[22:57:03]">&lt;stikonas&gt;</a></span><span class="message">hmm, some UEFI structs are a bit annoying to implement in M2 (as they use things like 16-bit or 32-bit integers)...</span></div><div class="line" id="225729"><span class="nick" style="color:#80b1d3"><a href="#225729" label="[22:57:29]">&lt;stikonas&gt;</a></span><span class="message">we probably don't need all of that to be easily accessible but at the very least need to get correct size of the struct</span></div><div class="line" id="231220"><span class="nick" style="color:#80b1d3"><a href="#231220" label="[23:12:20]">&lt;stikonas&gt;</a></span><span class="message">I guess I'll just use char and add a few entries...</span></div><br /></div></body></html>

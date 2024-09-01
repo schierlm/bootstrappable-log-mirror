@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-08-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003902"><span class="nick" style="color:#389600"><a href="#003902" label="[00:39:02]">&lt;OriansJ`&gt;</a></span><span class="message">bauen1: when mescc updates to using the latest mescc-tools this will likely be its header: <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/blob/master/test/common_amd64/ELF-amd64-debug.hex2">https://github.com/oriansj/M2-Planet/blob/master/test/common_amd64/ELF-amd64-debug.hex2</a> </span></div><div class="line" id="004027"><span class="nick" style="color:#389600"><a href="#004027" label="[00:40:27]">&lt;OriansJ`&gt;</a></span><span class="message">and yes mes-m2 isn't done (entirely my fault)</span></div><div class="line" id="020457"><span class="nick" style="color:#389600"><a href="#020457" label="[02:04:57]">&lt;OriansJ`&gt;</a></span><span class="message">mostly because I figure having an easy to debug Lisp interpreter that M2-Planet can build and iterating towards running MesCC seemed preferable to getting Mes.c to be built by M2-Planet (So many C macros and months spent just getting it into shape for GCC to build it)</span></div><div class="line" id="021040"><span class="nick" style="color:#389600"><a href="#021040" label="[02:10:40]">&lt;OriansJ`&gt;</a></span><span class="message">anyone have tricks to minimize compute times for crc32 preimage attacks?</span></div><div class="line" id="023051"><span class="nick" style="color:#389600"><a href="#023051" label="[02:30:51]">&lt;OriansJ`&gt;</a></span><span class="message">The idea hopefully being that is compute expensive but possible. So that we can throw compute to figure out the crc32/crc64 values that make the stage0 elf binaries easier to catch manipulation (as the crc32/crc64 values is in the binary and calculating a replacement should be significantly more cycles than it would take to honestly just do what is required of it)</span></div><div class="line" id="035727"><span class="nick" style="color:#389600"><a href="#035727" label="[03:57:27]">&lt;OriansJ`&gt;</a></span><span class="message">as there are only 2^32 crc32 values possible; let us see how long it takes to bruteforce generating hex0_x86 with its own crc32 value in the ELF padding</span></div><div class="line" id="035911"><span class="nick" style="color:#389600"><a href="#035911" label="[03:59:11]">&lt;OriansJ`&gt;</a></span><span class="message">I had to handroll a C version of crc32 to get anything approaching reasonable crunching speed as the debian perl version is just so freaking slow</span></div><div class="line" id="040412"><span class="nick" style="color:#389600"><a href="#040412" label="[04:04:12]">&lt;OriansJ`&gt;</a></span><span class="message">my naive version is faster for sub 100MB input files after which the perl version starts being faster</span></div><div class="line" id="040432"><span class="nick" style="color:#389600"><a href="#040432" label="[04:04:32]">&lt;OriansJ`&gt;</a></span><span class="message">probably because I am doing something stupid</span></div><div class="line" id="041349"><span class="nick" style="color:#389600"><a href="#041349" label="[04:13:49]">&lt;OriansJ`&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1160713/">https://paste.debian.net/1160713/</a> </span></div><div class="line" id="050427"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="104422"><span class="nick" style="color:#2e2a4a"><a href="#104422" label="[10:44:22]">&lt;bauen1&gt;</a></span><span class="message">OriansJ`: thanks for the link</span></div><div class="line" id="104503"><span class="nick" style="color:#2e2a4a"><a href="#104503" label="[10:45:03]">&lt;bauen1&gt;</a></span><span class="message">OriansJ`: i'm not really sure, but embedding a checksum and self-checking the memory against it will work, but would also hinder maintenance of any form</span></div><div class="line" id="104551"><span class="nick" style="color:#2e2a4a"><a href="#104551" label="[10:45:51]">&lt;bauen1&gt;</a></span><span class="message">OriansJ`: for now the other ways of defeating (my) backdoor(s) seem to be better</span></div><div class="line" id="112948"><span class="nick" style="color:#389600"><a href="#112948" label="[11:29:48]">&lt;OriansJ`&gt;</a></span><span class="message">bauen1: well hex0 binaries don't need maintenance. They can be written once and ignored forever but making life harder for attackers is definitely something worth wasting some time on</span></div><div class="line" id="113630"><span class="nick" style="color:#389600"><a href="#113630" label="[11:36:30]">&lt;OriansJ`&gt;</a></span><span class="message">in fact it is assumed that anyone can create their own hex0 binary and should (that way the entire bootstrap is just source)</span></div><div class="line" id="124258"><span class="nick" style="color:#2e2a4a"><a href="#124258" label="[12:42:58]">&lt;bauen1&gt;</a></span><span class="message">true</span></div><div class="line" id="170655"><span class="nick" style="color:#2e2a4a"><a href="#170655" label="[17:06:55]">&lt;bauen1&gt;</a></span><span class="message">same deal with hex2, but the &quot;table&quot; is in fact just an 8 bytes scratch buffer</span></div><div class="line" id="173820"><span class="nick" style="color:#2e2a4a"><a href="#173820" label="[17:38:20]">&lt;bauen1&gt;</a></span><span class="message">or not, it stores the label at the end of its own memory without bounds checking</span></div><div class="line" id="174214"><span class="nick" style="color:#2e2a4a"><a href="#174214" label="[17:42:14]">&lt;bauen1&gt;</a></span><span class="message">OriansJ`: would you accept a PR that modifies hex0-seed to be a bit shorter (and match the text representation to the ones defined in cc_amd64 ?</span></div><div class="line" id="181034"><span class="nick">***</span><span class="message notice">nckx is now known as guix-vits</span></div><div class="line" id="181043"><span class="nick">***</span><span class="message notice">guix-vits is now known as nckx</span></div><div class="line" id="190935"><span class="nick" style="color:#6b8072"><a href="#190935" label="[19:09:35]">&lt;mihi&gt;</a></span><span class="message">OriansJ`, it hurts if you call a CRC preimage an &quot;attack&quot;. CRC was designed with error correction in mind. But with today's &quot;optimized&quot; table based implementations, the actual algorithm is hidden so well that you cannot see how you can do a CRCn preimage &quot;attack&quot; in O(n) for any CRC function any more...</span></div><div class="line" id="191000"><span class="nick" style="color:#6b8072"><a href="#191000" label="[19:10:00]">&lt;mihi&gt;</a></span><span class="message">Back to the fundamentals: an unoptimized CRC implementation consists of 3 steps:</span></div><div class="line" id="191040"><span class="nick" style="color:#6b8072"><a href="#191040" label="[19:10:40]">&lt;mihi&gt;</a></span><span class="message">S1: Convert the input bytes into an input bit stream, by defining some bit order and optionally flipping some of the bits. The exact way depends on the CRC implementation, but it is trivially reversible.</span></div><div class="line" id="191139"><span class="nick" style="color:#6b8072"><a href="#191139" label="[19:11:39]">&lt;mihi&gt;</a></span><span class="message">S2: Perform a GF2 polynom division (which is just a fancy way of saying &quot;some XORs and some shifts&quot;) on the input bitstream to obtain a checksum bitstream (n bits long). This is the interesting step we have to focus on.</span></div><div class="line" id="191201"><span class="nick" style="color:#6b8072"><a href="#191201" label="[19:12:01]">&lt;mihi&gt;</a></span><span class="message">S3: Perform output bit translation/ordering and some flipping to get the byte representation. This is also trivially reversible.</span></div><div class="line" id="191243"><span class="nick" style="color:#6b8072"><a href="#191243" label="[19:12:43]">&lt;mihi&gt;</a></span><span class="message">Now about step 2: This does not depend on the CRC variant, only on the used polynomial. An example calculation is in this Wikipedia article: <a rel="nofollow" href="https://en.wikipedia.org/wiki/Computation_of_cyclic_redundancy_checks#Example">https://en.wikipedia.org/wiki/Computation_of_cyclic_redundancy_checks#Example</a> </span></div><div class="line" id="191257"><span class="nick" style="color:#6b8072"><a href="#191257" label="[19:12:57]">&lt;mihi&gt;</a></span><span class="message">Some interesting features of this (useful for us):</span></div><div class="line" id="191319"><span class="nick" style="color:#6b8072"><a href="#191319" label="[19:13:19]">&lt;mihi&gt;</a></span><span class="message">P1: if the input bitstream is all zeroes, the crc bitstream is all zeroes too</span></div><div class="line" id="191415"><span class="nick" style="color:#6b8072"><a href="#191415" label="[19:14:15]">&lt;mihi&gt;</a></span><span class="message">P2: If you concatenate the crc bitstream to its input bistream (valid CRC), and treat everything as one input bitstream, its CRC is zero. This is also true in reverse, if you start with an input bitstream that has CRC zero and strip off the last n bytes, they will be the crc of the first x-n bytes.</span></div><div class="line" id="191505"><span class="nick" style="color:#6b8072"><a href="#191505" label="[19:15:05]">&lt;mihi&gt;</a></span><span class="message">P3 (the most interesting one): If you take any input bitstream and XOR it with a (shifted anywhere) representation of its polynomial, the CRC will stay the same</span></div><div class="line" id="191547"><span class="nick" style="color:#6b8072"><a href="#191547" label="[19:15:47]">&lt;mihi&gt;</a></span><span class="message">So, to create a preimage, first do step 1 on the input and reverse step 3 on the desired CRC value. perform step 2 on the bitstream to get its current CRC and concatenate it to the bitstream.</span></div><div class="line" id="191621"><span class="nick" style="color:#6b8072"><a href="#191621" label="[19:16:21]">&lt;mihi&gt;</a></span><span class="message">Now compare the bits from the end with the desired crc bitstream and XOR the generator polynomial wherevery you have a difference.</span></div><div class="line" id="191651"><span class="nick" style="color:#6b8072"><a href="#191651" label="[19:16:51]">&lt;mihi&gt;</a></span><span class="message">Once you've done this, you cut off the last n bits again (which are your desired CRC) and reverse step 1 to get the bytes.</span></div><div class="line" id="191727"><span class="nick" style="color:#6b8072"><a href="#191727" label="[19:17:27]">&lt;mihi&gt;</a></span><span class="message">If you want the change anywhere which is not at the end of the file, you'd have to repeat the XORing a bit more (needing O(b) steps where b is the number of bits you want to shift your change to)</span></div><div class="line" id="191812"><span class="nick" style="color:#6b8072"><a href="#191812" label="[19:18:12]">&lt;mihi&gt;</a></span><span class="message">I know this is very compact; in case you have any questions, either read the Wikipedia article I linked or ask here :)</span></div><div class="line" id="194645"><span class="nick">***</span><span class="message notice">luizhenrique is now known as LHLaurini</span></div><div class="line" id="212934"><span class="nick">***</span><span class="message notice">`Lion_ is now known as `Lion</span></div><div class="line" id="215546"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="220415"><span class="nick" style="color:#2e2a4a"><a href="#220415" label="[22:04:15]">&lt;bauen1&gt;</a></span><span class="message">OriansJ`: oh and also would you accept a pr that modifies hex1 and hex2 (and whatever else i find) to ensure they never write/read outside of &quot;allocated&quot; memory (as in obtained by sbrk or loaded explicitely using program load headers)</span></div><div class="line" id="221328"><span class="nick" style="color:#2e2a4a"><a href="#221328" label="[22:13:28]">&lt;bauen1&gt;</a></span><span class="message">and i think that in the amd64 hex0 the usage of `LOADI32_R..` is slightly misleading (or it's definition in cc_amd64 is), depending on the source it is e.g. 49C7C6 &lt;imm32&gt; or e.g. B8 &lt;imm32&gt;</span></div><div class="line" id="221420"><span class="nick" style="color:#2e2a4a"><a href="#221420" label="[22:14:20]">&lt;bauen1&gt;</a></span><span class="message">49C7C6 &lt;imm32&gt; is actually a sign extending immediate load, but B8 &lt;imm32&gt; loads the lower half of the register and zeros the upper half (at least on recent processors)</span></div><div class="line" id="221603"><span class="nick" style="color:#2e2a4a"><a href="#221603" label="[22:16:03]">&lt;bauen1&gt;</a></span><span class="message">There are quite a few cases where B8 &lt;imm32&gt; can be used and is the expected behaviour, but some cases e.g. `LOADI32_R15 -1` (from hex0_amd64.hex0) expect the behaviour of 49C7C6 &lt;imm32&gt;</span></div><div class="line" id="221920"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="225154"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><br /></div></body></html>

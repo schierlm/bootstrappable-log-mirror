@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-01-27.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011840"><span class="nick" style="color:#389600"><a href="#011840" label="[01:18:40]">&lt;stikonas&gt;</a></span><span class="message">fossy: any luck with stage0-uefi?</span></div><div class="line" id="014017"><span class="nick" style="color:#8dd3c7"><a href="#014017" label="[01:40:17]">&lt;fossy&gt;</a></span><span class="message">stikonas: i did a bit of investigating but i haven't got anywhere yet, did other things yesterday</span></div><div class="line" id="014027"><span class="nick" style="color:#389600"><a href="#014027" label="[01:40:27]">&lt;stikonas&gt;</a></span><span class="message">sure no problem :)</span></div><div class="line" id="014031"><span class="nick" style="color:#8dd3c7"><a href="#014031" label="[01:40:31]">&lt;fossy&gt;</a></span><span class="message">I'm fairly positive that my UEFI treats strings in the format A-B specially</span></div><div class="line" id="014036"><span class="nick" style="color:#8dd3c7"><a href="#014036" label="[01:40:36]">&lt;fossy&gt;</a></span><span class="message">where A and B are any arbitary text</span></div><div class="line" id="014102"><span class="nick" style="color:#389600"><a href="#014102" label="[01:41:02]">&lt;stikonas&gt;</a></span><span class="message">not sure I follow...</span></div><div class="line" id="014110"><span class="nick" style="color:#389600"><a href="#014110" label="[01:41:10]">&lt;stikonas&gt;</a></span><span class="message">it modifies them?</span></div><div class="line" id="014136"><span class="nick" style="color:#8dd3c7"><a href="#014136" label="[01:41:36]">&lt;fossy&gt;</a></span><span class="message">so i tried setting a couple of kaem values to different things</span></div><div class="line" id="014148"><span class="nick" style="color:#8dd3c7"><a href="#014148" label="[01:41:48]">&lt;fossy&gt;</a></span><span class="message">i tried --a, -a, a-, a-b</span></div><div class="line" id="014203"><span class="nick" style="color:#8dd3c7"><a href="#014203" label="[01:42:03]">&lt;fossy&gt;</a></span><span class="message">out of those, only -a and a- work, the other ones just become empty strings</span></div><div class="line" id="014237"><span class="nick" style="color:#8dd3c7"><a href="#014237" label="[01:42:37]">&lt;fossy&gt;</a></span><span class="message">i added a print() to the variable setting function in M2libc for uefi and --a had propagated through to that...</span></div><div class="line" id="014247"><span class="nick" style="color:#8dd3c7"><a href="#014247" label="[01:42:47]">&lt;fossy&gt;</a></span><span class="message">but when i added a print() to the variable getting function it showed it as empty</span></div><div class="line" id="014311"><span class="nick" style="color:#8dd3c7"><a href="#014311" label="[01:43:11]">&lt;fossy&gt;</a></span><span class="message">however oddly i couldn't reproduce the issue when using &quot;set&quot; builtin in UEFI shell</span></div><div class="line" id="014432"><span class="nick" style="color:#389600"><a href="#014432" label="[01:44:32]">&lt;stikonas&gt;</a></span><span class="message">oh, thatmissing variable thingy</span></div><div class="line" id="014510"><span class="nick" style="color:#389600"><a href="#014510" label="[01:45:10]">&lt;stikonas&gt;</a></span><span class="message">so as far as I understand, those variables that kaem sets shouldn't be touched by UEFI...</span></div><div class="line" id="014512"><span class="nick" style="color:#389600"><a href="#014512" label="[01:45:12]">&lt;stikonas&gt;</a></span><span class="message">but strange...</span></div><div class="line" id="014521"><span class="nick" style="color:#8dd3c7"><a href="#014521" label="[01:45:21]">&lt;fossy&gt;</a></span><span class="message">yeah, shouldn't but are, oddly</span></div><div class="line" id="014528"><span class="nick" style="color:#8dd3c7"><a href="#014528" label="[01:45:28]">&lt;fossy&gt;</a></span><span class="message">well it seems at least</span></div><div class="line" id="014530"><span class="nick" style="color:#8dd3c7"><a href="#014530" label="[01:45:30]">&lt;fossy&gt;</a></span><span class="message">need to do more debugging</span></div><div class="line" id="014551"><span class="nick" style="color:#389600"><a href="#014551" label="[01:45:51]">&lt;stikonas&gt;</a></span><span class="message">on my system I don't know how to use UEFI set to e.g. set them to \posix\paths but it works fine in kaem</span></div><div class="line" id="014603"><span class="nick" style="color:#8dd3c7"><a href="#014603" label="[01:46:03]">&lt;fossy&gt;</a></span><span class="message">apart from that, the super slow machine did fail at the same point, took a while; not sure how long, cause i just left it, but probably a bit over an hour?</span></div><div class="line" id="014608"><span class="nick" style="color:#8dd3c7"><a href="#014608" label="[01:46:08]">&lt;fossy&gt;</a></span><span class="message">compared to my laptop, which took 45 seconds</span></div><div class="line" id="014609"><span class="nick" style="color:#389600"><a href="#014609" label="[01:46:09]">&lt;stikonas&gt;</a></span><span class="message">&quot;set&quot; things that \path is its flag...</span></div><div class="line" id="014619"><span class="nick" style="color:#8dd3c7"><a href="#014619" label="[01:46:19]">&lt;fossy&gt;</a></span><span class="message">hmmmm</span></div><div class="line" id="014625"><span class="nick" style="color:#389600"><a href="#014625" label="[01:46:25]">&lt;stikonas&gt;</a></span><span class="message">yeah, something is very unoptimized on your one machine...</span></div><div class="line" id="014641"><span class="nick" style="color:#8dd3c7"><a href="#014641" label="[01:46:41]">&lt;fossy&gt;</a></span><span class="message">yes, i suspect there's no FS caching or something along those lines</span></div><div class="line" id="014832"><span class="nick" style="color:#8dd3c7"><a href="#014832" label="[01:48:32]">&lt;fossy&gt;</a></span><span class="message">it would be easy enough to do some kind of encoding to make the UEFI variables not include dashes, but that's a huge hack that I don't really love, gonna try and find out what the actual issue is</span></div><div class="line" id="014855"><span class="nick" style="color:#389600"><a href="#014855" label="[01:48:55]">&lt;stikonas&gt;</a></span><span class="message">well, at least it's mostly C code there</span></div><div class="line" id="014903"><span class="nick" style="color:#389600"><a href="#014903" label="[01:49:03]">&lt;stikonas&gt;</a></span><span class="message">makes debugging somewhat easier...</span></div><div class="line" id="014908"><span class="nick" style="color:#8dd3c7"><a href="#014908" label="[01:49:08]">&lt;fossy&gt;</a></span><span class="message">yeah</span></div><div class="line" id="023004"><span class="nick" style="color:#2e2a4a"><a href="#023004" label="[02:30:04]">&lt;oriansj&gt;</a></span><span class="message">so you think a M2libc bug for setting environment variables?</span></div><div class="line" id="023541"><span class="nick" style="color:#6b8072"><a href="#023541" label="[02:35:41]">&lt;stikonas_&gt;</a></span><span class="message">no, it must be something to do with UEFI...</span></div><div class="line" id="023546"><span class="nick" style="color:#6b8072"><a href="#023546" label="[02:35:46]">&lt;stikonas_&gt;</a></span><span class="message">but it works in quite a few other cases...</span></div><div class="line" id="023557"><span class="nick" style="color:#6b8072"><a href="#023557" label="[02:35:57]">&lt;stikonas_&gt;</a></span><span class="message">perhaps fossy's implementation does something a bit different...</span></div><div class="line" id="025030"><span class="nick" style="color:#2e2a4a"><a href="#025030" label="[02:50:30]">&lt;oriansj&gt;</a></span><span class="message">perhaps; or we might be assuming something about UEFI which might not always be true.</span></div><div class="line" id="030511"><span class="nick" style="color:#389600"><a href="#030511" label="[03:05:11]">&lt;stikonas&gt;</a></span><span class="message">that can certainly be true</span></div><div class="line" id="030531"><span class="nick" style="color:#389600"><a href="#030531" label="[03:05:31]">&lt;stikonas&gt;</a></span><span class="message">last month I already spent a lot of time fixing stack alignment issues...</span></div><div class="line" id="065802"><span class="nick" style="color:#80b1d3"><a href="#065802" label="[06:58:02]">&lt;lrvick&gt;</a></span><span class="message">Finally. Deterministic container build of stage0, to live-bootstrap, all the way up to latest x86_64 gcc, golang, and rust. <a rel="nofollow" href="https://git.distrust.co/public/packages/">https://git.distrust.co/public/packages/</a> </span></div><div class="line" id="090714"><span class="nick" style="color:#6d2462"><a href="#090714" label="[09:07:14]">&lt;muurkha&gt;</a></span><span class="message">oriansj: Forth could get by with two block buffers for multiple processes talking to multiple files because context switches are fairly rare events, maybe once every million instructions, so it's not a big deal if they cause two page faults</span></div><div class="line" id="090751"><span class="nick" style="color:#6d2462"><a href="#090751" label="[09:07:51]">&lt;muurkha&gt;</a></span><span class="message">I don't know if any Forth systems actually had only two block buffers but that's all the BLOCK interface definition guarantees you</span></div><div class="line" id="090809"><span class="nick" style="color:#6d2462"><a href="#090809" label="[09:08:09]">&lt;muurkha&gt;</a></span><span class="message">lrvick: congratulations!  that's huge!</span></div><div class="line" id="144318"><span class="nick" style="color:#234e69"><a href="#144318" label="[14:43:18]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; muurkha: Now working on generating hashfiles and an easy workflow for people to build and then PR in signatures. Will release tars and container images once I get at least 3 build confirmation signatures.</span></div><div class="line" id="144348"><span class="nick" style="color:#234e69"><a href="#144348" label="[14:43:48]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; Takes about 1.5 days to build on 20 cores so it is not a small ask</span></div><div class="line" id="144649"><span class="nick" style="color:#234e69"><a href="#144649" label="[14:46:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; Hoping to make a case that these are drop in replacements for all the official docker containers from alpine and debian that build most of the universe right now, but with much higher supply chain integrity.</span></div><div class="line" id="145830"><span class="nick" style="color:#234e69"><a href="#145830" label="[14:58:30]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; yeah, getting people to use stuff will be the hard part</span></div><div class="line" id="150308"><span class="nick" style="color:#6c3d55"><a href="#150308" label="[15:03:08]">&lt;Foxboron&gt;</a></span><span class="message">How do they have &quot;much higher supply chain integrity&quot;?</span></div><div class="line" id="163304"><span class="nick" style="color:#2e2a4a"><a href="#163304" label="[16:33:04]">&lt;oriansj&gt;</a></span><span class="message">Foxboron: well right now most supply chains are here have this binary blob and trust me. And in the slightly better case, they also have: here is the source code we claim corresponds to that binary.</span></div><div class="line" id="163323"><span class="nick" style="color:#6c3d55"><a href="#163323" label="[16:33:23]">&lt;Foxboron&gt;</a></span><span class="message">oriansj: I'm thinking of what Lance is currently working on</span></div><div class="line" id="163401"><span class="nick" style="color:#2e2a4a"><a href="#163401" label="[16:34:01]">&lt;oriansj&gt;</a></span><span class="message">well a reproducible build chain that is bootstrapped from stage0 is a huge improvement compared to that.</span></div><div class="line" id="163425"><span class="nick" style="color:#6c3d55"><a href="#163425" label="[16:34:25]">&lt;Foxboron&gt;</a></span><span class="message">So he is reproducing debian and alpine from stage0 from scratch?</span></div><div class="line" id="163727"><span class="nick" style="color:#389600"><a href="#163727" label="[16:37:27]">&lt;stikonas&gt;</a></span><span class="message">Foxboron: no</span></div><div class="line" id="163728"><span class="nick" style="color:#2e2a4a"><a href="#163728" label="[16:37:28]">&lt;oriansj&gt;</a></span><span class="message">Foxboron: Lance is doing reproducible system images bootstrapped from stage0 in docker; which others can then build upon</span></div><div class="line" id="163741"><span class="nick" style="color:#389600"><a href="#163741" label="[16:37:41]">&lt;stikonas&gt;</a></span><span class="message">he is just creating a different docker image that could be used as a base</span></div><div class="line" id="163910"><span class="nick" style="color:#6c3d55"><a href="#163910" label="[16:39:10]">&lt;Foxboron&gt;</a></span><span class="message">So a limited bootstrap of Debian and Alpine, then.</span></div><div class="line" id="164351"><span class="nick" style="color:#6c3d55"><a href="#164351" label="[16:43:51]">&lt;Foxboron&gt;</a></span><span class="message">I'm curious how the toolchain is bootstrapped though. Labeling it as a &quot;drop in&quot; replacement isn't necessarily trivial if the toolchains differ.</span></div><div class="line" id="164928"><span class="nick" style="color:#2e2a4a"><a href="#164928" label="[16:49:28]">&lt;oriansj&gt;</a></span><span class="message">Foxboron: well; that is a question Lance should be able to answer (but I am guessing a variation on live-bootstrap)</span></div><div class="line" id="165019"><span class="nick" style="color:#2e2a4a"><a href="#165019" label="[16:50:19]">&lt;oriansj&gt;</a></span><span class="message">the end result usually is the standard GNU build tools, compilers and interpreters; from which most software can be built from.</span></div><div class="line" id="165314"><span class="nick" style="color:#6c3d55"><a href="#165314" label="[16:53:14]">&lt;Foxboron&gt;</a></span><span class="message">Which is where most of the work is, if the aim is Reproducible Builds. bootstrapping from stage0 is interesting, but ensuring things is reproducible beyond that is not trivial.</span></div><div class="line" id="165407"><span class="nick" style="color:#6c3d55"><a href="#165407" label="[16:54:07]">&lt;Foxboron&gt;</a></span><span class="message">ah, wait. I see the repo is linked previously :p</span></div><div class="line" id="165514"><span class="nick" style="color:#6c3d55"><a href="#165514" label="[16:55:14]">&lt;Foxboron&gt;</a></span><span class="message">lrvick: your numbers for Debian and Nix is wrong. Nix is only building ~600 packages and the actual reproduction of debian is closer to 80%</span></div><div class="line" id="171627"><span class="nick" style="color:#6c3d55"><a href="#171627" label="[17:16:27]">&lt;Foxboron&gt;</a></span><span class="message">lrvick: What you are doing is sorta what Wolfi OS (with Ariadne Conill at the head) have been doing <a rel="nofollow" href="https://github.com/wolfi-dev">https://github.com/wolfi-dev</a> </span></div><div class="line" id="171646"><span class="nick" style="color:#6c3d55"><a href="#171646" label="[17:16:46]">&lt;Foxboron&gt;</a></span><span class="message">except they built an entire apk compatible package manager on top of the OCI stack, instead of using dockerfiles directly</span></div><div class="line" id="171700"><span class="nick" style="color:#6c3d55"><a href="#171700" label="[17:17:00]">&lt;Foxboron&gt;</a></span><span class="message">Largely the container community has been calling this &quot;distroless&quot; containers</span></div><div class="line" id="171855"><span class="nick" style="color:#6c3d55"><a href="#171855" label="[17:18:55]">&lt;Foxboron&gt;</a></span><span class="message">I dont think they are using the bootstrappable stage0 to bootstrap anything, and I don't recall what they did. But might be interesting information there regardless</span></div><div class="line" id="181759"><span class="nick" style="color:#389600"><a href="#181759" label="[18:17:59]">&lt;stikonas&gt;</a></span><span class="message">Foxboron: live-bootstrap is generally quite reproducible</span></div><div class="line" id="181817"><span class="nick" style="color:#389600"><a href="#181817" label="[18:18:17]">&lt;stikonas&gt;</a></span><span class="message">majority of packages were just building reproducibly without any work needed</span></div><div class="line" id="181824"><span class="nick" style="color:#389600"><a href="#181824" label="[18:18:24]">&lt;stikonas&gt;</a></span><span class="message">only a few needed some tweaks and patches</span></div><div class="line" id="181833"><span class="nick" style="color:#389600"><a href="#181833" label="[18:18:33]">&lt;stikonas&gt;</a></span><span class="message">and large part of that is stuff like dates in manpages...</span></div><div class="line" id="181931"><span class="nick" style="color:#6c3d55"><a href="#181931" label="[18:19:31]">&lt;Foxboron&gt;</a></span><span class="message">stikonas: I'm aware</span></div><div class="line" id="232837"><span class="nick" style="color:#234e69"><a href="#232837" label="[23:28:37]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; Foxboron: Wolfi and chainguard are rooted in alpine which currently makes no particular attempt at supply chain integrity. This was not acceptable for the threat model of my use cases. Still it might be worth me adding to the comparison chart just to show the difference in goals.</span></div><div class="line" id="233055"><span class="nick" style="color:#234e69"><a href="#233055" label="[23:30:55]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; This question has come up a few times so I should address it in the readme</span></div><div class="line" id="233258"><span class="nick" style="color:#234e69"><a href="#233258" label="[23:32:58]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; Foxboron: I am not bootstrapping debian or alpine or any other distro. My only use of those is to have 3 different distros build stage0 to show they all get the same result, then I switch to a scratch container with stage0 and everything builds up from there.</span></div><div class="line" id="233342"><span class="nick" style="color:#234e69"><a href="#233342" label="[23:33:42]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; This is as far as I know the only set of containers that builds from 0 without trusting any existing linux distribution</span></div><div class="line" id="233633"><span class="nick" style="color:#234e69"><a href="#233633" label="[23:36:33]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; Foxboron: I will link those numbers to my sources (and then we can see if my sources are in fact wrong, which they may be!)</span></div><div class="line" id="233654"><span class="nick" style="color:#234e69"><a href="#233654" label="[23:36:54]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; That chart will be difficult to keep updated. I should probably just be like x for 100% reproducible or p for in progress, and link to the current stats</span></div><br /></div></body></html>

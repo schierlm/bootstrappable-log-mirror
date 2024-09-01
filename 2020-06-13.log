@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-06-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="033353"><span class="nick">***</span><span class="message notice">terpri_ is now known as terpri</span></div><div class="line" id="124735"><span class="nick" style="color:#8dd3c7"><a href="#124735" label="[12:47:35]">&lt;janneke&gt;</a></span><span class="message">dongcarl: thank you, that's interesting; as hardware people they even mention david wheeler's ddc!</span></div><div class="line" id="152858"><span class="nick" style="color:#2e2a4a"><a href="#152858" label="[15:28:58]">&lt;OriansJ&gt;</a></span><span class="message">janneke: what are your thoughts of me merging the slow-utils as just a scheme folder in mescc-tools?</span></div><div class="line" id="152956"><span class="nick" style="color:#8dd3c7"><a href="#152956" label="[15:29:56]">&lt;janneke&gt;</a></span><span class="message">OriansJ: mescc-tools is fully source code, does not include binary seeds, right?</span></div><div class="line" id="153049"><span class="nick" style="color:#8dd3c7"><a href="#153049" label="[15:30:49]">&lt;janneke&gt;</a></span><span class="message">i think that would make sense; they can share the same test suite, etc right?</span></div><div class="line" id="153429"><span class="nick" style="color:#2e2a4a"><a href="#153429" label="[15:34:29]">&lt;OriansJ&gt;</a></span><span class="message">correct</span></div><div class="line" id="153559"><span class="nick" style="color:#2e2a4a"><a href="#153559" label="[15:35:59]">&lt;OriansJ&gt;</a></span><span class="message">It also would allow us to reduce the guix bootstrap packages to just guile (to be replaced later by mes-m2), MesCC and mescc-tools</span></div><div class="line" id="153714"><span class="nick" style="color:#2e2a4a"><a href="#153714" label="[15:37:14]">&lt;OriansJ&gt;</a></span><span class="message">as slow-utils can run on most scheme interpreters without issue, it puts guix into the state of having exactly only 1 bootstrap binary (guile)</span></div><div class="line" id="153716"><span class="nick" style="color:#8dd3c7"><a href="#153716" label="[15:37:16]">&lt;janneke&gt;</a></span><span class="message">right!</span></div><div class="line" id="155542"><span class="nick" style="color:#8dd3c7"><a href="#155542" label="[15:55:42]">&lt;janneke&gt;</a></span><span class="message">OriansJ: seen <a rel="nofollow" href="https://www.youtube.com/watch?v=fZSFNUT6iY8">https://www.youtube.com/watch?v=fZSFNUT6iY8</a>  ?</span></div><div class="line" id="155558"><span class="nick" style="color:#6b8072"><a href="#155558" label="[15:55:58]">*</a></span><span class="message">janneke cringes -- maybe it's time to move off of github?</span></div><div class="line" id="155741"><span class="nick" style="color:#2e2a4a"><a href="#155741" label="[15:57:41]">&lt;OriansJ&gt;</a></span><span class="message">not yet but I will shortly.</span></div><div class="line" id="155819"><span class="nick" style="color:#2e2a4a"><a href="#155819" label="[15:58:19]">&lt;OriansJ&gt;</a></span><span class="message">well the only pieces not on savannah are M2-Planet, mescc-tools-seed and bootstrap-seed</span></div><div class="line" id="155859"><span class="nick" style="color:#2e2a4a"><a href="#155859" label="[15:58:59]">&lt;OriansJ&gt;</a></span><span class="message">getting bootstrap-seed approved for savannah is going to be a bitch</span></div><div class="line" id="155935"><span class="nick" style="color:#2e2a4a"><a href="#155935" label="[15:59:35]">&lt;OriansJ&gt;</a></span><span class="message">and mescc-tools-seed is unlikely to get approved until after we get bootstrap-seed onto savannah</span></div><div class="line" id="160050"><span class="nick" style="color:#2e2a4a"><a href="#160050" label="[16:00:50]">&lt;OriansJ&gt;</a></span><span class="message">if only we knew someone with good ties to the GNU project that might help us get bootstrap-seed onto savannah</span></div><div class="line" id="160124"><span class="nick" style="color:#80b1d3"><a href="#160124" label="[16:01:24]">&lt;pabs3&gt;</a></span><span class="message">#savannah would be the place to ask</span></div><div class="line" id="160141"><span class="nick" style="color:#6b8072"><a href="#160141" label="[16:01:41]">*</a></span><span class="message">pabs3 also likes sourcehut</span></div><div class="line" id="160234"><span class="nick" style="color:#2e2a4a"><a href="#160234" label="[16:02:34]">&lt;OriansJ&gt;</a></span><span class="message">pabs3: I'm hoping civodul will just make it an official guix package and make a personal request to get it in</span></div><div class="line" id="160347"><span class="nick" style="color:#80b1d3"><a href="#160347" label="[16:03:47]">&lt;pabs3&gt;</a></span><span class="message">where is the current repo?</span></div><div class="line" id="160511"><span class="nick" style="color:#2e2a4a"><a href="#160511" label="[16:05:11]">&lt;OriansJ&gt;</a></span><span class="message">pabs3: <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds">https://github.com/oriansj/bootstrap-seeds</a> </span></div><div class="line" id="160604"><span class="nick" style="color:#2e2a4a"><a href="#160604" label="[16:06:04]">&lt;OriansJ&gt;</a></span><span class="message">ideally I would want all of the bootstrap pieces on places with a grade A or better on <a rel="nofollow" href="https://www.gnu.org/software/repo-criteria-evaluation.html">https://www.gnu.org/software/repo-criteria-evaluation.html</a> </span></div><div class="line" id="160905"><span class="nick" style="color:#2e2a4a"><a href="#160905" label="[16:09:05]">&lt;OriansJ&gt;</a></span><span class="message">hopefully ddddd will return to work on slow-utils when it is part of mescc-tools on savannah</span></div><div class="line" id="161536"><span class="nick" style="color:#2e2a4a"><a href="#161536" label="[16:15:36]">&lt;OriansJ&gt;</a></span><span class="message">janneke: well we knew software generation was ultimately going to leverage less human thinking. It is just a logical extension of compiler technology.</span></div><div class="line" id="161952"><span class="nick" style="color:#6d2462"><a href="#161952" label="[16:19:52]">&lt;Profpatsch&gt;</a></span><span class="message">janneke: that’s the next stage of templating.</span></div><div class="line" id="162008"><span class="nick" style="color:#6d2462"><a href="#162008" label="[16:20:08]">&lt;Profpatsch&gt;</a></span><span class="message">Could be fairly interesting to have this integrated in the editor workflow</span></div><div class="line" id="162035"><span class="nick" style="color:#2e2a4a"><a href="#162035" label="[16:20:35]">&lt;OriansJ&gt;</a></span><span class="message">and not the prestep before: <a rel="nofollow" href="https://www.teamten.com/lawrence/writings/coding-machines/">https://www.teamten.com/lawrence/writings/coding-machines/</a> </span></div><div class="line" id="162155"><span class="nick" style="color:#8dd3c7"><a href="#162155" label="[16:21:55]">&lt;janneke&gt;</a></span><span class="message">maybe -- for now i don't like this one bit</span></div><div class="line" id="162224"><span class="nick" style="color:#6d2462"><a href="#162224" label="[16:22:24]">&lt;Profpatsch&gt;</a></span><span class="message">janneke: Even if they didn’t have Github, they could just use repology for their data base</span></div><div class="line" id="162249"><span class="nick" style="color:#8dd3c7"><a href="#162249" label="[16:22:49]">&lt;janneke&gt;</a></span><span class="message">i'm all for avoiding having humans do computer work</span></div><div class="line" id="162412"><span class="nick" style="color:#8dd3c7"><a href="#162412" label="[16:24:12]">&lt;janneke&gt;</a></span><span class="message">i'm not sure humans will (or should) think less</span></div><div class="line" id="162521"><span class="nick" style="color:#2e2a4a"><a href="#162521" label="[16:25:21]">&lt;OriansJ&gt;</a></span><span class="message">janneke: humans will always try to think less because cognition is extremely expensive in terms of calories</span></div><div class="line" id="162554"><span class="nick" style="color:#6d2462"><a href="#162554" label="[16:25:54]">&lt;Profpatsch&gt;</a></span><span class="message">Usually these systems require a very specific input to get the right output, so a user would have to learn the quirks of the system as well.</span></div><div class="line" id="162616"><span class="nick" style="color:#2e2a4a"><a href="#162616" label="[16:26:16]">&lt;OriansJ&gt;</a></span><span class="message">hence why we invent abstractions to hide details, and allow the human to think less</span></div><div class="line" id="162659"><span class="nick" style="color:#6d2462"><a href="#162659" label="[16:26:59]">&lt;Profpatsch&gt;</a></span><span class="message">But funny to see how the proof/type people have been trying the “generate code from types” for years, and the GPT stuff goes from plain text descriptions to solutions of similar complexity in a matter of months</span></div><div class="line" id="162707"><span class="nick" style="color:#2e2a4a"><a href="#162707" label="[16:27:07]">&lt;OriansJ&gt;</a></span><span class="message">The real danger is the steps when done which can't be easily rereated.</span></div><div class="line" id="162858"><span class="nick" style="color:#2e2a4a"><a href="#162858" label="[16:28:58]">&lt;OriansJ&gt;</a></span><span class="message">ML -&gt; Haskell for example; is a huge risk because we don't even know how big of a gap we have to jump.</span></div><div class="line" id="162931"><span class="nick" style="color:#2e2a4a"><a href="#162931" label="[16:29:31]">&lt;OriansJ&gt;</a></span><span class="message">atleast with from hex0 to C, we know what it takes and have done it</span></div><div class="line" id="162948"><span class="nick" style="color:#2e2a4a"><a href="#162948" label="[16:29:48]">&lt;OriansJ&gt;</a></span><span class="message">hey civodul</span></div><div class="line" id="163101"><span class="nick" style="color:#2e2a4a"><a href="#163101" label="[16:31:01]">&lt;OriansJ&gt;</a></span><span class="message">civodul: we will need help with something that might be politically sensitive in Gnu. getting binaries into  savannah, specifically <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds">https://github.com/oriansj/bootstrap-seeds</a> </span></div><div class="line" id="163230"><span class="nick" style="color:#2e2a4a"><a href="#163230" label="[16:32:30]">&lt;OriansJ&gt;</a></span><span class="message">as they are ultimately going to be the roots of trust for guix</span></div><div class="line" id="163808"><span class="nick" style="color:#234e69"><a href="#163808" label="[16:38:08]">&lt;civodul&gt;</a></span><span class="message">hi OriansJ</span></div><div class="line" id="163833"><span class="nick" style="color:#234e69"><a href="#163833" label="[16:38:33]">&lt;civodul&gt;</a></span><span class="message">i guess this kind of issue can be dealt with once we're actually using the seeds</span></div><div class="line" id="163843"><span class="nick" style="color:#234e69"><a href="#163843" label="[16:38:43]">&lt;civodul&gt;</a></span><span class="message">we already have binary seeds at ftp.gnu.org anyway</span></div><div class="line" id="163852"><span class="nick" style="color:#234e69"><a href="#163852" label="[16:38:52]">&lt;civodul&gt;</a></span><span class="message">so it should be the easiest part of this whole endeavor :-)</span></div><div class="line" id="164553"><span class="nick" style="color:#2e2a4a"><a href="#164553" label="[16:45:53]">&lt;OriansJ&gt;</a></span><span class="message">civodul: well the sooner that is done, the sooner we can migrate mescc-tools-seed to savannah as having a git submodule depending upon github probably isn't going to fly</span></div><div class="line" id="164749"><span class="nick" style="color:#2e2a4a"><a href="#164749" label="[16:47:49]">&lt;OriansJ&gt;</a></span><span class="message">I don't even need commit rights as it should only be updated when we add new architectures</span></div><div class="line" id="173159"><span class="nick" style="color:#6b8072"><a href="#173159" label="[17:31:59]">*</a></span><span class="message">pabs3 ponders the copyright implications of this AI stuff</span></div><div class="line" id="175000"><span class="nick" style="color:#8dd3c7"><a href="#175000" label="[17:50:00]">&lt;janneke&gt;</a></span><span class="message">yeah, well copyright law has little to do (anymore?) with what's logical, natural, honest or fair; it's become a tool for the powerful</span></div><div class="line" id="175315"><span class="nick" style="color:#6b8072"><a href="#175315" label="[17:53:15]">*</a></span><span class="message">janneke is feeling grumpy</span></div><div class="line" id="201317"><span class="nick" style="color:#6c3d55"><a href="#201317" label="[20:13:17]">&lt;Hagfish&gt;</a></span><span class="message">the mention of sneaking binaries into repositories reminds me tangentially of this crazy idea:  <a rel="nofollow" href="https://news.ycombinator.com/item?id=16312317">https://news.ycombinator.com/item?id=16312317</a> </span></div><div class="line" id="205526"><span class="nick" style="color:#2e2a4a"><a href="#205526" label="[20:55:26]">&lt;OriansJ&gt;</a></span><span class="message">great classic example Hagfish</span></div><div class="line" id="205554"><span class="nick" style="color:#2e2a4a"><a href="#205554" label="[20:55:54]">&lt;OriansJ&gt;</a></span><span class="message">I love how the thesis paper is also the compiler</span></div><div class="line" id="213938"><span class="nick">***</span><span class="message notice">terpri_ is now known as terpri</span></div><br /></div></body></html>

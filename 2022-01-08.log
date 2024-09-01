@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-01-08.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="193815"><span class="nick" style="color:#8dd3c7"><a href="#193815" label="[19:38:15]">&lt;stikonas[m]&gt;</a></span><span class="message">doras: you again did not login</span></div><div class="line" id="202058"><span class="nick" style="color:#2e2a4a"><a href="#202058" label="[20:20:58]">&lt;doras&gt;</a></span><span class="message">It seems that libra.chat doesn't support automatic login via the Matrix bridge.</span></div><div class="line" id="202118"><span class="nick" style="color:#2e2a4a"><a href="#202118" label="[20:21:18]">&lt;doras&gt;</a></span><span class="message">So every time a disconnection occurs, the login is lost.</span></div><div class="line" id="202723"><span class="nick" style="color:#6b8072"><a href="#202723" label="[20:27:23]">&lt;stikonas&gt;</a></span><span class="message">that is strange, I think my matrix session logins automatically</span></div><div class="line" id="203300"><span class="nick" style="color:#6b8072"><a href="#203300" label="[20:33:00]">&lt;stikonas&gt;</a></span><span class="message">or maybe I don't close my matrix session...</span></div><div class="line" id="205120"><span class="nick" style="color:#2e2a4a"><a href="#205120" label="[20:51:20]">&lt;doras&gt;</a></span><span class="message">I think it's a server-side disconnection.</span></div><div class="line" id="205150"><span class="nick" style="color:#2e2a4a"><a href="#205150" label="[20:51:50]">&lt;doras&gt;</a></span><span class="message">Anyway, I'll summarize what I wrote before.</span></div><div class="line" id="205322"><span class="nick" style="color:#2e2a4a"><a href="#205322" label="[20:53:22]">&lt;doras&gt;</a></span><span class="message">fossy: unfortunately I keep hitting issues, so I haven't gotten sysa building in full just yet. The latest trouble is a difference in filesystem behavior of BuildStream's FUSE filesystem and a barebone filesystem. This difference is picked up by configure scripts, which result in some binaries using alternative implementations.</span></div><div class="line" id="205713"><span class="nick" style="color:#2e2a4a"><a href="#205713" label="[20:57:13]">&lt;doras&gt;</a></span><span class="message">Obviously alternative implementations means different checksum.</span></div><div class="line" id="205739"><span class="nick" style="color:#2e2a4a"><a href="#205739" label="[20:57:39]">&lt;doras&gt;</a></span><span class="message">Though I'm almost sure I found and fixed at least one issue in BuildSteam's FUSE filesystem that resulted in this difference. It looks like an actual bug.</span></div><div class="line" id="205914"><span class="nick" style="color:#2e2a4a"><a href="#205914" label="[20:59:14]">&lt;doras&gt;</a></span><span class="message">It resulted in the AT_SYMLINK_NOFOLLOW flag being ignored for the fchownat syscall.</span></div><div class="line" id="210039"><span class="nick" style="color:#2e2a4a"><a href="#210039" label="[21:00:39]">&lt;doras&gt;</a></span><span class="message">The bootstrap is currently running, so we'll know in a few minutes. Fingers crossed.</span></div><div class="line" id="210147"><span class="nick" style="color:#2e2a4a"><a href="#210147" label="[21:01:47]">&lt;doras&gt;</a></span><span class="message">There's at least one other issue involving either opendir, readdir or stat. The configure test program is a bit more complicated, so I'll need to analyze it more.</span></div><div class="line" id="212035"><span class="nick" style="color:#2e2a4a"><a href="#212035" label="[21:20:35]">&lt;doras&gt;</a></span><span class="message">Worked! &quot;checking whether fchownat works with AT_SYMLINK_NOFOLLOW... yes&quot;</span></div><div class="line" id="212105"><span class="nick" style="color:#2e2a4a"><a href="#212105" label="[21:21:05]">&lt;doras&gt;</a></span><span class="message">The checksum is still different though, most likely due to the second issue I mentioned.</span></div><div class="line" id="214801"><span class="nick" style="color:#80b1d3"><a href="#214801" label="[21:48:01]">&lt;bauen1&gt;</a></span><span class="message">making things reproducible is always fun</span></div><div class="line" id="215107"><span class="nick" style="color:#80b1d3"><a href="#215107" label="[21:51:07]">&lt;bauen1&gt;</a></span><span class="message">just spend some good time monkey patching debian-cd to build my installer images reproducible</span></div><br /></div></body></html>

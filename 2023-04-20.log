@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-04-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="033246"><span class="nick" style="color:#389600"><a href="#033246" label="[03:32:46]">&lt;roconnor&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/blob/master/makefile#L147">https://github.com/oriansj/stage0-posix/blob/master/makefile#L147</a>   does test-all work? I thought each test requires it be run on a different architecture.</span></div><div class="line" id="040928"><span class="nick" style="color:#8dd3c7"><a href="#040928" label="[04:09:28]">&lt;muurkha&gt;</a></span><span class="message">oh hi roconnor, glad to see you here!  this is Kragen</span></div><div class="line" id="040944"><span class="nick" style="color:#389600"><a href="#040944" label="[04:09:44]">&lt;roconnor&gt;</a></span><span class="message">Hey Kragen.</span></div><div class="line" id="041002"><span class="nick" style="color:#8dd3c7"><a href="#041002" label="[04:10:02]">&lt;muurkha&gt;</a></span><span class="message">unfortunately I don't know the answer to your question</span></div><div class="line" id="041024"><span class="nick" style="color:#389600"><a href="#041024" label="[04:10:24]">&lt;roconnor&gt;</a></span><span class="message">I've been playing with stage0-posix today.  It's not nearly as intimidating as I thought it would be.</span></div><div class="line" id="041043"><span class="nick" style="color:#8dd3c7"><a href="#041043" label="[04:10:43]">&lt;muurkha&gt;</a></span><span class="message">maybe if you have qemu-user installed you can get test-all to work?</span></div><div class="line" id="041516"><span class="nick" style="color:#389600"><a href="#041516" label="[04:15:16]">&lt;roconnor&gt;</a></span><span class="message">I got all the right answers for <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/blob/master/x86.answers">https://github.com/oriansj/stage0-posix/blob/master/x86.answers</a>  so that is nice.</span></div><div class="line" id="041808"><span class="nick" style="color:#2e2a4a"><a href="#041808" label="[04:18:08]">&lt;fossy&gt;</a></span><span class="message">Mikaku: i've just been playing a bit with the kexec stuff you impl'd in Fiwix, and I tried to see if it could load GRUB (from which we could load anything) - this is the image I used <a rel="nofollow" href="http://ttm.sh/WG7.img.">http://ttm.sh/WG7.img.</a>  grub-file believes it is multibootv1 compliant. however it just hangs on the actual kexec invocation after shutdown. any ideas?</span></div><div class="line" id="043030"><span class="nick" style="color:#8dd3c7"><a href="#043030" label="[04:30:30]">&lt;muurkha&gt;</a></span><span class="message">awesome!</span></div><div class="line" id="075423"><span class="nick" style="color:#6b8072"><a href="#075423" label="[07:54:23]">&lt;Mikaku&gt;</a></span><span class="message">fossy: well I've only tested it with the Fiwix kernel and this ELF has different addresses in PLOADS</span></div><div class="line" id="075437"><span class="nick" style="color:#6b8072"><a href="#075437" label="[07:54:37]">&lt;Mikaku&gt;</a></span><span class="message">fossy: anyway, did you changed the hard core entry address?</span></div><div class="line" id="075440"><span class="nick" style="color:#6b8072"><a href="#075440" label="[07:54:40]">&lt;Mikaku&gt;</a></span><span class="message"> &lt;<a rel="nofollow" href="https://github.com/mikaku/Fiwix/blob/a0d609968c671b3381772947bd5d97563bd73e50/kernel/kexec.c#L160">https://github.com/mikaku/Fiwix/blob/a0d609968c671b3381772947bd5d97563bd73e50/kernel/kexec.c#L160</a>&gt; </span></div><div class="line" id="075609"><span class="nick" style="color:#6b8072"><a href="#075609" label="[07:56:09]">&lt;Mikaku&gt;</a></span><span class="message">unfortunately this is hard coded meanwhile I find a way to pass two values to 'ljmp' in inline assembly code</span></div><div class="line" id="075700"><span class="nick" style="color:#6b8072"><a href="#075700" label="[07:57:00]">&lt;Mikaku&gt;</a></span><span class="message">(I'll be away for a couple of hours, sorry)</span></div><div class="line" id="085911"><span class="nick" style="color:#2e2a4a"><a href="#085911" label="[08:59:11]">&lt;fossy&gt;</a></span><span class="message">Mikaku: no, i didn't missed that reading over the code! (no worries abt being away, TZ make this kind of thing very asynchronous anyways)</span></div><div class="line" id="093934"><span class="nick" style="color:#6b8072"><a href="#093934" label="[09:39:34]">&lt;Mikaku&gt;</a></span><span class="message">fossy: I'll use the file WG7.img to fix the kexec code and make a little bit more generic</span></div><div class="line" id="094622"><span class="nick" style="color:#2e2a4a"><a href="#094622" label="[09:46:22]">&lt;fossy&gt;</a></span><span class="message">thank you for your work!</span></div><div class="line" id="095204"><span class="nick" style="color:#2e2a4a"><a href="#095204" label="[09:52:04]">&lt;fossy&gt;</a></span><span class="message">fwiw, if i change that hardcoded address to grub's entrypoint 0x00009000 it does boot grub - however grub fails due to some kind of memory corruption - not sure why yet</span></div><div class="line" id="095418"><span class="nick" style="color:#6b8072"><a href="#095418" label="[09:54:18]">&lt;Mikaku&gt;</a></span><span class="message">fossy: I'm seeing that 'objdump -S' is unable to disassemble WG7.img, but I don't know why</span></div><div class="line" id="095507"><span class="nick" style="color:#6b8072"><a href="#095507" label="[09:55:07]">&lt;Mikaku&gt;</a></span><span class="message">the command 'file' says the same for WG7.img and for Fiwix, the only difference is that symbols in WG7.img are stripped</span></div><div class="line" id="095543"><span class="nick" style="color:#6b8072"><a href="#095543" label="[09:55:43]">&lt;Mikaku&gt;</a></span><span class="message">but that shouldn't suppose a problem</span></div><div class="line" id="100122"><span class="nick" style="color:#6b8072"><a href="#100122" label="[10:01:22]">&lt;Mikaku&gt;</a></span><span class="message">fossy: is this WG7.img a kind of a kernel? I mean, what should I expect to see if it runs correctly?</span></div><div class="line" id="100401"><span class="nick" style="color:#2e2a4a"><a href="#100401" label="[10:04:01]">&lt;fossy&gt;</a></span><span class="message">Mikaku: this is a multiboot GRUB image</span></div><div class="line" id="100417"><span class="nick" style="color:#2e2a4a"><a href="#100417" label="[10:04:17]">&lt;fossy&gt;</a></span><span class="message">as in, GRUB compiled into multibootv1 compatible elf</span></div><div class="line" id="100543"><span class="nick" style="color:#6b8072"><a href="#100543" label="[10:05:43]">&lt;Mikaku&gt;</a></span><span class="message">I see, and it loads and runs correctly when calling (like a kernel) from another GRUB?</span></div><div class="line" id="101115"><span class="nick" style="color:#2e2a4a"><a href="#101115" label="[10:11:15]">&lt;fossy&gt;</a></span><span class="message">yep!</span></div><div class="line" id="101250"><span class="nick" style="color:#2e2a4a"><a href="#101250" label="[10:12:50]">&lt;fossy&gt;</a></span><span class="message">hmmm, or maybe it doesn't, and grub is actually just resetting lol</span></div><div class="line" id="101300"><span class="nick" style="color:#2e2a4a"><a href="#101300" label="[10:13:00]">&lt;fossy&gt;</a></span><span class="message">it's a bit difficult to tell the difference...</span></div><div class="line" id="101302"><span class="nick" style="color:#6b8072"><a href="#101302" label="[10:13:02]">&lt;Mikaku&gt;</a></span><span class="message">ah! :-)</span></div><div class="line" id="101436"><span class="nick" style="color:#6b8072"><a href="#101436" label="[10:14:36]">&lt;Mikaku&gt;</a></span><span class="message">well, I think GRUB expects to be executed in real-mode, which is not the case when using kexec</span></div><div class="line" id="101558"><span class="nick" style="color:#2e2a4a"><a href="#101558" label="[10:15:58]">&lt;fossy&gt;</a></span><span class="message">really? when I kexec'd it, it produced &quot;Welcome to GRUB&quot; at least, and got stuck on a sanity check</span></div><div class="line" id="101640"><span class="nick" style="color:#2e2a4a"><a href="#101640" label="[10:16:40]">&lt;fossy&gt;</a></span><span class="message">i thought that since the image (WG7.img) is multibootv1 compatible, it would work..</span></div><div class="line" id="101754"><span class="nick" style="color:#6b8072"><a href="#101754" label="[10:17:54]">&lt;Mikaku&gt;</a></span><span class="message">I'm not sure, of course</span></div><div class="line" id="101812"><span class="nick" style="color:#6b8072"><a href="#101812" label="[10:18:12]">&lt;Mikaku&gt;</a></span><span class="message">in any case, is strange that objdump is unable to disassemble it</span></div><div class="line" id="101904"><span class="nick" style="color:#2e2a4a"><a href="#101904" label="[10:19:04]">&lt;fossy&gt;</a></span><span class="message">yes, i do find that rather strange</span></div><div class="line" id="113210"><span class="nick" style="color:#80b1d3"><a href="#113210" label="[11:32:10]">&lt;stikonas[m]&gt;</a></span><span class="message">roconnor: yes, you need qemu for non native arches</span></div><div class="line" id="113546"><span class="nick" style="color:#80b1d3"><a href="#113546" label="[11:35:46]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: but can you build grub with tcc?</span></div><div class="line" id="122331"><span class="nick" style="color:#6d2462"><a href="#122331" label="[12:23:31]">&lt;river&gt;</a></span><span class="message">has anybody got a completely linear shell build script to build gcc? [please do not go to any trouble to answer this, this is not for anything useful. i am just wondering]</span></div><div class="line" id="130047"><span class="nick" style="color:#2e2a4a"><a href="#130047" label="[13:00:47]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: do you need to? this is to kexec fiwix-&gt;linux - we can build it with gcc</span></div><div class="line" id="130617"><span class="nick" style="color:#80b1d3"><a href="#130617" label="[13:06:17]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: oh true, I forgot that this is for booting Linux</span></div><div class="line" id="130658"><span class="nick" style="color:#80b1d3"><a href="#130658" label="[13:06:58]">&lt;stikonas[m]&gt;</a></span><span class="message">And no, we don't have linear shell script for gcc</span></div><div class="line" id="131251"><span class="nick" style="color:#234e69"><a href="#131251" label="[13:12:51]">&lt;oriansj&gt;</a></span><span class="message">river: but it is possible to generate one from the output of running of the makefile</span></div><div class="line" id="131311"><span class="nick" style="color:#80b1d3"><a href="#131311" label="[13:13:11]">&lt;stikonas[m]&gt;</a></span><span class="message">But it will be machine or libc specific</span></div><div class="line" id="131328"><span class="nick" style="color:#234e69"><a href="#131328" label="[13:13:28]">&lt;oriansj&gt;</a></span><span class="message">indeed</span></div><div class="line" id="131350"><span class="nick" style="color:#80b1d3"><a href="#131350" label="[13:13:50]">&lt;stikonas[m]&gt;</a></span><span class="message">And will need to create some extra files that autotools does for us</span></div><div class="line" id="131401"><span class="nick" style="color:#80b1d3"><a href="#131401" label="[13:14:01]">&lt;stikonas[m]&gt;</a></span><span class="message">Such as config.h or something similar</span></div><div class="line" id="131424"><span class="nick" style="color:#6d2462"><a href="#131424" label="[13:14:24]">&lt;river&gt;</a></span><span class="message">alright! sounds like no one has bothered to do this</span></div><div class="line" id="131438"><span class="nick" style="color:#6d2462"><a href="#131438" label="[13:14:38]">&lt;river&gt;</a></span><span class="message">so its not really a useful thing to have lying around</span></div><div class="line" id="131529"><span class="nick" style="color:#234e69"><a href="#131529" label="[13:15:29]">&lt;oriansj&gt;</a></span><span class="message">well, makefiles really are much easier to maintain than the corresponding list of shell commands</span></div><div class="line" id="131532"><span class="nick" style="color:#80b1d3"><a href="#131532" label="[13:15:32]">&lt;stikonas[m]&gt;</a></span><span class="message">No, in live-bootstrap  we stop writing completely linear scripts after tcc</span></div><div class="line" id="131551"><span class="nick" style="color:#80b1d3"><a href="#131551" label="[13:15:51]">&lt;stikonas[m]&gt;</a></span><span class="message">Then we build make and switch to makefiles</span></div><div class="line" id="131616"><span class="nick" style="color:#80b1d3"><a href="#131616" label="[13:16:16]">&lt;stikonas[m]&gt;</a></span><span class="message">Which are still a bit annoying to write without configure but a bit easier</span></div><div class="line" id="131630"><span class="nick" style="color:#80b1d3"><a href="#131630" label="[13:16:30]">&lt;stikonas[m]&gt;</a></span><span class="message">Then after perl we switch to autotools</span></div><div class="line" id="131836"><span class="nick" style="color:#6d2462"><a href="#131836" label="[13:18:36]">&lt;river&gt;</a></span><span class="message">alright!</span></div><div class="line" id="131912"><span class="nick" style="color:#80b1d3"><a href="#131912" label="[13:19:12]">&lt;stikonas[m]&gt;</a></span><span class="message">Perl itself is already bad enough.to configure...</span></div><div class="line" id="131915"><span class="nick" style="color:#80b1d3"><a href="#131915" label="[13:19:15]">&lt;stikonas[m]&gt;</a></span><span class="message">See <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/sysa/perl-5.6.2/files/config.h">https://github.com/fosslinux/live-bootstrap/blob/master/sysa/perl-5.6.2/files/config.h</a> </span></div><div class="line" id="132005"><span class="nick" style="color:#234e69"><a href="#132005" label="[13:20:05]">&lt;oriansj&gt;</a></span><span class="message">river: bootstrapping doesn't have to be useful; it just has to help you get to the place where you want to be. Useful to others is just a nice extra.</span></div><div class="line" id="132009"><span class="nick" style="color:#80b1d3"><a href="#132009" label="[13:20:09]">&lt;stikonas[m]&gt;</a></span><span class="message">And <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/sysa/perl-5.6.2/mk/main.mk">https://github.com/fosslinux/live-bootstrap/blob/master/sysa/perl-5.6.2/mk/main.mk</a> </span></div><div class="line" id="175306"><span class="nick" style="color:#6b8072"><a href="#175306" label="[17:53:06]">&lt;Mikaku&gt;</a></span><span class="message">fossy: I think finally managed to make WG7.img work, I see this &lt;<a rel="nofollow" href="https://i.imgur.com/JFYPyGX.png">https://i.imgur.com/JFYPyGX.png</a>&gt; </span></div><div class="line" id="175418"><span class="nick" style="color:#6b8072"><a href="#175418" label="[17:54:18]">&lt;Mikaku&gt;</a></span><span class="message">but the keyboard doesn't works, I'll try enabling interrupts ..</span></div><div class="line" id="181302"><span class="nick" style="color:#6b8072"><a href="#181302" label="[18:13:02]">&lt;Mikaku&gt;</a></span><span class="message">fossy: do you know if GRUB configures the Interrupt Descriptor Table? that would be the cause that keyboard is not working</span></div><div class="line" id="181450"><span class="nick" style="color:#6b8072"><a href="#181450" label="[18:14:50]">&lt;Mikaku&gt;</a></span><span class="message">anyway, the original problem was that the Fiwix kexec implementation didn't clear the &quot;low&quot; memory (from 0x0 to 0xA0000) before copying the new kernel</span></div><div class="line" id="181528"><span class="nick" style="color:#6b8072"><a href="#181528" label="[18:15:28]">&lt;Mikaku&gt;</a></span><span class="message">so I guess that GRUB has uninitialized variables that it counts they will have a zero value</span></div><div class="line" id="195630"><span class="nick" style="color:#6c3d55"><a href="#195630" label="[19:56:30]">&lt;Christoph[m]&gt;</a></span><span class="message">I'd consider that an error of GRUB!</span></div><div class="line" id="220849"><span class="nick" style="color:#6b8072"><a href="#220849" label="[22:08:49]">&lt;Mikaku&gt;</a></span><span class="message">Christoph[m]: yes, seems so</span></div><div class="line" id="221227"><span class="nick" style="color:#6b8072"><a href="#221227" label="[22:12:27]">&lt;Mikaku&gt;</a></span><span class="message">but well, I guess GRUB assumes that it will be always executed right after a reboot</span></div><div class="line" id="222001"><span class="nick" style="color:#d9d9d9"><a href="#222001" label="[22:20:01]">&lt;stikonas&gt;</a></span><span class="message">though in some modes it's definitely not true, e.g. UEFI gives no guarantees about state of memory</span></div><div class="line" id="222033"><span class="nick" style="color:#d9d9d9"><a href="#222033" label="[22:20:33]">&lt;stikonas&gt;</a></span><span class="message">though maybe in that case grub does initialization but not in bios/multiboot mode</span></div><div class="line" id="223929"><span class="nick" style="color:#d9d9d9"><a href="#223929" label="[22:39:29]">&lt;stikonas&gt;</a></span><span class="message">I remember when I was working on stage0-uefi, there were initially some bugs due to me not zero-initializing the memory (which we don't always do in stage0-posix)</span></div><div class="line" id="231649"><span class="nick" style="color:#389600"><a href="#231649" label="[23:16:49]">&lt;roconnor&gt;</a></span><span class="message">building tcc from mes has scary warning. :)</span></div><div class="line" id="232154"><span class="nick" style="color:#80b1d3"><a href="#232154" label="[23:21:54]">&lt;stikonas[m]&gt;</a></span><span class="message">There are 3 warnings I think</span></div><div class="line" id="232211"><span class="nick" style="color:#80b1d3"><a href="#232211" label="[23:22:11]">&lt;stikonas[m]&gt;</a></span><span class="message">Though not very user frienfly</span></div><div class="line" id="232244"><span class="nick" style="color:#80b1d3"><a href="#232244" label="[23:22:44]">&lt;stikonas[m]&gt;</a></span><span class="message">Hard to tell what's wrong with tcc code</span></div><div class="line" id="232300"><span class="nick" style="color:#80b1d3"><a href="#232300" label="[23:23:00]">&lt;stikonas[m]&gt;</a></span><span class="message">Anyway, it's justba compile warning</span></div><br /></div></body></html>

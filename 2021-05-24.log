@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-05-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001527"><span class="nick" style="color:#389600"><a href="#001527" label="[00:15:27]">&lt;oriansj&gt;</a></span><span class="message">Melg817: well we already have some perl bootstrapped but progress is always welcomed across all paths.</span></div><div class="line" id="001701"><span class="nick" style="color:#389600"><a href="#001701" label="[00:17:01]">&lt;oriansj&gt;</a></span><span class="message">we also have a mini-haskell bootstrapped too (bylnn-compiler); which with more work will solve the GHC haskell bootstrap problem.</span></div><div class="line" id="001806"><span class="nick" style="color:#389600"><a href="#001806" label="[00:18:06]">&lt;oriansj&gt;</a></span><span class="message">fortunately we have mihi, who single handedly solved the Guile bootstrap problem with <a rel="nofollow" href="https://github.com/schierlm/guile-psyntax-bootstrapping">https://github.com/schierlm/guile-psyntax-bootstrapping</a> </span></div><div class="line" id="002919"><span class="nick" style="color:#389600"><a href="#002919" label="[00:29:19]">&lt;oriansj&gt;</a></span><span class="message">as the ratio of support:developers seems to be 5:1; assuming we maintain our histrocial growth rate, in 5 years we will finally be ahead of the curve and might be able to maintain an ever expanding and improving bootstrap forever.</span></div><div class="line" id="002958"><span class="nick" style="color:#389600"><a href="#002958" label="[00:29:58]">&lt;oriansj&gt;</a></span><span class="message">^histrocial^historical^</span></div><div class="line" id="003023"><span class="nick" style="color:#8dd3c7"><a href="#003023" label="[00:30:23]">&lt;stikonas&gt;</a></span><span class="message">well, we still need to build guile on live-bootstrap...</span></div><div class="line" id="003030"><span class="nick" style="color:#8dd3c7"><a href="#003030" label="[00:30:30]">&lt;stikonas&gt;</a></span><span class="message">but we are probably not too far now</span></div><div class="line" id="003147"><span class="nick" style="color:#389600"><a href="#003147" label="[00:31:47]">&lt;oriansj&gt;</a></span><span class="message">and once guile is properly bootstrapped, we can share and leverage the guix work.</span></div><div class="line" id="003345"><span class="nick" style="color:#389600"><a href="#003345" label="[00:33:45]">&lt;oriansj&gt;</a></span><span class="message">making all future new languages a solved(ish) problem provided we start addressing them once they are available.</span></div><div class="line" id="003441"><span class="nick" style="color:#2e2a4a"><a href="#003441" label="[00:34:41]">&lt;vagrantc&gt;</a></span><span class="message">hopefully we can make bootstrapping a thing that new languages consider from the get-go</span></div><div class="line" id="003615"><span class="nick" style="color:#389600"><a href="#003615" label="[00:36:15]">&lt;oriansj&gt;</a></span><span class="message">vagrantc: long term hopefully but in the short term we limit the damage and slowly roll it back as we sort out each language's bootstrap.</span></div><div class="line" id="004447"><span class="nick" style="color:#389600"><a href="#004447" label="[00:44:47]">&lt;oriansj&gt;</a></span><span class="message">Guix really helps with that long term, as functional package definitions will slowly absorb the packaging problem away from us.</span></div><div class="line" id="004606"><span class="nick" style="color:#6b8072"><a href="#004606" label="[00:46:06]">&lt;fossy&gt;</a></span><span class="message">stikonas: yeah. I am not 100% sure</span></div><div class="line" id="004617"><span class="nick" style="color:#6b8072"><a href="#004617" label="[00:46:17]">&lt;fossy&gt;</a></span><span class="message">Chroot might be best short term option</span></div><div class="line" id="005358"><span class="nick" style="color:#80b1d3"><a href="#005358" label="[00:53:58]">&lt;Melg817&gt;</a></span><span class="message">if env variable is set from child process - will other child processes which are executed later by kaem also get this updated env? or they will be using original env, which were from start of script.kaem run?</span></div><div class="line" id="011155"><span class="nick" style="color:#389600"><a href="#011155" label="[01:11:55]">&lt;oriansj&gt;</a></span><span class="message">Melg817: that is trivial to test and prove. just write export foo=3 in file a and echo ${foo} in file b and have file 1 call a then b</span></div><div class="line" id="011221"><span class="nick" style="color:#80b1d3"><a href="#011221" label="[01:12:21]">&lt;Melg817&gt;</a></span><span class="message">i've tested, i think answer is no</span></div><div class="line" id="014016"><span class="nick" style="color:#8dd3c7"><a href="#014016" label="[01:40:16]">&lt;stikonas&gt;</a></span><span class="message">hmm, somehow new coreutils is not aware of its own version</span></div><div class="line" id="014030"><span class="nick" style="color:#8dd3c7"><a href="#014030" label="[01:40:30]">&lt;stikonas&gt;</a></span><span class="message">probably artifact of using git archive</span></div><div class="line" id="014052"><span class="nick" style="color:#8dd3c7"><a href="#014052" label="[01:40:52]">&lt;stikonas&gt;</a></span><span class="message">/after # ls --version</span></div><div class="line" id="014053"><span class="nick" style="color:#8dd3c7"><a href="#014053" label="[01:40:53]">&lt;stikonas&gt;</a></span><span class="message">ls (GNU coreutils) UNKNOW</span></div><div class="line" id="014122"><span class="nick" style="color:#8dd3c7"><a href="#014122" label="[01:41:22]">&lt;stikonas&gt;</a></span><span class="message">not a critical issue, but might be nice to fix it</span></div><div class="line" id="021342"><span class="nick" style="color:#8dd3c7"><a href="#021342" label="[02:13:42]">&lt;stikonas&gt;</a></span><span class="message">fossy: one minor point about double space but I gave you green tick</span></div><div class="line" id="024248"><span class="nick" style="color:#6b8072"><a href="#024248" label="[02:42:48]">&lt;fossy&gt;</a></span><span class="message">Melg817: no, they will not</span></div><div class="line" id="024259"><span class="nick" style="color:#6b8072"><a href="#024259" label="[02:42:59]">&lt;fossy&gt;</a></span><span class="message">i don't think that even bash does that</span></div><div class="line" id="024351"><span class="nick" style="color:#6b8072"><a href="#024351" label="[02:43:51]">&lt;fossy&gt;</a></span><span class="message">yeah bash dosen't do that. kaem also doesn't</span></div><div class="line" id="025754"><span class="nick" style="color:#234e69"><a href="#025754" label="[02:57:54]">&lt;pabs3&gt;</a></span><span class="message">can someone update the website to not say freenode? <a rel="nofollow" href="https://bootstrappable.org/who.html">https://bootstrappable.org/who.html</a> </span></div><div class="line" id="173625"><span class="nick" style="color:#6c3d55"><a href="#173625" label="[17:36:25]">&lt;siraben&gt;</a></span><span class="message">hello all</span></div><div class="line" id="173811"><span class="nick" style="color:#6c3d55"><a href="#173811" label="[17:38:11]">&lt;siraben&gt;</a></span><span class="message">yay we have logs as well</span></div><div class="line" id="174020"><span class="nick" style="color:#6c3d55"><a href="#174020" label="[17:40:20]">&lt;siraben&gt;</a></span><span class="message">was just parting from my last freenode channels</span></div><div class="line" id="174136"><span class="nick" style="color:#8dd3c7"><a href="#174136" label="[17:41:36]">&lt;stikonas&gt;</a></span><span class="message">siraben: logs are probably somewhere on that server, just not coppied...</span></div><div class="line" id="220753"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><br /></div></body></html>

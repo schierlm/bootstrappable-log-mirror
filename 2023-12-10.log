@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-12-10.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000012"><span class="nick" style="color:#389600"><a href="#000012" label="[00:00:12]">&lt;oriansj&gt;</a></span><span class="message">true</span></div><div class="line" id="011841"><span class="nick" style="color:#8dd3c7"><a href="#011841" label="[01:18:41]">&lt;stikonas&gt;</a></span><span class="message">ok, I think I have a working kaem-optional.S prototype for UEFI too. Now just need to convert intel_syntax-&gt;M1-&gt;hex2-&gt;hex0</span></div><div class="line" id="011851"><span class="nick" style="color:#8dd3c7"><a href="#011851" label="[01:18:51]">&lt;stikonas&gt;</a></span><span class="message">this is one probably the hardest to fix...</span></div><div class="line" id="011901"><span class="nick" style="color:#8dd3c7"><a href="#011901" label="[01:19:01]">&lt;stikonas&gt;</a></span><span class="message">a lot of UEFI calls and stuff is still low level</span></div><div class="line" id="130056"><span class="nick" style="color:#389600"><a href="#130056" label="[13:00:56]">&lt;oriansj&gt;</a></span><span class="message">stikonas: nice</span></div><div class="line" id="133708"><span class="nick" style="color:#8dd3c7"><a href="#133708" label="[13:37:08]">&lt;stikonas&gt;</a></span><span class="message">yeah, I should have something up for review later today for bootstrap-seeds...</span></div><div class="line" id="230258"><span class="nick" style="color:#8dd3c7"><a href="#230258" label="[23:02:58]">&lt;stikonas&gt;</a></span><span class="message">hmm, I'm unlikely to finish new bootstrap seeds today... Still having some issues...</span></div><div class="line" id="230319"><span class="nick" style="color:#8dd3c7"><a href="#230319" label="[23:03:19]">&lt;stikonas&gt;</a></span><span class="message">kaem is actually more complicated than hex1 here...</span></div><div class="line" id="230323"><span class="nick" style="color:#389600"><a href="#230323" label="[23:03:23]">&lt;oriansj&gt;</a></span><span class="message">no worries, thank you for improving the UEFI bootstrap seed</span></div><div class="line" id="231435"><span class="nick" style="color:#8dd3c7"><a href="#231435" label="[23:14:35]">&lt;stikonas&gt;</a></span><span class="message">I probably missed some branch...</span></div><div class="line" id="231514"><span class="nick" style="color:#8dd3c7"><a href="#231514" label="[23:15:14]">&lt;stikonas&gt;</a></span><span class="message">it worked on very simple kaem files but anything complex (like those mescc-tools-*.kaem) causes reboot...</span></div><div class="line" id="231713"><span class="nick" style="color:#8dd3c7"><a href="#231713" label="[23:17:13]">&lt;stikonas&gt;</a></span><span class="message">kaem does need to be quite good at error handling unlike other hex programs...</span></div><div class="line" id="233441"><span class="nick" style="color:#8dd3c7"><a href="#233441" label="[23:34:41]">&lt;stikonas&gt;</a></span><span class="message">hmm, I might have introduced some other bug though...</span></div><div class="line" id="233447"><span class="nick" style="color:#8dd3c7"><a href="#233447" label="[23:34:47]">&lt;stikonas&gt;</a></span><span class="message">probably not related to stack alignment</span></div><div class="line" id="233524"><span class="nick" style="color:#8dd3c7"><a href="#233524" label="[23:35:24]">&lt;stikonas&gt;</a></span><span class="message">since qemu version now also reboots...</span></div><div class="line" id="233828"><span class="nick" style="color:#389600"><a href="#233828" label="[23:38:28]">&lt;oriansj&gt;</a></span><span class="message">very easy to do in hex0</span></div><div class="line" id="233852"><span class="nick" style="color:#8dd3c7"><a href="#233852" label="[23:38:52]">&lt;stikonas&gt;</a></span><span class="message">oriansj: not in hex0, it was in .S</span></div><div class="line" id="233859"><span class="nick" style="color:#8dd3c7"><a href="#233859" label="[23:38:59]">&lt;stikonas&gt;</a></span><span class="message">well, it propagated to hex0 too</span></div><div class="line" id="234205"><span class="nick" style="color:#389600"><a href="#234205" label="[23:42:05]">&lt;oriansj&gt;</a></span><span class="message">it happens</span></div><div class="line" id="234518"><span class="nick" style="color:#8dd3c7"><a href="#234518" label="[23:45:18]">&lt;stikonas&gt;</a></span><span class="message">hmm, might be more than one bug</span></div><div class="line" id="234534"><span class="nick" style="color:#8dd3c7"><a href="#234534" label="[23:45:34]">&lt;stikonas&gt;</a></span><span class="message">checking out older commits seem to indicate that I'm getting some Subprocess error</span></div><div class="line" id="234711"><span class="nick" style="color:#8dd3c7"><a href="#234711" label="[23:47:11]">&lt;stikonas&gt;</a></span><span class="message">so actually, the main bug might be in hex0...</span></div><div class="line" id="234717"><span class="nick" style="color:#8dd3c7"><a href="#234717" label="[23:47:17]">&lt;stikonas&gt;</a></span><span class="message">and I was looking in the wrong place...</span></div><br /></div></body></html>

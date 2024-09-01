@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-11-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002212"><span class="nick" style="color:#389600"><a href="#002212" label="[00:22:12]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I've got simple global struct to work, so mix of e.g. integers and chars should be fine, stuff like (&amp;a)-&gt;y seems to work too  but right now I'm still having problems with arrays inside global  structs...</span></div><div class="line" id="002230"><span class="nick" style="color:#389600"><a href="#002230" label="[00:22:30]">&lt;stikonas&gt;</a></span><span class="message">do you think we can ignore them for the time being?</span></div><div class="line" id="002358"><span class="nick" style="color:#389600"><a href="#002358" label="[00:23:58]">&lt;stikonas&gt;</a></span><span class="message">hmm, for some reason I think I get an extra dereference there...</span></div><div class="line" id="002552"><span class="nick" style="color:#389600"><a href="#002552" label="[00:25:52]">&lt;stikonas&gt;</a></span><span class="message">hmm, that's probably something that might be fixable in dot processing function</span></div><div class="line" id="002604"><span class="nick" style="color:#389600"><a href="#002604" label="[00:26:04]">&lt;stikonas&gt;</a></span><span class="message">after all . and [] kind of &quot;cancel&quot; each other in some sense</span></div><div class="line" id="002752"><span class="nick" style="color:#389600"><a href="#002752" label="[00:27:52]">&lt;stikonas&gt;</a></span><span class="message">ok, adding if(match(&quot;[&quot;, global_token-&gt;s)) return; seems  to fix it...</span></div><div class="line" id="011418"><span class="nick" style="color:#8dd3c7"><a href="#011418" label="[01:14:18]">&lt;muurkha&gt;</a></span><span class="message">stikonas: how much complexity in the compiler was it to get the global struct to work?</span></div><div class="line" id="011513"><span class="nick" style="color:#389600"><a href="#011513" label="[01:15:13]">&lt;stikonas&gt;</a></span><span class="message">muurkha: cc_core.c                            | 98 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----</span></div><div class="line" id="011523"><span class="nick" style="color:#389600"><a href="#011523" label="[01:15:23]">&lt;stikonas&gt;</a></span><span class="message">(that's not counting tests, etc...)</span></div><div class="line" id="011533"><span class="nick" style="color:#389600"><a href="#011533" label="[01:15:33]">&lt;stikonas&gt;</a></span><span class="message">I'll see if I can get local structs to work too</span></div><div class="line" id="011536"><span class="nick" style="color:#389600"><a href="#011536" label="[01:15:36]">&lt;stikonas&gt;</a></span><span class="message">probably similar complexity</span></div><div class="line" id="011629"><span class="nick" style="color:#389600"><a href="#011629" label="[01:16:29]">&lt;stikonas&gt;</a></span><span class="message">in general not too complex</span></div><div class="line" id="011640"><span class="nick" style="color:#389600"><a href="#011640" label="[01:16:40]">&lt;stikonas&gt;</a></span><span class="message">took me maybe an hour...</span></div><div class="line" id="020639"><span class="nick" style="color:#389600"><a href="#020639" label="[02:06:39]">&lt;stikonas&gt;</a></span><span class="message">muurkha: and I think I've mostly got local structs to work too</span></div><div class="line" id="020645"><span class="nick" style="color:#389600"><a href="#020645" label="[02:06:45]">&lt;stikonas&gt;</a></span><span class="message">well, at least on amd64</span></div><div class="line" id="020713"><span class="nick" style="color:#389600"><a href="#020713" label="[02:07:13]">&lt;stikonas&gt;</a></span><span class="message">(might need adjustment for arches where stack goes the other direction</span></div><div class="line" id="021048"><span class="nick" style="color:#389600"><a href="#021048" label="[02:10:48]">&lt;stikonas&gt;</a></span><span class="message">and I might have also found a bug in M1...</span></div><div class="line" id="021110"><span class="nick" style="color:#8dd3c7"><a href="#021110" label="[02:11:10]">&lt;muurkha&gt;</a></span><span class="message">cool</span></div><div class="line" id="021131"><span class="nick" style="color:#389600"><a href="#021131" label="[02:11:31]">&lt;stikonas&gt;</a></span><span class="message">on riscv it fails to convert RD_A0 RS1_FP !-0 ADDI</span></div><div class="line" id="021136"><span class="nick" style="color:#389600"><a href="#021136" label="[02:11:36]">&lt;stikonas&gt;</a></span><span class="message">in particular leaves !-0</span></div><div class="line" id="022030"><span class="nick" style="color:#389600"><a href="#022030" label="[02:20:30]">&lt;stikonas&gt;</a></span><span class="message">hmm, I wonder if M1 should be able to deal with !-0 or M2-Planet should not spit &quot;-0&quot;...</span></div><div class="line" id="022041"><span class="nick" style="color:#389600"><a href="#022041" label="[02:20:41]">&lt;stikonas&gt;</a></span><span class="message">oriansj: what do you think?</span></div><div class="line" id="023814"><span class="nick" style="color:#389600"><a href="#023814" label="[02:38:14]">&lt;stikonas&gt;</a></span><span class="message">M1 fix is not too bad <a rel="nofollow" href="https://github.com/oriansj/mescc-tools/pull/38">https://github.com/oriansj/mescc-tools/pull/38</a> </span></div><div class="line" id="031913"><span class="nick" style="color:#2e2a4a"><a href="#031913" label="[03:19:13]">&lt;oriansj&gt;</a></span><span class="message">stikonas: -0 is just 0; unless you are telling me that riscv did something completely insane</span></div><div class="line" id="032103"><span class="nick" style="color:#2e2a4a"><a href="#032103" label="[03:21:03]">&lt;oriansj&gt;</a></span><span class="message">M2-Planet should be smart enough to know not to spit out -0; in  fact M2libc wouldn't ever produce that output if one did: int2str(x, 10, TRUE);</span></div><div class="line" id="032302"><span class="nick" style="color:#2e2a4a"><a href="#032302" label="[03:23:02]">&lt;oriansj&gt;</a></span><span class="message">the only way you could get M2-Planet to output -0 is if you did: emit_out(&quot;RD_A0 RS1_FP !-&quot;); which ment you were putting the incorrect offset in the tracking structures</span></div><div class="line" id="032944"><span class="nick" style="color:#6b8072"><a href="#032944" label="[03:29:44]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm, yeah, ignore that pr, it might indeed be wrong offset</span></div><div class="line" id="033020"><span class="nick" style="color:#6b8072"><a href="#033020" label="[03:30:20]">&lt;stikonas[m]&gt;</a></span><span class="message">I did see some evidence of it being wrong in gdb after that pr</span></div><div class="line" id="033035"><span class="nick" style="color:#6b8072"><a href="#033035" label="[03:30:35]">&lt;stikonas[m]&gt;</a></span><span class="message">Anyway, I'll look more tomorrow</span></div><div class="line" id="035754"><span class="nick" style="color:#2e2a4a"><a href="#035754" label="[03:57:54]">&lt;oriansj&gt;</a></span><span class="message">I trust you'll find the cleanest (least hacky way)</span></div><div class="line" id="120853"><span class="nick" style="color:#6b8072"><a href="#120853" label="[12:08:53]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm, it would be a bit cleaner if depth was more consistent between arches, some arches have depth positive and some negative and then do add or sub compared to base pointer</span></div><div class="line" id="120946"><span class="nick" style="color:#6b8072"><a href="#120946" label="[12:09:46]">&lt;stikonas[m]&gt;</a></span><span class="message">For no particular reason... Unless I'm mistakes, they all grow stack downwards</span></div><div class="line" id="121006"><span class="nick" style="color:#6b8072"><a href="#121006" label="[12:10:06]">&lt;stikonas[m]&gt;</a></span><span class="message">s/mistakes/mistaken/</span></div><div class="line" id="181618"><span class="nick" style="color:#389600"><a href="#181618" label="[18:16:18]">&lt;stikonas&gt;</a></span><span class="message">oriansj: just to make sure since I'm not super familiar with knigt. On knight the stack still grows down?</span></div><div class="line" id="191959"><span class="nick" style="color:#389600"><a href="#191959" label="[19:19:59]">&lt;stikonas&gt;</a></span><span class="message">oriansj:  <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/pull/44">https://github.com/oriansj/M2-Planet/pull/44</a> </span></div><div class="line" id="192011"><span class="nick" style="color:#389600"><a href="#192011" label="[19:20:11]">&lt;stikonas&gt;</a></span><span class="message">both global and local structs seem to work now</span></div><div class="line" id="204407"><span class="nick" style="color:#389600"><a href="#204407" label="[20:44:07]">&lt;stikonas&gt;</a></span><span class="message">hmm, I've converted that PR to draft for now</span></div><div class="line" id="204423"><span class="nick" style="color:#389600"><a href="#204423" label="[20:44:23]">&lt;stikonas&gt;</a></span><span class="message">somehow M2-Planet tests pass but stage0-posix doesn't seem to work</span></div><div class="line" id="204455"><span class="nick" style="color:#389600"><a href="#204455" label="[20:44:55]">&lt;stikonas&gt;</a></span><span class="message">(except for x86)</span></div><div class="line" id="204536"><span class="nick" style="color:#389600"><a href="#204536" label="[20:45:36]">&lt;stikonas&gt;</a></span><span class="message">(no, x86 also fails)</span></div><div class="line" id="204605"><span class="nick" style="color:#389600"><a href="#204605" label="[20:46:05]">&lt;stikonas&gt;</a></span><span class="message">argh, that's unrelated, that's due to my dirty M2libc folder</span></div><div class="line" id="205116"><span class="nick" style="color:#389600"><a href="#205116" label="[20:51:16]">&lt;stikonas&gt;</a></span><span class="message">indeed stage0-posix seems to work with my M2-Planet changes</span></div><br /></div></body></html>

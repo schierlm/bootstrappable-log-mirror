@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-01-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000852"><span class="nick" style="color:#389600"><a href="#000852" label="[00:08:52]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged (took a bit to fully review)</span></div><div class="line" id="000901"><span class="nick" style="color:#8dd3c7"><a href="#000901" label="[00:09:01]">&lt;stikonas&gt;</a></span><span class="message">oriansj: thanks!</span></div><div class="line" id="000908"><span class="nick" style="color:#8dd3c7"><a href="#000908" label="[00:09:08]">&lt;stikonas&gt;</a></span><span class="message">yes, kaem had some changes in offsets</span></div><div class="line" id="000922"><span class="nick" style="color:#8dd3c7"><a href="#000922" label="[00:09:22]">&lt;stikonas&gt;</a></span><span class="message">luckily it was mostly off by two</span></div><div class="line" id="001505"><span class="nick" style="color:#8dd3c7"><a href="#001505" label="[00:15:05]">&lt;stikonas&gt;</a></span><span class="message">oriansj: by the way, aarch64 kaem seed is also a bit broken (for unrelated issues)</span></div><div class="line" id="001516"><span class="nick" style="color:#8dd3c7"><a href="#001516" label="[00:15:16]">&lt;stikonas&gt;</a></span><span class="message">but it also fails to propagate failures</span></div><div class="line" id="001728"><span class="nick" style="color:#2e2a4a"><a href="#001728" label="[00:17:28]">&lt;fossy&gt;</a></span><span class="message">stikonas: i'm keeping with c &amp; c++. if we want to add more, let's do it in gcc 12</span></div><div class="line" id="001818"><span class="nick" style="color:#8dd3c7"><a href="#001818" label="[00:18:18]">&lt;stikonas&gt;</a></span><span class="message">oh it's definitely in the last gcc, not earlier ones</span></div><div class="line" id="001916"><span class="nick" style="color:#8dd3c7"><a href="#001916" label="[00:19:16]">&lt;stikonas&gt;</a></span><span class="message">c and c++ is probably good enough (unless we need to build e.g. some go stuff)</span></div><div class="line" id="002133"><span class="nick" style="color:#2e2a4a"><a href="#002133" label="[00:21:33]">&lt;fossy&gt;</a></span><span class="message">yeah. gccgo is a little bit cursed though</span></div><div class="line" id="002153"><span class="nick" style="color:#2e2a4a"><a href="#002153" label="[00:21:53]">&lt;fossy&gt;</a></span><span class="message">i've got past autocrap with gcc 10 now, i think</span></div><div class="line" id="002235"><span class="nick" style="color:#2e2a4a"><a href="#002235" label="[00:22:35]">&lt;fossy&gt;</a></span><span class="message">also, no worries with aclocal.m4, because no directory has no configure AND yes aclocal.m4 (so it will always be picked up with autoreconf)</span></div><div class="line" id="002441"><span class="nick" style="color:#8dd3c7"><a href="#002441" label="[00:24:41]">&lt;stikonas&gt;</a></span><span class="message">oh, some pregenerated files in gccgo?</span></div><div class="line" id="002509"><span class="nick" style="color:#8dd3c7"><a href="#002509" label="[00:25:09]">&lt;stikonas&gt;</a></span><span class="message">fossy: so you can jump from 4.7.4 to gcc 10?</span></div><div class="line" id="002852"><span class="nick" style="color:#8dd3c7"><a href="#002852" label="[00:28:52]">&lt;stikonas&gt;</a></span><span class="message">doras: so I've just pushed kaem fix to live-bootstrap</span></div><div class="line" id="003012"><span class="nick" style="color:#2e2a4a"><a href="#003012" label="[00:30:12]">&lt;fossy&gt;</a></span><span class="message">stikonas: it appears so.. unless i run into an error in the current build</span></div><div class="line" id="003025"><span class="nick" style="color:#2e2a4a"><a href="#003025" label="[00:30:25]">&lt;fossy&gt;</a></span><span class="message">no pregened files, it's just a bit strange when building go applications</span></div><div class="line" id="003028"><span class="nick" style="color:#2e2a4a"><a href="#003028" label="[00:30:28]">&lt;fossy&gt;</a></span><span class="message">doesn't always work</span></div><div class="line" id="003349"><span class="nick" style="color:#8dd3c7"><a href="#003349" label="[00:33:49]">&lt;stikonas&gt;</a></span><span class="message">fossy: oh possibly, but as long as it can build go itself, that should be enough</span></div><div class="line" id="003740"><span class="nick" style="color:#2e2a4a"><a href="#003740" label="[00:37:40]">&lt;fossy&gt;</a></span><span class="message">stikonas: oh, sure</span></div><div class="line" id="003751"><span class="nick" style="color:#2e2a4a"><a href="#003751" label="[00:37:51]">&lt;fossy&gt;</a></span><span class="message">not sure if it can actually do that, but go1.4 is still a very easy route to go</span></div><div class="line" id="003757"><span class="nick" style="color:#2e2a4a"><a href="#003757" label="[00:37:57]">&lt;fossy&gt;</a></span><span class="message">go is not a hard language to bootstrap</span></div><div class="line" id="003801"><span class="nick" style="color:#8dd3c7"><a href="#003801" label="[00:38:01]">&lt;stikonas&gt;</a></span><span class="message">true</span></div><div class="line" id="003812"><span class="nick" style="color:#8dd3c7"><a href="#003812" label="[00:38:12]">&lt;stikonas&gt;</a></span><span class="message">though not sure which one supports more arches</span></div><div class="line" id="003821"><span class="nick" style="color:#8dd3c7"><a href="#003821" label="[00:38:21]">&lt;stikonas&gt;</a></span><span class="message">but x86 is definitely supported there</span></div><div class="line" id="015106"><span class="nick" style="color:#6b8072"><a href="#015106" label="[01:51:06]">&lt;nektro&gt;</a></span><span class="message">filed <a rel="nofollow" href="https://github.com/oriansj/mescc-tools-extra/pull/16">https://github.com/oriansj/mescc-tools-extra/pull/16</a>  to update m2libc, should i make one for stage0-posix as well?</span></div><div class="line" id="015208"><span class="nick" style="color:#80b1d3"><a href="#015208" label="[01:52:08]">&lt;stikonas[m]&gt;</a></span><span class="message">nektro: stage0-posix should have the latest</span></div><div class="line" id="015231"><span class="nick" style="color:#80b1d3"><a href="#015231" label="[01:52:31]">&lt;stikonas[m]&gt;</a></span><span class="message">In fact that's the copy that everything uses during bootstrap</span></div><div class="line" id="015232"><span class="nick" style="color:#6b8072"><a href="#015232" label="[01:52:32]">&lt;nektro&gt;</a></span><span class="message">stage0-posix has b774c03 too</span></div><div class="line" id="015307"><span class="nick" style="color:#6b8072"><a href="#015307" label="[01:53:07]">&lt;nektro&gt;</a></span><span class="message">which is almost a year old</span></div><div class="line" id="015322"><span class="nick" style="color:#80b1d3"><a href="#015322" label="[01:53:22]">&lt;stikonas[m]&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/stage0-posix">https://github.com/oriansj/stage0-posix</a>  says 1139</span></div><div class="line" id="015418"><span class="nick" style="color:#80b1d3"><a href="#015418" label="[01:54:18]">&lt;stikonas[m]&gt;</a></span><span class="message">There is M2libc folder in top level directory</span></div><div class="line" id="015423"><span class="nick" style="color:#6b8072"><a href="#015423" label="[01:54:23]">&lt;nektro&gt;</a></span><span class="message">ohh i was looking at the commit of stage0-posix currently linked in stage0</span></div><div class="line" id="015436"><span class="nick" style="color:#6b8072"><a href="#015436" label="[01:54:36]">&lt;nektro&gt;</a></span><span class="message">yeah master stage0-posix is showing right for me too</span></div><div class="line" id="015803"><span class="nick" style="color:#80b1d3"><a href="#015803" label="[01:58:03]">&lt;stikonas[m]&gt;</a></span><span class="message">Oh stage0 just links to it for information only</span></div><div class="line" id="020443"><span class="nick" style="color:#6b8072"><a href="#020443" label="[02:04:43]">&lt;nektro&gt;</a></span><span class="message">thanks for the pointers lately :)</span></div><div class="line" id="020507"><span class="nick" style="color:#6b8072"><a href="#020507" label="[02:05:07]">&lt;nektro&gt;</a></span><span class="message">managed to get stage0-posix building fully in my custom package manager <a rel="nofollow" href="https://git.sr.ht/~nektro/wifilylinux/tree/master/item/packages/bootstrap/">https://git.sr.ht/~nektro/wifilylinux/tree/master/item/packages/bootstrap/</a> </span></div><div class="line" id="020855"><span class="nick" style="color:#80b1d3"><a href="#020855" label="[02:08:55]">&lt;stikonas[m]&gt;</a></span><span class="message">Oh that is quite granular</span></div><div class="line" id="021001"><span class="nick" style="color:#80b1d3"><a href="#021001" label="[02:10:01]">&lt;stikonas[m]&gt;</a></span><span class="message">Not like live-bootstrap that builds stage0-posix in one go</span></div><div class="line" id="021100"><span class="nick" style="color:#6b8072"><a href="#021100" label="[02:11:00]">&lt;nektro&gt;</a></span><span class="message">atm its based on <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst">https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst</a>  to get the poc working, but ill prolly end up merging parts of it together later</span></div><div class="line" id="021205"><span class="nick" style="color:#6b8072"><a href="#021205" label="[02:12:05]">&lt;nektro&gt;</a></span><span class="message">later on i wanna try and short circuit certain paths with zig too</span></div><div class="line" id="021450"><span class="nick" style="color:#2e2a4a"><a href="#021450" label="[02:14:50]">&lt;fossy&gt;</a></span><span class="message">there's pros-and-cons to both stage0-posix and splitting it out</span></div><div class="line" id="021514"><span class="nick" style="color:#2e2a4a"><a href="#021514" label="[02:15:14]">&lt;fossy&gt;</a></span><span class="message">for live-bootstrap im reasonably convinced stage0-posix is the right way</span></div><div class="line" id="021524"><span class="nick" style="color:#2e2a4a"><a href="#021524" label="[02:15:24]">&lt;fossy&gt;</a></span><span class="message">for package managers it may not be</span></div><div class="line" id="031214"><span class="nick" style="color:#389600"><a href="#031214" label="[03:12:14]">&lt;oriansj&gt;</a></span><span class="message">nektro: the pieces are also mirror'd on sourcehut if you prefer that as well</span></div><div class="line" id="031411"><span class="nick" style="color:#389600"><a href="#031411" label="[03:14:11]">&lt;oriansj&gt;</a></span><span class="message">nektro: merged</span></div><div class="line" id="092035"><span class="nick" style="color:#2e2a4a"><a href="#092035" label="[09:20:35]">&lt;fossy&gt;</a></span><span class="message">stikonas thoughts on untying tmpfs logic from chroot/qemu/whatever style and providing an option regardless of the style being used?</span></div><div class="line" id="094744"><span class="nick" style="color:#80b1d3"><a href="#094744" label="[09:47:44]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: I'm fine with ot but need to check, maybe e.g. bwrap doesn't work with tmpfs</span></div><div class="line" id="105626"><span class="nick" style="color:#6d2462"><a href="#105626" label="[10:56:26]">&lt;doras&gt;</a></span><span class="message">stikonas @stikonas:libera.chat: thanks! I see that the hash for checksum-transcriber had changed, wqs that expected?</span></div><div class="line" id="105636"><span class="nick" style="color:#6d2462"><a href="#105636" label="[10:56:36]">&lt;doras&gt;</a></span><span class="message">was*</span></div><div class="line" id="112219"><span class="nick" style="color:#80b1d3"><a href="#112219" label="[11:22:19]">&lt;stikonas[m]&gt;</a></span><span class="message">doras: in think so, there were probably updates to M2-Planet too since last update</span></div><div class="line" id="115108"><span class="nick" style="color:#2e2a4a"><a href="#115108" label="[11:51:08]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: ah, yep</span></div><div class="line" id="115324"><span class="nick" style="color:#80b1d3"><a href="#115324" label="[11:53:24]">&lt;stikonas[m]&gt;</a></span><span class="message">Should be possible to just add checks to ban broken configurations</span></div><div class="line" id="115458"><span class="nick" style="color:#2e2a4a"><a href="#115458" label="[11:54:58]">&lt;fossy&gt;</a></span><span class="message">yeah</span></div><div class="line" id="191448"><span class="nick" style="color:#6b8072"><a href="#191448" label="[19:14:48]">&lt;nektro&gt;</a></span><span class="message">does mes have a bug tracker or is bug-mes@gnu.org the only recommended way? the included ./kaem.run doesnt have +x set</span></div><div class="line" id="191758"><span class="nick" style="color:#6b8072"><a href="#191758" label="[19:17:58]">&lt;nektro&gt;</a></span><span class="message">running it through kaem directly works, but just as a heads up since it has a sh shebang</span></div><div class="line" id="191843"><span class="nick" style="color:#80b1d3"><a href="#191843" label="[19:18:43]">&lt;stikonas[m]&gt;</a></span><span class="message">+x doesn't do much in kaem</span></div><div class="line" id="191911"><span class="nick" style="color:#80b1d3"><a href="#191911" label="[19:19:11]">&lt;stikonas[m]&gt;</a></span><span class="message">sh shebang is mostly for syntax highlighting</span></div><div class="line" id="191919"><span class="nick" style="color:#6b8072"><a href="#191919" label="[19:19:19]">&lt;nektro&gt;</a></span><span class="message">i was pointing out shell and bash check it</span></div><div class="line" id="191935"><span class="nick" style="color:#80b1d3"><a href="#191935" label="[19:19:35]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, send an email to that list</span></div><div class="line" id="200525"><span class="nick" style="color:#6d2462"><a href="#200525" label="[20:05:25]">&lt;doras&gt;</a></span><span class="message">stikonas, fossy: should live-bootstrap remove /usr/src when the bootstrap completes?</span></div><div class="line" id="200626"><span class="nick" style="color:#6d2462"><a href="#200626" label="[20:06:26]">&lt;doras&gt;</a></span><span class="message">I'm trying to think of the best approach for /distfiles. Is the output of the bootstrap the sysc system itself, or the packages in /distfiles?</span></div><div class="line" id="200929"><span class="nick" style="color:#6d2462"><a href="#200929" label="[20:09:29]">&lt;doras&gt;</a></span><span class="message">We need the final system to be smaller in size (Python just made it too large for our CI) so I'm trying to think how to approach the cleanup.</span></div><div class="line" id="200955"><span class="nick" style="color:#6d2462"><a href="#200955" label="[20:09:55]">&lt;doras&gt;</a></span><span class="message">I can obviously do it in the freedesktop-sdk side, but I often prefer to contribute to live-bootstrap where it makes sense.</span></div><div class="line" id="201031"><span class="nick" style="color:#6d2462"><a href="#201031" label="[20:10:31]">&lt;doras&gt;</a></span><span class="message">s/often//</span></div><div class="line" id="210713"><span class="nick" style="color:#6d2462"><a href="#210713" label="[21:07:13]">&lt;doras&gt;</a></span><span class="message">I added an after.sh script on the freedesktop-sdk side for now: <a rel="nofollow" href="https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/merge_requests/23/diffs?commit_id=561d5d0eaac1e78581e0295b7e1e512af7e5dfd4">https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/merge_requests/23/diffs?commit_id=561d5d0eaac1e78581e0295b7e1e512af7e5dfd4</a> </span></div><div class="line" id="212132"><span class="nick" style="color:#80b1d3"><a href="#212132" label="[21:21:32]">&lt;stikonas[m]&gt;</a></span><span class="message">after.sh on your side should be good enough</span></div><div class="line" id="230010"><span class="nick" style="color:#6d2462"><a href="#230010" label="[23:00:10]">&lt;doras&gt;</a></span><span class="message">Sure, we can keep it this way.</span></div><div class="line" id="230046"><span class="nick" style="color:#6d2462"><a href="#230046" label="[23:00:46]">&lt;doras&gt;</a></span><span class="message">I was mostly wondering if it was something that we wanted to have something of the sort in live-bootstrap too (seeing that we do clean up things from sysa before switching to the next system).</span></div><div class="line" id="230116"><span class="nick" style="color:#6d2462"><a href="#230116" label="[23:01:16]">&lt;doras&gt;</a></span><span class="message">something that we wanted to have in live-bootstrap too*</span></div><div class="line" id="233220"><span class="nick" style="color:#80b1d3"><a href="#233220" label="[23:32:20]">&lt;stikonas[m]&gt;</a></span><span class="message">Not sure... You can ask fossy. sysa cleanup is more important due to 3G RAM limit on 32-bit Linux</span></div><div class="line" id="233246"><span class="nick" style="color:#80b1d3"><a href="#233246" label="[23:32:46]">&lt;stikonas[m]&gt;</a></span><span class="message">Usually disk space in sysc would be far cheaper</span></div><div class="line" id="235116"><span class="nick" style="color:#80b1d3"><a href="#235116" label="[23:51:16]">&lt;stikonas[m]&gt;</a></span><span class="message">Also sysa is a bit of a mess, especially due to early steps. We don't have access to &quot;cd&quot; till quite late in stage0-posix</span></div><br /></div></body></html>

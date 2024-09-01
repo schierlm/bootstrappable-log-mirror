@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-04-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004106"><span class="nick" style="color:#389600"><a href="#004106" label="[00:41:06]">&lt;fossy&gt;</a></span><span class="message">stikonas: i think theres a fair chance that some of the patches dropped when Googulator updated to 4.14 means that 64-&gt;32 is now possible</span></div><div class="line" id="004114"><span class="nick" style="color:#389600"><a href="#004114" label="[00:41:14]">&lt;fossy&gt;</a></span><span class="message">but it 100% used to be broken</span></div><div class="line" id="004123"><span class="nick" style="color:#8dd3c7"><a href="#004123" label="[00:41:23]">&lt;stikonas&gt;</a></span><span class="message">oh, could be</span></div><div class="line" id="004155"><span class="nick" style="color:#8dd3c7"><a href="#004155" label="[00:41:55]">&lt;stikonas&gt;</a></span><span class="message">well, the main motivation for this is running live-bootstrap on UEFI systems before proper UEFI kernel bootstrap is ready</span></div><div class="line" id="004214"><span class="nick" style="color:#8dd3c7"><a href="#004214" label="[00:42:14]">&lt;stikonas&gt;</a></span><span class="message">or running live-bootstrap on non x86/x86_64 systems</span></div><div class="line" id="004235"><span class="nick" style="color:#389600"><a href="#004235" label="[00:42:35]">&lt;fossy&gt;</a></span><span class="message">in what sense do you mean &quot;UEFI kernel bootstrap&quot;?</span></div><div class="line" id="004236"><span class="nick" style="color:#8dd3c7"><a href="#004236" label="[00:42:36]">&lt;stikonas&gt;</a></span><span class="message">where presumably userspace bootstrap will be done well before kernel bootstrpa</span></div><div class="line" id="004241"><span class="nick" style="color:#2e2a4a"><a href="#004241" label="[00:42:41]">&lt;Googulator&gt;</a></span><span class="message">1.0 is x86 exclusively IMO</span></div><div class="line" id="004243"><span class="nick" style="color:#389600"><a href="#004243" label="[00:42:43]">&lt;fossy&gt;</a></span><span class="message">ohhh</span></div><div class="line" id="004247"><span class="nick" style="color:#389600"><a href="#004247" label="[00:42:47]">&lt;fossy&gt;</a></span><span class="message">oh got it</span></div><div class="line" id="004250"><span class="nick" style="color:#389600"><a href="#004250" label="[00:42:50]">&lt;fossy&gt;</a></span><span class="message">Googulator: yes</span></div><div class="line" id="004256"><span class="nick" style="color:#8dd3c7"><a href="#004256" label="[00:42:56]">&lt;stikonas&gt;</a></span><span class="message">well, start with arbitrary x86_64 linux.efi binary</span></div><div class="line" id="004304"><span class="nick" style="color:#389600"><a href="#004304" label="[00:43:04]">&lt;fossy&gt;</a></span><span class="message">or at least, any other architectures are no-support</span></div><div class="line" id="004311"><span class="nick" style="color:#8dd3c7"><a href="#004311" label="[00:43:11]">&lt;stikonas&gt;</a></span><span class="message">and proceed with mostly userspace bootstrap</span></div><div class="line" id="004317"><span class="nick" style="color:#389600"><a href="#004317" label="[00:43:17]">&lt;fossy&gt;</a></span><span class="message">Googulator: is there actually a PR for nyacc bootstrap or just a commit?</span></div><div class="line" id="004326"><span class="nick" style="color:#8dd3c7"><a href="#004326" label="[00:43:26]">&lt;stikonas&gt;</a></span><span class="message">(possibly jumping into fiwix or bootstrapped linux)</span></div><div class="line" id="004334"><span class="nick" style="color:#8dd3c7"><a href="#004334" label="[00:43:34]">&lt;stikonas&gt;</a></span><span class="message">fossy: I merged it already</span></div><div class="line" id="004337"><span class="nick" style="color:#8dd3c7"><a href="#004337" label="[00:43:37]">&lt;stikonas&gt;</a></span><span class="message">so just commit left</span></div><div class="line" id="004346"><span class="nick" style="color:#8dd3c7"><a href="#004346" label="[00:43:46]">&lt;stikonas&gt;</a></span><span class="message">or do you mean nyacc repo?</span></div><div class="line" id="004356"><span class="nick" style="color:#2e2a4a"><a href="#004356" label="[00:43:56]">&lt;Googulator&gt;</a></span><span class="message">fossy: it was #356</span></div><div class="line" id="004406"><span class="nick" style="color:#2e2a4a"><a href="#004406" label="[00:44:06]">&lt;Googulator&gt;</a></span><span class="message">the mes 0.26 upgrade</span></div><div class="line" id="004417"><span class="nick" style="color:#389600"><a href="#004417" label="[00:44:17]">&lt;fossy&gt;</a></span><span class="message">ohhh okay</span></div><div class="line" id="004422"><span class="nick" style="color:#2e2a4a"><a href="#004422" label="[00:44:22]">&lt;Googulator&gt;</a></span><span class="message">I rolled nyacc bootstrap into it since mes 0.26 was a prerequisite for it anyway</span></div><div class="line" id="004432"><span class="nick" style="color:#389600"><a href="#004432" label="[00:44:32]">&lt;fossy&gt;</a></span><span class="message">yep, fair</span></div><div class="line" id="004436"><span class="nick" style="color:#2e2a4a"><a href="#004436" label="[00:44:36]">&lt;Googulator&gt;</a></span><span class="message">indeed, the main reason for going 0.26 was nyacc bootstrap support</span></div><div class="line" id="004447"><span class="nick" style="color:#2e2a4a"><a href="#004447" label="[00:44:47]">&lt;Googulator&gt;</a></span><span class="message">especially since we aren't doing gash</span></div><div class="line" id="004504"><span class="nick" style="color:#2e2a4a"><a href="#004504" label="[00:45:04]">&lt;Googulator&gt;</a></span><span class="message">with byacc, there's no reason to use gash</span></div><div class="line" id="004509"><span class="nick" style="color:#389600"><a href="#004509" label="[00:45:09]">&lt;fossy&gt;</a></span><span class="message">i'll spend a bit of time checking that this actually does 100% fix the nyacc problem, but at minimum this is a big step forward, thank you ^-^</span></div><div class="line" id="004532"><span class="nick" style="color:#2e2a4a"><a href="#004532" label="[00:45:32]">&lt;Googulator&gt;</a></span><span class="message">Unless there are more pregens in nyacc, this should be a fix</span></div><div class="line" id="004603"><span class="nick" style="color:#389600"><a href="#004603" label="[00:46:03]">&lt;fossy&gt;</a></span><span class="message">i'm surprised that it was actually fairly straightforward, i had in my mind that there was a fair few more blockers to it but maybe not at all!</span></div><div class="line" id="004637"><span class="nick" style="color:#2e2a4a"><a href="#004637" label="[00:46:37]">&lt;Googulator&gt;</a></span><span class="message">When doing bwrap bootstrap, psyntax.pp and all known nyacc pregens are deleted before we attempt regeneration</span></div><div class="line" id="004703"><span class="nick" style="color:#8dd3c7"><a href="#004703" label="[00:47:03]">&lt;stikonas&gt;</a></span><span class="message">fossy: well, there was some work done by other people</span></div><div class="line" id="004710"><span class="nick" style="color:#2e2a4a"><a href="#004710" label="[00:47:10]">&lt;Googulator&gt;</a></span><span class="message">After upgrading to 0.26 and adding samplet's code, there was really just one issue</span></div><div class="line" id="004721"><span class="nick" style="color:#389600"><a href="#004721" label="[00:47:21]">&lt;fossy&gt;</a></span><span class="message">yeah, the patch by samplet made a big difference</span></div><div class="line" id="004723"><span class="nick" style="color:#2e2a4a"><a href="#004723" label="[00:47:23]">&lt;Googulator&gt;</a></span><span class="message">mes-m2 has no rename-file</span></div><div class="line" id="004806"><span class="nick" style="color:#2e2a4a"><a href="#004806" label="[00:48:06]">&lt;Googulator&gt;</a></span><span class="message">so I just adjusted samplet's code to regenerate in place, rather than with .new suffixed filenames</span></div><div class="line" id="004808"><span class="nick" style="color:#2e2a4a"><a href="#004808" label="[00:48:08]">&lt;Googulator&gt;</a></span><span class="message">so no rename needed</span></div><div class="line" id="004854"><span class="nick" style="color:#2e2a4a"><a href="#004854" label="[00:48:54]">&lt;Googulator&gt;</a></span><span class="message">and luckily it does work, overwriting the pregens with bootstrapped versions, even if they weren't deleted beforehand (e.g. on builder-hex0 with dummy unlink())</span></div><div class="line" id="004917"><span class="nick" style="color:#2e2a4a"><a href="#004917" label="[00:49:17]">&lt;Googulator&gt;</a></span><span class="message">the only reason the renames were there is because originally they were move-if-changes</span></div><div class="line" id="005207"><span class="nick" style="color:#389600"><a href="#005207" label="[00:52:07]">&lt;fossy&gt;</a></span><span class="message">hmm, i think we might actually be in a good place to move toward 1.0, i just need to spend a few days doing a bit of a sweep through everything to make sure there's nothing critical i'm missing, but expect to see a 1.0 branch within hopefully a week or two (to allow us to still keep merging larger changes into master, and just do small updates/bugfixes in 1.0 branch)</span></div><div class="line" id="005324"><span class="nick" style="color:#389600"><a href="#005324" label="[00:53:24]">&lt;fossy&gt;</a></span><span class="message">i think i'd like to gather a bit of a &quot;compatibility report&quot; for bare metal, perhaps in the wiki section of github, so we don't waste time with &quot;bare metal doesn't work on my X system&quot;</span></div><div class="line" id="005510"><span class="nick" style="color:#389600"><a href="#005510" label="[00:55:10]">&lt;fossy&gt;</a></span><span class="message">1/go 30</span></div><div class="line" id="005512"><span class="nick" style="color:#389600"><a href="#005512" label="[00:55:12]">&lt;fossy&gt;</a></span><span class="message">oops</span></div><div class="line" id="005900"><span class="nick" style="color:#8dd3c7"><a href="#005900" label="[00:59:00]">&lt;stikonas&gt;</a></span><span class="message">README also has some outdated sections</span></div><div class="line" id="005904"><span class="nick" style="color:#8dd3c7"><a href="#005904" label="[00:59:04]">&lt;stikonas&gt;</a></span><span class="message">we'll have to fix those</span></div><div class="line" id="010017"><span class="nick" style="color:#8dd3c7"><a href="#010017" label="[01:00:17]">&lt;stikonas&gt;</a></span><span class="message">in particular without Python section...</span></div><div class="line" id="010049"><span class="nick" style="color:#2e2a4a"><a href="#010049" label="[01:00:49]">&lt;Googulator&gt;</a></span><span class="message">I've done some updates to that just now.</span></div><div class="line" id="010120"><span class="nick" style="color:#2e2a4a"><a href="#010120" label="[01:01:20]">&lt;Googulator&gt;</a></span><span class="message">Although it would be great to have a way to actually do the &quot;Only copy...&quot; steps in a way that doesn't involve manually tracing build steps in the manifest</span></div><div class="line" id="010314"><span class="nick" style="color:#2e2a4a"><a href="#010314" label="[01:03:14]">&lt;Googulator&gt;</a></span><span class="message">fossy: what are the plans for the UX points?</span></div><div class="line" id="010331"><span class="nick" style="color:#389600"><a href="#010331" label="[01:03:31]">&lt;fossy&gt;</a></span><span class="message">stikonas: yea README needs a bit of updating</span></div><div class="line" id="010403"><span class="nick" style="color:#389600"><a href="#010403" label="[01:04:03]">&lt;fossy&gt;</a></span><span class="message">Googulator: interactive mode addresses a fair few of them, but i'd like to add proper prompts for uninitialised variables in script-generator</span></div><div class="line" id="010455"><span class="nick" style="color:#389600"><a href="#010455" label="[01:04:55]">&lt;fossy&gt;</a></span><span class="message">well, interactive mode + the script-generator variable prompting</span></div><div class="line" id="010620"><span class="nick" style="color:#389600"><a href="#010620" label="[01:06:20]">&lt;fossy&gt;</a></span><span class="message">parts.rst needs a bit of updating too</span></div><div class="line" id="010827"><span class="nick" style="color:#8dd3c7"><a href="#010827" label="[01:08:27]">&lt;stikonas&gt;</a></span><span class="message">yeah...</span></div><div class="line" id="010902"><span class="nick" style="color:#8dd3c7"><a href="#010902" label="[01:09:02]">&lt;stikonas&gt;</a></span><span class="message">byacc in particular was not added</span></div><div class="line" id="010906"><span class="nick" style="color:#8dd3c7"><a href="#010906" label="[01:09:06]">&lt;stikonas&gt;</a></span><span class="message">and I forgot this in the review</span></div><div class="line" id="010947"><span class="nick" style="color:#8dd3c7"><a href="#010947" label="[01:09:47]">&lt;stikonas&gt;</a></span><span class="message">oh and mes 0.26...</span></div><div class="line" id="010951"><span class="nick" style="color:#8dd3c7"><a href="#010951" label="[01:09:51]">&lt;stikonas&gt;</a></span><span class="message">Googulator: can you update those?</span></div><div class="line" id="011133"><span class="nick" style="color:#2e2a4a"><a href="#011133" label="[01:11:33]">&lt;Googulator&gt;</a></span><span class="message">I guess</span></div><div class="line" id="011212"><span class="nick" style="color:#2e2a4a"><a href="#011212" label="[01:12:12]">&lt;Googulator&gt;</a></span><span class="message">(remember to update the nss version number when we do the final nss update)</span></div><div class="line" id="021619"><span class="nick" style="color:#2e2a4a"><a href="#021619" label="[02:16:19]">&lt;Googulator&gt;</a></span><span class="message">fossy: posted PR for parts.rst update (<a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/461">https://github.com/fosslinux/live-bootstrap/pull/461</a>),  please review</span></div><div class="line" id="213418"><span class="nick" style="color:#2e2a4a"><a href="#213418" label="[21:34:18]">&lt;Googulator&gt;</a></span><span class="message">stikonas: do you know if Guix has the same policy against pregens that LB has?</span></div><div class="line" id="213450"><span class="nick" style="color:#2e2a4a"><a href="#213450" label="[21:34:50]">&lt;Googulator&gt;</a></span><span class="message">(they might be interested in the Nyacc regen in that case)</span></div><div class="line" id="220522"><span class="nick" style="color:#8dd3c7"><a href="#220522" label="[22:05:22]">&lt;stikonas&gt;</a></span><span class="message">Googulator: no, they don't have</span></div><div class="line" id="220535"><span class="nick" style="color:#8dd3c7"><a href="#220535" label="[22:05:35]">&lt;stikonas&gt;</a></span><span class="message">generally they run configure scripts, use bison files, etc...</span></div><div class="line" id="220552"><span class="nick" style="color:#8dd3c7"><a href="#220552" label="[22:05:52]">&lt;stikonas&gt;</a></span><span class="message">I don't think they are against improving stuff, but nobody works on that</span></div><div class="line" id="220609"><span class="nick" style="color:#8dd3c7"><a href="#220609" label="[22:06:09]">&lt;stikonas&gt;</a></span><span class="message">and also they mostly switched to mes/gash and replaced bash/coreutils, etc...</span></div><div class="line" id="220622"><span class="nick" style="color:#8dd3c7"><a href="#220622" label="[22:06:22]">&lt;stikonas&gt;</a></span><span class="message">so diverging a bit from live-bootstrap</span></div><div class="line" id="220942"><span class="nick" style="color:#6b8072"><a href="#220942" label="[22:09:42]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Christoph&gt; They do like Scheme over at Guix... :-)</span></div><div class="line" id="221314"><span class="nick" style="color:#2e2a4a"><a href="#221314" label="[22:13:14]">&lt;Googulator&gt;</a></span><span class="message">It (or rather, Lisp) is &quot;THE original MIT hacker language&quot; after all :)</span></div><br /></div></body></html>

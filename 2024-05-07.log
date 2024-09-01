@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-05-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004026"><span class="nick" style="color:#389600"><a href="#004026" label="[00:40:26]">&lt;Googulator&gt;</a></span><span class="message">stikonas: I was considering adding C++ to the build in Fiwix so we can drop the rebuild after we get to Linux</span></div><div class="line" id="004059"><span class="nick" style="color:#389600"><a href="#004059" label="[00:40:59]">&lt;Googulator&gt;</a></span><span class="message">since LB's architecture doesn't easily let us just build an additional frontend later on</span></div><div class="line" id="004059"><span class="nick" style="color:#8dd3c7"><a href="#004059" label="[00:40:59]">&lt;stikonas&gt;</a></span><span class="message">well, that's a possibility</span></div><div class="line" id="004111"><span class="nick" style="color:#8dd3c7"><a href="#004111" label="[00:41:11]">&lt;stikonas&gt;</a></span><span class="message">though rebuilds are fast at that stage</span></div><div class="line" id="004117"><span class="nick" style="color:#8dd3c7"><a href="#004117" label="[00:41:17]">&lt;stikonas&gt;</a></span><span class="message">it's GCC 10 and especially 13 that are slow</span></div><div class="line" id="004145"><span class="nick" style="color:#389600"><a href="#004145" label="[00:41:45]">&lt;Googulator&gt;</a></span><span class="message">13 is just absurd on certain configurations</span></div><div class="line" id="004226"><span class="nick" style="color:#389600"><a href="#004226" label="[00:42:26]">&lt;Googulator&gt;</a></span><span class="message">specifically qemu on WSL2</span></div><div class="line" id="004306"><span class="nick" style="color:#8dd3c7"><a href="#004306" label="[00:43:06]">&lt;stikonas&gt;</a></span><span class="message">well, we should remove stage3...</span></div><div class="line" id="004328"><span class="nick" style="color:#389600"><a href="#004328" label="[00:43:28]">&lt;Googulator&gt;</a></span><span class="message">it's about half to a third of the speed of native on Zen 4 - until it hits GCC 13, where it spends 2 full days, with each file taking several minutes to compile from a .c to a .o</span></div><div class="line" id="004357"><span class="nick" style="color:#389600"><a href="#004357" label="[00:43:57]">&lt;Googulator&gt;</a></span><span class="message">most of the time seems to be spent in stage2</span></div><div class="line" id="004402"><span class="nick" style="color:#8dd3c7"><a href="#004402" label="[00:44:02]">&lt;stikonas&gt;</a></span><span class="message">oh wow...</span></div><div class="line" id="004407"><span class="nick" style="color:#8dd3c7"><a href="#004407" label="[00:44:07]">&lt;stikonas&gt;</a></span><span class="message">why is it so slow...</span></div><div class="line" id="004502"><span class="nick" style="color:#389600"><a href="#004502" label="[00:45:02]">&lt;Googulator&gt;</a></span><span class="message">it seems the gcc 13 driver binary built by gcc 10 hits some absolutely terrible worst case in Hyper-V</span></div><div class="line" id="004525"><span class="nick" style="color:#389600"><a href="#004525" label="[00:45:25]">&lt;Googulator&gt;</a></span><span class="message">gcc 10 itself runs just fine</span></div><div class="line" id="004533"><span class="nick" style="color:#389600"><a href="#004533" label="[00:45:33]">&lt;Googulator&gt;</a></span><span class="message">same for gcc 13 rebuilt with itself</span></div><div class="line" id="004619"><span class="nick" style="color:#389600"><a href="#004619" label="[00:46:19]">&lt;Googulator&gt;</a></span><span class="message">but 13 built by 10 is abysmally slow, if it doesn't outright crash the hypervisor, which I've seen several times</span></div><div class="line" id="004627"><span class="nick" style="color:#8dd3c7"><a href="#004627" label="[00:46:27]">&lt;stikonas&gt;</a></span><span class="message">hmm...</span></div><div class="line" id="004642"><span class="nick" style="color:#8dd3c7"><a href="#004642" label="[00:46:42]">&lt;stikonas&gt;</a></span><span class="message">not sure if we can do much about it though</span></div><div class="line" id="004647"><span class="nick" style="color:#8dd3c7"><a href="#004647" label="[00:46:47]">&lt;stikonas&gt;</a></span><span class="message">it might be hyper-v bug</span></div><div class="line" id="004654"><span class="nick" style="color:#389600"><a href="#004654" label="[00:46:54]">&lt;Googulator&gt;</a></span><span class="message">probably</span></div><div class="line" id="004658"><span class="nick" style="color:#8dd3c7"><a href="#004658" label="[00:46:58]">&lt;stikonas&gt;</a></span><span class="message">we we don't even have source</span></div><div class="line" id="004714"><span class="nick" style="color:#389600"><a href="#004714" label="[00:47:14]">&lt;Googulator&gt;</a></span><span class="message">and when it happens, it doesn't leave any log entries</span></div><div class="line" id="004720"><span class="nick" style="color:#389600"><a href="#004720" label="[00:47:20]">&lt;Googulator&gt;</a></span><span class="message">it just looks like a sudden power loss</span></div><div class="line" id="004844"><span class="nick" style="color:#389600"><a href="#004844" label="[00:48:44]">&lt;Googulator&gt;</a></span><span class="message">and when it doesn't crash, it's massive CPU usage unaccounted for by any process inside or outside WSL2</span></div><div class="line" id="004928"><span class="nick" style="color:#389600"><a href="#004928" label="[00:49:28]">&lt;Googulator&gt;</a></span><span class="message">think constant 100% CPU load with all processes summing up to 3% at most</span></div><div class="line" id="004942"><span class="nick" style="color:#389600"><a href="#004942" label="[00:49:42]">&lt;Googulator&gt;</a></span><span class="message">with fans blaring at full speed</span></div><div class="line" id="004954"><span class="nick" style="color:#389600"><a href="#004954" label="[00:49:54]">&lt;Googulator&gt;</a></span><span class="message">so it's actual genuine CPU load</span></div><div class="line" id="005049"><span class="nick" style="color:#389600"><a href="#005049" label="[00:50:49]">&lt;Googulator&gt;</a></span><span class="message">also, it doesn't happen with Linux running in a full-fat VM</span></div><div class="line" id="005110"><span class="nick" style="color:#389600"><a href="#005110" label="[00:51:10]">&lt;Googulator&gt;</a></span><span class="message">only if I use WSL2, Docker containers, or other lightweight virtualization</span></div><div class="line" id="104119"><span class="nick" style="color:#389600"><a href="#104119" label="[10:41:19]">&lt;Googulator&gt;</a></span><span class="message">fossy, stikonas: gcc 14.1 is out now - should we upgrade?</span></div><div class="line" id="112252"><span class="nick" style="color:#2e2a4a"><a href="#112252" label="[11:22:52]">&lt;fossy&gt;</a></span><span class="message">Googulator; i have one fairly large change i'm working on that i'd like to do before branching, but i've just started a couple weeks of holidays, so should be fairly fast</span></div><div class="line" id="112320"><span class="nick" style="color:#2e2a4a"><a href="#112320" label="[11:23:20]">&lt;fossy&gt;</a></span><span class="message">to do with configuration/interactivity</span></div><div class="line" id="112329"><span class="nick" style="color:#2e2a4a"><a href="#112329" label="[11:23:29]">&lt;fossy&gt;</a></span><span class="message">re gcc 14</span></div><div class="line" id="112348"><span class="nick" style="color:#2e2a4a"><a href="#112348" label="[11:23:48]">&lt;fossy&gt;</a></span><span class="message">i think it might be worthwhile to wait until a few distributions are on it because there can be breakage</span></div><div class="line" id="112841"><span class="nick" style="color:#2e2a4a"><a href="#112841" label="[11:28:41]">&lt;fossy&gt;</a></span><span class="message">(likely not in live-bootstrap but with anything that grabs on the end of it)</span></div><div class="line" id="112916"><span class="nick" style="color:#6b8072"><a href="#112916" label="[11:29:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yeah, GCC 14 is a bit risky</span></div><div class="line" id="112936"><span class="nick" style="color:#6b8072"><a href="#112936" label="[11:29:36]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; It changes some undefined behaviour stuff too</span></div><div class="line" id="112939"><span class="nick" style="color:#2e2a4a"><a href="#112939" label="[11:29:39]">&lt;fossy&gt;</a></span><span class="message">oh?</span></div><div class="line" id="112941"><span class="nick" style="color:#2e2a4a"><a href="#112941" label="[11:29:41]">&lt;fossy&gt;</a></span><span class="message">interesting</span></div><div class="line" id="112945"><span class="nick" style="color:#2e2a4a"><a href="#112945" label="[11:29:45]">&lt;fossy&gt;</a></span><span class="message">havent read the release notes yet</span></div><div class="line" id="113000"><span class="nick" style="color:#6b8072"><a href="#113000" label="[11:30:00]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; E.g. Trivial loops in C++</span></div><div class="line" id="113100"><span class="nick" style="color:#6b8072"><a href="#113100" label="[11:31:00]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; <a rel="nofollow" href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2809r3.html">https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2024/p2809r3.html</a> </span></div><div class="line" id="113117"><span class="nick" style="color:#2e2a4a"><a href="#113117" label="[11:31:17]">&lt;fossy&gt;</a></span><span class="message">ooh interesting</span></div><div class="line" id="113126"><span class="nick" style="color:#6b8072"><a href="#113126" label="[11:31:26]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; This was somewhat stupid spec</span></div><div class="line" id="113143"><span class="nick" style="color:#6b8072"><a href="#113143" label="[11:31:43]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; That was saying that empty loop terminates</span></div><div class="line" id="113228"><span class="nick" style="color:#2e2a4a"><a href="#113228" label="[11:32:28]">&lt;fossy&gt;</a></span><span class="message">This is unfortunate because using an infinite loop is a common idiom in low-level programming, particularly when a bare-metal system or kernel must halt progress. It would be easy for programmers to satisfy the C++ requirements on infinite loops, and it would be easy for compilers to diagnose &quot;invalid&quot; infinite loops. Neither programmers nor implementations have done so. Instead,</span></div><div class="line" id="113231"><span class="nick" style="color:#2e2a4a"><a href="#113231" label="[11:32:31]">&lt;fossy&gt;</a></span><span class="message">programmers decry C++'s obtuseness, and implementations upset developers by optimizing away their infinite loops</span></div><div class="line" id="113233"><span class="nick" style="color:#2e2a4a"><a href="#113233" label="[11:32:33]">&lt;fossy&gt;</a></span><span class="message">Heh</span></div><div class="line" id="113245"><span class="nick" style="color:#2e2a4a"><a href="#113245" label="[11:32:45]">&lt;fossy&gt;</a></span><span class="message">i agree with those who said that behaviour is obtuse</span></div><div class="line" id="123927"><span class="nick" style="color:#80b1d3"><a href="#123927" label="[12:39:27]">&lt;nimaje&gt;</a></span><span class="message">&quot;Proving that loops terminate is generally equivalent to solving the halting problem.&quot; how about just opting for sound then and disregard complete, and just optimize those cases which could be proven (and maybe add a warning for non-trivial infinity loops without side-effects which are detected, as those are probably bugs)</span></div><div class="line" id="132230"><span class="nick" style="color:#6d2462"><a href="#132230" label="[13:22:30]">&lt;sam_&gt;</a></span><span class="message">nimaje: that's what it did already and people didn't like it..</span></div><div class="line" id="132642"><span class="nick" style="color:#80b1d3"><a href="#132642" label="[13:26:42]">&lt;nimaje&gt;</a></span><span class="message">hm, I throught it used unsound proofs (just claiming everything terminates)</span></div><div class="line" id="132811"><span class="nick" style="color:#6d2462"><a href="#132811" label="[13:28:11]">&lt;sam_&gt;</a></span><span class="message">everything terminates _without side-effects_ :)</span></div><div class="line" id="132819"><span class="nick" style="color:#6d2462"><a href="#132819" label="[13:28:19]">&lt;sam_&gt;</a></span><span class="message">if there's side-effects it never optimised out</span></div><div class="line" id="132942"><span class="nick" style="color:#80b1d3"><a href="#132942" label="[13:29:42]">&lt;nimaje&gt;</a></span><span class="message">no, the program   while(true);  doesn't terminate, some machine running that program may or may not terminate</span></div><div class="line" id="133046"><span class="nick" style="color:#6d2462"><a href="#133046" label="[13:30:46]">&lt;sam_&gt;</a></span><span class="message">i'm talking about the assumption the compiler made</span></div><div class="line" id="133220"><span class="nick" style="color:#80b1d3"><a href="#133220" label="[13:32:20]">&lt;nimaje&gt;</a></span><span class="message">those aren't useful when talking about how to do it without those *unsound* assumptions</span></div><div class="line" id="133238"><span class="nick" style="color:#6d2462"><a href="#133238" label="[13:32:38]">&lt;sam_&gt;</a></span><span class="message">ok</span></div><div class="line" id="133249"><span class="nick" style="color:#6d2462"><a href="#133249" label="[13:32:49]">&lt;sam_&gt;</a></span><span class="message">in any case, i don't think the proposal actually helps things, as it makes it harder to understand what assumptions will be made</span></div><div class="line" id="133252"><span class="nick" style="color:#6d2462"><a href="#133252" label="[13:32:52]">&lt;sam_&gt;</a></span><span class="message">i think it makes it far harder</span></div><br /></div></body></html>

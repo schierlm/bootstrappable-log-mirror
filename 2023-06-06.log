@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-06-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004209"><span class="nick" style="color:#389600"><a href="#004209" label="[00:42:09]">&lt;oriansj&gt;</a></span><span class="message">the only problem i predict with this change is it break's mescc' !0xDF !0xFC strings (which i don't understand when we have 'DF FC' raw strings in M1)</span></div><div class="line" id="004509"><span class="nick" style="color:#389600"><a href="#004509" label="[00:45:09]">&lt;oriansj&gt;</a></span><span class="message">or we special case !## to work for -127 to 255 and leave it to the user to know what they are doing.</span></div><div class="line" id="004611"><span class="nick" style="color:#8dd3c7"><a href="#004611" label="[00:46:11]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I've switched mescc to raw strings</span></div><div class="line" id="004622"><span class="nick" style="color:#8dd3c7"><a href="#004622" label="[00:46:22]">&lt;stikonas&gt;</a></span><span class="message">though that is still pending for the next release</span></div><div class="line" id="004646"><span class="nick" style="color:#8dd3c7"><a href="#004646" label="[00:46:46]">&lt;stikonas&gt;</a></span><span class="message">oriansj: but the next mes/mescc release would need new stage0-posix release anyway (at least on 64-bits)</span></div><div class="line" id="004729"><span class="nick" style="color:#8dd3c7"><a href="#004729" label="[00:47:29]">&lt;stikonas&gt;</a></span><span class="message">oriansj, janneke: so perhaps stage0-posix release should be made at the same time as the next mes release</span></div><div class="line" id="004735"><span class="nick" style="color:#389600"><a href="#004735" label="[00:47:35]">&lt;oriansj&gt;</a></span><span class="message">well that solves that concern.</span></div><div class="line" id="004758"><span class="nick" style="color:#389600"><a href="#004758" label="[00:47:58]">&lt;oriansj&gt;</a></span><span class="message">and I am good with that.</span></div><div class="line" id="004904"><span class="nick" style="color:#8dd3c7"><a href="#004904" label="[00:49:04]">&lt;stikonas&gt;</a></span><span class="message"> (<a rel="nofollow" href="https://gitlab.com/janneke/mes/-/commit/061d7f93800e39b9927f748c9d1c17eaffb7e106#15d34292635b3d1487809ba9d4393e5f6ca36149_143_148">https://gitlab.com/janneke/mes/-/commit/061d7f93800e39b9927f748c9d1c17eaffb7e106#15d34292635b3d1487809ba9d4393e5f6ca36149_143_148</a>) </span></div><div class="line" id="004917"><span class="nick" style="color:#8dd3c7"><a href="#004917" label="[00:49:17]">&lt;stikonas&gt;</a></span><span class="message">it's still on wip branch for now</span></div><div class="line" id="004948"><span class="nick" style="color:#8dd3c7"><a href="#004948" label="[00:49:48]">&lt;stikonas&gt;</a></span><span class="message">I need to create a gnu style commit message and add copyright statements but I just returned back from holiday, so haven't done that yet</span></div><div class="line" id="010702"><span class="nick" style="color:#389600"><a href="#010702" label="[01:07:02]">&lt;oriansj&gt;</a></span><span class="message">ultimately it will be up to builder-hex0 and mescc to dictate what they want as standard M1 behavior.</span></div><div class="line" id="012258"><span class="nick" style="color:#2e2a4a"><a href="#012258" label="[01:22:58]">&lt;theruran&gt;</a></span><span class="message">on my new Void Linux-musl system, and `sh kaem.amd64` fails with `kaem.amd64: 30: ./bootstrap-seeds/POSIX/AMD64/kaem-optional-seed: Permission denied`</span></div><div class="line" id="012309"><span class="nick" style="color:#2e2a4a"><a href="#012309" label="[01:23:09]">&lt;theruran&gt;</a></span><span class="message">kaem-0 and bin/kaem: not found</span></div><div class="line" id="012429"><span class="nick" style="color:#2e2a4a"><a href="#012429" label="[01:24:29]">&lt;theruran&gt;</a></span><span class="message">cleanup.sh also failed. couldn't find pushd???</span></div><div class="line" id="012506"><span class="nick" style="color:#2e2a4a"><a href="#012506" label="[01:25:06]">&lt;theruran&gt;</a></span><span class="message">feel like I am missing some essential utility</span></div><div class="line" id="012530"><span class="nick" style="color:#8dd3c7"><a href="#012530" label="[01:25:30]">&lt;stikonas&gt;</a></span><span class="message">theruran: are you running with bash or some other shell?</span></div><div class="line" id="012533"><span class="nick" style="color:#8dd3c7"><a href="#012533" label="[01:25:33]">&lt;stikonas&gt;</a></span><span class="message">pushd is bashism</span></div><div class="line" id="012555"><span class="nick" style="color:#2e2a4a"><a href="#012555" label="[01:25:55]">&lt;theruran&gt;</a></span><span class="message">fish</span></div><div class="line" id="012600"><span class="nick" style="color:#8dd3c7"><a href="#012600" label="[01:26:00]">&lt;stikonas&gt;</a></span><span class="message">might be the cause</span></div><div class="line" id="012617"><span class="nick" style="color:#8dd3c7"><a href="#012617" label="[01:26:17]">&lt;stikonas&gt;</a></span><span class="message">and I recommend running kame scripts with kaem or kaem-optional-seed</span></div><div class="line" id="012623"><span class="nick" style="color:#8dd3c7"><a href="#012623" label="[01:26:23]">&lt;stikonas&gt;</a></span><span class="message">they might not be fully compatible with posix shells</span></div><div class="line" id="012624"><span class="nick" style="color:#2e2a4a"><a href="#012624" label="[01:26:24]">&lt;theruran&gt;</a></span><span class="message">I ran it wish fish before. and cleanup.sh starts with /usr/bin/env bash which seems to work</span></div><div class="line" id="012641"><span class="nick" style="color:#8dd3c7"><a href="#012641" label="[01:26:41]">&lt;stikonas&gt;</a></span><span class="message">oh ok, that's fine then</span></div><div class="line" id="012648"><span class="nick" style="color:#2e2a4a"><a href="#012648" label="[01:26:48]">&lt;theruran&gt;</a></span><span class="message">what's the difference between kaem and kaem-optional-seed?</span></div><div class="line" id="012708"><span class="nick" style="color:#8dd3c7"><a href="#012708" label="[01:27:08]">&lt;stikonas&gt;</a></span><span class="message">kaem is a C program</span></div><div class="line" id="012718"><span class="nick" style="color:#8dd3c7"><a href="#012718" label="[01:27:18]">&lt;stikonas&gt;</a></span><span class="message">with more features</span></div><div class="line" id="012725"><span class="nick" style="color:#8dd3c7"><a href="#012725" label="[01:27:25]">&lt;stikonas&gt;</a></span><span class="message">kaem-optional-seed is handwritten hex0 code</span></div><div class="line" id="012745"><span class="nick" style="color:#8dd3c7"><a href="#012745" label="[01:27:45]">&lt;stikonas&gt;</a></span><span class="message">which only knows how to run other programs (with command line arguments) and 2 types of comments</span></div><div class="line" id="012801"><span class="nick" style="color:#2e2a4a"><a href="#012801" label="[01:28:01]">&lt;theruran&gt;</a></span><span class="message">kaem-optional-seed is the one I get permission denied</span></div><div class="line" id="012803"><span class="nick" style="color:#8dd3c7"><a href="#012803" label="[01:28:03]">&lt;stikonas&gt;</a></span><span class="message">kaem has e.g. aliases, conditionals, environmental variables</span></div><div class="line" id="012806"><span class="nick" style="color:#2e2a4a"><a href="#012806" label="[01:28:06]">&lt;theruran&gt;</a></span><span class="message">because it's not a PIE?</span></div><div class="line" id="012812"><span class="nick" style="color:#8dd3c7"><a href="#012812" label="[01:28:12]">&lt;stikonas&gt;</a></span><span class="message">it's not</span></div><div class="line" id="012823"><span class="nick" style="color:#8dd3c7"><a href="#012823" label="[01:28:23]">&lt;stikonas&gt;</a></span><span class="message">it's the only binary in stage0-posix-amd64 that is not PIE</span></div><div class="line" id="012838"><span class="nick" style="color:#2e2a4a"><a href="#012838" label="[01:28:38]">&lt;theruran&gt;</a></span><span class="message">OK</span></div><div class="line" id="012839"><span class="nick" style="color:#8dd3c7"><a href="#012839" label="[01:28:39]">&lt;stikonas&gt;</a></span><span class="message">you can create PIE version</span></div><div class="line" id="012844"><span class="nick" style="color:#8dd3c7"><a href="#012844" label="[01:28:44]">&lt;stikonas&gt;</a></span><span class="message">it would be a few bytes bigger</span></div><div class="line" id="012858"><span class="nick" style="color:#8dd3c7"><a href="#012858" label="[01:28:58]">&lt;stikonas&gt;</a></span><span class="message">perhaps it makes sense to port</span></div><div class="line" id="012942"><span class="nick" style="color:#8dd3c7"><a href="#012942" label="[01:29:42]">&lt;stikonas&gt;</a></span><span class="message">theruran: e.g. lines like <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-amd64/blob/master/GAS/kaem-minimal.S#L121">https://github.com/oriansj/stage0-posix-amd64/blob/master/GAS/kaem-minimal.S#L121</a> </span></div><div class="line" id="012947"><span class="nick" style="color:#8dd3c7"><a href="#012947" label="[01:29:47]">&lt;stikonas&gt;</a></span><span class="message">mov eax, OFFSET hard</span></div><div class="line" id="013010"><span class="nick" style="color:#8dd3c7"><a href="#013010" label="[01:30:10]">&lt;stikonas&gt;</a></span><span class="message">have to be replaced with lea eax, [rip+hard]</span></div><div class="line" id="013043"><span class="nick" style="color:#8dd3c7"><a href="#013043" label="[01:30:43]">&lt;stikonas&gt;</a></span><span class="message">or possibly lea rax, [rip+hard] (whichever has smaller x86_64 encoded size)</span></div><div class="line" id="013108"><span class="nick" style="color:#8dd3c7"><a href="#013108" label="[01:31:08]">&lt;stikonas&gt;</a></span><span class="message">theruran: so you system can only run PIE binaries?</span></div><div class="line" id="013207"><span class="nick" style="color:#8dd3c7"><a href="#013207" label="[01:32:07]">&lt;stikonas&gt;</a></span><span class="message">I suspect some later stages of bootstrap might break...</span></div><div class="line" id="013210"><span class="nick" style="color:#2e2a4a"><a href="#013210" label="[01:32:10]">&lt;theruran&gt;</a></span><span class="message">I guess so. seems to be the standard nowadays</span></div><div class="line" id="013223"><span class="nick" style="color:#8dd3c7"><a href="#013223" label="[01:32:23]">&lt;stikonas&gt;</a></span><span class="message">not sure how well old gnu software supports requiring PIE</span></div><div class="line" id="013236"><span class="nick" style="color:#2e2a4a"><a href="#013236" label="[01:32:36]">&lt;theruran&gt;</a></span><span class="message">hmmm</span></div><div class="line" id="013239"><span class="nick" style="color:#8dd3c7"><a href="#013239" label="[01:32:39]">&lt;stikonas&gt;</a></span><span class="message">but perhaps you can pipeclean it to work</span></div><div class="line" id="013258"><span class="nick" style="color:#8dd3c7"><a href="#013258" label="[01:32:58]">&lt;stikonas&gt;</a></span><span class="message">nobody tried running bootstrap on hardened system that only supports PIE</span></div><div class="line" id="013310"><span class="nick" style="color:#2e2a4a"><a href="#013310" label="[01:33:10]">&lt;theruran&gt;</a></span><span class="message">ACTION :)</span></div><div class="line" id="013316"><span class="nick" style="color:#8dd3c7"><a href="#013316" label="[01:33:16]">&lt;stikonas&gt;</a></span><span class="message">anyway, in stage0-posix and  mes stages you'll only have to fix kaem-optional-seed</span></div><div class="line" id="013335"><span class="nick" style="color:#8dd3c7"><a href="#013335" label="[01:33:35]">&lt;stikonas&gt;</a></span><span class="message">no idea what will happen with old tcc...</span></div><div class="line" id="015508"><span class="nick" style="color:#389600"><a href="#015508" label="[01:55:08]">&lt;oriansj&gt;</a></span><span class="message">well old tcc didn't support making Position Independent Executables</span></div><div class="line" id="015533"><span class="nick" style="color:#389600"><a href="#015533" label="[01:55:33]">&lt;oriansj&gt;</a></span><span class="message">mostly because trying to doing that on x86 sucks</span></div><div class="line" id="015635"><span class="nick" style="color:#389600"><a href="#015635" label="[01:56:35]">&lt;oriansj&gt;</a></span><span class="message">(you literally have to do call 0; pop rax and then you can do mov eax, [eax+offset])</span></div><div class="line" id="015806"><span class="nick" style="color:#389600"><a href="#015806" label="[01:58:06]">&lt;oriansj&gt;</a></span><span class="message">^pop rax^pop eax^</span></div><div class="line" id="015900"><span class="nick" style="color:#8dd3c7"><a href="#015900" label="[01:59:00]">&lt;stikonas&gt;</a></span><span class="message">well, in any case we don't have a working tcc-0.9.26 bootstrap on amd64</span></div><div class="line" id="015912"><span class="nick" style="color:#8dd3c7"><a href="#015912" label="[01:59:12]">&lt;stikonas&gt;</a></span><span class="message">only on x86...</span></div><div class="line" id="015928"><span class="nick" style="color:#8dd3c7"><a href="#015928" label="[01:59:28]">&lt;stikonas&gt;</a></span><span class="message">and I'm right now running a test with riscv64 with wip-riscv branches from janneke and ekaitz</span></div><div class="line" id="020001"><span class="nick" style="color:#8dd3c7"><a href="#020001" label="[02:00:01]">&lt;stikonas&gt;</a></span><span class="message">already running for 2h...</span></div><div class="line" id="020014"><span class="nick" style="color:#8dd3c7"><a href="#020014" label="[02:00:14]">&lt;stikonas&gt;</a></span><span class="message">(qemu user emulation is being slow...)</span></div><div class="line" id="023719"><span class="nick" style="color:#8dd3c7"><a href="#023719" label="[02:37:19]">&lt;stikonas&gt;</a></span><span class="message">janneke: tcc 0.9.26 is probably not too far from building</span></div><div class="line" id="023746"><span class="nick" style="color:#8dd3c7"><a href="#023746" label="[02:37:46]">&lt;stikonas&gt;</a></span><span class="message">compiler (mescc) seemed to be happy on wip-riscv branch but linking stage errored out with</span></div><div class="line" id="023750"><span class="nick" style="color:#8dd3c7"><a href="#023750" label="[02:37:50]">&lt;stikonas&gt;</a></span><span class="message">&quot;Target label expr_const64 is not valid&quot;</span></div><div class="line" id="023959"><span class="nick" style="color:#8dd3c7"><a href="#023959" label="[02:39:59]">&lt;stikonas&gt;</a></span><span class="message">probably a bit more patching is needed</span></div><div class="line" id="024005"><span class="nick" style="color:#8dd3c7"><a href="#024005" label="[02:40:05]">&lt;stikonas&gt;</a></span><span class="message">before HAVE_LONG_LONG is available</span></div><div class="line" id="065335"><span class="nick" style="color:#6b8072"><a href="#065335" label="[06:53:35]">&lt;janneke&gt;</a></span><span class="message">stikonas: very good news; patching of mescc or of tinycc (or both?)</span></div><div class="line" id="065342"><span class="nick" style="color:#6b8072"><a href="#065342" label="[06:53:42]">&lt;janneke&gt;</a></span><span class="message">oriansj: very nice</span></div><div class="line" id="091829"><span class="nick" style="color:#80b1d3"><a href="#091829" label="[09:18:29]">&lt;stikonas[m]&gt;</a></span><span class="message">janneke: I think just tinycc</span></div><div class="line" id="091848"><span class="nick" style="color:#6b8072"><a href="#091848" label="[09:18:48]">&lt;janneke&gt;</a></span><span class="message">nice</span></div><div class="line" id="092012"><span class="nick" style="color:#80b1d3"><a href="#092012" label="[09:20:12]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, the fact that it compiled but failed to link means we called some function that was #ifdefed not to exist</span></div><br /></div></body></html>

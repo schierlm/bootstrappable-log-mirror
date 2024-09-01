@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-12-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003430"><span class="nick" style="color:#389600"><a href="#003430" label="[00:34:30]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Andrius Štikonas: ah I now see that the later build of M2-Planet from stage0-posix uses buffered io. I was initially using the &quot;Phase-5 Build M2-Planet from cc_x86&quot; version of M2 which is also slow due to unbuffered io. My plan is to minimise my dependencies (and the build time). I was using M2 during dev since it gives better error messages. I then made my code compatible with cc_x86 to remove the...</span></div><div class="line" id="003436"><span class="nick" style="color:#389600"><a href="#003436" label="[00:34:36]">&lt;matrix_bridge&gt;</a></span><span class="message">... need for M2.</span></div><div class="line" id="003503"><span class="nick" style="color:#389600"><a href="#003503" label="[00:35:03]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; yeah, that first build of M2 is not using full M2libc</span></div><div class="line" id="003536"><span class="nick" style="color:#389600"><a href="#003536" label="[00:35:36]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; generally, cc_x86 is developed only with the goal of building M2 (without full M2libc)</span></div><div class="line" id="003541"><span class="nick" style="color:#389600"><a href="#003541" label="[00:35:41]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; (and nothing else)</span></div><div class="line" id="003610"><span class="nick" style="color:#389600"><a href="#003610" label="[00:36:10]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; and going from cc_x86 to full M2-Planet is very quick anyway</span></div><div class="line" id="003615"><span class="nick" style="color:#389600"><a href="#003615" label="[00:36:15]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; so I would advice using that</span></div><div class="line" id="003620"><span class="nick" style="color:#389600"><a href="#003620" label="[00:36:20]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; but of course it is up to you</span></div><div class="line" id="004040"><span class="nick" style="color:#389600"><a href="#004040" label="[00:40:40]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I'm currently going from nothing to tcc 0.9.23 in about 40s (though I can't actually run that version of tcc as my cobbled together partial libc isn't yet complete enough). On the same machine I can go from nothing to a full M2-Planet in about 30s.</span></div><div class="line" id="010103"><span class="nick" style="color:#8dd3c7"><a href="#010103" label="[01:01:03]">&lt;fossy&gt;</a></span><span class="message">Mikaku: i might be a bit silly here, but how does one mount /proc under fiwix? the usual mount -t proc proc /proc isn't working for me...</span></div><div class="line" id="022815"><span class="nick" style="color:#2e2a4a"><a href="#022815" label="[02:28:15]">&lt;GoogulatorMobile&gt;</a></span><span class="message">Found an exceedingly ugly, but potentially viable workaround for the IDE freezing issue</span></div><div class="line" id="022922"><span class="nick" style="color:#2e2a4a"><a href="#022922" label="[02:29:22]">&lt;GoogulatorMobile&gt;</a></span><span class="message">If I never enable interrupts while in protected mode (&quot;cli&quot; before entering protected mode, and only ever &quot;sti&quot;-ing in real mode), there's no freeze.</span></div><div class="line" id="023030"><span class="nick" style="color:#2e2a4a"><a href="#023030" label="[02:30:30]">&lt;GoogulatorMobile&gt;</a></span><span class="message">Of course, this is an issue because syscalls are implemented using int 0x80, so we must _eventually_ enable interrupts in protected mode befor le executing any non-built-in commands</span></div><div class="line" id="023203"><span class="nick" style="color:#2e2a4a"><a href="#023203" label="[02:32:03]">&lt;GoogulatorMobile&gt;</a></span><span class="message">But if we rewrite &quot;src&quot; to directly call the relevant syscall handlers (possible because everything is in ring 0), and only enable interrupts once &quot;src&quot; completes - we can boot on Intel &amp; NVIDIA IDE!</span></div><div class="line" id="023439"><span class="nick" style="color:#2e2a4a"><a href="#023439" label="[02:34:39]">&lt;GoogulatorMobile&gt;</a></span><span class="message">It looks as if we're not servicing some critical interrupt on these platforms, which causes IDE to hang</span></div><div class="line" id="023519"><span class="nick" style="color:#2e2a4a"><a href="#023519" label="[02:35:19]">&lt;GoogulatorMobile&gt;</a></span><span class="message">&amp; of course, qemu's implementation of IDE is subtly different I guess</span></div><div class="line" id="035414"><span class="nick" style="color:#2e2a4a"><a href="#035414" label="[03:54:14]">&lt;GoogulatorMobile&gt;</a></span><span class="message">And... it works! The NForce board is loading srcfs as we speak!</span></div><div class="line" id="035453"><span class="nick" style="color:#2e2a4a"><a href="#035453" label="[03:54:53]">&lt;GoogulatorMobile&gt;</a></span><span class="message">The downside is, we would probably still die if we tried to write the HDD using builder-hex0 with this hack</span></div><div class="line" id="035510"><span class="nick" style="color:#2e2a4a"><a href="#035510" label="[03:55:10]">&lt;GoogulatorMobile&gt;</a></span><span class="message">But luckily live-bootstrap doesn't use that</span></div><div class="line" id="040247"><span class="nick" style="color:#2e2a4a"><a href="#040247" label="[04:02:47]">&lt;GoogulatorMobile&gt;</a></span><span class="message">...srcfs is as far as it got - something is clearly still wrong</span></div><div class="line" id="043028"><span class="nick" style="color:#6b8072"><a href="#043028" label="[04:30:28]">&lt;oriansj&gt;</a></span><span class="message">cosinusoidally: neat to see your progress.</span></div><div class="line" id="080424"><span class="nick" style="color:#2e2a4a"><a href="#080424" label="[08:04:24]">&lt;GoogulatorMobile&gt;</a></span><span class="message">Successful bootstrap to Mes on 2 of my problematic boards so far.</span></div><div class="line" id="080551"><span class="nick" style="color:#80b1d3"><a href="#080551" label="[08:05:51]">&lt;Mikaku&gt;</a></span><span class="message">fossy: the command you said is the way to go, it works for me</span></div><div class="line" id="080709"><span class="nick" style="color:#80b1d3"><a href="#080709" label="[08:07:09]">&lt;Mikaku&gt;</a></span><span class="message">fossy: what 'mount' command are you using? are you on FiwixOS 3.x?</span></div><div class="line" id="080725"><span class="nick" style="color:#6d2462"><a href="#080725" label="[08:07:25]">&lt;Googulator&gt;</a></span><span class="message"> <a rel="nofollow" href="https://gist.github.com/Googulator/881d615e3e5de235aef60296c09dee0a">https://gist.github.com/Googulator/881d615e3e5de235aef60296c09dee0a</a>  updated to a version that actually boots</span></div><div class="line" id="080819"><span class="nick" style="color:#6d2462"><a href="#080819" label="[08:08:19]">&lt;Googulator&gt;</a></span><span class="message">fossy: have you found a fix for the make PATH issue?</span></div><div class="line" id="080834"><span class="nick" style="color:#6d2462"><a href="#080834" label="[08:08:34]">&lt;Googulator&gt;</a></span><span class="message">I tried giving it an environment, but got nowhere.</span></div><div class="line" id="081233"><span class="nick" style="color:#6d2462"><a href="#081233" label="[08:12:33]">&lt;Googulator&gt;</a></span><span class="message">rickmasters: what happened to  builder-hex0-x86-stage2.hex2 in the ironmeld repo? Only the hex0 version is in the repository.</span></div><div class="line" id="132846"><span class="nick" style="color:#234e69"><a href="#132846" label="[13:28:46]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: You can generate the stage2 hex0 like so:</span></div><div class="line" id="132849"><span class="nick" style="color:#234e69"><a href="#132849" label="[13:28:49]">&lt;rickmasters&gt;</a></span><span class="message">cp builder-hex0.hex2 builder-hex0-x86-stage2.hex2</span></div><div class="line" id="132902"><span class="nick" style="color:#234e69"><a href="#132902" label="[13:29:02]">&lt;rickmasters&gt;</a></span><span class="message">./hex2tohex0.sh builder-hex0-x86-stage2 0x7E00</span></div><div class="line" id="132958"><span class="nick" style="color:#234e69"><a href="#132958" label="[13:29:58]">&lt;rickmasters&gt;</a></span><span class="message">The hex2 is the definitive source and the hex0 is derived so I stopped keeping the hex0 in source control</span></div><div class="line" id="145508"><span class="nick" style="color:#234e69"><a href="#145508" label="[14:55:08]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: correction: the hex0 version is still in source control.</span></div><div class="line" id="145709"><span class="nick" style="color:#234e69"><a href="#145709" label="[14:57:09]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: The stage2 hex file is just build-hex0.hex2 with details about that explained here: <a rel="nofollow" href="https://logs.guix.gnu.org/bootstrappable/2023-11-28.log">https://logs.guix.gnu.org/bootstrappable/2023-11-28.log</a> </span></div><div class="line" id="145723"><span class="nick" style="color:#234e69"><a href="#145723" label="[14:57:23]">&lt;rickmasters&gt;</a></span><span class="message">*builder-hex0.hex2</span></div><div class="line" id="151252"><span class="nick" style="color:#234e69"><a href="#151252" label="[15:12:52]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: Not handling interrupts properly in protected mode makes sense as an explanation for your problem.</span></div><div class="line" id="151402"><span class="nick" style="color:#234e69"><a href="#151402" label="[15:14:02]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: There is history consistent with this. I had a similar problem when I didn't handle the timer interrupt in protected mode.</span></div><div class="line" id="151448"><span class="nick" style="color:#234e69"><a href="#151448" label="[15:14:48]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: My solution was to put in a stub handler but it bothered me that I didn't really know what was going on.</span></div><div class="line" id="152127"><span class="nick" style="color:#234e69"><a href="#152127" label="[15:21:27]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: Another possible approach would be to try to &quot;relay&quot; interrupts in protected mode to their real mode handlers.</span></div><div class="line" id="152205"><span class="nick" style="color:#234e69"><a href="#152205" label="[15:22:05]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: I'm not sure if that is even possible to do reliably though.</span></div><div class="line" id="152330"><span class="nick" style="color:#234e69"><a href="#152330" label="[15:23:30]">&lt;rickmasters&gt;</a></span><span class="message">You'd have to enter real mode, manually push an interrupt return frame onto the stack and jump to the real mode handler.</span></div><div class="line" id="152454"><span class="nick" style="color:#234e69"><a href="#152454" label="[15:24:54]">&lt;rickmasters&gt;</a></span><span class="message">When the real mode handler does the iret it would come back to the relay handler which would restore protected mode and return from interrupt again.</span></div><div class="line" id="152656"><span class="nick" style="color:#234e69"><a href="#152656" label="[15:26:56]">&lt;rickmasters&gt;</a></span><span class="message">Just an idea. Disabling interrupts is obviously easier if it works.</span></div><div class="line" id="195744"><span class="nick" style="color:#2e2a4a"><a href="#195744" label="[19:57:44]">&lt;GoogulatorMobile&gt;</a></span><span class="message">Turns out, you can syscall just fine using int 80h even when interrupts are disabled</span></div><div class="line" id="195830"><span class="nick" style="color:#2e2a4a"><a href="#195830" label="[19:58:30]">&lt;GoogulatorMobile&gt;</a></span><span class="message">Maybe _software_ interrupts don't get disabled by &quot;cli&quot;, or int 80h has special handling on these CPUs</span></div><div class="line" id="202252"><span class="nick" style="color:#6b8072"><a href="#202252" label="[20:22:52]">&lt;oriansj&gt;</a></span><span class="message">or switching between 16 and 32bit modes have side effects</span></div><div class="line" id="211551"><span class="nick" style="color:#6d2462"><a href="#211551" label="[21:15:51]">&lt;Googulator&gt;</a></span><span class="message">oriansj: I don't see how side effects could play into this</span></div><div class="line" id="211611"><span class="nick" style="color:#6d2462"><a href="#211611" label="[21:16:11]">&lt;Googulator&gt;</a></span><span class="message">int 80h is executed in 32-bit mode, while interrupts are disabled - and surprisingly, it still works</span></div><div class="line" id="211628"><span class="nick" style="color:#6d2462"><a href="#211628" label="[21:16:28]">&lt;Googulator&gt;</a></span><span class="message">I thought &quot;cli; int 80h&quot; would lock up hard</span></div><div class="line" id="211634"><span class="nick" style="color:#6d2462"><a href="#211634" label="[21:16:34]">&lt;Googulator&gt;</a></span><span class="message">it doesn't</span></div><div class="line" id="211642"><span class="nick" style="color:#6d2462"><a href="#211642" label="[21:16:42]">&lt;Googulator&gt;</a></span><span class="message">neither on bare metal nor on qemu</span></div><div class="line" id="211900"><span class="nick" style="color:#6d2462"><a href="#211900" label="[21:19:00]">&lt;Googulator&gt;</a></span><span class="message">rickmasters: sent some PRs for builder-hex0</span></div><div class="line" id="212750"><span class="nick" style="color:#6b8072"><a href="#212750" label="[21:27:50]">&lt;oriansj&gt;</a></span><span class="message">Googulator: as in changing between the two modes might be causing interrupts to be turned back on</span></div><div class="line" id="212910"><span class="nick" style="color:#6b8072"><a href="#212910" label="[21:29:10]">&lt;oriansj&gt;</a></span><span class="message">which can be proven by just throwing a cli after switching the mode before doing the int</span></div><div class="line" id="215131"><span class="nick" style="color:#2e2a4a"><a href="#215131" label="[21:51:31]">&lt;GoogulatorMobile&gt;</a></span><span class="message">I doubt it, because this version of builder-hex0 boots on boards that lock up in srcfs read if I don't disable interrupts in protected mode</span></div><div class="line" id="215216"><span class="nick" style="color:#2e2a4a"><a href="#215216" label="[21:52:16]">&lt;GoogulatorMobile&gt;</a></span><span class="message">fossy: after the $PATH issue, there's a 2nd bug that blocks kernel bootstrap with simplify</span></div><div class="line" id="215229"><span class="nick" style="color:#2e2a4a"><a href="#215229" label="[21:52:29]">&lt;GoogulatorMobile&gt;</a></span><span class="message"> /tmp doesn't exist in fiwix.ext2</span></div><div class="line" id="215313"><span class="nick" style="color:#2e2a4a"><a href="#215313" label="[21:53:13]">&lt;GoogulatorMobile&gt;</a></span><span class="message">As a workaround, I added a mkdir -p tmp to the kaem for building patch - now it's able to continue, currently building the first gcc</span></div><br /></div></body></html>

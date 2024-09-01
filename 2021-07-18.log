@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="021128"><span class="nick" style="color:#8dd3c7"><a href="#021128" label="[02:11:28]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well lets get the files and use diffoscope to figure out the differences.</span></div><div class="line" id="021228"><span class="nick" style="color:#2e2a4a"><a href="#021228" label="[02:12:28]">&lt;stikonas_&gt;</a></span><span class="message">oriansj: I got the files, but it's not obvious</span></div><div class="line" id="021251"><span class="nick" style="color:#2e2a4a"><a href="#021251" label="[02:12:51]">&lt;stikonas_&gt;</a></span><span class="message">maybe some automatic &quot;environment&quot; dependencies</span></div><div class="line" id="021326"><span class="nick" style="color:#2e2a4a"><a href="#021326" label="[02:13:26]">&lt;stikonas_&gt;</a></span><span class="message">oriansj: they are not even the same size</span></div><div class="line" id="021354"><span class="nick" style="color:#2e2a4a"><a href="#021354" label="[02:13:54]">&lt;stikonas_&gt;</a></span><span class="message"> <a rel="nofollow" href="https://stikonas.eu/files/libffi/">https://stikonas.eu/files/libffi/</a> </span></div><div class="line" id="021357"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="021408"><span class="nick" style="color:#6b8072"><a href="#021408" label="[02:14:08]">&lt;stikonas&gt;</a></span><span class="message">a few object files in the archive are identical but a few differ</span></div><div class="line" id="022029"><span class="nick" style="color:#6b8072"><a href="#022029" label="[02:20:29]">&lt;stikonas&gt;</a></span><span class="message">also worth checking other distros that care about reproducibility...</span></div><div class="line" id="022049"><span class="nick" style="color:#6b8072"><a href="#022049" label="[02:20:49]">&lt;stikonas&gt;</a></span><span class="message">guix, nixos or something else might have some clues</span></div><div class="line" id="022241"><span class="nick" style="color:#6b8072"><a href="#022241" label="[02:22:41]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/NixOS/nixpkgs/blob/688b4cb03efd8bd6bd0796297a8738f8f91a5ff6/pkgs/development/libraries/libffi/default.nix#L24">https://github.com/NixOS/nixpkgs/blob/688b4cb03efd8bd6bd0796297a8738f8f91a5ff6/pkgs/development/libraries/libffi/default.nix#L24</a>  might be the fix...</span></div><div class="line" id="022249"><span class="nick" style="color:#6b8072"><a href="#022249" label="[02:22:49]">&lt;stikonas&gt;</a></span><span class="message">maybe I'll try it tomorrow</span></div><div class="line" id="031214"><span class="nick" style="color:#80b1d3"><a href="#031214" label="[03:12:14]">&lt;Hagfish&gt;</a></span><span class="message">huh, yeah, interesting spot</span></div><div class="line" id="143133"><span class="nick" style="color:#6d2462"><a href="#143133" label="[14:31:33]">&lt;fossy&gt;</a></span><span class="message">ok my todo looks like this:</span></div><div class="line" id="143208"><span class="nick" style="color:#6d2462"><a href="#143208" label="[14:32:08]">&lt;fossy&gt;</a></span><span class="message">1. finish fixing up /usr checksums for new sysc (bash 5.1 and after) 2. remove shipped files from linux kernel 3. rebase</span></div><div class="line" id="143225"><span class="nick" style="color:#6d2462"><a href="#143225" label="[14:32:25]">&lt;fossy&gt;</a></span><span class="message">not nessecarilly in that order</span></div><div class="line" id="143234"><span class="nick" style="color:#6d2462"><a href="#143234" label="[14:32:34]">&lt;fossy&gt;</a></span><span class="message">i will probably push a draft branch earlier in order to get feedback</span></div><div class="line" id="143304"><span class="nick" style="color:#6d2462"><a href="#143304" label="[14:33:04]">&lt;fossy&gt;</a></span><span class="message">and also fix chroot mode</span></div><div class="line" id="143310"><span class="nick" style="color:#6d2462"><a href="#143310" label="[14:33:10]">&lt;fossy&gt;</a></span><span class="message">cause i broke that testing qemu</span></div><div class="line" id="145106"><span class="nick" style="color:#6b8072"><a href="#145106" label="[14:51:06]">&lt;stikonas&gt;</a></span><span class="message">well, I'm investigating libffi checksum differences in chroot/qemu modes in guile branch</span></div><div class="line" id="145123"><span class="nick" style="color:#6b8072"><a href="#145123" label="[14:51:23]">&lt;stikonas&gt;</a></span><span class="message">fossy: when do roughly sysb and sysc start?</span></div><div class="line" id="145138"><span class="nick" style="color:#6b8072"><a href="#145138" label="[14:51:38]">&lt;stikonas&gt;</a></span><span class="message">so sysc is after bash 5.1?</span></div><div class="line" id="145155"><span class="nick" style="color:#6b8072"><a href="#145155" label="[14:51:55]">&lt;stikonas&gt;</a></span><span class="message">and sysb?</span></div><div class="line" id="211329"><span class="nick">***</span><span class="message notice">dekenevs is now known as kitzman</span></div><div class="line" id="221717"><span class="nick" style="color:#6b8072"><a href="#221717" label="[22:17:17]">&lt;stikonas&gt;</a></span><span class="message">good, those nixos configuration options fix reproducibility issues for libffi (chroot vs qemu)</span></div><div class="line" id="224846"><span class="nick" style="color:#80b1d3"><a href="#224846" label="[22:48:46]">&lt;Hagfish&gt;</a></span><span class="message">wow, that's great</span></div><div class="line" id="224849"><span class="nick" style="color:#80b1d3"><a href="#224849" label="[22:48:49]">&lt;Hagfish&gt;</a></span><span class="message">such a good find</span></div><br /></div></body></html>

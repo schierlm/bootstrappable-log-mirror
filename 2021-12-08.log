@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-12-08.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="024443"><span class="nick" style="color:#8dd3c7"><a href="#024443" label="[02:44:43]">&lt;oriansj&gt;</a></span><span class="message">gbrlwck: the code is currently identical and unfortunately I don't know what zf-&gt;r means in this exact context; perhaps janneke should shed some light on it</span></div><div class="line" id="091205"><span class="nick" style="color:#2e2a4a"><a href="#091205" label="[09:12:05]">&lt;siraben&gt;</a></span><span class="message">There was some recent interest in Nix-land about reducing the bootstrap, it made me wonder if the most recent version of gcc can be boostrapped with stage0?</span></div><div class="line" id="091222"><span class="nick" style="color:#2e2a4a"><a href="#091222" label="[09:12:22]">&lt;siraben&gt;</a></span><span class="message">IIRC only up to the last version of GCC to not use C++ can be bootstrapped</span></div><div class="line" id="123132"><span class="nick" style="color:#6b8072"><a href="#123132" label="[12:31:32]">&lt;fossy&gt;</a></span><span class="message">&lt;siraben&gt; There was some recent interest in Nix-land about reducing the bootstrap, it made me wonder if the most recent version of gcc can be boostrapped with stage0?</span></div><div class="line" id="123135"><span class="nick" style="color:#6b8072"><a href="#123135" label="[12:31:35]">&lt;fossy&gt;</a></span><span class="message">It can</span></div><div class="line" id="123145"><span class="nick" style="color:#6b8072"><a href="#123145" label="[12:31:45]">&lt;fossy&gt;</a></span><span class="message">there is no c++ blockwr</span></div><div class="line" id="123158"><span class="nick" style="color:#6b8072"><a href="#123158" label="[12:31:58]">&lt;fossy&gt;</a></span><span class="message">you go to gcc 4.7.4 and then to new</span></div><div class="line" id="123450"><span class="nick" style="color:#80b1d3"><a href="#123450" label="[12:34:50]">&lt;stikonas&gt;</a></span><span class="message">well, you go to gcc 10 first</span></div><div class="line" id="123458"><span class="nick" style="color:#80b1d3"><a href="#123458" label="[12:34:58]">&lt;stikonas&gt;</a></span><span class="message">gcc 11 imposes some new C requirements</span></div><div class="line" id="123508"><span class="nick" style="color:#80b1d3"><a href="#123508" label="[12:35:08]">&lt;stikonas&gt;</a></span><span class="message">well, C++ requirements</span></div><div class="line" id="123521"><span class="nick" style="color:#80b1d3"><a href="#123521" label="[12:35:21]">&lt;stikonas&gt;</a></span><span class="message">so at least if you don't care about pre-generated files, then it should  just work</span></div><div class="line" id="123551"><span class="nick" style="color:#80b1d3"><a href="#123551" label="[12:35:51]">&lt;stikonas&gt;</a></span><span class="message">it's slightly more annoying if you want to rebuild top-level Makefile.in's in binutils and gcc</span></div><div class="line" id="123607"><span class="nick" style="color:#80b1d3"><a href="#123607" label="[12:36:07]">&lt;stikonas&gt;</a></span><span class="message">those use autogen which is a bootstrap nightmare</span></div><div class="line" id="123646"><span class="nick" style="color:#80b1d3"><a href="#123646" label="[12:36:46]">&lt;stikonas&gt;</a></span><span class="message">siraben: although, keep in mind that stage0-posix-&gt;gcc bootstrap is x86 only</span></div><div class="line" id="124928"><span class="nick" style="color:#6d2462"><a href="#124928" label="[12:49:28]">&lt;gbrlwck&gt;</a></span><span class="message">ok, i let that &quot;we increase the stack pointer to allocate memory&quot; sink in.  only question: don't we need a SYS_brk or mmap/malloc to make sure we don't (accidentally) grow our stack into &quot;foreign&quot; memory?</span></div><div class="line" id="130001"><span class="nick" style="color:#80b1d3"><a href="#130001" label="[13:00:01]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: SYS_brk is for heap allocations</span></div><div class="line" id="130003"><span class="nick" style="color:#80b1d3"><a href="#130003" label="[13:00:03]">&lt;stikonas&gt;</a></span><span class="message">there is no need to call anything for stack</span></div><div class="line" id="130055"><span class="nick" style="color:#80b1d3"><a href="#130055" label="[13:00:55]">&lt;stikonas&gt;</a></span><span class="message">I guess there is some bound set by the kernel</span></div><div class="line" id="130059"><span class="nick" style="color:#80b1d3"><a href="#130059" label="[13:00:59]">&lt;stikonas&gt;</a></span><span class="message">which you should not exceed</span></div><div class="line" id="130104"><span class="nick" style="color:#80b1d3"><a href="#130104" label="[13:01:04]">&lt;stikonas&gt;</a></span><span class="message">but that's probably fixed</span></div><div class="line" id="130139"><span class="nick" style="color:#80b1d3"><a href="#130139" label="[13:01:39]">&lt;stikonas&gt;</a></span><span class="message">but yes, if you try to use more than what is available you'll have stack overflow</span></div><div class="line" id="130152"><span class="nick" style="color:#80b1d3"><a href="#130152" label="[13:01:52]">&lt;stikonas&gt;</a></span><span class="message">but we shouldn't hit recursion this deep in bootstrapping</span></div><div class="line" id="130351"><span class="nick" style="color:#6d2462"><a href="#130351" label="[13:03:51]">&lt;gbrlwck&gt;</a></span><span class="message">:) so, if i understand correctly: we increase the stack pointer a bunch to allocate space for local variables (for each function call). we decrease to stack pointer to store the variables. and a stack overflow would actually mean colliding with the process</span></div><div class="line" id="130355"><span class="nick" style="color:#6d2462"><a href="#130355" label="[13:03:55]">&lt;gbrlwck&gt;</a></span><span class="message">'s heap?</span></div><div class="line" id="131834"><span class="nick" style="color:#8dd3c7"><a href="#131834" label="[13:18:34]">&lt;oriansj&gt;</a></span><span class="message">gbrlwck: by default the kernel will allocate 8KB for the stack, you can override that for larger values via: ulimit -s #### and what will stop it is an unallocated block of memory which the memory access will cause a page fault. Which the kernel will see the faulting instruction is a stack instruction and thus it was a stack fault</span></div><div class="line" id="132054"><span class="nick" style="color:#8dd3c7"><a href="#132054" label="[13:20:54]">&lt;oriansj&gt;</a></span><span class="message">the reason for updating the stack pointer is so that we don't trample the previous stack values until after we are done using them (for example after we returned back from a function call)</span></div><div class="line" id="132127"><span class="nick" style="color:#234e69"><a href="#132127" label="[13:21:27]">&lt;river&gt;</a></span><span class="message">ok I will check the loop situtaion on meson and ninja this weekend</span></div><div class="line" id="175349"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-10-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005045"><span class="nick" style="color:#8dd3c7"><a href="#005045" label="[00:50:45]">&lt;oriansj&gt;</a></span><span class="message">doing NAND2Tetris makes me want to design my own instruction set architecture and CPU</span></div><div class="line" id="005053"><span class="nick" style="color:#8dd3c7"><a href="#005053" label="[00:50:53]">&lt;oriansj&gt;</a></span><span class="message">then port stage0 to it</span></div><div class="line" id="005441"><span class="nick" style="color:#8dd3c7"><a href="#005441" label="[00:54:41]">&lt;oriansj&gt;</a></span><span class="message">anyone know of any good tools for that sort of work?</span></div><div class="line" id="011805"><span class="nick" style="color:#2e2a4a"><a href="#011805" label="[01:18:05]">&lt;muurkha&gt;</a></span><span class="message">without really having done it, I'd guess: yosys, nextpnr, APIO, and Lattice FPGAs</span></div><div class="line" id="014227"><span class="nick" style="color:#8dd3c7"><a href="#014227" label="[01:42:27]">&lt;oriansj&gt;</a></span><span class="message">I guess I could figure out the high level details and encoding without deciding on the actual which bits encode which.</span></div><div class="line" id="014256"><span class="nick" style="color:#6b8072"><a href="#014256" label="[01:42:56]">&lt;aggi&gt;</a></span><span class="message">gigatron ttl got some documentation too</span></div><div class="line" id="014539"><span class="nick" style="color:#2e2a4a"><a href="#014539" label="[01:45:39]">&lt;muurkha&gt;</a></span><span class="message">maybe, but I think it's easy to end up with a field with 5 or 9 possible values that way</span></div><div class="line" id="021900"><span class="nick" style="color:#8dd3c7"><a href="#021900" label="[02:19:00]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well yes, expecially if it is 3 or more bits long</span></div><div class="line" id="022925"><span class="nick" style="color:#2e2a4a"><a href="#022925" label="[02:29:25]">&lt;muurkha&gt;</a></span><span class="message">I mean, I think it's helpful to develop which bits encode which things in parallel</span></div><div class="line" id="023506"><span class="nick" style="color:#8dd3c7"><a href="#023506" label="[02:35:06]">&lt;oriansj&gt;</a></span><span class="message">muurkha: ah very fair</span></div><div class="line" id="024055"><span class="nick" style="color:#8dd3c7"><a href="#024055" label="[02:40:55]">&lt;oriansj&gt;</a></span><span class="message">well less dense instructions should certainly make for simpler decode logic</span></div><div class="line" id="024147"><span class="nick" style="color:#8dd3c7"><a href="#024147" label="[02:41:47]">&lt;oriansj&gt;</a></span><span class="message">although I don't see a real benefit to allowing instructions like R0, R1 = R2 + R3</span></div><div class="line" id="024512"><span class="nick" style="color:#8dd3c7"><a href="#024512" label="[02:45:12]">&lt;oriansj&gt;</a></span><span class="message">4 registers would be suboptimal for M2-Planet, 16 registers would map nicely to hex but 64 registers would be optimial for advanced optimizing compilers.</span></div><div class="line" id="025008"><span class="nick" style="color:#8dd3c7"><a href="#025008" label="[02:50:08]">&lt;oriansj&gt;</a></span><span class="message">then I can do [opcode 8][register 6][register 6][immediate 18] and [opcode][register 6][register 6][xop 12][register 6]</span></div><div class="line" id="025055"><span class="nick" style="color:#8dd3c7"><a href="#025055" label="[02:50:55]">&lt;oriansj&gt;</a></span><span class="message">which would leave lots of bits for future expansion and ensure the most common displacements would fit in a 256KB cache</span></div><div class="line" id="042551"><span class="nick" style="color:#8dd3c7"><a href="#042551" label="[04:25:51]">&lt;oriansj&gt;</a></span><span class="message">wow I must be tired to have missed that. [opcode 10][register 6][register 6][immediate 18] and [opcode 10][register 6][register 6][xop 12][register 6] for 40 bit instructions (not dense at all) but 2^10 should give plenty of 2OPI instructions and the xop should more than cover a boatload of 3OP instructions without needing more than 1 or 2 of the 1024 values in the primary opcode space</span></div><div class="line" id="050032"><span class="nick" style="color:#2e2a4a"><a href="#050032" label="[05:00:32]">&lt;muurkha&gt;</a></span><span class="message">lots of registers do impose costs on interrupt handling, context switches, and sometimes even subroutine calls</span></div><div class="line" id="050043"><span class="nick" style="color:#2e2a4a"><a href="#050043" label="[05:00:43]">&lt;muurkha&gt;</a></span><span class="message">depending on your calling convention</span></div><div class="line" id="050620"><span class="nick" style="color:#8dd3c7"><a href="#050620" label="[05:06:20]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well if one can use the registers as either integer or floating point; it ends up reducing the number of wasted registers in any particular code block</span></div><div class="line" id="050705"><span class="nick" style="color:#2e2a4a"><a href="#050705" label="[05:07:05]">&lt;muurkha&gt;</a></span><span class="message">maybe, maybe not</span></div><div class="line" id="050737"><span class="nick" style="color:#2e2a4a"><a href="#050737" label="[05:07:37]">&lt;muurkha&gt;</a></span><span class="message">remember that doing that means that you have less integer registers (or less floating point registers) for the same size operand bitfield</span></div><div class="line" id="050806"><span class="nick" style="color:#2e2a4a"><a href="#050806" label="[05:08:06]">&lt;muurkha&gt;</a></span><span class="message">because some of the registers you could conceivably be addressing for integer instructions are being used for floating point (sometimes; doesn't matter in a compiler or a kernel generally)</span></div><div class="line" id="050903"><span class="nick" style="color:#2e2a4a"><a href="#050903" label="[05:09:03]">&lt;muurkha&gt;</a></span><span class="message">check out the italicized sections in the &quot;F&quot; chapter of the RISC-V unprivileged instruciton spec</span></div><div class="line" id="050904"><span class="nick" style="color:#8dd3c7"><a href="#050904" label="[05:09:04]">&lt;oriansj&gt;</a></span><span class="message">true and in superscalar implementations, the register file will probably be duplicated anyway internally to reduce the number of read/write ports.</span></div><div class="line" id="050932"><span class="nick" style="color:#2e2a4a"><a href="#050932" label="[05:09:32]">&lt;muurkha&gt;</a></span><span class="message">aliasing between integer and floating-point uses also causes substantial trouble for high-performance implementations</span></div><div class="line" id="051005"><span class="nick" style="color:#2e2a4a"><a href="#051005" label="[05:10:05]">&lt;muurkha&gt;</a></span><span class="message">...or so I've heard, as you know by now, I've never designed a high-performance chip</span></div><div class="line" id="051545"><span class="nick" style="color:#8dd3c7"><a href="#051545" label="[05:15:45]">&lt;oriansj&gt;</a></span><span class="message">well it incurs a single clock cycle delay between execute writing to a register and when the next execute cluster can read that value.</span></div><div class="line" id="160153"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="161008"><span class="nick" style="color:#2e2a4a"><a href="#161008" label="[16:10:08]">&lt;muurkha&gt;</a></span><span class="message">oriansj: not sure that's the issue</span></div><div class="line" id="211940"><span class="nick" style="color:#80b1d3"><a href="#211940" label="[21:19:40]">&lt;stikonas&gt;</a></span><span class="message">argh, cc_amd64 does not support dereferencing pointers...</span></div><div class="line" id="212030"><span class="nick" style="color:#80b1d3"><a href="#212030" label="[21:20:30]">&lt;stikonas&gt;</a></span><span class="message">might need to drop to inline assembly</span></div><div class="line" id="212300"><span class="nick" style="color:#80b1d3"><a href="#212300" label="[21:23:00]">&lt;stikonas&gt;</a></span><span class="message">oh, maybe I don't need to do that...</span></div><div class="line" id="214245"><span class="nick">***</span><span class="message notice">robin__ is now known as robin</span></div><div class="line" id="234750"><span class="nick">***</span><span class="message notice">robin_ is now known as robin</span></div><br /></div></body></html>

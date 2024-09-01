@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-12-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="012459"><span class="nick" style="color:#8dd3c7"><a href="#012459" label="[01:24:59]">&lt;gbrlwck&gt;</a></span><span class="message">soooo... on RISCV i hit a &quot;Checksum mismatch&quot; exception (i guess relatively early).  weird thing: the checksums displayed do not match, but the actually downloaded file's sha256sum does match the one in the SHA256SUMS.sources file... is python's sha256sum different from the other implementations?</span></div><div class="line" id="013521"><span class="nick" style="color:#2e2a4a"><a href="#013521" label="[01:35:21]">&lt;fossy&gt;</a></span><span class="message">gbrlwck: on live bootstrap?</span></div><div class="line" id="013530"><span class="nick" style="color:#2e2a4a"><a href="#013530" label="[01:35:30]">&lt;fossy&gt;</a></span><span class="message">live bootstrap dosent support riscv yet</span></div><div class="line" id="013548"><span class="nick" style="color:#2e2a4a"><a href="#013548" label="[01:35:48]">&lt;fossy&gt;</a></span><span class="message">oh, should work as a goer if you dont use kvm</span></div><div class="line" id="013557"><span class="nick" style="color:#8dd3c7"><a href="#013557" label="[01:35:57]">&lt;gbrlwck&gt;</a></span><span class="message">yes</span></div><div class="line" id="013641"><span class="nick" style="color:#8dd3c7"><a href="#013641" label="[01:36:41]">&lt;gbrlwck&gt;</a></span><span class="message">i know, i changed the arch test to `if args.arch not in (&quot;x86&quot;, &quot;riscv64&quot;)` and just gave it a go</span></div><div class="line" id="013748"><span class="nick" style="color:#2e2a4a"><a href="#013748" label="[01:37:48]">&lt;fossy&gt;</a></span><span class="message">yeah, none of rhe code has any support for it</span></div><div class="line" id="013759"><span class="nick" style="color:#2e2a4a"><a href="#013759" label="[01:37:59]">&lt;fossy&gt;</a></span><span class="message">as a riscv guesr</span></div><div class="line" id="013802"><span class="nick" style="color:#2e2a4a"><a href="#013802" label="[01:38:02]">&lt;fossy&gt;</a></span><span class="message">guest*</span></div><div class="line" id="013813"><span class="nick" style="color:#2e2a4a"><a href="#013813" label="[01:38:13]">&lt;fossy&gt;</a></span><span class="message">but can you try nuking sources/?</span></div><div class="line" id="014102"><span class="nick" style="color:#8dd3c7"><a href="#014102" label="[01:41:02]">&lt;gbrlwck&gt;</a></span><span class="message">what does &quot;nuking sources&quot; mean?</span></div><div class="line" id="014114"><span class="nick" style="color:#8dd3c7"><a href="#014114" label="[01:41:14]">&lt;gbrlwck&gt;</a></span><span class="message">i disabled the checksum test for now</span></div><div class="line" id="014326"><span class="nick" style="color:#8dd3c7"><a href="#014326" label="[01:43:26]">&lt;gbrlwck&gt;</a></span><span class="message">i thought since compilation works up to mes-m2 i gave it a go :)</span></div><div class="line" id="020516"><span class="nick" style="color:#6b8072"><a href="#020516" label="[02:05:16]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: might be something changed in upstream tarballs</span></div><div class="line" id="020520"><span class="nick" style="color:#6b8072"><a href="#020520" label="[02:05:20]">&lt;stikonas&gt;</a></span><span class="message">I think we had this before</span></div><div class="line" id="020539"><span class="nick" style="color:#6b8072"><a href="#020539" label="[02:05:39]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: which file git that error?</span></div><div class="line" id="020613"><span class="nick" style="color:#6b8072"><a href="#020613" label="[02:06:13]">&lt;stikonas&gt;</a></span><span class="message">and python's sha256 checksum should be the same</span></div><div class="line" id="020641"><span class="nick" style="color:#6b8072"><a href="#020641" label="[02:06:41]">&lt;stikonas&gt;</a></span><span class="message">although there was a bug earlier where python's downloader was not downloading whole file</span></div><div class="line" id="020650"><span class="nick" style="color:#8dd3c7"><a href="#020650" label="[02:06:50]">&lt;gbrlwck&gt;</a></span><span class="message">it was for coreutils-8.32.tar.gz</span></div><div class="line" id="020657"><span class="nick" style="color:#6b8072"><a href="#020657" label="[02:06:57]">&lt;stikonas&gt;</a></span><span class="message">this was fixed but got accidentally reverted at some point when fossy was doing rebase but then fixed again</span></div><div class="line" id="020707"><span class="nick" style="color:#6b8072"><a href="#020707" label="[02:07:07]">&lt;stikonas&gt;</a></span><span class="message">ok, let me try deleting that file</span></div><div class="line" id="020714"><span class="nick" style="color:#8dd3c7"><a href="#020714" label="[02:07:14]">&lt;gbrlwck&gt;</a></span><span class="message">but as i said, the checksum of the file correstponded to the entry in the checksums-file</span></div><div class="line" id="020741"><span class="nick" style="color:#6b8072"><a href="#020741" label="[02:07:41]">&lt;stikonas&gt;</a></span><span class="message">hmm, seems to work fine here</span></div><div class="line" id="020756"><span class="nick" style="color:#6b8072"><a href="#020756" label="[02:07:56]">&lt;stikonas&gt;</a></span><span class="message">6f7cfc0ac6717afb6ba1f41b0da43a713ba0dd97dec1227e32effc12d79f08c1 ?</span></div><div class="line" id="020804"><span class="nick" style="color:#8dd3c7"><a href="#020804" label="[02:08:04]">&lt;gbrlwck&gt;</a></span><span class="message">i could actually build stage0 (and the extras); but i've disabled the tests</span></div><div class="line" id="020825"><span class="nick" style="color:#8dd3c7"><a href="#020825" label="[02:08:25]">&lt;gbrlwck&gt;</a></span><span class="message">that's the checksum i have</span></div><div class="line" id="020842"><span class="nick" style="color:#8dd3c7"><a href="#020842" label="[02:08:42]">&lt;gbrlwck&gt;</a></span><span class="message">but python said: Exception: Checksum mismatch:</span></div><div class="line" id="020853"><span class="nick" style="color:#8dd3c7"><a href="#020853" label="[02:08:53]">&lt;gbrlwck&gt;</a></span><span class="message">expected: 12cfa21abf618a274017d6b18e95fc6582519d7c08e2403e5c5772ccdd5b85f4</span></div><div class="line" id="020857"><span class="nick" style="color:#8dd3c7"><a href="#020857" label="[02:08:57]">&lt;gbrlwck&gt;</a></span><span class="message">actual:   e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span></div><div class="line" id="020912"><span class="nick" style="color:#6b8072"><a href="#020912" label="[02:09:12]">&lt;stikonas&gt;</a></span><span class="message">that's not even the same checksum I have</span></div><div class="line" id="020922"><span class="nick" style="color:#8dd3c7"><a href="#020922" label="[02:09:22]">&lt;gbrlwck&gt;</a></span><span class="message">(i adjusted the output to see what did not match)</span></div><div class="line" id="020939"><span class="nick" style="color:#6b8072"><a href="#020939" label="[02:09:39]">&lt;stikonas&gt;</a></span><span class="message">hmm, 12cfa21abf618a274017d6b18e95fc6582519d7c08e2403e5c5772ccdd5b85f4  gnulib-d279bc.tar.gz</span></div><div class="line" id="020954"><span class="nick" style="color:#6b8072"><a href="#020954" label="[02:09:54]">&lt;stikonas&gt;</a></span><span class="message">so that's probably not coreutils</span></div><div class="line" id="020959"><span class="nick" style="color:#6b8072"><a href="#020959" label="[02:09:59]">&lt;stikonas&gt;</a></span><span class="message">but gnulib in coreutils</span></div><div class="line" id="021042"><span class="nick" style="color:#6b8072"><a href="#021042" label="[02:10:42]">&lt;stikonas&gt;</a></span><span class="message">still, I have no issues here on amd64</span></div><div class="line" id="021111"><span class="nick" style="color:#8dd3c7"><a href="#021111" label="[02:11:11]">&lt;gbrlwck&gt;</a></span><span class="message">aha</span></div><div class="line" id="021134"><span class="nick" style="color:#8dd3c7"><a href="#021134" label="[02:11:34]">&lt;gbrlwck&gt;</a></span><span class="message">so it somehow messed up to match checksum-lines with the corresponding files</span></div><div class="line" id="021647"><span class="nick" style="color:#6b8072"><a href="#021647" label="[02:16:47]">&lt;stikonas&gt;</a></span><span class="message">hmm, just tried with emptyh sources directory, no problems here</span></div><div class="line" id="022043"><span class="nick" style="color:#8dd3c7"><a href="#022043" label="[02:20:43]">&lt;gbrlwck&gt;</a></span><span class="message">i guess you're trying x86? this worked for me too</span></div><div class="line" id="023541"><span class="nick" style="color:#8dd3c7"><a href="#023541" label="[02:35:41]">&lt;gbrlwck&gt;</a></span><span class="message">ok, it is not about coreutils-8.32 after all</span></div><div class="line" id="023625"><span class="nick" style="color:#8dd3c7"><a href="#023625" label="[02:36:25]">&lt;gbrlwck&gt;</a></span><span class="message">gnulib-d279bc.tar.gz's entry doesn't match</span></div><div class="line" id="031201"><span class="nick" style="color:#8dd3c7"><a href="#031201" label="[03:12:01]">&lt;gbrlwck&gt;</a></span><span class="message">re-downloaded, now it seems to work :)</span></div><div class="line" id="031941"><span class="nick" style="color:#80b1d3"><a href="#031941" label="[03:19:41]">&lt;stikonas[m]&gt;</a></span><span class="message">OK,  maybe it was bad download...</span></div><div class="line" id="062628"><span class="nick" style="color:#2e2a4a"><a href="#062628" label="[06:26:28]">&lt;fossy&gt;</a></span><span class="message">misleading error message maybe... will rake a look</span></div><div class="line" id="135159"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="135159"><span class="nick" style="color:#6d2462"><a href="#135159" label="[13:51:59]">&lt;rekado_&gt;</a></span><span class="message">stikonas: wow, I really don’t remember 25933!  That’s when we had GCJ.</span></div><div class="line" id="135804"><span class="nick" style="color:#6b8072"><a href="#135804" label="[13:58:04]">&lt;stikonas&gt;</a></span><span class="message">yes, I saw... But that was my motivation of trying to build icedtea-7 directly</span></div><div class="line" id="135823"><span class="nick" style="color:#6b8072"><a href="#135823" label="[13:58:23]">&lt;stikonas&gt;</a></span><span class="message">if gcj could build it, I thought we should be able to do it with jamvm too</span></div><div class="line" id="135836"><span class="nick" style="color:#6b8072"><a href="#135836" label="[13:58:36]">&lt;stikonas&gt;</a></span><span class="message">as long as we get a slightly newer compiler</span></div><div class="line" id="140525"><span class="nick" style="color:#6d2462"><a href="#140525" label="[14:05:25]">&lt;rekado_&gt;</a></span><span class="message">good thinking</span></div><div class="line" id="151653"><span class="nick" style="color:#8dd3c7"><a href="#151653" label="[15:16:53]">&lt;gbrlwck&gt;</a></span><span class="message">fossy: not sure if that's necessary -- i was mislead by Python's stacktrace (which showed the &quot;wrong&quot; package followed by an ellipsis to indicate an array; i thought it was the package in question)</span></div><div class="line" id="151706"><span class="nick" style="color:#8dd3c7"><a href="#151706" label="[15:17:06]">&lt;gbrlwck&gt;</a></span><span class="message">i improved the error message nevertheless: <a rel="nofollow" href="https://github.com/gbrlwck/live-bootstrap/commit/234ad98a54a0832b330d5efecf869d7ca37ddb01">https://github.com/gbrlwck/live-bootstrap/commit/234ad98a54a0832b330d5efecf869d7ca37ddb01</a> </span></div><div class="line" id="151729"><span class="nick" style="color:#8dd3c7"><a href="#151729" label="[15:17:29]">&lt;gbrlwck&gt;</a></span><span class="message">but i guess i'll improve some more while trying to get riscv64 to work</span></div><div class="line" id="155621"><span class="nick" style="color:#234e69"><a href="#155621" label="[15:56:21]">&lt;stikonas_&gt;</a></span><span class="message">gbrlwck: can you use f-strings?</span></div><div class="line" id="155625"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="155634"><span class="nick" style="color:#6b8072"><a href="#155634" label="[15:56:34]">&lt;stikonas&gt;</a></span><span class="message">they are a bit nicer than .format()</span></div><div class="line" id="155720"><span class="nick" style="color:#6b8072"><a href="#155720" label="[15:57:20]">&lt;stikonas&gt;</a></span><span class="message">it's something like f&quot;Expected checksum is {expected}&quot; rather than &quot;Expected checksum is {}&quot;.format(expected)</span></div><div class="line" id="155725"><span class="nick" style="color:#8dd3c7"><a href="#155725" label="[15:57:25]">&lt;gbrlwck&gt;</a></span><span class="message">sure thing</span></div><div class="line" id="155800"><span class="nick" style="color:#6b8072"><a href="#155800" label="[15:58:00]">&lt;stikonas&gt;</a></span><span class="message">it's not a bit deal but let's be consistent</span></div><div class="line" id="185307"><span class="nick" style="color:#8dd3c7"><a href="#185307" label="[18:53:07]">&lt;gbrlwck&gt;</a></span><span class="message">so, live-bootstrap downloads mes twice: once to bootstrap mes with m2 (mes-m2) and then mes-0.23.  this is for self-hosting mes?  which are there major differences between the two?</span></div><div class="line" id="185447"><span class="nick" style="color:#8dd3c7"><a href="#185447" label="[18:54:47]">&lt;gbrlwck&gt;</a></span><span class="message">or is mes-0.23 only to serve mescc?</span></div><div class="line" id="190228"><span class="nick" style="color:#6b8072"><a href="#190228" label="[19:02:28]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: one is mes-m2 cause that's the only thing we can build with M2-Planet</span></div><div class="line" id="190241"><span class="nick" style="color:#6b8072"><a href="#190241" label="[19:02:41]">&lt;stikonas&gt;</a></span><span class="message">we don't build self-hosting mes at all</span></div><div class="line" id="190248"><span class="nick" style="color:#6b8072"><a href="#190248" label="[19:02:48]">&lt;stikonas&gt;</a></span><span class="message">we just build tcc directly there</span></div><div class="line" id="190308"><span class="nick" style="color:#6b8072"><a href="#190308" label="[19:03:08]">&lt;stikonas&gt;</a></span><span class="message">although one could build self-hosting mes if we wanted (we actually did that before but it's a bit slow than building tcc directly)</span></div><div class="line" id="190317"><span class="nick" style="color:#6b8072"><a href="#190317" label="[19:03:17]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: the other mes is just latest mes release</span></div><div class="line" id="190335"><span class="nick" style="color:#6b8072"><a href="#190335" label="[19:03:35]">&lt;stikonas&gt;</a></span><span class="message">it's used for mes C library</span></div><div class="line" id="190345"><span class="nick" style="color:#6b8072"><a href="#190345" label="[19:03:45]">&lt;stikonas&gt;</a></span><span class="message">we want the latest C library there when we build tcc</span></div><div class="line" id="190345"><span class="nick" style="color:#8dd3c7"><a href="#190345" label="[19:03:45]">&lt;gbrlwck&gt;</a></span><span class="message">i see</span></div><div class="line" id="190417"><span class="nick" style="color:#6b8072"><a href="#190417" label="[19:04:17]">&lt;stikonas&gt;</a></span><span class="message">it has some bugfixes...</span></div><div class="line" id="190448"><span class="nick" style="color:#6b8072"><a href="#190448" label="[19:04:48]">&lt;stikonas&gt;</a></span><span class="message">although, if I remember correctly, there are a few more bugfixes in unreleased master branch</span></div><div class="line" id="190453"><span class="nick" style="color:#6b8072"><a href="#190453" label="[19:04:53]">&lt;stikonas&gt;</a></span><span class="message">but we just add them as patches</span></div><div class="line" id="190510"><span class="nick" style="color:#6b8072"><a href="#190510" label="[19:05:10]">&lt;stikonas&gt;</a></span><span class="message">anyway, hopefully one day we can just build mes directly</span></div><div class="line" id="190955"><span class="nick" style="color:#8dd3c7"><a href="#190955" label="[19:09:55]">&lt;gbrlwck&gt;</a></span><span class="message">sooo, if i pull upstream mes-0.23 (or master branch) and merge it into my riscv64 branch i wouldn't need the both?  i'll give it a try</span></div><div class="line" id="191628"><span class="nick" style="color:#6b8072"><a href="#191628" label="[19:16:28]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: you won't be able to easily merge upstream mes into mes-m2</span></div><div class="line" id="191638"><span class="nick" style="color:#6b8072"><a href="#191638" label="[19:16:38]">&lt;stikonas&gt;</a></span><span class="message">and right now m2-planet can't compile it</span></div><div class="line" id="191656"><span class="nick" style="color:#8dd3c7"><a href="#191656" label="[19:16:56]">&lt;gbrlwck&gt;</a></span><span class="message">i only need the mescc part (if i understood you correctly)</span></div><div class="line" id="191707"><span class="nick" style="color:#6b8072"><a href="#191707" label="[19:17:07]">&lt;stikonas&gt;</a></span><span class="message">oh maybe</span></div><div class="line" id="191714"><span class="nick" style="color:#6b8072"><a href="#191714" label="[19:17:14]">&lt;stikonas&gt;</a></span><span class="message">so basically right now we build M2-Planet -&gt; mes-m2-&gt;tcc -&gt; meslibc from mes</span></div><div class="line" id="191736"><span class="nick" style="color:#6b8072"><a href="#191736" label="[19:17:36]">&lt;stikonas&gt;</a></span><span class="message">so if you do M2-Planet -&gt; mes-m2-&gt;tcc -&gt; your patched mes libc then that should work</span></div><div class="line" id="191802"><span class="nick" style="color:#6b8072"><a href="#191802" label="[19:18:02]">&lt;stikonas&gt;</a></span><span class="message">but even mes libc has been somewhat simplified in mes-m2 (although not too much), so you might have to deal with merge conflicts</span></div><div class="line" id="191831"><span class="nick" style="color:#6b8072"><a href="#191831" label="[19:18:31]">&lt;stikonas&gt;</a></span><span class="message">if your work is based on mes-m2</span></div><div class="line" id="191857"><span class="nick" style="color:#6b8072"><a href="#191857" label="[19:18:57]">&lt;stikonas&gt;</a></span><span class="message">but in any case, that's something that you'll have to do if you want to submit riscv changes upstream</span></div><div class="line" id="192146"><span class="nick" style="color:#6b8072"><a href="#192146" label="[19:21:46]">&lt;stikonas&gt;</a></span><span class="message">there are still quite a few features that M2-Planet does not support and upstream mes uses</span></div><div class="line" id="192304"><span class="nick" style="color:#6b8072"><a href="#192304" label="[19:23:04]">&lt;stikonas&gt;</a></span><span class="message">postfix/prefix increments/decrements, local structs (and accessing their members with dot operator), type casts and possibly more stuff</span></div><div class="line" id="192332"><span class="nick" style="color:#6b8072"><a href="#192332" label="[19:23:32]">&lt;stikonas&gt;</a></span><span class="message">maybe some of them we can avoid doing (e.g. type casts) and instead patch mes</span></div><div class="line" id="192344"><span class="nick" style="color:#6b8072"><a href="#192344" label="[19:23:44]">&lt;stikonas&gt;</a></span><span class="message">hopefully that will be upstreamable unlike mes-m2</span></div><div class="line" id="192401"><span class="nick" style="color:#6b8072"><a href="#192401" label="[19:24:01]">&lt;stikonas&gt;</a></span><span class="message">oh there is also pointer arithmetic, but we can probably #typedef it in mes too</span></div><div class="line" id="192501"><span class="nick" style="color:#6b8072"><a href="#192501" label="[19:25:01]">&lt;stikonas&gt;</a></span><span class="message">s/#typedef/#ifdef/</span></div><div class="line" id="203220"><span class="nick" style="color:#6c3d55"><a href="#203220" label="[20:32:20]">&lt;oriansj&gt;</a></span><span class="message">well M2-Planet was an assembly prototype growing features over time; So it isn't expected to be a full C standards compiler but rather just enough C to make bootstrapping possible.</span></div><div class="line" id="210904"><span class="nick" style="color:#6b8072"><a href="#210904" label="[21:09:04]">&lt;stikonas&gt;</a></span><span class="message">well, that's understandable. I'm just saying it would be nice if we eventually converge in what M2-Planet supports and what upstream mes needs (could be both by improving M2-Planet and simplifying mes)</span></div><br /></div></body></html>

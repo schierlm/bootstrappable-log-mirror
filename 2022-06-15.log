@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-06-15.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="023933"><span class="nick" style="color:#8dd3c7"><a href="#023933" label="[02:39:33]">&lt;oriansj&gt;</a></span><span class="message">hmmm. I think I'm having a mandela moment because I remember a TI processor called Swordfish which was the 32bit follow on for the Texas Instruments TMS9900 but looks like I am wrong...</span></div><div class="line" id="024121"><span class="nick" style="color:#2e2a4a"><a href="#024121" label="[02:41:21]">&lt;muurkha&gt;</a></span><span class="message">hmm, I don't really know what happened to the TMS9900 line</span></div><div class="line" id="024238"><span class="nick" style="color:#2e2a4a"><a href="#024238" label="[02:42:38]">&lt;muurkha&gt;</a></span><span class="message">WP says, &quot;With no obvious future for the chip, TI turned its attention to special-purpose processors like the Texas Instruments TMS320, introduced in 1983.&quot;</span></div><div class="line" id="024303"><span class="nick" style="color:#8dd3c7"><a href="#024303" label="[02:43:03]">&lt;oriansj&gt;</a></span><span class="message">and the minicomputer page has no 32bit follow-ons either</span></div><div class="line" id="024321"><span class="nick" style="color:#2e2a4a"><a href="#024321" label="[02:43:21]">&lt;muurkha&gt;</a></span><span class="message">so it's possible Swordfish might have been an internal codename for the TMS320 or MSP430 or one of their DSP chip lines</span></div><div class="line" id="024421"><span class="nick" style="color:#2e2a4a"><a href="#024421" label="[02:44:21]">&lt;muurkha&gt;</a></span><span class="message">(the TMS320 was a DSP)</span></div><div class="line" id="024536"><span class="nick" style="color:#2e2a4a"><a href="#024536" label="[02:45:36]">&lt;muurkha&gt;</a></span><span class="message">I kind of like the TMS9900 &quot;workspace pointer&quot; terminology for what I was calling a &quot;self pointer&quot; the other day</span></div><div class="line" id="024650"><span class="nick" style="color:#8dd3c7"><a href="#024650" label="[02:46:50]">&lt;oriansj&gt;</a></span><span class="message">or base pointer in M2-Planet</span></div><div class="line" id="024850"><span class="nick" style="color:#8dd3c7"><a href="#024850" label="[02:48:50]">&lt;oriansj&gt;</a></span><span class="message">although the inability to cleanly pass arguments in registers does make the TMS9900 line less than ideal for hand written assembly but works quite well for generated code</span></div><div class="line" id="025128"><span class="nick" style="color:#2e2a4a"><a href="#025128" label="[02:51:28]">&lt;muurkha&gt;</a></span><span class="message">well, &quot;base pointer&quot; is a very generic term; a stack frame pointer is also a base pointer</span></div><div class="line" id="025236"><span class="nick" style="color:#2e2a4a"><a href="#025236" label="[02:52:36]">&lt;muurkha&gt;</a></span><span class="message">I haven't seen what the TMS9900 assembly language looks like, but I thought you could pass arguments in registers actually somewhat *more* easily than on other architectures</span></div><div class="line" id="030641"><span class="nick" style="color:#8dd3c7"><a href="#030641" label="[03:06:41]">&lt;oriansj&gt;</a></span><span class="message">well not exactly, you &quot;push&quot; the values into the new register frame and read from the new offsets after changing of the workspace</span></div><div class="line" id="035555"><span class="nick" style="color:#8dd3c7"><a href="#035555" label="[03:55:55]">&lt;oriansj&gt;</a></span><span class="message">so not as simple as mov r0, 42 and then just using R0 after but not impossibly hard either as you are only dealing with the Branch and Load Workspace Pointer (BLWP) instruction (and all is well as long as you don't need more than 13 arguments)</span></div><div class="line" id="035646"><span class="nick" style="color:#8dd3c7"><a href="#035646" label="[03:56:46]">&lt;oriansj&gt;</a></span><span class="message">as there was no stack register nor any stack instructions</span></div><div class="line" id="035828"><span class="nick" style="color:#8dd3c7"><a href="#035828" label="[03:58:28]">&lt;oriansj&gt;</a></span><span class="message">So you effectively had to manually pass the stack prior to any BLWP call and either made sure the stack was reset to its prior state when you did the Return Workspace Pointer (RTWP) instruction</span></div><div class="line" id="035849"><span class="nick" style="color:#8dd3c7"><a href="#035849" label="[03:58:49]">&lt;oriansj&gt;</a></span><span class="message">or make sure to back populate the new stack state</span></div><div class="line" id="040028"><span class="nick" style="color:#8dd3c7"><a href="#040028" label="[04:00:28]">&lt;oriansj&gt;</a></span><span class="message">oh and you have to backpopulate the previous workspace because you can't just return your values in registers either as your workspace is going to be gone</span></div><div class="line" id="040136"><span class="nick" style="color:#2e2a4a"><a href="#040136" label="[04:01:36]">&lt;muurkha&gt;</a></span><span class="message">that sounds easier than the usual dance of saving caller-saved registers into your own stack frame</span></div><div class="line" id="040203"><span class="nick" style="color:#8dd3c7"><a href="#040203" label="[04:02:03]">&lt;oriansj&gt;</a></span><span class="message">but that is a huge pain so you'll probably just use the Branch and Link (BL) instruction but that only works 1 deep (unless you create your own stack and remember to push)</span></div><div class="line" id="040206"><span class="nick" style="color:#2e2a4a"><a href="#040206" label="[04:02:06]">&lt;muurkha&gt;</a></span><span class="message">or saving callee-saved registers on entry and restoring them on exit</span></div><div class="line" id="040300"><span class="nick" style="color:#2e2a4a"><a href="#040300" label="[04:03:00]">&lt;muurkha&gt;</a></span><span class="message">on SPARC you usually deal with the problems you're describing by overlapping the two workspaces by 8 registers</span></div><div class="line" id="040321"><span class="nick" style="color:#2e2a4a"><a href="#040321" label="[04:03:21]">&lt;muurkha&gt;</a></span><span class="message">(because that's what the hardware does)</span></div><div class="line" id="040343"><span class="nick" style="color:#8dd3c7"><a href="#040343" label="[04:03:43]">&lt;oriansj&gt;</a></span><span class="message">muurkha: ummm pushr r2; pushr r3; (operations only using r0-r3) popr r3; popr r2 (results are in r0 and r1) is pretty simple to do</span></div><div class="line" id="040414"><span class="nick" style="color:#2e2a4a"><a href="#040414" label="[04:04:14]">&lt;muurkha&gt;</a></span><span class="message">not as simple as not doing it :)</span></div><div class="line" id="040526"><span class="nick" style="color:#8dd3c7"><a href="#040526" label="[04:05:26]">&lt;oriansj&gt;</a></span><span class="message"> *presses X to doubt*</span></div><div class="line" id="040815"><span class="nick" style="color:#8dd3c7"><a href="#040815" label="[04:08:15]">&lt;oriansj&gt;</a></span><span class="message">pushing manually onto the stack and just counting works for arbitrary numbers of arguments and will generally be cleaned up by either doing sp - depth*register_size or just doing matching pops</span></div><div class="line" id="040845"><span class="nick" style="color:#2e2a4a"><a href="#040845" label="[04:08:45]">&lt;muurkha&gt;</a></span><span class="message">yes, that's true</span></div><div class="line" id="040904"><span class="nick" style="color:#2e2a4a"><a href="#040904" label="[04:09:04]">&lt;muurkha&gt;</a></span><span class="message">but you can also just move your arguments into fixed memory addresses unless you have recursion</span></div><div class="line" id="040910"><span class="nick" style="color:#8dd3c7"><a href="#040910" label="[04:09:10]">&lt;oriansj&gt;</a></span><span class="message">hard to get wrong unless your architecture tries to get clever and makes your life harder</span></div><div class="line" id="041011"><span class="nick" style="color:#8dd3c7"><a href="#041011" label="[04:10:11]">&lt;oriansj&gt;</a></span><span class="message">I like to have recursion and re-entrant code</span></div><div class="line" id="041051"><span class="nick" style="color:#8dd3c7"><a href="#041051" label="[04:10:51]">&lt;oriansj&gt;</a></span><span class="message">Position-independent code too if it isn't too hard</span></div><div class="line" id="041112"><span class="nick" style="color:#8dd3c7"><a href="#041112" label="[04:11:12]">&lt;oriansj&gt;</a></span><span class="message">although some architectures fight you very hard if you try to do that</span></div><div class="line" id="041302"><span class="nick" style="color:#2e2a4a"><a href="#041302" label="[04:13:02]">&lt;muurkha&gt;</a></span><span class="message">it's definitely nice to have, yeah</span></div><div class="line" id="041338"><span class="nick" style="color:#2e2a4a"><a href="#041338" label="[04:13:38]">&lt;muurkha&gt;</a></span><span class="message">but 99% of subroutines don't need to be PIC or re-entrant</span></div><div class="line" id="041422"><span class="nick" style="color:#2e2a4a"><a href="#041422" label="[04:14:22]">&lt;muurkha&gt;</a></span><span class="message">on RISC-V it's a PITA to use absolute addresses like that, and PIC and re-entrancy are free, but not on a lot of 70s machines</span></div><div class="line" id="041723"><span class="nick" style="color:#8dd3c7"><a href="#041723" label="[04:17:23]">&lt;oriansj&gt;</a></span><span class="message">x86 you have to fake a function call in order to obtain the return value on stack</span></div><div class="line" id="041745"><span class="nick" style="color:#8dd3c7"><a href="#041745" label="[04:17:45]">&lt;oriansj&gt;</a></span><span class="message">but thankfully AMD64 fixed that flaw</span></div><div class="line" id="041857"><span class="nick" style="color:#8dd3c7"><a href="#041857" label="[04:18:57]">&lt;oriansj&gt;</a></span><span class="message">but a 68K and a 6809 could</span></div><div class="line" id="041914"><span class="nick" style="color:#8dd3c7"><a href="#041914" label="[04:19:14]">&lt;oriansj&gt;</a></span><span class="message">WDC 65C816 too</span></div><div class="line" id="042406"><span class="nick" style="color:#2e2a4a"><a href="#042406" label="[04:24:06]">&lt;muurkha&gt;</a></span><span class="message">yeah</span></div><div class="line" id="045648"><span class="nick" style="color:#2e2a4a"><a href="#045648" label="[04:56:48]">&lt;muurkha&gt;</a></span><span class="message">there was an article about Multics Emacs that described more or less how it was implemented and why.  it had buffer-local variables, and I think a lot about what it said about them</span></div><div class="line" id="045750"><span class="nick" style="color:#2e2a4a"><a href="#045750" label="[04:57:50]">&lt;muurkha&gt;</a></span><span class="message">it said that it would have been possible to implement those buffer-local variables by indexing off a current-buffer pointer, and that would have made it faster to switch between buffers, because you only have to update that one pointer</span></div><div class="line" id="045903"><span class="nick" style="color:#2e2a4a"><a href="#045903" label="[04:59:03]">&lt;muurkha&gt;</a></span><span class="message">on the other hand, that would also mean that reading or writing those variables would require an extra addition to calculate the address, which would make it slower to read and write them</span></div><div class="line" id="050042"><span class="nick" style="color:#2e2a4a"><a href="#050042" label="[05:00:42]">&lt;muurkha&gt;</a></span><span class="message">since accessing buffer-local variables is a much more frequent operation than switching buffers, the author (van Vleck?) explained that he chose to put the buffer-local variables at fixed locations in memory, swapping them in or out on every change of buffers</span></div><div class="line" id="050156"><span class="nick" style="color:#2e2a4a"><a href="#050156" label="[05:01:56]">&lt;muurkha&gt;</a></span><span class="message">which is how amd64 or RISC-V context-switches between subroutines, coroutines, or threads; the TMS9900's workspace pointer represents the alternative approach</span></div><div class="line" id="053253"><span class="nick" style="color:#8dd3c7"><a href="#053253" label="[05:32:53]">&lt;oriansj&gt;</a></span><span class="message">and if one assumes RAM will always be faster than Processors, it would be a superior solution to dedicated registers</span></div><div class="line" id="053719"><span class="nick" style="color:#8dd3c7"><a href="#053719" label="[05:37:19]">&lt;oriansj&gt;</a></span><span class="message">however that assumption didn't hold past CMOS DRAM in the 1970s</span></div><div class="line" id="053759"><span class="nick" style="color:#8dd3c7"><a href="#053759" label="[05:37:59]">&lt;oriansj&gt;</a></span><span class="message">and by the 1980s caches provided meaningful performance improvements</span></div><div class="line" id="062221"><span class="nick">***</span><span class="message notice">lukedashjr is now known as luke-jr</span></div><div class="line" id="065115"><span class="nick">***</span><span class="message notice">janneke_ is now known as janneke</span></div><div class="line" id="140312"><span class="nick">***</span><span class="message notice">gio_ is now known as gio</span></div><div class="line" id="165217"><span class="nick">***</span><span class="message notice">bandali_ is now known as bandali</span></div><div class="line" id="181442"><span class="nick" style="color:#2e2a4a"><a href="#181442" label="[18:14:42]">&lt;muurkha&gt;</a></span><span class="message">oriansj: there's always been a memory hierarchy with faster and slower forms of memory, and bigger memories have always been inherently higher latency</span></div><div class="line" id="181738"><span class="nick" style="color:#2e2a4a"><a href="#181738" label="[18:17:38]">&lt;muurkha&gt;</a></span><span class="message">a cache provided a meaningful performance improvement on the CDC 6600 in 01964</span></div><div class="line" id="213648"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="233010"><span class="nick" style="color:#8dd3c7"><a href="#233010" label="[23:30:10]">&lt;oriansj&gt;</a></span><span class="message">grr</span></div><div class="line" id="233031"><span class="nick" style="color:#8dd3c7"><a href="#233031" label="[23:30:31]">&lt;oriansj&gt;</a></span><span class="message">where the heck did that article go</span></div><div class="line" id="233046"><span class="nick" style="color:#8dd3c7"><a href="#233046" label="[23:30:46]">&lt;oriansj&gt;</a></span><span class="message">a 4bit printed CPU which was being made for under 1 cent per</span></div><div class="line" id="234545"><span class="nick" style="color:#8dd3c7"><a href="#234545" label="[23:45:45]">&lt;oriansj&gt;</a></span><span class="message">it was on the ycombinator this morning but now nothing</span></div><div class="line" id="235139"><span class="nick" style="color:#8dd3c7"><a href="#235139" label="[23:51:39]">&lt;oriansj&gt;</a></span><span class="message">found it in the archive</span></div><div class="line" id="235156"><span class="nick" style="color:#8dd3c7"><a href="#235156" label="[23:51:56]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://web.archive.org/web/20220615125254/https://news.ycombinator.com/item?id=31746786">https://web.archive.org/web/20220615125254/https://news.ycombinator.com/item?id=31746786</a> </span></div><div class="line" id="235251"><span class="nick" style="color:#8dd3c7"><a href="#235251" label="[23:52:51]">&lt;oriansj&gt;</a></span><span class="message">keyword was plastic not printed &gt;.&lt;</span></div><div class="line" id="235536"><span class="nick" style="color:#8dd3c7"><a href="#235536" label="[23:55:36]">&lt;oriansj&gt;</a></span><span class="message">and found the paper: <a rel="nofollow" href="https://web.archive.org/web/20220327152116/http://passat.crhc.illinois.edu/isca22_02.pdf">https://web.archive.org/web/20220327152116/http://passat.crhc.illinois.edu/isca22_02.pdf</a> </span></div><br /></div></body></html>

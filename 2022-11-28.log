@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-11-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000042"><span class="nick" style="color:#389600"><a href="#000042" label="[00:00:42]">&lt;stikonas&gt;</a></span><span class="message">I'll see how many arches I can do, should be able to do at least x86, amd64, riscv32 and riscv64</span></div><div class="line" id="000057"><span class="nick" style="color:#389600"><a href="#000057" label="[00:00:57]">&lt;stikonas&gt;</a></span><span class="message">not sure whether I'm familiar enough with others but we'll see</span></div><div class="line" id="010904"><span class="nick" style="color:#389600"><a href="#010904" label="[01:09:04]">&lt;stikonas&gt;</a></span><span class="message">ok, I think I managed to encode store for knight and aarch64...</span></div><div class="line" id="010913"><span class="nick" style="color:#389600"><a href="#010913" label="[01:09:13]">&lt;stikonas&gt;</a></span><span class="message">not sure how to store 16 bit value on armv7l...</span></div><div class="line" id="014325"><span class="nick" style="color:#389600"><a href="#014325" label="[01:43:25]">&lt;stikonas&gt;</a></span><span class="message">hmm, I thought to use current_target-&gt;size to get type size</span></div><div class="line" id="014336"><span class="nick" style="color:#389600"><a href="#014336" label="[01:43:36]">&lt;stikonas&gt;</a></span><span class="message">but this seems to break on structs</span></div><div class="line" id="014354"><span class="nick" style="color:#389600"><a href="#014354" label="[01:43:54]">&lt;stikonas&gt;</a></span><span class="message">or more precisely on struct pointers</span></div><div class="line" id="014358"><span class="nick" style="color:#389600"><a href="#014358" label="[01:43:58]">&lt;stikonas&gt;</a></span><span class="message">as it shows size of the struct</span></div><div class="line" id="014402"><span class="nick" style="color:#389600"><a href="#014402" label="[01:44:02]">&lt;stikonas&gt;</a></span><span class="message">rather than register_size</span></div><div class="line" id="014537"><span class="nick" style="color:#389600"><a href="#014537" label="[01:45:37]">&lt;stikonas&gt;</a></span><span class="message">oriansj: any ideas?</span></div><div class="line" id="014543"><span class="nick" style="color:#389600"><a href="#014543" label="[01:45:43]">&lt;stikonas&gt;</a></span><span class="message">so I think the line is struct blob* i = hash_table[hash];</span></div><div class="line" id="014551"><span class="nick" style="color:#389600"><a href="#014551" label="[01:45:51]">&lt;stikonas&gt;</a></span><span class="message">where hash_table is struct blob**</span></div><div class="line" id="014602"><span class="nick" style="color:#389600"><a href="#014602" label="[01:46:02]">&lt;stikonas&gt;</a></span><span class="message">but current_target is blob ...</span></div><div class="line" id="015105"><span class="nick" style="color:#389600"><a href="#015105" label="[01:51:05]">&lt;stikonas&gt;</a></span><span class="message">hmm, that will probably need more time to dig in than I have today...</span></div><div class="line" id="015154"><span class="nick" style="color:#389600"><a href="#015154" label="[01:51:54]">&lt;stikonas&gt;</a></span><span class="message">(so far I have only written this function <a rel="nofollow" href="https://paste.debian.net/1262096/">https://paste.debian.net/1262096/</a>) </span></div><div class="line" id="024136"><span class="nick" style="color:#389600"><a href="#024136" label="[02:41:36]">&lt;stikonas&gt;</a></span><span class="message">so I think that create_struct does not setup indirect types...</span></div><div class="line" id="024151"><span class="nick" style="color:#389600"><a href="#024151" label="[02:41:51]">&lt;stikonas&gt;</a></span><span class="message">hmm, not sure what's the best way to solve this</span></div><div class="line" id="045356"><span class="nick" style="color:#8dd3c7"><a href="#045356" label="[04:53:56]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well the pointers to the type always will be register size as we use the full address space</span></div><div class="line" id="100509"><span class="nick" style="color:#2e2a4a"><a href="#100509" label="[10:05:09]">&lt;stikonas[m]&gt;</a></span><span class="message">oriansj: yes, but I think right now structure type points to itself   for indirect type rather than struct*</span></div><div class="line" id="101006"><span class="nick" style="color:#2e2a4a"><a href="#101006" label="[10:10:06]">&lt;stikonas[m]&gt;</a></span><span class="message">So when you are using struct pointers, type size is struct size rather than register size</span></div><div class="line" id="233104"><span class="nick" style="color:#389600"><a href="#233104" label="[23:31:04]">&lt;stikonas&gt;</a></span><span class="message">oriansj: so I've been doing a bit more debugging of current_target-&gt;size with structs</span></div><div class="line" id="233201"><span class="nick" style="color:#6b8072"><a href="#233201" label="[23:32:01]">&lt;muurkha&gt;</a></span><span class="message">what did you learn?</span></div><div class="line" id="233203"><span class="nick" style="color:#389600"><a href="#233203" label="[23:32:03]">&lt;stikonas&gt;</a></span><span class="message">turns out that &quot;struct a *b&quot; works fine and has correct size. It's the &quot;struct a **b&quot; case that's causing me issues</span></div><div class="line" id="233237"><span class="nick" style="color:#389600"><a href="#233237" label="[23:32:37]">&lt;stikonas&gt;</a></span><span class="message">probably need to check if second indirection is set up correctly...</span></div><div class="line" id="233253"><span class="nick" style="color:#8dd3c7"><a href="#233253" label="[23:32:53]">&lt;oriansj&gt;</a></span><span class="message">probably unlikely</span></div><div class="line" id="233258"><span class="nick" style="color:#389600"><a href="#233258" label="[23:32:58]">&lt;stikonas&gt;</a></span><span class="message">e.g. we have struct blob** hash_table;</span></div><div class="line" id="233316"><span class="nick" style="color:#389600"><a href="#233316" label="[23:33:16]">&lt;stikonas&gt;</a></span><span class="message">and then on line 771 in M1-macro.c we have hash_table = calloc(65537, sizeof(struct blob*));</span></div><div class="line" id="233411"><span class="nick" style="color:#389600"><a href="#233411" label="[23:34:11]">&lt;stikonas&gt;</a></span><span class="message">so on this line I got blob 40 hash_table  for (current_target-&gt;name, current_target-&gt;size and global_token-&gt;prev-&gt;s)</span></div><div class="line" id="233447"><span class="nick" style="color:#389600"><a href="#233447" label="[23:34:47]">&lt;stikonas&gt;</a></span><span class="message">so I guess I need to fix create_struct first...</span></div><div class="line" id="233612"><span class="nick" style="color:#389600"><a href="#233612" label="[23:36:12]">&lt;stikonas&gt;</a></span><span class="message">it does indeed seem that create_struct only sets up struct and struct*</span></div><div class="line" id="233638"><span class="nick" style="color:#389600"><a href="#233638" label="[23:36:38]">&lt;stikonas&gt;</a></span><span class="message">we only have two callocs there</span></div><div class="line" id="233826"><span class="nick" style="color:#8dd3c7"><a href="#233826" label="[23:38:26]">&lt;oriansj&gt;</a></span><span class="message">say some clever work arounds for serious design limitations sort of situation</span></div><div class="line" id="233923"><span class="nick" style="color:#389600"><a href="#233923" label="[23:39:23]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I think we can fix it with one liner</span></div><div class="line" id="233945"><span class="nick" style="color:#389600"><a href="#233945" label="[23:39:45]">&lt;stikonas&gt;</a></span><span class="message">let me paste it, so you can review</span></div><div class="line" id="234019"><span class="nick" style="color:#389600"><a href="#234019" label="[23:40:19]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://paste.debian.net/1262198/">https://paste.debian.net/1262198/</a> </span></div><div class="line" id="234222"><span class="nick" style="color:#389600"><a href="#234222" label="[23:42:22]">&lt;stikonas&gt;</a></span><span class="message">need to test this first though</span></div><div class="line" id="234424"><span class="nick" style="color:#8dd3c7"><a href="#234424" label="[23:44:24]">&lt;oriansj&gt;</a></span><span class="message">you might want to check char** argv behavior</span></div><div class="line" id="234446"><span class="nick" style="color:#389600"><a href="#234446" label="[23:44:46]">&lt;stikonas&gt;</a></span><span class="message">hmm, that one is not struct, isn't it?</span></div><div class="line" id="234449"><span class="nick" style="color:#389600"><a href="#234449" label="[23:44:49]">&lt;stikonas&gt;</a></span><span class="message">so shouldn't be affected</span></div><div class="line" id="234641"><span class="nick" style="color:#389600"><a href="#234641" label="[23:46:41]">&lt;stikonas&gt;</a></span><span class="message">something else goes bad if I include my other changes...</span></div><div class="line" id="234654"><span class="nick" style="color:#389600"><a href="#234654" label="[23:46:54]">&lt;stikonas&gt;</a></span><span class="message">where I try to replace STORE_INTEGER with store_into_register(current_target-&gt;size)</span></div><div class="line" id="234810"><span class="nick" style="color:#8dd3c7"><a href="#234810" label="[23:48:10]">&lt;oriansj&gt;</a></span><span class="message">well on MCP it would be a struct but I guess we can safely just refuse to support that Operating System</span></div><div class="line" id="234901"><span class="nick" style="color:#8dd3c7"><a href="#234901" label="[23:49:01]">&lt;oriansj&gt;</a></span><span class="message">STORE_INTEGER stores the register into RAM if I remember correctly</span></div><div class="line" id="234937"><span class="nick" style="color:#389600"><a href="#234937" label="[23:49:37]">&lt;stikonas&gt;</a></span><span class="message">well, I basically wanted to replace stuff like &quot;else if(X86 == Architecture) store = &quot;STORE_INTEGER\n&quot;;&quot;</span></div><div class="line" id="234940"><span class="nick" style="color:#389600"><a href="#234940" label="[23:49:40]">&lt;stikonas&gt;</a></span><span class="message">with the following function</span></div><div class="line" id="235004"><span class="nick" style="color:#389600"><a href="#235004" label="[23:50:04]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1262200/">https://paste.debian.net/1262200/</a> </span></div><div class="line" id="235010"><span class="nick" style="color:#6b8072"><a href="#235010" label="[23:50:10]">&lt;muurkha&gt;</a></span><span class="message">yeah, the Burroughs Large Systems contingent has gotten fairly thin over the yearws</span></div><div class="line" id="235022"><span class="nick" style="color:#8dd3c7"><a href="#235022" label="[23:50:22]">&lt;oriansj&gt;</a></span><span class="message">that was the idea of optimizers and specializers for M3</span></div><div class="line" id="235112"><span class="nick" style="color:#389600"><a href="#235112" label="[23:51:12]">&lt;stikonas&gt;</a></span><span class="message">so store_into_register(unsigned size) would take number of bytes to write</span></div><div class="line" id="235126"><span class="nick" style="color:#389600"><a href="#235126" label="[23:51:26]">&lt;stikonas&gt;</a></span><span class="message">therefore I had to rely on current_target-&gt;size having correct value</span></div><br /></div></body></html>

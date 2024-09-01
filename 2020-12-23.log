@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-12-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="022036"><span class="nick" style="color:#8dd3c7"><a href="#022036" label="[02:20:36]">&lt;OriansJ&gt;</a></span><span class="message">mihi: 1) you don't have to use lseek; just read 20MB the kernel will return less than the count of read bytes if the file is smaller. (we can deal with the special case of files being exactly 20MB the same way we treat files that are larger than it.) 2) good idea of using lseek to record file system in the struct if the read returns the full 20MB. 3) Let us assume files in M2-Planet programs are for either read or write and never switch</span></div><div class="line" id="022036"><span class="nick" style="color:#8dd3c7"><a href="#022036" label="[02:20:36]">&lt;OriansJ&gt;</a></span><span class="message">between those cases. And if they do raise a big freaking flag and kill the program. 4) writes only need support being flushed (on reaching end of buffer, \n (per the glibc standard behavior) or on fflush/fclose) and maybe lseek (Haven't seen an example of that yet which is a good idea on a write only file.) 5) I was simply thinking of moving all of the syscalls to unistd.h for each architecture and putting all common code written in C</span></div><div class="line" id="022036"><span class="nick" style="color:#8dd3c7"><a href="#022036" label="[02:20:36]">&lt;OriansJ&gt;</a></span><span class="message">that uses those syscalls into a libc folder; so I can stop doing the same fix 5 times. 6) yeah that seems to be the behavior with glibc but honestly it doesn't matter if we match that behavior or not.</span></div><div class="line" id="022637"><span class="nick" style="color:#8dd3c7"><a href="#022637" label="[02:26:37]">&lt;OriansJ&gt;</a></span><span class="message">siraben: the largest files M2-Planet is compiling are those being generated in blynn-compiler. As mes-m2 is only 6,599 lines of code (totaling 172,342 chars over 30 files)  and M2-Planet is only 2,427 lines of code (totally 106,168 chars over 16 files)</span></div><div class="line" id="022733"><span class="nick" style="color:#2e2a4a"><a href="#022733" label="[02:27:33]">&lt;siraben&gt;</a></span><span class="message">fossy: yes, hopefully the next step is an r5rs interpreter, this is also where I hope we can get some Haskellers on board as well</span></div><div class="line" id="022859"><span class="nick" style="color:#8dd3c7"><a href="#022859" label="[02:28:59]">&lt;OriansJ&gt;</a></span><span class="message">pder siraben: I'm taking a look now</span></div><div class="line" id="023704"><span class="nick" style="color:#2e2a4a"><a href="#023704" label="[02:37:04]">&lt;siraben&gt;</a></span><span class="message">i'm going to raise the CI timeout to 15 minutes, updating m2-planet fixed it but now the build is nearly 10 minutes</span></div><div class="line" id="023753"><span class="nick" style="color:#2e2a4a"><a href="#023753" label="[02:37:53]">&lt;siraben&gt;</a></span><span class="message">OriansJ: I opened a PR on oriansj/blynn-compiler</span></div><div class="line" id="024312"><span class="nick" style="color:#8dd3c7"><a href="#024312" label="[02:43:12]">&lt;OriansJ&gt;</a></span><span class="message">pder: merged siraben merged</span></div><div class="line" id="024506"><span class="nick" style="color:#8dd3c7"><a href="#024506" label="[02:45:06]">&lt;OriansJ&gt;</a></span><span class="message">now comes the hard part for blynn-compiler. Remove blobs and make it do something useful.</span></div><div class="line" id="024720"><span class="nick" style="color:#2e2a4a"><a href="#024720" label="[02:47:20]">&lt;siraben&gt;</a></span><span class="message">One of the first things to check is if/how blynn-compiler supports tail calls</span></div><div class="line" id="024813"><span class="nick" style="color:#2e2a4a"><a href="#024813" label="[02:48:13]">&lt;siraben&gt;</a></span><span class="message">i'm concerned about heap exhaustion but since we've managed to compile larger and larger Haskell programs, it probably won't be a problem.</span></div><div class="line" id="025029"><span class="nick" style="color:#6b8072"><a href="#025029" label="[02:50:29]">&lt;pder&gt;</a></span><span class="message">Its about 12 minutes on my i7-3630QM CPU @ 2.40GHz</span></div><div class="line" id="025307"><span class="nick" style="color:#2e2a4a"><a href="#025307" label="[02:53:07]">&lt;siraben&gt;</a></span><span class="message">Before writing a Scheme I'll fix the blob issue</span></div><div class="line" id="032905"><span class="nick" style="color:#8dd3c7"><a href="#032905" label="[03:29:05]">&lt;OriansJ&gt;</a></span><span class="message">thank you siraben</span></div><div class="line" id="033103"><span class="nick" style="color:#8dd3c7"><a href="#033103" label="[03:31:03]">&lt;OriansJ&gt;</a></span><span class="message">pder: well 12 minutes for all of the steps; isn't half bad. MesCC used to have 45minute compile times</span></div><div class="line" id="040142"><span class="nick" style="color:#8dd3c7"><a href="#040142" label="[04:01:42]">&lt;OriansJ&gt;</a></span><span class="message">wow, things have been so crazy this week, I missed a stage0 pull request.</span></div><div class="line" id="064251"><span class="nick" style="color:#2e2a4a"><a href="#064251" label="[06:42:51]">&lt;siraben&gt;</a></span><span class="message">OriansJ: which PR?</span></div><div class="line" id="064315"><span class="nick" style="color:#2e2a4a"><a href="#064315" label="[06:43:15]">&lt;siraben&gt;</a></span><span class="message">i'm sure some of the blynn-compiler steps can be combined</span></div><div class="line" id="075059"><span class="nick" style="color:#80b1d3"><a href="#075059" label="[07:50:59]">&lt;xentrac&gt;</a></span><span class="message">siraben: this is wonderful!</span></div><div class="line" id="101710"><span class="nick" style="color:#8dd3c7"><a href="#101710" label="[10:17:10]">&lt;OriansJ&gt;</a></span><span class="message">siraben: this one: <a rel="nofollow" href="https://github.com/oriansj/stage0/pull/36">https://github.com/oriansj/stage0/pull/36</a> </span></div><div class="line" id="101759"><span class="nick" style="color:#2e2a4a"><a href="#101759" label="[10:17:59]">&lt;siraben&gt;</a></span><span class="message">xentrac: :D</span></div><div class="line" id="101821"><span class="nick" style="color:#8dd3c7"><a href="#101821" label="[10:18:21]">&lt;OriansJ&gt;</a></span><span class="message">siraben: honestly the smaller the steps, the easier to audit and remove bugs</span></div><div class="line" id="101832"><span class="nick" style="color:#2e2a4a"><a href="#101832" label="[10:18:32]">&lt;siraben&gt;</a></span><span class="message">OriansJ: I see.</span></div><div class="line" id="120245"><span class="nick" style="color:#2e2a4a"><a href="#120245" label="[12:02:45]">&lt;siraben&gt;</a></span><span class="message">If I rewrite the blynn-compiler bootstrap in Guile, could someone help make it mes compatible?</span></div><div class="line" id="120426"><span class="nick" style="color:#6d2462"><a href="#120426" label="[12:04:26]">&lt;janneke&gt;</a></span><span class="message">siraben: it would be good to know that mes does currently not support syntax-case</span></div><div class="line" id="120630"><span class="nick" style="color:#2e2a4a"><a href="#120630" label="[12:06:30]">&lt;siraben&gt;</a></span><span class="message">janneke: that I know, I will macro-expand as needed</span></div><div class="line" id="120851"><span class="nick" style="color:#6d2462"><a href="#120851" label="[12:08:51]">&lt;janneke&gt;</a></span><span class="message">it would be good to have a glance at mes/module/*.scm; you'll see that many basic guile constructs are available</span></div><div class="line" id="120914"><span class="nick" style="color:#2e2a4a"><a href="#120914" label="[12:09:14]">&lt;siraben&gt;</a></span><span class="message">Here's a cut down monadic parsing example in Guile <a rel="nofollow" href="https://github.com/siraben/meta-II/blob/master/parser.scm">https://github.com/siraben/meta-II/blob/master/parser.scm</a> </span></div><div class="line" id="120921"><span class="nick" style="color:#6d2462"><a href="#120921" label="[12:09:21]">&lt;janneke&gt;</a></span><span class="message">notable omissions are: modules are faked (should not be a problem) and no match (syntax-case)</span></div><div class="line" id="120933"><span class="nick" style="color:#2e2a4a"><a href="#120933" label="[12:09:33]">&lt;siraben&gt;</a></span><span class="message">ok no problem for either</span></div><div class="line" id="121001"><span class="nick" style="color:#2e2a4a"><a href="#121001" label="[12:10:01]">&lt;siraben&gt;</a></span><span class="message">i only need lambdas, primitives and some special forms</span></div><div class="line" id="121047"><span class="nick" style="color:#6d2462"><a href="#121047" label="[12:10:47]">&lt;janneke&gt;</a></span><span class="message">yeah, then you're good</span></div><div class="line" id="121134"><span class="nick" style="color:#6d2462"><a href="#121134" label="[12:11:34]">&lt;janneke&gt;</a></span><span class="message">mes doesn't have (ice-9 textual-ports), it's using the older (ice-9 rdelim) procedures</span></div><div class="line" id="122636"><span class="nick" style="color:#234e69"><a href="#122636" label="[12:26:36]">&lt;yt_&gt;</a></span><span class="message">janneke: how does mes fake modules? I'll probably want to do something similar in mes-m2</span></div><div class="line" id="123447"><span class="nick" style="color:#6d2462"><a href="#123447" label="[12:34:47]">&lt;janneke&gt;</a></span><span class="message">yt_: something like: mes/module/mes/boot-0.scm</span></div><div class="line" id="123515"><span class="nick" style="color:#6d2462"><a href="#123515" label="[12:35:15]">&lt;janneke&gt;</a></span><span class="message">(define-macro (define-module module . rest) basically-no-op)</span></div><div class="line" id="123539"><span class="nick" style="color:#6d2462"><a href="#123539" label="[12:35:39]">&lt;janneke&gt;</a></span><span class="message">and then include-from-path on a shadow tree with .mes files</span></div><div class="line" id="123604"><span class="nick" style="color:#6d2462"><a href="#123604" label="[12:36:04]">&lt;janneke&gt;</a></span><span class="message">yt_: i guess that's what mes-m2 does, unless that was removed from the fork</span></div><div class="line" id="123649"><span class="nick" style="color:#234e69"><a href="#123649" label="[12:36:49]">&lt;yt_&gt;</a></span><span class="message">I think OriansJ turned mes-m2 into a rewrite from scratch, so it doesn't support modules at all at the moment</span></div><div class="line" id="123702"><span class="nick" style="color:#6d2462"><a href="#123702" label="[12:37:02]">&lt;janneke&gt;</a></span><span class="message">ah, i missed that</span></div><div class="line" id="123715"><span class="nick" style="color:#6d2462"><a href="#123715" label="[12:37:15]">&lt;janneke&gt;</a></span><span class="message">a good thing i gave up merging improvements back</span></div><div class="line" id="123811"><span class="nick" style="color:#6d2462"><a href="#123811" label="[12:38:11]">&lt;janneke&gt;</a></span><span class="message">adding proper module support shouldn't be too hard</span></div><div class="line" id="123843"><span class="nick" style="color:#6d2462"><a href="#123843" label="[12:38:43]">&lt;janneke&gt;</a></span><span class="message">it's basically lifting the module code from boot-9.scm, and supporting a couple of basic module-lookup procedures</span></div><div class="line" id="123908"><span class="nick" style="color:#234e69"><a href="#123908" label="[12:39:08]">&lt;yt_&gt;</a></span><span class="message">my Scheme background is pretty weak, so for me most of the work is figuring out what it's *supposed* to do</span></div><div class="line" id="125843"><span class="nick" style="color:#6d2462"><a href="#125843" label="[12:58:43]">&lt;janneke&gt;</a></span><span class="message">yt_: yeah, i guess we're all learning a lot</span></div><div class="line" id="134718"><span class="nick" style="color:#6c3d55"><a href="#134718" label="[13:47:18]">&lt;deesix&gt;</a></span><span class="message">What's the rationale for the &quot;$arch/Development/&quot; dirs in mescc-tools-seed? I mean, what goes there instead of into &quot;$arch/&quot;?</span></div><div class="line" id="135003"><span class="nick" style="color:#234e69"><a href="#135003" label="[13:50:03]">&lt;yt_&gt;</a></span><span class="message">deesix: I believe only files that are actually needed for the bootstrap go in $arch/ for example hex0.hex0. while creating the hex0.hex0 file, you probably go through an M1 and hex2 version of the same program, which for readability and verification is useful to keep around. those files go in $arch/Development</span></div><div class="line" id="141534"><span class="nick" style="color:#2e2a4a"><a href="#141534" label="[14:15:34]">&lt;siraben&gt;</a></span><span class="message">What's the relationship between stage0 and mescc-tools-seed?</span></div><div class="line" id="141543"><span class="nick" style="color:#2e2a4a"><a href="#141543" label="[14:15:43]">&lt;siraben&gt;</a></span><span class="message">blynn-compiler uses the latter for bootstrapping</span></div><div class="line" id="170049"><span class="nick" style="color:#d9d9d9"><a href="#170049" label="[17:00:49]">&lt;mihi&gt;</a></span><span class="message">OriansJ, thanks for the feedback. I will only reluctantly create a commit with my name on it which will (speculatively) calloc a 20MB buffer on every fopen/read even if the file may only be 10K, but on the other hand I still start up my scratch Linux VMs with 512MB RAM (used to be 384 MB a few years ago) and mostly get away with that...</span></div><div class="line" id="170107"><span class="nick" style="color:#d9d9d9"><a href="#170107" label="[17:01:07]">&lt;mihi&gt;</a></span><span class="message">I will try to implement your suggestions after the holidays.</span></div><div class="line" id="170516"><span class="nick" style="color:#d9d9d9"><a href="#170516" label="[17:05:16]">&lt;mihi&gt;</a></span><span class="message">BTW I have seen programs that write binary file formats where there needs to be some offset to a structure in the header, that first write zeroes and when the file is finished, seek back and fill the gaps. Not sure if this will ever be needed for M2-Planet or its libc, probably depends on how early in the bootstrap mes-m2 compiled programs can be discarded/replaced.</span></div><div class="line" id="170608"><span class="nick" style="color:#d9d9d9"><a href="#170608" label="[17:06:08]">&lt;mihi&gt;</a></span><span class="message">(or they will get changed to write .hex files and have hex2 fixup the offsets instead)</span></div><div class="line" id="170722"><span class="nick" style="color:#d9d9d9"><a href="#170722" label="[17:07:22]">&lt;mihi&gt;</a></span><span class="message">BTW would be great if any of the ARM guys could try my changes on the ARM architecture if they work out of the box or if they also fail like on AMD64.</span></div><div class="line" id="170853"><span class="nick" style="color:#d9d9d9"><a href="#170853" label="[17:08:53]">&lt;mihi&gt;</a></span><span class="message">s/mes-m2 compiled/M2-Planet compiled/</span></div><div class="line" id="172251"><span class="nick" style="color:#bc80bd"><a href="#172251" label="[17:22:51]">&lt;stikonas&gt;</a></span><span class="message">siraben: stage0 is more or less similar thing but for custom &quot;knight&quot; architecture and it also has knight VM</span></div><div class="line" id="172325"><span class="nick" style="color:#bc80bd"><a href="#172325" label="[17:23:25]">&lt;stikonas&gt;</a></span><span class="message">whereas mescc-tools-seed is for i386, amd64, arm, arm64</span></div><div class="line" id="172529"><span class="nick" style="color:#bc80bd"><a href="#172529" label="[17:25:29]">&lt;stikonas&gt;</a></span><span class="message">siraben: knight is some simple architecture with two tapes (input and output) which can in principle be implemented on TTL logic...</span></div><div class="line" id="172559"><span class="nick" style="color:#bc80bd"><a href="#172559" label="[17:25:59]">&lt;stikonas&gt;</a></span><span class="message">but mescc-tools-seed depends on stuff like kernel, etc... which can't be bootstrapped withing messcc-tools-seed</span></div><div class="line" id="172621"><span class="nick" style="color:#2e2a4a"><a href="#172621" label="[17:26:21]">&lt;siraben&gt;</a></span><span class="message">stikonas: Ah I see, so stage0 is even more independent.</span></div><div class="line" id="172808"><span class="nick" style="color:#bc80bd"><a href="#172808" label="[17:28:08]">&lt;stikonas&gt;</a></span><span class="message">siraben: kind of but at the moment it only runs on vm.c</span></div><div class="line" id="172839"><span class="nick" style="color:#bc80bd"><a href="#172839" label="[17:28:39]">&lt;stikonas&gt;</a></span><span class="message">so in practice right now it is not more independent</span></div><div class="line" id="172938"><span class="nick" style="color:#2e2a4a"><a href="#172938" label="[17:29:38]">&lt;siraben&gt;</a></span><span class="message">Right.</span></div><div class="line" id="172953"><span class="nick" style="color:#2e2a4a"><a href="#172953" label="[17:29:53]">&lt;siraben&gt;</a></span><span class="message">VMs everywhere, blynn-compiler has its own graph reduction VM</span></div><div class="line" id="174857"><span class="nick" style="color:#80b1d3"><a href="#174857" label="[17:48:57]">&lt;xentrac&gt;</a></span><span class="message">weird, I thought knight wasn't custom, wasn't simple, and had in fact been implemented in TTL 45 years ago</span></div><div class="line" id="174912"><span class="nick" style="color:#80b1d3"><a href="#174912" label="[17:49:12]">&lt;xentrac&gt;</a></span><span class="message">what's your metric of &quot;simple&quot;, stikonas?</span></div><div class="line" id="175410"><span class="nick" style="color:#bc80bd"><a href="#175410" label="[17:54:10]">&lt;stikonas&gt;</a></span><span class="message">I guess by simple I meant fewer instructions...</span></div><div class="line" id="175419"><span class="nick" style="color:#bc80bd"><a href="#175419" label="[17:54:19]">&lt;stikonas&gt;</a></span><span class="message">oh I didn't know knigt was implemented 45 years ago...</span></div><div class="line" id="175524"><span class="nick" style="color:#bc80bd"><a href="#175524" label="[17:55:24]">&lt;stikonas&gt;</a></span><span class="message">but in any case I wasn't talking about any strict &quot;metric&quot;. You can have one instruction architecture, but it wouldn't be easier to read and understand</span></div><div class="line" id="175614"><span class="nick" style="color:#80b1d3"><a href="#175614" label="[17:56:14]">&lt;xentrac&gt;</a></span><span class="message">doesn't knight have like 100+ instructions?</span></div><div class="line" id="175716"><span class="nick" style="color:#bc80bd"><a href="#175716" label="[17:57:16]">&lt;stikonas&gt;</a></span><span class="message">hmm, stage0 doesn't use that many...</span></div><div class="line" id="175718"><span class="nick" style="color:#80b1d3"><a href="#175718" label="[17:57:18]">&lt;xentrac&gt;</a></span><span class="message">I mean that's simple compared to an i7 but it's not really in the territory of Wirth RISC, the PDP-8, the MuP21, or the LGP-30</span></div><div class="line" id="175745"><span class="nick" style="color:#bc80bd"><a href="#175745" label="[17:57:45]">&lt;stikonas&gt;</a></span><span class="message">in any case, at some early point bootstrap has to be hardware specific...</span></div><div class="line" id="175821"><span class="nick" style="color:#bc80bd"><a href="#175821" label="[17:58:21]">&lt;stikonas&gt;</a></span><span class="message">if you don't want to rely on any software already rynning</span></div><div class="line" id="175823"><span class="nick" style="color:#bc80bd"><a href="#175823" label="[17:58:23]">&lt;stikonas&gt;</a></span><span class="message">and mescc-tools-seed has to rely on some software already running...</span></div><div class="line" id="175828"><span class="nick" style="color:#80b1d3"><a href="#175828" label="[17:58:28]">&lt;xentrac&gt;</a></span><span class="message">yeah, although I think a simple virtual machine that anyone can implement would probably help some with that</span></div><div class="line" id="235059"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><br /></div></body></html>

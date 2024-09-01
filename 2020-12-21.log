@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-12-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004237"><span class="nick">***</span><span class="message notice">wowaname is now known as opal</span></div><div class="line" id="030126"><span class="nick" style="color:#8dd3c7"><a href="#030126" label="[03:01:26]">&lt;OriansJ&gt;</a></span><span class="message">mihi: please check to see if my kaem test change resolved your issue in  regards to locale causing the test failure.</span></div><div class="line" id="032024"><span class="nick" style="color:#2e2a4a"><a href="#032024" label="[03:20:24]">&lt;siraben&gt;</a></span><span class="message">So for AoC day 19, I basically made a parser generator :D <a rel="nofollow" href="https://github.com/siraben/haoc-2020/blob/master/day19.hs">https://github.com/siraben/haoc-2020/blob/master/day19.hs</a> </span></div><div class="line" id="032036"><span class="nick" style="color:#2e2a4a"><a href="#032036" label="[03:20:36]">&lt;siraben&gt;</a></span><span class="message">Would be a nice exercise to make it blynn-compiler compatible</span></div><div class="line" id="032545"><span class="nick" style="color:#6b8072"><a href="#032545" label="[03:25:45]">&lt;pder&gt;</a></span><span class="message">siraben: my crossly branch can now build crossly with M2-Planet.  I only need to modify crossly.hs and precisely.hs to finish the bootstrap.</span></div><div class="line" id="032628"><span class="nick" style="color:#6b8072"><a href="#032628" label="[03:26:28]">&lt;pder&gt;</a></span><span class="message">M2-Planet does not have long long support, so some of the 64bit primitive types will be missing.  Do you think that will be an issue?</span></div><div class="line" id="032732"><span class="nick" style="color:#2e2a4a"><a href="#032732" label="[03:27:32]">&lt;siraben&gt;</a></span><span class="message">No. I'll check precisely (which adds arbitrary precision integers) to see if it relies on 64biy</span></div><div class="line" id="032735"><span class="nick" style="color:#2e2a4a"><a href="#032735" label="[03:27:35]">&lt;siraben&gt;</a></span><span class="message">64 bit*</span></div><div class="line" id="032758"><span class="nick" style="color:#2e2a4a"><a href="#032758" label="[03:27:58]">&lt;siraben&gt;</a></span><span class="message">I have my own implementation of bignums using 32 bit cells; <a rel="nofollow" href="https://github.com/siraben/mini-haskell/blob/master/examples/bignum.hs">https://github.com/siraben/mini-haskell/blob/master/examples/bignum.hs</a> </span></div><div class="line" id="032843"><span class="nick" style="color:#2e2a4a"><a href="#032843" label="[03:28:43]">&lt;siraben&gt;</a></span><span class="message">This is compatible with the classy compiler, it's a fork of blynn-compiler scraped from his website before he made the repo public</span></div><div class="line" id="032919"><span class="nick" style="color:#80b1d3"><a href="#032919" label="[03:29:19]">&lt;xentrac&gt;</a></span><span class="message">siraben: nice!</span></div><div class="line" id="032954"><span class="nick" style="color:#2e2a4a"><a href="#032954" label="[03:29:54]">&lt;siraben&gt;</a></span><span class="message">bignums would be nice to have but are not critical for bootstrapping, in fact we should base off of the last compiler before bignums</span></div><div class="line" id="032955"><span class="nick" style="color:#2e2a4a"><a href="#032955" label="[03:29:55]">&lt;siraben&gt;</a></span><span class="message">xentrac: :D</span></div><div class="line" id="033217"><span class="nick" style="color:#80b1d3"><a href="#033217" label="[03:32:17]">&lt;xentrac&gt;</a></span><span class="message">siraben: wait, you made a parser generator that depends on Parsec, which is a parser generator</span></div><div class="line" id="033243"><span class="nick" style="color:#2e2a4a"><a href="#033243" label="[03:32:43]">&lt;siraben&gt;</a></span><span class="message">xentrac: i'd say parsec is a parsing library, it could be implemented easily</span></div><div class="line" id="033315"><span class="nick" style="color:#2e2a4a"><a href="#033315" label="[03:33:15]">&lt;siraben&gt;</a></span><span class="message">in fact, i'd probably take code from <a rel="nofollow" href="https://github.com/siraben/eopl/blob/master/src/LetrecParser.hs">https://github.com/siraben/eopl/blob/master/src/LetrecParser.hs</a>  which is when I learned about monadic parsing and reimplemented it from scratch</span></div><div class="line" id="033327"><span class="nick" style="color:#2e2a4a"><a href="#033327" label="[03:33:27]">&lt;siraben&gt;</a></span><span class="message">I think this is more or less compatible with marginally</span></div><div class="line" id="033347"><span class="nick" style="color:#2e2a4a"><a href="#033347" label="[03:33:47]">&lt;siraben&gt;</a></span><span class="message">xentrac: oh, blynn-compiler has its own monadic parsing library as well, which I forgot</span></div><div class="line" id="033554"><span class="nick" style="color:#80b1d3"><a href="#033554" label="[03:35:54]">&lt;xentrac&gt;</a></span><span class="message">is monadic parsing where you use MonadPlus to get sequencing (from the monad operator, is that &gt;&gt;=?) and alternation (the plus part of monadplus?)  I'm afraid I don't speak Haskell</span></div><div class="line" id="033754"><span class="nick" style="color:#80b1d3"><a href="#033754" label="[03:37:54]">&lt;xentrac&gt;</a></span><span class="message">basically using lazy lists to get backtracking parsing, with its exponential-time worst case?  is there a way to stick cuts in there like you would in a Prolog DCG to get linear-time parsing in practice, even for erroneous inputs?</span></div><div class="line" id="033758"><span class="nick" style="color:#2e2a4a"><a href="#033758" label="[03:37:58]">&lt;siraben&gt;</a></span><span class="message">xentrac: here's a great 8 page paper on this <a rel="nofollow" href="https://www.cs.nott.ac.uk/~pszgmh/pearl.pdf">https://www.cs.nott.ac.uk/~pszgmh/pearl.pdf</a> </span></div><div class="line" id="033835"><span class="nick" style="color:#2e2a4a"><a href="#033835" label="[03:38:35]">&lt;siraben&gt;</a></span><span class="message">Yes! so naively it's really bad because LL(\infty) as in `a +++ b`, parser a can parse an arbitrary amount of tokens before b is run, where the backtracking would happen</span></div><div class="line" id="033851"><span class="nick" style="color:#2e2a4a"><a href="#033851" label="[03:38:51]">&lt;siraben&gt;</a></span><span class="message">in the Parsec library, parser a would consume input and not backtrack before trying b</span></div><div class="line" id="033907"><span class="nick" style="color:#2e2a4a"><a href="#033907" label="[03:39:07]">&lt;siraben&gt;</a></span><span class="message">also the naive implementation maintains all possible parses in a list</span></div><div class="line" id="033946"><span class="nick" style="color:#80b1d3"><a href="#033946" label="[03:39:46]">&lt;xentrac&gt;</a></span><span class="message">right, which is fine if it's a lazy list</span></div><div class="line" id="033953"><span class="nick" style="color:#80b1d3"><a href="#033953" label="[03:39:53]">&lt;xentrac&gt;</a></span><span class="message">or your grammar is unambiguous</span></div><div class="line" id="034003"><span class="nick" style="color:#2e2a4a"><a href="#034003" label="[03:40:03]">&lt;siraben&gt;</a></span><span class="message">right</span></div><div class="line" id="035119"><span class="nick" style="color:#80b1d3"><a href="#035119" label="[03:51:19]">&lt;xentrac&gt;</a></span><span class="message">siraben: the introduction of this paper makes me think it was written before the Packrat dissertation</span></div><div class="line" id="035224"><span class="nick" style="color:#2e2a4a"><a href="#035224" label="[03:52:24]">&lt;siraben&gt;</a></span><span class="message">xentrac: what's great about packrat parsing? i haven't looked into it</span></div><div class="line" id="035232"><span class="nick" style="color:#80b1d3"><a href="#035232" label="[03:52:32]">&lt;xentrac&gt;</a></span><span class="message">(although it's still true that Packrat parsers are commonly slower than bottom-up parsers)</span></div><div class="line" id="035401"><span class="nick" style="color:#2e2a4a"><a href="#035401" label="[03:54:01]">&lt;siraben&gt;</a></span><span class="message">on reading the introduction of the paper it seems they emphasize the fact that these parsers are first-class values</span></div><div class="line" id="035416"><span class="nick" style="color:#80b1d3"><a href="#035416" label="[03:54:16]">&lt;xentrac&gt;</a></span><span class="message">oh, well, Packrat gives you a guaranteed-linear-time algorithm for a class of languages conjectured to include those generated by all unambiguous context-free grammars, plus some non-context-free languages, and its grammars are composable in a way that for instance LALR(1) grammars and LL(k) grammars aren't</span></div><div class="line" id="035419"><span class="nick" style="color:#2e2a4a"><a href="#035419" label="[03:54:19]">&lt;siraben&gt;</a></span><span class="message">instead of some fixed set of combinators</span></div><div class="line" id="035436"><span class="nick" style="color:#2e2a4a"><a href="#035436" label="[03:54:36]">&lt;siraben&gt;</a></span><span class="message">wow, that sounds nice</span></div><div class="line" id="035455"><span class="nick" style="color:#80b1d3"><a href="#035455" label="[03:54:55]">&lt;xentrac&gt;</a></span><span class="message">what I meant was that they say, &quot;Of course, recursive descent parsers...lack the efficiency of bottom-up parsers&quot;</span></div><div class="line" id="035512"><span class="nick" style="color:#80b1d3"><a href="#035512" label="[03:55:12]">&lt;xentrac&gt;</a></span><span class="message">it's pretty nice but not quite as nice as it sounds</span></div><div class="line" id="035531"><span class="nick" style="color:#2e2a4a"><a href="#035531" label="[03:55:31]">&lt;siraben&gt;</a></span><span class="message">ah</span></div><div class="line" id="035545"><span class="nick" style="color:#80b1d3"><a href="#035545" label="[03:55:45]">&lt;xentrac&gt;</a></span><span class="message">catch #1 with Packrat parsing is that it's not just linear time: it's also linear space, while most parsing algorithms are constant-space or logarithmic space</span></div><div class="line" id="035612"><span class="nick" style="color:#80b1d3"><a href="#035612" label="[03:56:12]">&lt;xentrac&gt;</a></span><span class="message">catch #2 is that the constant factors can be quite large.  like 1000 bytes of RAM per byte of input</span></div><div class="line" id="035639"><span class="nick" style="color:#2e2a4a"><a href="#035639" label="[03:56:39]">&lt;siraben&gt;</a></span><span class="message">dang</span></div><div class="line" id="035821"><span class="nick" style="color:#80b1d3"><a href="#035821" label="[03:58:21]">&lt;xentrac&gt;</a></span><span class="message">catch #3 is that the version of Packrat described in Bryan Ford's dissertation can't handle left recursion; there are variants of the algorithm that can handle left recursion, but precisely in which cases it works is not well characterized (Warth et al.'s initial claim that it was fully general turned out to be wrong), and it may lose the linear-time guarantee (I'm not sure)</span></div><div class="line" id="035926"><span class="nick" style="color:#80b1d3"><a href="#035926" label="[03:59:26]">&lt;xentrac&gt;</a></span><span class="message">all that said, it's the standard pattern-matching facility in recent versions of Lua, replacing regular expressions, and it's been successfully applied to a wide variety of applications</span></div><div class="line" id="040224"><span class="nick" style="color:#80b1d3"><a href="#040224" label="[04:02:24]">&lt;xentrac&gt;</a></span><span class="message">also it's powerful enough that you can generally get by without a lexer, but that in itself typically entails extra cost</span></div><div class="line" id="041902"><span class="nick" style="color:#80b1d3"><a href="#041902" label="[04:19:02]">&lt;xentrac&gt;</a></span><span class="message">you'll probably be underwhelmed reading the Packrat dissertation in the sense that it's sort of just the (+++) and (&lt;$&gt;) operations plus an iteration construct and a few other things plus memoization</span></div><div class="line" id="041937"><span class="nick" style="color:#80b1d3"><a href="#041937" label="[04:19:37]">&lt;xentrac&gt;</a></span><span class="message">but it's a striking and perhaps unintuitive result that those give you the advantages described above :)</span></div><div class="line" id="044205"><span class="nick" style="color:#2e2a4a"><a href="#044205" label="[04:42:05]">&lt;siraben&gt;</a></span><span class="message">xentrac: sounds interesting, if I have some more time and interest in parsing again I'll look into it</span></div><div class="line" id="044216"><span class="nick" style="color:#2e2a4a"><a href="#044216" label="[04:42:16]">&lt;siraben&gt;</a></span><span class="message">then again I have yet to read up on LALR parsing and so on</span></div><div class="line" id="082947"><span class="nick" style="color:#6d2462"><a href="#082947" label="[08:29:47]">&lt;terpri&gt;</a></span><span class="message">i recommend _parsing techniques: a practical guide_ by grune &amp; jacobs for reference, if you *really* want to dig into parsing (partly for its 70-page annotated bibliography)</span></div><div class="line" id="083303"><span class="nick" style="color:#234e69"><a href="#083303" label="[08:33:03]">&lt;fossy&gt;</a></span><span class="message">:O</span></div><div class="line" id="083418"><span class="nick" style="color:#80b1d3"><a href="#083418" label="[08:34:18]">&lt;xentrac&gt;</a></span><span class="message">I'm really more interested in very simple general techniques like Packrat than more limited efficiency hacks like LALR</span></div><div class="line" id="135516"><span class="nick" style="color:#8dd3c7"><a href="#135516" label="[13:55:16]">&lt;OriansJ&gt;</a></span><span class="message">I love this group. ambitious barely covers the goals here and yet we will achieve probably all of them and then some.</span></div><div class="line" id="140211"><span class="nick" style="color:#2e2a4a"><a href="#140211" label="[14:02:11]">&lt;siraben&gt;</a></span><span class="message">terpri: thanks, sounds comprehensive!</span></div><div class="line" id="155054"><span class="nick" style="color:#6c3d55"><a href="#155054" label="[15:50:54]">&lt;deesix&gt;</a></span><span class="message">I'b been playing with this LL(1) grammar for C I found, making a recursive descent out of it. But with all the factorization and left recursion elimination the parser tree feels not easy to work with. The idea is coding it in the M2-Planet subset, make a nice AST for modular (per arch) code generation, but I'm starting to think it's not the best idea. Also, I think there will be problems with</span></div><div class="line" id="155100"><span class="nick" style="color:#6c3d55"><a href="#155100" label="[15:51:00]">&lt;deesix&gt;</a></span><span class="message">associativity.</span></div><div class="line" id="155218"><span class="nick" style="color:#6c3d55"><a href="#155218" label="[15:52:18]">&lt;deesix&gt;</a></span><span class="message">It's the grammar by Mohd Hanafiah Abdullah (cgram1-ll1 posted to comp.compilers). I think I got it from iecc.com.</span></div><div class="line" id="161130"><span class="nick" style="color:#6c3d55"><a href="#161130" label="[16:11:30]">&lt;deesix&gt;</a></span><span class="message">ftp://ftp.iecc.com:21/pub/file/cgram-ll1.gz it seems, but it's not there anymore (this was July or so).</span></div><div class="line" id="170137"><span class="nick" style="color:#d9d9d9"><a href="#170137" label="[17:01:37]">&lt;mihi&gt;</a></span><span class="message">OriansJ, as of 2108ac4, kaem tests now fail for me regardless of locale :-P. Tested both on real x86 linux and on cygwin. In both cases, the C locale does not include the fancy quotes in the error message, causing the hash to not match.</span></div><div class="line" id="171142"><span class="nick" style="color:#d9d9d9"><a href="#171142" label="[17:11:42]">&lt;mihi&gt;</a></span><span class="message">Also, I noticed in strace output that on x86 32-bit, the fclose syscall closed &quot;random&quot; file descriptors due to a missing &quot;LOAD_INTEGER_ebx&quot;. And M2-Planet test #0104 does not properly null-terminate its envp array, resulting in an -EFAULT on execve in case there does not happen to conveniently be a 0 in memory anyway.</span></div><div class="line" id="171201"><span class="nick" style="color:#d9d9d9"><a href="#171201" label="[17:12:01]">&lt;mihi&gt;</a></span><span class="message">Fixes are here <a rel="nofollow" href="https://github.com/schierlm/M2-Planet/commit/608fba306f46128fe901302f813d139c635e996a">https://github.com/schierlm/M2-Planet/commit/608fba306f46128fe901302f813d139c635e996a</a>  and included in the pull request I will send in a moment</span></div><div class="line" id="171244"><span class="nick" style="color:#d9d9d9"><a href="#171244" label="[17:12:44]">&lt;mihi&gt;</a></span><span class="message">That being said, I/O buffering now works for me on x86 architecture, and all M2-Planet tests as well as the bootstrap still work, and hex2 being ~80% faster than before when built with M2-Planet.</span></div><div class="line" id="171318"><span class="nick" style="color:#d9d9d9"><a href="#171318" label="[17:13:18]">&lt;mihi&gt;</a></span><span class="message">Pull request is here: <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/pull/9">https://github.com/oriansj/M2-Planet/pull/9</a> </span></div><div class="line" id="171452"><span class="nick" style="color:#d9d9d9"><a href="#171452" label="[17:14:52]">&lt;mihi&gt;</a></span><span class="message">On AMD64 I'm currently having trouble getting it to work, not sure if there is a M2-Planet bug or I'm too dumb to see that I use features not supported by M2-Planet. Even pointer comparisons fail strangely. Here is a short test case: <a rel="nofollow" href="https://github.com/schierlm/M2-Planet/commit/890b7cd25b39e2f165ed65a374103bec1a7b604b">https://github.com/schierlm/M2-Planet/commit/890b7cd25b39e2f165ed65a374103bec1a7b604b</a> </span></div><div class="line" id="171556"><span class="nick" style="color:#d9d9d9"><a href="#171556" label="[17:15:56]">&lt;mihi&gt;</a></span><span class="message">I noticed that M2-Planet does not like pointer arithmetic for pointers that point to anything not size 1, therefore I eliminated all pointer arithmetic from my changes, but probably there is another &quot;feature&quot; I'm using that is not supported by M2-Planet properly</span></div><div class="line" id="171714"><span class="nick" style="color:#d9d9d9"><a href="#171714" label="[17:17:14]">&lt;mihi&gt;</a></span><span class="message">That being said, my WIP code for AMD64 (untested, or rather tested to be bad) is here <a rel="nofollow" href="https://github.com/schierlm/M2-Planet/commit/24918f2c205dfba35606f75fd0fe324f04fdb577">https://github.com/schierlm/M2-Planet/commit/24918f2c205dfba35606f75fd0fe324f04fdb577</a>  - but I'll happily fix and send another pull request if anyone tells me how to, or why said test fails on AMD64.</span></div><div class="line" id="172203"><span class="nick" style="color:#6c3d55"><a href="#172203" label="[17:22:03]">&lt;deesix&gt;</a></span><span class="message">Here is the LL grammar; I'd be glad to get any suggestions <a rel="nofollow" href="https://notabug.org/deesix/cgram-ll1/src/master/cgram-ll1">https://notabug.org/deesix/cgram-ll1/src/master/cgram-ll1</a> </span></div><div class="line" id="172438"><span class="nick" style="color:#d9d9d9"><a href="#172438" label="[17:24:38]">&lt;mihi&gt;</a></span><span class="message">oops and due to a mistake in my shell script, my test does not run on x86 - it assumes the elf header always being called test/common_${ARCH}/ELF-${ARCH}.hex2, but it is called common-x86/ELF-i386.hex2. But when fixing that script, the test runs on x86</span></div><div class="line" id="205124"><span class="nick" style="color:#6b8072"><a href="#205124" label="[20:51:24]">&lt;pder&gt;</a></span><span class="message">mihi: regarding the pointer arithmetic in M2-Planet, the workaround I am using in blynn-compiler is to define a constant like so:</span></div><div class="line" id="205148"><span class="nick" style="color:#6b8072"><a href="#205148" label="[20:51:48]">&lt;pder&gt;</a></span><span class="message">/CONSTANT CELL_SIZE sizeof(unsigned)</span></div><div class="line" id="205151"><span class="nick" style="color:#6b8072"><a href="#205151" label="[20:51:51]">&lt;pder&gt;</a></span><span class="message">#define CELL_SIZE 1</span></div><div class="line" id="205241"><span class="nick" style="color:#6b8072"><a href="#205241" label="[20:52:41]">&lt;pder&gt;</a></span><span class="message">If you have an unsigned *p and want to increment it do p = p + CELL_SIZE</span></div><div class="line" id="205306"><span class="nick" style="color:#6b8072"><a href="#205306" label="[20:53:06]">&lt;pder&gt;</a></span><span class="message">/CONSTANT CELL_SIZE sizeof(unsigned)</span></div><div class="line" id="205318"><span class="nick" style="color:#6b8072"><a href="#205318" label="[20:53:18]">&lt;pder&gt;</a></span><span class="message">There should be two forward slashes</span></div><div class="line" id="205400"><span class="nick" style="color:#6b8072"><a href="#205400" label="[20:54:00]">&lt;pder&gt;</a></span><span class="message">M2-Planet ignores the double slash comment.  This way your code should work in both M2-Planet and gcc</span></div><br /></div></body></html>

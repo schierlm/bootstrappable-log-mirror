@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-10-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005909"><span class="nick" style="color:#8dd3c7"><a href="#005909" label="[00:59:09]">&lt;Hagfish&gt;</a></span><span class="message">stikonas[m]: great PR</span></div><div class="line" id="005951"><span class="nick" style="color:#8dd3c7"><a href="#005951" label="[00:59:51]">&lt;Hagfish&gt;</a></span><span class="message">i'm wondering, as you're updating README.md, is it worth also adding some indentation to the &quot;containing&quot; entries?</span></div><div class="line" id="010025"><span class="nick" style="color:#8dd3c7"><a href="#010025" label="[01:00:25]">&lt;Hagfish&gt;</a></span><span class="message">that might pollute the diff a little, and i'm not sure how nice/possible that is in markdown, but it's just something that came to mind when having a look through the PR</span></div><div class="line" id="031135"><span class="nick" style="color:#2e2a4a"><a href="#031135" label="[03:11:35]">&lt;oriansj&gt;</a></span><span class="message">gbrlwck: yes all assembly used by M2-Planet and MesCC is done in the M1 macro assembly</span></div><div class="line" id="031215"><span class="nick" style="color:#2e2a4a"><a href="#031215" label="[03:12:15]">&lt;oriansj&gt;</a></span><span class="message">that is why MesCC porting to a new architecture is very dependent on mescc-tools support of that architecture.</span></div><div class="line" id="031511"><span class="nick" style="color:#2e2a4a"><a href="#031511" label="[03:15:11]">&lt;oriansj&gt;</a></span><span class="message">One thing to note is that MesCC and M2-Planet never harmonized on M1 DEFINEs which is one of the reasons for the seperation between MesCC libc and M2libc</span></div><div class="line" id="031554"><span class="nick" style="color:#2e2a4a"><a href="#031554" label="[03:15:54]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged</span></div><div class="line" id="033742"><span class="nick" style="color:#2e2a4a"><a href="#033742" label="[03:37:42]">&lt;oriansj&gt;</a></span><span class="message">gbrlwck: to be absolutely precise there are only a few things that need to be changed in mes-m2 to enable building for additional architectures.</span></div><div class="line" id="034056"><span class="nick" style="color:#2e2a4a"><a href="#034056" label="[03:40:56]">&lt;oriansj&gt;</a></span><span class="message">short version is there are only a few things in the the mes-m2 lib/ folder that need inclusion in M2libc but once that is done mes.c is then officially ported to *ALL* architectures supported by M2libc. It isn't hard work, just kind of tedious (walk down list of functions, check if in M2libc yet and port over if not; making each a seperate commit)</span></div><div class="line" id="090951"><span class="nick">***</span><span class="message notice">nckx_ is now known as nckx</span></div><div class="line" id="091011"><span class="nick">***</span><span class="message notice">verx_ is now known as verx</span></div><div class="line" id="122755"><span class="nick">***</span><span class="message notice">robin_ is now known as robin</span></div><div class="line" id="165403"><span class="nick" style="color:#6b8072"><a href="#165403" label="[16:54:03]">&lt;gbrlwck&gt;</a></span><span class="message">i'm kinda having issues wrapping my head around the next steps... should _exit() and _write() in mes-m2/lib/linux/riscv64-mes-m2/mini.c simply asm(&quot;li_____%a7,SYS_write&quot;) as defined at the very bottom of mes/lib/riscv64-mes/riscv64.M1 ?</span></div><div class="line" id="165446"><span class="nick" style="color:#6b8072"><a href="#165446" label="[16:54:46]">&lt;gbrlwck&gt;</a></span><span class="message">am i guessing right that i don't have to move the command arguments anywhere since the arguments are already where they should be (registers a0..aX)?</span></div><div class="line" id="181957"><span class="nick" style="color:#6b8072"><a href="#181957" label="[18:19:57]">&lt;gbrlwck&gt;</a></span><span class="message">when running kaem-riscv64.run in <a rel="nofollow" href="https://github.com/gbrlwck/mes-m2">https://github.com/gbrlwck/mes-m2</a>  i get &quot;lib/linux/brk.c:29:SYS_brk is not a defined symbol&quot; though it is defined? and the file defining it (include/linux/riscv64/syscall.h) is included via -f before lib/linux/brk.c ...?</span></div><div class="line" id="182358"><span class="nick" style="color:#6b8072"><a href="#182358" label="[18:23:58]">&lt;gbrlwck&gt;</a></span><span class="message">(btw thanks for all the replies -- i skim the logs before coming back here)</span></div><div class="line" id="194937"><span class="nick" style="color:#8dd3c7"><a href="#194937" label="[19:49:37]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://news.ycombinator.com/item?id=28929261">https://news.ycombinator.com/item?id=28929261</a> </span></div><div class="line" id="194943"><span class="nick" style="color:#8dd3c7"><a href="#194943" label="[19:49:43]">&lt;Hagfish&gt;</a></span><span class="message">top comment mentions Bootstrappable Builds</span></div><div class="line" id="194946"><span class="nick" style="color:#8dd3c7"><a href="#194946" label="[19:49:46]">&lt;Hagfish&gt;</a></span><span class="message">you love to see it</span></div><div class="line" id="195445"><span class="nick" style="color:#8dd3c7"><a href="#195445" label="[19:54:45]">&lt;Hagfish&gt;</a></span><span class="message">(you may need to configure your account to show dead comments if you want the rely spicy takes, though)</span></div><div class="line" id="220331"><span class="nick" style="color:#80b1d3"><a href="#220331" label="[22:03:31]">&lt;stikonas[m]&gt;</a></span><span class="message">gbrlwck: no, asm(&quot;li___...&quot;) is not the right way now</span></div><div class="line" id="220344"><span class="nick" style="color:#80b1d3"><a href="#220344" label="[22:03:44]">&lt;stikonas[m]&gt;</a></span><span class="message">that was an attempt before M1 riscv64 work</span></div><div class="line" id="220354"><span class="nick" style="color:#80b1d3"><a href="#220354" label="[22:03:54]">&lt;stikonas[m]&gt;</a></span><span class="message">I suggest using the same define file as in stage0-posix</span></div><div class="line" id="220408"><span class="nick" style="color:#80b1d3"><a href="#220408" label="[22:04:08]">&lt;stikonas[m]&gt;</a></span><span class="message">at least for risc-v it should be universally good</span></div><div class="line" id="220429"><span class="nick" style="color:#80b1d3"><a href="#220429" label="[22:04:29]">&lt;stikonas[m]&gt;</a></span><span class="message">but the syntax is M1 syntax rather than gas syntax</span></div><div class="line" id="220503"><span class="nick" style="color:#80b1d3"><a href="#220503" label="[22:05:03]">&lt;stikonas[m]&gt;</a></span><span class="message">so more like asm(&quot;RD_A7 !67 ADDI&quot;)</span></div><div class="line" id="220540"><span class="nick" style="color:#80b1d3"><a href="#220540" label="[22:05:40]">&lt;stikonas[m]&gt;</a></span><span class="message">I'm not sure about SYS_brk failure...</span></div><div class="line" id="221345"><span class="nick" style="color:#80b1d3"><a href="#221345" label="[22:13:45]">&lt;stikonas[m]&gt;</a></span><span class="message">gbrlwck: maybe it's just better to start moving those required functions to M2libc?</span></div><div class="line" id="221458"><span class="nick" style="color:#80b1d3"><a href="#221458" label="[22:14:58]">&lt;stikonas[m]&gt;</a></span><span class="message">although, personally, I find it a bit easier to write as in meslibc since assembly stuff is mostly hidden in syscall*() functions</span></div><div class="line" id="221634"><span class="nick" style="color:#6d2462"><a href="#221634" label="[22:16:34]">&lt;stikonas&gt;</a></span><span class="message">fossy: I've now updated stage0-posix in live-bootstrap</span></div><div class="line" id="221644"><span class="nick" style="color:#6d2462"><a href="#221644" label="[22:16:44]">&lt;stikonas&gt;</a></span><span class="message">and started using some aliases</span></div><div class="line" id="221707"><span class="nick" style="color:#6d2462"><a href="#221707" label="[22:17:07]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/commit/5148a8e0dafd6dbd6107fdc8a8d15158405f68b0">https://github.com/fosslinux/live-bootstrap/commit/5148a8e0dafd6dbd6107fdc8a8d15158405f68b0</a> </span></div><div class="line" id="222433"><span class="nick" style="color:#6d2462"><a href="#222433" label="[22:24:33]">&lt;stikonas&gt;</a></span><span class="message">maybe with aliases we can even undo tcc's -DONE_SOURCE (at least for slow mescc build)</span></div><div class="line" id="222444"><span class="nick" style="color:#6d2462"><a href="#222444" label="[22:24:44]">&lt;stikonas&gt;</a></span><span class="message">and get more interactive output</span></div><div class="line" id="222506"><span class="nick" style="color:#6d2462"><a href="#222506" label="[22:25:06]">&lt;stikonas&gt;</a></span><span class="message">(whole tcc.c takes maybe 10 minutes to build without much output)</span></div><div class="line" id="225358"><span class="nick" style="color:#8dd3c7"><a href="#225358" label="[22:53:58]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://vst.cs.princeton.edu/">https://vst.cs.princeton.edu/</a>  that's an interesting page on software verification i hadn't seen before</span></div><div class="line" id="225503"><span class="nick" style="color:#234e69"><a href="#225503" label="[22:55:03]">&lt;xentrac&gt;</a></span><span class="message">there's a lot of really fascinating formal methods stuff going on now</span></div><div class="line" id="232811"><span class="nick" style="color:#6c3d55"><a href="#232811" label="[23:28:11]">&lt;fossy&gt;</a></span><span class="message">10 minutes isn't too long, not sure if it's really useful, but we can see</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-10-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000038"><span class="nick" style="color:#389600"><a href="#000038" label="[00:00:38]">&lt;stikonas&gt;</a></span><span class="message">well, my porting of cc_amd64 from posix to uefi is also over a week now and it's not even writing from scratch</span></div><div class="line" id="000142"><span class="nick" style="color:#389600"><a href="#000142" label="[00:01:42]">&lt;stikonas&gt;</a></span><span class="message">though I'm only working in spare time</span></div><div class="line" id="000453"><span class="nick" style="color:#8dd3c7"><a href="#000453" label="[00:04:53]">&lt;muurkha&gt;</a></span><span class="message">how's it going?</span></div><div class="line" id="001512"><span class="nick" style="color:#389600"><a href="#001512" label="[00:15:12]">&lt;stikonas&gt;</a></span><span class="message">muurkha: 15 KiB done now</span></div><div class="line" id="001524"><span class="nick" style="color:#389600"><a href="#001524" label="[00:15:24]">&lt;stikonas&gt;</a></span><span class="message">it's probably going to be around 18 KiB binary</span></div><div class="line" id="001915"><span class="nick" style="color:#389600"><a href="#001915" label="[00:19:15]">&lt;stikonas&gt;</a></span><span class="message">it's fairly straightforward transformation to convert from .S gas sytnax to M1 but you need to go over all 5500 lines...</span></div><div class="line" id="005734"><span class="nick" style="color:#6b8072"><a href="#005734" label="[00:57:34]">&lt;aggi&gt;</a></span><span class="message">which hardware and language did Knuth implement the compiler for?</span></div><div class="line" id="015109"><span class="nick" style="color:#80b1d3"><a href="#015109" label="[01:51:09]">&lt;oriansj&gt;</a></span><span class="message">aggi: Burroughs 205 Datatron and Algol 58 Compiler</span></div><div class="line" id="015257"><span class="nick" style="color:#8dd3c7"><a href="#015257" label="[01:52:57]">&lt;muurkha&gt;</a></span><span class="message">stikonas: heh, that reminds me of the famous quote about measuring software project progress, but in this case it's actually a legitimate measure</span></div><div class="line" id="015434"><span class="nick" style="color:#389600"><a href="#015434" label="[01:54:34]">&lt;stikonas&gt;</a></span><span class="message">well, it's still not fully linear</span></div><div class="line" id="015459"><span class="nick" style="color:#389600"><a href="#015459" label="[01:54:59]">&lt;stikonas&gt;</a></span><span class="message">I first went over labels and data stuff and that fairly quickly got me 5 KiB</span></div><div class="line" id="015518"><span class="nick" style="color:#389600"><a href="#015518" label="[01:55:18]">&lt;stikonas&gt;</a></span><span class="message">so almost 30% of cc_* is just pure data (mostly strings)</span></div><div class="line" id="015750"><span class="nick" style="color:#8dd3c7"><a href="#015750" label="[01:57:50]">&lt;muurkha&gt;</a></span><span class="message">so am I, stikonas, so am I</span></div><div class="line" id="015752"><span class="nick" style="color:#80b1d3"><a href="#015752" label="[01:57:52]">&lt;oriansj&gt;</a></span><span class="message">and 9 handwritten instances of a struct for the Datatypes supported.</span></div><div class="line" id="025002"><span class="nick" style="color:#80b1d3"><a href="#025002" label="[02:50:02]">&lt;oriansj&gt;</a></span><span class="message">although reading knuth's interview I can't help but thinking M1 might actually be the fastest Assembler out there. (mostly because it does so little)</span></div><div class="line" id="033447"><span class="nick" style="color:#8dd3c7"><a href="#033447" label="[03:34:47]">&lt;muurkha&gt;</a></span><span class="message">seems unlikely, there's a lot of assemblers out there and a whole continuum between assemblers and linkers</span></div><div class="line" id="033501"><span class="nick" style="color:#8dd3c7"><a href="#033501" label="[03:35:01]">&lt;muurkha&gt;</a></span><span class="message">and M1 is way on the not-just-a-linker side of that continuum</span></div><div class="line" id="132526"><span class="nick" style="color:#80b1d3"><a href="#132526" label="[13:25:26]">&lt;oriansj&gt;</a></span><span class="message">muurkha: completely fair. Hex0, Hex1 and Hex2 kind of straddles that line kind of aggressively.</span></div><div class="line" id="134127"><span class="nick" style="color:#6d2462"><a href="#134127" label="[13:41:27]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, assembly versions of hex, M0 are slowed down by inefficient 1 byte reads</span></div><div class="line" id="134140"><span class="nick" style="color:#6d2462"><a href="#134140" label="[13:41:40]">&lt;stikonas[m]&gt;</a></span><span class="message">Where as C versions have more features</span></div><div class="line" id="134217"><span class="nick" style="color:#6d2462"><a href="#134217" label="[13:42:17]">&lt;stikonas[m]&gt;</a></span><span class="message">So one could write C version of M0 that might be tiny bit faster</span></div><div class="line" id="134651"><span class="nick" style="color:#80b1d3"><a href="#134651" label="[13:46:51]">&lt;oriansj&gt;</a></span><span class="message">well the C version of hex0 is about as fast one can go; as it just does a single read and a single write and it never looks at a byte more than once</span></div><div class="line" id="134737"><span class="nick" style="color:#80b1d3"><a href="#134737" label="[13:47:37]">&lt;oriansj&gt;</a></span><span class="message">unless one went full vectorization logic</span></div><div class="line" id="162447"><span class="nick" style="color:#8dd3c7"><a href="#162447" label="[16:24:47]">&lt;muurkha&gt;</a></span><span class="message">oriansj: yup!</span></div><div class="line" id="171940"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="233250"><span class="nick" style="color:#389600"><a href="#233250" label="[23:32:50]">&lt;stikonas&gt;</a></span><span class="message">oriansj: either I have messed something up or our UEFI header does not work for cc_amd64...</span></div><div class="line" id="233310"><span class="nick" style="color:#389600"><a href="#233310" label="[23:33:10]">&lt;stikonas&gt;</a></span><span class="message">cc_amd64.efi just refuses to run (command load error)</span></div><div class="line" id="234112"><span class="nick" style="color:#389600"><a href="#234112" label="[23:41:12]">&lt;stikonas&gt;</a></span><span class="message">possibly something messed up with either VirtualSize or SizeOfRawData</span></div><div class="line" id="234116"><span class="nick" style="color:#389600"><a href="#234116" label="[23:41:16]">&lt;stikonas&gt;</a></span><span class="message">we always set it to the same value</span></div><div class="line" id="234122"><span class="nick" style="color:#389600"><a href="#234122" label="[23:41:22]">&lt;stikonas&gt;</a></span><span class="message">where as I can see GAS binary has them different</span></div><div class="line" id="235509"><span class="nick" style="color:#6b8072"><a href="#235509" label="[23:55:09]">&lt;aggi&gt;</a></span><span class="message">don't mean to interrupt, nonetheless, thinking hard</span></div><div class="line" id="235509"><span class="nick" style="color:#6b8072"><a href="#235509" label="[23:55:09]">&lt;aggi&gt;</a></span><span class="message">would you recommend moving to Oasis Linux?</span></div><div class="line" id="235743"><span class="nick" style="color:#6b8072"><a href="#235743" label="[23:57:43]">&lt;aggi&gt;</a></span><span class="message">because, it is alot of work, and will leave me with a system: vendor-locked against x86(64), either an undesireable kernel (5.16 currently) or an old kernel (2.4, rollback intended for tccboot)</span></div><div class="line" id="235936"><span class="nick" style="color:#6b8072"><a href="#235936" label="[23:59:36]">&lt;aggi&gt;</a></span><span class="message">and i got the gcc47/c-only toolchain profile archived here, which is stable and too is blocked indefinitely</span></div><div class="line" id="235956"><span class="nick" style="color:#6b8072"><a href="#235956" label="[23:59:56]">&lt;aggi&gt;</a></span><span class="message">all i could achieve with Oasis Linux is bringing the system-profile closer to compliance with minimum acceptance criteria</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-05-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="033957"><span class="nick" style="color:#389600"><a href="#033957" label="[03:39:57]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: i might give that a go in a little bit... i'm not sure if that should be global, i have a suspicion that if gcc is compiled with -O0 it'd overall slow it down</span></div><div class="line" id="034007"><span class="nick" style="color:#389600"><a href="#034007" label="[03:40:07]">&lt;fossy&gt;</a></span><span class="message">but that is a good idea for python at least</span></div><div class="line" id="034019"><span class="nick" style="color:#389600"><a href="#034019" label="[03:40:19]">&lt;fossy&gt;</a></span><span class="message">gccs i'll test but i think it might be slower overall</span></div><div class="line" id="034127"><span class="nick" style="color:#389600"><a href="#034127" label="[03:41:27]">&lt;fossy&gt;</a></span><span class="message">guile is mainly guild invocations so i don't think there's an -O0 for that</span></div><div class="line" id="230302"><span class="nick" style="color:#8dd3c7"><a href="#230302" label="[23:03:02]">&lt;mihi&gt;</a></span><span class="message">A question that occurred to me, for my fellow Guix like janneke: When next Guix version is released and I install it on a foreign distro, then install a package written in C without using substitutes, will it bootstrap gcc all the way from  M2-Planet or will it use the gcc of my host distro? And if the former, will it download the guile seed or will it use my host guile?</span></div><div class="line" id="230336"><span class="nick" style="color:#8dd3c7"><a href="#230336" label="[23:03:36]">&lt;mihi&gt;</a></span><span class="message">maybe I should better ask this in #guix...</span></div><div class="line" id="230423"><span class="nick" style="color:#2e2a4a"><a href="#230423" label="[23:04:23]">&lt;janneke&gt;</a></span><span class="message">mihi: the former, it will bootstrap everything</span></div><div class="line" id="230439"><span class="nick" style="color:#2e2a4a"><a href="#230439" label="[23:04:39]">&lt;janneke&gt;</a></span><span class="message">guix is completely isolated from your foreign distro</span></div><div class="line" id="230458"><span class="nick" style="color:#8dd3c7"><a href="#230458" label="[23:04:58]">&lt;mihi&gt;</a></span><span class="message">wow, that was fast, thank you :)</span></div><div class="line" id="230520"><span class="nick" style="color:#2e2a4a"><a href="#230520" label="[23:05:20]">&lt;janneke&gt;</a></span><span class="message">hehe ;)</span></div><div class="line" id="230533"><span class="nick" style="color:#8dd3c7"><a href="#230533" label="[23:05:33]">&lt;mihi&gt;</a></span><span class="message">so guix itself when run the first time will use my host Guile to download the bootstrap tarball, and then use the Guile inside it to continue?</span></div><div class="line" id="230647"><span class="nick" style="color:#8dd3c7"><a href="#230647" label="[23:06:47]">&lt;mihi&gt;</a></span><span class="message">as e.g. <a rel="nofollow" href="https://packages.debian.org/bullseye/guix">https://packages.debian.org/bullseye/guix</a>  depends on guile on the host system.</span></div><div class="line" id="230648"><span class="nick" style="color:#2e2a4a"><a href="#230648" label="[23:06:48]">&lt;janneke&gt;</a></span><span class="message">it depends on how you install it</span></div><div class="line" id="230651"><span class="nick" style="color:#6b8072"><a href="#230651" label="[23:06:51]">&lt;oriansj&gt;</a></span><span class="message">mihi: well assuming the behavior is no different than guix with no substitutes now; then it would use the bootstrap guile and run all of the steps</span></div><div class="line" id="230707"><span class="nick" style="color:#8dd3c7"><a href="#230707" label="[23:07:07]">&lt;mihi&gt;</a></span><span class="message">janneke, from debian package :)</span></div><div class="line" id="230727"><span class="nick" style="color:#6b8072"><a href="#230727" label="[23:07:27]">&lt;oriansj&gt;</a></span><span class="message">which for Rust packages takes about a week on an x200</span></div><div class="line" id="230936"><span class="nick" style="color:#2e2a4a"><a href="#230936" label="[23:09:36]">&lt;janneke&gt;</a></span><span class="message">mihi: ah right, sure it's built with debian dependencies</span></div><div class="line" id="231028"><span class="nick" style="color:#2e2a4a"><a href="#231028" label="[23:10:28]">&lt;janneke&gt;</a></span><span class="message">guess that's a feature :)</span></div><div class="line" id="231120"><span class="nick" style="color:#8dd3c7"><a href="#231120" label="[23:11:20]">&lt;mihi&gt;</a></span><span class="message">yeah. I wouldn't mind if it also used host Guile as a driver instead of that binary blob. But I guess when it gets the binary blob with stage0 and guile in it, it will probably use both</span></div><div class="line" id="231152"><span class="nick" style="color:#8dd3c7"><a href="#231152" label="[23:11:52]">&lt;mihi&gt;</a></span><span class="message">oriansj, Thinkpad L530 here, plus VirtualBox overhead, which is the reason why I don't want to test it myself :)</span></div><div class="line" id="231306"><span class="nick" style="color:#2e2a4a"><a href="#231306" label="[23:13:06]">&lt;janneke&gt;</a></span><span class="message">mihi: note that you'll (most probably) have to run &quot;guix pull&quot; first to get the new full source bootstrap</span></div><div class="line" id="231341"><span class="nick" style="color:#8dd3c7"><a href="#231341" label="[23:13:41]">&lt;mihi&gt;</a></span><span class="message">that's why I wrote &quot;when next Guix version is released&quot; (and I meant &quot;and packaged for debian unstable&quot;)</span></div><div class="line" id="232052"><span class="nick" style="color:#2e2a4a"><a href="#232052" label="[23:20:52]">&lt;janneke&gt;</a></span><span class="message">right...but you don't have to wait for that of course</span></div><div class="line" id="232104"><span class="nick" style="color:#2e2a4a"><a href="#232104" label="[23:21:04]">&lt;janneke&gt;</a></span><span class="message">running &quot;guix pull&quot; now is almost just as good</span></div><div class="line" id="232118"><span class="nick" style="color:#6b8072"><a href="#232118" label="[23:21:18]">&lt;oriansj&gt;</a></span><span class="message">mihi: fair enough. The worst bit is finding the guix packages that no longer build and people using substitutes completely miss that detail.</span></div><div class="line" id="232229"><span class="nick" style="color:#8dd3c7"><a href="#232229" label="[23:22:29]">&lt;mihi&gt;</a></span><span class="message">oriansj, I have the impression that even with subsitutes, when living on the Guix bleeding edge, you will encounter packages that won't build (and hence have no substitutes availablilty) for months...</span></div><div class="line" id="232301"><span class="nick" style="color:#8dd3c7"><a href="#232301" label="[23:23:01]">&lt;mihi&gt;</a></span><span class="message">in Debian, when a package FTBFS and is not fixed, it gets dropped from the next release...</span></div><div class="line" id="232411"><span class="nick" style="color:#2e2a4a"><a href="#232411" label="[23:24:11]">&lt;janneke&gt;</a></span><span class="message">oriansj: a guix package that doesn't build anymore...that's _very_ unlikely to happen</span></div><div class="line" id="232504"><span class="nick" style="color:#2e2a4a"><a href="#232504" label="[23:25:04]">&lt;janneke&gt;</a></span><span class="message">if it has substitutes</span></div><div class="line" id="232536"><span class="nick" style="color:#8dd3c7"><a href="#232536" label="[23:25:36]">&lt;mihi&gt;</a></span><span class="message">janneke, it happens all the time, search for &quot;time bomb&quot; on the guix-devel mailing list</span></div><div class="line" id="232538"><span class="nick" style="color:#2e2a4a"><a href="#232538" label="[23:25:38]">&lt;janneke&gt;</a></span><span class="message">(of course, packages may fail to build when dependencies are upgraded or something)</span></div><div class="line" id="232607"><span class="nick" style="color:#8dd3c7"><a href="#232607" label="[23:26:07]">&lt;mihi&gt;</a></span><span class="message">janneke, unfortunately, there are packages that only build with an internet connection. And modern internet is brittle (timestamps, certificates, etc.)</span></div><div class="line" id="232646"><span class="nick" style="color:#8dd3c7"><a href="#232646" label="[23:26:46]">&lt;mihi&gt;</a></span><span class="message">even openssl / libressl tests sometimes fail if your system clock is too far &quot;in the future&quot;.</span></div><div class="line" id="232733"><span class="nick" style="color:#2e2a4a"><a href="#232733" label="[23:27:33]">&lt;janneke&gt;</a></span><span class="message">mihi: guix packages are built in a container without internet</span></div><div class="line" id="232901"><span class="nick" style="color:#8dd3c7"><a href="#232901" label="[23:29:01]">&lt;mihi&gt;</a></span><span class="message">janneke, yet OpenSSL still can fail tests (e.g. <a rel="nofollow" href="https://lists.gnu.org/archive/html/guix-devel/2023-04/msg00061.html">https://lists.gnu.org/archive/html/guix-devel/2023-04/msg00061.html</a>) </span></div><div class="line" id="232945"><span class="nick" style="color:#2e2a4a"><a href="#232945" label="[23:29:45]">&lt;janneke&gt;</a></span><span class="message">mihi: right, but that's not a &quot;happens all the time&quot; imho, that is an exception with a terribly written test</span></div><div class="line" id="232958"><span class="nick" style="color:#8dd3c7"><a href="#232958" label="[23:29:58]">&lt;mihi&gt;</a></span><span class="message">also, when I experimented with a childhurd some years ago, I had the impression that building did connect to the Internet. But perhaps that was only on Hurd.</span></div><div class="line" id="233005"><span class="nick" style="color:#2e2a4a"><a href="#233005" label="[23:30:05]">&lt;janneke&gt;</a></span><span class="message">kernel or hardware incompatibilities, yeah that could happen</span></div><div class="line" id="233018"><span class="nick" style="color:#2e2a4a"><a href="#233018" label="[23:30:18]">&lt;janneke&gt;</a></span><span class="message">but source could should always be available for some time now</span></div><div class="line" id="233031"><span class="nick" style="color:#2e2a4a"><a href="#233031" label="[23:30:31]">&lt;janneke&gt;</a></span><span class="message">mihi: that's true</span></div><div class="line" id="233044"><span class="nick" style="color:#2e2a4a"><a href="#233044" label="[23:30:44]">&lt;janneke&gt;</a></span><span class="message">the childhurd does not build in a container yet</span></div><div class="line" id="233100"><span class="nick" style="color:#2e2a4a"><a href="#233100" label="[23:31:00]">&lt;janneke&gt;</a></span><span class="message">that's a known bug :-(</span></div><div class="line" id="233113"><span class="nick" style="color:#2e2a4a"><a href="#233113" label="[23:31:13]">&lt;janneke&gt;</a></span><span class="message">*source code</span></div><div class="line" id="233139"><span class="nick" style="color:#6b8072"><a href="#233139" label="[23:31:39]">&lt;oriansj&gt;</a></span><span class="message">and one that does need to be fixed (probably by falling back to virtual machines)</span></div><div class="line" id="233154"><span class="nick" style="color:#8dd3c7"><a href="#233154" label="[23:31:54]">&lt;mihi&gt;</a></span><span class="message">yeah, I appreciate the work that Guix puts into SWH and Disarchive.</span></div><div class="line" id="233221"><span class="nick" style="color:#2e2a4a"><a href="#233221" label="[23:32:21]">&lt;janneke&gt;</a></span><span class="message">oriansj: sure, that needs to be fixed!</span></div><div class="line" id="233222"><span class="nick" style="color:#8dd3c7"><a href="#233222" label="[23:32:22]">&lt;mihi&gt;</a></span><span class="message">still, from the scores in the last Disarchive report I read, I would not say &quot;always&quot; available (even 90% is not always)</span></div><div class="line" id="233312"><span class="nick" style="color:#6b8072"><a href="#233312" label="[23:33:12]">&lt;oriansj&gt;</a></span><span class="message">and unfortunately there are packages which are updated and not tested prior to merging into master and that results in broken package versions that never worked in the first place</span></div><div class="line" id="233443"><span class="nick" style="color:#2e2a4a"><a href="#233443" label="[23:34:43]">&lt;janneke&gt;</a></span><span class="message">sure, that's terrible and happens all the time</span></div><div class="line" id="233508"><span class="nick" style="color:#6b8072"><a href="#233508" label="[23:35:08]">&lt;oriansj&gt;</a></span><span class="message">and can break a system deploy on new systems &gt;.&lt;</span></div><div class="line" id="233553"><span class="nick" style="color:#2e2a4a"><a href="#233553" label="[23:35:53]">&lt;janneke&gt;</a></span><span class="message">sure, but there's always roll-back right? ;)</span></div><div class="line" id="233608"><span class="nick" style="color:#8dd3c7"><a href="#233608" label="[23:36:08]">&lt;mihi&gt;</a></span><span class="message">janneke, oriansj, for initial install on a new system I'd probably use a released version and not bleeding edge. Yet I'm not sure if that only contains 100% good packages, either.</span></div><div class="line" id="233612"><span class="nick" style="color:#6b8072"><a href="#233612" label="[23:36:12]">&lt;oriansj&gt;</a></span><span class="message">janneke: not on brand new systems</span></div><div class="line" id="233647"><span class="nick" style="color:#8dd3c7"><a href="#233647" label="[23:36:47]">&lt;mihi&gt;</a></span><span class="message">there is a reason that for &quot;other&quot; distros, release freeze is several months.</span></div><div class="line" id="233648"><span class="nick" style="color:#6b8072"><a href="#233648" label="[23:36:48]">&lt;oriansj&gt;</a></span><span class="message">and guix has no stable branch nor tags that are fully tested.</span></div><div class="line" id="233706"><span class="nick" style="color:#2e2a4a"><a href="#233706" label="[23:37:06]">&lt;janneke&gt;</a></span><span class="message">oriansj: right, but nothing was lost then; a first install can always fail?</span></div><div class="line" id="233741"><span class="nick" style="color:#2e2a4a"><a href="#233741" label="[23:37:41]">&lt;janneke&gt;</a></span><span class="message">yeah</span></div><div class="line" id="233742"><span class="nick" style="color:#8dd3c7"><a href="#233742" label="[23:37:42]">&lt;mihi&gt;</a></span><span class="message">janneke, lost time, lost confidence. When first install of a distro fails for me, I'll use a different distro on that machine.</span></div><div class="line" id="233755"><span class="nick" style="color:#6b8072"><a href="#233755" label="[23:37:55]">&lt;oriansj&gt;</a></span><span class="message">janneke: welll, it is a serious problem if your computer died and you are trying to get back into an operational state</span></div><div class="line" id="233812"><span class="nick" style="color:#8dd3c7"><a href="#233812" label="[23:38:12]">&lt;mihi&gt;</a></span><span class="message">janneke, maybe that is your point. nothing lost yet, better move now than later when it is more painful :)</span></div><div class="line" id="233825"><span class="nick" style="color:#2e2a4a"><a href="#233825" label="[23:38:25]">&lt;janneke&gt;</a></span><span class="message">hehe</span></div><div class="line" id="233927"><span class="nick" style="color:#6b8072"><a href="#233927" label="[23:39:27]">&lt;oriansj&gt;</a></span><span class="message">which is a bit of a concern on x200 systems as they are getting quite old and there are not many respect your freedom certified laptops available.</span></div><br /></div></body></html>

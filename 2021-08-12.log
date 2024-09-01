@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-08-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002010"><span class="nick" style="color:#389600"><a href="#002010" label="[00:20:10]">&lt;oriansj&gt;</a></span><span class="message">vancz: as stikonas pointed out, we do have man pages (just perhaps not to the depth desired) and I am more than happy to expand it to address any specific questions you might have. Provided you are willing to help me clarify to a level which your question is satisfied</span></div><div class="line" id="012407"><span class="nick" style="color:#2e2a4a"><a href="#012407" label="[01:24:07]">&lt;stikonas&gt;</a></span><span class="message">oriansj: U-type instructions might also need more work</span></div><div class="line" id="012441"><span class="nick" style="color:#2e2a4a"><a href="#012441" label="[01:24:41]">&lt;stikonas&gt;</a></span><span class="message">I think the issue is that once we place 32-bit value there, it is sign-extended to 64 bits</span></div><div class="line" id="012524"><span class="nick" style="color:#2e2a4a"><a href="#012524" label="[01:25:24]">&lt;stikonas&gt;</a></span><span class="message">so if I try to place 0xfffff000 then REGISTER ~0xfffff000 LUI does not work</span></div><div class="line" id="012921"><span class="nick" style="color:#2e2a4a"><a href="#012921" label="[01:29:21]">&lt;stikonas&gt;</a></span><span class="message">I can load it using 3 instructions and shifts though...</span></div><div class="line" id="013414"><span class="nick" style="color:#2e2a4a"><a href="#013414" label="[01:34:14]">&lt;stikonas&gt;</a></span><span class="message">perhaps this can't be solved at M1 level...</span></div><div class="line" id="013422"><span class="nick" style="color:#2e2a4a"><a href="#013422" label="[01:34:22]">&lt;stikonas&gt;</a></span><span class="message">and has to be implemented in C compiler</span></div><div class="line" id="015905"><span class="nick" style="color:#389600"><a href="#015905" label="[01:59:05]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well U-type instructions only provide the top half of a 32bit value as (value &amp; 0xfff) &lt; 0x800 wouldn't be true</span></div><div class="line" id="015937"><span class="nick" style="color:#389600"><a href="#015937" label="[01:59:37]">&lt;oriansj&gt;</a></span><span class="message">how would say binutils encode that?</span></div><div class="line" id="020420"><span class="nick" style="color:#2e2a4a"><a href="#020420" label="[02:04:20]">&lt;stikonas&gt;</a></span><span class="message">oriansj: they do the following</span></div><div class="line" id="020422"><span class="nick" style="color:#2e2a4a"><a href="#020422" label="[02:04:22]">&lt;stikonas&gt;</a></span><span class="message">RD_T2 ~0x100000 LUI</span></div><div class="line" id="020429"><span class="nick" style="color:#2e2a4a"><a href="#020429" label="[02:04:29]">&lt;stikonas&gt;</a></span><span class="message">RD_T2 RS1_T2 !-1 ADDIW</span></div><div class="line" id="020437"><span class="nick" style="color:#2e2a4a"><a href="#020437" label="[02:04:37]">&lt;stikonas&gt;</a></span><span class="message">RD_T2 RS1_T2 RS2_X12 SLLI</span></div><div class="line" id="020500"><span class="nick" style="color:#2e2a4a"><a href="#020500" label="[02:05:00]">&lt;stikonas&gt;</a></span><span class="message">so create the same number in lower bits and then bitshift it</span></div><div class="line" id="020518"><span class="nick" style="color:#2e2a4a"><a href="#020518" label="[02:05:18]">&lt;stikonas&gt;</a></span><span class="message">RS2_X12 is shift by 12</span></div><div class="line" id="020604"><span class="nick" style="color:#2e2a4a"><a href="#020604" label="[02:06:04]">&lt;stikonas&gt;</a></span><span class="message">so basically load 0x100 with lui; addiw, reg, reg, -1 and slli reg ,reg, 12</span></div><div class="line" id="020722"><span class="nick" style="color:#2e2a4a"><a href="#020722" label="[02:07:22]">&lt;stikonas&gt;</a></span><span class="message">on way or another, we'll have to encode these large values, those limits are in source code of hex2 now</span></div><div class="line" id="020836"><span class="nick" style="color:#2e2a4a"><a href="#020836" label="[02:08:36]">&lt;stikonas&gt;</a></span><span class="message">in assembly version of hex1/2 I can do this shifting trick</span></div><div class="line" id="020901"><span class="nick" style="color:#2e2a4a"><a href="#020901" label="[02:09:01]">&lt;stikonas&gt;</a></span><span class="message">but I guess at least M2-Planet (not sure about cc_*) will have to deal with it</span></div><div class="line" id="020937"><span class="nick" style="color:#2e2a4a"><a href="#020937" label="[02:09:37]">&lt;stikonas&gt;</a></span><span class="message">although, I guess we would have to deal with it in any case if we want to support 64-bit numbers</span></div><div class="line" id="021014"><span class="nick" style="color:#2e2a4a"><a href="#021014" label="[02:10:14]">&lt;stikonas&gt;</a></span><span class="message">hmm, shouldn't we have encountered similar problem on ARM...</span></div><div class="line" id="031442"><span class="nick" style="color:#389600"><a href="#031442" label="[03:14:42]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well in AMD64 and AArch64, we simply loaded a sign extended 32bit number as M2-Planet operates under the 31bit memory space.</span></div><div class="line" id="031518"><span class="nick" style="color:#389600"><a href="#031518" label="[03:15:18]">&lt;oriansj&gt;</a></span><span class="message">So if one needs a 64bit number that can't be expressed in 32bits, then it isn't going to work in M2-Planet.</span></div><div class="line" id="031713"><span class="nick" style="color:#6b8072"><a href="#031713" label="[03:17:13]">&lt;stikonas[m]&gt;</a></span><span class="message">Oh i see</span></div><div class="line" id="031732"><span class="nick" style="color:#6b8072"><a href="#031732" label="[03:17:32]">&lt;stikonas[m]&gt;</a></span><span class="message">So I guess same with RISC-V...</span></div><div class="line" id="031811"><span class="nick" style="color:#6b8072"><a href="#031811" label="[03:18:11]">&lt;stikonas[m]&gt;</a></span><span class="message">Having some issues debugging hex1.M1 :(. But will continue tomorrow...</span></div><div class="line" id="031848"><span class="nick" style="color:#6b8072"><a href="#031848" label="[03:18:48]">&lt;stikonas[m]&gt;</a></span><span class="message">Gas version works, m1 version doesn't quite work but I can't spot any difference</span></div><div class="line" id="032249"><span class="nick" style="color:#389600"><a href="#032249" label="[03:22:49]">&lt;oriansj&gt;</a></span><span class="message">stikonas: objdump -d and meld might make it easier to spot the differences.</span></div><div class="line" id="032314"><span class="nick" style="color:#6b8072"><a href="#032314" label="[03:23:14]">&lt;stikonas[m]&gt;</a></span><span class="message">I tried to even load both into gdb...</span></div><div class="line" id="032334"><span class="nick" style="color:#6b8072"><a href="#032334" label="[03:23:34]">&lt;stikonas[m]&gt;</a></span><span class="message">Couldn't see anything significantly different in .text</span></div><div class="line" id="032400"><span class="nick" style="color:#6b8072"><a href="#032400" label="[03:24:00]">&lt;stikonas[m]&gt;</a></span><span class="message">(Only address of buffer area...)</span></div><div class="line" id="032409"><span class="nick" style="color:#6b8072"><a href="#032409" label="[03:24:09]">&lt;stikonas[m]&gt;</a></span><span class="message">Unless I missed something</span></div><div class="line" id="032429"><span class="nick" style="color:#6b8072"><a href="#032429" label="[03:24:29]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, I should try to create a smaller reproducer</span></div><div class="line" id="032503"><span class="nick" style="color:#389600"><a href="#032503" label="[03:25:03]">&lt;oriansj&gt;</a></span><span class="message">starting with something that works and slowly add to it (while keeping it working) really helps reduce the number of problem areas</span></div><div class="line" id="032934"><span class="nick" style="color:#389600"><a href="#032934" label="[03:29:34]">&lt;oriansj&gt;</a></span><span class="message">You can also add tracing with stderr and a simple incrementing variable.</span></div><div class="line" id="100514"><span class="nick" style="color:#80b1d3"><a href="#100514" label="[10:05:14]">&lt;vancz&gt;</a></span><span class="message">Thanks for clarifying - I was partly asking on behalf of someone else but this is good to know in case I ever start poking around with this stuff :)</span></div><br /></div></body></html>

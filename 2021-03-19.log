@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-03-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="032005"><span class="nick" style="color:#8dd3c7"><a href="#032005" label="[03:20:05]">&lt;pder&gt;</a></span><span class="message">stikonas: for tar, I attempted to build tar 1.22 which is the first version to support the J option for xv.  It wants autoconf 2.60</span></div><div class="line" id="032013"><span class="nick" style="color:#8dd3c7"><a href="#032013" label="[03:20:13]">&lt;pder&gt;</a></span><span class="message">*xz</span></div><div class="line" id="075834"><span class="nick" style="color:#2e2a4a"><a href="#075834" label="[07:58:34]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: is there a reason we haven't been using autoreconf before now?</span></div><div class="line" id="092000"><span class="nick" style="color:#6b8072"><a href="#092000" label="[09:20:00]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: non-perl versions need find</span></div><div class="line" id="122130"><span class="nick" style="color:#2e2a4a"><a href="#122130" label="[12:21:30]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: ahh</span></div><div class="line" id="122945"><span class="nick" style="color:#80b1d3"><a href="#122945" label="[12:29:45]">&lt;stikonas&gt;</a></span><span class="message">fossy: I think autoreconf-2.53 also didn't wor for me</span></div><div class="line" id="122950"><span class="nick" style="color:#80b1d3"><a href="#122950" label="[12:29:50]">&lt;stikonas&gt;</a></span><span class="message">hence I started using it from 2.54</span></div><div class="line" id="123000"><span class="nick" style="color:#80b1d3"><a href="#123000" label="[12:30:00]">&lt;stikonas&gt;</a></span><span class="message">anyway, I've adjusted it to run with -f flag</span></div><div class="line" id="123018"><span class="nick" style="color:#80b1d3"><a href="#123018" label="[12:30:18]">&lt;stikonas&gt;</a></span><span class="message">(and also pushed one commit to add MAKEINFO=true earlier in toe bootstrap)</span></div><div class="line" id="123033"><span class="nick" style="color:#80b1d3"><a href="#123033" label="[12:30:33]">&lt;stikonas&gt;</a></span><span class="message">I already had to add it to autoconf 2.12 and 2.13...</span></div><div class="line" id="123040"><span class="nick" style="color:#80b1d3"><a href="#123040" label="[12:30:40]">&lt;stikonas&gt;</a></span><span class="message">but looks like automake 1.4 also needs it</span></div><div class="line" id="144514"><span class="nick">***</span><span class="message notice">jelle is now known as Guest93583</span></div><div class="line" id="153345"><span class="nick">***</span><span class="message notice">jelly1 is now known as jelle</span></div><div class="line" id="163135"><span class="nick" style="color:#80b1d3"><a href="#163135" label="[16:31:35]">&lt;stikonas&gt;</a></span><span class="message">pder: I think I might be a be to go a bit further with autoconf without updating libtool... not sure if I can reach 2.65 though</span></div><div class="line" id="163142"><span class="nick" style="color:#80b1d3"><a href="#163142" label="[16:31:42]">&lt;stikonas&gt;</a></span><span class="message">but 2.61 should be possible</span></div><div class="line" id="193050"><span class="nick" style="color:#8dd3c7"><a href="#193050" label="[19:30:50]">&lt;pder&gt;</a></span><span class="message">stikonas: 2.61 or later of autoconf would be helpful for building tar 1.22.  I was checking out earlier versions of xz, and v5.0.0 wants autoconf 2.64 and libtool 2.2</span></div><div class="line" id="193111"><span class="nick" style="color:#80b1d3"><a href="#193111" label="[19:31:11]">&lt;stikonas&gt;</a></span><span class="message">libtool is tricky</span></div><div class="line" id="193115"><span class="nick" style="color:#80b1d3"><a href="#193115" label="[19:31:15]">&lt;stikonas&gt;</a></span><span class="message">even 1.5 wants cpp</span></div><div class="line" id="193139"><span class="nick" style="color:#8dd3c7"><a href="#193139" label="[19:31:39]">&lt;pder&gt;</a></span><span class="message">could tcc -E be used for cpp?</span></div><div class="line" id="193146"><span class="nick" style="color:#80b1d3"><a href="#193146" label="[19:31:46]">&lt;stikonas&gt;</a></span><span class="message">possibly...</span></div><div class="line" id="193149"><span class="nick" style="color:#80b1d3"><a href="#193149" label="[19:31:49]">&lt;stikonas&gt;</a></span><span class="message">I haven't tried...</span></div><div class="line" id="193155"><span class="nick" style="color:#80b1d3"><a href="#193155" label="[19:31:55]">&lt;stikonas&gt;</a></span><span class="message">feel free to try :)</span></div><div class="line" id="193242"><span class="nick" style="color:#80b1d3"><a href="#193242" label="[19:32:42]">&lt;stikonas&gt;</a></span><span class="message">1.4.3 build easily, but not sure if it gains us much</span></div><div class="line" id="193247"><span class="nick" style="color:#80b1d3"><a href="#193247" label="[19:32:47]">&lt;stikonas&gt;</a></span><span class="message">and 1.5 already needs it</span></div><div class="line" id="193328"><span class="nick" style="color:#80b1d3"><a href="#193328" label="[19:33:28]">&lt;stikonas&gt;</a></span><span class="message">also if you feel up to it try building texinfo...</span></div><div class="line" id="193337"><span class="nick" style="color:#80b1d3"><a href="#193337" label="[19:33:37]">&lt;stikonas&gt;</a></span><span class="message">(which has makeinfo binary)</span></div><div class="line" id="193354"><span class="nick" style="color:#80b1d3"><a href="#193354" label="[19:33:54]">&lt;stikonas&gt;</a></span><span class="message">would remove the need for MAKEINFO=true</span></div><div class="line" id="193355"><span class="nick" style="color:#8dd3c7"><a href="#193355" label="[19:33:55]">&lt;pder&gt;</a></span><span class="message">I can take a look.  What are the missing dependencies for gcc at this point?</span></div><div class="line" id="193417"><span class="nick" style="color:#80b1d3"><a href="#193417" label="[19:34:17]">&lt;stikonas&gt;</a></span><span class="message">I tried autoreconf 2.59, it was missing some macros</span></div><div class="line" id="193428"><span class="nick" style="color:#80b1d3"><a href="#193428" label="[19:34:28]">&lt;stikonas&gt;</a></span><span class="message">maybe newer autoconf</span></div><div class="line" id="193433"><span class="nick" style="color:#80b1d3"><a href="#193433" label="[19:34:33]">&lt;stikonas&gt;</a></span><span class="message">other than that we can try building gcc</span></div><div class="line" id="193511"><span class="nick" style="color:#8dd3c7"><a href="#193511" label="[19:35:11]">&lt;pder&gt;</a></span><span class="message">Did you ever try findutils?</span></div><div class="line" id="193547"><span class="nick" style="color:#80b1d3"><a href="#193547" label="[19:35:47]">&lt;stikonas&gt;</a></span><span class="message">hmm, I tried briefly</span></div><div class="line" id="193552"><span class="nick" style="color:#8dd3c7"><a href="#193552" label="[19:35:52]">&lt;pder&gt;</a></span><span class="message">Also do we need to rebuild gawk?  You said that newer autoconf fixed the bash || true workaround.</span></div><div class="line" id="193559"><span class="nick" style="color:#80b1d3"><a href="#193559" label="[19:35:59]">&lt;stikonas&gt;</a></span><span class="message">I think some problems with autoreconf, maybe wants gettext</span></div><div class="line" id="193604"><span class="nick" style="color:#80b1d3"><a href="#193604" label="[19:36:04]">&lt;stikonas&gt;</a></span><span class="message">possibly patchable in configure.in/ac</span></div><div class="line" id="193619"><span class="nick" style="color:#80b1d3"><a href="#193619" label="[19:36:19]">&lt;stikonas&gt;</a></span><span class="message">pder: rebuilding gawk would still be better</span></div><div class="line" id="193629"><span class="nick" style="color:#80b1d3"><a href="#193629" label="[19:36:29]">&lt;stikonas&gt;</a></span><span class="message">otherwise it can't print proper error messages</span></div><div class="line" id="193631"><span class="nick" style="color:#80b1d3"><a href="#193631" label="[19:36:31]">&lt;stikonas&gt;</a></span><span class="message">in configure scripts</span></div><div class="line" id="193849"><span class="nick" style="color:#8dd3c7"><a href="#193849" label="[19:38:49]">&lt;pder&gt;</a></span><span class="message">Do we need a newer gawk?  3.0.4 builds with CC=tcc ./configure --build=i386-unknown-lin</span></div><div class="line" id="193851"><span class="nick" style="color:#8dd3c7"><a href="#193851" label="[19:38:51]">&lt;pder&gt;</a></span><span class="message">ux</span></div><div class="line" id="194005"><span class="nick" style="color:#80b1d3"><a href="#194005" label="[19:40:05]">&lt;stikonas&gt;</a></span><span class="message">I guess le'ts just rebuild current one for now</span></div><div class="line" id="194006"><span class="nick" style="color:#8dd3c7"><a href="#194006" label="[19:40:06]">&lt;pder&gt;</a></span><span class="message">I am not sure what all needs to be regenerated though</span></div><div class="line" id="194019"><span class="nick" style="color:#80b1d3"><a href="#194019" label="[19:40:19]">&lt;stikonas&gt;</a></span><span class="message">just try running autoreconf-2.xx -f</span></div><div class="line" id="194029"><span class="nick" style="color:#80b1d3"><a href="#194029" label="[19:40:29]">&lt;stikonas&gt;</a></span><span class="message">should work quite well now</span></div><div class="line" id="194032"><span class="nick" style="color:#80b1d3"><a href="#194032" label="[19:40:32]">&lt;stikonas&gt;</a></span><span class="message">well you need my PR...</span></div><div class="line" id="194038"><span class="nick" style="color:#80b1d3"><a href="#194038" label="[19:40:38]">&lt;stikonas&gt;</a></span><span class="message">for non-broken autoreconf</span></div><div class="line" id="194051"><span class="nick" style="color:#80b1d3"><a href="#194051" label="[19:40:51]">&lt;stikonas&gt;</a></span><span class="message">autoreconf-2.52 depends on findutils, so doesn't work</span></div><div class="line" id="194150"><span class="nick" style="color:#8dd3c7"><a href="#194150" label="[19:41:50]">&lt;pder&gt;</a></span><span class="message">I am on your autotools branch.  autoreconf-2.59 -f seemed to work followed by configure and make</span></div><div class="line" id="194217"><span class="nick" style="color:#80b1d3"><a href="#194217" label="[19:42:17]">&lt;stikonas&gt;</a></span><span class="message">I'll probably push 2.61 later... but it will be easy to rebase...</span></div><div class="line" id="194228"><span class="nick" style="color:#80b1d3"><a href="#194228" label="[19:42:28]">&lt;stikonas&gt;</a></span><span class="message">and if not, you can always stay on 2.61</span></div><div class="line" id="194231"><span class="nick" style="color:#80b1d3"><a href="#194231" label="[19:42:31]">&lt;stikonas&gt;</a></span><span class="message">2.59</span></div><div class="line" id="194348"><span class="nick" style="color:#80b1d3"><a href="#194348" label="[19:43:48]">&lt;stikonas&gt;</a></span><span class="message">we might also replace bash 3.2.57 with something newer...</span></div><div class="line" id="194405"><span class="nick" style="color:#80b1d3"><a href="#194405" label="[19:44:05]">&lt;stikonas&gt;</a></span><span class="message">maybe even 5.1 (which is the very latest)</span></div><div class="line" id="194436"><span class="nick" style="color:#8dd3c7"><a href="#194436" label="[19:44:36]">&lt;pder&gt;</a></span><span class="message">That would be nice- bash 4 I know has some nice additions</span></div><div class="line" id="194558"><span class="nick" style="color:#80b1d3"><a href="#194558" label="[19:45:58]">&lt;stikonas&gt;</a></span><span class="message">I think bash has fairly low requirements on autotools...</span></div><div class="line" id="194849"><span class="nick" style="color:#80b1d3"><a href="#194849" label="[19:48:49]">&lt;stikonas&gt;</a></span><span class="message">I think even latest git needs just 2.61</span></div><div class="line" id="200050"><span class="nick" style="color:#80b1d3"><a href="#200050" label="[20:00:50]">&lt;stikonas&gt;</a></span><span class="message">hmm, autoconf 2.63 (or 2.62) both need newer automake, I can try later 1.9.x...</span></div><div class="line" id="201535"><span class="nick" style="color:#80b1d3"><a href="#201535" label="[20:15:35]">&lt;stikonas&gt;</a></span><span class="message">pder: so I've build autoconf 2.61 now</span></div><div class="line" id="201551"><span class="nick" style="color:#80b1d3"><a href="#201551" label="[20:15:51]">&lt;stikonas&gt;</a></span><span class="message">had to build help2man first</span></div><div class="line" id="201601"><span class="nick" style="color:#80b1d3"><a href="#201601" label="[20:16:01]">&lt;stikonas&gt;</a></span><span class="message">and help2man is a tiny bit broken</span></div><div class="line" id="201614"><span class="nick" style="color:#80b1d3"><a href="#201614" label="[20:16:14]">&lt;stikonas&gt;</a></span><span class="message">(missing shebang)</span></div><div class="line" id="201624"><span class="nick" style="color:#80b1d3"><a href="#201624" label="[20:16:24]">&lt;stikonas&gt;</a></span><span class="message">can only run it with perl /after/bin/help2man</span></div><div class="line" id="201635"><span class="nick" style="color:#80b1d3"><a href="#201635" label="[20:16:35]">&lt;stikonas&gt;</a></span><span class="message">instead of just &quot;help2man&quot;</span></div><div class="line" id="210125"><span class="nick" style="color:#80b1d3"><a href="#210125" label="[21:01:25]">&lt;stikonas&gt;</a></span><span class="message">pder: I've just pushed autoconf 2.61 (with fixed help2man too) if you want to play with newer bash...</span></div><div class="line" id="214723"><span class="nick" style="color:#80b1d3"><a href="#214723" label="[21:47:23]">&lt;stikonas&gt;</a></span><span class="message">pder: fossy: so automake 1.9 seems to be another case of circular dependency...</span></div><div class="line" id="214745"><span class="nick" style="color:#80b1d3"><a href="#214745" label="[21:47:45]">&lt;stikonas&gt;</a></span><span class="message">it depends on automake 1.8a (first alpha of 1.9), we don't have it though</span></div><div class="line" id="214800"><span class="nick" style="color:#80b1d3"><a href="#214800" label="[21:48:00]">&lt;stikonas&gt;</a></span><span class="message">I foudn 1.8b on alpha.gnu.org, but that already seems to depend on 1.8a...</span></div><div class="line" id="215007"><span class="nick" style="color:#80b1d3"><a href="#215007" label="[21:50:07]">&lt;stikonas&gt;</a></span><span class="message">maybe should try to patch configure.ac</span></div><div class="line" id="215402"><span class="nick" style="color:#80b1d3"><a href="#215402" label="[21:54:02]">&lt;stikonas&gt;</a></span><span class="message">hmm, yeah, not too hard to patch. Although, it's just another case of let's depend on ourselves for no good reason...</span></div><div class="line" id="215930"><span class="nick" style="color:#6d2462"><a href="#215930" label="[21:59:30]">&lt;Hagfish&gt;</a></span><span class="message">i almost think that the person responsible for that engineering decision should be named and shamed, but i'll settle for this example being included in a &quot;what not to do&quot; list taught in future computer science undergraduate courses</span></div><div class="line" id="220113"><span class="nick" style="color:#6d2462"><a href="#220113" label="[22:01:13]">&lt;Hagfish&gt;</a></span><span class="message">let it go down in history like the Therac-25</span></div><div class="line" id="220300"><span class="nick" style="color:#80b1d3"><a href="#220300" label="[22:03:00]">&lt;stikonas&gt;</a></span><span class="message">sell, the fix was sed -i 's/1.8a/1.8.5/; s/ filename-length-max=99//' configure.ac</span></div><div class="line" id="220344"><span class="nick" style="color:#80b1d3"><a href="#220344" label="[22:03:44]">&lt;stikonas&gt;</a></span><span class="message">(removing that filename-length-max, not too sure what exactly it does, I guess limits some filenames somewhere)</span></div><div class="line" id="220829"><span class="nick" style="color:#2e2a4a"><a href="#220829" label="[22:08:29]">&lt;fossy&gt;</a></span><span class="message">autotools loves those circular deps lol</span></div><div class="line" id="221020"><span class="nick" style="color:#80b1d3"><a href="#221020" label="[22:10:20]">&lt;stikonas&gt;</a></span><span class="message">anyway, I'm testing 1.9.6 now</span></div><div class="line" id="221151"><span class="nick" style="color:#80b1d3"><a href="#221151" label="[22:11:51]">&lt;stikonas&gt;</a></span><span class="message">autoconf might actually be getting better later</span></div><div class="line" id="221211"><span class="nick" style="color:#80b1d3"><a href="#221211" label="[22:12:11]">&lt;stikonas&gt;</a></span><span class="message">just checked 2.65 only wants 2.60 (although we need to get automake 1.10 first)</span></div><div class="line" id="221222"><span class="nick" style="color:#80b1d3"><a href="#221222" label="[22:12:22]">&lt;stikonas&gt;</a></span><span class="message">2.65 would be nice to have as it is needed for xz</span></div><div class="line" id="221501"><span class="nick" style="color:#6d2462"><a href="#221501" label="[22:15:01]">&lt;Hagfish&gt;</a></span><span class="message">what's the earliest piece of software where upstream sources require xz?</span></div><div class="line" id="221528"><span class="nick" style="color:#6d2462"><a href="#221528" label="[22:15:28]">&lt;Hagfish&gt;</a></span><span class="message">(in terms of the bootstrap path, although i'd be interested to know the release date of it too)</span></div><div class="line" id="221957"><span class="nick" style="color:#80b1d3"><a href="#221957" label="[22:19:57]">&lt;stikonas&gt;</a></span><span class="message">Hagfish: almost nothing really requires xz</span></div><div class="line" id="222004"><span class="nick" style="color:#80b1d3"><a href="#222004" label="[22:20:04]">&lt;stikonas&gt;</a></span><span class="message">you can download gzip tarballs</span></div><div class="line" id="222010"><span class="nick" style="color:#80b1d3"><a href="#222010" label="[22:20:10]">&lt;stikonas&gt;</a></span><span class="message">but xz has better compression ration</span></div><div class="line" id="222013"><span class="nick" style="color:#80b1d3"><a href="#222013" label="[22:20:13]">&lt;stikonas&gt;</a></span><span class="message">ratio</span></div><div class="line" id="222041"><span class="nick" style="color:#6d2462"><a href="#222041" label="[22:20:41]">&lt;Hagfish&gt;</a></span><span class="message">oh, cool</span></div><div class="line" id="222054"><span class="nick" style="color:#80b1d3"><a href="#222054" label="[22:20:54]">&lt;stikonas&gt;</a></span><span class="message">anyway, for older software that we used to build (something around 2004) .tar.xz was not an option, it only becomes an option once we move to newer stuff...</span></div><div class="line" id="222056"><span class="nick" style="color:#80b1d3"><a href="#222056" label="[22:20:56]">&lt;stikonas&gt;</a></span><span class="message">like from 2010</span></div><div class="line" id="222056"><span class="nick">***</span><span class="message notice">Noisytoot is now known as NOISYTOOT</span></div><div class="line" id="222152"><span class="nick" style="color:#80b1d3"><a href="#222152" label="[22:21:52]">&lt;stikonas&gt;</a></span><span class="message">(one can probably build xz from older version, but there are no tarballs available anymore)</span></div><div class="line" id="222158"><span class="nick" style="color:#80b1d3"><a href="#222158" label="[22:21:58]">&lt;stikonas&gt;</a></span><span class="message">5.0.0 is the oldest I could find</span></div><div class="line" id="222251"><span class="nick" style="color:#6d2462"><a href="#222251" label="[22:22:51]">&lt;Hagfish&gt;</a></span><span class="message">yeah, i see it's the oldest version in the NEWS file too <a rel="nofollow" href="https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;hb=HEAD">https://git.tukaani.org/?p=xz.git;a=blob;f=NEWS;hb=HEAD</a> </span></div><div class="line" id="222959"><span class="nick" style="color:#80b1d3"><a href="#222959" label="[22:29:59]">&lt;stikonas&gt;</a></span><span class="message">oh, maybe they just started releasing from version 5...</span></div><div class="line" id="223035"><span class="nick" style="color:#80b1d3"><a href="#223035" label="[22:30:35]">&lt;stikonas&gt;</a></span><span class="message">anyway, we'll soon have new enough autotools, I'm almost done with them (except for libtool)</span></div><div class="line" id="223133"><span class="nick">***</span><span class="message notice">NOISYTOOT is now known as VERYNOISYTOOT</span></div><div class="line" id="223946"><span class="nick">***</span><span class="message notice">VERYNOISYTOOT is now known as Noisytoot</span></div><div class="line" id="231347"><span class="nick">***</span><span class="message notice">fitzsim` is now known as fitzsim</span></div><br /></div></body></html>

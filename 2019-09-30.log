@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-09-30.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="113519"><span class="nick">***</span><span class="message notice">roptat_ is now known as roptat</span></div><div class="line" id="204429"><span class="nick" style="color:#8dd3c7"><a href="#204429" label="[20:44:29]">&lt;vagrantc&gt;</a></span><span class="message">janneke: is it plausible for mes to install files such as /usr/include/getopt.h into another directory? I'm realizing this could be a challenge for packaging for debian, since two packages can't (usually) have files in the same path</span></div><div class="line" id="204530"><span class="nick" style="color:#8dd3c7"><a href="#204530" label="[20:45:30]">&lt;vagrantc&gt;</a></span><span class="message">janneke: and is bin/mes expected to be statically compiled?</span></div><div class="line" id="211102"><span class="nick" style="color:#2e2a4a"><a href="#211102" label="[21:11:02]">&lt;janneke&gt;</a></span><span class="message">vagrantc: bin/mes is expected to be statically compiled, esp. because its primary focus is bootstrapping</span></div><div class="line" id="211123"><span class="nick" style="color:#8dd3c7"><a href="#211123" label="[21:11:23]">&lt;vagrantc&gt;</a></span><span class="message">sure, just checking ... can add an override for that easily :)</span></div><div class="line" id="211149"><span class="nick" style="color:#2e2a4a"><a href="#211149" label="[21:11:49]">&lt;janneke&gt;</a></span><span class="message">when mes is not used for bootstrapping, it's a don't care afaic</span></div><div class="line" id="211155"><span class="nick" style="color:#8dd3c7"><a href="#211155" label="[21:11:55]">&lt;vagrantc&gt;</a></span><span class="message">the &quot;files are really old&quot; issue can probably solve by just touching everything to SOURCE_DATE_EPOCH before building.</span></div><div class="line" id="211159"><span class="nick" style="color:#8dd3c7"><a href="#211159" label="[21:11:59]">&lt;vagrantc&gt;</a></span><span class="message">or even after building.</span></div><div class="line" id="211242"><span class="nick" style="color:#2e2a4a"><a href="#211242" label="[21:12:42]">&lt;janneke&gt;</a></span><span class="message">vagrantc: /usr/include/... ouch yes.  Hmm. i had all those under share/mes/{include,lib} and that gave all kinds of manual configuration juggling while compiling tcc and others</span></div><div class="line" id="211312"><span class="nick" style="color:#8dd3c7"><a href="#211312" label="[21:13:12]">&lt;vagrantc&gt;</a></span><span class="message">it's a little bit grumbly about usr/lib/i386-linux-gnu/libc+tcc.a being static too, but i think i might be able to adjust the packaging to fix that</span></div><div class="line" id="211337"><span class="nick" style="color:#2e2a4a"><a href="#211337" label="[21:13:37]">&lt;janneke&gt;</a></span><span class="message">so, during bootstrap you really want those files in /usr/include and /usr/lib -- i can imagine that as a regular package that's very inconvenient.  hmm</span></div><div class="line" id="211437"><span class="nick" style="color:#8dd3c7"><a href="#211437" label="[21:14:37]">&lt;vagrantc&gt;</a></span><span class="message">a few issues with files like usr/share/info/images/gcc-mesboot-graph.dot.gz not actually being info pages</span></div><div class="line" id="211500"><span class="nick" style="color:#8dd3c7"><a href="#211500" label="[21:15:00]">&lt;vagrantc&gt;</a></span><span class="message">janneke: i guess it depends on what the goal of packaging mes in Debian really is for</span></div><div class="line" id="211646"><span class="nick" style="color:#8dd3c7"><a href="#211646" label="[21:16:46]">&lt;vagrantc&gt;</a></span><span class="message">janneke: there's also a (potentially) minor issue with files in bin/*.scm ... normally files in PATH shouldn't contain language extensions ... not sure if that would be tricky to do right.</span></div><div class="line" id="211741"><span class="nick" style="color:#8dd3c7"><a href="#211741" label="[21:17:41]">&lt;vagrantc&gt;</a></span><span class="message">and then the man pages have some weaknesses ... i think that pretty much summarizes the remaining issues with packaging mes for debian :)</span></div><div class="line" id="211951"><span class="nick" style="color:#8dd3c7"><a href="#211951" label="[21:19:51]">&lt;vagrantc&gt;</a></span><span class="message">seems like the biggest issue is the include files...</span></div><div class="line" id="212112"><span class="nick" style="color:#8dd3c7"><a href="#212112" label="[21:21:12]">&lt;vagrantc&gt;</a></span><span class="message">janneke: it would technically be possible to use a dpkg-diversion for the include files, but ... that's horrendously messy and might require coordination and cooperation with all the packages that ship conflicting files.</span></div><div class="line" id="212122"><span class="nick" style="color:#2e2a4a"><a href="#212122" label="[21:21:22]">&lt;janneke&gt;</a></span><span class="message">so maybe just move them under /usr/share/mes/include</span></div><div class="line" id="212202"><span class="nick" style="color:#8dd3c7"><a href="#212202" label="[21:22:02]">&lt;vagrantc&gt;</a></span><span class="message">so then the question becomes ... how useful will mes be with the includes in a different location?</span></div><div class="line" id="212229"><span class="nick" style="color:#2e2a4a"><a href="#212229" label="[21:22:29]">&lt;janneke&gt;</a></span><span class="message">that's what version 0.19 had; in Guix this is just much less problematic</span></div><div class="line" id="212239"><span class="nick" style="color:#8dd3c7"><a href="#212239" label="[21:22:39]">&lt;vagrantc&gt;</a></span><span class="message">right</span></div><div class="line" id="212335"><span class="nick" style="color:#2e2a4a"><a href="#212335" label="[21:23:35]">&lt;janneke&gt;</a></span><span class="message">if you want to compile tcc using the mes c library (that's what we are talking about), you can simply use -I /usr/share/mes/include or something.  that's only mildly annoying</span></div><div class="line" id="212652"><span class="nick" style="color:#8dd3c7"><a href="#212652" label="[21:26:52]">&lt;vagrantc&gt;</a></span><span class="message">ok.</span></div><div class="line" id="212705"><span class="nick" style="color:#8dd3c7"><a href="#212705" label="[21:27:05]">&lt;vagrantc&gt;</a></span><span class="message">mildly annoying is workable in the context of bootstrapping :)</span></div><div class="line" id="212750"><span class="nick" style="color:#8dd3c7"><a href="#212750" label="[21:27:50]">&lt;vagrantc&gt;</a></span><span class="message">given that bootstrapping as a whole involves some higher-level annoyances</span></div><div class="line" id="212806"><span class="nick" style="color:#2e2a4a"><a href="#212806" label="[21:28:06]">&lt;janneke&gt;</a></span><span class="message">some annoyance is probably even a prerequisite :)</span></div><div class="line" id="212850"><span class="nick" style="color:#2e2a4a"><a href="#212850" label="[21:28:50]">&lt;janneke&gt;</a></span><span class="message">vagrantc: i am really excited about mes entering debian</span></div><div class="line" id="212925"><span class="nick" style="color:#8dd3c7"><a href="#212925" label="[21:29:25]">&lt;vagrantc&gt;</a></span><span class="message">janneke: i'll maybe work on it a bit more in october to see if i can fixup some of these issues.</span></div><div class="line" id="212926"><span class="nick" style="color:#2e2a4a"><a href="#212926" label="[21:29:26]">&lt;janneke&gt;</a></span><span class="message">it would be so amazing if we get more debian bootstrap folks on board</span></div><div class="line" id="212953"><span class="nick" style="color:#8dd3c7"><a href="#212953" label="[21:29:53]">&lt;vagrantc&gt;</a></span><span class="message">and maybe by the time of the reproducible builds summit, we could even see it *in* Debian.</span></div><div class="line" id="212953"><span class="nick" style="color:#2e2a4a"><a href="#212953" label="[21:29:53]">&lt;janneke&gt;</a></span><span class="message">ok great, there is absolutely no hurry</span></div><div class="line" id="213004"><span class="nick" style="color:#2e2a4a"><a href="#213004" label="[21:30:04]">&lt;janneke&gt;</a></span><span class="message">yeah!</span></div><div class="line" id="213043"><span class="nick" style="color:#8dd3c7"><a href="#213043" label="[21:30:43]">&lt;vagrantc&gt;</a></span><span class="message">though that involves an entirely arbitrary wait time...</span></div><div class="line" id="213051"><span class="nick" style="color:#2e2a4a"><a href="#213051" label="[21:30:51]">&lt;janneke&gt;</a></span><span class="message">i would like to go but haven't come round to planning it yet</span></div><div class="line" id="213127"><span class="nick" style="color:#6b8072"><a href="#213127" label="[21:31:27]">*</a></span><span class="message">vagrantc nudges gently</span></div><div class="line" id="213325"><span class="nick" style="color:#2e2a4a"><a href="#213325" label="[21:33:25]">&lt;janneke&gt;</a></span><span class="message">ty</span></div><br /></div></body></html>

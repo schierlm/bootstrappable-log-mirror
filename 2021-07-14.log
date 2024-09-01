@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011212"><span class="nick" style="color:#8dd3c7"><a href="#011212" label="[01:12:12]">&lt;stikonas&gt;</a></span><span class="message">had another brief look at autogen... It's just as scary if not scarier...</span></div><div class="line" id="011603"><span class="nick" style="color:#2e2a4a"><a href="#011603" label="[01:16:03]">&lt;plasma41&gt;</a></span><span class="message">stikonas: What's the issue with autogen?</span></div><div class="line" id="011627"><span class="nick" style="color:#8dd3c7"><a href="#011627" label="[01:16:27]">&lt;stikonas&gt;</a></span><span class="message">plasma41: it's really full of circular dependencies</span></div><div class="line" id="011658"><span class="nick" style="color:#8dd3c7"><a href="#011658" label="[01:16:58]">&lt;stikonas&gt;</a></span><span class="message">at least 15 files (.c .h and a few others) are generated with autogen</span></div><div class="line" id="011743"><span class="nick" style="color:#2e2a4a"><a href="#011743" label="[01:17:43]">&lt;plasma41&gt;</a></span><span class="message">ugh</span></div><div class="line" id="011751"><span class="nick" style="color:#8dd3c7"><a href="#011751" label="[01:17:51]">&lt;stikonas&gt;</a></span><span class="message">well, we found a way to build binutils/gcc without autogen (don't use top level configure script but use configure scripts in subdirectories)</span></div><div class="line" id="011929"><span class="nick" style="color:#8dd3c7"><a href="#011929" label="[01:19:29]">&lt;stikonas&gt;</a></span><span class="message">git repo even includes tarball with those generated files for &quot;bootstrapping&quot; <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/autogen.git/tree/agen5">https://git.savannah.gnu.org/cgit/autogen.git/tree/agen5</a>  see agen5.tgz</span></div><div class="line" id="011957"><span class="nick" style="color:#8dd3c7"><a href="#011957" label="[01:19:57]">&lt;stikonas&gt;</a></span><span class="message">(comitting gzip into git repo is also a bad idea but that's unrelated)</span></div><div class="line" id="012045"><span class="nick" style="color:#8dd3c7"><a href="#012045" label="[01:20:45]">&lt;stikonas&gt;</a></span><span class="message">(more files in <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/autogen.git/tree/autoopts">https://git.savannah.gnu.org/cgit/autogen.git/tree/autoopts</a>  see gen-src.tgz)</span></div><div class="line" id="012355"><span class="nick" style="color:#8dd3c7"><a href="#012355" label="[01:23:55]">&lt;stikonas&gt;</a></span><span class="message">although, autogen'ed files are much closer to normal source in terms of readability than lets say bison parsers</span></div><div class="line" id="012604"><span class="nick" style="color:#2e2a4a"><a href="#012604" label="[01:26:04]">&lt;plasma41&gt;</a></span><span class="message">stikonas: Well that counts for something at least</span></div><div class="line" id="012640"><span class="nick" style="color:#8dd3c7"><a href="#012640" label="[01:26:40]">&lt;stikonas&gt;</a></span><span class="message">yeah, since it's closer to templating engine than to code generator</span></div><div class="line" id="022621"><span class="nick" style="color:#6b8072"><a href="#022621" label="[02:26:21]">&lt;Hagfish&gt;</a></span><span class="message">the philosophical questions would get quite tricky if someone wrote some new templates and a new template engine, which produced the same output as the autogen'ed files</span></div><div class="line" id="022747"><span class="nick" style="color:#6b8072"><a href="#022747" label="[02:27:47]">&lt;Hagfish&gt;</a></span><span class="message">would those new templates be the &quot;preferred form for editing&quot;, if no one would use them except for bootstrapping?</span></div><div class="line" id="023239"><span class="nick" style="color:#8dd3c7"><a href="#023239" label="[02:32:39]">&lt;stikonas&gt;</a></span><span class="message">yeah, that would be fine</span></div><div class="line" id="023245"><span class="nick" style="color:#8dd3c7"><a href="#023245" label="[02:32:45]">&lt;stikonas&gt;</a></span><span class="message">that's what we do to rebuild perl headers</span></div><div class="line" id="023258"><span class="nick" style="color:#8dd3c7"><a href="#023258" label="[02:32:58]">&lt;stikonas&gt;</a></span><span class="message">well, it was not templates there...</span></div><div class="line" id="023300"><span class="nick" style="color:#8dd3c7"><a href="#023300" label="[02:33:00]">&lt;stikonas&gt;</a></span><span class="message">just some headers</span></div><div class="line" id="035839"><span class="nick" style="color:#80b1d3"><a href="#035839" label="[03:58:39]">*</a></span><span class="message">pabs3 would never put generated files nor template output in git, ew</span></div><div class="line" id="115050"><span class="nick" style="color:#6d2462"><a href="#115050" label="[11:50:50]">&lt;ekaitz&gt;</a></span><span class="message">hey! did you read about this? <a rel="nofollow" href="https://openpowerfoundation.org/libre-soc-180nm-power-isa-asic-submitted-to-imec-for-fabrication/">https://openpowerfoundation.org/libre-soc-180nm-power-isa-asic-submitted-to-imec-for-fabrication/</a> </span></div><div class="line" id="115101"><span class="nick" style="color:#6d2462"><a href="#115101" label="[11:51:01]">&lt;ekaitz&gt;</a></span><span class="message">does anyone have extra info about it?</span></div><div class="line" id="120904"><span class="nick" style="color:#234e69"><a href="#120904" label="[12:09:04]">&lt;clemens3&gt;</a></span><span class="message">there is hope, breadboard computer: <a rel="nofollow" href="https://www.youtube.com/watch?v=g_ZaioqF1B0">https://www.youtube.com/watch?v=g_ZaioqF1B0</a> </span></div><div class="line" id="121710"><span class="nick" style="color:#6d2462"><a href="#121710" label="[12:17:10]">&lt;ekaitz&gt;</a></span><span class="message">&quot;i designed it to be very simple... kind of simple&quot;</span></div><div class="line" id="122203"><span class="nick" style="color:#8dd3c7"><a href="#122203" label="[12:22:03]">&lt;stikonas&gt;</a></span><span class="message">there is also Ben Eater's 8-bit computer</span></div><div class="line" id="122219"><span class="nick" style="color:#8dd3c7"><a href="#122219" label="[12:22:19]">&lt;stikonas&gt;</a></span><span class="message">that looks more modular and less messy</span></div><div class="line" id="122301"><span class="nick" style="color:#6c3d55"><a href="#122301" label="[12:23:01]">&lt;GeDaMo&gt;</a></span><span class="message">&quot;The Gray-1, a homebrew CPU exclusively composed of memory&quot; <a rel="nofollow" href="http://web.archive.org/web/20170203220739/http://2x-1.net/ob/gray1/">http://web.archive.org/web/20170203220739/http://2x-1.net/ob/gray1/</a> </span></div><div class="line" id="122347"><span class="nick" style="color:#6d2462"><a href="#122347" label="[12:23:47]">&lt;ekaitz&gt;</a></span><span class="message">there's a guy making a RISC-V computer using discrete components too</span></div><div class="line" id="122419"><span class="nick" style="color:#6d2462"><a href="#122419" label="[12:24:19]">&lt;ekaitz&gt;</a></span><span class="message">wow GeDaMo that one is really cool</span></div><div class="line" id="222507"><span class="nick" style="color:#2e2a4a"><a href="#222507" label="[22:25:07]">&lt;plasma41&gt;</a></span><span class="message">clemens3: &quot;simple on paper&quot; :-P</span></div><div class="line" id="224314"><span class="nick" style="color:#2e2a4a"><a href="#224314" label="[22:43:14]">&lt;plasma41&gt;</a></span><span class="message">That ROM-only cpu is really cool</span></div><div class="line" id="233858"><span class="nick" style="color:#d9d9d9"><a href="#233858" label="[23:38:58]">&lt;oriansj&gt;</a></span><span class="message">pabs3: well there is a single case for commiting a binary to a git repo: <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds">https://github.com/oriansj/bootstrap-seeds</a>  but that is because we need 1 binary to get started.</span></div><div class="line" id="234105"><span class="nick" style="color:#d9d9d9"><a href="#234105" label="[23:41:05]">&lt;oriansj&gt;</a></span><span class="message">ekaitz: I just pray for ECC support but I'll probably order one provided it is below the get wife angry cost range.</span></div><div class="line" id="235636"><span class="nick" style="color:#bc80bd"><a href="#235636" label="[23:56:36]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, pushing gzip into git is just space inefficient, small changes to source might result in big changes to gzip which Git's zlib won't be able to compress well</span></div><div class="line" id="235725"><span class="nick" style="color:#bc80bd"><a href="#235725" label="[23:57:25]">&lt;stikonas[m]&gt;</a></span><span class="message">Yeah, that pineapple one RISC computer looks very promising for bootstrap</span></div><div class="line" id="235747"><span class="nick" style="color:#bc80bd"><a href="#235747" label="[23:57:47]">&lt;stikonas[m]&gt;</a></span><span class="message">Should be good enough for M2-Planet</span></div><br /></div></body></html>

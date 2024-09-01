@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-03-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000805"><span class="nick" style="color:#389600"><a href="#000805" label="[00:08:05]">&lt;midnight&gt;</a></span><span class="message">ah, there's grubles too</span></div><div class="line" id="000829"><span class="nick" style="color:#389600"><a href="#000829" label="[00:08:29]">&lt;midnight&gt;</a></span><span class="message">and dongcarl. hah, there's a whole bunch of us here.</span></div><div class="line" id="000833"><span class="nick" style="color:#389600"><a href="#000833" label="[00:08:33]">&lt;midnight&gt;</a></span><span class="message">\o/</span></div><div class="line" id="000909"><span class="nick" style="color:#2e2a4a"><a href="#000909" label="[00:09:09]">&lt;dongcarl&gt;</a></span><span class="message">:-)</span></div><div class="line" id="000958"><span class="nick" style="color:#389600"><a href="#000958" label="[00:09:58]">&lt;midnight&gt;</a></span><span class="message">dongcarl: I've had to repeatedly run guix pull but I managed to get it to a finished point on one of the machines that was binary-seeded.</span></div><div class="line" id="001040"><span class="nick" style="color:#2e2a4a"><a href="#001040" label="[00:10:40]">&lt;dongcarl&gt;</a></span><span class="message">midnight: Binary-seeded?</span></div><div class="line" id="001055"><span class="nick" style="color:#389600"><a href="#001055" label="[00:10:55]">&lt;midnight&gt;</a></span><span class="message">That civodul fellow said --bootstrap was for developers only. But. Since I don't know what qualifies as developer test-only, I'm gonna try from master next. My last attempt at from-source failed.</span></div><div class="line" id="001106"><span class="nick" style="color:#389600"><a href="#001106" label="[00:11:06]">&lt;midnight&gt;</a></span><span class="message">dongcarl: Yeah -- so, using the guix install script you mentioned to me.</span></div><div class="line" id="001128"><span class="nick" style="color:#389600"><a href="#001128" label="[00:11:28]">&lt;midnight&gt;</a></span><span class="message">Which I think starts from guix bins downloaded..?</span></div><div class="line" id="001220"><span class="nick" style="color:#2e2a4a"><a href="#001220" label="[00:12:20]">&lt;dongcarl&gt;</a></span><span class="message">Ah right yes... What's the specific thing you're stuck on right now?</span></div><div class="line" id="001838"><span class="nick" style="color:#389600"><a href="#001838" label="[00:18:38]">&lt;midnight&gt;</a></span><span class="message">dongcarl: segfaults in libc interfering with guix pulls, and failures in general in my attempts to build the bitcoin reproducibles. But. Nothing that I've been able to rule out as my fault yet. :)</span></div><div class="line" id="001843"><span class="nick" style="color:#389600"><a href="#001843" label="[00:18:43]">&lt;midnight&gt;</a></span><span class="message">so, still puttering.</span></div><div class="line" id="001957"><span class="nick" style="color:#2e2a4a"><a href="#001957" label="[00:19:57]">&lt;dongcarl&gt;</a></span><span class="message">midnight: I see, did you get the binary-seeded version of Guix working?</span></div><div class="line" id="002041"><span class="nick" style="color:#2e2a4a"><a href="#002041" label="[00:20:41]">&lt;dongcarl&gt;</a></span><span class="message">midnight: as in 1. Install the binary-seeded version 2. `guix pull` a couple of times` 3. see that `guix time-machine` is a valid command</span></div><div class="line" id="002207"><span class="nick" style="color:#389600"><a href="#002207" label="[00:22:07]">&lt;midnight&gt;</a></span><span class="message">dongcarl: Two invocations of guix pull later, it succeeded from the binary seed: guix time-machine &amp;&amp; echo yay =&gt; yay</span></div><div class="line" id="002231"><span class="nick" style="color:#389600"><a href="#002231" label="[00:22:31]">&lt;midnight&gt;</a></span><span class="message">I'll putter some more and let you know.</span></div><div class="line" id="002248"><span class="nick" style="color:#389600"><a href="#002248" label="[00:22:48]">&lt;midnight&gt;</a></span><span class="message">I fully intend to continue submitting sigs for the reproducible build after the switch to guix.</span></div><div class="line" id="002325"><span class="nick" style="color:#2e2a4a"><a href="#002325" label="[00:23:25]">&lt;dongcarl&gt;</a></span><span class="message">midnight: Dope!</span></div><div class="line" id="002331"><span class="nick" style="color:#2e2a4a"><a href="#002331" label="[00:23:31]">&lt;dongcarl&gt;</a></span><span class="message">I think if you have all that working...</span></div><div class="line" id="002339"><span class="nick" style="color:#2e2a4a"><a href="#002339" label="[00:23:39]">&lt;dongcarl&gt;</a></span><span class="message">Next step is just clone bitcoin, and `./contrib/guix/guix-build.sh`</span></div><div class="line" id="002426"><span class="nick" style="color:#2e2a4a"><a href="#002426" label="[00:24:26]">&lt;dongcarl&gt;</a></span><span class="message">for some speed: `env ADDITIONAL_GUIX_ENVIRONMENT_FLAGS='--substitute-urls=&quot;<a rel="nofollow" href="https://guix.carldong.io">https://guix.carldong.io</a>  <a rel="nofollow" href="https://ci.guix.gnu.org">https://ci.guix.gnu.org</a>&quot;'  ./contrib/guix/guix-build.sh`</span></div><div class="line" id="002436"><span class="nick" style="color:#6b8072"><a href="#002436" label="[00:24:36]">*</a></span><span class="message">midnight simultaneously tries on machine #2 to build guix from source again :)</span></div><div class="line" id="002638"><span class="nick" style="color:#6b8072"><a href="#002638" label="[00:26:38]">*</a></span><span class="message">dongcarl is glad!</span></div><div class="line" id="002642"><span class="nick" style="color:#389600"><a href="#002642" label="[00:26:42]">&lt;midnight&gt;</a></span><span class="message">I wonder if the large-nproc count on these machines is causing somewthing to bump into ulimits</span></div><div class="line" id="002742"><span class="nick" style="color:#2e2a4a"><a href="#002742" label="[00:27:42]">&lt;dongcarl&gt;</a></span><span class="message">midnight: Normally, it's because Guix runs thru all the test suites of all the things it builds, so flaky tests will result in a failed build</span></div><div class="line" id="002801"><span class="nick" style="color:#2e2a4a"><a href="#002801" label="[00:28:01]">&lt;dongcarl&gt;</a></span><span class="message">midnight: And with large nproc... Things are extra flaky</span></div><div class="line" id="004600"><span class="nick" style="color:#389600"><a href="#004600" label="[00:46:00]">&lt;midnight&gt;</a></span><span class="message">interesting..</span></div><div class="line" id="083229"><span class="nick" style="color:#80b1d3"><a href="#083229" label="[08:32:29]">&lt;fossy&gt;</a></span><span class="message">OMG i made a static guile</span></div><div class="line" id="083252"><span class="nick" style="color:#80b1d3"><a href="#083252" label="[08:32:52]">&lt;fossy&gt;</a></span><span class="message">time to make a guile patch so that --enable-static actually adds -all-static to LDFLAGS &gt;:(</span></div><div class="line" id="083359"><span class="nick" style="color:#80b1d3"><a href="#083359" label="[08:33:59]">&lt;fossy&gt;</a></span><span class="message">huh, those stupid &quot;recompiling *.go&quot; messages have gone</span></div><div class="line" id="091924"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><div class="line" id="111653"><span class="nick" style="color:#6d2462"><a href="#111653" label="[11:16:53]">&lt;xentrac&gt;</a></span><span class="message">congratulations fossy!</span></div><div class="line" id="140456"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><div class="line" id="220103"><span class="nick">***</span><span class="message notice">nckx is now known as impressed_bot</span></div><div class="line" id="220109"><span class="nick">***</span><span class="message notice">impressed_bot is now known as nckx</span></div><br /></div></body></html>

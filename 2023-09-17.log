@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-09-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="193930"><span class="nick" style="color:#389600"><a href="#193930" label="[19:39:30]">&lt;Gooberpatrol66&gt;</a></span><span class="message"> <a rel="nofollow" href="https://pineapple-one.github.io/">https://pineapple-one.github.io/</a> </span></div><div class="line" id="193937"><span class="nick" style="color:#389600"><a href="#193937" label="[19:39:37]">&lt;Gooberpatrol66&gt;</a></span><span class="message">this thing looks cool for bootstrapping</span></div><div class="line" id="194546"><span class="nick" style="color:#8dd3c7"><a href="#194546" label="[19:45:46]">&lt;lagash&gt;</a></span><span class="message">Ha, I was about to post that link!</span></div><div class="line" id="195851"><span class="nick" style="color:#2e2a4a"><a href="#195851" label="[19:58:51]">&lt;stikonas&gt;</a></span><span class="message">yes, this one was mentioned here a few times over the last couple of years</span></div><div class="line" id="200718"><span class="nick" style="color:#6b8072"><a href="#200718" label="[20:07:18]">&lt;oriansj&gt;</a></span><span class="message">the 512KB memory limit however really limits what one can do. The lack of a MMU also means one can't do virtual memory to supplement with disk space to allow bigger programs to run (even at a slower speed)</span></div><div class="line" id="200821"><span class="nick" style="color:#6b8072"><a href="#200821" label="[20:08:21]">&lt;oriansj&gt;</a></span><span class="message">although SRAM prices these days do make it cost prohibitive to make a 4GB of SRAM</span></div><div class="line" id="201943"><span class="nick" style="color:#80b1d3"><a href="#201943" label="[20:19:43]">&lt;bauen1&gt;</a></span><span class="message">you could always use it to implement an emulator ; though performance will suffer a lot</span></div><div class="line" id="202215"><span class="nick" style="color:#2e2a4a"><a href="#202215" label="[20:22:15]">&lt;stikonas&gt;</a></span><span class="message">probably even stage0 stuff will run forever...</span></div><div class="line" id="224624"><span class="nick" style="color:#6d2462"><a href="#224624" label="[22:46:24]">&lt;muurkha&gt;</a></span><span class="message">oriansj: Forth systems did routinely do virtual memory in software</span></div><div class="line" id="224756"><span class="nick" style="color:#6d2462"><a href="#224756" label="[22:47:56]">&lt;muurkha&gt;</a></span><span class="message">the main words were BLOCK and UPDATE</span></div><div class="line" id="224832"><span class="nick" style="color:#6d2462"><a href="#224832" label="[22:48:32]">&lt;muurkha&gt;</a></span><span class="message">37 BLOCK would load block 37 from disk (unless it was already resident) and then return you the address of its buffer</span></div><div class="line" id="224937"><span class="nick" style="color:#6d2462"><a href="#224937" label="[22:49:37]">&lt;muurkha&gt;</a></span><span class="message">UPDATE would mark the last block you had thus loaded as dirty, so that it would be written back to disk if at some point it were evicted</span></div><div class="line" id="225005"><span class="nick" style="color:#6d2462"><a href="#225005" label="[22:50:05]">&lt;muurkha&gt;</a></span><span class="message">these are 1024-byte blocks</span></div><div class="line" id="225058"><span class="nick" style="color:#6d2462"><a href="#225058" label="[22:50:58]">&lt;muurkha&gt;</a></span><span class="message">the last two blocks you had requested with BLOCK were always guaranteed to still be resident as long as you hadn't yielded, so you could keep accessing them without invoking BLOCK over and over</span></div><div class="line" id="225150"><span class="nick" style="color:#6d2462"><a href="#225150" label="[22:51:50]">&lt;muurkha&gt;</a></span><span class="message">this was the entire filesystem</span></div><div class="line" id="225252"><span class="nick" style="color:#6d2462"><a href="#225252" label="[22:52:52]">&lt;muurkha&gt;</a></span><span class="message">&quot;yielded&quot; here means to yield control of the CPU to another thread, which I/O words normally did</span></div><div class="line" id="225349"><span class="nick" style="color:#6d2462"><a href="#225349" label="[22:53:49]">&lt;muurkha&gt;</a></span><span class="message">this allowed you to implement a sort of virtual memory with 2KiB of buffer memory and a few additional bytes of state, in a way that scales to machines with a megabyte or more</span></div><div class="line" id="225444"><span class="nick" style="color:#6d2462"><a href="#225444" label="[22:54:44]">&lt;muurkha&gt;</a></span><span class="message">with only 2KiB I think it had the problem that BLOCK itself had to be defined to not yield, but with 2KiB per thread that problem goes away</span></div><div class="line" id="225715"><span class="nick" style="color:#6d2462"><a href="#225715" label="[22:57:15]">&lt;muurkha&gt;</a></span><span class="message">the overall problem with this is that it's not very transparent; it's very simple to use, but it's more like bank-switching than the VAX-style demand-paging that we're used to</span></div><div class="line" id="225759"><span class="nick" style="color:#6d2462"><a href="#225759" label="[22:57:59]">&lt;muurkha&gt;</a></span><span class="message"> <a rel="nofollow" href="https://forth-standard.org/standard/block/BLOCK">https://forth-standard.org/standard/block/BLOCK</a>  explains the mechanics a bit, but is a bit short on the pragmatics of how to use it</span></div><div class="line" id="225919"><span class="nick" style="color:#6d2462"><a href="#225919" label="[22:59:19]">&lt;muurkha&gt;</a></span><span class="message">also it meant that on a 16-bit machine you could comfortably address 64 megabytes of RAM</span></div><div class="line" id="230037"><span class="nick" style="color:#6d2462"><a href="#230037" label="[23:00:37]">&lt;muurkha&gt;</a></span><span class="message">(or disk!)</span></div><div class="line" id="230141"><span class="nick" style="color:#6d2462"><a href="#230141" label="[23:01:41]">&lt;muurkha&gt;</a></span><span class="message">maintaining resident the last two blocks addressed meant that you could use CMOVE (memcpy) to copy data from one disk block to another, which of course alternately accesses the two blocks without intervening calls to BLOCK</span></div><div class="line" id="230248"><span class="nick" style="color:#6d2462"><a href="#230248" label="[23:02:48]">&lt;muurkha&gt;</a></span><span class="message">if Forth had been designed for numerical computation instead of real-time control, probably the number would be 3 instead of 2, so that you could do things like matrix multiplication</span></div><div class="line" id="230511"><span class="nick" style="color:#6d2462"><a href="#230511" label="[23:05:11]">&lt;muurkha&gt;</a></span><span class="message">wasm does something vaguely similar; wasm implementations have to, more or less, bounds-check each read or write to &quot;linear memory&quot;, and also offset them by a base address.  which means that basically every time a C program accesses memory it has to do this stuff, which sounds like it would be super slow</span></div><div class="line" id="230606"><span class="nick" style="color:#6d2462"><a href="#230606" label="[23:06:06]">&lt;muurkha&gt;</a></span><span class="message">but in fact there is an important exception: wasm has local variables that are allocated outside of linear memory, and the indexes of local variables are static and can thus be checked at compile time</span></div><div class="line" id="230722"><span class="nick" style="color:#6d2462"><a href="#230722" label="[23:07:22]">&lt;muurkha&gt;</a></span><span class="message">(C local variables whose address is taken must be allocated in linear memory rather than as wasm local variables)</span></div><div class="line" id="231006"><span class="nick" style="color:#6d2462"><a href="#231006" label="[23:10:06]">&lt;muurkha&gt;</a></span><span class="message">as it turns out, the majority of accesses to memory in C programs are accesses to local variables, and wasm JIT compilers are good enough at hoisting bounds checks out of inner loops that it all works reasonably well</span></div><div class="line" id="231349"><span class="nick" style="color:#6d2462"><a href="#231349" label="[23:13:49]">&lt;muurkha&gt;</a></span><span class="message">I suspect that you could get reasonable performance out of software-implemented virtual memory with that same strategy</span></div><div class="line" id="231414"><span class="nick" style="color:#6d2462"><a href="#231414" label="[23:14:14]">&lt;muurkha&gt;</a></span><span class="message">transparent to the user like wasm, with pages like Forth</span></div><div class="line" id="231645"><span class="nick" style="color:#6d2462"><a href="#231645" label="[23:16:45]">&lt;muurkha&gt;</a></span><span class="message">and with good performance like Forth, by delegating to a compiler the work done by the user in Forth of figuring out when to check for page faults</span></div><br /></div></body></html>

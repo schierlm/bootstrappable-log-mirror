@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-11-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000407"><span class="nick" style="color:#389600"><a href="#000407" label="[00:04:07]">&lt;oriansj&gt;</a></span><span class="message">good idea</span></div><div class="line" id="001309"><span class="nick" style="color:#8dd3c7"><a href="#001309" label="[00:13:09]">&lt;stikonas&gt;</a></span><span class="message">ok, I think I understand what's wrong with my current code</span></div><div class="line" id="001312"><span class="nick" style="color:#8dd3c7"><a href="#001312" label="[00:13:12]">&lt;stikonas&gt;</a></span><span class="message">char needs special casing</span></div><div class="line" id="001353"><span class="nick" style="color:#8dd3c7"><a href="#001353" label="[00:13:53]">&lt;stikonas&gt;</a></span><span class="message">as it has size 1 (8 bytes)</span></div><div class="line" id="001411"><span class="nick" style="color:#8dd3c7"><a href="#001411" label="[00:14:11]">&lt;stikonas&gt;</a></span><span class="message">but using mov_[rbx],al  instead of mov_[rbx],rax seems to break something</span></div><div class="line" id="001414"><span class="nick" style="color:#8dd3c7"><a href="#001414" label="[00:14:14]">&lt;stikonas&gt;</a></span><span class="message">hmm...</span></div><div class="line" id="001512"><span class="nick" style="color:#8dd3c7"><a href="#001512" label="[00:15:12]">&lt;stikonas&gt;</a></span><span class="message">most likely the case of dirty stack</span></div><div class="line" id="001525"><span class="nick" style="color:#8dd3c7"><a href="#001525" label="[00:15:25]">&lt;stikonas&gt;</a></span><span class="message">which  seemed to workaround</span></div><div class="line" id="001544"><span class="nick" style="color:#8dd3c7"><a href="#001544" label="[00:15:44]">&lt;stikonas&gt;</a></span><span class="message">but we need to be more careful with uninitialized stack with other smaller width types...</span></div><div class="line" id="001811"><span class="nick" style="color:#8dd3c7"><a href="#001811" label="[00:18:11]">&lt;stikonas&gt;</a></span><span class="message">hmm, so perhaps I actually don't need to use those  mov_[rbx],eax instead of mov_[rbx],rax for uint32_t...</span></div><div class="line" id="002256"><span class="nick" style="color:#389600"><a href="#002256" label="[00:22:56]">&lt;oriansj&gt;</a></span><span class="message">sign extension matters</span></div><div class="line" id="002309"><span class="nick" style="color:#8dd3c7"><a href="#002309" label="[00:23:09]">&lt;stikonas&gt;</a></span><span class="message">yes, and arithmetic operations such as overflow matter too</span></div><div class="line" id="002318"><span class="nick" style="color:#8dd3c7"><a href="#002318" label="[00:23:18]">&lt;stikonas&gt;</a></span><span class="message">after all we want them go behave like 32-bit numbers</span></div><div class="line" id="002337"><span class="nick" style="color:#8dd3c7"><a href="#002337" label="[00:23:37]">&lt;stikonas&gt;</a></span><span class="message">possibly overflow is automatic</span></div><div class="line" id="002337"><span class="nick" style="color:#389600"><a href="#002337" label="[00:23:37]">&lt;oriansj&gt;</a></span><span class="message">unfortunately x86 has some weaknesses in correctness there</span></div><div class="line" id="002348"><span class="nick" style="color:#8dd3c7"><a href="#002348" label="[00:23:48]">&lt;stikonas&gt;</a></span><span class="message">if we wipe higher bits...</span></div><div class="line" id="002354"><span class="nick" style="color:#8dd3c7"><a href="#002354" label="[00:23:54]">&lt;stikonas&gt;</a></span><span class="message">needs some thought...</span></div><div class="line" id="002502"><span class="nick" style="color:#8dd3c7"><a href="#002502" label="[00:25:02]">&lt;stikonas&gt;</a></span><span class="message">and I don't want to introduce performance hit for register sized operations...</span></div><div class="line" id="002528"><span class="nick" style="color:#8dd3c7"><a href="#002528" label="[00:25:28]">&lt;stikonas&gt;</a></span><span class="message">maybe let me make a PR for struct indirection fix</span></div><div class="line" id="002533"><span class="nick" style="color:#389600"><a href="#002533" label="[00:25:33]">&lt;oriansj&gt;</a></span><span class="message">there is a very good reason why struct types has: int is_signed</span></div><div class="line" id="002534"><span class="nick" style="color:#8dd3c7"><a href="#002534" label="[00:25:34]">&lt;stikonas&gt;</a></span><span class="message">I think that's good to have in any case</span></div><div class="line" id="002557"><span class="nick" style="color:#8dd3c7"><a href="#002557" label="[00:25:57]">&lt;stikonas&gt;</a></span><span class="message">yeah, I know, operations depend on signed vs unsigned</span></div><div class="line" id="002640"><span class="nick" style="color:#389600"><a href="#002640" label="[00:26:40]">&lt;oriansj&gt;</a></span><span class="message">and so does load behavior (store is more interesting)</span></div><div class="line" id="002726"><span class="nick" style="color:#8dd3c7"><a href="#002726" label="[00:27:26]">&lt;stikonas&gt;</a></span><span class="message">argh, and I'm hitting that ifdef error</span></div><div class="line" id="002750"><span class="nick" style="color:#8dd3c7"><a href="#002750" label="[00:27:50]">&lt;stikonas&gt;</a></span><span class="message">M2-Planet is also unhappy about it</span></div><div class="line" id="002835"><span class="nick" style="color:#8dd3c7"><a href="#002835" label="[00:28:35]">&lt;stikonas&gt;</a></span><span class="message">anyway, that's unrelated to current issue (only happens on M2libc update)</span></div><div class="line" id="003140"><span class="nick" style="color:#389600"><a href="#003140" label="[00:31:40]">&lt;oriansj&gt;</a></span><span class="message">the minute I get back into operational state, I will be clearing out these issues</span></div><div class="line" id="003209"><span class="nick" style="color:#8dd3c7"><a href="#003209" label="[00:32:09]">&lt;stikonas&gt;</a></span><span class="message">well, I'll see how much I can clear before that</span></div><div class="line" id="003214"><span class="nick" style="color:#8dd3c7"><a href="#003214" label="[00:32:14]">&lt;stikonas&gt;</a></span><span class="message">so that there is less work for yu</span></div><div class="line" id="003216"><span class="nick" style="color:#8dd3c7"><a href="#003216" label="[00:32:16]">&lt;stikonas&gt;</a></span><span class="message">for you</span></div><div class="line" id="003238"><span class="nick" style="color:#8dd3c7"><a href="#003238" label="[00:32:38]">&lt;stikonas&gt;</a></span><span class="message">probably mostly M2libc stuff as that is where most UEFI work was happening</span></div><div class="line" id="003503"><span class="nick" style="color:#389600"><a href="#003503" label="[00:35:03]">&lt;oriansj&gt;</a></span><span class="message">and existing M2* bugs that I need to address</span></div><div class="line" id="003504"><span class="nick" style="color:#8dd3c7"><a href="#003504" label="[00:35:04]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/pull/45">https://github.com/oriansj/M2-Planet/pull/45</a> </span></div><div class="line" id="003958"><span class="nick" style="color:#8dd3c7"><a href="#003958" label="[00:39:58]">&lt;stikonas&gt;</a></span><span class="message">ok, and then I guess I need to pass current_target-&gt;is_signed to that store_into_register function as discussed above</span></div><div class="line" id="004012"><span class="nick" style="color:#8dd3c7"><a href="#004012" label="[00:40:12]">&lt;stikonas&gt;</a></span><span class="message">and do signed/unsigned extension to full register</span></div><div class="line" id="004127"><span class="nick" style="color:#389600"><a href="#004127" label="[00:41:27]">&lt;oriansj&gt;</a></span><span class="message">and probably add some logic for the 8byte case on 4byte architectures</span></div><div class="line" id="004207"><span class="nick" style="color:#8dd3c7"><a href="#004207" label="[00:42:07]">&lt;stikonas&gt;</a></span><span class="message">uint64_t on x86?</span></div><div class="line" id="004235"><span class="nick" style="color:#8dd3c7"><a href="#004235" label="[00:42:35]">&lt;stikonas&gt;</a></span><span class="message">hmm, that will probably be a bit more work...</span></div><div class="line" id="004242"><span class="nick" style="color:#8dd3c7"><a href="#004242" label="[00:42:42]">&lt;stikonas&gt;</a></span><span class="message">especially operations other than store/load</span></div><div class="line" id="004249"><span class="nick" style="color:#389600"><a href="#004249" label="[00:42:49]">&lt;oriansj&gt;</a></span><span class="message">or we just punt a warning</span></div><div class="line" id="004249"><span class="nick" style="color:#8dd3c7"><a href="#004249" label="[00:42:49]">&lt;stikonas&gt;</a></span><span class="message">(multiplication, addition, etc...)</span></div><div class="line" id="004253"><span class="nick" style="color:#389600"><a href="#004253" label="[00:42:53]">&lt;oriansj&gt;</a></span><span class="message">or throw an error</span></div><div class="line" id="004257"><span class="nick" style="color:#8dd3c7"><a href="#004257" label="[00:42:57]">&lt;stikonas&gt;</a></span><span class="message">let's do warning for now</span></div><div class="line" id="004302"><span class="nick" style="color:#8dd3c7"><a href="#004302" label="[00:43:02]">&lt;stikonas&gt;</a></span><span class="message">or an error</span></div><div class="line" id="004401"><span class="nick" style="color:#389600"><a href="#004401" label="[00:44:01]">&lt;oriansj&gt;</a></span><span class="message">something easy to figure out the reason for like # Load operations for uint64_t are not supported on 32bit hosts at this time</span></div><div class="line" id="004404"><span class="nick" style="color:#8dd3c7"><a href="#004404" label="[00:44:04]">&lt;stikonas&gt;</a></span><span class="message">right now we don't even plan to use uint64_t...</span></div><div class="line" id="004418"><span class="nick" style="color:#8dd3c7"><a href="#004418" label="[00:44:18]">&lt;stikonas&gt;</a></span><span class="message">I was planning to add up to uint64_t</span></div><div class="line" id="004437"><span class="nick" style="color:#8dd3c7"><a href="#004437" label="[00:44:37]">&lt;stikonas&gt;</a></span><span class="message">so (u)int8_t, (u)int16_t and (u)int32_t</span></div><div class="line" id="004446"><span class="nick" style="color:#8dd3c7"><a href="#004446" label="[00:44:46]">&lt;stikonas&gt;</a></span><span class="message">or should I add 64 bit variant too?</span></div><div class="line" id="004457"><span class="nick" style="color:#8dd3c7"><a href="#004457" label="[00:44:57]">&lt;stikonas&gt;</a></span><span class="message">as soon as we start using it, we'll hit that warning</span></div><div class="line" id="004509"><span class="nick" style="color:#8dd3c7"><a href="#004509" label="[00:45:09]">&lt;stikonas&gt;</a></span><span class="message">at least use it outside arch specific M2libc bits</span></div><div class="line" id="004701"><span class="nick" style="color:#389600"><a href="#004701" label="[00:47:01]">&lt;oriansj&gt;</a></span><span class="message">you can proably skip it for now</span></div><div class="line" id="165726"><span class="nick" style="color:#2e2a4a"><a href="#165726" label="[16:57:26]">&lt;Hagfish&gt;</a></span><span class="message">stikonas[m]: thanks for the update!  i wasn't expecting stage0-uefi to be ready imminently, i was just half imagining that there could be a &quot;subsequent release&quot; around Christmas</span></div><div class="line" id="165828"><span class="nick" style="color:#2e2a4a"><a href="#165828" label="[16:58:28]">&lt;Hagfish&gt;</a></span><span class="message">good point about the mailing list, though.  i'll try to make sure i'm following that.  (i don't know how easy/spammy it would be to set up a bot which pings this channel when new posts reach the ML)</span></div><div class="line" id="235042"><span class="nick" style="color:#389600"><a href="#235042" label="[23:50:42]">&lt;oriansj&gt;</a></span><span class="message">Hagfish: right now it would be pretty low traffic (like 4 emails on a busy  day)</span></div><br /></div></body></html>

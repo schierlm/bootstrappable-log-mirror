@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013750"><span class="nick" style="color:#389600"><a href="#013750" label="[01:37:50]">&lt;oriansj&gt;</a></span><span class="message">well saw this link on HN: <a rel="nofollow" href="https://simon.tournier.info/posts/2023-10-01-bootstrapping.html">https://simon.tournier.info/posts/2023-10-01-bootstrapping.html</a>  not a bad (if slightly dated) look at Guix's bootstrap situation</span></div><div class="line" id="014425"><span class="nick" style="color:#389600"><a href="#014425" label="[01:44:25]">&lt;oriansj&gt;</a></span><span class="message">muurkha: finally found a good link for the IBM 701C case/design being publicly available: <a rel="nofollow" href="https://www.youtube.com/watch?v=4I7mhI6s5cg">https://www.youtube.com/watch?v=4I7mhI6s5cg</a>  <a rel="nofollow" href="https://github.com/hrushka/701C.ORG">https://github.com/hrushka/701C.ORG</a> </span></div><div class="line" id="030446"><span class="nick" style="color:#389600"><a href="#030446" label="[03:04:46]">&lt;oriansj&gt;</a></span><span class="message">which combined with <a rel="nofollow" href="https://community.frame.work/t/thinkpad-701c-with-a-framework-brain-transplant-work-in-progress/27409">https://community.frame.work/t/thinkpad-701c-with-a-framework-brain-transplant-work-in-progress/27409</a>  is kind of interesting</span></div><div class="line" id="032123"><span class="nick" style="color:#389600"><a href="#032123" label="[03:21:23]">&lt;oriansj&gt;</a></span><span class="message">with details here: <a rel="nofollow" href="https://github.com/basketofkittens/framework701c">https://github.com/basketofkittens/framework701c</a> </span></div><div class="line" id="032358"><span class="nick" style="color:#389600"><a href="#032358" label="[03:23:58]">&lt;oriansj&gt;</a></span><span class="message">but that might just be my love of the IBM x200 keyboard and how much better a trackpoint is to a trackpad</span></div><div class="line" id="112809"><span class="nick" style="color:#8dd3c7"><a href="#112809" label="[11:28:09]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Andrius Štikonas: I'll raise a PR some point today. Note the FreeBSD issue doesn't actually reproduce with the master version of stage0-posix-x86 as hex2-0 already has the correct filesz. Bumping memsz does fix Linux 2.2 and 2.4 though.</span></div><div class="line" id="165632"><span class="nick" style="color:#2e2a4a"><a href="#165632" label="[16:56:32]">&lt;Googulator&gt;</a></span><span class="message">janus: MicroHs isn't written in Scheme or anything Lispy</span></div><div class="line" id="165714"><span class="nick" style="color:#2e2a4a"><a href="#165714" label="[16:57:14]">&lt;Googulator&gt;</a></span><span class="message">It uses binary &quot;combinators&quot; for bootstrapping that themselves are generated using Haskell code</span></div><div class="line" id="165727"><span class="nick" style="color:#2e2a4a"><a href="#165727" label="[16:57:27]">&lt;Googulator&gt;</a></span><span class="message">so yet another bootstrap problem</span></div><div class="line" id="165833"><span class="nick" style="color:#2e2a4a"><a href="#165833" label="[16:58:33]">&lt;Googulator&gt;</a></span><span class="message">of course, if we can generate the combinators using Hugs, Gofer or Yale Haskell (the only Haskells I'm aware that aren't implemented in a lazy language like Haskell itself), that's indeed a viable bootstrap path</span></div><div class="line" id="165838"><span class="nick" style="color:#6b8072"><a href="#165838" label="[16:58:38]">&lt;janus&gt;</a></span><span class="message">that's why i mentioned porting ;)</span></div><div class="line" id="165921"><span class="nick" style="color:#6b8072"><a href="#165921" label="[16:59:21]">&lt;janus&gt;</a></span><span class="message">the advantage of porting MicroHs as opposed to porting other haskell compilers is that you can still actually talk to Lennart</span></div><div class="line" id="165924"><span class="nick" style="color:#2e2a4a"><a href="#165924" label="[16:59:24]">&lt;Googulator&gt;</a></span><span class="message">&quot;Porting&quot; MicroHs to Scheme would involve bootstrapping lazyness, which is precisely what makes Haskell so hard</span></div><div class="line" id="165956"><span class="nick" style="color:#6b8072"><a href="#165956" label="[16:59:56]">&lt;janus&gt;</a></span><span class="message">ah interesting... i hadn't heard before that lazyness was the central issue</span></div><div class="line" id="170007"><span class="nick" style="color:#6b8072"><a href="#170007" label="[17:00:07]">&lt;janus&gt;</a></span><span class="message">wonder how much lazyness MicroHs takes advantage of</span></div><div class="line" id="170037"><span class="nick" style="color:#2e2a4a"><a href="#170037" label="[17:00:37]">&lt;Googulator&gt;</a></span><span class="message">BTW, Lennart is also the author of hbc - which sadly has the same problem of being written in a lazy language, Lennart's even earlier LazyML specifically</span></div><div class="line" id="170059"><span class="nick" style="color:#6b8072"><a href="#170059" label="[17:00:59]">&lt;janus&gt;</a></span><span class="message">right, but i don't think Lennart can help much with hbc any more</span></div><div class="line" id="170107"><span class="nick" style="color:#6b8072"><a href="#170107" label="[17:01:07]">&lt;janus&gt;</a></span><span class="message">i wrote him an email about it, never received a reply</span></div><div class="line" id="170121"><span class="nick" style="color:#2e2a4a"><a href="#170121" label="[17:01:21]">&lt;Googulator&gt;</a></span><span class="message">there are 2 LazyML compliers in existence, one written in LazyML itself (packaged with hbc), and another one in modern Glasgow Haskell</span></div><div class="line" id="170123"><span class="nick" style="color:#6b8072"><a href="#170123" label="[17:01:23]">&lt;janus&gt;</a></span><span class="message">i think the LazyML infrastructure is just lost forever and it makes little sense to reconstruct it</span></div><div class="line" id="170135"><span class="nick" style="color:#6b8072"><a href="#170135" label="[17:01:35]">&lt;janus&gt;</a></span><span class="message">but do they actually run?</span></div><div class="line" id="170143"><span class="nick" style="color:#6b8072"><a href="#170143" label="[17:01:43]">&lt;janus&gt;</a></span><span class="message">i've never seen them run</span></div><div class="line" id="170259"><span class="nick" style="color:#2e2a4a"><a href="#170259" label="[17:02:59]">&lt;Googulator&gt;</a></span><span class="message">Lennart's compiler requires a compiled binary of itself to start with (yeah...), the other one requires GHC 9.x with all the modern Haskell dependency management infrastructure, so I haven't really tried</span></div><div class="line" id="170337"><span class="nick" style="color:#2e2a4a"><a href="#170337" label="[17:03:37]">&lt;Googulator&gt;</a></span><span class="message">hbc is significant because it's one of the few known examples in which lazyness was *somehow* bootstrapped</span></div><div class="line" id="170607"><span class="nick" style="color:#2e2a4a"><a href="#170607" label="[17:06:07]">&lt;Googulator&gt;</a></span><span class="message">the other ones were Gofer (later Hugs, a lazy functional interpreter - writing a lazy *interpreter* in an eager language is reportedly much easier than a lazy compiler) and Yale Haskell, written in early Scheme, which is functional, but not lazy - and most importantly, has modern derivatives (Guile and Mes), which are fully bootstrapped</span></div><div class="line" id="170636"><span class="nick" style="color:#80b1d3"><a href="#170636" label="[17:06:36]">&lt;stikonas&gt;</a></span><span class="message">Googulator: have you recently ran fiwix?</span></div><div class="line" id="170647"><span class="nick" style="color:#80b1d3"><a href="#170647" label="[17:06:47]">&lt;stikonas&gt;</a></span><span class="message">somehow qemu bootstrap seems to be taking forever for me...</span></div><div class="line" id="170647"><span class="nick" style="color:#2e2a4a"><a href="#170647" label="[17:06:47]">&lt;Googulator&gt;</a></span><span class="message">sadly we don't know how LazyML was bootstrapped, so that path is lost</span></div><div class="line" id="170654"><span class="nick" style="color:#2e2a4a"><a href="#170654" label="[17:06:54]">&lt;Googulator&gt;</a></span><span class="message">stikonas: not in a while</span></div><div class="line" id="170704"><span class="nick" style="color:#80b1d3"><a href="#170704" label="[17:07:04]">&lt;stikonas&gt;</a></span><span class="message">I'm trying to figure out if it's my PR...</span></div><div class="line" id="170718"><span class="nick" style="color:#80b1d3"><a href="#170718" label="[17:07:18]">&lt;stikonas&gt;</a></span><span class="message">(though unlikely)</span></div><div class="line" id="170848"><span class="nick" style="color:#6b8072"><a href="#170848" label="[17:08:48]">&lt;janus&gt;</a></span><span class="message">i am not a compiler developer but i can see how an interpreter for a lazy language shouldn't be super complicated, at least if it has no optimization</span></div><div class="line" id="170924"><span class="nick" style="color:#2e2a4a"><a href="#170924" label="[17:09:24]">&lt;Googulator&gt;</a></span><span class="message">janus: compiling a lazy language to machine code is extremely non-trivial, and the standard way of doing so - the &quot;G-machine&quot; - is described using already lazy primitives, like infinite lazy lists</span></div><div class="line" id="171006"><span class="nick" style="color:#6b8072"><a href="#171006" label="[17:10:06]">&lt;janus&gt;</a></span><span class="message">right. i hope we shouldn't need the G-machine (or the STG, which is a derivative IIRC), since our machines are so much faster than back then</span></div><div class="line" id="171033"><span class="nick" style="color:#6b8072"><a href="#171033" label="[17:10:33]">&lt;janus&gt;</a></span><span class="message">if it takes 256 GB RAM to bootstrap GHC, it's still a start, right? :P</span></div><div class="line" id="171041"><span class="nick" style="color:#2e2a4a"><a href="#171041" label="[17:10:41]">&lt;Googulator&gt;</a></span><span class="message">interpretation is much easier, since it's just graph reduction (in theory at least)</span></div><div class="line" id="171115"><span class="nick" style="color:#80b1d3"><a href="#171115" label="[17:11:15]">&lt;stikonas&gt;</a></span><span class="message">yeah, we don't need to have optimum implementation of bootstrap</span></div><div class="line" id="171201"><span class="nick" style="color:#2e2a4a"><a href="#171201" label="[17:12:01]">&lt;Googulator&gt;</a></span><span class="message">IIRC the problem isn't just &quot;optimum&quot;, it's doing it at all</span></div><div class="line" id="171206"><span class="nick" style="color:#6b8072"><a href="#171206" label="[17:12:06]">&lt;janus&gt;</a></span><span class="message">right. the constraints are completely different from when GHC got started. they were focused on having it run on real machines, so they sacrificed elegance</span></div><div class="line" id="171219"><span class="nick" style="color:#6b8072"><a href="#171219" label="[17:12:19]">&lt;janus&gt;</a></span><span class="message">making it hard to grok and reproduce</span></div><div class="line" id="171221"><span class="nick" style="color:#2e2a4a"><a href="#171221" label="[17:12:21]">&lt;Googulator&gt;</a></span><span class="message">GHC actually bootstrapped off of LazyML</span></div><div class="line" id="171235"><span class="nick" style="color:#2e2a4a"><a href="#171235" label="[17:12:35]">&lt;Googulator&gt;</a></span><span class="message">Glasgow never made the eager-&gt;lazy jump themselves</span></div><div class="line" id="171254"><span class="nick" style="color:#2e2a4a"><a href="#171254" label="[17:12:54]">&lt;Googulator&gt;</a></span><span class="message">Yale and Chalmers (Lennart) did</span></div><div class="line" id="171307"><span class="nick" style="color:#6b8072"><a href="#171307" label="[17:13:07]">&lt;janus&gt;</a></span><span class="message">super interesting insight, and somehow foundational.. can't believe you're only pointing this out to me now</span></div><div class="line" id="171323"><span class="nick" style="color:#6b8072"><a href="#171323" label="[17:13:23]">&lt;janus&gt;</a></span><span class="message">maybe i am dense :P</span></div><div class="line" id="171445"><span class="nick" style="color:#6b8072"><a href="#171445" label="[17:14:45]">&lt;janus&gt;</a></span><span class="message">but don't you think MicroHs has a point with the combinators? that the STG complicating matters too much?</span></div><div class="line" id="171553"><span class="nick" style="color:#6b8072"><a href="#171553" label="[17:15:53]">&lt;janus&gt;</a></span><span class="message">Csaba Hruska made this STG interpreter, i am sure you much have seen it</span></div><div class="line" id="171555"><span class="nick" style="color:#2e2a4a"><a href="#171555" label="[17:15:55]">&lt;Googulator&gt;</a></span><span class="message">I have a feeling that the combinator generation algorithm probably also exploits the lazyness of its host language to perform finite operations on infinite data structures</span></div><div class="line" id="171605"><span class="nick" style="color:#2e2a4a"><a href="#171605" label="[17:16:05]">&lt;Googulator&gt;</a></span><span class="message">no, I haven't seen it</span></div><div class="line" id="171646"><span class="nick" style="color:#6b8072"><a href="#171646" label="[17:16:46]">&lt;janus&gt;</a></span><span class="message">what is interesting about the STG interpreter, is that, IIRC, he only made it cause there was no way around it</span></div><div class="line" id="171700"><span class="nick" style="color:#6b8072"><a href="#171700" label="[17:17:00]">&lt;janus&gt;</a></span><span class="message">really, his goal is to have a graph reduction (GRIN-style) compiler</span></div><div class="line" id="171801"><span class="nick" style="color:#6b8072"><a href="#171801" label="[17:18:01]">&lt;janus&gt;</a></span><span class="message">so i'd argue that the bootstrapping community, Csaba and Lennart, we have more in common than immediately obvious</span></div><div class="line" id="171914"><span class="nick" style="color:#6b8072"><a href="#171914" label="[17:19:14]">&lt;janus&gt;</a></span><span class="message">not sure whether there are infinite data structures in MicroHs... I don't remember that from the talk at <a rel="nofollow" href="https://www.youtube.com/watch?v=Zk5SJ79nOnA">https://www.youtube.com/watch?v=Zk5SJ79nOnA</a> </span></div><div class="line" id="172239"><span class="nick" style="color:#6b8072"><a href="#172239" label="[17:22:39]">&lt;janus&gt;</a></span><span class="message">i think he references the 1979 paper by David A Turner, which doesn't seem specific to lazy languages since it talks about LISP</span></div><div class="line" id="172242"><span class="nick" style="color:#6b8072"><a href="#172242" label="[17:22:42]">&lt;janus&gt;</a></span><span class="message"> <a rel="nofollow" href="https://courses.engr.illinois.edu/cs421/sp2012/project/turner-implementation.pdf">https://courses.engr.illinois.edu/cs421/sp2012/project/turner-implementation.pdf</a> </span></div><div class="line" id="172922"><span class="nick" style="color:#6b8072"><a href="#172922" label="[17:29:22]">&lt;janus&gt;</a></span><span class="message">Oooh Turner actually talk about non-strictness:</span></div><div class="line" id="172927"><span class="nick" style="color:#6b8072"><a href="#172927" label="[17:29:27]">&lt;janus&gt;</a></span><span class="message">&gt; A number of recent authors have advocated that the semantics of applicative languages should be redefined so as to permit non-strict functions. (A non-strict function is one that can return an answer even if one of its arguments is undefined.)</span></div><div class="line" id="173054"><span class="nick" style="color:#2e2a4a"><a href="#173054" label="[17:30:54]">&lt;Googulator&gt;</a></span><span class="message">looks like Csaba's STG interpreter is written in... *Haskell* :(</span></div><div class="line" id="173209"><span class="nick" style="color:#6b8072"><a href="#173209" label="[17:32:09]">&lt;janus&gt;</a></span><span class="message">yeah, writing your infrastructure in your own language is the mind-virus ;)</span></div><div class="line" id="173305"><span class="nick" style="color:#2e2a4a"><a href="#173305" label="[17:33:05]">&lt;Googulator&gt;</a></span><span class="message">MicroHs is promising, if Hugs or Yale can run it</span></div><div class="line" id="173330"><span class="nick" style="color:#2e2a4a"><a href="#173330" label="[17:33:30]">&lt;Googulator&gt;</a></span><span class="message">&amp; of course if it can handle modern Haskell (with recursive modules) better than Hugs</span></div><div class="line" id="173344"><span class="nick" style="color:#2e2a4a"><a href="#173344" label="[17:33:44]">&lt;Googulator&gt;</a></span><span class="message">Hugs's biggest limitation is no recursive module support</span></div><div class="line" id="173422"><span class="nick" style="color:#6b8072"><a href="#173422" label="[17:34:22]">&lt;janus&gt;</a></span><span class="message">well GHC has bad support for recursive modules, right? Since it requires hs-boot files even though they're not theoretically required</span></div><div class="line" id="173446"><span class="nick" style="color:#6b8072"><a href="#173446" label="[17:34:46]">&lt;janus&gt;</a></span><span class="message">so maybe that could provide Lennart with an easy 'win'</span></div><div class="line" id="173456"><span class="nick" style="color:#2e2a4a"><a href="#173456" label="[17:34:56]">&lt;Googulator&gt;</a></span><span class="message">yeah, but that's unfortunately how GHC's own source code is written</span></div><div class="line" id="173505"><span class="nick" style="color:#2e2a4a"><a href="#173505" label="[17:35:05]">&lt;Googulator&gt;</a></span><span class="message">recursive modules with hs-boot</span></div><div class="line" id="190243"><span class="nick" style="color:#6d2462"><a href="#190243" label="[19:02:43]">&lt;xd1le&gt;</a></span><span class="message">yeah turner was great</span></div><div class="line" id="190330"><span class="nick" style="color:#6d2462"><a href="#190330" label="[19:03:30]">&lt;xd1le&gt;</a></span><span class="message">i haven't read everything above but just in case not known there is also <a rel="nofollow" href="https://github.com/blynn/compiler">https://github.com/blynn/compiler</a> </span></div><div class="line" id="190404"><span class="nick" style="color:#6d2462"><a href="#190404" label="[19:04:04]">&lt;xd1le&gt;</a></span><span class="message">but pretty sure this has been brought up before too</span></div><div class="line" id="190508"><span class="nick" style="color:#6d2462"><a href="#190508" label="[19:05:08]">&lt;xd1le&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.youtube.com/watch?v=3kMvXXGXaws">https://www.youtube.com/watch?v=3kMvXXGXaws</a> </span></div><div class="line" id="205340"><span class="nick" style="color:#80b1d3"><a href="#205340" label="[20:53:40]">&lt;stikonas&gt;</a></span><span class="message">fossy, Googulator: I've reduced the scope of <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/471">https://github.com/fosslinux/live-bootstrap/pull/471</a>  a bit (just stage0-posix + mes upgrade without tinycc)</span></div><div class="line" id="205347"><span class="nick" style="color:#80b1d3"><a href="#205347" label="[20:53:47]">&lt;stikonas&gt;</a></span><span class="message">so probably ready for review</span></div><div class="line" id="225407"><span class="nick" style="color:#8dd3c7"><a href="#225407" label="[22:54:07]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; stikonas: <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-x86/pull/7">https://github.com/oriansj/stage0-posix-x86/pull/7</a> </span></div><div class="line" id="230304"><span class="nick" style="color:#8dd3c7"><a href="#230304" label="[23:03:04]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; cosinusoidally: thanks</span></div><div class="line" id="230310"><span class="nick" style="color:#8dd3c7"><a href="#230310" label="[23:03:10]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; do you know if amd64 is also affected?</span></div><div class="line" id="230403"><span class="nick" style="color:#8dd3c7"><a href="#230403" label="[23:04:03]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I'll probably try to do at least builder-hex0 testing before merging it though...</span></div><div class="line" id="230717"><span class="nick" style="color:#8dd3c7"><a href="#230717" label="[23:07:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I didn't check amd64</span></div><br /></div></body></html>

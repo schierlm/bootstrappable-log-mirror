@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-01-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001006"><span class="nick" style="color:#389600"><a href="#001006" label="[00:10:06]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: I'm showing checksum issue starting with this commit: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/commit/a76fac4fa796fc17ab385595425dbbf1e4e1d7a0">https://github.com/fosslinux/live-bootstrap/commit/a76fac4fa796fc17ab385595425dbbf1e4e1d7a0</a> </span></div><div class="line" id="001207"><span class="nick" style="color:#389600"><a href="#001207" label="[00:12:07]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: some env variables are different after that so maybe that's the cause. I don't know.</span></div><div class="line" id="001433"><span class="nick" style="color:#389600"><a href="#001433" label="[00:14:33]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: what's strange is that several environmental variables on kernel bootstrap appear to match chroot better so not sure what's going on.</span></div><div class="line" id="005503"><span class="nick" style="color:#389600"><a href="#005503" label="[00:55:03]">&lt;rickmasters&gt;</a></span><span class="message">fossy: somehow, the populate_device_nodes has fixed the checksum difference for --qemu with --kernel,</span></div><div class="line" id="005749"><span class="nick" style="color:#389600"><a href="#005749" label="[00:57:49]">&lt;rickmasters&gt;</a></span><span class="message">fossy: manually doing a mkdir / mount resulted in a checksum difference for tar later on. I don't understand it but its working better.</span></div><div class="line" id="010034"><span class="nick" style="color:#389600"><a href="#010034" label="[01:00:34]">&lt;rickmasters&gt;</a></span><span class="message">fossy: of course populate_device_nodes fixed kexec as well</span></div><div class="line" id="010127"><span class="nick" style="color:#389600"><a href="#010127" label="[01:01:27]">&lt;rickmasters&gt;</a></span><span class="message">I'm praying it will fix the python checksum issue for kernel bootstrap but that might be asking for too much.</span></div><div class="line" id="011527"><span class="nick" style="color:#8dd3c7"><a href="#011527" label="[01:15:27]">&lt;Googulator&gt;</a></span><span class="message">interesting, bisect here pointed to <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/commit/8341c4e0894992eb03ded4a2b63f3db5baa02496">https://github.com/fosslinux/live-bootstrap/commit/8341c4e0894992eb03ded4a2b63f3db5baa02496</a> </span></div><div class="line" id="012411"><span class="nick" style="color:#389600"><a href="#012411" label="[01:24:11]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: the farthest back I tested was three commits after that, d5008f9, which was successful.</span></div><div class="line" id="014927"><span class="nick" style="color:#389600"><a href="#014927" label="[01:49:27]">&lt;rickmasters&gt;</a></span><span class="message">So with populate_device_nodes, qemu with --kernel linux fails on python 3.1.5 checksum just like kernel bootstrap.</span></div><div class="line" id="015036"><span class="nick" style="color:#389600"><a href="#015036" label="[01:50:36]">&lt;rickmasters&gt;</a></span><span class="message">That's a big improvement though so I'll submit that PR as soon as I finish testing to make sure chroot and bwrap are unaffected.</span></div><div class="line" id="015135"><span class="nick" style="color:#389600"><a href="#015135" label="[01:51:35]">&lt;rickmasters&gt;</a></span><span class="message">But it looks like populate_device_nodes hasn't fixed the python checksum issue so work remains on that.</span></div><div class="line" id="034337"><span class="nick" style="color:#2e2a4a"><a href="#034337" label="[03:43:37]">&lt;pder&gt;</a></span><span class="message">Googulator: With latest master (754d967b2994b0a093c57) Fiwix still wont boot for me on this machine.  I have tried booting another 32 bit linux and have gathered the e820 info from dmesg.</span></div><div class="line" id="034410"><span class="nick" style="color:#2e2a4a"><a href="#034410" label="[03:44:10]">&lt;pder&gt;</a></span><span class="message">I downloaded a i686 version of debian live and ran &quot;qemu-system-x86_64 -m 4096M -boot d -cdrom debian-live-11.8.0-i386-standard.iso -net nic -net user,hostfwd=tcp::2222-:22&quot;</span></div><div class="line" id="034810"><span class="nick" style="color:#2e2a4a"><a href="#034810" label="[03:48:10]">&lt;pder&gt;</a></span><span class="message">Here is the output from dmesg on the guest VM: <a rel="nofollow" href="https://paste.debian.net/1303862/">https://paste.debian.net/1303862/</a> </span></div><div class="line" id="040634"><span class="nick" style="color:#2e2a4a"><a href="#040634" label="[04:06:34]">&lt;pder&gt;</a></span><span class="message">Please ignore that last link since I did not have kvm enabled in qemu: The following is the dmesg output from the kvm enabled 32 bit linux: <a rel="nofollow" href="https://paste.debian.net/1303863/">https://paste.debian.net/1303863/</a> </span></div><div class="line" id="094532"><span class="nick" style="color:#6b8072"><a href="#094532" label="[09:45:32]">&lt;GoogulatorMobile&gt;</a></span><span class="message">Re-adding populate_device_nodes after finalize_fhs fixed the checksum issue for me.</span></div><div class="line" id="094602"><span class="nick" style="color:#6b8072"><a href="#094602" label="[09:46:02]">&lt;GoogulatorMobile&gt;</a></span><span class="message">Filed a PR to fix the regression, although this isn't really my preferred fix, and we should probably investigate more.</span></div><div class="line" id="094621"><span class="nick" style="color:#6b8072"><a href="#094621" label="[09:46:21]">&lt;GoogulatorMobile&gt;</a></span><span class="message">But regressions take priority.</span></div><div class="line" id="110809"><span class="nick" style="color:#80b1d3"><a href="#110809" label="[11:08:09]">&lt;fossy&gt;</a></span><span class="message">GoogulatorMobile: how very odd</span></div><div class="line" id="110829"><span class="nick" style="color:#80b1d3"><a href="#110829" label="[11:08:29]">&lt;fossy&gt;</a></span><span class="message">i would have said /proc, but /proc is mounted by finalize_fhs!</span></div><div class="line" id="110843"><span class="nick" style="color:#80b1d3"><a href="#110843" label="[11:08:43]">&lt;fossy&gt;</a></span><span class="message">is /dev/shm needed for semaphores, perhapse?</span></div><div class="line" id="110931"><span class="nick" style="color:#80b1d3"><a href="#110931" label="[11:09:31]">&lt;fossy&gt;</a></span><span class="message"> <a rel="nofollow" href="https://man7.org/linux/man-pages/man7/sem_overview.7.html">https://man7.org/linux/man-pages/man7/sem_overview.7.html</a>  seems to allude so, maybe adding a /dev/shm mount to finalize_fhs would work too...</span></div><div class="line" id="134541"><span class="nick" style="color:#6d2462"><a href="#134541" label="[13:45:41]">&lt;Googulator76&gt;</a></span><span class="message">fossy: testing that fix now</span></div><div class="line" id="134559"><span class="nick" style="color:#6d2462"><a href="#134559" label="[13:45:59]">&lt;Googulator76&gt;</a></span><span class="message">also, autogen-bootstrap has had a new tag rolled out, so I updated the PR</span></div><div class="line" id="230727"><span class="nick" style="color:#234e69"><a href="#230727" label="[23:07:27]">&lt;stikonas&gt;</a></span><span class="message">just fixed a couple of bugs in posix-runner, now fork/execve seems to be working a bit better better</span></div><div class="line" id="230758"><span class="nick" style="color:#234e69"><a href="#230758" label="[23:07:58]">&lt;stikonas&gt;</a></span><span class="message">in fact on baremetal system mescc-tools-mini-kaem.kaem script from stage0-posix-AMD64 ran to completion</span></div><div class="line" id="230811"><span class="nick" style="color:#234e69"><a href="#230811" label="[23:08:11]">&lt;stikonas&gt;</a></span><span class="message">though I'm getting random hangs on qemu...</span></div><br /></div></body></html>

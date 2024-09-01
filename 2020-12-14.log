@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-12-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010640"><span class="nick" style="color:#8dd3c7"><a href="#010640" label="[01:06:40]">&lt;pder&gt;</a></span><span class="message">I just pushed a branch named assembly to blynn-compiler that gets the bootstrap to the &quot;assembly&quot; stage.  I cheated a little because I have a temporary shell script that transforms the c output into a text file that is input to vm.  You can try it out by running go.sh</span></div><div class="line" id="010746"><span class="nick" style="color:#8dd3c7"><a href="#010746" label="[01:07:46]">&lt;pder&gt;</a></span><span class="message">This shell script that does the transform writes a text file with the first line containing the parameter that is passed to rts_reduce.  The next line contains comma separated numbers that make up the prog array.</span></div><div class="line" id="010900"><span class="nick" style="color:#8dd3c7"><a href="#010900" label="[01:09:00]">&lt;pder&gt;</a></span><span class="message">This script can be removed if the haskell output is modified, but I left it alone for now to keep the gcc build using the Makefile working the same as always</span></div><div class="line" id="011035"><span class="nick" style="color:#8dd3c7"><a href="#011035" label="[01:10:35]">&lt;pder&gt;</a></span><span class="message">It looks like the generated output for assembly matches the gcc build, but the next step mutually hangs and I havent looked into it yet.</span></div><div class="line" id="011955"><span class="nick" style="color:#2e2a4a"><a href="#011955" label="[01:19:55]">&lt;OriansJ&gt;</a></span><span class="message">pder: nice</span></div><div class="line" id="012745"><span class="nick" style="color:#2e2a4a"><a href="#012745" label="[01:27:45]">&lt;OriansJ&gt;</a></span><span class="message">I guess my next priority is to fix M2-Planet's unsigned comparision but first I need to get my son to go to bed</span></div><div class="line" id="012807"><span class="nick" style="color:#8dd3c7"><a href="#012807" label="[01:28:07]">&lt;pder&gt;</a></span><span class="message">I think I see why assembly is hanging.  The implementation of foreign() adds a few more things compared to the earlier stages</span></div><div class="line" id="035241"><span class="nick" style="color:#6b8072"><a href="#035241" label="[03:52:41]">&lt;siraben&gt;</a></span><span class="message">pder: could you diff the generated C code before and after your patch? I could make filter_haskell_output unnecessary by changing effectively.hs</span></div><div class="line" id="043812"><span class="nick" style="color:#8dd3c7"><a href="#043812" label="[04:38:12]">&lt;pder&gt;</a></span><span class="message">siraben: would you be able to alter effectively.hs so that it outputs the argument to rts_reduce(), then a newline, then the prog array as a comma separated list.  If you run go.sh, checkout generated/lonely_raw.txt</span></div><div class="line" id="044044"><span class="nick" style="color:#8dd3c7"><a href="#044044" label="[04:40:44]">&lt;pder&gt;</a></span><span class="message">my script turns the generated c code into a simple text file with two lines</span></div><div class="line" id="044138"><span class="nick" style="color:#6b8072"><a href="#044138" label="[04:41:38]">&lt;siraben&gt;</a></span><span class="message">ah ok, i'll take a look</span></div><div class="line" id="044426"><span class="nick" style="color:#8dd3c7"><a href="#044426" label="[04:44:26]">&lt;pder&gt;</a></span><span class="message">thank you, i had some trouble understanding the last couple lines in that section of effectively.hs</span></div><div class="line" id="060942"><span class="nick" style="color:#8dd3c7"><a href="#060942" label="[06:09:42]">&lt;pder&gt;</a></span><span class="message">I pushed some more changes, and now can bootstrap all the way to marginally.c which ends up identical to the gcc build.  At this point the runtime C code is all emitted from the haskell, so the next thing will be generating M2-Planet compatible code from marginally.hs</span></div><div class="line" id="072331"><span class="nick" style="color:#80b1d3"><a href="#072331" label="[07:23:31]">&lt;fossy&gt;</a></span><span class="message">hey epic</span></div><div class="line" id="072532"><span class="nick" style="color:#80b1d3"><a href="#072532" label="[07:25:32]">&lt;fossy&gt;</a></span><span class="message">pder: this is very cool</span></div><div class="line" id="072646"><span class="nick" style="color:#6b8072"><a href="#072646" label="[07:26:46]">&lt;siraben&gt;</a></span><span class="message">pder: exploring your changes now</span></div><div class="line" id="072655"><span class="nick" style="color:#6b8072"><a href="#072655" label="[07:26:55]">&lt;siraben&gt;</a></span><span class="message">anyone here doing advent of code? heh</span></div><div class="line" id="072915"><span class="nick" style="color:#80b1d3"><a href="#072915" label="[07:29:15]">&lt;fossy&gt;</a></span><span class="message">nah</span></div><div class="line" id="072932"><span class="nick" style="color:#80b1d3"><a href="#072932" label="[07:29:32]">&lt;fossy&gt;</a></span><span class="message">this takes a while</span></div><div class="line" id="073228"><span class="nick" style="color:#80b1d3"><a href="#073228" label="[07:32:28]">&lt;fossy&gt;</a></span><span class="message">7 minutes, not bad</span></div><div class="line" id="073501"><span class="nick" style="color:#6b8072"><a href="#073501" label="[07:35:01]">&lt;siraben&gt;</a></span><span class="message">fossy: what's taking 7 minutes?</span></div><div class="line" id="073942"><span class="nick" style="color:#6b8072"><a href="#073942" label="[07:39:42]">&lt;siraben&gt;</a></span><span class="message">pder: please adjust the shebang in filter_haskell_output to #!/usr/bin/env bash for portability reasons</span></div><div class="line" id="074407"><span class="nick" style="color:#6b8072"><a href="#074407" label="[07:44:07]">&lt;siraben&gt;</a></span><span class="message">pder: are you sure we want to discard root and root_size entirely?</span></div><div class="line" id="074430"><span class="nick" style="color:#6b8072"><a href="#074430" label="[07:44:30]">&lt;siraben&gt;</a></span><span class="message">also the ffi stuff</span></div><div class="line" id="081817"><span class="nick" style="color:#80b1d3"><a href="#081817" label="[08:18:17]">&lt;fossy&gt;</a></span><span class="message">siraben: ./go.sh on pder's marginally branch</span></div><div class="line" id="081852"><span class="nick" style="color:#80b1d3"><a href="#081852" label="[08:18:52]">&lt;fossy&gt;</a></span><span class="message">well, we can't have it using bash really</span></div><div class="line" id="082015"><span class="nick" style="color:#80b1d3"><a href="#082015" label="[08:20:15]">&lt;fossy&gt;</a></span><span class="message">oh its just a temporary thing</span></div><div class="line" id="082031"><span class="nick" style="color:#80b1d3"><a href="#082031" label="[08:20:31]">&lt;fossy&gt;</a></span><span class="message">pder: so according to your comments filter_haskell_output will become unnessecary?</span></div><div class="line" id="082050"><span class="nick" style="color:#80b1d3"><a href="#082050" label="[08:20:50]">&lt;fossy&gt;</a></span><span class="message">because otherwise it will have to be reimplemented in C, as we don't have grep or sed in the bootstrpa</span></div><div class="line" id="082502"><span class="nick" style="color:#6b8072"><a href="#082502" label="[08:25:02]">&lt;siraben&gt;</a></span><span class="message">fossy: i can adjust it in effectively.hs</span></div><div class="line" id="142433"><span class="nick" style="color:#8dd3c7"><a href="#142433" label="[14:24:33]">&lt;pder&gt;</a></span><span class="message">fossy: yes, that bash script basically turns the generated c output into a text file with two lines.  The script is no longer necessary once the haskell is modified to generate that output directly</span></div><div class="line" id="143010"><span class="nick" style="color:#8dd3c7"><a href="#143010" label="[14:30:10]">&lt;pder&gt;</a></span><span class="message">siraben: I am not sure what root and root_size are for.  I saw no places where it was used during the whole bootstrap.  Regarding the ffi stuff, see the comment in one of my recent commits.  There are basically two versions of the foreign() method- one that implements getchar and putchar, and another that implements, getchar, putchar, getargs, and getargchar- the last two which arent</span></div><div class="line" id="143013"><span class="nick" style="color:#8dd3c7"><a href="#143013" label="[14:30:13]">&lt;pder&gt;</a></span><span class="message">necessary during the bootstrap</span></div><div class="line" id="211439"><span class="nick">***</span><span class="message notice">yt_` is now known as yt_</span></div><br /></div></body></html>

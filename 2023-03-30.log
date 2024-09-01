@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-03-30.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000032"><span class="nick" style="color:#389600"><a href="#000032" label="[00:00:32]">&lt;aggi&gt;</a></span><span class="message">the kernel crash when calling sti (set interrupt flag), seems merely a symptom of init_IRQ gone wrong some place before</span></div><div class="line" id="000054"><span class="nick" style="color:#389600"><a href="#000054" label="[00:00:54]">&lt;aggi&gt;</a></span><span class="message">and too, the delay calibration loop relies upon interrupts handled, which is why it was stuck at that</span></div><div class="line" id="000206"><span class="nick" style="color:#389600"><a href="#000206" label="[00:02:06]">&lt;aggi&gt;</a></span><span class="message">another question is, how tccboot.iso from Bellard october/2004 could have ever worked before, because with any tcc-version tested failed here, with different problems</span></div><div class="line" id="085807"><span class="nick" style="color:#8dd3c7"><a href="#085807" label="[08:58:07]">&lt;gforce_de1977&gt;</a></span><span class="message">@oriansj: i'am fascinated too - <a rel="nofollow" href="http://mynor.org/my4th">http://mynor.org/my4th</a>  - enough stuff to dig into for a whole winter...</span></div><div class="line" id="090538"><span class="nick" style="color:#8dd3c7"><a href="#090538" label="[09:05:38]">&lt;gforce_de1977&gt;</a></span><span class="message">aggi: have you compared the kernel-sources which tccboot uses with yours? I remember that i once also tried to replicate this but failed and gave up - so i wish you power!</span></div><div class="line" id="090806"><span class="nick" style="color:#8dd3c7"><a href="#090806" label="[09:08:06]">&lt;gforce_de1977&gt;</a></span><span class="message">@oriansj: i'am still have <a rel="nofollow" href="https://eater.net/8bit/">https://eater.net/8bit/</a>  all parts an my desk waiting for a family-less week 8-)</span></div><div class="line" id="094123"><span class="nick" style="color:#389600"><a href="#094123" label="[09:41:23]">&lt;aggi&gt;</a></span><span class="message">gforce_de1977: yes, i used the exact same sources, compared with tccboot.iso; same order of compile/linking</span></div><div class="line" id="094138"><span class="nick" style="color:#389600"><a href="#094138" label="[09:41:38]">&lt;aggi&gt;</a></span><span class="message">it is not plausible nonetheless, as said, the timestamps do not match</span></div><div class="line" id="094246"><span class="nick" style="color:#389600"><a href="#094246" label="[09:42:46]">&lt;aggi&gt;</a></span><span class="message">tccboot.iso was released before relevant git-tags/commits were stamped;</span></div><div class="line" id="094340"><span class="nick" style="color:#389600"><a href="#094340" label="[09:43:40]">&lt;aggi&gt;</a></span><span class="message">it's just not obvious, which compiler-version bellard used (it probably wasn't the one which is included in tccboot, 0.9.21, because this version fails with the sources)</span></div><div class="line" id="102700"><span class="nick" style="color:#2e2a4a"><a href="#102700" label="[10:27:00]">&lt;avih&gt;</a></span><span class="message">aggi: re version mismatch, maybe he applied local patches, then created tccboot, then pushed these (or similar) changes to the tcc repo, so that teh equivalent tcc repo version is slightly later than tccboot?</span></div><div class="line" id="103010"><span class="nick" style="color:#389600"><a href="#103010" label="[10:30:10]">&lt;aggi&gt;</a></span><span class="message">avih: yes; however, i too checked 0.9.22 which appeared almost one year later than tccboot.iso, and errored too in i8259.c; which i can reproduce reliably</span></div><div class="line" id="103104"><span class="nick" style="color:#389600"><a href="#103104" label="[10:31:04]">&lt;aggi&gt;</a></span><span class="message">the principle problem remains, which sources/version of tcc-compiler did bellard use, year 2004?</span></div><div class="line" id="103116"><span class="nick" style="color:#2e2a4a"><a href="#103116" label="[10:31:16]">&lt;avih&gt;</a></span><span class="message">right. did you try to re-create tccboot (and boot successfully) using your sources?</span></div><div class="line" id="103157"><span class="nick" style="color:#389600"><a href="#103157" label="[10:31:57]">&lt;aggi&gt;</a></span><span class="message">avih: &quot;tccboot&quot; requires a definition; if you mean utilization of the bootloader - no, i didn't try yet</span></div><div class="line" id="103202"><span class="nick" style="color:#2e2a4a"><a href="#103202" label="[10:32:02]">&lt;avih&gt;</a></span><span class="message">maybe the difference is pre-compiled vs jit?</span></div><div class="line" id="103223"><span class="nick" style="color:#389600"><a href="#103223" label="[10:32:23]">&lt;aggi&gt;</a></span><span class="message">a moment ago, i tested various other: compiling with gcc, linking with tcc, and vice versa...</span></div><div class="line" id="103242"><span class="nick" style="color:#2e2a4a"><a href="#103242" label="[10:32:42]">&lt;avih&gt;</a></span><span class="message">(though it would still be interesting to see why that file is not compiled, or compiled without issue, in &quot;jit mode&quot;)</span></div><div class="line" id="103246"><span class="nick" style="color:#389600"><a href="#103246" label="[10:32:46]">&lt;aggi&gt;</a></span><span class="message">i can narrow down the problem, to i8259.c, interrupt handling reliably</span></div><div class="line" id="103259"><span class="nick" style="color:#389600"><a href="#103259" label="[10:32:59]">&lt;aggi&gt;</a></span><span class="message">avih: yes, it is complicated however</span></div><div class="line" id="103323"><span class="nick" style="color:#2e2a4a"><a href="#103323" label="[10:33:23]">&lt;avih&gt;</a></span><span class="message">does tccboot use -run ?</span></div><div class="line" id="103346"><span class="nick" style="color:#2e2a4a"><a href="#103346" label="[10:33:46]">&lt;avih&gt;</a></span><span class="message">(i've never looked into tccboot)</span></div><div class="line" id="103348"><span class="nick" style="color:#389600"><a href="#103348" label="[10:33:48]">&lt;aggi&gt;</a></span><span class="message">avih: don't know yet. i skimmed the sources quickly only</span></div><div class="line" id="103353"><span class="nick" style="color:#2e2a4a"><a href="#103353" label="[10:33:53]">&lt;avih&gt;</a></span><span class="message">k</span></div><div class="line" id="103428"><span class="nick" style="color:#2e2a4a"><a href="#103428" label="[10:34:28]">&lt;avih&gt;</a></span><span class="message">did you check whether tccboot processes than file?</span></div><div class="line" id="103453"><span class="nick" style="color:#2e2a4a"><a href="#103453" label="[10:34:53]">&lt;avih&gt;</a></span><span class="message">e.g. if you insert an obvious error in it, does tccboot still boot?</span></div><div class="line" id="103525"><span class="nick" style="color:#2e2a4a"><a href="#103525" label="[10:35:25]">&lt;avih&gt;</a></span><span class="message">that* file</span></div><div class="line" id="103637"><span class="nick" style="color:#389600"><a href="#103637" label="[10:36:37]">&lt;aggi&gt;</a></span><span class="message">i only grabbed the /boot/tccargs file, to verify the source list, order of compilation/linking, and diffing this</span></div><div class="line" id="103709"><span class="nick" style="color:#2e2a4a"><a href="#103709" label="[10:37:09]">&lt;avih&gt;</a></span><span class="message">so the source list include this file?</span></div><div class="line" id="103855"><span class="nick" style="color:#389600"><a href="#103855" label="[10:38:55]">&lt;aggi&gt;</a></span><span class="message">i see, yes, tccboot bootloader, somehow, don't ask me how in detail, does a type of exec(tcc, tccargs)...</span></div><div class="line" id="103946"><span class="nick" style="color:#389600"><a href="#103946" label="[10:39:46]">&lt;aggi&gt;</a></span><span class="message">avih: yes, /boot/tccargs shows in which order files are compiled/linked by tcc, and too i diffed all those against the local tree, v2.4.26 - no differences</span></div><div class="line" id="103955"><span class="nick" style="color:#389600"><a href="#103955" label="[10:39:55]">&lt;aggi&gt;</a></span><span class="message">except, tcc-version, which itself is unknown</span></div><div class="line" id="104002"><span class="nick" style="color:#389600"><a href="#104002" label="[10:40:02]">&lt;aggi&gt;</a></span><span class="message">for the reasons mentioned</span></div><div class="line" id="104040"><span class="nick" style="color:#2e2a4a"><a href="#104040" label="[10:40:40]">&lt;avih&gt;</a></span><span class="message">and i guess you verified the diff is not in the CFLAGS in tccboot: -D__KERNEL__ -nostdinc -D__GNUC__=2 -D__GNUC_MINOR__=95 -D__OPTIMIZE__ -fno-common</span></div><div class="line" id="104101"><span class="nick" style="color:#389600"><a href="#104101" label="[10:41:01]">&lt;aggi&gt;</a></span><span class="message">avih: yes, i verified</span></div><div class="line" id="104114"><span class="nick" style="color:#2e2a4a"><a href="#104114" label="[10:41:14]">&lt;avih&gt;</a></span><span class="message">k</span></div><div class="line" id="104122"><span class="nick" style="color:#389600"><a href="#104122" label="[10:41:22]">&lt;aggi&gt;</a></span><span class="message">including various different kconfigs, including a one which matches config.tccboot 100%</span></div><div class="line" id="104150"><span class="nick" style="color:#389600"><a href="#104150" label="[10:41:50]">&lt;aggi&gt;</a></span><span class="message">too i tested two different kernel versions, the one from bellard, and 2.4.37.11 from seyko2, i diffed all source trees, verified all patches</span></div><div class="line" id="104200"><span class="nick" style="color:#389600"><a href="#104200" label="[10:42:00]">&lt;aggi&gt;</a></span><span class="message">and i think the problem is the following:</span></div><div class="line" id="104247"><span class="nick" style="color:#2e2a4a"><a href="#104247" label="[10:42:47]">&lt;avih&gt;</a></span><span class="message">i think your next step must be to recreate tccboot and see if you can get it going, and if yes, it would be easier to poinpoint diffs, right?</span></div><div class="line" id="104248"><span class="nick" style="color:#389600"><a href="#104248" label="[10:42:48]">&lt;aggi&gt;</a></span><span class="message">a combination of linking/c-preprocessing/asm issues, which causes a side-effect in init_irq failing (with or without apic support)</span></div><div class="line" id="104342"><span class="nick" style="color:#389600"><a href="#104342" label="[10:43:42]">&lt;aggi&gt;</a></span><span class="message">avih: ok; but this won't help, to identify why the non-JIT compilation/linking fails</span></div><div class="line" id="104354"><span class="nick" style="color:#2e2a4a"><a href="#104354" label="[10:43:54]">&lt;avih&gt;</a></span><span class="message">aggi: also, you should consider emailing bellard for clarifications/help if you just can't figure it out</span></div><div class="line" id="104414"><span class="nick" style="color:#2e2a4a"><a href="#104414" label="[10:44:14]">&lt;avih&gt;</a></span><span class="message">luckily, he's still around</span></div><div class="line" id="104425"><span class="nick" style="color:#389600"><a href="#104425" label="[10:44:25]">&lt;aggi&gt;</a></span><span class="message">besides, too, i refined/verified the build-system of this, which fully detangles from Kbuild;</span></div><div class="line" id="104455"><span class="nick" style="color:#2e2a4a"><a href="#104455" label="[10:44:55]">&lt;avih&gt;</a></span><span class="message">(afaik most recently he's been active with quickjs)</span></div><div class="line" id="104501"><span class="nick" style="color:#389600"><a href="#104501" label="[10:45:01]">&lt;aggi&gt;</a></span><span class="message">meaning, i would consider the scripting reliable, meaning only swapping CC/LD for either tcc or gcc ... gcc ok, tcc fail</span></div><div class="line" id="104518"><span class="nick" style="color:#389600"><a href="#104518" label="[10:45:18]">&lt;aggi&gt;</a></span><span class="message">avih: thanks for listening</span></div><div class="line" id="104527"><span class="nick" style="color:#2e2a4a"><a href="#104527" label="[10:45:27]">&lt;avih&gt;</a></span><span class="message">:)</span></div><div class="line" id="104538"><span class="nick" style="color:#389600"><a href="#104538" label="[10:45:38]">&lt;aggi&gt;</a></span><span class="message">anyway, i am thinking about something else, to hack gigatron ttl or Z80 instead of what i had seen in recent days</span></div><div class="line" id="104610"><span class="nick" style="color:#389600"><a href="#104610" label="[10:46:10]">&lt;aggi&gt;</a></span><span class="message">the tcc-compiler problem, indicates, that kernel-bootstrapping (simplified speaking), is broken for 20 years already</span></div><div class="line" id="104622"><span class="nick" style="color:#389600"><a href="#104622" label="[10:46:22]">&lt;aggi&gt;</a></span><span class="message">and, pardon, linux support for clang, doesn't change that fact</span></div><div class="line" id="104651"><span class="nick" style="color:#2e2a4a"><a href="#104651" label="[10:46:51]">&lt;avih&gt;</a></span><span class="message">i don't think you can say that, unless you're able to pinpoint the issue?</span></div><div class="line" id="104716"><span class="nick" style="color:#2e2a4a"><a href="#104716" label="[10:47:16]">&lt;avih&gt;</a></span><span class="message">that is, more specifically than you have already</span></div><div class="line" id="104718"><span class="nick" style="color:#389600"><a href="#104718" label="[10:47:18]">&lt;aggi&gt;</a></span><span class="message">i am saying this, because i can't pinpoint it reliably</span></div><div class="line" id="104731"><span class="nick" style="color:#389600"><a href="#104731" label="[10:47:31]">&lt;aggi&gt;</a></span><span class="message">i could only narrow down the problem, to the interrupt handling/init</span></div><div class="line" id="104757"><span class="nick" style="color:#389600"><a href="#104757" label="[10:47:57]">&lt;aggi&gt;</a></span><span class="message">and all else, is kept inside the logfiles</span></div><div class="line" id="104800"><span class="nick" style="color:#2e2a4a"><a href="#104800" label="[10:48:00]">&lt;avih&gt;</a></span><span class="message">right, but because you didn't find the actual problem, you can't rule out a tcc bug</span></div><div class="line" id="104820"><span class="nick" style="color:#389600"><a href="#104820" label="[10:48:20]">&lt;aggi&gt;</a></span><span class="message">it's a combination of several, issues, some of them, severe</span></div><div class="line" id="104837"><span class="nick" style="color:#389600"><a href="#104837" label="[10:48:37]">&lt;aggi&gt;</a></span><span class="message">tcc, is a sanity check, for those issues</span></div><div class="line" id="104849"><span class="nick" style="color:#389600"><a href="#104849" label="[10:48:49]">&lt;aggi&gt;</a></span><span class="message">and Bellard did showcase, it's possible</span></div><div class="line" id="104916"><span class="nick" style="color:#389600"><a href="#104916" label="[10:49:16]">&lt;aggi&gt;</a></span><span class="message">myself however, had to depart elsewere... z80 or gigatron or some DOS type asm hacking</span></div><div class="line" id="104918"><span class="nick" style="color:#2e2a4a"><a href="#104918" label="[10:49:18]">&lt;avih&gt;</a></span><span class="message">it might have worked due to luck someplace</span></div><div class="line" id="104939"><span class="nick" style="color:#2e2a4a"><a href="#104939" label="[10:49:39]">&lt;avih&gt;</a></span><span class="message">i.e. some bug which due to whatever combination of factors ended up seemingly working</span></div><div class="line" id="104953"><span class="nick" style="color:#389600"><a href="#104953" label="[10:49:53]">&lt;aggi&gt;</a></span><span class="message">i would be curious myself, if Bellard was confident in this, or why else he had abandoned this precious project, 20 years ago</span></div><div class="line" id="105037"><span class="nick" style="color:#2e2a4a"><a href="#105037" label="[10:50:37]">&lt;avih&gt;</a></span><span class="message">i think that's his modus operandi, create something to to some level of usefulness, then move on to something else and let others keep hacking at it</span></div><div class="line" id="105105"><span class="nick" style="color:#2e2a4a"><a href="#105105" label="[10:51:05]">&lt;avih&gt;</a></span><span class="message">you could similarly say he abandoned ffmpeg or qemu</span></div><div class="line" id="105116"><span class="nick" style="color:#389600"><a href="#105116" label="[10:51:16]">&lt;aggi&gt;</a></span><span class="message">there's another branch of this, -seyko2, which too fails here</span></div><div class="line" id="105208"><span class="nick" style="color:#2e2a4a"><a href="#105208" label="[10:52:08]">&lt;avih&gt;</a></span><span class="message">anyway, i recommend emailing him with summary/details of what you concluded so far. he might have something interesting to say</span></div><div class="line" id="145940"><span class="nick" style="color:#6b8072"><a href="#145940" label="[14:59:40]">&lt;muurkha&gt;</a></span><span class="message">I like the my4th approach!</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-05-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000921"><span class="nick" style="color:#8dd3c7"><a href="#000921" label="[00:09:21]">&lt;stikonas&gt;</a></span><span class="message">hmm, so patch in live-bootstrap is either too old or buggy...</span></div><div class="line" id="000930"><span class="nick" style="color:#8dd3c7"><a href="#000930" label="[00:09:30]">&lt;stikonas&gt;</a></span><span class="message">I'll build new version</span></div><div class="line" id="002554"><span class="nick" style="color:#2e2a4a"><a href="#002554" label="[00:25:54]">&lt;oriansj&gt;</a></span><span class="message">To be honest I think the most interesting link from that RISC-V story is: <a rel="nofollow" href="http://pepijndevos.nl/2019/07/18/vhdl-to-pcb.html">http://pepijndevos.nl/2019/07/18/vhdl-to-pcb.html</a> </span></div><div class="line" id="002727"><span class="nick" style="color:#6b8072"><a href="#002727" label="[00:27:27]">&lt;xentrac&gt;</a></span><span class="message">the URL is very juicy, let's see</span></div><div class="line" id="002851"><span class="nick" style="color:#6b8072"><a href="#002851" label="[00:28:51]">&lt;xentrac&gt;</a></span><span class="message">wow, that's wonderful, oriansj!  thank you!</span></div><div class="line" id="003431"><span class="nick" style="color:#2e2a4a"><a href="#003431" label="[00:34:31]">&lt;oriansj&gt;</a></span><span class="message">and the RISC-V bootstrap seed for stage0 was provided by ekaitz and it looks to include enough info for me to start incorporating a proper RISC-V ELF header</span></div><div class="line" id="003700"><span class="nick" style="color:#80b1d3"><a href="#003700" label="[00:37:00]">&lt;fossy&gt;</a></span><span class="message">stikonas: what are symptoms</span></div><div class="line" id="003700"><span class="nick" style="color:#6d2462"><a href="#003700" label="[00:37:00]">&lt;vagrantc&gt;</a></span><span class="message">oooh!</span></div><div class="line" id="003703"><span class="nick" style="color:#6b8072"><a href="#003703" label="[00:37:03]">&lt;xentrac&gt;</a></span><span class="message">♥♥♥</span></div><div class="line" id="003815"><span class="nick" style="color:#8dd3c7"><a href="#003815" label="[00:38:15]">&lt;stikonas&gt;</a></span><span class="message">fossy: patch fails to apply</span></div><div class="line" id="003828"><span class="nick" style="color:#8dd3c7"><a href="#003828" label="[00:38:28]">&lt;stikonas&gt;</a></span><span class="message">and applied fine when I built patch 2.7.6</span></div><div class="line" id="004002"><span class="nick" style="color:#8dd3c7"><a href="#004002" label="[00:40:02]">&lt;stikonas&gt;</a></span><span class="message">it was actually the problem with patch and not gettext  tarball, so I can just use released tarball</span></div><div class="line" id="004019"><span class="nick" style="color:#8dd3c7"><a href="#004019" label="[00:40:19]">&lt;stikonas&gt;</a></span><span class="message">no need to use git archive</span></div><div class="line" id="004041"><span class="nick" style="color:#8dd3c7"><a href="#004041" label="[00:40:41]">&lt;stikonas&gt;</a></span><span class="message">fossy: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/120">https://github.com/fosslinux/live-bootstrap/pull/120</a>  can you review/merge this?</span></div><div class="line" id="004051"><span class="nick" style="color:#8dd3c7"><a href="#004051" label="[00:40:51]">&lt;stikonas&gt;</a></span><span class="message">I want to further move coreutils a bit</span></div><div class="line" id="004102"><span class="nick" style="color:#8dd3c7"><a href="#004102" label="[00:41:02]">&lt;stikonas&gt;</a></span><span class="message">after I'm done with gettext</span></div><div class="line" id="004108"><span class="nick" style="color:#8dd3c7"><a href="#004108" label="[00:41:08]">&lt;stikonas&gt;</a></span><span class="message">(to remove gettext patch from coreutils)</span></div><div class="line" id="005335"><span class="nick" style="color:#8dd3c7"><a href="#005335" label="[00:53:35]">&lt;stikonas&gt;</a></span><span class="message">actually nevermind... I have used realpath from coreutils to build gettext...</span></div><div class="line" id="031554"><span class="nick" style="color:#234e69"><a href="#031554" label="[03:15:54]">&lt;Hagfish&gt;</a></span><span class="message">(for what it's worth, that PR looks great to me.  very readable code and clear comments, even though i'm not familiar with the surrounding pieces)</span></div><div class="line" id="065527"><span class="nick" style="color:#6c3d55"><a href="#065527" label="[06:55:27]">&lt;siraben&gt;</a></span><span class="message">FYI, I was watching ##ob-fsf today and looks like the fsf have strong preferences to leave freenode, rasengan even supported their move</span></div><div class="line" id="101054"><span class="nick" style="color:#80b1d3"><a href="#101054" label="[10:10:54]">&lt;fossy&gt;</a></span><span class="message">huh?!</span></div><div class="line" id="101108"><span class="nick" style="color:#80b1d3"><a href="#101108" label="[10:11:08]">&lt;fossy&gt;</a></span><span class="message">rasengan supported a group /moving from freenode/!</span></div><div class="line" id="102455"><span class="nick" style="color:#6c3d55"><a href="#102455" label="[10:24:55]">&lt;siraben&gt;</a></span><span class="message">fossy: indeed <a rel="nofollow" href="https://i.k8r.eu/t3fyKg.png">https://i.k8r.eu/t3fyKg.png</a> </span></div><div class="line" id="105804"><span class="nick" style="color:#80b1d3"><a href="#105804" label="[10:58:04]">&lt;fossy&gt;</a></span><span class="message">i can't make much head or tail of what rasengan is saying there but that's pretty typical. however what you are saying is clear that rasengan thinks they should make a irc.fsf.org</span></div><div class="line" id="110338"><span class="nick" style="color:#6c3d55"><a href="#110338" label="[11:03:38]">&lt;siraben&gt;</a></span><span class="message">fossy: it's also because fsf was discussing the possibility of self-hosting</span></div><div class="line" id="110405"><span class="nick" style="color:#6c3d55"><a href="#110405" label="[11:04:05]">&lt;siraben&gt;</a></span><span class="message">which wasn't as well received in the discussion, hopefully someone can give the full logs for the discussion for the whole context</span></div><div class="line" id="110430"><span class="nick" style="color:#6c3d55"><a href="#110430" label="[11:04:30]">&lt;siraben&gt;</a></span><span class="message">those are 3 messages from thousands</span></div><div class="line" id="113607"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><div class="line" id="113608"><span class="nick" style="color:#d9d9d9"><a href="#113608" label="[11:36:08]">&lt;rekado&gt;</a></span><span class="message">rasengan has made statements about decentralization of IRC elsewhere before.</span></div><div class="line" id="113844"><span class="nick" style="color:#8dd3c7"><a href="#113844" label="[11:38:44]">&lt;stikonas&gt;</a></span><span class="message">why didn't he move to matrix then...</span></div><div class="line" id="121745"><span class="nick" style="color:#6c3d55"><a href="#121745" label="[12:17:45]">&lt;siraben&gt;</a></span><span class="message">he makes claims like that without following up with more technical details, many assume he doesn't have a good understanding of how IRC operates</span></div><div class="line" id="121905"><span class="nick" style="color:#6c3d55"><a href="#121905" label="[12:19:05]">&lt;siraben&gt;</a></span><span class="message">(I don't want to derail the channel too much, but just posting this for context on how other FOSS projects are followign suit)</span></div><div class="line" id="121910"><span class="nick" style="color:#6c3d55"><a href="#121910" label="[12:19:10]">&lt;siraben&gt;</a></span><span class="message">following</span></div><br /></div></body></html>

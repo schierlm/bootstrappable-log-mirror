@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-03-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="021249"><span class="nick" style="color:#8dd3c7"><a href="#021249" label="[02:12:49]">&lt;muurkha&gt;</a></span><span class="message">unmatched-paren: it is true that there are loads of good resources on that page but you only need like 0.1% of the knowledge in them to write a bootstrap compiler</span></div><div class="line" id="021518"><span class="nick" style="color:#8dd3c7"><a href="#021518" label="[02:15:18]">&lt;muurkha&gt;</a></span><span class="message">it's easy to get overwhelmed thinking you need to understand undefined behavior and static single assignment and graph coloring and C and LALR(k) parsing and automata theory and strength reduction and sparse conditional constant propagation and floating-point arithmetic rounding modes and multiple ABIs to write a compiler</span></div><div class="line" id="021530"><span class="nick" style="color:#8dd3c7"><a href="#021530" label="[02:15:30]">&lt;muurkha&gt;</a></span><span class="message">but actually you don't need to understand even one of those things</span></div><div class="line" id="021554"><span class="nick" style="color:#2e2a4a"><a href="#021554" label="[02:15:54]">&lt;oriansj&gt;</a></span><span class="message">indeed muurkha</span></div><div class="line" id="021557"><span class="nick" style="color:#8dd3c7"><a href="#021557" label="[02:15:57]">&lt;muurkha&gt;</a></span><span class="message">I mean they're beneficial because you can write a *better* compiler with them</span></div><div class="line" id="021722"><span class="nick" style="color:#8dd3c7"><a href="#021722" label="[02:17:22]">&lt;muurkha&gt;</a></span><span class="message">but working compilers can be written without understanding any of them</span></div><div class="line" id="021724"><span class="nick" style="color:#2e2a4a"><a href="#021724" label="[02:17:24]">&lt;oriansj&gt;</a></span><span class="message">(assuming for values of correctness or quality of resulting generated binaries when one says *better*)</span></div><div class="line" id="022138"><span class="nick" style="color:#8dd3c7"><a href="#022138" label="[02:21:38]">&lt;muurkha&gt;</a></span><span class="message">I know because I did: <a rel="nofollow" href="http://canonical.org/~kragen/urscheme">http://canonical.org/~kragen/urscheme</a> </span></div><div class="line" id="022138"><span class="nick" style="color:#8dd3c7"><a href="#022138" label="[02:21:38]">&lt;muurkha&gt;</a></span><span class="message">except that I did understand some things about automata theory, strength reduction, and C when I wrote it, I just mostly didn't use them</span></div><div class="line" id="022138"><span class="nick" style="color:#8dd3c7"><a href="#022138" label="[02:21:38]">&lt;muurkha&gt;</a></span><span class="message">I think you do need to understand enough of the semantics of your target machine, and how to implement your desired language semantics in terms of them</span></div><div class="line" id="022138"><span class="nick" style="color:#2e2a4a"><a href="#022138" label="[02:21:38]">&lt;oriansj&gt;</a></span><span class="message">one can understand cc_* and M2-* with just basic programming literacy</span></div><div class="line" id="022200"><span class="nick" style="color:#8dd3c7"><a href="#022200" label="[02:22:00]">&lt;muurkha&gt;</a></span><span class="message">and unless your syntax is at Forth or assembly-language levels of simplicity, you need to know at least one way to write a parser.  recursive descent is probably the easiest way, but knowing how to use it to handle common language constructs like operator precedence requires learning about manipulations of context-free grammars</span></div><div class="line" id="022222"><span class="nick" style="color:#8dd3c7"><a href="#022222" label="[02:22:22]">&lt;muurkha&gt;</a></span><span class="message">Ur-Scheme doesn't support things like that though ;)</span></div><div class="line" id="094728"><span class="nick">***</span><span class="message notice">bauen1_ is now known as bauen1</span></div><div class="line" id="105747"><span class="nick" style="color:#6b8072"><a href="#105747" label="[10:57:47]">&lt;unmatched-paren&gt;</a></span><span class="message">muurkha: yeah, that page is on the website of the author of the QBE compiler backend (which i'm using)</span></div><div class="line" id="105801"><span class="nick" style="color:#6b8072"><a href="#105801" label="[10:58:01]">&lt;unmatched-paren&gt;</a></span><span class="message">i suppose QBE handles most of those things...</span></div><div class="line" id="105910"><span class="nick" style="color:#6b8072"><a href="#105910" label="[10:59:10]">&lt;unmatched-paren&gt;</a></span><span class="message">and the grammar i need to parse is pascal, which seems to lend itself quite well to recursive-descent parsing</span></div><div class="line" id="110153"><span class="nick" style="color:#6b8072"><a href="#110153" label="[11:01:53]">&lt;unmatched-paren&gt;</a></span><span class="message">although i STILL can't figure out which language to write the thing in!</span></div><div class="line" id="110309"><span class="nick" style="color:#6b8072"><a href="#110309" label="[11:03:09]">&lt;unmatched-paren&gt;</a></span><span class="message">i don't enjoy C, i like the robustness static typing gives me (so lisps are out), and i vastly prefer functional programming, but none of the languages that satisfy all three (ocaml, haskell, idris, fsharp, scala) are completely bootstrappable!</span></div><div class="line" id="112247"><span class="nick" style="color:#80b1d3"><a href="#112247" label="[11:22:47]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">unmatched-paren: There's a programming language called Idris that fulfils those 3 conditions</span></div><div class="line" id="112447"><span class="nick" style="color:#6b8072"><a href="#112447" label="[11:24:47]">&lt;unmatched-paren&gt;</a></span><span class="message">Idris1: written in haskell, Idris2: written in idris but bootstrappable with idris1</span></div><div class="line" id="112500"><span class="nick" style="color:#80b1d3"><a href="#112500" label="[11:25:00]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">I didn't realise that</span></div><div class="line" id="112640"><span class="nick" style="color:#6b8072"><a href="#112640" label="[11:26:40]">&lt;unmatched-paren&gt;</a></span><span class="message">there's typed racket... but it's not a first-class part of racket, and it seems to lack certain functional features like matching against tagged unions</span></div><div class="line" id="112723"><span class="nick" style="color:#6b8072"><a href="#112723" label="[11:27:23]">&lt;unmatched-paren&gt;</a></span><span class="message">and i'm slightly wary of joining the racket community: <a rel="nofollow" href="https://beautifulracket.com/appendix/why-i-no-longer-contribute-to-racket.html">https://beautifulracket.com/appendix/why-i-no-longer-contribute-to-racket.html</a> </span></div><div class="line" id="113101"><span class="nick" style="color:#6d2462"><a href="#113101" label="[11:31:01]">&lt;nimaje&gt;</a></span><span class="message">well, just having more parts of a bootstrapping graph would be useful, so just write in some language you like</span></div><div class="line" id="113220"><span class="nick" style="color:#6b8072"><a href="#113220" label="[11:32:20]">&lt;unmatched-paren&gt;</a></span><span class="message">i guess so</span></div><div class="line" id="113316"><span class="nick" style="color:#6b8072"><a href="#113316" label="[11:33:16]">&lt;unmatched-paren&gt;</a></span><span class="message">but i don't think the haskell, scala, or fsharp problems are going to be fixed anytime soon (for all three it looks like a new compiler/interpreter is the only option)</span></div><div class="line" id="113327"><span class="nick" style="color:#6b8072"><a href="#113327" label="[11:33:27]">&lt;unmatched-paren&gt;</a></span><span class="message">the only one close to being done is ocaml</span></div><div class="line" id="113416"><span class="nick" style="color:#6b8072"><a href="#113416" label="[11:34:16]">&lt;unmatched-paren&gt;</a></span><span class="message">but the last commit to <a rel="nofollow" href="https://github.com/Ekdohibs/camlboot">https://github.com/Ekdohibs/camlboot</a>  was in September last year, so i'm not entirely confident it's ever going to be finished unless someone else picks it up</span></div><div class="line" id="113548"><span class="nick" style="color:#6b8072"><a href="#113548" label="[11:35:48]">&lt;unmatched-paren&gt;</a></span><span class="message">i could use ocaml 4.07, but there are probably a few libraries that don't work with it</span></div><div class="line" id="113730"><span class="nick" style="color:#6b8072"><a href="#113730" label="[11:37:30]">&lt;unmatched-paren&gt;</a></span><span class="message">... i'll just use ocaml 4.07, it probably won't be much different to working with the latest version :P</span></div><div class="line" id="122443"><span class="nick" style="color:#234e69"><a href="#122443" label="[12:24:43]">*</a></span><span class="message">unmatched-paren suddenly wonders whether we could built Idris1 with Hugs...</span></div><div class="line" id="122452"><span class="nick" style="color:#6b8072"><a href="#122452" label="[12:24:52]">&lt;unmatched-paren&gt;</a></span><span class="message">probably not, but i could try :)</span></div><div class="line" id="124244"><span class="nick">***</span><span class="message notice">alMalsamo is now known as lumberjack123</span></div><div class="line" id="124909"><span class="nick" style="color:#6c3d55"><a href="#124909" label="[12:49:09]">&lt;lumberjack123&gt;</a></span><span class="message">unmatched-paren: Why do you prefer static typing over dynamic typing?</span></div><div class="line" id="125229"><span class="nick" style="color:#6c3d55"><a href="#125229" label="[12:52:29]">&lt;lumberjack123&gt;</a></span><span class="message">I never heard of Idris... wikipedia says you transpile it to C or Javascript?  Is that the only way?</span></div><div class="line" id="125806"><span class="nick" style="color:#6b8072"><a href="#125806" label="[12:58:06]">&lt;unmatched-paren&gt;</a></span><span class="message">lumberjack123: i like that static typing gives you an extra layer of robustness, and apparently it also helps optimization; anyway, anything you can do with dynamic types can be accomplished with generics and ADTs</span></div><div class="line" id="125841"><span class="nick" style="color:#6b8072"><a href="#125841" label="[12:58:41]">&lt;unmatched-paren&gt;</a></span><span class="message">idris also apparently has code generators for the JVM, LLVM, and dotnet</span></div><div class="line" id="125848"><span class="nick" style="color:#6b8072"><a href="#125848" label="[12:58:48]">&lt;unmatched-paren&gt;</a></span><span class="message">but they're third-party</span></div><div class="line" id="125935"><span class="nick" style="color:#6b8072"><a href="#125935" label="[12:59:35]">&lt;unmatched-paren&gt;</a></span><span class="message">so far, it looks like i'll need to use a pretty old version of idris1</span></div><div class="line" id="130056"><span class="nick" style="color:#6b8072"><a href="#130056" label="[13:00:56]">&lt;unmatched-paren&gt;</a></span><span class="message">and idris has a lot of dependencies (as is to be expected of a typical haskell project) which may or may not work under hugs</span></div><div class="line" id="130256"><span class="nick" style="color:#6b8072"><a href="#130256" label="[13:02:56]">&lt;unmatched-paren&gt;</a></span><span class="message">lumberjack123: actually, idris2 looks like it can only currently compile to Scheme and C</span></div><div class="line" id="131828"><span class="nick" style="color:#6b8072"><a href="#131828" label="[13:18:28]">&lt;unmatched-paren&gt;</a></span><span class="message">one of the dependencies uses a language extension that doesn't seem to be supported by hugs; i think i've lost already :p</span></div><div class="line" id="133319"><span class="nick" style="color:#6c3d55"><a href="#133319" label="[13:33:19]">&lt;lumberjack123&gt;</a></span><span class="message">unmatched-paren: Can you expound upon this &quot;extra layer of robustness&quot;?</span></div><div class="line" id="133322"><span class="nick" style="color:#2e2a4a"><a href="#133322" label="[13:33:22]">&lt;oriansj&gt;</a></span><span class="message">unmatched-paren: well you always could just limit yourself to the subset of haskell that Hugs supports</span></div><div class="line" id="133625"><span class="nick" style="color:#6b8072"><a href="#133625" label="[13:36:25]">&lt;unmatched-paren&gt;</a></span><span class="message">lumberjack123: imo it gives you an extra barrier against mistakes, since static typing catches incorrect types at compile time (you don't even have to call the function to get an error; the compiler will downright reject your code.) most functional languages have pretty advanced type-inferrence engines, so it's generally not too verbose</span></div><div class="line" id="133712"><span class="nick" style="color:#6b8072"><a href="#133712" label="[13:37:12]">&lt;unmatched-paren&gt;</a></span><span class="message">in dynamic languages, you could accidentally call a function with the wrong parameters, and you'd never know because in your testing you never got to that particular point in the control flow</span></div><div class="line" id="133815"><span class="nick" style="color:#6b8072"><a href="#133815" label="[13:38:15]">&lt;unmatched-paren&gt;</a></span><span class="message">of course, this is highly subjective. some people just prefer dynamic -.o.-</span></div><div class="line" id="134414"><span class="nick" style="color:#2e2a4a"><a href="#134414" label="[13:44:14]">&lt;oriansj&gt;</a></span><span class="message">or via example should &quot;0x1234&quot; + 5 be &quot;0x12345&quot; or 0x1239 or an error because the user needs to type cast prior to resolve that detail and when will we be checking that.</span></div><div class="line" id="135456"><span class="nick" style="color:#6b8072"><a href="#135456" label="[13:54:56]">&lt;unmatched-paren&gt;</a></span><span class="message">oriansj: limiting myself to a small subset of haskell means i can't use basically any libraries</span></div><div class="line" id="135520"><span class="nick" style="color:#6b8072"><a href="#135520" label="[13:55:20]">&lt;unmatched-paren&gt;</a></span><span class="message">happy, for one, and i'd rather not build a parser from scratch</span></div><div class="line" id="141557"><span class="nick" style="color:#6d2462"><a href="#141557" label="[14:15:57]">&lt;nimaje&gt;</a></span><span class="message">oriansj: &quot;0x1234&quot; + 5 evaluating to 0x1239 is a example of weak typing, not dynamic typing</span></div><div class="line" id="183121"><span class="nick" style="color:#2e2a4a"><a href="#183121" label="[18:31:21]">&lt;oriansj&gt;</a></span><span class="message">nimaje: thank you for that refinement</span></div><div class="line" id="183414"><span class="nick" style="color:#2e2a4a"><a href="#183414" label="[18:34:14]">&lt;oriansj&gt;</a></span><span class="message">unmatched-paren: fair enough; it is still ok to just use GHC and wait for someone else to solve the GHC bootstrap problem completely (assuming I didn't miss someone already solving that) as last I heard good progress has been made.</span></div><div class="line" id="195242"><span class="nick" style="color:#8dd3c7"><a href="#195242" label="[19:52:42]">&lt;muurkha&gt;</a></span><span class="message">unmatched-paren: yes, Pascal was carefully designed to support recursive-descent parsing because that's what Wirth likes</span></div><div class="line" id="195344"><span class="nick" style="color:#8dd3c7"><a href="#195344" label="[19:53:44]">&lt;muurkha&gt;</a></span><span class="message">OCaml 4.07 is just fine</span></div><div class="line" id="195614"><span class="nick" style="color:#8dd3c7"><a href="#195614" label="[19:56:14]">&lt;muurkha&gt;</a></span><span class="message">it's true that static typing helps optimization, a great deal.  without static typing, every time you execute a primitive operation like addition or array indexing, you need to first run a dynamic type check to see if the operands are a suitable type, and possibly to do polymorphic dispatch (floating-point addition vs. integer addition, for example)</span></div><div class="line" id="195934"><span class="nick" style="color:#8dd3c7"><a href="#195934" label="[19:59:34]">&lt;muurkha&gt;</a></span><span class="message">'should &quot;0x1234&quot; + 5 be &quot;0x12345&quot; or 0x1239 or an error' is not really about static vs. dynamic typing; it's about implicit type coercion.  it's an error in OCaml, which is statically typed, yes, but it's also an error in Python, Scheme, and Smalltalk, which are dynamically typed, and it's allowed in C, which is statically typed</span></div><div class="line" id="201620"><span class="nick" style="color:#8dd3c7"><a href="#201620" label="[20:16:20]">&lt;muurkha&gt;</a></span><span class="message">unmatched-paren: the hostility the author evidently received from Felleisen is unfortunate, and it would be nice to find an ambit where people never maltreat each other, but sadly I don't think those exist except at the level of five people or less</span></div><div class="line" id="202102"><span class="nick" style="color:#8dd3c7"><a href="#202102" label="[20:21:02]">&lt;muurkha&gt;</a></span><span class="message">in a larger group that lasts years you will always find some degree of pecking order, and those higher in the pecking order will always include some diversity of people, including some who are more aggressive than others</span></div><div class="line" id="203123"><span class="nick" style="color:#8dd3c7"><a href="#203123" label="[20:31:23]">&lt;muurkha&gt;</a></span><span class="message">Felleisen's apology is nice: <a rel="nofollow" href="https://felleisen.org/matthias/Thoughts/Apology.html">https://felleisen.org/matthias/Thoughts/Apology.html</a> </span></div><br /></div></body></html>

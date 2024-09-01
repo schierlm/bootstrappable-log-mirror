@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-09-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="225359"><span class="nick" style="color:#8dd3c7"><a href="#225359" label="[22:53:59]">&lt;stikonas&gt;</a></span><span class="message">argh, it looks like hex2_word.c in one place deliberately relies on 32-bit unsigned integer overflow</span></div><div class="line" id="225411"><span class="nick" style="color:#8dd3c7"><a href="#225411" label="[22:54:11]">&lt;stikonas&gt;</a></span><span class="message">which goes wrong with 64 bit registers</span></div><div class="line" id="225456"><span class="nick" style="color:#8dd3c7"><a href="#225456" label="[22:54:56]">&lt;stikonas&gt;</a></span><span class="message">well, should be easy to fix..</span></div><div class="line" id="225814"><span class="nick" style="color:#8dd3c7"><a href="#225814" label="[22:58:14]">&lt;stikonas&gt;</a></span><span class="message">or at least easy to fix in hex2...</span></div><div class="line" id="225847"><span class="nick" style="color:#8dd3c7"><a href="#225847" label="[22:58:47]">&lt;stikonas&gt;</a></span><span class="message">hex1 is a bit more annoying to fix because it would mean fixing hex1.hex0 code but I guess we don't have to fix hex1</span></div><div class="line" id="230046"><span class="nick" style="color:#2e2a4a"><a href="#230046" label="[23:00:46]">&lt;Hagfish&gt;</a></span><span class="message">that's a great find</span></div><div class="line" id="230112"><span class="nick" style="color:#2e2a4a"><a href="#230112" label="[23:01:12]">&lt;Hagfish&gt;</a></span><span class="message">is integer overflow undefined behaviour, that could be caught by a static analyser?</span></div><div class="line" id="230226"><span class="nick" style="color:#8dd3c7"><a href="#230226" label="[23:02:26]">&lt;stikonas&gt;</a></span><span class="message">Hagfish: no, unsigned overflow is not undefined</span></div><div class="line" id="230304"><span class="nick" style="color:#8dd3c7"><a href="#230304" label="[23:03:04]">&lt;stikonas&gt;</a></span><span class="message">also in high level languages (e.g. C++), unsigned overflow is well defined operation</span></div><div class="line" id="230313"><span class="nick" style="color:#8dd3c7"><a href="#230313" label="[23:03:13]">&lt;stikonas&gt;</a></span><span class="message">only signed overflow is undefined</span></div><div class="line" id="230331"><span class="nick" style="color:#8dd3c7"><a href="#230331" label="[23:03:31]">&lt;stikonas&gt;</a></span><span class="message">and oriansj used it intentionally I think</span></div><div class="line" id="230349"><span class="nick" style="color:#8dd3c7"><a href="#230349" label="[23:03:49]">&lt;stikonas&gt;</a></span><span class="message">because to get the right result you have to use overflow there</span></div><div class="line" id="230419"><span class="nick" style="color:#8dd3c7"><a href="#230419" label="[23:04:19]">&lt;stikonas&gt;</a></span><span class="message">(i'm talking about <a rel="nofollow" href="https://github.com/oriansj/mescc-tools/blob/master/hex2_word.c#L102">https://github.com/oriansj/mescc-tools/blob/master/hex2_word.c#L102</a>  line)</span></div><div class="line" id="231327"><span class="nick" style="color:#2e2a4a"><a href="#231327" label="[23:13:27]">&lt;Hagfish&gt;</a></span><span class="message">that's really insightful, thank you</span></div><div class="line" id="231709"><span class="nick" style="color:#6b8072"><a href="#231709" label="[23:17:09]">&lt;xentrac&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.theonion.com/i-believe-the-robots-are-our-future-1819583606">https://www.theonion.com/i-believe-the-robots-are-our-future-1819583606</a> </span></div><br /></div></body></html>

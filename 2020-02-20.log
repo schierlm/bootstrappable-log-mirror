@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-02-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001906"><span class="nick">***</span><span class="message notice">nikita is now known as Guest87463</span></div><div class="line" id="002532"><span class="nick" style="color:#8dd3c7"><a href="#002532" label="[00:25:32]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: got it, no eproms or roms in Knight</span></div><div class="line" id="002935"><span class="nick" style="color:#8dd3c7"><a href="#002935" label="[00:29:35]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: well load32 is the 32bit sign extended load of 32bits; (LOADU32 is the zero extended load of 32bits) which is proably what you want (Limits M0 to 1GB of input)</span></div><div class="line" id="002950"><span class="nick" style="color:#8dd3c7"><a href="#002950" label="[00:29:50]">&lt;OriansJ&gt;</a></span><span class="message">STORE32 just stures the bottom 32bits of the register</span></div><div class="line" id="003207"><span class="nick" style="color:#8dd3c7"><a href="#003207" label="[00:32:07]">&lt;OriansJ&gt;</a></span><span class="message">as that is the correct thing, unless you want values that don't fit in that size to throw an excption (or add an extra register to record that issue)</span></div><div class="line" id="003801"><span class="nick" style="color:#8dd3c7"><a href="#003801" label="[00:38:01]">&lt;OriansJ&gt;</a></span><span class="message">one thing you could do (if you are careful) is STORE and LOAD which use the full register size but then all loads and stores would need to lookup their offset (fortunately we have READSCID to detect what size the host registers are [and what features])</span></div><div class="line" id="004037"><span class="nick" style="color:#2e2a4a"><a href="#004037" label="[00:40:37]">&lt;markjenkinsznc&gt;</a></span><span class="message">OriansJ, thanks for the follow-up thoughts</span></div><div class="line" id="004055"><span class="nick" style="color:#8dd3c7"><a href="#004055" label="[00:40:55]">&lt;OriansJ&gt;</a></span><span class="message">With the bottom 4bits representing the integer class instructions supported (8bit, 16bit, 32bit, 64bit, 128bit, 256bit and reserved(2)) Then the next 4bits covering floating point support</span></div><div class="line" id="004453"><span class="nick" style="color:#8dd3c7"><a href="#004453" label="[00:44:53]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: in further regard to the Rosetta Project discs; could ornamental etchings and transparent aluminum increase the likelihood of human preservation of the artifacts?</span></div><div class="line" id="004535"><span class="nick" style="color:#8dd3c7"><a href="#004535" label="[00:45:35]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: well, I want the right thing ultimately done (even if ti means the rework by me)</span></div><div class="line" id="005742"><span class="nick" style="color:#8dd3c7"><a href="#005742" label="[00:57:42]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: there were also bits for string, vector and other extended functionality they had planned but honestly integer only is good enough for now. Although I might want to look into their MMU design to see if we should include it as is or reengineer it so that knight can become a future Linux target</span></div><div class="line" id="064340"><span class="nick" style="color:#2e2a4a"><a href="#064340" label="[06:43:40]">&lt;markjenkinsznc&gt;</a></span><span class="message">OriansJ, I'm closing stage0 issue 27 as you've helped me realize both 16 bit and 64 bit register support for M0-macro.s is wishlist territory and not reflective of a bug in the current emulator or code</span></div><div class="line" id="064513"><span class="nick" style="color:#2e2a4a"><a href="#064513" label="[06:45:13]">&lt;markjenkinsznc&gt;</a></span><span class="message">Took me a bit to process my blind spot on 64 bit support and the distinction of LOADU32 vs LOAD32, something I should have thought of earlier seeing how I've been implementing these in my own emulator and trying to pay attention to the distinction between signed extended and not</span></div><div class="line" id="064717"><span class="nick" style="color:#2e2a4a"><a href="#064717" label="[06:47:17]">&lt;markjenkinsznc&gt;</a></span><span class="message">The &quot;right thing&quot; on achieving some support for other register sizes is tricky, as an overriding value everyone seems to have here which I support is code readability/auditability</span></div><div class="line" id="064840"><span class="nick" style="color:#2e2a4a"><a href="#064840" label="[06:48:40]">&lt;markjenkinsznc&gt;</a></span><span class="message">Lots of smarts based on READSCID can be a challenge for readability, as would be having some kind of template/macro language and writing M0-macro.s.in and generating M0-macro64.s and so on from that...</span></div><div class="line" id="064915"><span class="nick" style="color:#2e2a4a"><a href="#064915" label="[06:49:15]">&lt;markjenkinsznc&gt;</a></span><span class="message">It's nice that things like structure offsets are just immediate decimal values right now, good for readability</span></div><div class="line" id="065551"><span class="nick" style="color:#2e2a4a"><a href="#065551" label="[06:55:51]">&lt;markjenkinsznc&gt;</a></span><span class="message">A way to balance this, treat 32bit and 16bit as priorities with their own implementations, everything else (or 64, 128, 256) gets something generic and harder to grok</span></div><div class="line" id="065808"><span class="nick" style="color:#2e2a4a"><a href="#065808" label="[06:58:08]">&lt;markjenkinsznc&gt;</a></span><span class="message">32bit has enough addressable memory with a single register and no bank switching to just optimize for readability, 16 bit can sacrifice some readability to get chip count down without going as far as 8 bit</span></div><div class="line" id="071211"><span class="nick" style="color:#2e2a4a"><a href="#071211" label="[07:12:11]">&lt;markjenkinsznc&gt;</a></span><span class="message">And in fairness, 16 bit isn't really promoted to first class citizen by having a version of M0-macro.s that uses STORE16, LOAD16 and adjusted offsets just to assemble the smaller programs, someone would have to invest the time to make a less readable lowmem version to assemble some of the larger programs and a similar cc_* conversion, and some programs buildable with cc_* that make it worthwhile,  as its notable M2-planet itself will be too</span></div><div class="line" id="071211"><span class="nick" style="color:#2e2a4a"><a href="#071211" label="[07:12:11]">&lt;markjenkinsznc&gt;</a></span><span class="message">large</span></div><div class="line" id="071745"><span class="nick" style="color:#2e2a4a"><a href="#071745" label="[07:17:45]">&lt;markjenkinsznc&gt;</a></span><span class="message">Sorry to flood the chat... one out there idea (I know, we have too many), if there's a 16 optimized cc_knight at some point, use it to compile a knight32 emulator and work with some kind of memory bank switcher so a knight16 machine can emulate knight32 and run the the amazing knight32 compatible programs</span></div><div class="line" id="073341"><span class="nick" style="color:#6b8072"><a href="#073341" label="[07:33:41]">&lt;fossy&gt;</a></span><span class="message">hey markjenkinsznc</span></div><div class="line" id="073344"><span class="nick" style="color:#6b8072"><a href="#073344" label="[07:33:44]">&lt;fossy&gt;</a></span><span class="message">how goes</span></div><div class="line" id="073402"><span class="nick" style="color:#6b8072"><a href="#073402" label="[07:34:02]">&lt;fossy&gt;</a></span><span class="message">this weekend's project: Finish kaem refractor.</span></div><div class="line" id="073428"><span class="nick" style="color:#6b8072"><a href="#073428" label="[07:34:28]">&lt;fossy&gt;</a></span><span class="message">i've started and the flow of the program looks so much better</span></div><div class="line" id="073431"><span class="nick" style="color:#6b8072"><a href="#073431" label="[07:34:31]">&lt;fossy&gt;</a></span><span class="message">i'm pretty happy with it</span></div><div class="line" id="122119"><span class="nick" style="color:#8dd3c7"><a href="#122119" label="[12:21:19]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: if you look at stage1/stage1_assembler-2.s; you'll see how one can use READSCID without major problems with reading complexity</span></div><div class="line" id="122349"><span class="nick" style="color:#8dd3c7"><a href="#122349" label="[12:23:49]">&lt;OriansJ&gt;</a></span><span class="message">To get programs like cc_x86.s fit into 64KB; we would have to break M0 into a read DEFINEs-only pass and then generate output while reading (skipping all the defines)</span></div><div class="line" id="141203"><span class="nick" style="color:#80b1d3"><a href="#141203" label="[14:12:03]">&lt;deesix&gt;</a></span><span class="message">fossy, you mean refactor?</span></div><div class="line" id="162933"><span class="nick" style="color:#2e2a4a"><a href="#162933" label="[16:29:33]">&lt;markjenkinsznc&gt;</a></span><span class="message">OriansJ, where I start to worry about READSCID and code readability would be if that information were then used to decide how to pack pointers into structs instead of decimal immediate values like we see now. I suppose one could just always reserve 256 bit for storing pointers in memory, though I wouldn't want to take up precious memory doing that in a 16 bit context</span></div><div class="line" id="163337"><span class="nick" style="color:#2e2a4a"><a href="#163337" label="[16:33:37]">&lt;markjenkinsznc&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/markjenkins/stage0/commit/8d0f9267ddc4424105a10c4f95b0549e1f6a4c22">https://github.com/markjenkins/stage0/commit/8d0f9267ddc4424105a10c4f95b0549e1f6a4c22</a>  tesed on 64 bit mode. Needs a rebase and testing on 32, 128, 256, I feel like it should cover those cases.</span></div><div class="line" id="163506"><span class="nick" style="color:#2e2a4a"><a href="#163506" label="[16:35:06]">&lt;markjenkinsznc&gt;</a></span><span class="message">I put M0-macro-64.s in stage0/stage1/development because I was figuring I would put a note saying more generic work needed in all contexts before it could become part of stage0/stage1, namely actually taking advantage of the larger memory space of 64, 128, 256</span></div><div class="line" id="163625"><span class="nick" style="color:#2e2a4a"><a href="#163625" label="[16:36:25]">&lt;markjenkinsznc&gt;</a></span><span class="message">but after the fact it occurred to me that a .s file big enough to need a 64bit address space to be assembled isn't really a concern and LOADU64/STORE64 isn't even a thing</span></div><div class="line" id="163815"><span class="nick" style="color:#2e2a4a"><a href="#163815" label="[16:38:15]">&lt;markjenkinsznc&gt;</a></span><span class="message">So I think we can make stage1/M0-macro.s cover 32 bit through 256 bit cases by using STORE32/LOADU32 , so I'll test, rebase and PR a version that touches stage1/M0-macro.s, stage1/M0-macro.hex2, and test/SHA256SUMS</span></div><div class="line" id="163857"><span class="nick" style="color:#2e2a4a"><a href="#163857" label="[16:38:57]">&lt;markjenkinsznc&gt;</a></span><span class="message">and vm64 vm128 and vm256 as optional things for makefile (not built with plain make)</span></div><div class="line" id="190033"><span class="nick" style="color:#6d2462"><a href="#190033" label="[19:00:33]">&lt;xentrac&gt;</a></span><span class="message">OriansJ: transparent aluminum is star trek fiction</span></div><div class="line" id="190056"><span class="nick" style="color:#6d2462"><a href="#190056" label="[19:00:56]">&lt;xentrac&gt;</a></span><span class="message">ornamental etchings do seem like a good idea</span></div><div class="line" id="203729"><span class="nick" style="color:#6b8072"><a href="#203729" label="[20:37:29]">&lt;fossy&gt;</a></span><span class="message">deesix: yes, I do</span></div><div class="line" id="203747"><span class="nick" style="color:#6b8072"><a href="#203747" label="[20:37:47]">&lt;fossy&gt;</a></span><span class="message">I typod</span></div><div class="line" id="204605"><span class="nick" style="color:#234e69"><a href="#204605" label="[20:46:05]">&lt;dddddd&gt;</a></span><span class="message">ok, fossy. Not the first time so I thought was worth reporting now.</span></div><div class="line" id="204633"><span class="nick" style="color:#6b8072"><a href="#204633" label="[20:46:33]">&lt;fossy&gt;</a></span><span class="message">dddddd: yeah, I used to spell it wrong, until someone corrected me</span></div><div class="line" id="204659"><span class="nick" style="color:#6b8072"><a href="#204659" label="[20:46:59]">&lt;fossy&gt;</a></span><span class="message">So now sometimes I acidentally type it wring again</span></div><div class="line" id="204702"><span class="nick" style="color:#6b8072"><a href="#204702" label="[20:47:02]">&lt;fossy&gt;</a></span><span class="message">wrong</span></div><div class="line" id="204711"><span class="nick" style="color:#6b8072"><a href="#204711" label="[20:47:11]">&lt;fossy&gt;</a></span><span class="message">muscle memory and everything</span></div><div class="line" id="204717"><span class="nick" style="color:#6b8072"><a href="#204717" label="[20:47:17]">&lt;fossy&gt;</a></span><span class="message">but thanks :)</span></div><div class="line" id="204719"><span class="nick" style="color:#234e69"><a href="#204719" label="[20:47:19]">&lt;dddddd&gt;</a></span><span class="message">I recall being wrong for some word during quite a lot time, until looked and... surprise! :D</span></div><div class="line" id="204723"><span class="nick" style="color:#234e69"><a href="#204723" label="[20:47:23]">&lt;dddddd&gt;</a></span><span class="message">np</span></div><div class="line" id="225534"><span class="nick" style="color:#8dd3c7"><a href="#225534" label="[22:55:34]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: you are correct, it is generally referred to as: Aluminium oxynitride</span></div><div class="line" id="230110"><span class="nick" style="color:#8dd3c7"><a href="#230110" label="[23:01:10]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: that is correct to a degree (opcodes were reserved and previously allocated) in regards to LOAD{U}64 and STORE64;</span></div><div class="line" id="232124"><span class="nick" style="color:#234e69"><a href="#232124" label="[23:21:24]">&lt;dddddd&gt;</a></span><span class="message">OriansJ, why M1-macro.c range_check/bound_values refer to the value under testing as &quot;displacement&quot;? Even in the error message.</span></div><div class="line" id="232448"><span class="nick" style="color:#234e69"><a href="#232448" label="[23:24:48]">&lt;dddddd&gt;</a></span><span class="message">The use case (the caller of range_check) just pass an arbitrary value, not related to displacements AFAIU.</span></div><div class="line" id="233423"><span class="nick" style="color:#2e2a4a"><a href="#233423" label="[23:34:23]">&lt;markjenkinsznc&gt;</a></span><span class="message">OriansJ, just a note the commit I referenced earlier today where LOAD and LOAD32 were replaced with LOADU32 didn't do the right thing on semicolons for comments, have that fixed now in code not yet pushed</span></div><div class="line" id="233539"><span class="nick" style="color:#2e2a4a"><a href="#233539" label="[23:35:39]">&lt;markjenkinsznc&gt;</a></span><span class="message">realized as well that I won't be using automated output to redo M0-macro.hex2, I'll be making sure to change that one with a clean diff and testing it just as much as I'm tested this slightly revised M0-macro.s</span></div><div class="line" id="233802"><span class="nick" style="color:#2e2a4a"><a href="#233802" label="[23:38:02]">&lt;markjenkinsznc&gt;</a></span><span class="message">speaking of testing, had a really nice test at lunch today, this only slightly revised M0-macro.s running under a 64bit vm assembled itself correctly</span></div><div class="line" id="234337"><span class="nick" style="color:#234e69"><a href="#234337" label="[23:43:37]">&lt;dddddd&gt;</a></span><span class="message">Another, trickier, question, OriansJ. About eval_immediates... There're a couple of test (to avoid setting the expression of some token) with this shape `('0' == i-&gt;Text[first]) || (0 != value)` after calling to numerate_string to get the value from the relevant part of i-&gt;Text . I see that numerate_number returns 0 for invalid inputs. Also, the '0' char is part of the family of 0b, 0, 0x base prefixes. I'm wondering how all this details</span></div><div class="line" id="234337"><span class="nick" style="color:#234e69"><a href="#234337" label="[23:43:37]">&lt;dddddd&gt;</a></span><span class="message">interact and what means to leave the expression unset in the token. So, we don't care about the 0-as-error if we have a zero prefix (0b/0/0x)? Why would be that? And... we count on zero starts with '0' to take apart this zero from 0-as-error?</span></div><div class="line" id="234511"><span class="nick" style="color:#234e69"><a href="#234511" label="[23:45:11]">&lt;dddddd&gt;</a></span><span class="message">I hope this makes some sense... but it this feels this hard to express, I'm missing something obvious.</span></div><div class="line" id="234517"><span class="nick" style="color:#234e69"><a href="#234517" label="[23:45:17]">&lt;dddddd&gt;</a></span><span class="message">*but if</span></div><div class="line" id="235726"><span class="nick" style="color:#234e69"><a href="#235726" label="[23:57:26]">&lt;dddddd&gt;</a></span><span class="message">Leave the expression unset obviously means it's NULL. And I see now that preserve_other would error out later.</span></div><br /></div></body></html>

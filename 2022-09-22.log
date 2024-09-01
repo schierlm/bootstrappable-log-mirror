@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-09-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="042529"><span class="nick" style="color:#8dd3c7"><a href="#042529" label="[04:25:29]">&lt;oriansj&gt;</a></span><span class="message">interesting, the same font in the same terminal with the exact same settings resulted in different behavior in regards to: ⚙</span></div><div class="line" id="053326"><span class="nick" style="color:#8dd3c7"><a href="#053326" label="[05:33:26]">&lt;oriansj&gt;</a></span><span class="message">and it took 4 weeks of fuzzing but there was another segfault found in M2-Planet</span></div><div class="line" id="175733"><span class="nick" style="color:#2e2a4a"><a href="#175733" label="[17:57:33]">&lt;ekaitz&gt;</a></span><span class="message">I have a set of patches that bring RISC-V support for Mes's fork of TinyCC, but when I build it with Mes it basically outputs broken files</span></div><div class="line" id="175753"><span class="nick" style="color:#2e2a4a"><a href="#175753" label="[17:57:53]">&lt;ekaitz&gt;</a></span><span class="message">when it's built with GCC it works pretty well</span></div><div class="line" id="175833"><span class="nick" style="color:#2e2a4a"><a href="#175833" label="[17:58:33]">&lt;ekaitz&gt;</a></span><span class="message">with broken files I mean: output files have no permissions (---), the architecture is not written properly... and so on</span></div><div class="line" id="175901"><span class="nick" style="color:#2e2a4a"><a href="#175901" label="[17:59:01]">&lt;ekaitz&gt;</a></span><span class="message">any idea of what can it be?</span></div><div class="line" id="181351"><span class="nick" style="color:#6b8072"><a href="#181351" label="[18:13:51]">&lt;stikonas[m]&gt;</a></span><span class="message">Libc issues?</span></div><div class="line" id="181418"><span class="nick" style="color:#6b8072"><a href="#181418" label="[18:14:18]">&lt;stikonas[m]&gt;</a></span><span class="message">Something is #ifdefed and stub is used instead?</span></div><div class="line" id="183243"><span class="nick" style="color:#80b1d3"><a href="#183243" label="[18:32:43]">&lt;muurkha&gt;</a></span><span class="message">ekaitz: sounds like maybe a bug in Mes?</span></div><div class="line" id="183246"><span class="nick" style="color:#2e2a4a"><a href="#183246" label="[18:32:46]">&lt;ekaitz&gt;</a></span><span class="message">stikonas[m]: good points!</span></div><div class="line" id="183326"><span class="nick" style="color:#2e2a4a"><a href="#183326" label="[18:33:26]">&lt;ekaitz&gt;</a></span><span class="message">muurkha: I don't think it's a bug in mes, because this project is compiled with Mes too in other contexts and it works (without the riscv backend)</span></div><div class="line" id="183344"><span class="nick" style="color:#2e2a4a"><a href="#183344" label="[18:33:44]">&lt;ekaitz&gt;</a></span><span class="message">maybe I'm loading the wrong libc?</span></div><div class="line" id="183359"><span class="nick" style="color:#2e2a4a"><a href="#183359" label="[18:33:59]">&lt;ekaitz&gt;</a></span><span class="message">but that should have compilation errors, shouldn't it?</span></div><div class="line" id="183432"><span class="nick" style="color:#80b1d3"><a href="#183432" label="[18:34:32]">&lt;muurkha&gt;</a></span><span class="message">sometimes compiler bugs generate subtly wrong code in some contexts but not others</span></div><div class="line" id="183552"><span class="nick" style="color:#2e2a4a"><a href="#183552" label="[18:35:52]">&lt;ekaitz&gt;</a></span><span class="message">muurkha: this is not subtle, it's everything broken :D</span></div><div class="line" id="183752"><span class="nick" style="color:#80b1d3"><a href="#183752" label="[18:37:52]">&lt;muurkha&gt;</a></span><span class="message">well, I meant &quot;subtly wrong&quot; in the sense that the executable is still a valid executable and it doesn't even crash with an illegal-instruction exception</span></div><div class="line" id="183828"><span class="nick" style="color:#80b1d3"><a href="#183828" label="[18:38:28]">&lt;muurkha&gt;</a></span><span class="message">the compiler executes successfully, its output executes successfully too, but it just does the wrong thing</span></div><div class="line" id="184336"><span class="nick" style="color:#80b1d3"><a href="#184336" label="[18:43:36]">&lt;muurkha&gt;</a></span><span class="message">it's possible that you're right that it's not a bug in mes too</span></div><div class="line" id="200556"><span class="nick" style="color:#2e2a4a"><a href="#200556" label="[20:05:56]">&lt;ekaitz&gt;</a></span><span class="message">muurkha: I understand, now yeah</span></div><br /></div></body></html>

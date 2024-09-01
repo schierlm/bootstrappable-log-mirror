@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-08-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="015756"><span class="nick" style="color:#8dd3c7"><a href="#015756" label="[01:57:56]">&lt;oriansj&gt;</a></span><span class="message">pabs3: thank you for that clarification. git archive tends to not be slightly less deterministic than: <a rel="nofollow" href="https://paste.debian.net/1208296/">https://paste.debian.net/1208296/</a> </span></div><div class="line" id="015918"><span class="nick" style="color:#2e2a4a"><a href="#015918" label="[01:59:18]">&lt;pabs3&gt;</a></span><span class="message">I think it would be a good idea to make `git archive` deterministic by default if it isn't already (I thought it was TBH)</span></div><div class="line" id="020325"><span class="nick" style="color:#8dd3c7"><a href="#020325" label="[02:03:25]">&lt;oriansj&gt;</a></span><span class="message">right now When you use more advanced filtering options, the timestamp is set to the current time; not the time of the commit</span></div><div class="line" id="020430"><span class="nick" style="color:#2e2a4a"><a href="#020430" label="[02:04:30]">&lt;pabs3&gt;</a></span><span class="message">ah, that sounds like a bug</span></div><div class="line" id="020439"><span class="nick" style="color:#8dd3c7"><a href="#020439" label="[02:04:39]">&lt;oriansj&gt;</a></span><span class="message">So if one does no filtering, you can get the commit's timestamp but that isn't what anyone actually does (especially github and gitlab)</span></div><div class="line" id="020457"><span class="nick" style="color:#8dd3c7"><a href="#020457" label="[02:04:57]">&lt;oriansj&gt;</a></span><span class="message">or as they say &quot;working as intended&quot;</span></div><div class="line" id="020702"><span class="nick" style="color:#8dd3c7"><a href="#020702" label="[02:07:02]">&lt;oriansj&gt;</a></span><span class="message">the general suggestion is to use faketime or don't use git-archive to make archives.</span></div><div class="line" id="020724"><span class="nick" style="color:#2e2a4a"><a href="#020724" label="[02:07:24]">&lt;pabs3&gt;</a></span><span class="message">hmm, I'm surprised people do filtering, I thought that would be rare</span></div><div class="line" id="020755"><span class="nick" style="color:#2e2a4a"><a href="#020755" label="[02:07:55]">&lt;pabs3&gt;</a></span><span class="message">and surprised this is &quot;working as intended&quot;</span></div><div class="line" id="020853"><span class="nick" style="color:#8dd3c7"><a href="#020853" label="[02:08:53]">&lt;oriansj&gt;</a></span><span class="message">pabs3: look at the contents of any github tarball and compare it to a bare git-archive result</span></div><div class="line" id="021434"><span class="nick" style="color:#8dd3c7"><a href="#021434" label="[02:14:34]">&lt;oriansj&gt;</a></span><span class="message">now things might have improved since I last looked thanks to reproducible builds</span></div><div class="line" id="021559"><span class="nick" style="color:#6b8072"><a href="#021559" label="[02:15:59]">&lt;stikonas&gt;</a></span><span class="message">ok, got hex2_riscv GAS prototype working</span></div><div class="line" id="021700"><span class="nick" style="color:#8dd3c7"><a href="#021700" label="[02:17:00]">&lt;oriansj&gt;</a></span><span class="message">but right now the ability to reproduce tarballs is an essential step in ensuring that one isn't playing games with release tarballs or inserting malicious functionality that isn't an auditable build tree (like a git repo)</span></div><div class="line" id="021728"><span class="nick" style="color:#8dd3c7"><a href="#021728" label="[02:17:28]">&lt;oriansj&gt;</a></span><span class="message">stikonas: very nice. did you figure out what was wrong with . ?</span></div><div class="line" id="021751"><span class="nick" style="color:#6b8072"><a href="#021751" label="[02:17:51]">&lt;stikonas&gt;</a></span><span class="message">oriansj: yeah, was missing one instruction</span></div><div class="line" id="021754"><span class="nick" style="color:#6b8072"><a href="#021754" label="[02:17:54]">&lt;stikonas&gt;</a></span><span class="message">I thought I had it</span></div><div class="line" id="021811"><span class="nick" style="color:#6b8072"><a href="#021811" label="[02:18:11]">&lt;stikonas&gt;</a></span><span class="message">but it was the other branch</span></div><div class="line" id="021905"><span class="nick" style="color:#8dd3c7"><a href="#021905" label="[02:19:05]">&lt;oriansj&gt;</a></span><span class="message">stikonas: I am glad you figured it out. I'd hate to waste more of your time on my programming bugs.</span></div><div class="line" id="021918"><span class="nick" style="color:#6b8072"><a href="#021918" label="[02:19:18]">&lt;stikonas&gt;</a></span><span class="message">oriansj: no, it was my bug, not your bug</span></div><div class="line" id="022003"><span class="nick" style="color:#6b8072"><a href="#022003" label="[02:20:03]">&lt;stikonas&gt;</a></span><span class="message">in C you can see branches much easier due to indentation...</span></div><div class="line" id="022013"><span class="nick" style="color:#8dd3c7"><a href="#022013" label="[02:20:13]">&lt;oriansj&gt;</a></span><span class="message">stikonas: Hopefully M1 is making your happy and did you think more about the I-format question?</span></div><div class="line" id="022025"><span class="nick" style="color:#6b8072"><a href="#022025" label="[02:20:25]">&lt;stikonas&gt;</a></span><span class="message">oriansj: so far I haven't...</span></div><div class="line" id="022033"><span class="nick" style="color:#6b8072"><a href="#022033" label="[02:20:33]">&lt;stikonas&gt;</a></span><span class="message">was it not for R-format?</span></div><div class="line" id="022035"><span class="nick" style="color:#6b8072"><a href="#022035" label="[02:20:35]">&lt;stikonas&gt;</a></span><span class="message">for shifts</span></div><div class="line" id="022045"><span class="nick" style="color:#8dd3c7"><a href="#022045" label="[02:20:45]">&lt;oriansj&gt;</a></span><span class="message">stikonas: you are right my bad</span></div><div class="line" id="022124"><span class="nick" style="color:#6b8072"><a href="#022124" label="[02:21:24]">&lt;stikonas&gt;</a></span><span class="message">that's something to think after hex2...</span></div><div class="line" id="022215"><span class="nick" style="color:#6b8072"><a href="#022215" label="[02:22:15]">&lt;stikonas&gt;</a></span><span class="message">in general, I found hex1-&gt;hex2 step fairly easy</span></div><div class="line" id="022228"><span class="nick" style="color:#8dd3c7"><a href="#022228" label="[02:22:28]">&lt;oriansj&gt;</a></span><span class="message">stikonas: fair as you would have to deal with it in M0 if you selected to do that.</span></div><div class="line" id="022246"><span class="nick" style="color:#6b8072"><a href="#022246" label="[02:22:46]">&lt;stikonas&gt;</a></span><span class="message">maybe because hex1 for riscv was already fairly big</span></div><div class="line" id="022409"><span class="nick" style="color:#8dd3c7"><a href="#022409" label="[02:24:09]">&lt;oriansj&gt;</a></span><span class="message">stikonas: and you might want to consider &lt; for hex2 to save you from having to count bytes in strings.</span></div><div class="line" id="022447"><span class="nick" style="color:#8dd3c7"><a href="#022447" label="[02:24:47]">&lt;oriansj&gt;</a></span><span class="message">sort of :label &quot;my string&quot; &lt; :label2 &quot;next string&quot; &lt; sort of pattern</span></div><div class="line" id="022457"><span class="nick" style="color:#6b8072"><a href="#022457" label="[02:24:57]">&lt;stikonas&gt;</a></span><span class="message">oh , I haven't added that yet</span></div><div class="line" id="022504"><span class="nick" style="color:#6b8072"><a href="#022504" label="[02:25:04]">&lt;stikonas&gt;</a></span><span class="message">yeah, maybe I should add it first</span></div><div class="line" id="022535"><span class="nick" style="color:#6b8072"><a href="#022535" label="[02:25:35]">&lt;stikonas&gt;</a></span><span class="message">right now I had label&gt;label, long labels, dots and %, &amp; pointers</span></div><div class="line" id="022549"><span class="nick" style="color:#8dd3c7"><a href="#022549" label="[02:25:49]">&lt;oriansj&gt;</a></span><span class="message">nice</span></div><div class="line" id="022809"><span class="nick" style="color:#6b8072"><a href="#022809" label="[02:28:09]">&lt;stikonas&gt;</a></span><span class="message">^ is probably not needed for riscv</span></div><div class="line" id="022842"><span class="nick" style="color:#6b8072"><a href="#022842" label="[02:28:42]">&lt;stikonas&gt;</a></span><span class="message">seems mostly arm related</span></div><div class="line" id="025058"><span class="nick" style="color:#8dd3c7"><a href="#025058" label="[02:50:58]">&lt;oriansj&gt;</a></span><span class="message">stikonas: that and PowerPC but yeah, it doesn't look like ^ is needed in RISC-V</span></div><div class="line" id="030831"><span class="nick" style="color:#80b1d3"><a href="#030831" label="[03:08:31]">&lt;xentrac&gt;</a></span><span class="message">thank goodness for small favors</span></div><br /></div></body></html>

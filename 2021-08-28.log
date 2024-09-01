@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-08-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000644"><span class="nick" style="color:#389600"><a href="#000644" label="[00:06:44]">&lt;stikonas&gt;</a></span><span class="message">M0 seems quite easy to write (at least compared to e.g. hex1)</span></div><div class="line" id="000702"><span class="nick" style="color:#389600"><a href="#000702" label="[00:07:02]">&lt;stikonas&gt;</a></span><span class="message">a lot of functions can be taken from previous programs</span></div><div class="line" id="000718"><span class="nick" style="color:#389600"><a href="#000718" label="[00:07:18]">&lt;stikonas&gt;</a></span><span class="message">and remaining are much easier to debug, since output of M0 is more readable</span></div><div class="line" id="000728"><span class="nick" style="color:#389600"><a href="#000728" label="[00:07:28]">&lt;stikonas&gt;</a></span><span class="message">than output of e.g. hex programs</span></div><div class="line" id="000854"><span class="nick" style="color:#389600"><a href="#000854" label="[00:08:54]">&lt;stikonas&gt;</a></span><span class="message">still need to implement risc-v's Eval_Immediates but shouldn't be too hard</span></div><div class="line" id="000952"><span class="nick" style="color:#389600"><a href="#000952" label="[00:09:52]">&lt;stikonas&gt;</a></span><span class="message">but it will have to wait for 2 weeks or so</span></div><div class="line" id="001659"><span class="nick" style="color:#389600"><a href="#001659" label="[00:16:59]">&lt;stikonas&gt;</a></span><span class="message">of course writing it for the first arch (x86) must have been much harder</span></div><div class="line" id="030402"><span class="nick" style="color:#2e2a4a"><a href="#030402" label="[03:04:02]">&lt;oriansj&gt;</a></span><span class="message">stikonas: technically this was the hardest to think up when doing M0 <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/blob/master/x86/Development/M0_x86.M1#L834">https://github.com/oriansj/stage0-posix/blob/master/x86/Development/M0_x86.M1#L834</a> </span></div><div class="line" id="030501"><span class="nick" style="color:#6b8072"><a href="#030501" label="[03:05:01]">&lt;stikonas[m]&gt;</a></span><span class="message">Yeah, that piece is nicely written</span></div><div class="line" id="030521"><span class="nick" style="color:#2e2a4a"><a href="#030521" label="[03:05:21]">&lt;oriansj&gt;</a></span><span class="message">and with minor tweaks it becomes big endian too: <a rel="nofollow" href="https://github.com/oriansj/stage0/blob/master/stage2/cc_knight-native.s#L1099">https://github.com/oriansj/stage0/blob/master/stage2/cc_knight-native.s#L1099</a> </span></div><div class="line" id="030525"><span class="nick" style="color:#6b8072"><a href="#030525" label="[03:05:25]">&lt;stikonas[m]&gt;</a></span><span class="message">I have hex8 to hex1 done for now</span></div><div class="line" id="030703"><span class="nick" style="color:#2e2a4a"><a href="#030703" label="[03:07:03]">&lt;oriansj&gt;</a></span><span class="message">when you get to cc_* for RISC-V, perhaps these will be much easier to understand and prototype with before implementation: <a rel="nofollow" href="https://github.com/oriansj/stage0/tree/master/stage2/High_level_prototypes/cc_x86">https://github.com/oriansj/stage0/tree/master/stage2/High_level_prototypes/cc_x86</a> </span></div><div class="line" id="232454"><span class="nick">***</span><span class="message notice">pgreco_ is now known as pgreco</span></div><br /></div></body></html>

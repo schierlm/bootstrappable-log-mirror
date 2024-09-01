@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-04-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000759"><span class="nick" style="color:#8dd3c7"><a href="#000759" label="[00:07:59]">&lt;dddddd&gt;</a></span><span class="message">That gives the same results as with M1.scm, cleanly. But this is gcc. Now M2-Planet is another history.</span></div><div class="line" id="001511"><span class="nick" style="color:#2e2a4a"><a href="#001511" label="[00:15:11]">&lt;OriansJ&gt;</a></span><span class="message">M2-Planet can use just plain unsigned</span></div><div class="line" id="001529"><span class="nick" style="color:#2e2a4a"><a href="#001529" label="[00:15:29]">&lt;OriansJ&gt;</a></span><span class="message">eg unsigned i = value;</span></div><div class="line" id="003628"><span class="nick" style="color:#8dd3c7"><a href="#003628" label="[00:36:28]">&lt;dddddd&gt;</a></span><span class="message">Currently, M2-Planet &gt;&gt; behaviour is the same for unsigned.</span></div><div class="line" id="003643"><span class="nick" style="color:#8dd3c7"><a href="#003643" label="[00:36:43]">&lt;dddddd&gt;</a></span><span class="message">... for every arch.</span></div><div class="line" id="004446"><span class="nick" style="color:#8dd3c7"><a href="#004446" label="[00:44:46]">&lt;dddddd&gt;</a></span><span class="message">But, at least, we have a fix/workaround for M1-macro.c</span></div><div class="line" id="004540"><span class="nick" style="color:#8dd3c7"><a href="#004540" label="[00:45:40]">&lt;dddddd&gt;</a></span><span class="message">-	int i = value;</span></div><div class="line" id="004541"><span class="nick" style="color:#8dd3c7"><a href="#004541" label="[00:45:41]">&lt;dddddd&gt;</a></span><span class="message">+	unsigned i = value;</span></div><div class="line" id="005342"><span class="nick" style="color:#8dd3c7"><a href="#005342" label="[00:53:42]">&lt;dddddd&gt;</a></span><span class="message">Which, in retrospect... seems obvious as shift for signed is arithmetic, not logical :/</span></div><div class="line" id="010212"><span class="nick" style="color:#8dd3c7"><a href="#010212" label="[01:02:12]">&lt;dddddd&gt;</a></span><span class="message">And... for the record, the &quot;char* s&quot; parameter is &quot;output&quot;.</span></div><div class="line" id="010356"><span class="nick" style="color:#8dd3c7"><a href="#010356" label="[01:03:56]">&lt;dddddd&gt;</a></span><span class="message">The original function, for the curious readers:</span></div><div class="line" id="010359"><span class="nick" style="color:#8dd3c7"><a href="#010359" label="[01:03:59]">&lt;dddddd&gt;</a></span><span class="message">int stringify(char* s, int digits, int divisor, int value, int shift)</span></div><div class="line" id="010400"><span class="nick" style="color:#8dd3c7"><a href="#010400" label="[01:04:00]">&lt;dddddd&gt;</a></span><span class="message">{</span></div><div class="line" id="010400"><span class="nick" style="color:#8dd3c7"><a href="#010400" label="[01:04:00]">&lt;dddddd&gt;</a></span><span class="message">	int i = value;</span></div><div class="line" id="010400"><span class="nick" style="color:#8dd3c7"><a href="#010400" label="[01:04:00]">&lt;dddddd&gt;</a></span><span class="message">	if(digits &gt; 1)</span></div><div class="line" id="010400"><span class="nick" style="color:#8dd3c7"><a href="#010400" label="[01:04:00]">&lt;dddddd&gt;</a></span><span class="message">	{</span></div><div class="line" id="010400"><span class="nick" style="color:#8dd3c7"><a href="#010400" label="[01:04:00]">&lt;dddddd&gt;</a></span><span class="message">		i = stringify(s+1, (digits - 1), divisor, value, shift);</span></div><div class="line" id="010402"><span class="nick" style="color:#8dd3c7"><a href="#010402" label="[01:04:02]">&lt;dddddd&gt;</a></span><span class="message">	}</span></div><div class="line" id="010404"><span class="nick" style="color:#8dd3c7"><a href="#010404" label="[01:04:04]">&lt;dddddd&gt;</a></span><span class="message">	s[0] = hex2char(i &amp; (divisor - 1));</span></div><div class="line" id="010406"><span class="nick" style="color:#8dd3c7"><a href="#010406" label="[01:04:06]">&lt;dddddd&gt;</a></span><span class="message">	return (i &gt;&gt; shift);</span></div><div class="line" id="010408"><span class="nick" style="color:#8dd3c7"><a href="#010408" label="[01:04:08]">&lt;dddddd&gt;</a></span><span class="message">}</span></div><div class="line" id="010519"><span class="nick" style="color:#8dd3c7"><a href="#010519" label="[01:05:19]">&lt;dddddd&gt;</a></span><span class="message">For octal, divisor is 8, shift 3.</span></div><div class="line" id="100835"><span class="nick" style="color:#6b8072"><a href="#100835" label="[10:08:35]">&lt;fossy&gt;</a></span><span class="message">I am 40% done porting coreutils 5.0 to tinycc</span></div><div class="line" id="100841"><span class="nick" style="color:#6b8072"><a href="#100841" label="[10:08:41]">&lt;fossy&gt;</a></span><span class="message">reasonably simple task</span></div><div class="line" id="100930"><span class="nick" style="color:#6b8072"><a href="#100930" label="[10:09:30]">&lt;fossy&gt;</a></span><span class="message">and should make the bootstrap a bit (lot) faster for tinycc to just past gcc</span></div><div class="line" id="102756"><span class="nick" style="color:#80b1d3"><a href="#102756" label="[10:27:56]">&lt;damo22&gt;</a></span><span class="message"> <a rel="nofollow" href="http://paste.debian.net/plain/1140050">http://paste.debian.net/plain/1140050</a>  a small patch on a hurd system got me this far</span></div><div class="line" id="103145"><span class="nick" style="color:#80b1d3"><a href="#103145" label="[10:31:45]">&lt;damo22&gt;</a></span><span class="message">i needed `-o $o` because .S.o dont get replaced as .c -&gt; .o</span></div><div class="line" id="103358"><span class="nick" style="color:#80b1d3"><a href="#103358" label="[10:33:58]">&lt;damo22&gt;</a></span><span class="message">not sure why its missing itoa and eputs</span></div><div class="line" id="104741"><span class="nick" style="color:#80b1d3"><a href="#104741" label="[10:47:41]">&lt;damo22&gt;</a></span><span class="message">`-L mescc-lib/$mes_cpu-mes`  seemed to be missing</span></div><div class="line" id="115002"><span class="nick" style="color:#6b8072"><a href="#115002" label="[11:50:02]">&lt;fossy&gt;</a></span><span class="message">whats wrong damo22</span></div><div class="line" id="123014"><span class="nick" style="color:#80b1d3"><a href="#123014" label="[12:30:14]">&lt;damo22&gt;</a></span><span class="message">just trying to build mes on hurd</span></div><div class="line" id="123045"><span class="nick" style="color:#80b1d3"><a href="#123045" label="[12:30:45]">&lt;damo22&gt;</a></span><span class="message">using wip-hurd branch</span></div><div class="line" id="123219"><span class="nick" style="color:#80b1d3"><a href="#123219" label="[12:32:19]">&lt;damo22&gt;</a></span><span class="message">there seems to be two sets of build scripts, configure and configure.sh</span></div><div class="line" id="123327"><span class="nick" style="color:#80b1d3"><a href="#123327" label="[12:33:27]">&lt;damo22&gt;</a></span><span class="message">i used .sh variant</span></div><div class="line" id="124802"><span class="nick" style="color:#6b8072"><a href="#124802" label="[12:48:02]">&lt;fossy&gt;</a></span><span class="message">ah</span></div><div class="line" id="143136"><span class="nick" style="color:#6d2462"><a href="#143136" label="[14:31:36]">&lt;Hagfish&gt;</a></span><span class="message">coreutils for tcc?  nice!  i'm guessing you can't make that a configurable option that upstream would accept</span></div><div class="line" id="145308"><span class="nick" style="color:#2e2a4a"><a href="#145308" label="[14:53:08]">&lt;OriansJ&gt;</a></span><span class="message">fossy: interesting approach. It gives me an idea.</span></div><div class="line" id="231458"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="231500"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><div class="line" id="232237"><span class="nick" style="color:#6b8072"><a href="#232237" label="[23:22:37]">&lt;fossy&gt;</a></span><span class="message">OriansJ: guile or coreutils</span></div><div class="line" id="232239"><span class="nick" style="color:#6b8072"><a href="#232239" label="[23:22:39]">&lt;fossy&gt;</a></span><span class="message">?</span></div><br /></div></body></html>

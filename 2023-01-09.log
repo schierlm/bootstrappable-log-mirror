@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-01-09.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="225308"><span class="nick" style="color:#389600"><a href="#225308" label="[22:53:08]">&lt;doras&gt;</a></span><span class="message">It would be great if it was a format that rootfs.py itself consumes when downloading sources.</span></div><div class="line" id="225439"><span class="nick" style="color:#8dd3c7"><a href="#225439" label="[22:54:39]">&lt;stikonas&gt;</a></span><span class="message">doras: that is harder, because there is an option to download sources live in sysc</span></div><div class="line" id="225442"><span class="nick" style="color:#389600"><a href="#225442" label="[22:54:42]">&lt;doras&gt;</a></span><span class="message">This would leave us with one implementation of directory-walking logic for getting sources.</span></div><div class="line" id="225507"><span class="nick" style="color:#8dd3c7"><a href="#225507" label="[22:55:07]">&lt;stikonas&gt;</a></span><span class="message">and we might not have json or yaml parser yet</span></div><div class="line" id="225531"><span class="nick" style="color:#389600"><a href="#225531" label="[22:55:31]">&lt;doras&gt;</a></span><span class="message">stikonas: This of course should be preserved and untouched. I'm only referring to the --external-sources logic.</span></div><div class="line" id="225627"><span class="nick" style="color:#389600"><a href="#225627" label="[22:56:27]">&lt;doras&gt;</a></span><span class="message">i.e., whichever Python logic we have now behind this flag.</span></div><div class="line" id="225630"><span class="nick" style="color:#8dd3c7"><a href="#225630" label="[22:56:30]">&lt;stikonas&gt;</a></span><span class="message">anyway, fossy wrote that checksum-transcriber and sources stuff</span></div><div class="line" id="225642"><span class="nick" style="color:#8dd3c7"><a href="#225642" label="[22:56:42]">&lt;stikonas&gt;</a></span><span class="message">so he is probably a better person to talk to about sources format</span></div><div class="line" id="225759"><span class="nick" style="color:#389600"><a href="#225759" label="[22:57:59]">&lt;doras&gt;</a></span><span class="message">I'm not a Python expert, but I think it's best to use whichever human-readable format is considered the most Python friendly/native.</span></div><div class="line" id="225821"><span class="nick" style="color:#8dd3c7"><a href="#225821" label="[22:58:21]">&lt;stikonas&gt;</a></span><span class="message">well, most python friendly is probably yaml...</span></div><div class="line" id="225836"><span class="nick" style="color:#8dd3c7"><a href="#225836" label="[22:58:36]">&lt;stikonas&gt;</a></span><span class="message">but yaml is harder to parse manually using just M2 style C code</span></div><div class="line" id="225909"><span class="nick" style="color:#8dd3c7"><a href="#225909" label="[22:59:09]">&lt;stikonas&gt;</a></span><span class="message">so most likely it will be just a plain text list (possibly in space separated columns)</span></div><div class="line" id="225925"><span class="nick" style="color:#389600"><a href="#225925" label="[22:59:25]">&lt;doras&gt;</a></span><span class="message">Again, I want to change our bootstrap source downloading logic, only our Python source downloading logic.</span></div><div class="line" id="225940"><span class="nick" style="color:#389600"><a href="#225940" label="[22:59:40]">&lt;doras&gt;</a></span><span class="message">I don't want**</span></div><div class="line" id="230159"><span class="nick" style="color:#2e2a4a"><a href="#230159" label="[23:01:59]">&lt;plantman&gt;</a></span><span class="message">if you choose csv, you can parse a line with just 2 functions</span></div><div class="line" id="230204"><span class="nick" style="color:#389600"><a href="#230204" label="[23:02:04]">&lt;doras&gt;</a></span><span class="message">Unless... it was unified since I last reviewed the source code.</span></div><div class="line" id="230458"><span class="nick" style="color:#2e2a4a"><a href="#230458" label="[23:04:58]">&lt;plantman&gt;</a></span><span class="message">one function to count the commas, and the other to get the Nth string</span></div><div class="line" id="230610"><span class="nick" style="color:#389600"><a href="#230610" label="[23:06:10]">&lt;doras&gt;</a></span><span class="message">It wasn't unified, it's here: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/d1d36a4b8d2c5b9687bf91dbefe8ca0df91314ab/lib/sysgeneral.py#L102-L117">https://github.com/fosslinux/live-bootstrap/blob/d1d36a4b8d2c5b9687bf91dbefe8ca0df91314ab/lib/sysgeneral.py#L102-L117</a> </span></div><div class="line" id="230734"><span class="nick" style="color:#8dd3c7"><a href="#230734" label="[23:07:34]">&lt;stikonas&gt;</a></span><span class="message">doras: so what do you want this function to be? I'm a bit confused</span></div><div class="line" id="230914"><span class="nick" style="color:#389600"><a href="#230914" label="[23:09:14]">&lt;doras&gt;</a></span><span class="message">stikonas @stikonas:libera.chat: I want it to accept the source manifest (whichever format we decide) as a function argument and not open files and parse them itself.</span></div><div class="line" id="230946"><span class="nick" style="color:#8dd3c7"><a href="#230946" label="[23:09:46]">&lt;stikonas&gt;</a></span><span class="message">I see...</span></div><div class="line" id="231004"><span class="nick" style="color:#8dd3c7"><a href="#231004" label="[23:10:04]">&lt;stikonas&gt;</a></span><span class="message">anyway, since I wasn't really involved in that refactoring, it's probably best to talk to fossy</span></div><div class="line" id="231038"><span class="nick" style="color:#8dd3c7"><a href="#231038" label="[23:10:38]">&lt;stikonas&gt;</a></span><span class="message">I don't remember exactly the reason behind this</span></div><div class="line" id="231048"><span class="nick" style="color:#8dd3c7"><a href="#231048" label="[23:10:48]">&lt;stikonas&gt;</a></span><span class="message">there might be some good reasons  why it's split</span></div><div class="line" id="231142"><span class="nick" style="color:#8dd3c7"><a href="#231142" label="[23:11:42]">&lt;stikonas&gt;</a></span><span class="message">I guess if we have one big manifest</span></div><div class="line" id="231151"><span class="nick" style="color:#8dd3c7"><a href="#231151" label="[23:11:51]">&lt;stikonas&gt;</a></span><span class="message">we also need to keep track of extra metadata</span></div><div class="line" id="231200"><span class="nick" style="color:#8dd3c7"><a href="#231200" label="[23:12:00]">&lt;stikonas&gt;</a></span><span class="message">e.g. which package needs those sources</span></div><div class="line" id="231400"><span class="nick" style="color:#6b8072"><a href="#231400" label="[23:14:00]">&lt;muurkha&gt;</a></span><span class="message">most python friendly is probably a sequence of lines</span></div><div class="line" id="231406"><span class="nick" style="color:#6b8072"><a href="#231406" label="[23:14:06]">&lt;muurkha&gt;</a></span><span class="message">for line in open(filename):</span></div><div class="line" id="231503"><span class="nick" style="color:#6b8072"><a href="#231503" label="[23:15:03]">&lt;muurkha&gt;</a></span><span class="message">space-separated columns adds another line, but of course without any quoting convention eliminates the possibility of whitespace within values</span></div><div class="line" id="231509"><span class="nick" style="color:#6b8072"><a href="#231509" label="[23:15:09]">&lt;muurkha&gt;</a></span><span class="message"> words = line.split()</span></div><div class="line" id="231624"><span class="nick" style="color:#6b8072"><a href="#231624" label="[23:16:24]">&lt;muurkha&gt;</a></span><span class="message">yaml isn't even in the Python standard library</span></div><div class="line" id="231653"><span class="nick" style="color:#8dd3c7"><a href="#231653" label="[23:16:53]">&lt;stikonas&gt;</a></span><span class="message">anyway, I was not advocating for yaml here...</span></div><div class="line" id="231700"><span class="nick" style="color:#6b8072"><a href="#231700" label="[23:17:00]">&lt;muurkha&gt;</a></span><span class="message">csv is tho</span></div><div class="line" id="231720"><span class="nick" style="color:#6b8072"><a href="#231720" label="[23:17:20]">&lt;muurkha&gt;</a></span><span class="message">by default it uses Excel-compatible delimiter and quoting conventions</span></div><div class="line" id="231819"><span class="nick" style="color:#2e2a4a"><a href="#231819" label="[23:18:19]">&lt;plantman&gt;</a></span><span class="message">that excel stuff is more complicated</span></div><div class="line" id="231847"><span class="nick" style="color:#6b8072"><a href="#231847" label="[23:18:47]">&lt;muurkha&gt;</a></span><span class="message">it is, but it's in the Python standard library, so if you're looking for &quot;the most Python friendly&quot; it qualifies</span></div><div class="line" id="231956"><span class="nick" style="color:#6b8072"><a href="#231956" label="[23:19:56]">&lt;muurkha&gt;</a></span><span class="message">toml is apparently in the standard library too now actually</span></div><div class="line" id="232054"><span class="nick" style="color:#6b8072"><a href="#232054" label="[23:20:54]">&lt;muurkha&gt;</a></span><span class="message">and of course xml has been for quite a while</span></div><div class="line" id="232212"><span class="nick" style="color:#389600"><a href="#232212" label="[23:22:12]">&lt;doras&gt;</a></span><span class="message">Of course. fossy: I'd appreciate your opinion on the idea if you read this.... (full message at &lt;<a rel="nofollow" href="https://libera.ems.host/_matrix/media/v3/download/libera.chat/d1f6b78545ada211f33288852d92bd2c08133aad">https://libera.ems.host/_matrix/media/v3/download/libera.chat/d1f6b78545ada211f33288852d92bd2c08133aad</a>&gt;) </span></div><div class="line" id="232238"><span class="nick" style="color:#389600"><a href="#232238" label="[23:22:38]">&lt;doras&gt;</a></span><span class="message">The BuildStream plugin would live in a separate project of course.</span></div><div class="line" id="232619"><span class="nick" style="color:#389600"><a href="#232619" label="[23:26:19]">&lt;doras&gt;</a></span><span class="message">muurkha: thanks. So i understand that csv or xml are our most likely candidates.</span></div><div class="line" id="233035"><span class="nick" style="color:#389600"><a href="#233035" label="[23:30:35]">&lt;doras&gt;</a></span><span class="message">I really don't want to add new dependencies for running rootfs.py so I understand yaml is out of the question. I do, however, want the manifest format to be trivially consumed, so it's better to use a standard format.</span></div><div class="line" id="233610"><span class="nick" style="color:#6b8072"><a href="#233610" label="[23:36:10]">&lt;muurkha&gt;</a></span><span class="message">delimiter-separated columns are even easier in a sense; they don't even require an import statement</span></div><div class="line" id="233625"><span class="nick" style="color:#6b8072"><a href="#233625" label="[23:36:25]">&lt;muurkha&gt;</a></span><span class="message">just [line.split(':') for line in open(filename)] or something similar</span></div><div class="line" id="233719"><span class="nick" style="color:#6b8072"><a href="#233719" label="[23:37:19]">&lt;muurkha&gt;</a></span><span class="message">.split() without an argument splits on any whitespace, but for example .split('\t') splits on tabs and .split('|') splits on | characters</span></div><div class="line" id="234211"><span class="nick" style="color:#389600"><a href="#234211" label="[23:42:11]">&lt;doras&gt;</a></span><span class="message">muurkha: I do need a concept of a tuple though. I need 3 values per entry. So we'll need two different delimiters with that approach; the second probably being \n.</span></div><div class="line" id="234414"><span class="nick" style="color:#389600"><a href="#234414" label="[23:44:14]">&lt;doras&gt;</a></span><span class="message">Oh, well you added &quot;for line in...&quot;, so you already made that assumption.</span></div><div class="line" id="235908"><span class="nick" style="color:#6b8072"><a href="#235908" label="[23:59:08]">&lt;muurkha&gt;</a></span><span class="message">yeah, in Python iterating over a file by default iterates over its lines</span></div><br /></div></body></html>

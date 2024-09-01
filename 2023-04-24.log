@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-04-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="024243"><span class="nick" style="color:#389600"><a href="#024243" label="[02:42:43]">&lt;fossy&gt;</a></span><span class="message">rickmasters: we do not require sysb any more  - sysb was an assumption that the bootstrap kernel, when it existed, may not support hard drive, however, now that fiwix is being used there, that's no longer a problem</span></div><div class="line" id="024851"><span class="nick" style="color:#8dd3c7"><a href="#024851" label="[02:48:51]">&lt;stikonas&gt;</a></span><span class="message">fossy: well, like I was discussing before, it's only partially true</span></div><div class="line" id="024904"><span class="nick" style="color:#8dd3c7"><a href="#024904" label="[02:49:04]">&lt;stikonas&gt;</a></span><span class="message">fiwix will only support some devices</span></div><div class="line" id="024911"><span class="nick" style="color:#8dd3c7"><a href="#024911" label="[02:49:11]">&lt;stikonas&gt;</a></span><span class="message">far less than what linux supports</span></div><div class="line" id="024926"><span class="nick" style="color:#8dd3c7"><a href="#024926" label="[02:49:26]">&lt;stikonas&gt;</a></span><span class="message">so going via RAM into sysb might still be preferrable</span></div><div class="line" id="025227"><span class="nick" style="color:#389600"><a href="#025227" label="[02:52:27]">&lt;fossy&gt;</a></span><span class="message">hm, what has the possibility of being used that Fiwix doesn't support? USB?</span></div><div class="line" id="025247"><span class="nick" style="color:#389600"><a href="#025247" label="[02:52:47]">&lt;fossy&gt;</a></span><span class="message">i can't really think of anything other than USB, but USB might be a good enough reason..</span></div><div class="line" id="025358"><span class="nick" style="color:#389600"><a href="#025358" label="[02:53:58]">&lt;fossy&gt;</a></span><span class="message">either way, if we move sysa to HDD, we are going to require a non-USB hard drive anyway, in which case, I don't really see the point of sysb</span></div><div class="line" id="025512"><span class="nick" style="color:#389600"><a href="#025512" label="[02:55:12]">&lt;fossy&gt;</a></span><span class="message">rickmasters: in that case, I am alright with still including that, even if writing the disk takes 22 minutes</span></div><div class="line" id="025531"><span class="nick" style="color:#389600"><a href="#025531" label="[02:55:31]">&lt;fossy&gt;</a></span><span class="message">*that=builder-hex0 writing a disk</span></div><div class="line" id="030753"><span class="nick" style="color:#8dd3c7"><a href="#030753" label="[03:07:53]">&lt;stikonas&gt;</a></span><span class="message">fossy: I think USB is indeed not supported</span></div><div class="line" id="030829"><span class="nick" style="color:#8dd3c7"><a href="#030829" label="[03:08:29]">&lt;stikonas&gt;</a></span><span class="message">so I think the options are either more limited storage media support but maybe more space for bootstrap</span></div><div class="line" id="030851"><span class="nick" style="color:#8dd3c7"><a href="#030851" label="[03:08:51]">&lt;stikonas&gt;</a></span><span class="message">or more supported storage (whatever bios can read/write) but maybe limited sysa size</span></div><div class="line" id="032956"><span class="nick" style="color:#389600"><a href="#032956" label="[03:29:56]">&lt;fossy&gt;</a></span><span class="message">personally I'm ok with more limited storage media support at least for the time being</span></div><div class="line" id="033014"><span class="nick" style="color:#389600"><a href="#033014" label="[03:30:14]">&lt;fossy&gt;</a></span><span class="message">SATA is rather ubiquitous</span></div><div class="line" id="034012"><span class="nick" style="color:#2e2a4a"><a href="#034012" label="[03:40:12]">&lt;pabs3&gt;</a></span><span class="message">ACTION thinks that the sysb assumption seems like one that brings more flexibility and thus is worth preserving</span></div><div class="line" id="042120"><span class="nick" style="color:#389600"><a href="#042120" label="[04:21:20]">&lt;fossy&gt;</a></span><span class="message">pabs3: it is only useful if we keep sysa as an initramfs, which i do not really like, because it 1. removes most flexibility from sysa since we have to keep everything in RAM 2. makes RAM requirements for live-bootstrap nearly impossible to reduce</span></div><div class="line" id="133521"><span class="nick" style="color:#6b8072"><a href="#133521" label="[13:35:21]">&lt;rickmasters&gt;</a></span><span class="message">fossy, stikonas: Now that I understand the role of sysb better, I have mixed feelings about the way forward.</span></div><div class="line" id="133532"><span class="nick" style="color:#6b8072"><a href="#133532" label="[13:35:32]">&lt;rickmasters&gt;</a></span><span class="message">I wonder if I may have approached the kernel bootstrap differently if</span></div><div class="line" id="133544"><span class="nick" style="color:#6b8072"><a href="#133544" label="[13:35:44]">&lt;rickmasters&gt;</a></span><span class="message">I had better understood the potential of storage device flexibility</span></div><div class="line" id="133551"><span class="nick" style="color:#6b8072"><a href="#133551" label="[13:35:51]">&lt;rickmasters&gt;</a></span><span class="message">versus the challenges of staying in RAM until Linux was launched.</span></div><div class="line" id="133613"><span class="nick" style="color:#6b8072"><a href="#133613" label="[13:36:13]">&lt;rickmasters&gt;</a></span><span class="message">Oh well, I'm not going to dwell on it because one overriding priority</span></div><div class="line" id="133625"><span class="nick" style="color:#6b8072"><a href="#133625" label="[13:36:25]">&lt;rickmasters&gt;</a></span><span class="message">trumps all: just making a kernel bootstrap work, somehow.</span></div><div class="line" id="133729"><span class="nick" style="color:#6b8072"><a href="#133729" label="[13:37:29]">&lt;rickmasters&gt;</a></span><span class="message">We'll be able to develop alternate paths in the future if someone wants it enough.</span></div><div class="line" id="133903"><span class="nick" style="color:#6b8072"><a href="#133903" label="[13:39:03]">&lt;rickmasters&gt;</a></span><span class="message">For example, it is possible that tccboot might come back to the table someday.</span></div><div class="line" id="134059"><span class="nick" style="color:#6b8072"><a href="#134059" label="[13:40:59]">&lt;rickmasters&gt;</a></span><span class="message">(To be clear, Fiwix is great and I've had fun working with it.)</span></div><div class="line" id="134154"><span class="nick" style="color:#6b8072"><a href="#134154" label="[13:41:54]">&lt;rickmasters&gt;</a></span><span class="message">Anyway, I'll try not to foreclose future alternatives unless it really helps.</span></div><div class="line" id="134308"><span class="nick" style="color:#6b8072"><a href="#134308" label="[13:43:08]">&lt;rickmasters&gt;</a></span><span class="message">Specifically, removing sysb is not on my list of priorities. Maybe it happens. Not sure.</span></div><div class="line" id="134336"><span class="nick" style="color:#6b8072"><a href="#134336" label="[13:43:36]">&lt;rickmasters&gt;</a></span><span class="message">I'm going focus on a finding a way to boot Linux and go from there.</span></div><div class="line" id="134424"><span class="nick" style="color:#6b8072"><a href="#134424" label="[13:44:24]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: Thanks again for doing the work on the assembly macros.</span></div><div class="line" id="140650"><span class="nick" style="color:#80b1d3"><a href="#140650" label="[14:06:50]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: if you are now focusing on kexec Linux from Fiwix, I think you might want to see, unless you already know it, the code of the Limine bootloader: &lt;<a rel="nofollow" href="https://github.com/limine-bootloader/limine/tree/trunk/common/protos">https://github.com/limine-bootloader/limine/tree/trunk/common/protos</a>&gt; </span></div><div class="line" id="140735"><span class="nick" style="color:#80b1d3"><a href="#140735" label="[14:07:35]">&lt;Mikaku&gt;</a></span><span class="message">the directory protos/ contains the source of all the protocols supported by this bootloader: chainload, its own Limine protocol, multiboot 1 and 2, and of course, Linux</span></div><div class="line" id="140814"><span class="nick" style="color:#80b1d3"><a href="#140814" label="[14:08:14]">&lt;Mikaku&gt;</a></span><span class="message">since Limine is a relatively new bootloader, you might find its code easier to follow than GRUB</span></div><div class="line" id="140845"><span class="nick" style="color:#6b8072"><a href="#140845" label="[14:08:45]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: Thanks! I was just looking at grub and it will be great to have another reference.</span></div><div class="line" id="140902"><span class="nick" style="color:#80b1d3"><a href="#140902" label="[14:09:02]">&lt;Mikaku&gt;</a></span><span class="message">I mean, perhaps Limine will help you better to understand what Linux kernel needs to boot</span></div><div class="line" id="140915"><span class="nick" style="color:#80b1d3"><a href="#140915" label="[14:09:15]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: yes, the more references the best</span></div><div class="line" id="140926"><span class="nick" style="color:#6d2462"><a href="#140926" label="[14:09:26]">&lt;stikonas[m]&gt;</a></span><span class="message">rickmasters: and I think it's not too bad if builder-hex0 takes 22 minutes to load data... mes currently takes similar amount of time</span></div><div class="line" id="141202"><span class="nick" style="color:#6b8072"><a href="#141202" label="[14:12:02]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: It's not horrible but this is qemu on fast modern hardware. I'm a bit worried about real hardware performance.</span></div><div class="line" id="141547"><span class="nick" style="color:#6b8072"><a href="#141547" label="[14:15:47]">&lt;rickmasters&gt;</a></span><span class="message">Just to clarify, its 22 minutes for builder-hex0 to write the hard drive image for Fiwix to boot from.</span></div><div class="line" id="141735"><span class="nick" style="color:#6b8072"><a href="#141735" label="[14:17:35]">&lt;rickmasters&gt;</a></span><span class="message">I still need to explore creating a smaller partition, expanding it later. I think most of the current image is empty space needed later for the build.</span></div><div class="line" id="142132"><span class="nick" style="color:#6b8072"><a href="#142132" label="[14:21:32]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: limine also has a much more permissive license (BSD-2) vs grub (GPL 3)</span></div><div class="line" id="142938"><span class="nick" style="color:#6b8072"><a href="#142938" label="[14:29:38]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: ... except there is GPL-2 code copied from Linux. Fiwix has already included Linux code so no difference there.</span></div><div class="line" id="154240"><span class="nick" style="color:#80b1d3"><a href="#154240" label="[15:42:40]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: great! :-)</span></div><div class="line" id="160611"><span class="nick" style="color:#234e69"><a href="#160611" label="[16:06:11]">&lt;river&gt;</a></span><span class="message">this is kinda off topic for bootstrapping I guess but I blogged about my experience implementing an LSTM with Bard</span></div><div class="line" id="160631"><span class="nick" style="color:#234e69"><a href="#160631" label="[16:06:31]">&lt;river&gt;</a></span><span class="message">i have a view towards some LLM implementing a new improved version of its own code</span></div><div class="line" id="163612"><span class="nick" style="color:#6c3d55"><a href="#163612" label="[16:36:12]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">river: just a question, why isn't it just LM since it isn't stated what Large is relative to?</span></div><div class="line" id="163748"><span class="nick" style="color:#234e69"><a href="#163748" label="[16:37:48]">&lt;river&gt;</a></span><span class="message">i think large is really getting at how certain capabilities only emerge at scale in these language models</span></div><div class="line" id="181914"><span class="nick" style="color:#d9d9d9"><a href="#181914" label="[18:19:14]">&lt;muurkha&gt;</a></span><span class="message">river: cool!</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-07-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="021130"><span class="nick" style="color:#389600"><a href="#021130" label="[02:11:30]">&lt;oriansj&gt;</a></span><span class="message">well I must say, mirroring all of gentoo takes a bit on a DSL connection</span></div><div class="line" id="021315"><span class="nick" style="color:#8dd3c7"><a href="#021315" label="[02:13:15]">&lt;stikonas&gt;</a></span><span class="message">well, just like any other distro...</span></div><div class="line" id="021321"><span class="nick" style="color:#8dd3c7"><a href="#021321" label="[02:13:21]">&lt;stikonas&gt;</a></span><span class="message">there are lots of packages</span></div><div class="line" id="021532"><span class="nick" style="color:#389600"><a href="#021532" label="[02:15:32]">&lt;oriansj&gt;</a></span><span class="message">odd to see qcow2 files though</span></div><div class="line" id="021604"><span class="nick" style="color:#8dd3c7"><a href="#021604" label="[02:16:04]">&lt;stikonas&gt;</a></span><span class="message">hmm, is that distfiles?</span></div><div class="line" id="021625"><span class="nick" style="color:#8dd3c7"><a href="#021625" label="[02:16:25]">&lt;stikonas&gt;</a></span><span class="message">that would be strange if it's in distfiles, qcow2 qre vm images...</span></div><div class="line" id="021657"><span class="nick" style="color:#389600"><a href="#021657" label="[02:16:57]">&lt;oriansj&gt;</a></span><span class="message">they are under gentoo/experimental/amd64/openstack/</span></div><div class="line" id="021913"><span class="nick" style="color:#389600"><a href="#021913" label="[02:19:13]">&lt;oriansj&gt;</a></span><span class="message">I am 584.6 GiB into the download (not sure how much is left)</span></div><div class="line" id="022219"><span class="nick" style="color:#2e2a4a"><a href="#022219" label="[02:22:19]">&lt;fossy&gt;</a></span><span class="message">oof, doing that on DSL would be very rough</span></div><div class="line" id="022326"><span class="nick" style="color:#389600"><a href="#022326" label="[02:23:26]">&lt;oriansj&gt;</a></span><span class="message">fossy: doesn't really impact much honestly. IRC and git are pretty lean</span></div><div class="line" id="022332"><span class="nick" style="color:#6b8072"><a href="#022332" label="[02:23:32]">&lt;stikonas[m]&gt;</a></span><span class="message">I didn't know gentoo provides openstack images...</span></div><div class="line" id="022353"><span class="nick" style="color:#389600"><a href="#022353" label="[02:23:53]">&lt;oriansj&gt;</a></span><span class="message">also there is: gentoo/experimental/amd64/qemu-selinux/selinuxnode-amd64-20130224.qcow2.xz and gentoo/experimental/amd64/qemu/allpython-amd64-qemu-20100531.qcow2.xz</span></div><div class="line" id="022408"><span class="nick" style="color:#2e2a4a"><a href="#022408" label="[02:24:08]">&lt;fossy&gt;</a></span><span class="message">that is olldddd stuff</span></div><div class="line" id="022408"><span class="nick" style="color:#6b8072"><a href="#022408" label="[02:24:08]">&lt;stikonas[m]&gt;</a></span><span class="message">oriansj: do you really need them?</span></div><div class="line" id="022502"><span class="nick" style="color:#389600"><a href="#022502" label="[02:25:02]">&lt;oriansj&gt;</a></span><span class="message">stikonas[m]: oh, I am just doing: rsync -arv rsync://mirrors.rit.edu/gentoo/ gentoo; so I am getting everything</span></div><div class="line" id="022553"><span class="nick" style="color:#389600"><a href="#022553" label="[02:25:53]">&lt;oriansj&gt;</a></span><span class="message">I probably don't need much of it at all but I was planning on having a full gentoo mirror</span></div><div class="line" id="031717"><span class="nick" style="color:#389600"><a href="#031717" label="[03:17:17]">&lt;oriansj&gt;</a></span><span class="message">plus I have a stupid idea I want to play with.</span></div><br /></div></body></html>

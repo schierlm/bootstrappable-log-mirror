@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-10-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="090953"><span class="nick" style="color:#8dd3c7"><a href="#090953" label="[09:09:53]">&lt;stikonas&gt;</a></span><span class="message">ok, with this change <a rel="nofollow" href="https://github.com/stikonas/mes-m2/tree/riscv64">https://github.com/stikonas/mes-m2/tree/riscv64</a>  mes-m2 builds on riscv64 but does not run yet (segfaults). But that is expected as I've not adjusted crt1.M1 yet</span></div><div class="line" id="091023"><span class="nick" style="color:#8dd3c7"><a href="#091023" label="[09:10:23]">&lt;stikonas&gt;</a></span><span class="message">(and change is not upstreamable yet as it breaks other arches)</span></div><div class="line" id="092638"><span class="nick" style="color:#2e2a4a"><a href="#092638" label="[09:26:38]">&lt;pabs3&gt;</a></span><span class="message">a Prolog written in Rust <a rel="nofollow" href="https://github.com/mthom/scryer-prolog">https://github.com/mthom/scryer-prolog</a>  <a rel="nofollow" href="https://news.ycombinator.com/item?id=28966133">https://news.ycombinator.com/item?id=28966133</a> </span></div><div class="line" id="165605"><span class="nick" style="color:#6b8072"><a href="#165605" label="[16:56:05]">&lt;oriansj&gt;</a></span><span class="message">well I guess that is one way to get riscv support for mes-m2</span></div><div class="line" id="165819"><span class="nick" style="color:#80b1d3"><a href="#165819" label="[16:58:19]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, patches can be cleaned up, I just didn't have any spare time yet</span></div><div class="line" id="165849"><span class="nick" style="color:#80b1d3"><a href="#165849" label="[16:58:49]">&lt;stikonas[m]&gt;</a></span><span class="message">This was just a quick attempt to see how much porting is necessary</span></div><div class="line" id="170852"><span class="nick" style="color:#6b8072"><a href="#170852" label="[17:08:52]">&lt;oriansj&gt;</a></span><span class="message">well it was only the syscalls, everything else should be relatively portable</span></div><div class="line" id="230059"><span class="nick" style="color:#6d2462"><a href="#230059" label="[23:00:59]">&lt;markjenkinssksp&gt;</a></span><span class="message">My project based on Nystrom's Crafting Interpreters is still inching along <a rel="nofollow" href="https://github.com/markjenkins/lox_compiler_scheme">https://github.com/markjenkins/lox_compiler_scheme</a> </span></div><div class="line" id="230152"><span class="nick" style="color:#6d2462"><a href="#230152" label="[23:01:52]">&lt;markjenkinssksp&gt;</a></span><span class="message">I now have 39 tests that apply to my compiler and bytecode_interpreter (arguably that's 78)</span></div><div class="line" id="230221"><span class="nick" style="color:#6d2462"><a href="#230221" label="[23:02:21]">&lt;markjenkinssksp&gt;</a></span><span class="message">I'm testing against M2-Planet and gcc on aarch64, amd64 and x86, so that's 234 variations the bytecode interpreter is being put through.</span></div><div class="line" id="230328"><span class="nick" style="color:#6d2462"><a href="#230328" label="[23:03:28]">&lt;markjenkinssksp&gt;</a></span><span class="message">But I just discovered gcc on x86 breaks one of those 234 variations <a rel="nofollow" href="https://github.com/markjenkins/lox_compiler_scheme/issues/1">https://github.com/markjenkins/lox_compiler_scheme/issues/1</a> </span></div><div class="line" id="231002"><span class="nick" style="color:#234e69"><a href="#231002" label="[23:10:02]">&lt;theruran&gt;</a></span><span class="message">markjenkinssksp: so you rolled your own PEG?</span></div><div class="line" id="231159"><span class="nick" style="color:#6c3d55"><a href="#231159" label="[23:11:59]">&lt;muurkha&gt;</a></span><span class="message">cool!</span></div><div class="line" id="231234"><span class="nick" style="color:#6d2462"><a href="#231234" label="[23:12:34]">&lt;markjenkinssksp&gt;</a></span><span class="message">had to figure out that PEG is <a rel="nofollow" href="https://en.wikipedia.org/wiki/Parsing_expression_grammar">https://en.wikipedia.org/wiki/Parsing_expression_grammar</a> </span></div><div class="line" id="231320"><span class="nick" style="color:#6d2462"><a href="#231320" label="[23:13:20]">&lt;markjenkinssksp&gt;</a></span><span class="message">I can't really be said to be rolling my own in that I'm following <a rel="nofollow" href="https://craftinginterpreters.com/">https://craftinginterpreters.com/</a>  very closely, just with scheme for my compiler and M2-Planet for my bytecode interpreter</span></div><div class="line" id="231429"><span class="nick" style="color:#6d2462"><a href="#231429" label="[23:14:29]">&lt;markjenkinssksp&gt;</a></span><span class="message">Nystrom does describe his approach as hand-written parser vs generated</span></div><div class="line" id="231528"><span class="nick" style="color:#6d2462"><a href="#231528" label="[23:15:28]">&lt;markjenkinssksp&gt;</a></span><span class="message">Prior to his recent book, he covered his approach to parsing more briefly here <a rel="nofollow" href="http://journal.stuffwithstuff.com/2011/03/19/pratt-parsers-expression-parsing-made-easy/">http://journal.stuffwithstuff.com/2011/03/19/pratt-parsers-expression-parsing-made-easy/</a> </span></div><div class="line" id="231920"><span class="nick" style="color:#6c3d55"><a href="#231920" label="[23:19:20]">&lt;muurkha&gt;</a></span><span class="message">yeah, pratt parsers are not the same as PEGs</span></div><div class="line" id="232127"><span class="nick" style="color:#6c3d55"><a href="#232127" label="[23:21:27]">&lt;muurkha&gt;</a></span><span class="message">I feel like PEGs are a lot simpler than Pratt parsers for most things, but they're a lot less efficient, and bog-standard PEGs can't handle left-recursive grammars, so if your PEG parser generator doesn't support Warth's left-recursion hack, you have to learn to refactor your grammar to eliminate left-recursion</span></div><div class="line" id="232154"><span class="nick" style="color:#6c3d55"><a href="#232154" label="[23:21:54]">&lt;muurkha&gt;</a></span><span class="message">infix grammars and grammars with postfix operators tend to have a lot of left-recursion</span></div><div class="line" id="232232"><span class="nick" style="color:#6d2462"><a href="#232232" label="[23:22:32]">&lt;markjenkinssksp&gt;</a></span><span class="message">indeed, from what I can see on the wikipedia article about PEG it's a formal thing, whereas the Pratt approach Nystrom spends part III of his book on is an informal approach that he claims is quite common</span></div><div class="line" id="232305"><span class="nick" style="color:#6c3d55"><a href="#232305" label="[23:23:05]">&lt;muurkha&gt;</a></span><span class="message">I think Pratt would take exception to both of those claims about Pratt parsers :)</span></div><div class="line" id="232416"><span class="nick" style="color:#6d2462"><a href="#232416" label="[23:24:16]">&lt;markjenkinssksp&gt;</a></span><span class="message">first discussion in Crafting Interpreters is chapter 17 <a rel="nofollow" href="https://craftinginterpreters.com/compiling-expressions.html">https://craftinginterpreters.com/compiling-expressions.html</a> </span></div><div class="line" id="232453"><span class="nick" style="color:#6c3d55"><a href="#232453" label="[23:24:53]">&lt;muurkha&gt;</a></span><span class="message">operator-precedence parsers are widely used, and so are top-down parsers (PEGs are also top-down, for example), but most operator-precedence parsers are bottom-up</span></div><div class="line" id="232512"><span class="nick" style="color:#6c3d55"><a href="#232512" label="[23:25:12]">&lt;muurkha&gt;</a></span><span class="message">and most top-down parsers are either LL or recursive-descent</span></div><div class="line" id="232606"><span class="nick" style="color:#6c3d55"><a href="#232606" label="[23:26:06]">&lt;muurkha&gt;</a></span><span class="message">PEG parsers, like Pratt parsers, LL parsers, and LALR parsers, have a linear-time performance guarantee, but PEG parsers can also require linear *space*, which can be a real problem</span></div><div class="line" id="232611"><span class="nick" style="color:#6c3d55"><a href="#232611" label="[23:26:11]">&lt;muurkha&gt;</a></span><span class="message">and their constant factors are enormously higher</span></div><div class="line" id="232704"><span class="nick" style="color:#6d2462"><a href="#232704" label="[23:27:04]">&lt;markjenkinssksp&gt;</a></span><span class="message">In fairness, I guess I may have overstated what the sidebar says about commonness, Nystrom says &quot;But in production compilers, where hand-rolled parsers are common, you’d be surprised how many people know it.&quot;</span></div><div class="line" id="232742"><span class="nick" style="color:#6c3d55"><a href="#232742" label="[23:27:42]">&lt;muurkha&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/darius/parson/blob/master/eg_linear_equations.py">https://github.com/darius/parson/blob/master/eg_linear_equations.py</a>  is a good example of a PEG, I think</span></div><div class="line" id="232805"><span class="nick" style="color:#6d2462"><a href="#232805" label="[23:28:05]">&lt;markjenkinssksp&gt;</a></span><span class="message">that's all for now, thanks muurkha</span></div><div class="line" id="232840"><span class="nick" style="color:#6c3d55"><a href="#232840" label="[23:28:40]">&lt;muurkha&gt;</a></span><span class="message">in this case it parses a system of linear equations</span></div><br /></div></body></html>

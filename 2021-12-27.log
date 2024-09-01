@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-12-27.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002742"><span class="nick" style="color:#8dd3c7"><a href="#002742" label="[00:27:42]">&lt;stikonas&gt;</a></span><span class="message">rekado_: I have some problem building openjdk-16, any ideas?</span></div><div class="line" id="002806"><span class="nick" style="color:#8dd3c7"><a href="#002806" label="[00:28:06]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://stikonas.eu/files/p3c0gwv4lbsfx54rj8al848ckzvk9s-openjdk-16.0.1.drv.bz2">https://stikonas.eu/files/p3c0gwv4lbsfx54rj8al848ckzvk9s-openjdk-16.0.1.drv.bz2</a> </span></div><div class="line" id="002844"><span class="nick" style="color:#8dd3c7"><a href="#002844" label="[00:28:44]">&lt;stikonas&gt;</a></span><span class="message">the error itself is g++: fatal error: cannot execute 'as': vfork: Resource temporarily unavailable</span></div><div class="line" id="003325"><span class="nick" style="color:#8dd3c7"><a href="#003325" label="[00:33:25]">&lt;stikonas&gt;</a></span><span class="message">maybe I should try running guix with 1 core (-c 1)</span></div><div class="line" id="021504"><span class="nick" style="color:#2e2a4a"><a href="#021504" label="[02:15:04]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: sounds suspiciously like you have reached max process limit</span></div><div class="line" id="021855"><span class="nick" style="color:#6b8072"><a href="#021855" label="[02:18:55]">&lt;stikonas[m]&gt;</a></span><span class="message">strange though, I wasn't running much and also reproducible after reboot...</span></div><div class="line" id="021923"><span class="nick" style="color:#6b8072"><a href="#021923" label="[02:19:23]">&lt;stikonas[m]&gt;</a></span><span class="message">Anyway, will try it tomorrow</span></div><div class="line" id="021928"><span class="nick" style="color:#2e2a4a"><a href="#021928" label="[02:19:28]">&lt;fossy&gt;</a></span><span class="message">openjdk might be making a crap ton of processes in build</span></div><div class="line" id="021941"><span class="nick" style="color:#2e2a4a"><a href="#021941" label="[02:19:41]">&lt;fossy&gt;</a></span><span class="message">i have reached max process limit building a java thingo before (haven't tried openjdk itself though)</span></div><div class="line" id="213012"><span class="nick" style="color:#8dd3c7"><a href="#213012" label="[21:30:12]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I'm getting cycling dependency with new M2libc</span></div><div class="line" id="213048"><span class="nick" style="color:#8dd3c7"><a href="#213048" label="[21:30:48]">&lt;stikonas&gt;</a></span><span class="message">bootstrappable.c needs fputs from stdio.c</span></div><div class="line" id="213054"><span class="nick" style="color:#8dd3c7"><a href="#213054" label="[21:30:54]">&lt;stikonas&gt;</a></span><span class="message">but stdio.c needs brk</span></div><div class="line" id="213215"><span class="nick" style="color:#8dd3c7"><a href="#213215" label="[21:32:15]">&lt;stikonas&gt;</a></span><span class="message">oh, maybe I can unentangle this...</span></div><div class="line" id="213401"><span class="nick" style="color:#8dd3c7"><a href="#213401" label="[21:34:01]">&lt;stikonas&gt;</a></span><span class="message">hmm, now got &quot;#define got something it can't handle&quot;</span></div><div class="line" id="213602"><span class="nick" style="color:#8dd3c7"><a href="#213602" label="[21:36:02]">&lt;stikonas&gt;</a></span><span class="message">probably need to backport that change that I suggested to M2-Planet</span></div><div class="line" id="220306"><span class="nick" style="color:#8dd3c7"><a href="#220306" label="[22:03:06]">&lt;stikonas&gt;</a></span><span class="message">hmm, I think the best way forward is to add some extra forward-declarations to M2libc</span></div><div class="line" id="221311"><span class="nick" style="color:#8dd3c7"><a href="#221311" label="[22:13:11]">&lt;stikonas&gt;</a></span><span class="message">ok, actually managed to find the order of -f that works without having to tweak M2libc</span></div><div class="line" id="221811"><span class="nick" style="color:#8dd3c7"><a href="#221811" label="[22:18:11]">&lt;stikonas&gt;</a></span><span class="message">doras: I think I can get rid of that after.kaem.arch in live-bootstrap reasonably soon</span></div><div class="line" id="221825"><span class="nick" style="color:#8dd3c7"><a href="#221825" label="[22:18:25]">&lt;stikonas&gt;</a></span><span class="message">or rather move it to stage0-posix</span></div><div class="line" id="221950"><span class="nick" style="color:#8dd3c7"><a href="#221950" label="[22:19:50]">&lt;stikonas&gt;</a></span><span class="message">stage0-posix already contains individual ARCH directories</span></div><div class="line" id="222037"><span class="nick" style="color:#8dd3c7"><a href="#222037" label="[22:20:37]">&lt;stikonas&gt;</a></span><span class="message">it will mean we need an extra kaem file in each directory, so it's not entirely for free</span></div><div class="line" id="222044"><span class="nick" style="color:#8dd3c7"><a href="#222044" label="[22:20:44]">&lt;stikonas&gt;</a></span><span class="message">but it will reduce complexity in live-bootstrap</span></div><div class="line" id="222107"><span class="nick" style="color:#8dd3c7"><a href="#222107" label="[22:21:07]">&lt;stikonas&gt;</a></span><span class="message">and I might also make some simplifications to stage0-posix in the process</span></div><div class="line" id="222306"><span class="nick" style="color:#80b1d3"><a href="#222306" label="[22:23:06]">&lt;doras&gt;</a></span><span class="message">Great! :)</span></div><div class="line" id="222507"><span class="nick" style="color:#8dd3c7"><a href="#222507" label="[22:25:07]">&lt;stikonas&gt;</a></span><span class="message">it's quite a large change (since I need to pull in newer M2libc into stage0-posix too)</span></div><div class="line" id="222534"><span class="nick" style="color:#8dd3c7"><a href="#222534" label="[22:25:34]">&lt;stikonas&gt;</a></span><span class="message">but I think I've got the tricky bits done, now just more of the same</span></div><div class="line" id="222846"><span class="nick" style="color:#8dd3c7"><a href="#222846" label="[22:28:46]">&lt;stikonas&gt;</a></span><span class="message">ok, small blocker. oriansj, can you merge this: <a rel="nofollow" href="https://github.com/oriansj/mescc-tools/pull/36">https://github.com/oriansj/mescc-tools/pull/36</a> </span></div><div class="line" id="223007"><span class="nick" style="color:#8dd3c7"><a href="#223007" label="[22:30:07]">&lt;stikonas&gt;</a></span><span class="message">hmm, maybe I shouldn't yet convert stuff to M2-Mesoplanet... got some segfault</span></div><div class="line" id="224410"><span class="nick" style="color:#80b1d3"><a href="#224410" label="[22:44:10]">&lt;doras&gt;</a></span><span class="message">We're currently trying to use live-bootstrap build with my bwrap mode to start our bootstrap process locally and see what fails. So far a lot 😅</span></div><div class="line" id="224548"><span class="nick" style="color:#80b1d3"><a href="#224548" label="[22:45:48]">&lt;doras&gt;</a></span><span class="message">No cross-compilation yet, no proper sandboxing or mirroring, etc. Just to see if it replace our own bootstrap image.</span></div><div class="line" id="224603"><span class="nick" style="color:#80b1d3"><a href="#224603" label="[22:46:03]">&lt;doras&gt;</a></span><span class="message">if it can*</span></div><div class="line" id="224723"><span class="nick" style="color:#80b1d3"><a href="#224723" label="[22:47:23]">&lt;doras&gt;</a></span><span class="message">Some things did build successfully though, so there's that.</span></div><div class="line" id="225113"><span class="nick" style="color:#80b1d3"><a href="#225113" label="[22:51:13]">&lt;doras&gt;</a></span><span class="message">Currently struggling with building rsync.</span></div><div class="line" id="225235"><span class="nick">***</span><span class="message notice">attila_lendvai_ is now known as attila_lendvai</span></div><div class="line" id="225933"><span class="nick" style="color:#8dd3c7"><a href="#225933" label="[22:59:33]">&lt;stikonas&gt;</a></span><span class="message">well, you have just started looking at it last week, things take time...</span></div><div class="line" id="233614"><span class="nick">***</span><span class="message notice">lh is now known as hpfr</span></div><br /></div></body></html>

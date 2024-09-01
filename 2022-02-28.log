@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-02-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="014646"><span class="nick" style="color:#8dd3c7"><a href="#014646" label="[01:46:46]">&lt;oriansj&gt;</a></span><span class="message">stikonas: no because the results would depend upon what M2libc and M2-Planet are used</span></div><div class="line" id="014825"><span class="nick" style="color:#8dd3c7"><a href="#014825" label="[01:48:25]">&lt;oriansj&gt;</a></span><span class="message">in fact changes in those repos *SHOULD NOT* change the resulting binaries at the end; as they should solely be the product of the source code provided in the other submodules.</span></div><div class="line" id="014843"><span class="nick" style="color:#2e2a4a"><a href="#014843" label="[01:48:43]">&lt;stikonas&gt;</a></span><span class="message">oh yes, I missed that...</span></div><div class="line" id="015039"><span class="nick" style="color:#8dd3c7"><a href="#015039" label="[01:50:39]">&lt;oriansj&gt;</a></span><span class="message">and this way, integration with live-bootstrap is identical to the integration with stage0-posix itself</span></div><div class="line" id="015103"><span class="nick" style="color:#8dd3c7"><a href="#015103" label="[01:51:03]">&lt;oriansj&gt;</a></span><span class="message">you can update or add/subtract architectures as you feel like supporting them or not</span></div><div class="line" id="015307"><span class="nick" style="color:#8dd3c7"><a href="#015307" label="[01:53:07]">&lt;oriansj&gt;</a></span><span class="message">in fact, I am tempted to move the kaem scripts out entirely but that can just go on the back of my queue for a while.</span></div><div class="line" id="015406"><span class="nick" style="color:#8dd3c7"><a href="#015406" label="[01:54:06]">&lt;oriansj&gt;</a></span><span class="message">but first I guess I need to learn about how to make a minimal C kernel and then hand compile to assembly.</span></div><div class="line" id="025928"><span class="nick">***</span><span class="message notice">robin_ is now known as robin</span></div><div class="line" id="052638"><span class="nick">***</span><span class="message notice">alMalsamo is now known as lumberjackimok</span></div><div class="line" id="052647"><span class="nick">***</span><span class="message notice">lumberjackimok is now known as lumberjackok</span></div><div class="line" id="135849"><span class="nick" style="color:#6b8072"><a href="#135849" label="[13:58:49]">&lt;muurkha&gt;</a></span><span class="message">oriansj: solely the product of the source code and not the paths where things are installed?</span></div><div class="line" id="234014"><span class="nick" style="color:#8dd3c7"><a href="#234014" label="[23:40:14]">&lt;oriansj&gt;</a></span><span class="message">muurkha: M2-Planet does not embed any PATH information. It only has file name information for error messages while compiling and that is it</span></div><div class="line" id="234113"><span class="nick" style="color:#8dd3c7"><a href="#234113" label="[23:41:13]">&lt;oriansj&gt;</a></span><span class="message">So where things are that are used doesn't matter to the contents of the output</span></div><div class="line" id="234302"><span class="nick" style="color:#8dd3c7"><a href="#234302" label="[23:43:02]">&lt;oriansj&gt;</a></span><span class="message">everything in stage0-posix can be relatively addressed; so if one just changes the /path/to/file in the kaem script, the resulting binary will be unchanged. but if a single functional byte is changed, the resulting binary *WILL* change</span></div><div class="line" id="234322"><span class="nick" style="color:#8dd3c7"><a href="#234322" label="[23:43:22]">&lt;oriansj&gt;</a></span><span class="message">(whitespace and comment changes don't change output)</span></div><div class="line" id="234613"><span class="nick" style="color:#6b8072"><a href="#234613" label="[23:46:13]">&lt;muurkha&gt;</a></span><span class="message">oriansj: we ran into a problem the other day where tcc did embed paths in its output</span></div><div class="line" id="234835"><span class="nick" style="color:#8dd3c7"><a href="#234835" label="[23:48:35]">&lt;oriansj&gt;</a></span><span class="message">muurkha: The only piece in stage0-posix that actually has file info in its output is M2-Mesoplanet and that is only passing the filename to M2-Planet for correct error line numbers</span></div><br /></div></body></html>

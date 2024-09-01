@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-06-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="031637"><span class="nick" style="color:#8dd3c7"><a href="#031637" label="[03:16:37]">&lt;Hagfish&gt;</a></span><span class="message">muurkha: maybe there is.  i think if it just implemented the gen1 rules/dex, an optimal strategy could probably be brute-forced</span></div><div class="line" id="231034"><span class="nick" style="color:#2e2a4a"><a href="#231034" label="[23:10:34]">&lt;oriansj&gt;</a></span><span class="message">interesting, an ASR33 defaults to MARK parity</span></div><div class="line" id="231747"><span class="nick" style="color:#6b8072"><a href="#231747" label="[23:17:47]">&lt;muurkha&gt;</a></span><span class="message">interesting, I didn't know they had parity!</span></div><div class="line" id="231800"><span class="nick" style="color:#6b8072"><a href="#231800" label="[23:18:00]">&lt;muurkha&gt;</a></span><span class="message">is MARK parity odd parity?</span></div><div class="line" id="232114"><span class="nick" style="color:#2e2a4a"><a href="#232114" label="[23:21:14]">&lt;oriansj&gt;</a></span><span class="message">no, it appears to always be set to 1 and if 0 is an error</span></div><div class="line" id="232139"><span class="nick" style="color:#6b8072"><a href="#232139" label="[23:21:39]">&lt;muurkha&gt;</a></span><span class="message">oh, so it's not parity at all, it's just, like, an extra start or stop bit</span></div><div class="line" id="232222"><span class="nick" style="color:#2e2a4a"><a href="#232222" label="[23:22:22]">&lt;oriansj&gt;</a></span><span class="message">or a disconnect sort of thing in the event the thing goes down during a data transfer</span></div><div class="line" id="232225"><span class="nick" style="color:#6b8072"><a href="#232225" label="[23:22:25]">&lt;muurkha&gt;</a></span><span class="message">ISTR the 8250 has an option for 1 or 2 stop bits</span></div><div class="line" id="232234"><span class="nick" style="color:#6b8072"><a href="#232234" label="[23:22:34]">&lt;muurkha&gt;</a></span><span class="message">a disconnect sort of thing is BREAK though</span></div><div class="line" id="232303"><span class="nick" style="color:#2e2a4a"><a href="#232303" label="[23:23:03]">&lt;oriansj&gt;</a></span><span class="message">as there is even, odd, mark and space parity behavior for the parity bit</span></div><div class="line" id="232305"><span class="nick" style="color:#6b8072"><a href="#232305" label="[23:23:05]">&lt;muurkha&gt;</a></span><span class="message">great thing about 60mA current loop is that you can detect BREAK extremely reliably</span></div><div class="line" id="232336"><span class="nick" style="color:#2e2a4a"><a href="#232336" label="[23:23:36]">&lt;oriansj&gt;</a></span><span class="message">assuming one puts in the hardware to do so</span></div><div class="line" id="232401"><span class="nick" style="color:#6b8072"><a href="#232401" label="[23:24:01]">&lt;muurkha&gt;</a></span><span class="message">I don't remember if the ASR-33 itself could detect BREAK</span></div><div class="line" id="232439"><span class="nick" style="color:#6b8072"><a href="#232439" label="[23:24:39]">&lt;muurkha&gt;</a></span><span class="message">but BREAK detection was extremely widely deployed</span></div><div class="line" id="232508"><span class="nick" style="color:#2e2a4a"><a href="#232508" label="[23:25:08]">&lt;oriansj&gt;</a></span><span class="message">fair, I'm mostly just down a pdp-8 programming sinkhole</span></div><div class="line" id="232549"><span class="nick" style="color:#6b8072"><a href="#232549" label="[23:25:49]">&lt;muurkha&gt;</a></span><span class="message">pretty sure the PDP-8 could detect BREAK but I've never used one</span></div><div class="line" id="232553"><span class="nick" style="color:#6b8072"><a href="#232553" label="[23:25:53]">&lt;muurkha&gt;</a></span><span class="message">just from the time period</span></div><div class="line" id="232616"><span class="nick" style="color:#2e2a4a"><a href="#232616" label="[23:26:16]">&lt;oriansj&gt;</a></span><span class="message">as alt.sys.pdp8 seems to be actually active these days</span></div><div class="line" id="232629"><span class="nick" style="color:#6b8072"><a href="#232629" label="[23:26:29]">&lt;muurkha&gt;</a></span><span class="message">cf. <a rel="nofollow" href="https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter#Break_condition">https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter#Break_condition</a>  and <a rel="nofollow" href="https://en.wikipedia.org/wiki/Break_key">https://en.wikipedia.org/wiki/Break_key</a> </span></div><div class="line" id="232640"><span class="nick" style="color:#6b8072"><a href="#232640" label="[23:26:40]">&lt;muurkha&gt;</a></span><span class="message">neat</span></div><div class="line" id="232710"><span class="nick" style="color:#6b8072"><a href="#232710" label="[23:27:10]">&lt;muurkha&gt;</a></span><span class="message">the second of these explains that telegraph operators could detect a BREAK condition by noticing that their key wasn't activating their sounder</span></div><div class="line" id="232820"><span class="nick" style="color:#6b8072"><a href="#232820" label="[23:28:20]">&lt;muurkha&gt;</a></span><span class="message">and claims that the ASR-33 would print an endless stream of NULs in this case</span></div><div class="line" id="232907"><span class="nick" style="color:#2e2a4a"><a href="#232907" label="[23:29:07]">&lt;oriansj&gt;</a></span><span class="message">hence the mark parity being used</span></div><div class="line" id="232925"><span class="nick" style="color:#6b8072"><a href="#232925" label="[23:29:25]">&lt;muurkha&gt;</a></span><span class="message">well, doesn't the ASR-33 also send start and stop bits?</span></div><div class="line" id="233004"><span class="nick" style="color:#6b8072"><a href="#233004" label="[23:30:04]">&lt;muurkha&gt;</a></span><span class="message">a 0 start bit and a 1 stop bit&gt;?</span></div><div class="line" id="233128"><span class="nick" style="color:#6b8072"><a href="#233128" label="[23:31:28]">&lt;muurkha&gt;</a></span><span class="message">I'd think that sending MARK during the parity bit period would be just the same as sending an extra stop bit</span></div><div class="line" id="233142"><span class="nick" style="color:#6b8072"><a href="#233142" label="[23:31:42]">&lt;muurkha&gt;</a></span><span class="message">btw, did you look at John Cowan's PDP-8/X design?</span></div><div class="line" id="233212"><span class="nick" style="color:#6b8072"><a href="#233212" label="[23:32:12]">&lt;muurkha&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/johnwcowan/pdp8x">https://github.com/johnwcowan/pdp8x</a> </span></div><div class="line" id="233237"><span class="nick" style="color:#2e2a4a"><a href="#233237" label="[23:32:37]">&lt;oriansj&gt;</a></span><span class="message">not yet but I will be shortly</span></div><div class="line" id="233254"><span class="nick" style="color:#6b8072"><a href="#233254" label="[23:32:54]">&lt;muurkha&gt;</a></span><span class="message">it's a 32-bit machine based on the PDP-8</span></div><div class="line" id="233518"><span class="nick" style="color:#6b8072"><a href="#233518" label="[23:35:18]">&lt;muurkha&gt;</a></span><span class="message">the PDP-8 (in the form of the 4000-transistor Intersil 6100) is probably close to the simplest computer that it's practical to run a high-level-language compiler on</span></div><div class="line" id="234125"><span class="nick" style="color:#2e2a4a"><a href="#234125" label="[23:41:25]">&lt;oriansj&gt;</a></span><span class="message">I don't deny the efficiency of the PDP-8 (it is brilliant in its efficiency); the need to do funky string packing and unpacking is less than ideal if one wants bootstrapping simplicity</span></div><div class="line" id="234302"><span class="nick" style="color:#2e2a4a"><a href="#234302" label="[23:43:02]">&lt;oriansj&gt;</a></span><span class="message">and having used skip instructions in knight, I think they are unsound if one wishes to expand the instruction set</span></div><div class="line" id="234559"><span class="nick" style="color:#2e2a4a"><a href="#234559" label="[23:45:59]">&lt;oriansj&gt;</a></span><span class="message">as you either lock your instruction size to a single standard (bad idea) or read the first byte of the next instruction to guess what size it will be (ugly idea: only works for big endian instruction encoding and has some really bad page fault problems) or you are forced to read the full next instruction (horrific idea with lots of bad problems to address and kills performance)</span></div><div class="line" id="234922"><span class="nick" style="color:#2e2a4a"><a href="#234922" label="[23:49:22]">&lt;oriansj&gt;</a></span><span class="message">but the idea of mark parity being an extra stop bit does seem reasonable</span></div><div class="line" id="235211"><span class="nick" style="color:#6b8072"><a href="#235211" label="[23:52:11]">&lt;muurkha&gt;</a></span><span class="message">string packing is an optimization; if you have enough memory you can just store one character per word</span></div><div class="line" id="235341"><span class="nick" style="color:#6b8072"><a href="#235341" label="[23:53:41]">&lt;muurkha&gt;</a></span><span class="message">the RISC-V approach to instruction size encoding seems reasonable to me; difficult-to-decode instruction sizes are a big performance problem whether you have skips or jumps</span></div><div class="line" id="235639"><span class="nick" style="color:#2e2a4a"><a href="#235639" label="[23:56:39]">&lt;oriansj&gt;</a></span><span class="message">well instruction sizes don't have to be a difficult-to-decode problem</span></div><div class="line" id="235730"><span class="nick" style="color:#2e2a4a"><a href="#235730" label="[23:57:30]">&lt;oriansj&gt;</a></span><span class="message">and if your instructions are big-endian encoded with the opcode first, then you need only look at the first few bits to know the size</span></div><div class="line" id="235826"><span class="nick" style="color:#2e2a4a"><a href="#235826" label="[23:58:26]">&lt;oriansj&gt;</a></span><span class="message">instead of having to guess where the opcode is for little-endian encoding with opcode first or big-endian encoding with opcode last.</span></div><div class="line" id="235906"><span class="nick" style="color:#6b8072"><a href="#235906" label="[23:59:06]">&lt;muurkha&gt;</a></span><span class="message">right, that's what RISC-V does</span></div><div class="line" id="235919"><span class="nick" style="color:#2e2a4a"><a href="#235919" label="[23:59:19]">&lt;oriansj&gt;</a></span><span class="message">and risc-v did go with little-endian with opcode last, so kinda</span></div><div class="line" id="235954"><span class="nick" style="color:#6b8072"><a href="#235954" label="[23:59:54]">&lt;muurkha&gt;</a></span><span class="message">not last, first</span></div><br /></div></body></html>

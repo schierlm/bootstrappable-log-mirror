@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-05-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013346"><span class="nick" style="color:#389600"><a href="#013346" label="[01:33:46]">&lt;oriansj&gt;</a></span><span class="message">rickmasters: sorry for the delay (bootstrap-seed reviews are a bit more manual) merged</span></div><div class="line" id="015024"><span class="nick" style="color:#8dd3c7"><a href="#015024" label="[01:50:24]">&lt;stikonas&gt;</a></span><span class="message">oriansj: hmm, we need a changelog entry for this in stage0-posix... Do you think I should put it in a new bootstrap-seeds category or part of x86 ? (<a rel="nofollow" href="https://github.com/oriansj/stage0-posix/blob/master/CHANGELOG.org">https://github.com/oriansj/stage0-posix/blob/master/CHANGELOG.org</a>) </span></div><div class="line" id="015339"><span class="nick" style="color:#8dd3c7"><a href="#015339" label="[01:53:39]">&lt;stikonas&gt;</a></span><span class="message">hmm, maybe it's fine to add it to stage0-posix-x86 section...</span></div><div class="line" id="015348"><span class="nick" style="color:#389600"><a href="#015348" label="[01:53:48]">&lt;oriansj&gt;</a></span><span class="message">new bootstrap-seeds seems most accurate</span></div><div class="line" id="015351"><span class="nick" style="color:#8dd3c7"><a href="#015351" label="[01:53:51]">&lt;stikonas&gt;</a></span><span class="message">ok...</span></div><div class="line" id="015352"><span class="nick" style="color:#8dd3c7"><a href="#015352" label="[01:53:52]">&lt;stikonas&gt;</a></span><span class="message">let's do that</span></div><div class="line" id="015405"><span class="nick" style="color:#8dd3c7"><a href="#015405" label="[01:54:05]">&lt;stikonas&gt;</a></span><span class="message">and I guess I'll move those other seed changelog entries to it</span></div><div class="line" id="015451"><span class="nick" style="color:#389600"><a href="#015451" label="[01:54:51]">&lt;oriansj&gt;</a></span><span class="message">well seed changes do have bigger security impacts and thus called out seperately seems wise.</span></div><div class="line" id="015550"><span class="nick" style="color:#8dd3c7"><a href="#015550" label="[01:55:50]">&lt;stikonas&gt;</a></span><span class="message">that's fine, let's do that</span></div><div class="line" id="020140"><span class="nick" style="color:#8dd3c7"><a href="#020140" label="[02:01:40]">&lt;stikonas&gt;</a></span><span class="message">oriansj, rickmasters: stage0-posix changes pushed</span></div><div class="line" id="020150"><span class="nick" style="color:#8dd3c7"><a href="#020150" label="[02:01:50]">&lt;stikonas&gt;</a></span><span class="message">(CHANGELOG.org is also updated)</span></div><div class="line" id="020428"><span class="nick" style="color:#8dd3c7"><a href="#020428" label="[02:04:28]">&lt;stikonas&gt;</a></span><span class="message">oriansj: perhaps when you tag other repos such as M2-Planet, mescc-tools, etc we could add a version to changelog too?</span></div><div class="line" id="020441"><span class="nick" style="color:#8dd3c7"><a href="#020441" label="[02:04:41]">&lt;stikonas&gt;</a></span><span class="message">e.g. M2-Planet 0.11 instead of M2-Planet or something like that</span></div><div class="line" id="025821"><span class="nick" style="color:#389600"><a href="#025821" label="[02:58:21]">&lt;oriansj&gt;</a></span><span class="message">stikonas: I have been doing git tag -as -f Release_${version} Release_${version}</span></div><div class="line" id="025903"><span class="nick" style="color:#8dd3c7"><a href="#025903" label="[02:59:03]">&lt;stikonas&gt;</a></span><span class="message">thanks! I had a bit more progress on riscv64 port of mes but now going to bed</span></div><div class="line" id="025918"><span class="nick" style="color:#8dd3c7"><a href="#025918" label="[02:59:18]">&lt;stikonas&gt;</a></span><span class="message">still need to convert more stuff before it can even build hello world</span></div><div class="line" id="025930"><span class="nick" style="color:#8dd3c7"><a href="#025930" label="[02:59:30]">&lt;stikonas&gt;</a></span><span class="message">but after that it's probably not far from building mes</span></div><div class="line" id="175202"><span class="nick" style="color:#2e2a4a"><a href="#175202" label="[17:52:02]">&lt;rickmasters&gt;</a></span><span class="message">Debootstrapping without Archeology: Stacked Implementations in Camlboot <a rel="nofollow" href="https://arxiv.org/pdf/2202.09231v1.pdf">https://arxiv.org/pdf/2202.09231v1.pdf</a> </span></div><div class="line" id="175225"><span class="nick" style="color:#2e2a4a"><a href="#175225" label="[17:52:25]">&lt;rickmasters&gt;</a></span><span class="message">Not sure if this has been posted before but it appears to be directed towards this community.</span></div><div class="line" id="180759"><span class="nick" style="color:#6b8072"><a href="#180759" label="[18:07:59]">&lt;muurkha&gt;</a></span><span class="message">I think I saw it previously</span></div><div class="line" id="180809"><span class="nick" style="color:#80b1d3"><a href="#180809" label="[18:08:09]">&lt;[exa]&gt;</a></span><span class="message">lovely though.</span></div><div class="line" id="180819"><span class="nick" style="color:#6b8072"><a href="#180819" label="[18:08:19]">&lt;muurkha&gt;</a></span><span class="message">I'm happy to see it again :)</span></div><div class="line" id="182217"><span class="nick" style="color:#2e2a4a"><a href="#182217" label="[18:22:17]">&lt;rickmasters&gt;</a></span><span class="message">Apparently I've been &quot;debootstrapping&quot; this whole time and didn't know it :)</span></div><div class="line" id="183233"><span class="nick" style="color:#6d2462"><a href="#183233" label="[18:32:33]">&lt;stikonas[m]&gt;</a></span><span class="message">rickmasters: I think the author was or still is in this channel</span></div><div class="line" id="220223"><span class="nick" style="color:#234e69"><a href="#220223" label="[22:02:23]">&lt;Irvise_&gt;</a></span><span class="message">Hi all, I am going to throw a small request in case someone feels like fulfilling it.</span></div><div class="line" id="220316"><span class="nick" style="color:#234e69"><a href="#220316" label="[22:03:16]">&lt;Irvise_&gt;</a></span><span class="message">Could someone add the x86 assembly keyword movsd to TCC? I think it would be just adding a simple line here <a rel="nofollow" href="https://repo.or.cz/tinycc.git/blob/HEAD:/x86_64-asm.h#l134">https://repo.or.cz/tinycc.git/blob/HEAD:/x86_64-asm.h#l134</a>  like the ones below.</span></div><div class="line" id="220348"><span class="nick" style="color:#234e69"><a href="#220348" label="[22:03:48]">&lt;Irvise_&gt;</a></span><span class="message">I have never contributed to TCC and I am not knowledgable to try and do it myself :S</span></div><div class="line" id="220430"><span class="nick" style="color:#6b8072"><a href="#220430" label="[22:04:30]">&lt;muurkha&gt;</a></span><span class="message">that sounds like a good idea!  but I'm less knowledgeable than you</span></div><div class="line" id="220447"><span class="nick" style="color:#234e69"><a href="#220447" label="[22:04:47]">&lt;Irvise_&gt;</a></span><span class="message">It would be something like this commit <a rel="nofollow" href="https://repo.or.cz/tinycc.git/commit/9cfc8f60ce195ccf53b261096e2deb915484646b">https://repo.or.cz/tinycc.git/commit/9cfc8f60ce195ccf53b261096e2deb915484646b</a> </span></div><div class="line" id="220520"><span class="nick" style="color:#234e69"><a href="#220520" label="[22:05:20]">&lt;Irvise_&gt;</a></span><span class="message">I think it was someone in here that did it because I said that TCC did not support those instructions either.</span></div><div class="line" id="220534"><span class="nick" style="color:#234e69"><a href="#220534" label="[22:05:34]">&lt;Irvise_&gt;</a></span><span class="message">I mean, I can always learn, but I have other things :s</span></div><div class="line" id="220828"><span class="nick" style="color:#6c3d55"><a href="#220828" label="[22:08:28]">&lt;drakonis&gt;</a></span><span class="message"> <a rel="nofollow" href="https://ratfactor.com/forth/the_programming_language_that_writes_itself.html">https://ratfactor.com/forth/the_programming_language_that_writes_itself.html</a>  this post is mostly offtopic but its good</span></div><div class="line" id="220856"><span class="nick" style="color:#6c3d55"><a href="#220856" label="[22:08:56]">&lt;drakonis&gt;</a></span><span class="message">its also not quite finished, however it is on its last stretch</span></div><div class="line" id="220935"><span class="nick" style="color:#6b8072"><a href="#220935" label="[22:09:35]">&lt;muurkha&gt;</a></span><span class="message">it's a pretty fun page</span></div><div class="line" id="221449"><span class="nick" style="color:#8dd3c7"><a href="#221449" label="[22:14:49]">&lt;stikonas&gt;</a></span><span class="message">Irvise_: none of use here contributed to TCC as far as I'm aware</span></div><div class="line" id="221515"><span class="nick" style="color:#8dd3c7"><a href="#221515" label="[22:15:15]">&lt;stikonas&gt;</a></span><span class="message">janneke: had most contacts with them when he was patching tcc 0.9.26 to make it buildable with mescc but those patches were not accepted upstream</span></div><div class="line" id="221701"><span class="nick" style="color:#8dd3c7"><a href="#221701" label="[22:17:01]">&lt;stikonas&gt;</a></span><span class="message">and when musl was using some instruction that tcc didn't support I actually patched them in musl (locally in live-bootstrap)</span></div><div class="line" id="221917"><span class="nick" style="color:#234e69"><a href="#221917" label="[22:19:17]">&lt;Irvise_&gt;</a></span><span class="message">Oh, then maybe it was somewhere else...</span></div><div class="line" id="221942"><span class="nick" style="color:#234e69"><a href="#221942" label="[22:19:42]">&lt;Irvise_&gt;</a></span><span class="message">I expected the TCC people to be more open minded, but maybe they do no longer care about old releases.</span></div><div class="line" id="222044"><span class="nick" style="color:#8dd3c7"><a href="#222044" label="[22:20:44]">&lt;stikonas&gt;</a></span><span class="message">I seem to recall something like &quot;it's better to improve bootstrap compiler than simplifier tcc&quot;</span></div><div class="line" id="222055"><span class="nick" style="color:#8dd3c7"><a href="#222055" label="[22:20:55]">&lt;stikonas&gt;</a></span><span class="message">s/simplifier/simplify/</span></div><div class="line" id="222602"><span class="nick" style="color:#80b1d3"><a href="#222602" label="[22:26:02]">&lt;[exa]&gt;</a></span><span class="message">Irvise_: this looks like it should do the same <a rel="nofollow" href="https://repo.or.cz/tinycc.git/blob/HEAD:/x86_64-asm.h#l435">https://repo.or.cz/tinycc.git/blob/HEAD:/x86_64-asm.h#l435</a> </span></div><div class="line" id="222820"><span class="nick" style="color:#234e69"><a href="#222820" label="[22:28:20]">&lt;Irvise_&gt;</a></span><span class="message">Yup, the extra &quot;s&quot; probably indicates a different register type only.</span></div><div class="line" id="223028"><span class="nick" style="color:#80b1d3"><a href="#223028" label="[22:30:28]">&lt;[exa]&gt;</a></span><span class="message">it's &quot;move a single doublefloat&quot; and that instruction def there looks... oh no wait it's for move dword</span></div><div class="line" id="223122"><span class="nick" style="color:#234e69"><a href="#223122" label="[22:31:22]">&lt;Irvise_&gt;</a></span><span class="message">I am going to sleep now, but I'll try to answer any questions or messages tomorrow. GN ^^</span></div><div class="line" id="223143"><span class="nick" style="color:#8dd3c7"><a href="#223143" label="[22:31:43]">&lt;stikonas&gt;</a></span><span class="message">hmm, it's probably SSE stuff...</span></div><div class="line" id="223510"><span class="nick" style="color:#80b1d3"><a href="#223510" label="[22:35:10]">&lt;[exa]&gt;</a></span><span class="message">Irvise_: anyway the common approach is to just find the opcodes for the instruction, then read how that macro there actually works, and just fill in the numbers</span></div><div class="line" id="232405"><span class="nick" style="color:#d9d9d9"><a href="#232405" label="[23:24:05]">&lt;janneke&gt;</a></span><span class="message">stikonas: actually, dannym upstreamed arm patches for tcc</span></div><div class="line" id="232610"><span class="nick" style="color:#8dd3c7"><a href="#232610" label="[23:26:10]">&lt;stikonas&gt;</a></span><span class="message">janneke: while you are here, I have another question</span></div><div class="line" id="232646"><span class="nick" style="color:#8dd3c7"><a href="#232646" label="[23:26:46]">&lt;stikonas&gt;</a></span><span class="message">so the old style define had syscalls encoded in the define name, i.e. asm (&quot;li_____%a7,SYS_write&quot;);</span></div><div class="line" id="232718"><span class="nick" style="color:#8dd3c7"><a href="#232718" label="[23:27:18]">&lt;stikonas&gt;</a></span><span class="message">would it be fine if I just used a number now? I.e. asm (&quot;rd_a7 !64 addi&quot;); // SYS_write</span></div><div class="line" id="232733"><span class="nick" style="color:#8dd3c7"><a href="#232733" label="[23:27:33]">&lt;stikonas&gt;</a></span><span class="message">alternatively I could include syscall.h and construct 64 from the string</span></div><div class="line" id="232737"><span class="nick" style="color:#8dd3c7"><a href="#232737" label="[23:27:37]">&lt;stikonas&gt;</a></span><span class="message">but it's probably less readable</span></div><div class="line" id="232826"><span class="nick" style="color:#8dd3c7"><a href="#232826" label="[23:28:26]">&lt;stikonas&gt;</a></span><span class="message">(this particular example is from lib/linux/riscv64-mes-mescc/_write.c</span></div><div class="line" id="233053"><span class="nick" style="color:#d9d9d9"><a href="#233053" label="[23:30:53]">&lt;janneke&gt;</a></span><span class="message">stikonas, in general we like identifiers better than magic numbers with a comment, but i'm guessing this is for exit, read and write only?</span></div><div class="line" id="233140"><span class="nick" style="color:#d9d9d9"><a href="#233140" label="[23:31:40]">&lt;janneke&gt;</a></span><span class="message">but there are no hard rules, if it becomes overly complex to use a define/identifier, then yeah</span></div><div class="line" id="233141"><span class="nick" style="color:#8dd3c7"><a href="#233141" label="[23:31:41]">&lt;stikonas&gt;</a></span><span class="message">yeah, I think just those</span></div><div class="line" id="233209"><span class="nick" style="color:#8dd3c7"><a href="#233209" label="[23:32:09]">&lt;stikonas&gt;</a></span><span class="message">previous define has just hidden all complexity in the M1 define file</span></div><div class="line" id="233223"><span class="nick" style="color:#8dd3c7"><a href="#233223" label="[23:32:23]">&lt;stikonas&gt;</a></span><span class="message">it's not like it was reusing it from syscall.h...</span></div><div class="line" id="233251"><span class="nick" style="color:#8dd3c7"><a href="#233251" label="[23:32:51]">&lt;stikonas&gt;</a></span><span class="message">I'm not too sure why these exit read and write are different from others though</span></div><div class="line" id="233305"><span class="nick" style="color:#8dd3c7"><a href="#233305" label="[23:33:05]">&lt;stikonas&gt;</a></span><span class="message">actually just exit and write</span></div><div class="line" id="233331"><span class="nick" style="color:#8dd3c7"><a href="#233331" label="[23:33:31]">&lt;stikonas&gt;</a></span><span class="message">anyway, I now need to convert crt1.c (which unfortunately is not well commented)</span></div><div class="line" id="233341"><span class="nick" style="color:#8dd3c7"><a href="#233341" label="[23:33:41]">&lt;stikonas&gt;</a></span><span class="message">and after that I think I'll be able to run scaffold/hello</span></div><div class="line" id="233354"><span class="nick" style="color:#8dd3c7"><a href="#233354" label="[23:33:54]">&lt;stikonas&gt;</a></span><span class="message">(with the current version of mescc-tools)</span></div><div class="line" id="234407"><span class="nick" style="color:#d9d9d9"><a href="#234407" label="[23:44:07]">&lt;janneke&gt;</a></span><span class="message">stikonas, right; sounds as an improvement now, as unsatisfactory as it may seem at first glance</span></div><br /></div></body></html>

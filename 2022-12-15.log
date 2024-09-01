@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-12-15.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001100"><span class="nick" style="color:#389600"><a href="#001100" label="[00:11:00]">&lt;stikonas&gt;</a></span><span class="message">was looking at UEFI variables for environment variables a  bit. Reading and writing them is not too problematic, should be doable inside M2libc.</span></div><div class="line" id="001113"><span class="nick" style="color:#389600"><a href="#001113" label="[00:11:13]">&lt;stikonas&gt;</a></span><span class="message">though they might be far more persistent than on POSIX...</span></div><div class="line" id="001203"><span class="nick" style="color:#389600"><a href="#001203" label="[00:12:03]">&lt;stikonas&gt;</a></span><span class="message">on POSIX environmental variables wouldn't propagate from child to parent</span></div><div class="line" id="001321"><span class="nick" style="color:#389600"><a href="#001321" label="[00:13:21]">&lt;stikonas&gt;</a></span><span class="message">but if we use UEFI variables (at least in a simple way) then environmental variables might propagate to sibling processes</span></div><div class="line" id="001353"><span class="nick" style="color:#389600"><a href="#001353" label="[00:13:53]">&lt;stikonas&gt;</a></span><span class="message">parent probably wouldn't be affected as uefi variables are read on process startup</span></div><div class="line" id="001409"><span class="nick" style="color:#389600"><a href="#001409" label="[00:14:09]">&lt;stikonas&gt;</a></span><span class="message">but any children launched later could inhering whatever 1st child set</span></div><div class="line" id="001437"><span class="nick" style="color:#389600"><a href="#001437" label="[00:14:37]">&lt;stikonas&gt;</a></span><span class="message">which is a bit undesirable, though possibly not a huge problem in practice</span></div><div class="line" id="002825"><span class="nick" style="color:#389600"><a href="#002825" label="[00:28:25]">&lt;stikonas&gt;</a></span><span class="message">perhaps we can clean up on program exit...</span></div><div class="line" id="010743"><span class="nick" style="color:#8dd3c7"><a href="#010743" label="[01:07:43]">&lt;oriansj&gt;</a></span><span class="message">stikonas: or do a full env reset</span></div><div class="line" id="010820"><span class="nick" style="color:#8dd3c7"><a href="#010820" label="[01:08:20]">&lt;oriansj&gt;</a></span><span class="message">then the only environment variables will be the one's kaem sets prior to spawning.</span></div><div class="line" id="010857"><span class="nick" style="color:#8dd3c7"><a href="#010857" label="[01:08:57]">&lt;oriansj&gt;</a></span><span class="message">but we still have the problem of if MesCC can even run on UEFI</span></div><div class="line" id="012205"><span class="nick" style="color:#2e2a4a"><a href="#012205" label="[01:22:05]">&lt;stikonas[m]&gt;</a></span><span class="message">I think I'll just make a copy of env list on startup</span></div><div class="line" id="012307"><span class="nick" style="color:#2e2a4a"><a href="#012307" label="[01:23:07]">&lt;stikonas[m]&gt;</a></span><span class="message">Keep modifying one and then on cleanup delete all variables that are not on backed up list</span></div><div class="line" id="012326"><span class="nick" style="color:#2e2a4a"><a href="#012326" label="[01:23:26]">&lt;stikonas[m]&gt;</a></span><span class="message">(And restore the values of remaining ones)</span></div><div class="line" id="012351"><span class="nick" style="color:#2e2a4a"><a href="#012351" label="[01:23:51]">&lt;stikonas[m]&gt;</a></span><span class="message">No idea about mescc</span></div><div class="line" id="012403"><span class="nick" style="color:#2e2a4a"><a href="#012403" label="[01:24:03]">&lt;stikonas[m]&gt;</a></span><span class="message">Even mes-m2 is tricky</span></div><div class="line" id="012421"><span class="nick" style="color:#2e2a4a"><a href="#012421" label="[01:24:21]">&lt;stikonas[m]&gt;</a></span><span class="message">Unless we extend M2libc</span></div><div class="line" id="012528"><span class="nick" style="color:#2e2a4a"><a href="#012528" label="[01:25:28]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, most likely if mes-m2 works, mescc will work</span></div><div class="line" id="012553"><span class="nick" style="color:#2e2a4a"><a href="#012553" label="[01:25:53]">&lt;stikonas[m]&gt;</a></span><span class="message">But mes rebuild and also tcc is trickier</span></div><div class="line" id="012611"><span class="nick" style="color:#2e2a4a"><a href="#012611" label="[01:26:11]">&lt;stikonas[m]&gt;</a></span><span class="message">As those use mes c library</span></div><br /></div></body></html>

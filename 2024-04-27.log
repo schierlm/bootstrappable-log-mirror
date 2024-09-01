@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-04-27.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="155158"><span class="nick" style="color:#389600"><a href="#155158" label="[15:51:58]">&lt;oriansj&gt;</a></span><span class="message">plasma41: well I guess the retro community now has the ability to really revive that experience.</span></div><div class="line" id="155302"><span class="nick" style="color:#389600"><a href="#155302" label="[15:53:02]">&lt;oriansj&gt;</a></span><span class="message">Christoph: well reading that made me think</span></div><div class="line" id="160549"><span class="nick" style="color:#389600"><a href="#160549" label="[16:05:49]">&lt;oriansj&gt;</a></span><span class="message">if GHC builds are radioactive enough, we might benefit more by encouraging packages with haskell dependencies to move those dependencies to rust</span></div><div class="line" id="160646"><span class="nick" style="color:#8dd3c7"><a href="#160646" label="[16:06:46]">&lt;nimaje&gt;</a></span><span class="message">is there a bootstrap path for rust?</span></div><div class="line" id="160656"><span class="nick" style="color:#389600"><a href="#160656" label="[16:06:56]">&lt;oriansj&gt;</a></span><span class="message">as we have rust bootstrap path from GCC using MRUST</span></div><div class="line" id="160720"><span class="nick" style="color:#389600"><a href="#160720" label="[16:07:20]">&lt;oriansj&gt;</a></span><span class="message">stikonas did a gentoo overlay for it and a similiar one exists in guix</span></div><div class="line" id="160815"><span class="nick" style="color:#389600"><a href="#160815" label="[16:08:15]">&lt;oriansj&gt;</a></span><span class="message">just like our bootstrap path for Java in Guix; it is ugly and can be improved but it exists</span></div><div class="line" id="161052"><span class="nick" style="color:#389600"><a href="#161052" label="[16:10:52]">&lt;oriansj&gt;</a></span><span class="message">I'd even argue any language we can't fully bootstrap in 10-20 years from now from GCC in guix should be considered a dead language and to avoid at all costs.</span></div><div class="line" id="161428"><span class="nick" style="color:#389600"><a href="#161428" label="[16:14:28]">&lt;oriansj&gt;</a></span><span class="message">as GCC and Guix can carry a *shit-load* of arbitrary steps and complexity needed to build anything</span></div><div class="line" id="161913"><span class="nick" style="color:#389600"><a href="#161913" label="[16:19:13]">&lt;oriansj&gt;</a></span><span class="message">and to be honest, I'd be surprised if <a rel="nofollow" href="https://github.com/blynn/compiler.git">https://github.com/blynn/compiler.git</a>  doesn't get to 90% of Haskell's core functionality in the next year</span></div><div class="line" id="161945"><span class="nick" style="color:#389600"><a href="#161945" label="[16:19:45]">&lt;oriansj&gt;</a></span><span class="message">at which point the question is getting the haskell programs/libraries worth saving ported over to that subset.</span></div><div class="line" id="162004"><span class="nick" style="color:#389600"><a href="#162004" label="[16:20:04]">&lt;oriansj&gt;</a></span><span class="message">Wish we had a couple haskell programmers interested in that work</span></div><div class="line" id="162439"><span class="nick" style="color:#2e2a4a"><a href="#162439" label="[16:24:39]">&lt;stikonas&gt;</a></span><span class="message">oriansj: do you mean GHC in Guix?</span></div><div class="line" id="162537"><span class="nick" style="color:#389600"><a href="#162537" label="[16:25:37]">&lt;oriansj&gt;</a></span><span class="message">well GHC in Guix right now is a binary blob</span></div><div class="line" id="164017"><span class="nick" style="color:#2e2a4a"><a href="#164017" label="[16:40:17]">&lt;stikonas&gt;</a></span><span class="message">oh yes, misread your sentence...</span></div><div class="line" id="164302"><span class="nick" style="color:#389600"><a href="#164302" label="[16:43:02]">&lt;oriansj&gt;</a></span><span class="message">understandable, it was a little ramblish</span></div><div class="line" id="164428"><span class="nick" style="color:#2e2a4a"><a href="#164428" label="[16:44:28]">&lt;stikonas&gt;</a></span><span class="message">well, I was doing other stuff, just quickly skimmed through</span></div><div class="line" id="174001"><span class="nick" style="color:#6b8072"><a href="#174001" label="[17:40:01]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">oriansj: Do you know how long it takes to build a complete system from source on a 12+ year old computer?</span></div><div class="line" id="174818"><span class="nick" style="color:#8dd3c7"><a href="#174818" label="[17:48:18]">&lt;nimaje&gt;</a></span><span class="message">well, performance of a computer doesn't only depend on its age and what do you consider a 'complete system'</span></div><div class="line" id="174958"><span class="nick" style="color:#6b8072"><a href="#174958" label="[17:49:58]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">nimaje: I consider a desktop system like XFCE to be complete</span></div><div class="line" id="175015"><span class="nick" style="color:#6b8072"><a href="#175015" label="[17:50:15]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">I overlooked the other factors of computer performance</span></div><div class="line" id="175112"><span class="nick" style="color:#6b8072"><a href="#175112" label="[17:51:12]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">s/XFCE/with XFCE installed/</span></div><div class="line" id="175842"><span class="nick" style="color:#80b1d3"><a href="#175842" label="[17:58:42]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I have a 12 year old mid range i5 computer. iirc live-bootstrap takes between 6 and 9 hours on this machine, so I would guess it would likely be that plus however long it takes to build xfce and all it's deps.</span></div><div class="line" id="175945"><span class="nick" style="color:#80b1d3"><a href="#175945" label="[17:59:45]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I think it would be interesting to see how quickly it would be possible to go from 0 to a fiwix based desktop. In theory that could be done in a few seconds.</span></div><div class="line" id="180142"><span class="nick" style="color:#80b1d3"><a href="#180142" label="[18:01:42]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I think at a minimum 0 to fiwix command line is definitely possible in a few seconds.</span></div><div class="line" id="181205"><span class="nick" style="color:#80b1d3"><a href="#181205" label="[18:12:05]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; AwesomeAdam54321: maybe a week for complete system</span></div><div class="line" id="181225"><span class="nick" style="color:#80b1d3"><a href="#181225" label="[18:12:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; perhaps longer</span></div><div class="line" id="181244"><span class="nick" style="color:#80b1d3"><a href="#181244" label="[18:12:44]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I think it took me a week on modern system</span></div><div class="line" id="181322"><span class="nick" style="color:#2e2a4a"><a href="#181322" label="[18:13:22]">&lt;stikonas&gt;</a></span><span class="message">AwesomeAdam54321: most of the time probably goes to rust bootstrapping</span></div><div class="line" id="181337"><span class="nick" style="color:#2e2a4a"><a href="#181337" label="[18:13:37]">&lt;stikonas&gt;</a></span><span class="message">and then also all those webengine / chromium variants</span></div><div class="line" id="181420"><span class="nick" style="color:#2e2a4a"><a href="#181420" label="[18:14:20]">&lt;stikonas&gt;</a></span><span class="message">I guess some things can be optimized a bit...</span></div><div class="line" id="181433"><span class="nick" style="color:#2e2a4a"><a href="#181433" label="[18:14:33]">&lt;stikonas&gt;</a></span><span class="message">also in a few months there might be a new mrustc version</span></div><div class="line" id="181440"><span class="nick" style="color:#2e2a4a"><a href="#181440" label="[18:14:40]">&lt;stikonas&gt;</a></span><span class="message">so that will cut a lot of steps from rust bootstrap</span></div><div class="line" id="181654"><span class="nick" style="color:#6d2462"><a href="#181654" label="[18:16:54]">&lt;plasma41&gt;</a></span><span class="message">At minimum, I'd say that at least all of Essential:yes packages in Debian is reasonable lower bound for the definition of a 'complete system'.</span></div><div class="line" id="181922"><span class="nick" style="color:#8dd3c7"><a href="#181922" label="[18:19:22]">&lt;nimaje&gt;</a></span><span class="message">when I build packages for my freebsd desktop on my ~10 year old computer, it takes about two days, but that doesn't do a rust boostrap or stuff like that and still rust and qt-webengine take a good amount of the time (and I don't build chromium any more, as I don't use it and it takes forever to build)</span></div><div class="line" id="220811"><span class="nick" style="color:#389600"><a href="#220811" label="[22:08:11]">&lt;oriansj&gt;</a></span><span class="message">AwesomeAdam54321: I can't speak for a 12 year old system but I can speak for a computer from 2008 (An IBM x200 [so a 16 years old]) and building from zero to my standard system setup takes about a week (Most of that on the Rust bootstrap to latest)</span></div><div class="line" id="221134"><span class="nick" style="color:#389600"><a href="#221134" label="[22:11:34]">&lt;oriansj&gt;</a></span><span class="message">But the system is in a usable state by morning (with things like i3, st, emacs and tmux done by then)</span></div><div class="line" id="221301"><span class="nick" style="color:#389600"><a href="#221301" label="[22:13:01]">&lt;oriansj&gt;</a></span><span class="message">You can find details about my setup procedures here: <a rel="nofollow" href="https://git.sr.ht/~oriansj/System_setup/tree">https://git.sr.ht/~oriansj/System_setup/tree</a> </span></div><div class="line" id="221528"><span class="nick" style="color:#389600"><a href="#221528" label="[22:15:28]">&lt;oriansj&gt;</a></span><span class="message">(I've recently decided to migrate from rxvt-unicode+perl tabs to st+tmux which speeds things up a little bit)</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-12-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004413"><span class="nick">***</span><span class="message notice">vagrantc_ is now known as vagrantc</span></div><div class="line" id="021017"><span class="nick" style="color:#8dd3c7"><a href="#021017" label="[02:10:17]">&lt;oriansj&gt;</a></span><span class="message">CORDIC: it requires a table or a list that is absolutely true but I'd argue that is not an output or input buffer</span></div><div class="line" id="021230"><span class="nick" style="color:#8dd3c7"><a href="#021230" label="[02:12:30]">&lt;oriansj&gt;</a></span><span class="message">xentrac: you are right about EOF being 4 and not -4; (a little thing I do in my assembly to make it easy to spot copies)</span></div><div class="line" id="021324"><span class="nick" style="color:#8dd3c7"><a href="#021324" label="[02:13:24]">&lt;oriansj&gt;</a></span><span class="message">pder: excellent job and absolutely right on all those respects</span></div><div class="line" id="034632"><span class="nick" style="color:#8dd3c7"><a href="#034632" label="[03:46:32]">&lt;oriansj&gt;</a></span><span class="message">latest commit of mescc-tools-seed is now up; mes-m2 with working garbage collection (compaction too) and all working primities on all platforms is now up</span></div><div class="line" id="040348"><span class="nick" style="color:#2e2a4a"><a href="#040348" label="[04:03:48]">&lt;xentrac&gt;</a></span><span class="message">congratulations!</span></div><div class="line" id="092000"><span class="nick">***</span><span class="message notice">efraim_ is now known as efraim</span></div><div class="line" id="102820"><span class="nick" style="color:#6b8072"><a href="#102820" label="[10:28:20]">&lt;fosslinux&gt;</a></span><span class="message">Found a segfault in m2-planet</span></div><div class="line" id="102826"><span class="nick" style="color:#6b8072"><a href="#102826" label="[10:28:26]">&lt;fosslinux&gt;</a></span><span class="message">time to do some investigation</span></div><div class="line" id="103035"><span class="nick" style="color:#6b8072"><a href="#103035" label="[10:30:35]">&lt;fosslinux&gt;</a></span><span class="message">oriansj: at this layer of bootstrap is there any way to get debugging symbols in the m2-planet binary or do I need to rely on good old file_print()</span></div><div class="line" id="103208"><span class="nick" style="color:#80b1d3"><a href="#103208" label="[10:32:08]">&lt;janneke&gt;</a></span><span class="message">fosslinux: blood-elf can insert function symbols, so that you may get a stack trace</span></div><div class="line" id="103305"><span class="nick" style="color:#6b8072"><a href="#103305" label="[10:33:05]">&lt;fosslinux&gt;</a></span><span class="message">janneke: ok, I'll take a look at that</span></div><div class="line" id="103730"><span class="nick" style="color:#80b1d3"><a href="#103730" label="[10:37:30]">&lt;janneke&gt;</a></span><span class="message">fosslinux: of course you can use gcc -g and debug that</span></div><div class="line" id="103747"><span class="nick" style="color:#80b1d3"><a href="#103747" label="[10:37:47]">&lt;janneke&gt;</a></span><span class="message">if you're so lucky that gcc also segfaults</span></div><div class="line" id="110021"><span class="nick" style="color:#8dd3c7"><a href="#110021" label="[11:00:21]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: as janneke correctly pointed out blood-elf generates dwarf stubs for all functions; which when combined with M2-Planet's --debug flag, allows for a debuggable binary (see test/test100/hello-amd64.sh for an example of that generation process)</span></div><div class="line" id="110237"><span class="nick" style="color:#8dd3c7"><a href="#110237" label="[11:02:37]">&lt;oriansj&gt;</a></span><span class="message">The most common issues for segfaults in binaries generated by M2-Planet are around gotos and variable definition inside of loops; also I'd love to see what input causes M2-Planet to segfault</span></div><div class="line" id="141904"><span class="nick">***</span><span class="message notice">JenElizabeth96 is now known as jenelizabeth</span></div><div class="line" id="160410"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="170002"><span class="nick">***</span><span class="message notice">reepca` is now known as reepca</span></div><br /></div></body></html>

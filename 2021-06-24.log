@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-06-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005857"><span class="nick" style="color:#8dd3c7"><a href="#005857" label="[00:58:57]">&lt;oriansj&gt;</a></span><span class="message">Melg8[m]: looks like I solve the Global buffer overflow in collect_weird_string and only have 1 left to go (assuming the other 2 are good)</span></div><div class="line" id="010226"><span class="nick" style="color:#8dd3c7"><a href="#010226" label="[01:02:26]">&lt;oriansj&gt;</a></span><span class="message">Melg8[m]: I have slightly diffferent results <a rel="nofollow" href="https://paste.debian.net/1202197/">https://paste.debian.net/1202197/</a>  when trying <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/issues/20">https://github.com/oriansj/M2-Planet/issues/20</a> </span></div><div class="line" id="010528"><span class="nick" style="color:#2e2a4a"><a href="#010528" label="[01:05:28]">&lt;stikonas&gt;</a></span><span class="message">oriansj: you probably want to close solved issues...</span></div><div class="line" id="010555"><span class="nick" style="color:#2e2a4a"><a href="#010555" label="[01:05:55]">&lt;stikonas&gt;</a></span><span class="message">or are you waiting for Melg8[m] to confirm...</span></div><div class="line" id="010749"><span class="nick" style="color:#8dd3c7"><a href="#010749" label="[01:07:49]">&lt;oriansj&gt;</a></span><span class="message">stikonas: I try to confirm if possible before closing issues as I believe issues need to be fully addressed. The only time I close an issue without discussing it first is if they don't respond within a reasonable amount of time (6months usually)</span></div><div class="line" id="011359"><span class="nick" style="color:#8dd3c7"><a href="#011359" label="[01:13:59]">&lt;oriansj&gt;</a></span><span class="message">Although without the -fsanitize=address it does show such memory leaks but honestly some of them don't seem valid like: by 0x10A466: new_primitive (cc_types.c:60) (which is allocating a type node found in the global types list)  unless I am supposed to allocate more than just the size of the struct???</span></div><div class="line" id="052935"><span class="nick" style="color:#6b8072"><a href="#052935" label="[05:29:35]">&lt;pabs3&gt;</a></span><span class="message">LWN quoted the bottom turtle post: <a rel="nofollow" href="https://lwn.net/Articles/860273/">https://lwn.net/Articles/860273/</a> </span></div><div class="line" id="114457"><span class="nick" style="color:#80b1d3"><a href="#114457" label="[11:44:57]">&lt;Melg8[m]&gt;</a></span><span class="message">oriansj: valgrind and sanitizers doesn't work together, so it meant to be one or another - without address sanitizer but with valgrind, or compile with sanitizer, but run without valgrind. Usually they report mem leaks if something were allocated with malloc/calloc - call, but never got deallocated with free until the end of program.</span></div><div class="line" id="123615"><span class="nick" style="color:#8dd3c7"><a href="#123615" label="[12:36:15]">&lt;oriansj&gt;</a></span><span class="message">Melg8[m]: ok, that makes sense</span></div><div class="line" id="123905"><span class="nick" style="color:#8dd3c7"><a href="#123905" label="[12:39:05]">&lt;oriansj&gt;</a></span><span class="message">in which case, we absolutely do not free anything in M2-Planet because everything allocated into memory *might* be needed for introspection or absolutely *is needed* for basic function of the compiler.</span></div><div class="line" id="124013"><span class="nick" style="color:#8dd3c7"><a href="#124013" label="[12:40:13]">&lt;oriansj&gt;</a></span><span class="message">and going through the trouble of freeing everything right before an exit doesn't seem that useful.</span></div><div class="line" id="173611"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><br /></div></body></html>

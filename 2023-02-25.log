@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-02-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001904"><span class="nick" style="color:#389600"><a href="#001904" label="[00:19:04]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: reviewing now :)</span></div><div class="line" id="005650"><span class="nick" style="color:#8dd3c7"><a href="#005650" label="[00:56:50]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: thanks, I might push cleaup commit to the same pr if you don't mind</span></div><div class="line" id="005723"><span class="nick" style="color:#8dd3c7"><a href="#005723" label="[00:57:23]">&lt;stikonas[m]&gt;</a></span><span class="message">I decided to also remove some autotools rebuilds</span></div><div class="line" id="005757"><span class="nick" style="color:#8dd3c7"><a href="#005757" label="[00:57:57]">&lt;stikonas[m]&gt;</a></span><span class="message">We don't need fully functioning autoconf if we only use it for next sutoconf</span></div><div class="line" id="010019"><span class="nick" style="color:#8dd3c7"><a href="#010019" label="[01:00:19]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: the nice thing is that we no longer need workarounds that we used in binutils 2.14</span></div><div class="line" id="010218"><span class="nick" style="color:#8dd3c7"><a href="#010218" label="[01:02:18]">&lt;stikonas[m]&gt;</a></span><span class="message">I.e. all these hacks <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/sysa/binutils-2.14/binutils-2.14.sh#L102">https://github.com/fosslinux/live-bootstrap/blob/master/sysa/binutils-2.14/binutils-2.14.sh#L102</a> </span></div><div class="line" id="045609"><span class="nick" style="color:#2e2a4a"><a href="#045609" label="[04:56:09]">&lt;stikonas&gt;</a></span><span class="message">fossy: maybe we should move help2man to sysc?</span></div><div class="line" id="045637"><span class="nick" style="color:#2e2a4a"><a href="#045637" label="[04:56:37]">&lt;stikonas&gt;</a></span><span class="message">we can keep sysa smaller by removing it and also just removing manpages</span></div><div class="line" id="050044"><span class="nick" style="color:#2e2a4a"><a href="#050044" label="[05:00:44]">&lt;stikonas&gt;</a></span><span class="message">hmm, althuh help2man is really lightweight, maybe not worth it</span></div><div class="line" id="050050"><span class="nick" style="color:#2e2a4a"><a href="#050050" label="[05:00:50]">&lt;stikonas&gt;</a></span><span class="message">only 7 KiB</span></div><div class="line" id="052549"><span class="nick" style="color:#389600"><a href="#052549" label="[05:25:49]">&lt;fossy&gt;</a></span><span class="message">stikonas: yeah no worries w/ putting the cleanup commit in same pr</span></div><div class="line" id="052622"><span class="nick" style="color:#2e2a4a"><a href="#052622" label="[05:26:22]">&lt;stikonas&gt;</a></span><span class="message">yeah, I'm just testing final checksum changes for binutils 2.24</span></div><div class="line" id="052628"><span class="nick" style="color:#2e2a4a"><a href="#052628" label="[05:26:28]">&lt;stikonas&gt;</a></span><span class="message">will fix 2.38 later</span></div><div class="line" id="052634"><span class="nick" style="color:#389600"><a href="#052634" label="[05:26:34]">&lt;fossy&gt;</a></span><span class="message">sounds good</span></div><div class="line" id="052647"><span class="nick" style="color:#2e2a4a"><a href="#052647" label="[05:26:47]">&lt;stikonas&gt;</a></span><span class="message">I think we had a lot of pregenn'ed manpages in both binutils</span></div><div class="line" id="052712"><span class="nick" style="color:#389600"><a href="#052712" label="[05:27:12]">&lt;fossy&gt;</a></span><span class="message">yeah, i haven't paid very close ttention to documentation tbh</span></div><div class="line" id="052723"><span class="nick" style="color:#2e2a4a"><a href="#052723" label="[05:27:23]">&lt;stikonas&gt;</a></span><span class="message">I did check some of it</span></div><div class="line" id="052736"><span class="nick" style="color:#2e2a4a"><a href="#052736" label="[05:27:36]">&lt;stikonas&gt;</a></span><span class="message">but earlier I thought these .1 files are handled by help2man...</span></div><div class="line" id="052738"><span class="nick" style="color:#2e2a4a"><a href="#052738" label="[05:27:38]">&lt;stikonas&gt;</a></span><span class="message">which is not the case</span></div><div class="line" id="052745"><span class="nick" style="color:#2e2a4a"><a href="#052745" label="[05:27:45]">&lt;stikonas&gt;</a></span><span class="message">doesn't matter, it's just unused documentation</span></div><div class="line" id="052759"><span class="nick" style="color:#2e2a4a"><a href="#052759" label="[05:27:59]">&lt;stikonas&gt;</a></span><span class="message">it's not used at all for code generation</span></div><div class="line" id="053615"><span class="nick" style="color:#2e2a4a"><a href="#053615" label="[05:36:15]">&lt;stikonas&gt;</a></span><span class="message">fossy: updated: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/250">https://github.com/fosslinux/live-bootstrap/pull/250</a> </span></div><div class="line" id="053926"><span class="nick" style="color:#2e2a4a"><a href="#053926" label="[05:39:26]">&lt;stikonas&gt;</a></span><span class="message">I think in the end we will be able to update quite a bit of old GNU stuff...</span></div><div class="line" id="053956"><span class="nick" style="color:#2e2a4a"><a href="#053956" label="[05:39:56]">&lt;stikonas&gt;</a></span><span class="message">we'll still have GCC &lt;= 4.7.4 of course but at least other things should be newer</span></div><div class="line" id="055127"><span class="nick" style="color:#389600"><a href="#055127" label="[05:51:27]">&lt;fossy&gt;</a></span><span class="message">yeah, agree</span></div><div class="line" id="055139"><span class="nick" style="color:#6b8072"><a href="#055139" label="[05:51:39]">&lt;muurkha&gt;</a></span><span class="message">:)</span></div><div class="line" id="124248"><span class="nick" style="color:#80b1d3"><a href="#124248" label="[12:42:48]">&lt;river&gt;</a></span><span class="message">sup</span></div><div class="line" id="124408"><span class="nick" style="color:#6d2462"><a href="#124408" label="[12:44:08]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">I'm doing well</span></div><div class="line" id="124425"><span class="nick" style="color:#234e69"><a href="#124425" label="[12:44:25]">&lt;bauen1&gt;</a></span><span class="message">it's very nice to see this project moving along :)</span></div><div class="line" id="125012"><span class="nick" style="color:#6c3d55"><a href="#125012" label="[12:50:12]">&lt;Christoph[m]&gt;</a></span><span class="message">Very nice indeed! 🚀</span></div><div class="line" id="125020"><span class="nick" style="color:#8dd3c7"><a href="#125020" label="[12:50:20]">&lt;stikonas[m]&gt;</a></span><span class="message">We have more than one project here :)</span></div><div class="line" id="125927"><span class="nick" style="color:#d9d9d9"><a href="#125927" label="[12:59:27]">&lt;oriansj&gt;</a></span><span class="message">it finally got published: <a rel="nofollow" href="https://fosdem.org/2023/schedule/event/guixriscv/">https://fosdem.org/2023/schedule/event/guixriscv/</a> </span></div><div class="line" id="130047"><span class="nick" style="color:#d9d9d9"><a href="#130047" label="[13:00:47]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://fosdem.org/2023/schedule/event/rv_gnu_guix/">https://fosdem.org/2023/schedule/event/rv_gnu_guix/</a> </span></div><div class="line" id="130502"><span class="nick" style="color:#8dd3c7"><a href="#130502" label="[13:05:02]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, it would be interesting to see how far live-bootstrap can take riscv once mes supports it</span></div><div class="line" id="131100"><span class="nick" style="color:#8dd3c7"><a href="#131100" label="[13:11:00]">&lt;stikonas[m]&gt;</a></span><span class="message">I suspect for live-bootstrap it will be easier than for guix</span></div><div class="line" id="131142"><span class="nick" style="color:#8dd3c7"><a href="#131142" label="[13:11:42]">&lt;stikonas[m]&gt;</a></span><span class="message">The libc (musl) already supports riscv64</span></div><div class="line" id="131346"><span class="nick" style="color:#8dd3c7"><a href="#131346" label="[13:13:46]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm, though perl might be tricky</span></div><div class="line" id="190004"><span class="nick" style="color:#80b1d3"><a href="#190004" label="[19:00:04]">&lt;river&gt;</a></span><span class="message">i watched the talk. very good!</span></div><div class="line" id="190117"><span class="nick" style="color:#80b1d3"><a href="#190117" label="[19:01:17]">&lt;river&gt;</a></span><span class="message">i had no idea there was lisp code in gcc!</span></div><div class="line" id="220537"><span class="nick" style="color:#bc80bd"><a href="#220537" label="[22:05:37]">&lt;ekaitz&gt;</a></span><span class="message">oriansj: yaaaasss! there we are!</span></div><div class="line" id="220607"><span class="nick" style="color:#bc80bd"><a href="#220607" label="[22:06:07]">&lt;ekaitz&gt;</a></span><span class="message">river: it's not really lisp code but an s-expression based language</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-02-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003705"><span class="nick" style="color:#389600"><a href="#003705" label="[00:37:05]">&lt;OriansJ`&gt;</a></span><span class="message">NieDzejkob: true</span></div><div class="line" id="072735"><span class="nick" style="color:#2e2a4a"><a href="#072735" label="[07:27:35]">&lt;fossy&gt;</a></span><span class="message">OriansJ`: i have 2 requests</span></div><div class="line" id="072746"><span class="nick" style="color:#2e2a4a"><a href="#072746" label="[07:27:46]">&lt;fossy&gt;</a></span><span class="message">1. please review <a rel="nofollow" href="https://github.com/oriansj/mescc-tools/pull/8">https://github.com/oriansj/mescc-tools/pull/8</a> </span></div><div class="line" id="072803"><span class="nick" style="color:#2e2a4a"><a href="#072803" label="[07:28:03]">&lt;fossy&gt;</a></span><span class="message">2. can M2-Planet's continue behaviour match GCC's please</span></div><div class="line" id="072812"><span class="nick" style="color:#2e2a4a"><a href="#072812" label="[07:28:12]">&lt;fossy&gt;</a></span><span class="message">(if that's not possible I'll modify the code to work around that)</span></div><div class="line" id="121731"><span class="nick" style="color:#389600"><a href="#121731" label="[12:17:31]">&lt;OriansJ`&gt;</a></span><span class="message">fossy: first The change in  functions/numerate_number.c; the correct behavior would have been to return a NULL as numerate_number failures should not terminate the parent program</span></div><div class="line" id="122129"><span class="nick" style="color:#389600"><a href="#122129" label="[12:21:29]">&lt;OriansJ`&gt;</a></span><span class="message">in functions/string.c: The correct behavior in postpend_char is to return NULL not terminate the program; as is true for prepend_char and prepend_string</span></div><div class="line" id="122206"><span class="nick" style="color:#389600"><a href="#122206" label="[12:22:06]">&lt;OriansJ`&gt;</a></span><span class="message">fossy: as the calling function is supposed to check for NULL returns (Require makes this a single line)</span></div><div class="line" id="122657"><span class="nick" style="color:#389600"><a href="#122657" label="[12:26:57]">&lt;OriansJ`&gt;</a></span><span class="message">But I will attempt to get continue to behave correctly today</span></div><div class="line" id="145532"><span class="nick" style="color:#6b8072"><a href="#145532" label="[14:55:32]">&lt;dddddd&gt;</a></span><span class="message">fossy, which branch of your repo is that pull request for? I'm looking at 'cd' at 5e769ae3c491</span></div><div class="line" id="145613"><span class="nick" style="color:#6b8072"><a href="#145613" label="[14:56:13]">&lt;dddddd&gt;</a></span><span class="message">ef09d3ed558c (in makefile) has conflict marks</span></div><div class="line" id="150412"><span class="nick" style="color:#6b8072"><a href="#150412" label="[15:04:12]">&lt;dddddd&gt;</a></span><span class="message">That 031d076f87a5 refactor-and-move-the-file commit, everything in one go without even explaining what kind of refactors are done is kind of obscure.</span></div><div class="line" id="150502"><span class="nick" style="color:#6b8072"><a href="#150502" label="[15:05:02]">&lt;dddddd&gt;</a></span><span class="message">Also, lacks your copyright statement at the begin of the file.</span></div><div class="line" id="150624"><span class="nick" style="color:#6b8072"><a href="#150624" label="[15:06:24]">&lt;dddddd&gt;</a></span><span class="message">Oh, so... M2-Planet doesn't short-circuit 'or'!? I'd consider that a bug (in line with the 'continue' behaviour), maybe.</span></div><div class="line" id="151001"><span class="nick" style="color:#6b8072"><a href="#151001" label="[15:10:01]">&lt;dddddd&gt;</a></span><span class="message">If &quot;not short-circuit&quot; is what you call lack of &quot;optomizaitons&quot; (notice the typo also)... I don't think that's an optimization, but expected behaviour (again, maybe... we know that M2-Planet does not compile C, but that's a very common behaviour).</span></div><div class="line" id="151103"><span class="nick" style="color:#6b8072"><a href="#151103" label="[15:11:03]">&lt;dddddd&gt;</a></span><span class="message">In fact, I was wondering about or/and in M2-Planet since the mes-m2 questions, because I didn't remember code in M2-Planet handling the short-circuit. I guess my feeling was right.</span></div><div class="line" id="151408"><span class="nick" style="color:#6b8072"><a href="#151408" label="[15:14:08]">&lt;dddddd&gt;</a></span><span class="message">(Again, please note that I don't use github but a mirror, and pull-requests doesn't get mirrored... so maybe I'm looking at the wrong commits).</span></div><div class="line" id="194008"><span class="nick" style="color:#6b8072"><a href="#194008" label="[19:40:08]">&lt;dddddd&gt;</a></span><span class="message">OriansJ`, if shot-circuit of boolean expressions won't be considered bug (fair, because maybe it's not a small change), I'd put it on the &quot;M2-Planet v2 worth&quot; list.</span></div><div class="line" id="194214"><span class="nick" style="color:#6b8072"><a href="#194214" label="[19:42:14]">&lt;dddddd&gt;</a></span><span class="message">*short-circuit</span></div><div class="line" id="195236"><span class="nick" style="color:#6b8072"><a href="#195236" label="[19:52:36]">&lt;dddddd&gt;</a></span><span class="message">fossy, 167df40bd1a4 adds a [debug?] print in set() which I think you don't want there: file_print(&quot;hi\n&quot;, stdout);</span></div><div class="line" id="195359"><span class="nick" style="color:#6b8072"><a href="#195359" label="[19:53:59]">&lt;dddddd&gt;</a></span><span class="message">... same commit, the error message for &quot;cd&quot; talks about &quot;set&quot;.</span></div><div class="line" id="195931"><span class="nick" style="color:#6b8072"><a href="#195931" label="[19:59:31]">&lt;dddddd&gt;</a></span><span class="message">fossy, I like how you're adding clarifications in comments. Great!! Keep it up.</span></div><div class="line" id="200513"><span class="nick" style="color:#6b8072"><a href="#200513" label="[20:05:13]">&lt;dddddd&gt;</a></span><span class="message">In any case, that wasn't an exhaustive review (of maybe not the right thing to look at, even).</span></div><div class="line" id="201510"><span class="nick" style="color:#6b8072"><a href="#201510" label="[20:15:10]">&lt;dddddd&gt;</a></span><span class="message">OriansJ`, in M1.scm I saw several redundant 'begin' uses. I'm removing them (on the base they're not required in guile 2). But I'm wondering if you used them for compatibility with another interpreter and I should recover them... Do we want redundant 'begin'?</span></div><div class="line" id="212354"><span class="nick" style="color:#2e2a4a"><a href="#212354" label="[21:23:54]">&lt;fossy&gt;</a></span><span class="message">dddddd, OriansJ`: thanks for the comments</span></div><div class="line" id="212422"><span class="nick" style="color:#2e2a4a"><a href="#212422" label="[21:24:22]">&lt;fossy&gt;</a></span><span class="message">dddddd: how would you suggest I approach the commit? Add an extended description?</span></div><div class="line" id="212530"><span class="nick" style="color:#2e2a4a"><a href="#212530" label="[21:25:30]">&lt;fossy&gt;</a></span><span class="message">since I essentially made radical changes and then rewrote each function, I couldnt test the code until I had done everything</span></div><div class="line" id="212547"><span class="nick" style="color:#2e2a4a"><a href="#212547" label="[21:25:47]">&lt;fossy&gt;</a></span><span class="message">so I decided to do one big commit</span></div><div class="line" id="212602"><span class="nick" style="color:#2e2a4a"><a href="#212602" label="[21:26:02]">&lt;fossy&gt;</a></span><span class="message">dddddd: yes, it does not short circuit OR</span></div><div class="line" id="212617"><span class="nick" style="color:#2e2a4a"><a href="#212617" label="[21:26:17]">&lt;fossy&gt;</a></span><span class="message">dddddd: yes the cd branch is correct</span></div><div class="line" id="212637"><span class="nick" style="color:#2e2a4a"><a href="#212637" label="[21:26:37]">&lt;fossy&gt;</a></span><span class="message">(Thats just where id been developing its a poor name, I will change it)</span></div><div class="line" id="212659"><span class="nick" style="color:#2e2a4a"><a href="#212659" label="[21:26:59]">&lt;fossy&gt;</a></span><span class="message">OriansJ`: thanks for the comments, you are correct for all of those</span></div><div class="line" id="212905"><span class="nick" style="color:#6b8072"><a href="#212905" label="[21:29:05]">&lt;dddddd&gt;</a></span><span class="message">I guess the extended description is the only option if you don't want to refactor incrementally (a bit harder but possible, usually). I don't know the changes involved (back to square one of documenting them) so it's your call how to approach it at the end of the day.</span></div><div class="line" id="212936"><span class="nick" style="color:#6b8072"><a href="#212936" label="[21:29:36]">&lt;dddddd&gt;</a></span><span class="message">No, thank you! (:</span></div><div class="line" id="213128"><span class="nick" style="color:#2e2a4a"><a href="#213128" label="[21:31:28]">&lt;fossy&gt;</a></span><span class="message">I dont really want to redo everything to be honest, haha</span></div><div class="line" id="213133"><span class="nick" style="color:#2e2a4a"><a href="#213133" label="[21:31:33]">&lt;fossy&gt;</a></span><span class="message">it took me a good while</span></div><div class="line" id="213201"><span class="nick" style="color:#2e2a4a"><a href="#213201" label="[21:32:01]">&lt;fossy&gt;</a></span><span class="message">documenting them shouldn't be hard because its still reasonably fresh in my brain</span></div><div class="line" id="213215"><span class="nick" style="color:#2e2a4a"><a href="#213215" label="[21:32:15]">&lt;fossy&gt;</a></span><span class="message">and I did make an effort to put lots of comments in</span></div><div class="line" id="213225"><span class="nick" style="color:#6b8072"><a href="#213225" label="[21:32:25]">&lt;dddddd&gt;</a></span><span class="message">Knowing what motivated the changes (not only which they are) also helps. What flaws you wanted to remove, etc...</span></div><div class="line" id="213232"><span class="nick" style="color:#2e2a4a"><a href="#213232" label="[21:32:32]">&lt;fossy&gt;</a></span><span class="message">dddddd: RE: the copyright header, which file was that?</span></div><div class="line" id="213331"><span class="nick" style="color:#6b8072"><a href="#213331" label="[21:33:31]">&lt;dddddd&gt;</a></span><span class="message">I was talking about kaem.c</span></div><div class="line" id="213418"><span class="nick" style="color:#2e2a4a"><a href="#213418" label="[21:34:18]">&lt;fossy&gt;</a></span><span class="message">do you think a copyright statement under my name is warranted?</span></div><div class="line" id="213426"><span class="nick" style="color:#2e2a4a"><a href="#213426" label="[21:34:26]">&lt;fossy&gt;</a></span><span class="message">to be honest I did write most of it</span></div><div class="line" id="213439"><span class="nick" style="color:#2e2a4a"><a href="#213439" label="[21:34:39]">&lt;fossy&gt;</a></span><span class="message">but there's still quite a bit of oriansjs code in there</span></div><div class="line" id="213457"><span class="nick" style="color:#2e2a4a"><a href="#213457" label="[21:34:57]">&lt;fossy&gt;</a></span><span class="message">And idk what the gpl says about this etc</span></div><div class="line" id="213624"><span class="nick" style="color:#6b8072"><a href="#213624" label="[21:36:24]">&lt;dddddd&gt;</a></span><span class="message">... but any file you touch (modulo maybe some minor and trivial changes, but even for that it's the correct thing to do) is expected to have you listed as author.</span></div><div class="line" id="213658"><span class="nick" style="color:#6b8072"><a href="#213658" label="[21:36:58]">&lt;dddddd&gt;</a></span><span class="message">You, of course, keep the other authors.</span></div><div class="line" id="213812"><span class="nick" style="color:#2e2a4a"><a href="#213812" label="[21:38:12]">&lt;fossy&gt;</a></span><span class="message">of course.</span></div><div class="line" id="213831"><span class="nick" style="color:#2e2a4a"><a href="#213831" label="[21:38:31]">&lt;fossy&gt;</a></span><span class="message">Hm, thats very interesting, I was not aware of that...</span></div><div class="line" id="213839"><span class="nick" style="color:#2e2a4a"><a href="#213839" label="[21:38:39]">&lt;fossy&gt;</a></span><span class="message">how do large projects keep track or that??</span></div><div class="line" id="213844"><span class="nick" style="color:#6b8072"><a href="#213844" label="[21:38:44]">&lt;dddddd&gt;</a></span><span class="message">So, if there's quite a bit of Orians code and your code... both copyright notices.</span></div><div class="line" id="213936"><span class="nick" style="color:#6b8072"><a href="#213936" label="[21:39:36]">&lt;dddddd&gt;</a></span><span class="message">Sorry, what do you mean by tracking?</span></div><div class="line" id="213957"><span class="nick" style="color:#6b8072"><a href="#213957" label="[21:39:57]">&lt;dddddd&gt;</a></span><span class="message">Which difficulty bothers you?</span></div><div class="line" id="214006"><span class="nick" style="color:#2e2a4a"><a href="#214006" label="[21:40:06]">&lt;fossy&gt;</a></span><span class="message">like, would large projects have massive copyright headers with hundreds of lines of contributors?</span></div><div class="line" id="214017"><span class="nick" style="color:#2e2a4a"><a href="#214017" label="[21:40:17]">&lt;fossy&gt;</a></span><span class="message">or something else?</span></div><div class="line" id="214050"><span class="nick" style="color:#80b1d3"><a href="#214050" label="[21:40:50]">&lt;lfam_&gt;</a></span><span class="message">fossy: Yes, each contributor will be listed in the copyright header unless they explicity assign their rights to another entity</span></div><div class="line" id="214137"><span class="nick" style="color:#80b1d3"><a href="#214137" label="[21:41:37]">&lt;lfam_&gt;</a></span><span class="message">For example, look at this file from Guix: <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/guix.git/tree/gnu/packages/audio.scm">https://git.savannah.gnu.org/cgit/guix.git/tree/gnu/packages/audio.scm</a> </span></div><div class="line" id="214140"><span class="nick" style="color:#6b8072"><a href="#214140" label="[21:41:40]">&lt;dddddd&gt;</a></span><span class="message">I see, good question. I guess sometimes they're listed in detail in some file covering concrete directories (by subsystem or the like) but I guess there're some large-ish list in some files.</span></div><div class="line" id="214324"><span class="nick" style="color:#2e2a4a"><a href="#214324" label="[21:43:24]">&lt;fossy&gt;</a></span><span class="message">I guess I need to go fix up one of my slightly larger projects :S</span></div><div class="line" id="214706"><span class="nick" style="color:#6b8072"><a href="#214706" label="[21:47:06]">&lt;dddddd&gt;</a></span><span class="message">In fact, it's not a GPL specific issue. GPL sits on top of copyright. It's the copyright what need to be clear in the first place.</span></div><div class="line" id="214738"><span class="nick" style="color:#6b8072"><a href="#214738" label="[21:47:38]">&lt;dddddd&gt;</a></span><span class="message">^ re: what the gpl says</span></div><div class="line" id="214829"><span class="nick" style="color:#2e2a4a"><a href="#214829" label="[21:48:29]">&lt;fossy&gt;</a></span><span class="message">this is probably offtopic now, but I wonder is &quot;Project maintainers and contributors&quot; acceptable?</span></div><div class="line" id="214843"><span class="nick" style="color:#2e2a4a"><a href="#214843" label="[21:48:43]">&lt;fossy&gt;</a></span><span class="message">or should individuals be named?</span></div><div class="line" id="215359"><span class="nick" style="color:#6b8072"><a href="#215359" label="[21:53:59]">&lt;dddddd&gt;</a></span><span class="message">On the file level, I'd say individuals.</span></div><div class="line" id="215444"><span class="nick" style="color:#6b8072"><a href="#215444" label="[21:54:44]">&lt;dddddd&gt;</a></span><span class="message">Unless reassignation of copyright to an entity, as said before.</span></div><div class="line" id="215545"><span class="nick" style="color:#6b8072"><a href="#215545" label="[21:55:45]">&lt;dddddd&gt;</a></span><span class="message">IANAL and all that, of course.</span></div><div class="line" id="215745"><span class="nick" style="color:#6b8072"><a href="#215745" label="[21:57:45]">&lt;dddddd&gt;</a></span><span class="message">... one could even argue that this is not fine-grained enough, but with correct SCM management one can know which exact parts are of whom if the need arises.</span></div><div class="line" id="215858"><span class="nick" style="color:#6b8072"><a href="#215858" label="[21:58:58]">&lt;dddddd&gt;</a></span><span class="message">s/management/handling/ (to avoid silly repetition) hehe</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-02-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001507"><span class="nick" style="color:#8dd3c7"><a href="#001507" label="[00:15:07]">&lt;dddddd&gt;</a></span><span class="message">Talking about preserve_other, I find out-of-place doing padding in what is seems a passthrough operation. Do you think there's a better place for this?</span></div><div class="line" id="001536"><span class="nick" style="color:#8dd3c7"><a href="#001536" label="[00:15:36]">&lt;dddddd&gt;</a></span><span class="message">*what seems</span></div><div class="line" id="034107"><span class="nick" style="color:#2e2a4a"><a href="#034107" label="[03:41:07]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: because it was just copy/pasted from hex2 before being modified and I never got to fixing its name.</span></div><div class="line" id="034326"><span class="nick" style="color:#2e2a4a"><a href="#034326" label="[03:43:26]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: another possiblity is simply DEFINE -&gt;NEXT 0000 DEFINE -&gt;TYPE 0004 DEFINE -&gt;TEXT 0008 DEFINE -&gt;EXPRESSION 000C</span></div><div class="line" id="034859"><span class="nick" style="color:#2e2a4a"><a href="#034859" label="[03:48:59]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: well the reason for the numerate_number returning zero and the first char of the number being zero is a rough approximation for the special cases which the expression would return zero. aka -1 or 0x123 will return non-zero values and thus one doesn't need to check the leading char. However if a zero is returned it either means it isn't a number or it is just 0/0x0/0b0/00 and in that case it would just be the same</span></div><div class="line" id="034859"><span class="nick" style="color:#2e2a4a"><a href="#034859" label="[03:48:59]">&lt;OriansJ&gt;</a></span><span class="message">regardless. This is a side effect of %foo and %4 using the same prefix for x86 and knight not having a prefix</span></div><div class="line" id="035008"><span class="nick" style="color:#2e2a4a"><a href="#035008" label="[03:50:08]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: I'll have to think further about the preserve_other bit</span></div><div class="line" id="043819"><span class="nick" style="color:#6b8072"><a href="#043819" label="[04:38:19]">&lt;markjenkinsznc&gt;</a></span><span class="message">Here we go OriansJ, <a rel="nofollow" href="https://github.com/oriansj/stage0/compare/master...markjenkins:M0-64rebase">https://github.com/oriansj/stage0/compare/master...markjenkins:M0-64rebase</a> </span></div><div class="line" id="044028"><span class="nick" style="color:#6b8072"><a href="#044028" label="[04:40:28]">&lt;markjenkinsznc&gt;</a></span><span class="message">That appears to be ready for merge, I'm inclined to PR after I sleep, run it against knightpies and give it one last read to be sure I didn't use LOADU32 or STORE32 anywhere where it wasn't needed</span></div><div class="line" id="044114"><span class="nick" style="color:#6b8072"><a href="#044114" label="[04:41:14]">&lt;markjenkinsznc&gt;</a></span><span class="message">What the above code does have going for it is it passes this vigourous test suite: <a rel="nofollow" href="https://github.com/oriansj/stage0/compare/master...markjenkins:M0-64-test">https://github.com/oriansj/stage0/compare/master...markjenkins:M0-64-test</a> </span></div><div class="line" id="044245"><span class="nick" style="color:#6b8072"><a href="#044245" label="[04:42:45]">&lt;markjenkinsznc&gt;</a></span><span class="message">All of the binaries in test/SHA256SUMS are re-assembled by the new M0-macro.s in 32 bit and 64 bit mode. M0-macro.hex2 is also re-linked/re-encoded by the test and results in same binary</span></div><div class="line" id="044256"><span class="nick" style="color:#6b8072"><a href="#044256" label="[04:42:56]">&lt;markjenkinsznc&gt;</a></span><span class="message">But, I wouldn't merge the test suite</span></div><div class="line" id="044311"><span class="nick" style="color:#6b8072"><a href="#044311" label="[04:43:11]">&lt;markjenkinsznc&gt;</a></span><span class="message">I should rewrite it to be in makefile</span></div><div class="line" id="044501"><span class="nick" style="color:#6b8072"><a href="#044501" label="[04:45:01]">&lt;markjenkinsznc&gt;</a></span><span class="message">other thing I could have done wrong is get the comments out of sync in M0-macro.hex2 with the hex</span></div><div class="line" id="044547"><span class="nick" style="color:#6b8072"><a href="#044547" label="[04:45:47]">&lt;markjenkinsznc&gt;</a></span><span class="message">Hmmm, I just realized I didn't look at the formatting of the comments in M0-macro.hex2 the way I paid attention to it in M0-macro.s</span></div><div class="line" id="044855"><span class="nick" style="color:#6b8072"><a href="#044855" label="[04:48:55]">&lt;markjenkinsznc&gt;</a></span><span class="message">OriansJ, the idea of using DEFINE not just in High_Level_prototypes but in .s files is interesting, though for someone hand verifying the co-respondance between M0-macro.s and M0-macro.hex2 its a bit more work, though the comments would help like they do now</span></div><div class="line" id="045159"><span class="nick" style="color:#6b8072"><a href="#045159" label="[04:51:59]">&lt;markjenkinsznc&gt;</a></span><span class="message">Very strange idea of mine, the current M0-macro.s could support 16, 32, and 64 if there was a macro that did LOADU32 on 32 and 64 and LOADU16 on 16 bit and all the struct offsets left alone with space in mem for 32 bits...</span></div><div class="line" id="045208"><span class="nick" style="color:#6b8072"><a href="#045208" label="[04:52:08]">&lt;markjenkinsznc&gt;</a></span><span class="message">night all</span></div><div class="line" id="154802"><span class="nick" style="color:#2e2a4a"><a href="#154802" label="[15:48:02]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: the standard LOAD and STORE do so at the register length. So on 16bit knight it is 16bits; on 32bit knight it is 32bits; on 64bit knight it is 64bits, etc. When they care combined with READSCID you can do an offset table (using LOADR8 [to get the offset] followed by a LOADX [using that offset])</span></div><div class="line" id="214705"><span class="nick" style="color:#2e2a4a"><a href="#214705" label="[21:47:05]">&lt;OriansJ&gt;</a></span><span class="message">and for a little humor: <a rel="nofollow" href="https://i.redd.it/irxmahmnr8t01.jpg">https://i.redd.it/irxmahmnr8t01.jpg</a> </span></div><div class="line" id="223505"><span class="nick" style="color:#80b1d3"><a href="#223505" label="[22:35:05]">&lt;Hagfish&gt;</a></span><span class="message">a meme that somehow manages to simultaneously compliment and insult every single person in our industry</span></div><div class="line" id="223509"><span class="nick" style="color:#80b1d3"><a href="#223509" label="[22:35:09]">&lt;Hagfish&gt;</a></span><span class="message">it's incredible, i love it</span></div><br /></div></body></html>

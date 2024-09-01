@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-07-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000031"><span class="nick" style="color:#389600"><a href="#000031" label="[00:00:31]">&lt;oriansj&gt;</a></span><span class="message">as hex2 doesn't need catm to be built generally speaking</span></div><div class="line" id="000057"><span class="nick" style="color:#389600"><a href="#000057" label="[00:00:57]">&lt;oriansj&gt;</a></span><span class="message">M0 and above absolutely require catm</span></div><div class="line" id="000111"><span class="nick" style="color:#389600"><a href="#000111" label="[00:01:11]">&lt;oriansj&gt;</a></span><span class="message">(atleast until proper mescc-tools is built)</span></div><div class="line" id="000952"><span class="nick" style="color:#8dd3c7"><a href="#000952" label="[00:09:52]">&lt;stikonas&gt;</a></span><span class="message">well, catm is useful once hex2 is there (to add hex2 header)</span></div><div class="line" id="001000"><span class="nick" style="color:#8dd3c7"><a href="#001000" label="[00:10:00]">&lt;stikonas&gt;</a></span><span class="message">but obviously you can't use that for catm itself</span></div><div class="line" id="001029"><span class="nick" style="color:#8dd3c7"><a href="#001029" label="[00:10:29]">&lt;stikonas&gt;</a></span><span class="message">but you can still embed hex2 header inside catm.hex2 file and get most of the benefits</span></div><div class="line" id="001043"><span class="nick" style="color:#389600"><a href="#001043" label="[00:10:43]">&lt;oriansj&gt;</a></span><span class="message">nope and thus there will be a hair of duplication for hex2 ELF headers but oh well</span></div><div class="line" id="001137"><span class="nick" style="color:#389600"><a href="#001137" label="[00:11:37]">&lt;oriansj&gt;</a></span><span class="message">^nope^no it isn't possible to leverage the standard hex2 elf header in building of catm because you need catm to do so^</span></div><div class="line" id="001150"><span class="nick" style="color:#8dd3c7"><a href="#001150" label="[00:11:50]">&lt;stikonas&gt;</a></span><span class="message">well, yes, but embedded hex0 header is no better than embedded hex2 header</span></div><div class="line" id="001201"><span class="nick" style="color:#8dd3c7"><a href="#001201" label="[00:12:01]">&lt;stikonas&gt;</a></span><span class="message">and you have either hex0 or hex2 header in catm</span></div><div class="line" id="001410"><span class="nick" style="color:#389600"><a href="#001410" label="[00:14:10]">&lt;oriansj&gt;</a></span><span class="message">or hex1 but yeah</span></div><div class="line" id="001526"><span class="nick" style="color:#389600"><a href="#001526" label="[00:15:26]">&lt;oriansj&gt;</a></span><span class="message">so hex0, hex1, hex2 and catm just need manually to update their ELF bits if we figure out new standardized changes but I guess there is no avoiding that anyway</span></div><div class="line" id="001556"><span class="nick" style="color:#389600"><a href="#001556" label="[00:15:56]">&lt;oriansj&gt;</a></span><span class="message">atleast with hex2, wrong values are easier to fix</span></div><div class="line" id="003632"><span class="nick" style="color:#8dd3c7"><a href="#003632" label="[00:36:32]">&lt;stikonas&gt;</a></span><span class="message">oriansj: have you seen <a rel="nofollow" href="https://stackoverflow.com/questions/553029/what-is-the-smallest-possible-windows-pe-executable">https://stackoverflow.com/questions/553029/what-is-the-smallest-possible-windows-pe-executable</a>  ?</span></div><div class="line" id="003639"><span class="nick" style="color:#8dd3c7"><a href="#003639" label="[00:36:39]">&lt;stikonas&gt;</a></span><span class="message">might be useful for uefi</span></div><div class="line" id="003735"><span class="nick" style="color:#8dd3c7"><a href="#003735" label="[00:37:35]">&lt;stikonas&gt;</a></span><span class="message">although here I think they put code in some empty space in the header</span></div><div class="line" id="003828"><span class="nick" style="color:#8dd3c7"><a href="#003828" label="[00:38:28]">&lt;stikonas&gt;</a></span><span class="message">oh actually I should probably read this one <a rel="nofollow" href="https://edk2-docs.gitbook.io/edk-ii-build-specification/2_design_discussion/26_creating_efi_images">https://edk2-docs.gitbook.io/edk-ii-build-specification/2_design_discussion/26_creating_efi_images</a> </span></div><div class="line" id="004310"><span class="nick" style="color:#8dd3c7"><a href="#004310" label="[00:43:10]">&lt;stikonas&gt;</a></span><span class="message">if most or all UEFI implementations can run those terse images, we can have way smaller binaries</span></div><div class="line" id="013002"><span class="nick" style="color:#389600"><a href="#013002" label="[01:30:02]">&lt;oriansj&gt;</a></span><span class="message">yeah, there is huge savings potential IF I can get a solid block to focus on working out the ugly details</span></div><div class="line" id="013054"><span class="nick" style="color:#389600"><a href="#013054" label="[01:30:54]">&lt;oriansj&gt;</a></span><span class="message">our ELF binaries are tiny compared to their standard tools built equal</span></div><div class="line" id="013205"><span class="nick" style="color:#389600"><a href="#013205" label="[01:32:05]">&lt;oriansj&gt;</a></span><span class="message">(statically built of course)</span></div><div class="line" id="014135"><span class="nick" style="color:#8dd3c7"><a href="#014135" label="[01:41:35]">&lt;stikonas&gt;</a></span><span class="message">well, I still can't understand if Terse images are supported in UEFI applications</span></div><div class="line" id="014640"><span class="nick" style="color:#389600"><a href="#014640" label="[01:46:40]">&lt;oriansj&gt;</a></span><span class="message">well we will know for absolute certain once I make a proper M1 UEFI application</span></div><div class="line" id="014720"><span class="nick" style="color:#389600"><a href="#014720" label="[01:47:20]">&lt;oriansj&gt;</a></span><span class="message">then we will know absolutely the most minimal UEFI binary we can make</span></div><div class="line" id="015036"><span class="nick" style="color:#8dd3c7"><a href="#015036" label="[01:50:36]">&lt;stikonas&gt;</a></span><span class="message">well, it can be just &quot;RET&quot; in the code section</span></div><div class="line" id="015055"><span class="nick" style="color:#8dd3c7"><a href="#015055" label="[01:50:55]">&lt;stikonas&gt;</a></span><span class="message">but the header or maybe header and footer might be harder</span></div><div class="line" id="015558"><span class="nick" style="color:#389600"><a href="#015558" label="[01:55:58]">&lt;oriansj&gt;</a></span><span class="message">every byte will be figured out</span></div><div class="line" id="174105"><span class="nick">***</span><span class="message notice">civodul` is now known as civodul</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-01-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000112"><span class="nick" style="color:#389600"><a href="#000112" label="[00:01:12]">&lt;oriansj&gt;</a></span><span class="message">in fun news, I learned stage0's bootstrapping process is a killer for microSD cards due to the extreme number of writes prior to the M2-Planet+M2libc stage</span></div><div class="line" id="003501"><span class="nick" style="color:#8dd3c7"><a href="#003501" label="[00:35:01]">&lt;stikonas&gt;</a></span><span class="message">oh yes, we write one byte at a time...</span></div><div class="line" id="013832"><span class="nick" style="color:#6b8072"><a href="#013832" label="[01:38:32]">&lt;Hagfish&gt;</a></span><span class="message">maybe worth putting a warning in a README about that</span></div><div class="line" id="061610"><span class="nick" style="color:#80b1d3"><a href="#061610" label="[06:16:10]">&lt;fossy&gt;</a></span><span class="message">this is not a problem i forsaw</span></div><div class="line" id="061625"><span class="nick" style="color:#80b1d3"><a href="#061625" label="[06:16:25]">&lt;fossy&gt;</a></span><span class="message">now that i am checksumming tarballs instead of individual files this includes docs</span></div><div class="line" id="061630"><span class="nick" style="color:#80b1d3"><a href="#061630" label="[06:16:30]">&lt;fossy&gt;</a></span><span class="message">and i am finding non-reproducible docs</span></div><div class="line" id="061711"><span class="nick" style="color:#80b1d3"><a href="#061711" label="[06:17:11]">&lt;fossy&gt;</a></span><span class="message">i will put up a draft PR shortly however with what i have done, and then it should just be not reproducible docs, and fixing up qemu mode</span></div><div class="line" id="095144"><span class="nick" style="color:#6d2462"><a href="#095144" label="[09:51:44]">&lt;doras&gt;</a></span><span class="message">oriansj, stikonas: I'm using an SSD for the bootstrap. Do you expect these many writes to negatively affect it as well?</span></div><div class="line" id="095340"><span class="nick" style="color:#234e69"><a href="#095340" label="[09:53:40]">&lt;stikonas[m]&gt;</a></span><span class="message">doras: live-bootstrap is in RAM, so should be fine</span></div><div class="line" id="095406"><span class="nick" style="color:#6d2462"><a href="#095406" label="[09:54:06]">&lt;doras&gt;</a></span><span class="message">I'm actually not using it in RAM.</span></div><div class="line" id="095420"><span class="nick" style="color:#234e69"><a href="#095420" label="[09:54:20]">&lt;stikonas[m]&gt;</a></span><span class="message">Oh yes...</span></div><div class="line" id="095423"><span class="nick" style="color:#6d2462"><a href="#095423" label="[09:54:23]">&lt;doras&gt;</a></span><span class="message">I'm currently not doing the tmpfs.</span></div><div class="line" id="095507"><span class="nick" style="color:#6d2462"><a href="#095507" label="[09:55:07]">&lt;doras&gt;</a></span><span class="message">Only /tmp inside the sysroot is mounted as tmpfs.</span></div><div class="line" id="095514"><span class="nick" style="color:#234e69"><a href="#095514" label="[09:55:14]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, hard to tell, SSD might have much better cachinh</span></div><div class="line" id="095748"><span class="nick" style="color:#6d2462"><a href="#095748" label="[09:57:48]">&lt;doras&gt;</a></span><span class="message">:S</span></div><div class="line" id="104726"><span class="nick" style="color:#6d2462"><a href="#104726" label="[10:47:26]">&lt;doras&gt;</a></span><span class="message">So</span></div><div class="line" id="104801"><span class="nick" style="color:#6d2462"><a href="#104801" label="[10:48:01]">&lt;doras&gt;</a></span><span class="message">I fixed/changed BuildStream's FUSE filesystem so it behaves more like a normal filesystem.</span></div><div class="line" id="104818"><span class="nick" style="color:#6d2462"><a href="#104818" label="[10:48:18]">&lt;doras&gt;</a></span><span class="message">And the two issues that the configure script found are no longer an issue.</span></div><div class="line" id="104947"><span class="nick" style="color:#6d2462"><a href="#104947" label="[10:49:47]">&lt;doras&gt;</a></span><span class="message">However... there's a third issue, which is a configure test program which fails only in the non-FUSE case.</span></div><div class="line" id="105221"><span class="nick" style="color:#6d2462"><a href="#105221" label="[10:52:21]">&lt;doras&gt;</a></span><span class="message">In other words, there's nothing I can realistically do here, because it's not the BuildStream case that fails; it's the non-BuildStream case that fails.</span></div><div class="line" id="105408"><span class="nick" style="color:#6d2462"><a href="#105408" label="[10:54:08]">&lt;doras&gt;</a></span><span class="message">This is the failure that I get only in the non-BuildStream case: <a rel="nofollow" href="https://paste.gnome.org/plar6yciw/sbfi5t/raw">https://paste.gnome.org/plar6yciw/sbfi5t/raw</a> </span></div><div class="line" id="105713"><span class="nick" style="color:#6d2462"><a href="#105713" label="[10:57:13]">&lt;doras&gt;</a></span><span class="message">So the existing findutils checksum depends upon it using an alternative implementation for getcwd.</span></div><div class="line" id="105808"><span class="nick" style="color:#6d2462"><a href="#105808" label="[10:58:08]">&lt;doras&gt;</a></span><span class="message">So I think I'm only left with patching/forcing findutils to always use the alternative implementation, even when getcwd works fine.</span></div><div class="line" id="110203"><span class="nick" style="color:#234e69"><a href="#110203" label="[11:02:03]">&lt;stikonas[m]&gt;</a></span><span class="message">doras: yes, that's an option</span></div><div class="line" id="110223"><span class="nick" style="color:#234e69"><a href="#110223" label="[11:02:23]">&lt;stikonas[m]&gt;</a></span><span class="message">we can include such patch in live-bootstrap</span></div><div class="line" id="113514"><span class="nick" style="color:#80b1d3"><a href="#113514" label="[11:35:14]">&lt;fossy&gt;</a></span><span class="message">doras: i would expect it to be overall fine</span></div><div class="line" id="113532"><span class="nick" style="color:#80b1d3"><a href="#113532" label="[11:35:32]">&lt;fossy&gt;</a></span><span class="message">an average build probably has &lt;10G of writes, if i had to guess</span></div><div class="line" id="124259"><span class="nick" style="color:#8dd3c7"><a href="#124259" label="[12:42:59]">&lt;stikonas&gt;</a></span><span class="message">fossy: well, the worry is about early stages</span></div><div class="line" id="124259"><span class="nick" style="color:#8dd3c7"><a href="#124259" label="[12:42:59]">&lt;stikonas&gt;</a></span><span class="message">i.e. hex stuff</span></div><div class="line" id="124259"><span class="nick" style="color:#8dd3c7"><a href="#124259" label="[12:42:59]">&lt;stikonas&gt;</a></span><span class="message">which is not many bytes writte, but just as many counts</span></div><div class="line" id="124259"><span class="nick" style="color:#8dd3c7"><a href="#124259" label="[12:42:59]">&lt;stikonas&gt;</a></span><span class="message">and in SDs even if you write one byte, the whole block is overwritten</span></div><div class="line" id="124259"><span class="nick" style="color:#8dd3c7"><a href="#124259" label="[12:42:59]">&lt;stikonas&gt;</a></span><span class="message">well, same is true for SSDs</span></div><div class="line" id="124329"><span class="nick" style="color:#8dd3c7"><a href="#124329" label="[12:43:29]">&lt;stikonas&gt;</a></span><span class="message">still, I've been running live-bootstrap and stage0-posix many times and have no issues</span></div><div class="line" id="131854"><span class="nick" style="color:#389600"><a href="#131854" label="[13:18:54]">&lt;oriansj&gt;</a></span><span class="message">doras: well there is about 800K write calls in a run of stage0-posix. Now a smart kernel would buffer the writes and sync them to disk every 4K writes (or every 1MB depending on block size)</span></div><div class="line" id="132137"><span class="nick" style="color:#389600"><a href="#132137" label="[13:21:37]">&lt;oriansj&gt;</a></span><span class="message">mind you microSDs have much fewer write cycles and no caching RAM onboard like a proper SSD. And the microSD in question has been repeatedly used in testing of stage0-posix for more than a year.</span></div><div class="line" id="132340"><span class="nick" style="color:#389600"><a href="#132340" label="[13:23:40]">&lt;oriansj&gt;</a></span><span class="message">So a reasonable warning is if you are going to do daily builds of stage0-posix, plan on a 1-2 year replacement cycle for the drive in use.</span></div><div class="line" id="132717"><span class="nick" style="color:#389600"><a href="#132717" label="[13:27:17]">&lt;oriansj&gt;</a></span><span class="message">(note this is a very conservative warning and this risk might not even apply to an SSD which caches writes to RAM with a write-back algorithm to the actual flash)</span></div><div class="line" id="133232"><span class="nick" style="color:#389600"><a href="#133232" label="[13:32:32]">&lt;oriansj&gt;</a></span><span class="message">[[ideally your SSD has a supercap to provide power to flush contents of RAM to flash in the event of power loss to the drive]]</span></div><div class="line" id="142338"><span class="nick" style="color:#6d2462"><a href="#142338" label="[14:23:38]">&lt;doras&gt;</a></span><span class="message">Thanks.</span></div><div class="line" id="142357"><span class="nick" style="color:#6d2462"><a href="#142357" label="[14:23:57]">&lt;doras&gt;</a></span><span class="message">Regarding getcwd, I suspect there's something deeper here.</span></div><div class="line" id="142806"><span class="nick" style="color:#6d2462"><a href="#142806" label="[14:28:06]">&lt;doras&gt;</a></span><span class="message">It may be related to /proc missing, as was previously suggested here.</span></div><div class="line" id="142934"><span class="nick" style="color:#6d2462"><a href="#142934" label="[14:29:34]">&lt;doras&gt;</a></span><span class="message">Or something similar</span></div><div class="line" id="142953"><span class="nick" style="color:#6d2462"><a href="#142953" label="[14:29:53]">&lt;doras&gt;</a></span><span class="message">Maybe I can figure out how to fix it.</span></div><div class="line" id="145844"><span class="nick" style="color:#6d2462"><a href="#145844" label="[14:58:44]">&lt;doras&gt;</a></span><span class="message">Well, it's not the missing /proc</span></div><div class="line" id="150157"><span class="nick" style="color:#6c3d55"><a href="#150157" label="[15:01:57]">&lt;bauen1&gt;</a></span><span class="message">doras: i'm not sure if bwrap does it, but maybe it's blocking certain syscalls ?</span></div><div class="line" id="150212"><span class="nick" style="color:#6c3d55"><a href="#150212" label="[15:02:12]">&lt;bauen1&gt;</a></span><span class="message">or forcing the linux compatibility to be off or things like that ?</span></div><div class="line" id="150212"><span class="nick" style="color:#6d2462"><a href="#150212" label="[15:02:12]">&lt;doras&gt;</a></span><span class="message">It's not supposed to</span></div><div class="line" id="150302"><span class="nick" style="color:#6d2462"><a href="#150302" label="[15:03:02]">&lt;doras&gt;</a></span><span class="message">This getcwd issue is found by the configure script in all the build variations of live-boostrap</span></div><div class="line" id="150326"><span class="nick" style="color:#6d2462"><a href="#150326" label="[15:03:26]">&lt;doras&gt;</a></span><span class="message">Otherwise the checksum would be different.</span></div><div class="line" id="150408"><span class="nick" style="color:#6d2462"><a href="#150408" label="[15:04:08]">&lt;doras&gt;</a></span><span class="message">I suspect that somehow the use of FUSE by BuildStream works around this issue.</span></div><div class="line" id="151319"><span class="nick" style="color:#6d2462"><a href="#151319" label="[15:13:19]">&lt;doras&gt;</a></span><span class="message">Interesting... the getcwd we have in the bootstrap seems to fail the test program regardless if it's run outside or inside the chroot.</span></div><div class="line" id="151420"><span class="nick" style="color:#6d2462"><a href="#151420" label="[15:14:20]">&lt;doras&gt;</a></span><span class="message">If I build the test program outside the bootstrap, getcwd seems to work fine.</span></div><div class="line" id="151529"><span class="nick" style="color:#6d2462"><a href="#151529" label="[15:15:29]">&lt;doras&gt;</a></span><span class="message">I'll continue digging.</span></div><div class="line" id="161346"><span class="nick" style="color:#6d2462"><a href="#161346" label="[16:13:46]">&lt;doras&gt;</a></span><span class="message">stikonas: how did you choose what to import in &quot;import-gnulib.sh&quot;?</span></div><div class="line" id="161359"><span class="nick" style="color:#6d2462"><a href="#161359" label="[16:13:59]">&lt;doras&gt;</a></span><span class="message">And what is actually the purpose of that import operation?</span></div><div class="line" id="161448"><span class="nick" style="color:#8dd3c7"><a href="#161448" label="[16:14:48]">&lt;stikonas&gt;</a></span><span class="message">doras: import-gnulib.sh is usually the same revision as in the release tarball (if known) or else some arbitrary revision from that time that works</span></div><div class="line" id="161528"><span class="nick" style="color:#8dd3c7"><a href="#161528" label="[16:15:28]">&lt;stikonas&gt;</a></span><span class="message">it's done because that Makefile.am file is generated  by this procedure</span></div><div class="line" id="161559"><span class="nick" style="color:#8dd3c7"><a href="#161559" label="[16:15:59]">&lt;stikonas&gt;</a></span><span class="message">and we tried to avoid using anything that is generated</span></div><div class="line" id="161604"><span class="nick" style="color:#6d2462"><a href="#161604" label="[16:16:04]">&lt;doras&gt;</a></span><span class="message">I mean, there's a list of modules there: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/sysa/findutils-4.2.33/import-gnulib.sh#L18">https://github.com/fosslinux/live-bootstrap/blob/master/sysa/findutils-4.2.33/import-gnulib.sh#L18</a> </span></div><div class="line" id="161619"><span class="nick" style="color:#6d2462"><a href="#161619" label="[16:16:19]">&lt;doras&gt;</a></span><span class="message">Where this this list come from?</span></div><div class="line" id="161629"><span class="nick" style="color:#6d2462"><a href="#161629" label="[16:16:29]">&lt;doras&gt;</a></span><span class="message">did*</span></div><div class="line" id="161631"><span class="nick" style="color:#8dd3c7"><a href="#161631" label="[16:16:31]">&lt;stikonas&gt;</a></span><span class="message">oh that's from the comment in the auto-generated makefile</span></div><div class="line" id="161645"><span class="nick" style="color:#8dd3c7"><a href="#161645" label="[16:16:45]">&lt;stikonas&gt;</a></span><span class="message">if you look in tarball</span></div><div class="line" id="161656"><span class="nick" style="color:#8dd3c7"><a href="#161656" label="[16:16:56]">&lt;stikonas&gt;</a></span><span class="message">of findutils, you'll find this list</span></div><div class="line" id="161729"><span class="nick" style="color:#8dd3c7"><a href="#161729" label="[16:17:29]">&lt;stikonas&gt;</a></span><span class="message">look at gnulib/lib/Makefile.am</span></div><div class="line" id="161813"><span class="nick" style="color:#6d2462"><a href="#161813" label="[16:18:13]">&lt;doras&gt;</a></span><span class="message">I see.</span></div><br /></div></body></html>

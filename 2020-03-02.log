@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-03-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000041"><span class="nick" style="color:#389600"><a href="#000041" label="[00:00:41]">&lt;OriansJ&gt;</a></span><span class="message">ok patch it is up</span></div><div class="line" id="000114"><span class="nick" style="color:#389600"><a href="#000114" label="[00:01:14]">&lt;OriansJ&gt;</a></span><span class="message">No, it parses &quot;;hi\n&quot; as &quot;;hi\n&quot;</span></div><div class="line" id="000125"><span class="nick" style="color:#8dd3c7"><a href="#000125" label="[00:01:25]">&lt;xentrac&gt;</a></span><span class="message">hmm, that's bad</span></div><div class="line" id="000138"><span class="nick" style="color:#8dd3c7"><a href="#000138" label="[00:01:38]">&lt;xentrac&gt;</a></span><span class="message">so it's failing to recognize it as a comment?</span></div><div class="line" id="000224"><span class="nick" style="color:#8dd3c7"><a href="#000224" label="[00:02:24]">&lt;xentrac&gt;</a></span><span class="message">it treats it as a string?</span></div><div class="line" id="000305"><span class="nick" style="color:#389600"><a href="#000305" label="[00:03:05]">&lt;OriansJ&gt;</a></span><span class="message">It is treating the contents of the string the same way guile's REPL is</span></div><div class="line" id="000416"><span class="nick" style="color:#389600"><a href="#000416" label="[00:04:16]">&lt;OriansJ&gt;</a></span><span class="message">(display &quot;;hi\n&quot;) has the same output in mes-m2 as guile does</span></div><div class="line" id="000541"><span class="nick" style="color:#8dd3c7"><a href="#000541" label="[00:05:41]">&lt;xentrac&gt;</a></span><span class="message">right, I didn't mean parsing &quot;\&quot;;hi\\n\&quot;&quot;, but rather parsing &quot;;hi\n&quot;</span></div><div class="line" id="000632"><span class="nick" style="color:#8dd3c7"><a href="#000632" label="[00:06:32]">&lt;xentrac&gt;</a></span><span class="message">scheme@(guile-user)&gt; (read)</span></div><div class="line" id="000632"><span class="nick" style="color:#8dd3c7"><a href="#000632" label="[00:06:32]">&lt;xentrac&gt;</a></span><span class="message">;hi</span></div><div class="line" id="000632"><span class="nick" style="color:#8dd3c7"><a href="#000632" label="[00:06:32]">&lt;xentrac&gt;</a></span><span class="message">$1 = #&lt;eof&gt;</span></div><div class="line" id="000644"><span class="nick" style="color:#8dd3c7"><a href="#000644" label="[00:06:44]">&lt;xentrac&gt;</a></span><span class="message">like that</span></div><div class="line" id="000654"><span class="nick" style="color:#8dd3c7"><a href="#000654" label="[00:06:54]">&lt;xentrac&gt;</a></span><span class="message">I typed ^D to terminate read</span></div><div class="line" id="000704"><span class="nick" style="color:#8dd3c7"><a href="#000704" label="[00:07:04]">&lt;xentrac&gt;</a></span><span class="message">which doesn't show in the transcript</span></div><div class="line" id="000809"><span class="nick" style="color:#8dd3c7"><a href="#000809" label="[00:08:09]">&lt;xentrac&gt;</a></span><span class="message">(read) returns #&lt;eof&gt; because a comment like &quot;;hi\n&quot; doesn't count as an S-expression</span></div><div class="line" id="000855"><span class="nick" style="color:#389600"><a href="#000855" label="[00:08:55]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: mes-m2 just drops ;hi\n on the floor and the interpreter doesn't even see it</span></div><div class="line" id="000914"><span class="nick" style="color:#8dd3c7"><a href="#000914" label="[00:09:14]">&lt;xentrac&gt;</a></span><span class="message">that's good, that's the behavior that test is attempting to verify</span></div><div class="line" id="000941"><span class="nick" style="color:#8dd3c7"><a href="#000941" label="[00:09:41]">&lt;xentrac&gt;</a></span><span class="message">also it's verifying that the dropping on the floor ends at the end of the line and doesn't continue to the )</span></div><div class="line" id="000944"><span class="nick" style="color:#8dd3c7"><a href="#000944" label="[00:09:44]">&lt;xentrac&gt;</a></span><span class="message">I'm going to bed</span></div><div class="line" id="001019"><span class="nick" style="color:#389600"><a href="#001019" label="[00:10:19]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: sweet dreams</span></div><div class="line" id="001037"><span class="nick" style="color:#8dd3c7"><a href="#001037" label="[00:10:37]">&lt;xentrac&gt;</a></span><span class="message">thanks!  hopefully I'll wake up!</span></div><div class="line" id="001406"><span class="nick" style="color:#389600"><a href="#001406" label="[00:14:06]">&lt;OriansJ&gt;</a></span><span class="message">indeed</span></div><div class="line" id="001948"><span class="nick" style="color:#2e2a4a"><a href="#001948" label="[00:19:48]">&lt;fossy&gt;</a></span><span class="message">OriansJ: I am very aware of that</span></div><div class="line" id="002012"><span class="nick" style="color:#2e2a4a"><a href="#002012" label="[00:20:12]">&lt;fossy&gt;</a></span><span class="message">I am developing gcc seed to use gash right now :p so thats very obbious</span></div><div class="line" id="002021"><span class="nick" style="color:#389600"><a href="#002021" label="[00:20:21]">&lt;OriansJ&gt;</a></span><span class="message">(string-&gt;list &quot;;hi\n(;hi\n)&quot;) matches in mes-m2 and guile</span></div><div class="line" id="002101"><span class="nick" style="color:#389600"><a href="#002101" label="[00:21:01]">&lt;OriansJ&gt;</a></span><span class="message">fossy: sorry if I misunderstood you in regards to your goals in kaem</span></div><div class="line" id="002108"><span class="nick" style="color:#2e2a4a"><a href="#002108" label="[00:21:08]">&lt;fossy&gt;</a></span><span class="message">no quite fine</span></div><div class="line" id="002116"><span class="nick" style="color:#2e2a4a"><a href="#002116" label="[00:21:16]">&lt;fossy&gt;</a></span><span class="message">that is certinaly the end goal</span></div><div class="line" id="002127"><span class="nick" style="color:#2e2a4a"><a href="#002127" label="[00:21:27]">&lt;fossy&gt;</a></span><span class="message">to make it bootstrap make and bash</span></div><div class="line" id="002134"><span class="nick" style="color:#389600"><a href="#002134" label="[00:21:34]">&lt;OriansJ&gt;</a></span><span class="message">I guess I am guite behind on my sleep</span></div><div class="line" id="002146"><span class="nick" style="color:#2e2a4a"><a href="#002146" label="[00:21:46]">&lt;fossy&gt;</a></span><span class="message">for the time being? I just want to help make a working bootstrap</span></div><div class="line" id="002242"><span class="nick" style="color:#389600"><a href="#002242" label="[00:22:42]">&lt;OriansJ&gt;</a></span><span class="message">fossy: as do we all; some more rigorously than others</span></div><div class="line" id="002420"><span class="nick" style="color:#389600"><a href="#002420" label="[00:24:20]">&lt;OriansJ&gt;</a></span><span class="message">fossy: no personal technical preferences in regards to solution?</span></div><div class="line" id="002438"><span class="nick" style="color:#2e2a4a"><a href="#002438" label="[00:24:38]">&lt;fossy&gt;</a></span><span class="message">Solution to what?</span></div><div class="line" id="002448"><span class="nick" style="color:#2e2a4a"><a href="#002448" label="[00:24:48]">&lt;fossy&gt;</a></span><span class="message">Working bootstrap or kaem?</span></div><div class="line" id="002455"><span class="nick" style="color:#389600"><a href="#002455" label="[00:24:55]">&lt;OriansJ&gt;</a></span><span class="message">For example janneke and the guix community want scheme to be the &quot;magic&quot; solution to the bootstrapping problem</span></div><div class="line" id="002508"><span class="nick" style="color:#2e2a4a"><a href="#002508" label="[00:25:08]">&lt;fossy&gt;</a></span><span class="message">ahhh</span></div><div class="line" id="002638"><span class="nick" style="color:#389600"><a href="#002638" label="[00:26:38]">&lt;OriansJ&gt;</a></span><span class="message">hence my last 14months of effort; 9 trying to get mes.c buildable via M2-Planet and the last 5 on extending slow_lisp to be good enough</span></div><div class="line" id="002657"><span class="nick" style="color:#2e2a4a"><a href="#002657" label="[00:26:57]">&lt;fossy&gt;</a></span><span class="message">Yes, I have a preference that the bootstrap is cross platform and that it is easily extensible to any  linux distro</span></div><div class="line" id="002701"><span class="nick" style="color:#2e2a4a"><a href="#002701" label="[00:27:01]">&lt;fossy&gt;</a></span><span class="message">or OS</span></div><div class="line" id="002742"><span class="nick" style="color:#389600"><a href="#002742" label="[00:27:42]">&lt;OriansJ&gt;</a></span><span class="message">fossy: good we agree on that point to a degree (wish it to extend to all possible host operating systems)</span></div><div class="line" id="002756"><span class="nick" style="color:#2e2a4a"><a href="#002756" label="[00:27:56]">&lt;fossy&gt;</a></span><span class="message">I also feel that everything pre tinycc in the current bootstrap map is good</span></div><div class="line" id="002758"><span class="nick" style="color:#389600"><a href="#002758" label="[00:27:58]">&lt;OriansJ&gt;</a></span><span class="message">^^I ^</span></div><div class="line" id="002820"><span class="nick" style="color:#2e2a4a"><a href="#002820" label="[00:28:20]">&lt;fossy&gt;</a></span><span class="message">I would like tinycc to be removed also eventually</span></div><div class="line" id="002838"><span class="nick" style="color:#2e2a4a"><a href="#002838" label="[00:28:38]">&lt;fossy&gt;</a></span><span class="message">But, it can stay for now</span></div><div class="line" id="002922"><span class="nick" style="color:#389600"><a href="#002922" label="[00:29:22]">&lt;OriansJ&gt;</a></span><span class="message">agreed</span></div><div class="line" id="003030"><span class="nick" style="color:#389600"><a href="#003030" label="[00:30:30]">&lt;OriansJ&gt;</a></span><span class="message">although I still want to improve the steps below mes-m2 to be able to work on even more possible architecture targets</span></div><div class="line" id="003112"><span class="nick" style="color:#389600"><a href="#003112" label="[00:31:12]">&lt;OriansJ&gt;</a></span><span class="message">like z80, 6502 and 6809 processors; along with knight in 16bit mode</span></div><div class="line" id="003636"><span class="nick" style="color:#389600"><a href="#003636" label="[00:36:36]">&lt;OriansJ&gt;</a></span><span class="message">but I also have a desire to just finish the rope bridge of bootstrapping before reworking the lower level pieces</span></div><div class="line" id="004136"><span class="nick" style="color:#389600"><a href="#004136" label="[00:41:36]">&lt;OriansJ&gt;</a></span><span class="message">but at the same time debugging an interpreter sucks and is no fun at all</span></div><div class="line" id="004232"><span class="nick" style="color:#389600"><a href="#004232" label="[00:42:32]">&lt;OriansJ&gt;</a></span><span class="message">So progress on mes-m2 just feels like work and I just can't do it after a 14hour day at work.</span></div><div class="line" id="004312"><span class="nick" style="color:#389600"><a href="#004312" label="[00:43:12]">&lt;OriansJ&gt;</a></span><span class="message">Work on the lower levels feels like play and I squeeze those bits in</span></div><div class="line" id="004800"><span class="nick" style="color:#389600"><a href="#004800" label="[00:48:00]">&lt;OriansJ&gt;</a></span><span class="message">I am honestly grateful for all the help I can get because I just feel the weight of how much work I have to carry up this mountain.</span></div><div class="line" id="011556"><span class="nick" style="color:#389600"><a href="#011556" label="[01:15:56]">&lt;OriansJ&gt;</a></span><span class="message">From 2018-06-17 I have been working on mes-m2; I didn't get it buildable via GCC until 2019-07-16; Then I hammered on it until 2019-11-14 to get it buildable via M2-Planet. So I guess I have only been working on the slow_lisp version of mes-m2 since then. God, why does it feel longer than 3.5months of work?</span></div><div class="line" id="012210"><span class="nick" style="color:#389600"><a href="#012210" label="[01:22:10]">&lt;OriansJ&gt;</a></span><span class="message">so correction fossy 13 months to get mes.c buildiable via GCC and 4 more months trying to get it buildable via M2-Planet. Then the last 3.5 months extending slow_lisp to be good enough</span></div><div class="line" id="012440"><span class="nick" style="color:#389600"><a href="#012440" label="[01:24:40]">&lt;OriansJ&gt;</a></span><span class="message">Good night; need so much rest. Very long day tomorrow</span></div><div class="line" id="211524"><span class="nick" style="color:#80b1d3"><a href="#211524" label="[21:15:24]">&lt;pder&gt;</a></span><span class="message">fossy: I tested the latest mescc-tools and found a segfault in kaem when trying to build mescc-tools-seed</span></div><div class="line" id="211612"><span class="nick" style="color:#80b1d3"><a href="#211612" label="[21:16:12]">&lt;pder&gt;</a></span><span class="message">I did some debugging and it appears the problem is in collect_token when you set token to the previous token in the list.</span></div><div class="line" id="211654"><span class="nick" style="color:#80b1d3"><a href="#211654" label="[21:16:54]">&lt;pder&gt;</a></span><span class="message">The problem is token-&gt;next is still set to a valid address so it causes other functions to walk off the end of the list.</span></div><div class="line" id="211721"><span class="nick" style="color:#80b1d3"><a href="#211721" label="[21:17:21]">&lt;pder&gt;</a></span><span class="message">This one line patch appears to fix the problem as far as I can tell:</span></div><div class="line" id="211724"><span class="nick" style="color:#80b1d3"><a href="#211724" label="[21:17:24]">&lt;pder&gt;</a></span><span class="message"> <a rel="nofollow" href="http://paste.debian.net/1133182/">http://paste.debian.net/1133182/</a> </span></div><div class="line" id="213856"><span class="nick" style="color:#2e2a4a"><a href="#213856" label="[21:38:56]">&lt;fossy&gt;</a></span><span class="message">pder: thank you</span></div><div class="line" id="213915"><span class="nick" style="color:#2e2a4a"><a href="#213915" label="[21:39:15]">&lt;fossy&gt;</a></span><span class="message">I noticed that oriansjs patch introduced a number of segfaults</span></div><div class="line" id="213938"><span class="nick" style="color:#2e2a4a"><a href="#213938" label="[21:39:38]">&lt;fossy&gt;</a></span><span class="message">I am doing some more code cleanup to kaem that should be up by the end of the week</span></div><div class="line" id="213948"><span class="nick" style="color:#2e2a4a"><a href="#213948" label="[21:39:48]">&lt;fossy&gt;</a></span><span class="message">that will have no segfault</span></div><div class="line" id="214023"><span class="nick" style="color:#2e2a4a"><a href="#214023" label="[21:40:23]">&lt;fossy&gt;</a></span><span class="message">OriansJ: would you mind applying that patch to mescc tools until I finish the new repo</span></div><br /></div></body></html>

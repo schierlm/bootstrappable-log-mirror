@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-10-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002256"><span class="nick" style="color:#8dd3c7"><a href="#002256" label="[00:22:56]">&lt;mihi&gt;</a></span><span class="message">It also seems that tar-1.24 package does not work (or not properly override older tar package) when placed in repo-preseeded. As I get &quot;unrecognized option `--no-same-owner'&quot;, which resolves itself when removing that one package.</span></div><div class="line" id="002331"><span class="nick" style="color:#8dd3c7"><a href="#002331" label="[00:23:31]">&lt;mihi&gt;</a></span><span class="message">Anyway, I guess I can announce &lt;<a rel="nofollow" href="https://github.com/schierlm/undead-bootstrap/">https://github.com/schierlm/undead-bootstrap/</a>&gt;  here now (~1 week early)</span></div><div class="line" id="002417"><span class="nick" style="color:#8dd3c7"><a href="#002417" label="[00:24:17]">&lt;mihi&gt;</a></span><span class="message">logs for the failing run when tar package is present: &lt;<a rel="nofollow" href="https://github.com/schierlm/undead-bootstrap/actions/runs/3304698834">https://github.com/schierlm/undead-bootstrap/actions/runs/3304698834</a>&gt; </span></div><div class="line" id="002504"><span class="nick" style="color:#8dd3c7"><a href="#002504" label="[00:25:04]">&lt;mihi&gt;</a></span><span class="message">but when having everything in packages except heirloom-devtools and tar, CI bootstrap takes only 5 minutes, which is acceptable speed for me :)</span></div><div class="line" id="010825"><span class="nick" style="color:#2e2a4a"><a href="#010825" label="[01:08:25]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: preseed is slightly broken, but unrelated to sources changes i believe</span></div><div class="line" id="010852"><span class="nick" style="color:#6b8072"><a href="#010852" label="[01:08:52]">&lt;stikonas&gt;</a></span><span class="message">fossy: hmm, not good :(. But hopefully not too hard to fix</span></div><div class="line" id="010903"><span class="nick" style="color:#2e2a4a"><a href="#010903" label="[01:09:03]">&lt;fossy&gt;</a></span><span class="message">no, trivial fix</span></div><div class="line" id="010904"><span class="nick" style="color:#2e2a4a"><a href="#010904" label="[01:09:04]">&lt;fossy&gt;</a></span><span class="message">i have a commit ready, i'll push it in a moment</span></div><div class="line" id="010908"><span class="nick" style="color:#6b8072"><a href="#010908" label="[01:09:08]">&lt;stikonas&gt;</a></span><span class="message">sure, push it...</span></div><div class="line" id="010929"><span class="nick" style="color:#6b8072"><a href="#010929" label="[01:09:29]">&lt;stikonas&gt;</a></span><span class="message">we are getting quite a few different modes, hard to test everything...</span></div><div class="line" id="010937"><span class="nick" style="color:#2e2a4a"><a href="#010937" label="[01:09:37]">&lt;fossy&gt;</a></span><span class="message">sorry for not seeing zlib PR. math final was occupying my time right around there</span></div><div class="line" id="010937"><span class="nick" style="color:#6b8072"><a href="#010937" label="[01:09:37]">&lt;stikonas&gt;</a></span><span class="message">earlier this week I fixed --external-sources mode...</span></div><div class="line" id="010938"><span class="nick" style="color:#2e2a4a"><a href="#010938" label="[01:09:38]">&lt;fossy&gt;</a></span><span class="message">yeah. hoping CI will be ready soonish</span></div><div class="line" id="010941"><span class="nick" style="color:#2e2a4a"><a href="#010941" label="[01:09:41]">&lt;fossy&gt;</a></span><span class="message">i saw that</span></div><div class="line" id="010955"><span class="nick" style="color:#6b8072"><a href="#010955" label="[01:09:55]">&lt;stikonas&gt;</a></span><span class="message">no problem, math final is more important</span></div><div class="line" id="011052"><span class="nick" style="color:#2e2a4a"><a href="#011052" label="[01:10:52]">&lt;fossy&gt;</a></span><span class="message">gotta say, recently i've noticed how far python has come since even the early days of py3</span></div><div class="line" id="011100"><span class="nick" style="color:#2e2a4a"><a href="#011100" label="[01:11:00]">&lt;fossy&gt;</a></span><span class="message">older python has so much weird behaviour</span></div><div class="line" id="011118"><span class="nick" style="color:#6b8072"><a href="#011118" label="[01:11:18]">&lt;stikonas&gt;</a></span><span class="message">oh, what in particular?</span></div><div class="line" id="011207"><span class="nick" style="color:#6b8072"><a href="#011207" label="[01:12:07]">&lt;stikonas&gt;</a></span><span class="message">and I'm now back home, so hopefully can finish stage0-uefi soonish</span></div><div class="line" id="011302"><span class="nick" style="color:#2e2a4a"><a href="#011302" label="[01:13:02]">&lt;fossy&gt;</a></span><span class="message">searching for python stdlib is quite strange. it first checks if it's in the build directory, then checks where it might expect to be in terms of lib/pythonx.y, except *from the current directory*, then it goes to predefined paths (prefix and exec_prefix given as configure options)</span></div><div class="line" id="011322"><span class="nick" style="color:#2e2a4a"><a href="#011322" label="[01:13:22]">&lt;fossy&gt;</a></span><span class="message">setting PYTHONHOME breaks building python &amp; makes it unable to load dynamic libraries</span></div><div class="line" id="011332"><span class="nick" style="color:#2e2a4a"><a href="#011332" label="[01:13:32]">&lt;fossy&gt;</a></span><span class="message">and lib-dynload/ subdirectory is not covered in all cases</span></div><div class="line" id="011503"><span class="nick" style="color:#6b8072"><a href="#011503" label="[01:15:03]">&lt;stikonas&gt;</a></span><span class="message">hmm, somehow building python sounds more complicated than I initially hoped for...</span></div><div class="line" id="011551"><span class="nick" style="color:#2e2a4a"><a href="#011551" label="[01:15:51]">&lt;fossy&gt;</a></span><span class="message">it is a little complicated, but not overly so (not as bad as eg autogen). it's just that there's strange behaviours that are hard to debug</span></div><div class="line" id="011715"><span class="nick" style="color:#6b8072"><a href="#011715" label="[01:17:15]">&lt;stikonas&gt;</a></span><span class="message">uefi stuff is also hard to  debug...</span></div><div class="line" id="011728"><span class="nick" style="color:#6b8072"><a href="#011728" label="[01:17:28]">&lt;stikonas&gt;</a></span><span class="message">I didn't set up gdb (though I think it might be possible to do that)</span></div><div class="line" id="011754"><span class="nick" style="color:#6b8072"><a href="#011754" label="[01:17:54]">&lt;stikonas&gt;</a></span><span class="message">and without gdb it's a bit tricky</span></div><div class="line" id="011754"><span class="nick" style="color:#2e2a4a"><a href="#011754" label="[01:17:54]">&lt;fossy&gt;</a></span><span class="message">as in for stack dumps or stepping through?</span></div><div class="line" id="011755"><span class="nick" style="color:#6b8072"><a href="#011755" label="[01:17:55]">&lt;stikonas&gt;</a></span><span class="message">I often relied on just using exit status to print debug info</span></div><div class="line" id="011808"><span class="nick" style="color:#6b8072"><a href="#011808" label="[01:18:08]">&lt;stikonas&gt;</a></span><span class="message">stepping through</span></div><div class="line" id="011955"><span class="nick" style="color:#2e2a4a"><a href="#011955" label="[01:19:55]">&lt;fossy&gt;</a></span><span class="message">i see</span></div><div class="line" id="012023"><span class="nick" style="color:#6b8072"><a href="#012023" label="[01:20:23]">&lt;stikonas&gt;</a></span><span class="message">most of it is sorted now</span></div><div class="line" id="152445"><span class="nick" style="color:#80b1d3"><a href="#152445" label="[15:24:45]">&lt;oriansj&gt;</a></span><span class="message">mihi: nice</span></div><br /></div></body></html>

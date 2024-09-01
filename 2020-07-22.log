@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-07-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="105323"><span class="nick">***</span><span class="message notice">terpri__ is now known as terpri</span></div><div class="line" id="120854"><span class="nick" style="color:#8dd3c7"><a href="#120854" label="[12:08:54]">&lt;originzero&gt;</a></span><span class="message">Hi! I discovered this project. I am wondering if they are similar efforts to bootstrap a musl-based GNU/Linux distribution?</span></div><div class="line" id="124117"><span class="nick" style="color:#2e2a4a"><a href="#124117" label="[12:41:17]">&lt;stikonas&gt;</a></span><span class="message">originzero: there is no extra work for bootstrapping musl</span></div><div class="line" id="124150"><span class="nick" style="color:#2e2a4a"><a href="#124150" label="[12:41:50]">&lt;stikonas&gt;</a></span><span class="message">you can compile musl toolchain using glibc toolchain</span></div><div class="line" id="124236"><span class="nick" style="color:#2e2a4a"><a href="#124236" label="[12:42:36]">&lt;stikonas&gt;</a></span><span class="message">well, there are some packages that fail to build with musl and need patches...</span></div><div class="line" id="124430"><span class="nick" style="color:#2e2a4a"><a href="#124430" label="[12:44:30]">&lt;stikonas&gt;</a></span><span class="message">everything is more or less the same with musl... E.g. I tried bootstrapping icedtea-8 on musl chroot and the steps are the same (just had to apply some addidional patches to icedtea)</span></div><div class="line" id="124522"><span class="nick" style="color:#8dd3c7"><a href="#124522" label="[12:45:22]">&lt;originzero&gt;</a></span><span class="message">ok</span></div><div class="line" id="124537"><span class="nick" style="color:#8dd3c7"><a href="#124537" label="[12:45:37]">&lt;originzero&gt;</a></span><span class="message">I am looking at mescc-tools repository there is no licence file <a rel="nofollow" href="http://git.savannah.gnu.org/cgit/mescc-tools.git/tree/">http://git.savannah.gnu.org/cgit/mescc-tools.git/tree/</a> </span></div><div class="line" id="124700"><span class="nick" style="color:#2e2a4a"><a href="#124700" label="[12:47:00]">&lt;stikonas&gt;</a></span><span class="message">there are license banners in .c files though</span></div><div class="line" id="124720"><span class="nick" style="color:#2e2a4a"><a href="#124720" label="[12:47:20]">&lt;stikonas&gt;</a></span><span class="message">it's GPLv3 or later</span></div><div class="line" id="124747"><span class="nick" style="color:#8dd3c7"><a href="#124747" label="[12:47:47]">&lt;originzero&gt;</a></span><span class="message">Indeed</span></div><div class="line" id="124814"><span class="nick" style="color:#2e2a4a"><a href="#124814" label="[12:48:14]">&lt;stikonas&gt;</a></span><span class="message">OriansJ`: maybe it makes sense to add LICENSE or COPYING file to project?</span></div><br /></div></body></html>

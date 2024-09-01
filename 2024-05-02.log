@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-05-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="133416"><span class="nick" style="color:#389600"><a href="#133416" label="[13:34:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I managed to delete 2000 lines from cc_x86.M1 <a rel="nofollow" href="https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/m2min/cc_x86_min.M1">https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/m2min/cc_x86_min.M1</a>  and am still able to compile a heavily cut down version of M2 (M2_simple_asm.c via mk_simple_asm_cc_x86_min in the same directory). The cut down version of cc_x86 is currently around 6800 bytes</span></div><div class="line" id="133636"><span class="nick" style="color:#389600"><a href="#133636" label="[13:36:36]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; This cut down version of cc_x86 only supports a very limited subset of C though.</span></div><div class="line" id="140939"><span class="nick" style="color:#8dd3c7"><a href="#140939" label="[14:09:39]">&lt;oriansj&gt;</a></span><span class="message">yeah, stripping down to if,else, while, break, asm and return certainly would still give you the lambda core of C</span></div><div class="line" id="141018"><span class="nick" style="color:#8dd3c7"><a href="#141018" label="[14:10:18]">&lt;oriansj&gt;</a></span><span class="message">and it is good you kept function pointer support</span></div><div class="line" id="151920"><span class="nick" style="color:#389600"><a href="#151920" label="[15:19:20]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; yep I might have gone a bit far by stripping out function pointer support. I might end up re-adding it as I'm also porting a more complete version of M2 to that minimal C dialect and M2 uses function pointers internally.</span></div><div class="line" id="152451"><span class="nick" style="color:#8dd3c7"><a href="#152451" label="[15:24:51]">&lt;oriansj&gt;</a></span><span class="message">well function pointers make certain state machines simpler in design</span></div><div class="line" id="152523"><span class="nick" style="color:#8dd3c7"><a href="#152523" label="[15:25:23]">&lt;oriansj&gt;</a></span><span class="message">which is a great deal of gain for something so simple to implement</span></div><div class="line" id="152536"><span class="nick" style="color:#389600"><a href="#152536" label="[15:25:36]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; hmm, rereading your message. I _think_ I ripped out function pointer support, but I didn't test it as M2_simple_asm.c doesn't use them.</span></div><div class="line" id="152607"><span class="nick" style="color:#389600"><a href="#152607" label="[15:26:07]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I definitely removed support from M2_simple_asm.c</span></div><div class="line" id="153721"><span class="nick" style="color:#389600"><a href="#153721" label="[15:37:21]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; ah I ripped out function_load_regular from cc_x86_min.M1 so function pointers are likely broken</span></div><div class="line" id="164359"><span class="nick" style="color:#2e2a4a"><a href="#164359" label="[16:43:59]">&lt;FireFly&gt;</a></span><span class="message">slightly tangential, but <a rel="nofollow" href="https://chaos.social/@kpcyrd/112371734992410322">https://chaos.social/@kpcyrd/112371734992410322</a>  was posted in another channel--interesting in the direction of tracking provenance of built artifacts from different distributions</span></div><div class="line" id="164450"><span class="nick" style="color:#2e2a4a"><a href="#164450" label="[16:44:50]">&lt;FireFly&gt;</a></span><span class="message">and I figure provenance tracking is adjacent enough to bootstrapping/reproducibility concerns that it'd be of interest to this crowd :p</span></div><div class="line" id="164802"><span class="nick" style="color:#6b8072"><a href="#164802" label="[16:48:02]">&lt;kpcyrd&gt;</a></span><span class="message">haha oof, did chaos.social go down?</span></div><div class="line" id="164926"><span class="nick" style="color:#80b1d3"><a href="#164926" label="[16:49:26]">&lt;Foxboron&gt;</a></span><span class="message">kpcyrd: seems like it</span></div><div class="line" id="164933"><span class="nick" style="color:#6b8072"><a href="#164933" label="[16:49:33]">&lt;kpcyrd&gt;</a></span><span class="message">rip 🪦</span></div><div class="line" id="165017"><span class="nick" style="color:#6b8072"><a href="#165017" label="[16:50:17]">&lt;kpcyrd&gt;</a></span><span class="message">the tweet is still up: <a rel="nofollow" href="https://twitter.com/kpcyrd/status/1786025246270599641">https://twitter.com/kpcyrd/status/1786025246270599641</a> </span></div><div class="line" id="165019"><span class="nick" style="color:#2e2a4a"><a href="#165019" label="[16:50:19]">&lt;FireFly&gt;</a></span><span class="message">loads here...</span></div><div class="line" id="165050"><span class="nick" style="color:#6b8072"><a href="#165050" label="[16:50:50]">&lt;kpcyrd&gt;</a></span><span class="message">it seems it just came back, the archive job started picking up too: <a rel="nofollow" href="https://archive.is/wip/QcrKZ">https://archive.is/wip/QcrKZ</a> </span></div><div class="line" id="165217"><span class="nick" style="color:#8dd3c7"><a href="#165217" label="[16:52:17]">&lt;oriansj&gt;</a></span><span class="message">FireFly: looking forward to it supporting Guix</span></div><br /></div></body></html>

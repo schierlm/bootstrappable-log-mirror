@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-10-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="023032"><span class="nick" style="color:#8dd3c7"><a href="#023032" label="[02:30:32]">&lt;OriansJ&gt;</a></span><span class="message">janneke:</span></div><div class="line" id="023050"><span class="nick" style="color:#8dd3c7"><a href="#023050" label="[02:30:50]">&lt;OriansJ&gt;</a></span><span class="message">you have something fun</span></div><div class="line" id="023510"><span class="nick" style="color:#8dd3c7"><a href="#023510" label="[02:35:10]">&lt;OriansJ&gt;</a></span><span class="message">try &quot;kaem --verbose --strict&quot; on mes-m2 -_^</span></div><div class="line" id="023812"><span class="nick" style="color:#8dd3c7"><a href="#023812" label="[02:38:12]">&lt;OriansJ&gt;</a></span><span class="message">we still have to fix the struct scm* x = y+1; and struct scm* x = y+i; behaviors since +1 means 1 byte in M2-Planet and +1 means 1 sizeof(type) in C</span></div><div class="line" id="023903"><span class="nick" style="color:#8dd3c7"><a href="#023903" label="[02:39:03]">&lt;OriansJ&gt;</a></span><span class="message">which is why mes.h has CELL_SIZE defined appropriately to allow the solution to that problem</span></div><div class="line" id="073341"><span class="nick" style="color:#2e2a4a"><a href="#073341" label="[07:33:41]">&lt;janneke&gt;</a></span><span class="message">OriansJ: ooohhh! nice</span></div><div class="line" id="073401"><span class="nick" style="color:#2e2a4a"><a href="#073401" label="[07:34:01]">&lt;janneke&gt;</a></span><span class="message">OriansJ: CELL_SIZE is a good trick</span></div><div class="line" id="073438"><span class="nick" style="color:#2e2a4a"><a href="#073438" label="[07:34:38]">&lt;janneke&gt;</a></span><span class="message">i was wondering to learn M2-Planet to eating/discarding `const'</span></div><div class="line" id="073505"><span class="nick" style="color:#2e2a4a"><a href="#073505" label="[07:35:05]">&lt;janneke&gt;</a></span><span class="message">so that mes can more easily keep using the C library alphabet</span></div><div class="line" id="123016"><span class="nick" style="color:#8dd3c7"><a href="#123016" label="[12:30:16]">&lt;OriansJ&gt;</a></span><span class="message">janneke: well getting M2-Planet to just eat const is rather simple; simply att that logic to the struct type* type_name() function in cc_types.c</span></div><div class="line" id="133534"><span class="nick" style="color:#2e2a4a"><a href="#133534" label="[13:35:34]">&lt;janneke&gt;</a></span><span class="message">OriansJ: great!</span></div><div class="line" id="182521"><span class="nick" style="color:#8dd3c7"><a href="#182521" label="[18:25:21]">&lt;OriansJ&gt;</a></span><span class="message">janneke: at the same time, mes-m2 is just a bare-minimium; that is just enough for MesCC to self-host mes.c</span></div><div class="line" id="182602"><span class="nick" style="color:#8dd3c7"><a href="#182602" label="[18:26:02]">&lt;OriansJ&gt;</a></span><span class="message">honestly, built via M2-Planet it is just a 197,002byte binary that segfault when the reader works with hashes</span></div><div class="line" id="182741"><span class="nick" style="color:#8dd3c7"><a href="#182741" label="[18:27:41]">&lt;OriansJ&gt;</a></span><span class="message">A static binary with ZERO dependencies (save for a handful of syscalls)</span></div><div class="line" id="182931"><span class="nick" style="color:#8dd3c7"><a href="#182931" label="[18:29:31]">&lt;OriansJ&gt;</a></span><span class="message">if you do kaem --verbose --strict and then ./bin/mes-m2 --boot test/test000/exit.scm you'll see it loads and runs, until an interacting with the hash functionality causes it to break</span></div><div class="line" id="183002"><span class="nick" style="color:#8dd3c7"><a href="#183002" label="[18:30:02]">&lt;OriansJ&gt;</a></span><span class="message">(notice that //fd_print(..); works in M2-Planet but is ignored by gcc)</span></div><div class="line" id="183139"><span class="nick" style="color:#8dd3c7"><a href="#183139" label="[18:31:39]">&lt;OriansJ&gt;</a></span><span class="message">So what I am going to do is remove vectors and hashes as being part of the core to reduce the number of places that can cause problems (as we know M2-Planet deals with objects, strings and pointers with ease)</span></div><div class="line" id="183238"><span class="nick" style="color:#2e2a4a"><a href="#183238" label="[18:32:38]">&lt;janneke&gt;</a></span><span class="message">bash: ./kaem.run: /bin/bash: bad interpreter: No such file or directory -- haha ;)</span></div><div class="line" id="183333"><span class="nick" style="color:#2e2a4a"><a href="#183333" label="[18:33:33]">&lt;janneke&gt;</a></span><span class="message">ah, kaem --verbose --strict ... cool!</span></div><div class="line" id="183401"><span class="nick" style="color:#2e2a4a"><a href="#183401" label="[18:34:01]">&lt;janneke&gt;</a></span><span class="message">very nice!</span></div><div class="line" id="183410"><span class="nick" style="color:#2e2a4a"><a href="#183410" label="[18:34:10]">&lt;janneke&gt;</a></span><span class="message">i mean, this is amazing!</span></div><div class="line" id="183527"><span class="nick" style="color:#2e2a4a"><a href="#183527" label="[18:35:27]">&lt;janneke&gt;</a></span><span class="message">OriansJ: i am inspired to experimenting with guile primitives needed to load psyntax: letrec and module-define!, module-variable etc</span></div><div class="line" id="183624"><span class="nick" style="color:#2e2a4a"><a href="#183624" label="[18:36:24]">&lt;janneke&gt;</a></span><span class="message">however, i am postponing that to work towards a merge with mes-m2, or at least i want mes to be as close to mes-m2 as possible before adding/changing functionality</span></div><div class="line" id="183703"><span class="nick" style="color:#2e2a4a"><a href="#183703" label="[18:37:03]">&lt;janneke&gt;</a></span><span class="message">it is very possible/probable that we will have two mes'es for some time to come, but i want to maximize the chances of convergence, and better sooner than later</span></div><div class="line" id="183821"><span class="nick" style="color:#2e2a4a"><a href="#183821" label="[18:38:21]">&lt;janneke&gt;</a></span><span class="message">OriansJ: just so that you know...to get mes.c to run for the first time, i used a stepwise implementation using scaffold/micro-mes, scaffold/tiny-mes, scaffold/cons-mes</span></div><div class="line" id="183834"><span class="nick" style="color:#2e2a4a"><a href="#183834" label="[18:38:34]">&lt;janneke&gt;</a></span><span class="message">you/we could just do that for m2-planet, if that helps</span></div><div class="line" id="183903"><span class="nick" style="color:#2e2a4a"><a href="#183903" label="[18:39:03]">&lt;janneke&gt;</a></span><span class="message">probably that's more a janneke's approach, feel free to ignore! :)</span></div><div class="line" id="184111"><span class="nick" style="color:#8dd3c7"><a href="#184111" label="[18:41:11]">&lt;OriansJ&gt;</a></span><span class="message">well, as we move forward mes-m2 is going to become more like mes.c</span></div><div class="line" id="184136"><span class="nick" style="color:#8dd3c7"><a href="#184136" label="[18:41:36]">&lt;OriansJ&gt;</a></span><span class="message">in terms of behavior and features</span></div><div class="line" id="184303"><span class="nick" style="color:#2e2a4a"><a href="#184303" label="[18:43:03]">&lt;janneke&gt;</a></span><span class="message">this is so amazing!</span></div><div class="line" id="184325"><span class="nick" style="color:#8dd3c7"><a href="#184325" label="[18:43:25]">&lt;OriansJ&gt;</a></span><span class="message">janneke: and with very little work, we can make it a drop in compatbile for mes.c</span></div><div class="line" id="184408"><span class="nick" style="color:#8dd3c7"><a href="#184408" label="[18:44:08]">&lt;OriansJ&gt;</a></span><span class="message">and by simplifying the internals and focusing on doing things in a cleaner manner, major performance enhancments can be done efficiently.</span></div><div class="line" id="184511"><span class="nick" style="color:#8dd3c7"><a href="#184511" label="[18:45:11]">&lt;OriansJ&gt;</a></span><span class="message">and if you notice how fast the build is</span></div><div class="line" id="184533"><span class="nick" style="color:#2e2a4a"><a href="#184533" label="[18:45:33]">&lt;janneke&gt;</a></span><span class="message">yeah!</span></div><div class="line" id="184543"><span class="nick" style="color:#8dd3c7"><a href="#184543" label="[18:45:43]">&lt;OriansJ&gt;</a></span><span class="message">both with gcc and M2-Planet; you gain the ability to quickly iterate changes and know that the build doesn't break</span></div><div class="line" id="184616"><span class="nick" style="color:#2e2a4a"><a href="#184616" label="[18:46:16]">&lt;janneke&gt;</a></span><span class="message">yes, i added a similar simple.make to mes on the wip-m2 branch</span></div><div class="line" id="184644"><span class="nick" style="color:#2e2a4a"><a href="#184644" label="[18:46:44]">&lt;janneke&gt;</a></span><span class="message">just a few days ago</span></div><div class="line" id="185105"><span class="nick" style="color:#8dd3c7"><a href="#185105" label="[18:51:05]">&lt;OriansJ&gt;</a></span><span class="message">janneke: hopefully the constraints demonstrated in mes-m2 are reasonable for you to work with</span></div><div class="line" id="190716"><span class="nick" style="color:#2e2a4a"><a href="#190716" label="[19:07:16]">&lt;janneke&gt;</a></span><span class="message">OriansJ: it is so inspiring to see that we are almost there</span></div><div class="line" id="190853"><span class="nick" style="color:#2e2a4a"><a href="#190853" label="[19:08:53]">&lt;janneke&gt;</a></span><span class="message">my first wip-m2 branch is from over a year ago</span></div><div class="line" id="190916"><span class="nick" style="color:#2e2a4a"><a href="#190916" label="[19:09:16]">&lt;janneke&gt;</a></span><span class="message">many things did not seem feasible ... now it links, runs and segfaults!</span></div><div class="line" id="190919"><span class="nick" style="color:#2e2a4a"><a href="#190919" label="[19:09:19]">&lt;janneke&gt;</a></span><span class="message">wow</span></div><div class="line" id="195928"><span class="nick" style="color:#6b8072"><a href="#195928" label="[19:59:28]">&lt;xentrac&gt;</a></span><span class="message">yes, bravo!</span></div><div class="line" id="220245"><span class="nick" style="color:#80b1d3"><a href="#220245" label="[22:02:45]">&lt;stikonas&gt;</a></span><span class="message">congratulations! Amazing work!</span></div><div class="line" id="220301"><span class="nick" style="color:#80b1d3"><a href="#220301" label="[22:03:01]">&lt;stikonas&gt;</a></span><span class="message">Hopefully, sorting out those hashes won't be too difficult</span></div><div class="line" id="220838"><span class="nick" style="color:#8dd3c7"><a href="#220838" label="[22:08:38]">&lt;OriansJ&gt;</a></span><span class="message">stikonas: it is just a sort of a one by one sort of problem</span></div><div class="line" id="220919"><span class="nick" style="color:#8dd3c7"><a href="#220919" label="[22:09:19]">&lt;OriansJ&gt;</a></span><span class="message">it is why ultimately I am going to make mes-m2 hash-free as it will make the code simpler and easier to understand</span></div><div class="line" id="221012"><span class="nick" style="color:#8dd3c7"><a href="#221012" label="[22:10:12]">&lt;OriansJ&gt;</a></span><span class="message">janneke: plus mes-m2 has the largest amount of gotos ever tested in M2-Planet</span></div><div class="line" id="221120"><span class="nick" style="color:#8dd3c7"><a href="#221120" label="[22:11:20]">&lt;OriansJ&gt;</a></span><span class="message">hopefully, there isn't C stack growing constructs inside of the gotos; as that could easily cause a stackoverflow</span></div><div class="line" id="221501"><span class="nick" style="color:#8dd3c7"><a href="#221501" label="[22:15:01]">&lt;OriansJ&gt;</a></span><span class="message">plus since the GCC and M2-Planet work can happen in parallel; now is the time to get people working on making mes-m2 as guile compatible as possible so we can port guix to it</span></div><div class="line" id="221853"><span class="nick" style="color:#2e2a4a"><a href="#221853" label="[22:18:53]">&lt;janneke&gt;</a></span><span class="message">OriansJ: haha, yes :-)</span></div><div class="line" id="223736"><span class="nick" style="color:#2e2a4a"><a href="#223736" label="[22:37:36]">&lt;janneke&gt;</a></span><span class="message">OriansJ: on my mes wip-m2 branch, i now have a #define switch: POINTER_CELLS</span></div><div class="line" id="223823"><span class="nick" style="color:#2e2a4a"><a href="#223823" label="[22:38:23]">&lt;janneke&gt;</a></span><span class="message">that switches the some initializations and and disables the garbage collector</span></div><div class="line" id="223921"><span class="nick" style="color:#2e2a4a"><a href="#223921" label="[22:39:21]">&lt;janneke&gt;</a></span><span class="message">it now starts to pass quite some tests, same code for number-based/pointer based cells</span></div><div class="line" id="223946"><span class="nick" style="color:#2e2a4a"><a href="#223946" label="[22:39:46]">&lt;janneke&gt;</a></span><span class="message">i also have a script pointer.sh, that removes almost all remaining macros</span></div><div class="line" id="224017"><span class="nick" style="color:#8dd3c7"><a href="#224017" label="[22:40:17]">&lt;OriansJ&gt;</a></span><span class="message">very nice</span></div><div class="line" id="224050"><span class="nick" style="color:#8dd3c7"><a href="#224050" label="[22:40:50]">&lt;OriansJ&gt;</a></span><span class="message">I probably need to put a garbage collector back in eventually</span></div><div class="line" id="224051"><span class="nick" style="color:#2e2a4a"><a href="#224051" label="[22:40:51]">&lt;janneke&gt;</a></span><span class="message">tomorrow i will have a look at the garbage collector</span></div><div class="line" id="224059"><span class="nick" style="color:#2e2a4a"><a href="#224059" label="[22:40:59]">&lt;janneke&gt;</a></span><span class="message">hehe *lol*</span></div><div class="line" id="224126"><span class="nick" style="color:#8dd3c7"><a href="#224126" label="[22:41:26]">&lt;OriansJ&gt;</a></span><span class="message">but I figure solving the hash/vector bit probably is a bigger priority in getting mes-m2 able to build something more impressive</span></div><div class="line" id="224129"><span class="nick" style="color:#2e2a4a"><a href="#224129" label="[22:41:29]">&lt;janneke&gt;</a></span><span class="message">OriansJ: does M2-Planet have `long' or unsigned?</span></div><div class="line" id="224139"><span class="nick" style="color:#8dd3c7"><a href="#224139" label="[22:41:39]">&lt;OriansJ&gt;</a></span><span class="message">janneke: yep: SCM</span></div><div class="line" id="224143"><span class="nick" style="color:#2e2a4a"><a href="#224143" label="[22:41:43]">&lt;janneke&gt;</a></span><span class="message">i find the pointer based cells still kinda scary</span></div><div class="line" id="224155"><span class="nick" style="color:#2e2a4a"><a href="#224155" label="[22:41:55]">&lt;janneke&gt;</a></span><span class="message">ah!  hmm</span></div><div class="line" id="224215"><span class="nick" style="color:#8dd3c7"><a href="#224215" label="[22:42:15]">&lt;OriansJ&gt;</a></span><span class="message">janneke: also everything in M2-Planet is currently unsigned</span></div><div class="line" id="224230"><span class="nick" style="color:#2e2a4a"><a href="#224230" label="[22:42:30]">&lt;janneke&gt;</a></span><span class="message">and SCM is long?</span></div><div class="line" id="224301"><span class="nick" style="color:#8dd3c7"><a href="#224301" label="[22:43:01]">&lt;OriansJ&gt;</a></span><span class="message">well if you look at cc_types.c, you'll see it is architecture specific</span></div><div class="line" id="224403"><span class="nick" style="color:#8dd3c7"><a href="#224403" label="[22:44:03]">&lt;OriansJ&gt;</a></span><span class="message">essentially it is either whole register or byte manipulation</span></div><div class="line" id="224418"><span class="nick" style="color:#2e2a4a"><a href="#224418" label="[22:44:18]">&lt;janneke&gt;</a></span><span class="message">nice</span></div><div class="line" id="224447"><span class="nick" style="color:#8dd3c7"><a href="#224447" label="[22:44:47]">&lt;OriansJ&gt;</a></span><span class="message">which honestly is all one needs to write a solid C compiler</span></div><div class="line" id="224515"><span class="nick" style="color:#2e2a4a"><a href="#224515" label="[22:45:15]">&lt;janneke&gt;</a></span><span class="message">oh, it should be trivial to add size_t and ssize_t too (not conforming signedness, but to stay with the c header alphabet)</span></div><div class="line" id="224545"><span class="nick" style="color:#8dd3c7"><a href="#224545" label="[22:45:45]">&lt;OriansJ&gt;</a></span><span class="message">janneke: that is the idea, it is trivial to add support for anything you want in M2-Planet</span></div><div class="line" id="224707"><span class="nick" style="color:#8dd3c7"><a href="#224707" label="[22:47:07]">&lt;OriansJ&gt;</a></span><span class="message">I mean honestly, by simply expanding the type system to be more complete and expanding the logic to subtly change behavior when handling various types, one could in theory compile TCC by simply slowly bolting on more features...</span></div><div class="line" id="224711"><span class="nick" style="color:#2e2a4a"><a href="#224711" label="[22:47:11]">&lt;janneke&gt;</a></span><span class="message">this is truly beautiful...</span></div><div class="line" id="224724"><span class="nick" style="color:#2e2a4a"><a href="#224724" label="[22:47:24]">&lt;janneke&gt;</a></span><span class="message">yeah</span></div><div class="line" id="224808"><span class="nick" style="color:#2e2a4a"><a href="#224808" label="[22:48:08]">&lt;janneke&gt;</a></span><span class="message">wow, so much progress the past week...</span></div><div class="line" id="224843"><span class="nick" style="color:#2e2a4a"><a href="#224843" label="[22:48:43]">&lt;janneke&gt;</a></span><span class="message">but really tired now, so</span></div><div class="line" id="224853"><span class="nick" style="color:#6d2462"><a href="#224853" label="[22:48:53]">*</a></span><span class="message">janneke -&gt;zZzz</span></div><div class="line" id="224902"><span class="nick" style="color:#8dd3c7"><a href="#224902" label="[22:49:02]">&lt;OriansJ&gt;</a></span><span class="message">one could even use M2-Planet to write a simple C macro expander to make M2-Planet much more C compatible if one wanted</span></div><br /></div></body></html>

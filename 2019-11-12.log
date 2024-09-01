@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-11-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="125620"><span class="nick" style="color:#8dd3c7"><a href="#125620" label="[12:56:20]">&lt;mercury^&gt;</a></span><span class="message">Hi. I recently learned of MES, and I am now evaluating the use of scheme instead of C++ for the bootstrap stage of a compiler for a new language.  I have two main concerns: 1) the scheme specifications are not as detailed as the C++ standard, and implementations are under less scrutiny.  I fear that in practical terms that could make scheme a less reliable starting point.  2) What kind of performance degradation can I expect with</span></div><div class="line" id="125621"><span class="nick" style="color:#8dd3c7"><a href="#125621" label="[12:56:21]">&lt;mercury^&gt;</a></span><span class="message">MES and guile respectively?</span></div><div class="line" id="133008"><span class="nick" style="color:#2e2a4a"><a href="#133008" label="[13:30:08]">&lt;janneke&gt;</a></span><span class="message">mercury^: welcome!  those are valid concerns.</span></div><div class="line" id="133057"><span class="nick" style="color:#2e2a4a"><a href="#133057" label="[13:30:57]">&lt;janneke&gt;</a></span><span class="message">mercury^: currently, the mes bootstrap has only one practical target: a lightly patched tcc/tinycc compiler</span></div><div class="line" id="133119"><span class="nick" style="color:#2e2a4a"><a href="#133119" label="[13:31:19]">&lt;janneke&gt;</a></span><span class="message">tinycc takes us up via gcc-2.95 to gcc-4</span></div><div class="line" id="133207"><span class="nick" style="color:#2e2a4a"><a href="#133207" label="[13:32:07]">&lt;janneke&gt;</a></span><span class="message">mercury^: so while i would love to say one day: yes, use mes to bootstrap your compiler, it's not very practical at the moment.  if you are willing to contribute and do some work: *lovely*</span></div><div class="line" id="133539"><span class="nick" style="color:#8dd3c7"><a href="#133539" label="[13:35:39]">&lt;mercury^&gt;</a></span><span class="message">Hmm, that would depend on how much work is needed. My main goal in this project is to get the new language up and running. Since the language itself aims for high standards of correctness, I wanted to keep the bootstrapping of the compiler as &quot;clearly correct&quot; and verifiable as possible. (Until I learned of MES I thought that I had to trust a C++ compiler anyway.)</span></div><div class="line" id="133540"><span class="nick" style="color:#2e2a4a"><a href="#133540" label="[13:35:40]">&lt;janneke&gt;</a></span><span class="message">compiling tcc with tcc takes ~30&quot;, with guile+mescc takes 2'30, with mes+mescc ~8'</span></div><div class="line" id="133615"><span class="nick" style="color:#2e2a4a"><a href="#133615" label="[13:36:15]">&lt;janneke&gt;</a></span><span class="message">ah, that's an interesting problem!</span></div><div class="line" id="134046"><span class="nick" style="color:#8dd3c7"><a href="#134046" label="[13:40:46]">&lt;mercury^&gt;</a></span><span class="message">The hope is that with an approach like MES takes, one could actually verify the &quot;trust-base&quot; of the compiler.</span></div><div class="line" id="134106"><span class="nick" style="color:#8dd3c7"><a href="#134106" label="[13:41:06]">&lt;mercury^&gt;</a></span><span class="message">Whereas with C++ it would rather be a stochastic argument of correctness.</span></div><div class="line" id="134204"><span class="nick" style="color:#8dd3c7"><a href="#134204" label="[13:42:04]">&lt;mercury^&gt;</a></span><span class="message">(Using what is called diverse double compilation and the like.)</span></div><div class="line" id="134725"><span class="nick" style="color:#8dd3c7"><a href="#134725" label="[13:47:25]">&lt;mercury^&gt;</a></span><span class="message">I suppose that if MES is not ready for such a task yet, I could implement the bootstrap stage in C++ now, and maybe later replicate it in scheme.</span></div><div class="line" id="134809"><span class="nick" style="color:#8dd3c7"><a href="#134809" label="[13:48:09]">&lt;mercury^&gt;</a></span><span class="message">janneke: do you know how long it takes to compile tcc with gcc or clang?</span></div><div class="line" id="135001"><span class="nick" style="color:#6b8072"><a href="#135001" label="[13:50:01]">&lt;xentrac&gt;</a></span><span class="message">I think the Scheme specifications are considerably more watertight than the C++ standard, largely by excluding a lot of considerations C++ tries to nail down</span></div><div class="line" id="135038"><span class="nick" style="color:#2e2a4a"><a href="#135038" label="[13:50:38]">&lt;janneke&gt;</a></span><span class="message">mercury^: gcc is a bit slower than tcc</span></div><div class="line" id="135125"><span class="nick" style="color:#2e2a4a"><a href="#135125" label="[13:51:25]">&lt;janneke&gt;</a></span><span class="message">mercury^: yes, while bootstrapping i think it's a good idea to choose what you are comfortable with; solve one problem at a time</span></div><div class="line" id="141505"><span class="nick" style="color:#8dd3c7"><a href="#141505" label="[14:15:05]">&lt;mercury^&gt;</a></span><span class="message">Alright, thanks for the information.  And thank you very much for the work you are doing, which I think is most valuable!</span></div><div class="line" id="145332"><span class="nick" style="color:#2e2a4a"><a href="#145332" label="[14:53:32]">&lt;janneke&gt;</a></span><span class="message">yw!</span></div><div class="line" id="145344"><span class="nick" style="color:#2e2a4a"><a href="#145344" label="[14:53:44]">&lt;janneke&gt;</a></span><span class="message">...for the archives :)</span></div><br /></div></body></html>

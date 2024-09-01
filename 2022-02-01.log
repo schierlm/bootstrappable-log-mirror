@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-02-01.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010853"><span class="nick" style="color:#8dd3c7"><a href="#010853" label="[01:08:53]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://groups.csail.mit.edu/mac/users/bob/sliding-blocks.pdf">https://groups.csail.mit.edu/mac/users/bob/sliding-blocks.pdf</a>  &quot;let’s see how we might go about building computers out of sliding-block puzzles&quot;</span></div><div class="line" id="100025"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="111139"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke_</span></div><div class="line" id="111728"><span class="nick">***</span><span class="message notice">attila_lendvai_ is now known as attila_lendvai</span></div><div class="line" id="142816"><span class="nick">***</span><span class="message notice">robin__ is now known as robin</span></div><div class="line" id="204218"><span class="nick" style="color:#2e2a4a"><a href="#204218" label="[20:42:18]">&lt;unmatched-paren&gt;</a></span><span class="message">rekado_: in case you don't know yet, i found out that those ghc .hc files are not human-written</span></div><div class="line" id="204329"><span class="nick" style="color:#2e2a4a"><a href="#204329" label="[20:43:29]">&lt;unmatched-paren&gt;</a></span><span class="message">if you do `ghc --help` and look for information about the `-C` option, you can see:</span></div><div class="line" id="204411"><span class="nick" style="color:#2e2a4a"><a href="#204411" label="[20:44:11]">&lt;unmatched-paren&gt;</a></span><span class="message">'-C        stop after generating C (.hc output)</span></div><div class="line" id="204413"><span class="nick" style="color:#2e2a4a"><a href="#204413" label="[20:44:13]">&lt;unmatched-paren&gt;</a></span><span class="message">'</span></div><div class="line" id="204454"><span class="nick" style="color:#2e2a4a"><a href="#204454" label="[20:44:54]">&lt;unmatched-paren&gt;</a></span><span class="message">and also, in an example: '# compile Haskell-produced C (.hc) to assembly language:'</span></div><div class="line" id="204630"><span class="nick" style="color:#2e2a4a"><a href="#204630" label="[20:46:30]">&lt;unmatched-paren&gt;</a></span><span class="message">so although it's not certain, it seems reasonably likely that .hc means 'C produced by GHC'</span></div><div class="line" id="210616"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="210627"><span class="nick" style="color:#6b8072"><a href="#210627" label="[21:06:27]">&lt;rekado_&gt;</a></span><span class="message">unmatched-paren: that’s possible, but they look really good for something that might have been generated.</span></div><div class="line" id="210749"><span class="nick" style="color:#6b8072"><a href="#210749" label="[21:07:49]">&lt;rekado_&gt;</a></span><span class="message">I also think that building GHC with ~4000 lines of very readable generated code is many orders of magnitude better than taking a binary of GHC and calling it a day.</span></div><div class="line" id="211552"><span class="nick" style="color:#2e2a4a"><a href="#211552" label="[21:15:52]">&lt;unmatched-paren&gt;</a></span><span class="message">rekado_: fair enough :)</span></div><div class="line" id="211729"><span class="nick" style="color:#2e2a4a"><a href="#211729" label="[21:17:29]">&lt;unmatched-paren&gt;</a></span><span class="message">(i am making some progress with booting pascal, btw :))</span></div><div class="line" id="212636"><span class="nick" style="color:#80b1d3"><a href="#212636" label="[21:26:36]">&lt;stikonas&gt;</a></span><span class="message">unmatched-paren: I looked at those files and I don't think they are computer generated</span></div><div class="line" id="212656"><span class="nick" style="color:#80b1d3"><a href="#212656" label="[21:26:56]">&lt;stikonas&gt;</a></span><span class="message">yes, .hc files can be produced by ghc, but that does not mean that .hc file is produced by ghc</span></div><div class="line" id="212715"><span class="nick" style="color:#80b1d3"><a href="#212715" label="[21:27:15]">&lt;stikonas&gt;</a></span><span class="message">their commit history is also too nice</span></div><div class="line" id="212737"><span class="nick" style="color:#80b1d3"><a href="#212737" label="[21:27:37]">&lt;stikonas&gt;</a></span><span class="message">so I think if rekado_ can bootstrap ghc using those files than that's fine</span></div><div class="line" id="212854"><span class="nick" style="color:#80b1d3"><a href="#212854" label="[21:28:54]">&lt;stikonas&gt;</a></span><span class="message">e.g. see <a rel="nofollow" href="https://github.com/ghc/ghc/commits/5cd7cb62dcbdabac9f728208362e1a32d1b82c39/ghc/rts/Updates.hc">https://github.com/ghc/ghc/commits/5cd7cb62dcbdabac9f728208362e1a32d1b82c39/ghc/rts/Updates.hc</a> </span></div><div class="line" id="212934"><span class="nick" style="color:#80b1d3"><a href="#212934" label="[21:29:34]">&lt;stikonas&gt;</a></span><span class="message">yes, commit titles might be better but that's probably an artifact of cvs to git conversion</span></div><div class="line" id="213239"><span class="nick" style="color:#80b1d3"><a href="#213239" label="[21:32:39]">&lt;stikonas&gt;</a></span><span class="message">in any case it's still non-trivial to build it</span></div><div class="line" id="213250"><span class="nick" style="color:#80b1d3"><a href="#213250" label="[21:32:50]">&lt;stikonas&gt;</a></span><span class="message">I tried with newer GCC and without Hugs and I wasn't able to</span></div><div class="line" id="213342"><span class="nick" style="color:#80b1d3"><a href="#213342" label="[21:33:42]">&lt;stikonas&gt;</a></span><span class="message">well, it was probably mostly Hugs... GCC issues seem to be easily patchable</span></div><div class="line" id="215249"><span class="nick" style="color:#2e2a4a"><a href="#215249" label="[21:52:49]">&lt;unmatched-paren&gt;</a></span><span class="message">stikonas: ah, you're probably right... if we were unsure, we could just ask them if the files are generated :)</span></div><div class="line" id="215524"><span class="nick" style="color:#6b8072"><a href="#215524" label="[21:55:24]">&lt;rekado_&gt;</a></span><span class="message">my current obstacle is -liberty and -bfd</span></div><div class="line" id="215531"><span class="nick" style="color:#6b8072"><a href="#215531" label="[21:55:31]">&lt;rekado_&gt;</a></span><span class="message">gotta be something silly</span></div><div class="line" id="215606"><span class="nick" style="color:#6b8072"><a href="#215606" label="[21:56:06]">&lt;rekado_&gt;</a></span><span class="message">I’m trying to build ghc/interpreter (it’s really just a slightly modified hugs), and that is linked with bfd and liberty</span></div><div class="line" id="215635"><span class="nick" style="color:#6b8072"><a href="#215635" label="[21:56:35]">&lt;rekado_&gt;</a></span><span class="message">the linker complains about missing symbols that the bfd objects reference, but that are provided by liberty.</span></div><br /></div></body></html>

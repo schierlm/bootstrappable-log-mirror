@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-03-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="041346"><span class="nick" style="color:#389600"><a href="#041346" label="[04:13:46]">&lt;pder&gt;</a></span><span class="message">fossy: I cleaned out my distfiles directories and was able to get past the kernel build.  But one thing I noticed is that since run2.sh was reintroduced the comment about cleaning up some space only cleans packages from run.sh, and not the ones in run2.sh.</span></div><div class="line" id="041822"><span class="nick" style="color:#8dd3c7"><a href="#041822" label="[04:18:22]">&lt;fossy&gt;</a></span><span class="message">pder: oh, very good point</span></div><div class="line" id="041831"><span class="nick" style="color:#8dd3c7"><a href="#041831" label="[04:18:31]">&lt;fossy&gt;</a></span><span class="message">thank you :D</span></div><div class="line" id="092845"><span class="nick" style="color:#2e2a4a"><a href="#092845" label="[09:28:45]">&lt;stikonas[m]&gt;</a></span><span class="message">Oh, yes, we need to fix some things due to bash migration...</span></div><div class="line" id="092914"><span class="nick" style="color:#2e2a4a"><a href="#092914" label="[09:29:14]">&lt;stikonas[m]&gt;</a></span><span class="message">Though in general I think it will be better to have newer bash sooner</span></div><div class="line" id="123644"><span class="nick" style="color:#8dd3c7"><a href="#123644" label="[12:36:44]">&lt;fossy&gt;</a></span><span class="message">yes, of course</span></div><div class="line" id="144753"><span class="nick" style="color:#6b8072"><a href="#144753" label="[14:47:53]">&lt;stikonas&gt;</a></span><span class="message">pder: I'll apply a fix for cleaning up run2.sh builds too</span></div><div class="line" id="144811"><span class="nick" style="color:#6b8072"><a href="#144811" label="[14:48:11]">&lt;stikonas&gt;</a></span><span class="message">tough I'm also  testing some kernel configuration changes that can save us even more space</span></div><div class="line" id="144825"><span class="nick" style="color:#6b8072"><a href="#144825" label="[14:48:25]">&lt;stikonas&gt;</a></span><span class="message">e.g. we don't use modules, so we cna as well just disable support for modules</span></div><div class="line" id="165723"><span class="nick" style="color:#6b8072"><a href="#165723" label="[16:57:23]">&lt;stikonas&gt;</a></span><span class="message">pder, fossy: this should help a bit <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/255">https://github.com/fosslinux/live-bootstrap/pull/255</a> </span></div><div class="line" id="173427"><span class="nick" style="color:#6b8072"><a href="#173427" label="[17:34:27]">&lt;stikonas&gt;</a></span><span class="message">and ca-certificated again have checksum issue</span></div><div class="line" id="173436"><span class="nick" style="color:#6b8072"><a href="#173436" label="[17:34:36]">&lt;stikonas&gt;</a></span><span class="message">I guess another cert expired</span></div><div class="line" id="231105"><span class="nick" style="color:#6b8072"><a href="#231105" label="[23:11:05]">&lt;stikonas&gt;</a></span><span class="message">fossy: I'm also looking at diffutils now</span></div><div class="line" id="231115"><span class="nick" style="color:#6b8072"><a href="#231115" label="[23:11:15]">&lt;stikonas&gt;</a></span><span class="message">right now it is built with custom makefile</span></div><div class="line" id="231131"><span class="nick" style="color:#6b8072"><a href="#231131" label="[23:11:31]">&lt;stikonas&gt;</a></span><span class="message">but we don't need it till at least gcc (and gcc builds with different checksum)</span></div><div class="line" id="231149"><span class="nick" style="color:#6b8072"><a href="#231149" label="[23:11:49]">&lt;stikonas&gt;</a></span><span class="message">so at the very least we can get rid of handwritten makefile</span></div><div class="line" id="231155"><span class="nick" style="color:#6b8072"><a href="#231155" label="[23:11:55]">&lt;stikonas&gt;</a></span><span class="message">but possibly move diffutils to sysc</span></div><div class="line" id="234645"><span class="nick" style="color:#8dd3c7"><a href="#234645" label="[23:46:45]">&lt;fossy&gt;</a></span><span class="message">stikonas: alright, neat</span></div><br /></div></body></html>

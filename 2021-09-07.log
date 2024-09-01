@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-09-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="100240"><span class="nick" style="color:#8dd3c7"><a href="#100240" label="[10:02:40]">&lt;opal&gt;</a></span><span class="message">are there mbox archives for the mailing list</span></div><div class="line" id="180133"><span class="nick" style="color:#2e2a4a"><a href="#180133" label="[18:01:33]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://dolphin-emu.org/blog/2021/09/07/dolphin-progress-report-august-2021/">https://dolphin-emu.org/blog/2021/09/07/dolphin-progress-report-august-2021/</a>  &quot; this method breaks when all inputs are zero — PowerPC's nmsub would give -0, while x86's nmadd and AArch64's msub would give +0. &quot;</span></div><div class="line" id="210059"><span class="nick" style="color:#6b8072"><a href="#210059" label="[21:00:59]">&lt;theruran&gt;</a></span><span class="message">I got mes-m2 of Mes v0.22 building just fine :)</span></div><div class="line" id="210227"><span class="nick" style="color:#6b8072"><a href="#210227" label="[21:02:27]">&lt;theruran&gt;</a></span><span class="message">I guess make test fails catastrophically though</span></div><div class="line" id="212035"><span class="nick" style="color:#80b1d3"><a href="#212035" label="[21:20:35]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I've found a workaround for hex being slow on qemu...</span></div><div class="line" id="212054"><span class="nick" style="color:#80b1d3"><a href="#212054" label="[21:20:54]">&lt;stikonas&gt;</a></span><span class="message">Well, it's qemu that's issuing context switches (by calling mprotect)</span></div><div class="line" id="212147"><span class="nick" style="color:#80b1d3"><a href="#212147" label="[21:21:47]">&lt;stikonas&gt;</a></span><span class="message">I probably didn't catch all of them, but it's now signnificantly faster (something like 8s -&gt; 0.3s)</span></div><div class="line" id="212215"><span class="nick" style="color:#80b1d3"><a href="#212215" label="[21:22:15]">&lt;stikonas&gt;</a></span><span class="message">same fix can be backported to hex0/hex1 although that's a bit more work due to coding in hex0</span></div><div class="line" id="214130"><span class="nick" style="color:#80b1d3"><a href="#214130" label="[21:41:30]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/pull/42">https://github.com/oriansj/stage0-posix/pull/42</a> </span></div><div class="line" id="225024"><span class="nick" style="color:#80b1d3"><a href="#225024" label="[22:50:24]">&lt;stikonas&gt;</a></span><span class="message">ekaitz: do you want to optimize hex0 with that?</span></div><div class="line" id="225141"><span class="nick" style="color:#80b1d3"><a href="#225141" label="[22:51:41]">&lt;stikonas&gt;</a></span><span class="message">using stack pointer sp rather than label (buffer)</span></div><div class="line" id="225212"><span class="nick" style="color:#6d2462"><a href="#225212" label="[22:52:12]">&lt;ekaitz&gt;</a></span><span class="message">hm! didn't really got it</span></div><div class="line" id="225249"><span class="nick" style="color:#6d2462"><a href="#225249" label="[22:52:49]">&lt;ekaitz&gt;</a></span><span class="message">let me read</span></div><div class="line" id="225251"><span class="nick" style="color:#80b1d3"><a href="#225251" label="[22:52:51]">&lt;stikonas&gt;</a></span><span class="message">well, somehow our hex riscv binaries are really slow in qemu</span></div><div class="line" id="225334"><span class="nick" style="color:#80b1d3"><a href="#225334" label="[22:53:34]">&lt;stikonas&gt;</a></span><span class="message">so I straced it and noticed that each access of buffer (or similar labels) generates a couple of mprotect syscalls in qemu</span></div><div class="line" id="225401"><span class="nick" style="color:#80b1d3"><a href="#225401" label="[22:54:01]">&lt;stikonas&gt;</a></span><span class="message">so as a workaround I removed that and switched to simply using stack pointer for sys_read and sys_write syscalls</span></div><div class="line" id="225442"><span class="nick" style="color:#6d2462"><a href="#225442" label="[22:54:42]">&lt;ekaitz&gt;</a></span><span class="message">oh i see</span></div><div class="line" id="225444"><span class="nick" style="color:#6d2462"><a href="#225444" label="[22:54:44]">&lt;ekaitz&gt;</a></span><span class="message">not bad</span></div><div class="line" id="225459"><span class="nick" style="color:#80b1d3"><a href="#225459" label="[22:54:59]">&lt;stikonas&gt;</a></span><span class="message">hmm, it probably affects other stage0 arches too, but I guess nobody ran than in emulator</span></div><div class="line" id="225539"><span class="nick" style="color:#6d2462"><a href="#225539" label="[22:55:39]">&lt;ekaitz&gt;</a></span><span class="message">I realized it was surprisingly slow when I wrote it but I didn't think much further</span></div><div class="line" id="225556"><span class="nick" style="color:#80b1d3"><a href="#225556" label="[22:55:56]">&lt;stikonas&gt;</a></span><span class="message">yeah, so that's qemu issuing a few other syscalls</span></div><div class="line" id="225601"><span class="nick" style="color:#80b1d3"><a href="#225601" label="[22:56:01]">&lt;stikonas&gt;</a></span><span class="message">which means more context switches</span></div><div class="line" id="225609"><span class="nick" style="color:#80b1d3"><a href="#225609" label="[22:56:09]">&lt;stikonas&gt;</a></span><span class="message">and this happens a few times per character</span></div><div class="line" id="225639"><span class="nick" style="color:#80b1d3"><a href="#225639" label="[22:56:39]">&lt;stikonas&gt;</a></span><span class="message">and I guess hex0 will actually be a bit smaller</span></div><div class="line" id="225654"><span class="nick" style="color:#80b1d3"><a href="#225654" label="[22:56:54]">&lt;stikonas&gt;</a></span><span class="message">if we use sp instead of la buffer (which is 2 instructions)</span></div><div class="line" id="225724"><span class="nick" style="color:#80b1d3"><a href="#225724" label="[22:57:24]">&lt;stikonas&gt;</a></span><span class="message">anyway, I might do hex0 too at some point if you don't have time</span></div><div class="line" id="225727"><span class="nick" style="color:#6d2462"><a href="#225727" label="[22:57:27]">&lt;ekaitz&gt;</a></span><span class="message">we can simply use the top of the stack as a buffer, it shouldn't be a problem</span></div><div class="line" id="225731"><span class="nick" style="color:#80b1d3"><a href="#225731" label="[22:57:31]">&lt;stikonas&gt;</a></span><span class="message">yeah</span></div><div class="line" id="225737"><span class="nick" style="color:#80b1d3"><a href="#225737" label="[22:57:37]">&lt;stikonas&gt;</a></span><span class="message">don't even need to allocate more stack</span></div><div class="line" id="225743"><span class="nick" style="color:#80b1d3"><a href="#225743" label="[22:57:43]">&lt;stikonas&gt;</a></span><span class="message">with addi sp, sp, -8</span></div><div class="line" id="225749"><span class="nick" style="color:#80b1d3"><a href="#225749" label="[22:57:49]">&lt;stikonas&gt;</a></span><span class="message">as we only need one byte of buffer</span></div><div class="line" id="225759"><span class="nick" style="color:#6d2462"><a href="#225759" label="[22:57:59]">&lt;ekaitz&gt;</a></span><span class="message">I'm pretty busy these days, I'm preparing a course on Unix-like OSs... it's getting complex...</span></div><div class="line" id="225813"><span class="nick" style="color:#80b1d3"><a href="#225813" label="[22:58:13]">&lt;stikonas&gt;</a></span><span class="message">ok, I might try to fix hex0 at some point...</span></div><div class="line" id="225834"><span class="nick" style="color:#6d2462"><a href="#225834" label="[22:58:34]">&lt;ekaitz&gt;</a></span><span class="message">I'll try to be around if you need me or anything, ping me to my email if i'm not here to talk</span></div><div class="line" id="225851"><span class="nick" style="color:#80b1d3"><a href="#225851" label="[22:58:51]">&lt;stikonas&gt;</a></span><span class="message">well, it's more or less clear how to workaround it</span></div><div class="line" id="225933"><span class="nick" style="color:#80b1d3"><a href="#225933" label="[22:59:33]">&lt;stikonas&gt;</a></span><span class="message">anyway, we are almost at M0 in bootstrapping risc-v</span></div><div class="line" id="225938"><span class="nick" style="color:#6d2462"><a href="#225938" label="[22:59:38]">&lt;ekaitz&gt;</a></span><span class="message">:D</span></div><div class="line" id="230105"><span class="nick" style="color:#6d2462"><a href="#230105" label="[23:01:05]">&lt;ekaitz&gt;</a></span><span class="message">did you work on the 32 bit versions?</span></div><div class="line" id="230109"><span class="nick" style="color:#80b1d3"><a href="#230109" label="[23:01:09]">&lt;stikonas&gt;</a></span><span class="message">ekaitz: no...</span></div><div class="line" id="230121"><span class="nick" style="color:#80b1d3"><a href="#230121" label="[23:01:21]">&lt;stikonas&gt;</a></span><span class="message">it's mostly getting the right elf header though</span></div><div class="line" id="230131"><span class="nick" style="color:#6d2462"><a href="#230131" label="[23:01:31]">&lt;ekaitz&gt;</a></span><span class="message">nah don't worry once everything is ready we can migrate pretty easy</span></div><div class="line" id="230145"><span class="nick" style="color:#6d2462"><a href="#230145" label="[23:01:45]">&lt;ekaitz&gt;</a></span><span class="message">yeah, the elf header and a couple of commands might need to be changed</span></div><div class="line" id="230147"><span class="nick" style="color:#80b1d3"><a href="#230147" label="[23:01:47]">&lt;stikonas&gt;</a></span><span class="message">well, there are some minor differences in instructions, but should be pretty minor</span></div><div class="line" id="230150"><span class="nick" style="color:#80b1d3"><a href="#230150" label="[23:01:50]">&lt;stikonas&gt;</a></span><span class="message">yeah...</span></div><div class="line" id="230159"><span class="nick" style="color:#80b1d3"><a href="#230159" label="[23:01:59]">&lt;stikonas&gt;</a></span><span class="message">but no changes in jumps, etc...</span></div><br /></div></body></html>

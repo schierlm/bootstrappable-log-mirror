@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-03-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000731"><span class="nick" style="color:#8dd3c7"><a href="#000731" label="[00:07:31]">&lt;OriansJ&gt;</a></span><span class="message">mihi: The only thing that would cause floating-point exception would be integer divides and mod operations; usually with an unsigned operation</span></div><div class="line" id="001005"><span class="nick" style="color:#2e2a4a"><a href="#001005" label="[00:10:05]">&lt;mihi&gt;</a></span><span class="message">ah ok, I noticed I can replace all integer divides by bitshifts and now I have a segfault :-O</span></div><div class="line" id="001147"><span class="nick" style="color:#8dd3c7"><a href="#001147" label="[00:11:47]">&lt;OriansJ&gt;</a></span><span class="message">that issue was supposed to be fixed with commit: 358b6cfb96e1685891a705a0bb31eda499d57974</span></div><div class="line" id="001709"><span class="nick" style="color:#2e2a4a"><a href="#001709" label="[00:17:09]">&lt;mihi&gt;</a></span><span class="message">seems that it was not, and there are more issues. Or are there any known reasons why gcc would not segfault but M2-Planet would? <a rel="nofollow" href="https://gist.github.com/schierlm/91f6cd3a855a82bdc5328ba6fe90bd2a/revisions">https://gist.github.com/schierlm/91f6cd3a855a82bdc5328ba6fe90bd2a/revisions</a> </span></div><div class="line" id="003233"><span class="nick" style="color:#8dd3c7"><a href="#003233" label="[00:32:33]">&lt;OriansJ&gt;</a></span><span class="message">well M2-Planet doesn't allocate memory until told to do so; so if it is segment faulting it means only 1 of 2 things: 1) You are beyound the bounds of your array or 2) using a pointer that points outside of allocated memory. a stupid way to quickly check is just print to stderr the array index variable and compare the outputs of gcc and M2-Planet (They should be identical) and then it gets a bit harder to track down bad pointers</span></div><div class="line" id="003305"><span class="nick" style="color:#8dd3c7"><a href="#003305" label="[00:33:05]">&lt;OriansJ&gt;</a></span><span class="message">I'll try to take a more indepth look when I can get some free time tonight.</span></div><div class="line" id="003716"><span class="nick" style="color:#2e2a4a"><a href="#003716" label="[00:37:16]">&lt;mihi&gt;</a></span><span class="message">OriansJ, thanks :) Time for sleep now here :)</span></div><div class="line" id="004515"><span class="nick" style="color:#6b8072"><a href="#004515" label="[00:45:15]">&lt;stikonas&gt;</a></span><span class="message">fossy: pder: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/71">https://github.com/fosslinux/live-bootstrap/pull/71</a>  (autoconf 2.53)</span></div><div class="line" id="005119"><span class="nick" style="color:#6b8072"><a href="#005119" label="[00:51:19]">&lt;stikonas&gt;</a></span><span class="message">hmm, looks like I can't build autoconf-2.54 yet...</span></div><div class="line" id="005127"><span class="nick" style="color:#6b8072"><a href="#005127" label="[00:51:27]">&lt;stikonas&gt;</a></span><span class="message">Makefile.am:21: require version 1.6c, but have 1.6.3</span></div><div class="line" id="005140"><span class="nick" style="color:#6b8072"><a href="#005140" label="[00:51:40]">&lt;stikonas&gt;</a></span><span class="message">I guess that's pre-release of automake 1.7</span></div><div class="line" id="005402"><span class="nick" style="color:#6b8072"><a href="#005402" label="[00:54:02]">&lt;stikonas&gt;</a></span><span class="message">argh, and automake 1.7 again requires autoconf 2.54...</span></div><div class="line" id="005918"><span class="nick" style="color:#6b8072"><a href="#005918" label="[00:59:18]">&lt;stikonas&gt;</a></span><span class="message">ok, at least automake 1.7 is almost trivial to patch to build with autoconf 2.53...</span></div><div class="line" id="010230"><span class="nick" style="color:#80b1d3"><a href="#010230" label="[01:02:30]">&lt;Hagfish&gt;</a></span><span class="message">is there something unique about their release process that causes them to have almost self-referential dependencies?</span></div><div class="line" id="010706"><span class="nick" style="color:#8dd3c7"><a href="#010706" label="[01:07:06]">&lt;OriansJ&gt;</a></span><span class="message">My bet is shared developer who doesn't want to deal with backwards compatibility</span></div><div class="line" id="011040"><span class="nick" style="color:#80b1d3"><a href="#011040" label="[01:10:40]">&lt;Hagfish&gt;</a></span><span class="message">that's plausible, yeah</span></div><div class="line" id="011957"><span class="nick" style="color:#6b8072"><a href="#011957" label="[01:19:57]">&lt;stikonas&gt;</a></span><span class="message">and I guess they thought, that everybody else can just run configure</span></div><div class="line" id="012344"><span class="nick" style="color:#8dd3c7"><a href="#012344" label="[01:23:44]">&lt;OriansJ&gt;</a></span><span class="message">midi: The goodnews is that the division issue is in :FOR_END_main_25 at 0x804bdac</span></div><div class="line" id="012533"><span class="nick" style="color:#8dd3c7"><a href="#012533" label="[01:25:33]">&lt;OriansJ&gt;</a></span><span class="message">which is the line: rsiz = 200 - algorithm / 4;</span></div><div class="line" id="012617"><span class="nick" style="color:#8dd3c7"><a href="#012617" label="[01:26:17]">&lt;OriansJ&gt;</a></span><span class="message">which becomes the segment fault when the line becomes: rsiz = 200 - (algorithm / 4);</span></div><div class="line" id="012827"><span class="nick" style="color:#8dd3c7"><a href="#012827" label="[01:28:27]">&lt;OriansJ&gt;</a></span><span class="message">which is in  :FOR_THEN_sha3_keccakf_0 at the movsbl (%eax),%eax at address 0x804ab27 where it attempts to read from address 0</span></div><div class="line" id="013648"><span class="nick" style="color:#8dd3c7"><a href="#013648" label="[01:36:48]">&lt;OriansJ&gt;</a></span><span class="message">that segfault is caused on line: v = cast_uint8_t_p(&amp;st[i]);</span></div><div class="line" id="013734"><span class="nick" style="color:#8dd3c7"><a href="#013734" label="[01:37:34]">&lt;OriansJ&gt;</a></span><span class="message">and the next one is: v = cast_uint8_t_p(&amp;st[i]);</span></div><div class="line" id="014622"><span class="nick" style="color:#8dd3c7"><a href="#014622" label="[01:46:22]">&lt;OriansJ&gt;</a></span><span class="message">here is the diff from the original required to stop the floating exceptions and segfaults: <a rel="nofollow" href="https://paste.debian.net/1189784/">https://paste.debian.net/1189784/</a> </span></div><div class="line" id="014714"><span class="nick" style="color:#8dd3c7"><a href="#014714" label="[01:47:14]">&lt;OriansJ&gt;</a></span><span class="message">(I purged whitespace characters too)</span></div><div class="line" id="014900"><span class="nick" style="color:#8dd3c7"><a href="#014900" label="[01:49:00]">&lt;OriansJ&gt;</a></span><span class="message">and // /* and //*/ are no longer needed with M2-Planet (unless you are in --bootstrap-mode or need to be built by cc_*)</span></div><div class="line" id="015030"><span class="nick" style="color:#8dd3c7"><a href="#015030" label="[01:50:30]">&lt;OriansJ&gt;</a></span><span class="message">as #if #else and #endif behave correctly now (Thanks to yt for giving M2-Planet a basic C preprocessor)</span></div><div class="line" id="015501"><span class="nick" style="color:#8dd3c7"><a href="#015501" label="[01:55:01]">&lt;OriansJ&gt;</a></span><span class="message">now unfortunately the hashes don't match with M2-Planet (really close though)</span></div><div class="line" id="015817"><span class="nick" style="color:#8dd3c7"><a href="#015817" label="[01:58:17]">&lt;OriansJ&gt;</a></span><span class="message">also c = fgetc(ff)) != EOF doesn't do what you would think it would in M2-Planet (hint: c = (fgetc(ff)) != EOF) )</span></div><div class="line" id="020635"><span class="nick" style="color:#8dd3c7"><a href="#020635" label="[02:06:35]">&lt;OriansJ&gt;</a></span><span class="message">unless (c =fgetc(ff)) != EOF but oh well</span></div><div class="line" id="021211"><span class="nick" style="color:#8dd3c7"><a href="#021211" label="[02:12:11]">&lt;OriansJ&gt;</a></span><span class="message">doing this fixes the first hash: <a rel="nofollow" href="https://paste.debian.net/1189787/">https://paste.debian.net/1189787/</a> </span></div><div class="line" id="021324"><span class="nick" style="color:#8dd3c7"><a href="#021324" label="[02:13:24]">&lt;OriansJ&gt;</a></span><span class="message">The second set of hashes are very different</span></div><div class="line" id="022304"><span class="nick" style="color:#8dd3c7"><a href="#022304" label="[02:23:04]">&lt;OriansJ&gt;</a></span><span class="message">So now you have a non-segfaulting or floating point exception program that passes the first test but probably does the sha rounds wrong but should be something you would be able to solve 1 round at a time.</span></div><div class="line" id="093351"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="215805"><span class="nick" style="color:#2e2a4a"><a href="#215805" label="[21:58:05]">&lt;mihi&gt;</a></span><span class="message">OriansJ, thank you. I was not aware that I have to take extra care of operator precedence. In fact, after your two patches, the first hash still differs in one bit, but after adding some more &amp;0xff, the first *two* hashes match :-)</span></div><div class="line" id="220419"><span class="nick" style="color:#2e2a4a"><a href="#220419" label="[22:04:19]">&lt;mihi&gt;</a></span><span class="message">the change in <a rel="nofollow" href="https://paste.debian.net/1189784/">https://paste.debian.net/1189784/</a>  is not preserving behaviour, as you copy a value and take a pointer to the copy, you need to copy the value back after the copy is altered through the pointer. But since the whole loop is a no-op on little-endian anyway...</span></div><div class="line" id="224033"><span class="nick" style="color:#80b1d3"><a href="#224033" label="[22:40:33]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/koalaman/shellcheck">https://github.com/koalaman/shellcheck</a>  &quot;A shell script static analysis tool&quot;</span></div><div class="line" id="224043"><span class="nick" style="color:#80b1d3"><a href="#224043" label="[22:40:43]">&lt;Hagfish&gt;</a></span><span class="message">that looks quite impressive</span></div><div class="line" id="225212"><span class="nick" style="color:#6b8072"><a href="#225212" label="[22:52:12]">&lt;stikonas&gt;</a></span><span class="message">Hagfish: yes, we are using it a bit in live-bootstrap</span></div><div class="line" id="225709"><span class="nick" style="color:#6b8072"><a href="#225709" label="[22:57:09]">&lt;stikonas&gt;</a></span><span class="message">fossy, pder: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/72">https://github.com/fosslinux/live-bootstrap/pull/72</a> </span></div><div class="line" id="225805"><span class="nick" style="color:#6b8072"><a href="#225805" label="[22:58:05]">&lt;stikonas&gt;</a></span><span class="message">I'm struggling to go much further, starting to get more and more errors (I think due to old libtool which is not easy to upgrade at the moment)</span></div><div class="line" id="225856"><span class="nick" style="color:#6b8072"><a href="#225856" label="[22:58:56]">&lt;stikonas&gt;</a></span><span class="message">so after this #72 (and possibly updated gawk/tar, although, they are optional) I think we should try to get gcc/glibc</span></div><div class="line" id="231000"><span class="nick" style="color:#2e2a4a"><a href="#231000" label="[23:10:00]">&lt;mihi&gt;</a></span><span class="message">OriansJ, and the only issue remaining, when the file contains a 0xff byte, fgetc returns -1 which is treated as EOF... And that also happens when not cuddling the fgets into the loop expression.</span></div><div class="line" id="231130"><span class="nick" style="color:#2e2a4a"><a href="#231130" label="[23:11:30]">&lt;mihi&gt;</a></span><span class="message">patching fgetc in stdio.c to 	return ret &amp; 0xff;   fixes this as well.</span></div><div class="line" id="231140"><span class="nick" style="color:#2e2a4a"><a href="#231140" label="[23:11:40]">&lt;mihi&gt;</a></span><span class="message">now I have some work removing all the debug outputs again :)</span></div><div class="line" id="231726"><span class="nick" style="color:#2e2a4a"><a href="#231726" label="[23:17:26]">&lt;mihi&gt;</a></span><span class="message">OriansJ, do you want a pull request for the M2libc oneliner fix?</span></div><br /></div></body></html>

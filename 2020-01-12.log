@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-01-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="115959"><span class="nick" style="color:#8dd3c7"><a href="#115959" label="[11:59:59]">&lt;ilikeheaps&gt;</a></span><span class="message">Is it easy to make one's own Guix installer? For starters just changing default keyboard layout. I think I found the installer's definition: <a rel="nofollow" href="https://github.com/lfam/guix/blob/master/gnu/system/install.scm">https://github.com/lfam/guix/blob/master/gnu/system/install.scm</a> </span></div><div class="line" id="120032"><span class="nick" style="color:#8dd3c7"><a href="#120032" label="[12:00:32]">&lt;ilikeheaps&gt;</a></span><span class="message">Is it just as easy as modifying that and making a disk image with `guix system`?</span></div><div class="line" id="120302"><span class="nick" style="color:#8dd3c7"><a href="#120302" label="[12:03:02]">&lt;ilikeheaps&gt;</a></span><span class="message">(I guess linking the main repository would be more reasonable: <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/guix.git/tree/gnu/system/install.scm">https://git.savannah.gnu.org/cgit/guix.git/tree/gnu/system/install.scm</a>  )</span></div><div class="line" id="120404"><span class="nick" style="color:#8dd3c7"><a href="#120404" label="[12:04:04]">&lt;ilikeheaps&gt;</a></span><span class="message">Oh geez, I thought I had a different channel open, sorry for that</span></div><div class="line" id="140257"><span class="nick" style="color:#2e2a4a"><a href="#140257" label="[14:02:57]">&lt;NieDzejkob&gt;</a></span><span class="message">yeah, just `guix system disk-image /path/to/install.scm' iirc</span></div><div class="line" id="140303"><span class="nick" style="color:#2e2a4a"><a href="#140303" label="[14:03:03]">&lt;NieDzejkob&gt;</a></span><span class="message">possibly with some --file-system option</span></div><div class="line" id="140329"><span class="nick" style="color:#2e2a4a"><a href="#140329" label="[14:03:29]">&lt;NieDzejkob&gt;</a></span><span class="message">I had to do that to use a non-libre kernel and make my wifi work :/</span></div><div class="line" id="144357"><span class="nick" style="color:#6b8072"><a href="#144357" label="[14:43:57]">&lt;oriansj&gt;</a></span><span class="message">I guess it was techinically related in the using guix to bootstrap your own installer image</span></div><div class="line" id="145839"><span class="nick" style="color:#8dd3c7"><a href="#145839" label="[14:58:39]">&lt;ilikeheaps&gt;</a></span><span class="message">Thanks!</span></div><div class="line" id="152720"><span class="nick" style="color:#6b8072"><a href="#152720" label="[15:27:20]">&lt;oriansj&gt;</a></span><span class="message">ilikeheaps: hopefully making something fun?</span></div><div class="line" id="162101"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="162351"><span class="nick" style="color:#6b8072"><a href="#162351" label="[16:23:51]">&lt;oriansj&gt;</a></span><span class="message">janneke: this one might be more fun: (while (&lt; 1 (free_mem #t)) (begin (free_mem) (display #\newline)))</span></div><div class="line" id="162453"><span class="nick" style="color:#6b8072"><a href="#162453" label="[16:24:53]">&lt;oriansj&gt;</a></span><span class="message">it takes a prime number of cells per loop and only stops when you get to exactly ZERO free cells; thus hitting garbage collection in multiple points</span></div><div class="line" id="162524"><span class="nick" style="color:#6b8072"><a href="#162524" label="[16:25:24]">&lt;oriansj&gt;</a></span><span class="message">(5 to be exact)</span></div><div class="line" id="162911"><span class="nick" style="color:#2e2a4a"><a href="#162911" label="[16:29:11]">&lt;NieDzejkob&gt;</a></span><span class="message">why is primality notable/desirable here?</span></div><div class="line" id="163239"><span class="nick" style="color:#6b8072"><a href="#163239" label="[16:32:39]">&lt;oriansj&gt;</a></span><span class="message">makes for a wonderful garbage collection test; ensures that if you free up one too many cells it will produce different output and fail a test but if you free up one too few cells it will also produce different output and fail a test.</span></div><div class="line" id="163859"><span class="nick" style="color:#6b8072"><a href="#163859" label="[16:38:59]">&lt;oriansj&gt;</a></span><span class="message">the loop only consumes exactly 5 cells, and you need to hit exactly 3 cells to terminate in exactly 2 loops with 1,000,000 cells (initialization eats up 3 cells per primitive)</span></div><div class="line" id="164425"><span class="nick" style="color:#6b8072"><a href="#164425" label="[16:44:25]">&lt;oriansj&gt;</a></span><span class="message">and it also finally generated a result I have been trying to hit; worst case insert_ordered</span></div><div class="line" id="164631"><span class="nick" style="color:#6b8072"><a href="#164631" label="[16:46:31]">&lt;oriansj&gt;</a></span><span class="message">because, it requires me to allocate exactly all of the memory, garbage collect all but the last cell and then garbage collect that last cell (hitting the stack limit of C and forcing me to turn it into an iterative form)</span></div><div class="line" id="165148"><span class="nick" style="color:#6b8072"><a href="#165148" label="[16:51:48]">&lt;oriansj&gt;</a></span><span class="message">oh and patches are up</span></div><div class="line" id="165410"><span class="nick" style="color:#6b8072"><a href="#165410" label="[16:54:10]">&lt;oriansj&gt;</a></span><span class="message">It is far better remove problems from being in the space of the garbage collection foundation as soon as possible (So correctness is essential for these primitives)</span></div><div class="line" id="170446"><span class="nick" style="color:#6b8072"><a href="#170446" label="[17:04:46]">&lt;oriansj&gt;</a></span><span class="message">greetings apetresc</span></div><div class="line" id="171504"><span class="nick" style="color:#6b8072"><a href="#171504" label="[17:15:04]">&lt;oriansj&gt;</a></span><span class="message">now to put some of the garbage collection optimizations back</span></div><div class="line" id="171929"><span class="nick" style="color:#8dd3c7"><a href="#171929" label="[17:19:29]">&lt;ilikeheaps&gt;</a></span><span class="message">oriansj: well, nothing very interesting I think; just want to set the keyboard layout and enable wifi drivers with non-libre kernel to avoid the hassle every installation</span></div><div class="line" id="172228"><span class="nick" style="color:#6b8072"><a href="#172228" label="[17:22:28]">&lt;oriansj&gt;</a></span><span class="message">The most important performance enhancement in mes-m2 garbage collection has been restored and enabled; patches are up</span></div><div class="line" id="172804"><span class="nick" style="color:#6b8072"><a href="#172804" label="[17:28:04]">&lt;oriansj&gt;</a></span><span class="message">ilikeheaps: well that sounds like a useful skill to learn and share. I'm sure other people with with similar hardware problems find knowing how to do that quite interesting.</span></div><div class="line" id="185929"><span class="nick" style="color:#6b8072"><a href="#185929" label="[18:59:29]">&lt;oriansj&gt;</a></span><span class="message">good news is the build and test time for mes-m2 on a 100Mhz 386 is only 40s</span></div><div class="line" id="190028"><span class="nick" style="color:#6b8072"><a href="#190028" label="[19:00:28]">&lt;oriansj&gt;</a></span><span class="message">(when using M2-Planet+mescc-tools for the build)</span></div><div class="line" id="190106"><span class="nick" style="color:#6b8072"><a href="#190106" label="[19:01:06]">&lt;oriansj&gt;</a></span><span class="message">or about 3seconds on a modern x86+gcc</span></div><div class="line" id="190300"><span class="nick" style="color:#6b8072"><a href="#190300" label="[19:03:00]">&lt;oriansj&gt;</a></span><span class="message">garbage compaction is working again (with an approximate 7% improvement to performance net)</span></div><div class="line" id="194103"><span class="nick" style="color:#6b8072"><a href="#194103" label="[19:41:03]">&lt;oriansj&gt;</a></span><span class="message">janneke: I think I have one more GOOD performance enhancement in mes-m2; lazy garbage collection.</span></div><div class="line" id="194813"><span class="nick" style="color:#6b8072"><a href="#194813" label="[19:48:13]">&lt;oriansj&gt;</a></span><span class="message">although at this point, I feel like I am more timing the speed of bash than mes-m2</span></div><div class="line" id="195332"><span class="nick" style="color:#6b8072"><a href="#195332" label="[19:53:32]">&lt;oriansj&gt;</a></span><span class="message">and MES_MAX_STRING is supported but defaulted to 4096 (because no s-expression should be longer than that)</span></div><div class="line" id="200041"><span class="nick" style="color:#6b8072"><a href="#200041" label="[20:00:41]">&lt;oriansj&gt;</a></span><span class="message">(and add support for a growing arena)</span></div><div class="line" id="202116"><span class="nick" style="color:#6b8072"><a href="#202116" label="[20:21:16]">&lt;oriansj&gt;</a></span><span class="message">and actually I have a silly idea; like really silly</span></div><div class="line" id="202219"><span class="nick" style="color:#80b1d3"><a href="#202219" label="[20:22:19]">&lt;dddddd&gt;</a></span><span class="message">those are the best ones :P</span></div><div class="line" id="202314"><span class="nick" style="color:#6b8072"><a href="#202314" label="[20:23:14]">&lt;oriansj&gt;</a></span><span class="message">what if mes-m2's default pool size was just 1 cell?</span></div><div class="line" id="202439"><span class="nick" style="color:#6b8072"><a href="#202439" label="[20:24:39]">&lt;oriansj&gt;</a></span><span class="message">now that it supports cheap expansion (like really cheap)</span></div><div class="line" id="202553"><span class="nick" style="color:#6b8072"><a href="#202553" label="[20:25:53]">&lt;oriansj&gt;</a></span><span class="message">like 29 clock cycles per cell added cheap</span></div><div class="line" id="203632"><span class="nick" style="color:#6d2462"><a href="#203632" label="[20:36:32]">&lt;janneke&gt;</a></span><span class="message">oriansj: that's great; exciting!</span></div><div class="line" id="203651"><span class="nick" style="color:#6d2462"><a href="#203651" label="[20:36:51]">&lt;janneke&gt;</a></span><span class="message">sorry i don't have much time this weekend; enjoying the read-up though</span></div><div class="line" id="212134"><span class="nick" style="color:#6b8072"><a href="#212134" label="[21:21:34]">&lt;oriansj&gt;</a></span><span class="message">well with that tweak, mes-m2 now completes all tests in 0.43 seconds (when built by M2-Planet)</span></div><div class="line" id="212144"><span class="nick" style="color:#6b8072"><a href="#212144" label="[21:21:44]">&lt;oriansj&gt;</a></span><span class="message">that is freaking crazy</span></div><div class="line" id="212200"><span class="nick" style="color:#6b8072"><a href="#212200" label="[21:22:00]">&lt;oriansj&gt;</a></span><span class="message">from 16seconds to 0.43 seconds</span></div><div class="line" id="212550"><span class="nick" style="color:#6b8072"><a href="#212550" label="[21:25:50]">&lt;oriansj&gt;</a></span><span class="message">and I have added baseline support for MES_DEBUG too while I am at it</span></div><div class="line" id="212740"><span class="nick" style="color:#6b8072"><a href="#212740" label="[21:27:40]">&lt;oriansj&gt;</a></span><span class="message">patches are up</span></div><div class="line" id="212907"><span class="nick" style="color:#6b8072"><a href="#212907" label="[21:29:07]">&lt;oriansj&gt;</a></span><span class="message">and make clean test spends 1.4 seconds compiling mes-m2 and 0.01 seconds to actually run all of the tests (Big drop from 70seconds with mes.c)</span></div><div class="line" id="213355"><span class="nick" style="color:#234e69"><a href="#213355" label="[21:33:55]">&lt;vagrantc&gt;</a></span><span class="message">so, can mes-m2 build &quot;regular&quot; mes ?</span></div><div class="line" id="214358"><span class="nick" style="color:#6b8072"><a href="#214358" label="[21:43:58]">&lt;oriansj&gt;</a></span><span class="message">vagrantc: still need to add support for modules into mes-m2</span></div><div class="line" id="214425"><span class="nick" style="color:#6b8072"><a href="#214425" label="[21:44:25]">&lt;oriansj&gt;</a></span><span class="message">it was more comparision between the performance of mes.c running the tests vs mes-m2 running the same tests</span></div><div class="line" id="214916"><span class="nick" style="color:#234e69"><a href="#214916" label="[21:49:16]">&lt;vagrantc&gt;</a></span><span class="message">just curious mostly :)</span></div><div class="line" id="215019"><span class="nick" style="color:#6b8072"><a href="#215019" label="[21:50:19]">&lt;oriansj&gt;</a></span><span class="message">I'm still making progress, but I figured it was better to hammer out potential bugs in mes-m2's maxwell core before I go after adding support for modules</span></div><div class="line" id="215214"><span class="nick" style="color:#6b8072"><a href="#215214" label="[21:52:14]">&lt;oriansj&gt;</a></span><span class="message">janneke: and I've added support for MES_MAX_TOKEN (the  max string length for a name in mes-m2, currently at 4096 chars)</span></div><div class="line" id="215303"><span class="nick" style="color:#6b8072"><a href="#215303" label="[21:53:03]">&lt;oriansj&gt;</a></span><span class="message">I might tweak it down to 64chars later; after we get MesCC running on mes-m2 (assuming nothing needs that sort of insane)</span></div><br /></div></body></html>

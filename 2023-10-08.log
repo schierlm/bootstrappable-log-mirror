@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-10-08.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013536"><span class="nick" style="color:#389600"><a href="#013536" label="[01:35:36]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/sysa/musl-1.1.24/patches/avoid_set_thread_area.patch">https://github.com/fosslinux/live-bootstrap/blob/master/sysa/musl-1.1.24/patches/avoid_set_thread_area.patch</a> </span></div><div class="line" id="061202"><span class="nick" style="color:#8dd3c7"><a href="#061202" label="[06:12:02]">&lt;muurkha&gt;</a></span><span class="message">stikonas: thanks!  I'm surprised you can't compile musl without pthreads</span></div><div class="line" id="183537"><span class="nick" style="color:#2e2a4a"><a href="#183537" label="[18:35:37]">&lt;luke-jr&gt;</a></span><span class="message">any hints on compiling a mes that actually works (without guix)?</span></div><div class="line" id="190952"><span class="nick" style="color:#389600"><a href="#190952" label="[19:09:52]">&lt;stikonas&gt;</a></span><span class="message">luke-jr: which arch do you need?</span></div><div class="line" id="191058"><span class="nick" style="color:#389600"><a href="#191058" label="[19:10:58]">&lt;stikonas&gt;</a></span><span class="message">mes works best on x86... There is work in progress on other arches especially riscv64</span></div><div class="line" id="191116"><span class="nick" style="color:#389600"><a href="#191116" label="[19:11:16]">&lt;stikonas&gt;</a></span><span class="message">but basically you just need to set a few env variables</span></div><div class="line" id="191153"><span class="nick" style="color:#389600"><a href="#191153" label="[19:11:53]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/sysa/mes-0.24.2/mes-0.24.2.kaem">https://github.com/fosslinux/live-bootstrap/blob/master/sysa/mes-0.24.2/mes-0.24.2.kaem</a> </span></div><div class="line" id="191203"><span class="nick" style="color:#389600"><a href="#191203" label="[19:12:03]">&lt;stikonas&gt;</a></span><span class="message">and also make sure you have the correct version of nyacc</span></div><div class="line" id="191212"><span class="nick" style="color:#389600"><a href="#191212" label="[19:12:12]">&lt;stikonas&gt;</a></span><span class="message">(if you want to use mescc)</span></div><div class="line" id="191523"><span class="nick" style="color:#389600"><a href="#191523" label="[19:15:23]">&lt;stikonas&gt;</a></span><span class="message">oh and a few more env variables are mentioned here <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/sysa/run.kaem#L26">https://github.com/fosslinux/live-bootstrap/blob/master/sysa/run.kaem#L26</a> </span></div><div class="line" id="191533"><span class="nick" style="color:#389600"><a href="#191533" label="[19:15:33]">&lt;stikonas&gt;</a></span><span class="message">in particular GUILE_LOAD_PATH is essential</span></div><div class="line" id="191824"><span class="nick" style="color:#6b8072"><a href="#191824" label="[19:18:24]">&lt;h01ger&gt;</a></span><span class="message"> <a rel="nofollow" href="https://packages.debian.org/unstable/mes">https://packages.debian.org/unstable/mes</a>  is available on amd64, i386 and armhf</span></div><div class="line" id="193031"><span class="nick" style="color:#2e2a4a"><a href="#193031" label="[19:30:31]">&lt;luke-jr&gt;</a></span><span class="message">stikonas: static x86-64 (or I guess -32)</span></div><div class="line" id="193056"><span class="nick" style="color:#389600"><a href="#193056" label="[19:30:56]">&lt;stikonas&gt;</a></span><span class="message">well, that kaem file is basically step by step instruction</span></div><div class="line" id="193101"><span class="nick" style="color:#389600"><a href="#193101" label="[19:31:01]">&lt;stikonas&gt;</a></span><span class="message">starting from M2-Planet</span></div><div class="line" id="193108"><span class="nick" style="color:#2e2a4a"><a href="#193108" label="[19:31:08]">&lt;luke-jr&gt;</a></span><span class="message">can't use GCC? :P</span></div><div class="line" id="193112"><span class="nick" style="color:#389600"><a href="#193112" label="[19:31:12]">&lt;stikonas&gt;</a></span><span class="message">you can</span></div><div class="line" id="193118"><span class="nick" style="color:#389600"><a href="#193118" label="[19:31:18]">&lt;stikonas&gt;</a></span><span class="message">then just run configure.sh</span></div><div class="line" id="193130"><span class="nick" style="color:#389600"><a href="#193130" label="[19:31:30]">&lt;stikonas&gt;</a></span><span class="message">you still need stuff like nyacc in GUILE_LOAD_PATH</span></div><div class="line" id="193134"><span class="nick" style="color:#2e2a4a"><a href="#193134" label="[19:31:34]">&lt;luke-jr&gt;</a></span><span class="message">hmm</span></div><div class="line" id="193158"><span class="nick" style="color:#389600"><a href="#193158" label="[19:31:58]">&lt;stikonas&gt;</a></span><span class="message">it works on my Gentoo system...</span></div><div class="line" id="193221"><span class="nick" style="color:#2e2a4a"><a href="#193221" label="[19:32:21]">&lt;luke-jr&gt;</a></span><span class="message">maybe part of my issue is that I'm trying to build the version desired by Guix 1.4</span></div><div class="line" id="193230"><span class="nick" style="color:#2e2a4a"><a href="#193230" label="[19:32:30]">&lt;luke-jr&gt;</a></span><span class="message">eg had to hack in -fcommon</span></div><div class="line" id="193411"><span class="nick" style="color:#2e2a4a"><a href="#193411" label="[19:34:11]">&lt;luke-jr&gt;</a></span><span class="message">h01ger: I don't run foreign binaries</span></div><div class="line" id="194300"><span class="nick" style="color:#389600"><a href="#194300" label="[19:43:00]">&lt;stikonas&gt;</a></span><span class="message">which is why building it with hex0 and eventually M2-Planet is best if you don't run foreign binaries</span></div><div class="line" id="194712"><span class="nick" style="color:#389600"><a href="#194712" label="[19:47:12]">&lt;stikonas&gt;</a></span><span class="message">and then you rebuild it with mescc</span></div><div class="line" id="194759"><span class="nick" style="color:#6b8072"><a href="#194759" label="[19:47:59]">&lt;h01ger&gt;</a></span><span class="message">luke-jr: my point was to tell you that compiling mes works on !guix</span></div><div class="line" id="231727"><span class="nick" style="color:#2e2a4a"><a href="#231727" label="[23:17:27]">&lt;luke-jr&gt;</a></span><span class="message">stikonas: that kaem file seems to assume mes is already installed? :/</span></div><div class="line" id="231800"><span class="nick" style="color:#389600"><a href="#231800" label="[23:18:00]">&lt;stikonas&gt;</a></span><span class="message">not really, it does assume some file system layout though</span></div><div class="line" id="231804"><span class="nick" style="color:#389600"><a href="#231804" label="[23:18:04]">&lt;stikonas&gt;</a></span><span class="message">it unpacks mes tarball</span></div><div class="line" id="231822"><span class="nick" style="color:#389600"><a href="#231822" label="[23:18:22]">&lt;stikonas&gt;</a></span><span class="message">then executes built-in kaem script that mes ships</span></div><div class="line" id="231837"><span class="nick" style="color:#389600"><a href="#231837" label="[23:18:37]">&lt;stikonas&gt;</a></span><span class="message">(that uses M2-Planet to compile mes-m2 binary)</span></div><div class="line" id="231848"><span class="nick" style="color:#389600"><a href="#231848" label="[23:18:48]">&lt;stikonas&gt;</a></span><span class="message">and then rebuilds mes</span></div><br /></div></body></html>

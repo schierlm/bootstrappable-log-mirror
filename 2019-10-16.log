@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-10-16.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="230155"><span class="nick" style="color:#8dd3c7"><a href="#230155" label="[23:01:55]">&lt;OriansJ&gt;</a></span><span class="message">janneke: what is the purpose of vector-entry as it isn't used nor is it supported by guile</span></div><div class="line" id="230429"><span class="nick" style="color:#2e2a4a"><a href="#230429" label="[23:04:29]">&lt;janneke&gt;</a></span><span class="message">OriansJ: not used?  /me has a look.</span></div><div class="line" id="230734"><span class="nick" style="color:#2e2a4a"><a href="#230734" label="[23:07:34]">&lt;janneke&gt;</a></span><span class="message">OriansJ: it creates a REFerence to a vector cell for non-atomic types</span></div><div class="line" id="231553"><span class="nick" style="color:#2e2a4a"><a href="#231553" label="[23:15:53]">&lt;janneke&gt;</a></span><span class="message">OriansJ: i see it being used in mes_gc and mes_vector ... ah, or do you mean why it is exposed as a builtin?  i simply expose all builtins, so that we can always decide to move/override core functionality from scheme</span></div><div class="line" id="232112"><span class="nick" style="color:#2e2a4a"><a href="#232112" label="[23:21:12]">&lt;janneke&gt;</a></span><span class="message">and yes indeed, it's a mes internal, it should really be named `vector_entry_' and thus core:vector-entry</span></div><div class="line" id="232124"><span class="nick" style="color:#2e2a4a"><a href="#232124" label="[23:21:24]">&lt;janneke&gt;</a></span><span class="message">that's a bug i think</span></div><div class="line" id="232217"><span class="nick" style="color:#8dd3c7"><a href="#232217" label="[23:22:17]">&lt;OriansJ&gt;</a></span><span class="message">so I should remove the exposure?</span></div><div class="line" id="232311"><span class="nick" style="color:#8dd3c7"><a href="#232311" label="[23:23:11]">&lt;OriansJ&gt;</a></span><span class="message">since grep -R 'vector-entry' doesn't show it used at all in the version of MesCC we imported into mes-m2</span></div><div class="line" id="232403"><span class="nick" style="color:#8dd3c7"><a href="#232403" label="[23:24:03]">&lt;OriansJ&gt;</a></span><span class="message">but grep -R 'vector_entry' shows it being used internally</span></div><div class="line" id="232503"><span class="nick" style="color:#8dd3c7"><a href="#232503" label="[23:25:03]">&lt;OriansJ&gt;</a></span><span class="message">as I am trying to make a set of vector tests to match behavior between mes-m2 and guile</span></div><div class="line" id="232602"><span class="nick" style="color:#8dd3c7"><a href="#232602" label="[23:26:02]">&lt;OriansJ&gt;</a></span><span class="message">(although I still need to figure out how to ensure that mes-m2's make-vector supports both (make-vector 4) and (make-vector 4 1) )</span></div><div class="line" id="232847"><span class="nick" style="color:#8dd3c7"><a href="#232847" label="[23:28:47]">&lt;OriansJ&gt;</a></span><span class="message">also commit 314917c343232bae70a86cb07b936ddc30cea834 for mes-m2 is up</span></div><div class="line" id="232913"><span class="nick" style="color:#2e2a4a"><a href="#232913" label="[23:29:13]">&lt;janneke&gt;</a></span><span class="message">OriansJ: i would prefer/choose to rename it to vector_entry_, core:vector-entry; but removing its exposure is okay too; i am really only interested in its effect, not the underlying implementation</span></div><div class="line" id="232938"><span class="nick" style="color:#2e2a4a"><a href="#232938" label="[23:29:38]">&lt;janneke&gt;</a></span><span class="message">and we can always bring things back, of course -- that's also a matter of taste</span></div><div class="line" id="233013"><span class="nick" style="color:#8dd3c7"><a href="#233013" label="[23:30:13]">&lt;OriansJ&gt;</a></span><span class="message">janneke: well, I am planning on making tests for all exposed functionality and I am aiming at making sure the behavior exactly matches guile</span></div><div class="line" id="233059"><span class="nick" style="color:#8dd3c7"><a href="#233059" label="[23:30:59]">&lt;OriansJ&gt;</a></span><span class="message">So if something isn't in guile and I don't have a specific reason for the difference; I would prefer to pull it out</span></div><div class="line" id="233107"><span class="nick" style="color:#2e2a4a"><a href="#233107" label="[23:31:07]">&lt;janneke&gt;</a></span><span class="message">OriansJ: sure, but all core:xxx functions have no real match in guile, they somehow provide an incompatible subset</span></div><div class="line" id="233139"><span class="nick" style="color:#2e2a4a"><a href="#233139" label="[23:31:39]">&lt;janneke&gt;</a></span><span class="message">OK -- my previous remark was replying your earlier message</span></div><div class="line" id="233229"><span class="nick" style="color:#8dd3c7"><a href="#233229" label="[23:32:29]">&lt;OriansJ&gt;</a></span><span class="message">janneke: completely fair and for those specific cases, I'd prefer to document the why and make it obvious to anyone else in the future why it exists and how it should be used.</span></div><div class="line" id="233315"><span class="nick" style="color:#2e2a4a"><a href="#233315" label="[23:33:15]">&lt;janneke&gt;</a></span><span class="message">okay, just so you understand my rationale, then it's much easier to see which viewpoint is better :-)</span></div><div class="line" id="233330"><span class="nick" style="color:#8dd3c7"><a href="#233330" label="[23:33:30]">&lt;OriansJ&gt;</a></span><span class="message">aka if we plan on using core:foo because we need the exposed functionality to do X; we should make it absolutely clear</span></div><div class="line" id="233353"><span class="nick" style="color:#2e2a4a"><a href="#233353" label="[23:33:53]">&lt;janneke&gt;</a></span><span class="message">yes, very nice</span></div><div class="line" id="233449"><span class="nick" style="color:#2e2a4a"><a href="#233449" label="[23:34:49]">&lt;janneke&gt;</a></span><span class="message">also, with some (all?) core: functions, where i am coming from is a very minimal subset; core:display for example used to be really, really minimal</span></div><div class="line" id="233527"><span class="nick" style="color:#2e2a4a"><a href="#233527" label="[23:35:27]">&lt;janneke&gt;</a></span><span class="message">&quot;only recently&quot; you gave us the perspective that mes would not need to be translated/rewritten in some sort of assembly; M2 is almost as good as C</span></div><div class="line" id="233611"><span class="nick" style="color:#8dd3c7"><a href="#233611" label="[23:36:11]">&lt;OriansJ&gt;</a></span><span class="message">janneke: actually it is C with only a handful of minor differences</span></div><div class="line" id="233615"><span class="nick" style="color:#2e2a4a"><a href="#233615" label="[23:36:15]">&lt;janneke&gt;</a></span><span class="message">meanwhile, core:display also grew, and it could make sense for the (mes display) module to be removed in favour of a full implementation in C/M2</span></div><div class="line" id="233630"><span class="nick" style="color:#2e2a4a"><a href="#233630" label="[23:36:30]">&lt;janneke&gt;</a></span><span class="message">OriansJ: yes!</span></div><div class="line" id="233700"><span class="nick" style="color:#8dd3c7"><a href="#233700" label="[23:37:00]">&lt;OriansJ&gt;</a></span><span class="message">janneke: indeed; freedom to do things the way that makes how everything works most clear</span></div><div class="line" id="233723"><span class="nick" style="color:#2e2a4a"><a href="#233723" label="[23:37:23]">&lt;janneke&gt;</a></span><span class="message">yes</span></div><div class="line" id="233814"><span class="nick" style="color:#8dd3c7"><a href="#233814" label="[23:38:14]">&lt;OriansJ&gt;</a></span><span class="message">and as we go along, I plan on making the code more beautiful and well commented.</span></div><div class="line" id="234041"><span class="nick" style="color:#8dd3c7"><a href="#234041" label="[23:40:41]">&lt;OriansJ&gt;</a></span><span class="message">as the code slowly becomes more clean, it will also be easier to build/debug with M2</span></div><div class="line" id="234624"><span class="nick" style="color:#8dd3c7"><a href="#234624" label="[23:46:24]">&lt;OriansJ&gt;</a></span><span class="message">we can also supercharge the reader to make it's internals more inspectable</span></div><div class="line" id="234834"><span class="nick" style="color:#8dd3c7"><a href="#234834" label="[23:48:34]">&lt;OriansJ&gt;</a></span><span class="message">it'll be a heavily iterative process but I figure, you spent 2+ years making mes.c; it would be foolish to believe I can magically overnight change how it worked inside and out</span></div><div class="line" id="234940"><span class="nick" style="color:#8dd3c7"><a href="#234940" label="[23:49:40]">&lt;OriansJ&gt;</a></span><span class="message">it wasn't until recently that I managed to change from array to objects and alter the behavior of strings</span></div><div class="line" id="235043"><span class="nick" style="color:#2e2a4a"><a href="#235043" label="[23:50:43]">&lt;janneke&gt;</a></span><span class="message">hah, making something simple and clean is often much more work...</span></div><div class="line" id="235438"><span class="nick" style="color:#8dd3c7"><a href="#235438" label="[23:54:38]">&lt;OriansJ&gt;</a></span><span class="message">also I am unwinding the tight coupling inside of mes-m2; mostly to reduce the cognative load for understanding what is being done at every step</span></div><div class="line" id="235633"><span class="nick" style="color:#8dd3c7"><a href="#235633" label="[23:56:33]">&lt;OriansJ&gt;</a></span><span class="message">also by reducing branching and heavy nesting it will also run faster</span></div><div class="line" id="235744"><span class="nick" style="color:#2e2a4a"><a href="#235744" label="[23:57:44]">&lt;janneke&gt;</a></span><span class="message">beautiful work, as always!</span></div><div class="line" id="235756"><span class="nick" style="color:#6b8072"><a href="#235756" label="[23:57:56]">*</a></span><span class="message">janneke -&gt; zZzz</span></div><br /></div></body></html>

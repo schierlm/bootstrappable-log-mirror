@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-09-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="065838"><span class="nick" style="color:#8dd3c7"><a href="#065838" label="[06:58:38]">&lt;janneke&gt;</a></span><span class="message">dannym: ./doit builds the whole development lot; it runs:</span></div><div class="line" id="065914"><span class="nick" style="color:#8dd3c7"><a href="#065914" label="[06:59:14]">&lt;janneke&gt;</a></span><span class="message">build-gcc.sh: use the default (64 bit) gcc -- mostly just to verify we didn't break tcc</span></div><div class="line" id="065943"><span class="nick" style="color:#8dd3c7"><a href="#065943" label="[06:59:43]">&lt;janneke&gt;</a></span><span class="message">build-32.sh: use the 32bit gcc-sans-libc with mescc lib</span></div><div class="line" id="070011"><span class="nick" style="color:#8dd3c7"><a href="#070011" label="[07:00:11]">&lt;janneke&gt;</a></span><span class="message">build.sh: build using mescc</span></div><div class="line" id="070054"><span class="nick" style="color:#8dd3c7"><a href="#070054" label="[07:00:54]">&lt;janneke&gt;</a></span><span class="message">dannym: they produce, respectively: tcc-gcc, i686-unknown-linux-gnu-tcc/arm-unknown-linux-gnueabihf-tcc, mes-tcc</span></div><div class="line" id="070121"><span class="nick" style="color:#8dd3c7"><a href="#070121" label="[07:01:21]">&lt;janneke&gt;</a></span><span class="message">in the guix bootstrap, we use ./bootstrap.sh to build mes-tcc</span></div><div class="line" id="070210"><span class="nick" style="color:#8dd3c7"><a href="#070210" label="[07:02:10]">&lt;janneke&gt;</a></span><span class="message">dannym: so, my development cycle mostly was:</span></div><div class="line" id="070220"><span class="nick" style="color:#8dd3c7"><a href="#070220" label="[07:02:20]">&lt;janneke&gt;</a></span><span class="message">* reapply ba1c47d lotsa debug printing</span></div><div class="line" id="070231"><span class="nick" style="color:#8dd3c7"><a href="#070231" label="[07:02:31]">&lt;janneke&gt;</a></span><span class="message">* ./doit</span></div><div class="line" id="070346"><span class="nick" style="color:#8dd3c7"><a href="#070346" label="[07:03:46]">&lt;janneke&gt;</a></span><span class="message">compare traces produced by &quot;compile.sh&quot; 1: 32-bit gcc, 2: mes-tcc</span></div><div class="line" id="070355"><span class="nick" style="color:#8dd3c7"><a href="#070355" label="[07:03:55]">&lt;janneke&gt;</a></span><span class="message">^*</span></div><div class="line" id="070426"><span class="nick" style="color:#8dd3c7"><a href="#070426" label="[07:04:26]">&lt;janneke&gt;</a></span><span class="message">* add more debug tracing in the c code / isolate compile problem</span></div><div class="line" id="070451"><span class="nick" style="color:#8dd3c7"><a href="#070451" label="[07:04:51]">&lt;janneke&gt;</a></span><span class="message">* rewrite c contruct or extract test+fix mescc</span></div><div class="line" id="122709"><span class="nick" style="color:#2e2a4a"><a href="#122709" label="[12:27:09]">&lt;dannym&gt;</a></span><span class="message">janneke: Thanks</span></div><div class="line" id="122730"><span class="nick" style="color:#2e2a4a"><a href="#122730" label="[12:27:30]">&lt;dannym&gt;</a></span><span class="message">janneke: I just get exit code 1 with no output for ./build.sh</span></div><div class="line" id="122812"><span class="nick" style="color:#2e2a4a"><a href="#122812" label="[12:28:12]">&lt;dannym&gt;</a></span><span class="message">janneke: If I do it inside an guix environment --pure tcc --ad-hoc git</span></div><div class="line" id="122852"><span class="nick" style="color:#2e2a4a"><a href="#122852" label="[12:28:52]">&lt;dannym&gt;</a></span><span class="message">++ mes-source/pre-inst-env mescc -dumpmachine</span></div><div class="line" id="122852"><span class="nick" style="color:#2e2a4a"><a href="#122852" label="[12:28:52]">&lt;dannym&gt;</a></span><span class="message">+ host=</span></div><div class="line" id="122857"><span class="nick" style="color:#2e2a4a"><a href="#122857" label="[12:28:57]">&lt;dannym&gt;</a></span><span class="message">When I add -x</span></div><div class="line" id="122908"><span class="nick" style="color:#2e2a4a"><a href="#122908" label="[12:29:08]">&lt;dannym&gt;</a></span><span class="message">mes-source/pre-inst-env mescc -dumpmachine</span></div><div class="line" id="122908"><span class="nick" style="color:#2e2a4a"><a href="#122908" label="[12:29:08]">&lt;dannym&gt;</a></span><span class="message">error:include-from-path: not found: :(nyacc/lex.scm)</span></div><div class="line" id="122908"><span class="nick" style="color:#2e2a4a"><a href="#122908" label="[12:29:08]">&lt;dannym&gt;</a></span><span class="message">exiting...</span></div><div class="line" id="122908"><span class="nick" style="color:#2e2a4a"><a href="#122908" label="[12:29:08]">&lt;dannym&gt;</a></span><span class="message">unhandled exception:error:((&quot;include-from-path: not found: &quot; &quot;nyacc/lex.scm&quot;))</span></div><div class="line" id="122908"><span class="nick" style="color:#2e2a4a"><a href="#122908" label="[12:29:08]">&lt;dannym&gt;</a></span><span class="message">Backtrace:</span></div><div class="line" id="122913"><span class="nick" style="color:#2e2a4a"><a href="#122913" label="[12:29:13]">&lt;dannym&gt;</a></span><span class="message">So it still doesn't find nyacc</span></div><div class="line" id="122924"><span class="nick" style="color:#2e2a4a"><a href="#122924" label="[12:29:24]">&lt;dannym&gt;</a></span><span class="message">Because pre-inst-env does not add dependencies to GUILE_LOAD_PATH</span></div><div class="line" id="122936"><span class="nick" style="color:#2e2a4a"><a href="#122936" label="[12:29:36]">&lt;dannym&gt;</a></span><span class="message">(that's branch &quot;wip&quot; of mes btw)</span></div><div class="line" id="123033"><span class="nick" style="color:#2e2a4a"><a href="#123033" label="[12:30:33]">&lt;dannym&gt;</a></span><span class="message">Your HACKING file also specifies that one should manually fiddle with GUILE_LOAD_PATH</span></div><div class="line" id="123217"><span class="nick" style="color:#2e2a4a"><a href="#123217" label="[12:32:17]">&lt;dannym&gt;</a></span><span class="message">And ./scripts/mescc does something like GUILE_LOAD_PATH=/usr/local/share/guile/site/2.2${GUILE_LOAD_PATH+:}${GUILE_LOAD_PATH} which is definitely useless</span></div><div class="line" id="123231"><span class="nick" style="color:#2e2a4a"><a href="#123231" label="[12:32:31]">&lt;dannym&gt;</a></span><span class="message">for me, on Debian with Guix, where I definitely want it to use Debian's stuff</span></div><div class="line" id="123247"><span class="nick" style="color:#2e2a4a"><a href="#123247" label="[12:32:47]">&lt;dannym&gt;</a></span><span class="message">Don't want</span></div><div class="line" id="123316"><span class="nick" style="color:#2e2a4a"><a href="#123316" label="[12:33:16]">&lt;dannym&gt;</a></span><span class="message">./config.sh:GUILE_LOAD_PATH=&quot;/gnu/store/a6k4a1bxlqv8xv1gks1la6m8vysn7fyf-profile/share/guile/site/2.2:/gnu/store/n8b7ppdb97y39viva8cm4rmwvn7i4n5w-guile-2.2.7/share/guile/2.2:/gnu/store/n8b7ppdb97y39viva8cm4rmwvn7i4n5w-guile-2.2.7/share/guile/site/2.2:/gnu/store/n8b7ppdb97y39viva8cm4rmwvn7i4n5w-guile-2.2.7/share/guile/site:/gnu/store/n8b7ppdb97y39viva8cm4rmwvn7i4n5w-guile-2.2.7/share/guile&quot;</span></div><div class="line" id="123320"><span class="nick" style="color:#2e2a4a"><a href="#123320" label="[12:33:20]">&lt;dannym&gt;</a></span><span class="message">The first entry contains nyacc</span></div><div class="line" id="123629"><span class="nick" style="color:#2e2a4a"><a href="#123629" label="[12:36:29]">&lt;dannym&gt;</a></span><span class="message">But pre-inst-env does not include config.sh</span></div><div class="line" id="123939"><span class="nick" style="color:#2e2a4a"><a href="#123939" label="[12:39:39]">&lt;dannym&gt;</a></span><span class="message">Which is fine in general, but it also doesn't use @GUILE_LOAD_PATH@ anywhere in there</span></div><div class="line" id="124535"><span class="nick" style="color:#2e2a4a"><a href="#124535" label="[12:45:35]">&lt;dannym&gt;</a></span><span class="message">So ./pre-inst-env won't work as it usually does in guix</span></div><div class="line" id="124544"><span class="nick" style="color:#2e2a4a"><a href="#124544" label="[12:45:44]">&lt;dannym&gt;</a></span><span class="message">Hence mescc can't find its dependencies</span></div><div class="line" id="140123"><span class="nick" style="color:#2e2a4a"><a href="#140123" label="[14:01:23]">&lt;dannym&gt;</a></span><span class="message">After fixing that, I get: &quot;mes: boot failed: no such file: boot-0.scm&quot; when invoking mescc</span></div><div class="line" id="140725"><span class="nick" style="color:#2e2a4a"><a href="#140725" label="[14:07:25]">&lt;dannym&gt;</a></span><span class="message">When invoking build.sh</span></div><div class="line" id="142317"><span class="nick" style="color:#8dd3c7"><a href="#142317" label="[14:23:17]">&lt;janneke&gt;</a></span><span class="message">dannym: oh my!</span></div><div class="line" id="142335"><span class="nick" style="color:#8dd3c7"><a href="#142335" label="[14:23:35]">&lt;janneke&gt;</a></span><span class="message">i sadly don't have much time atm, a friend is visiting</span></div><div class="line" id="142348"><span class="nick" style="color:#8dd3c7"><a href="#142348" label="[14:23:48]">&lt;janneke&gt;</a></span><span class="message">however, what i do is:</span></div><div class="line" id="142420"><span class="nick" style="color:#8dd3c7"><a href="#142420" label="[14:24:20]">&lt;janneke&gt;</a></span><span class="message">go into the mes environment, something like: guix environment -l guix.scm in the MES source archive</span></div><div class="line" id="142643"><span class="nick" style="color:#8dd3c7"><a href="#142643" label="[14:26:43]">&lt;janneke&gt;</a></span><span class="message">and use &quot;doit&quot; to set all env vars correctly</span></div><div class="line" id="142900"><span class="nick" style="color:#8dd3c7"><a href="#142900" label="[14:29:00]">&lt;janneke&gt;</a></span><span class="message">so .. my GUILE_LOAD_PATH comes from the mes environment, the mes-source and mes symlinks pointing to the mes source archive help setup mescc</span></div><div class="line" id="142920"><span class="nick" style="color:#8dd3c7"><a href="#142920" label="[14:29:20]">&lt;janneke&gt;</a></span><span class="message">i see that &quot;doit&quot; actually creates the &quot;mes&quot; symlink</span></div><div class="line" id="151052"><span class="nick" style="color:#2e2a4a"><a href="#151052" label="[15:10:52]">&lt;dannym&gt;</a></span><span class="message">janneke: No problem; I'm just logging the problems here.  I can workaround them myself :)</span></div><div class="line" id="151303"><span class="nick" style="color:#2e2a4a"><a href="#151303" label="[15:13:03]">&lt;dannym&gt;</a></span><span class="message">janneke: Have fun :)</span></div><div class="line" id="151323"><span class="nick" style="color:#2e2a4a"><a href="#151323" label="[15:13:23]">&lt;dannym&gt;</a></span><span class="message">Yeah, works much better when:</span></div><div class="line" id="151324"><span class="nick" style="color:#2e2a4a"><a href="#151324" label="[15:13:24]">&lt;dannym&gt;</a></span><span class="message">diff --git a/build-aux/pre-inst-env.in b/build-aux/pre-inst-env.in</span></div><div class="line" id="151324"><span class="nick" style="color:#2e2a4a"><a href="#151324" label="[15:13:24]">&lt;dannym&gt;</a></span><span class="message">index 59258df..b28adbe 100644</span></div><div class="line" id="151324"><span class="nick" style="color:#2e2a4a"><a href="#151324" label="[15:13:24]">&lt;dannym&gt;</a></span><span class="message">--- a/build-aux/pre-inst-env.in</span></div><div class="line" id="151324"><span class="nick" style="color:#2e2a4a"><a href="#151324" label="[15:13:24]">&lt;dannym&gt;</a></span><span class="message">+++ b/build-aux/pre-inst-env.in</span></div><div class="line" id="151324"><span class="nick" style="color:#2e2a4a"><a href="#151324" label="[15:13:24]">&lt;dannym&gt;</a></span><span class="message">@@ -29,6 +29,9 @@ program_prefix=${program_prefix-@program_prefix@}</span></div><div class="line" id="151328"><span class="nick" style="color:#2e2a4a"><a href="#151328" label="[15:13:28]">&lt;dannym&gt;</a></span><span class="message"> MES_PREFIX=${MES_PREFIX-${abs_top_srcdir}}</span></div><div class="line" id="151330"><span class="nick" style="color:#2e2a4a"><a href="#151330" label="[15:13:30]">&lt;dannym&gt;</a></span><span class="message"> export MES_PREFIX</span></div><div class="line" id="151332"><span class="nick" style="color:#2e2a4a"><a href="#151332" label="[15:13:32]">&lt;dannym&gt;</a></span><span class="message"> </span></div><div class="line" id="151334"><span class="nick" style="color:#2e2a4a"><a href="#151334" label="[15:13:34]">&lt;dannym&gt;</a></span><span class="message">+GUILE_LOAD_COMPILED_PATH=&quot;@GUILE_LOAD_COMPILED_PATH@&quot;</span></div><div class="line" id="151336"><span class="nick" style="color:#2e2a4a"><a href="#151336" label="[15:13:36]">&lt;dannym&gt;</a></span><span class="message">+GUILE_LOAD_PATH=&quot;@GUILE_LOAD_PATH@&quot;</span></div><div class="line" id="151338"><span class="nick" style="color:#2e2a4a"><a href="#151338" label="[15:13:38]">&lt;dannym&gt;</a></span><span class="message">+</span></div><div class="line" id="151401"><span class="nick" style="color:#2e2a4a"><a href="#151401" label="[15:14:01]">&lt;dannym&gt;</a></span><span class="message">It's compiling tinycc now</span></div><div class="line" id="151526"><span class="nick" style="color:#2e2a4a"><a href="#151526" label="[15:15:26]">&lt;dannym&gt;</a></span><span class="message">(I could also use doit in the future--but I just thought you'd like to know what the problems are with your pre-inst-env)</span></div><div class="line" id="151725"><span class="nick" style="color:#8dd3c7"><a href="#151725" label="[15:17:25]">&lt;janneke&gt;</a></span><span class="message">dannym: great -- about the diff; that makes sense!  -- trying to answer your recent quention about this i was looking at guix's pre-inst-env and wondered why we don't have something like that there too...</span></div><div class="line" id="151830"><span class="nick" style="color:#2e2a4a"><a href="#151830" label="[15:18:30]">&lt;dannym&gt;</a></span><span class="message">Compiling tinycc took 15 min.  It's done now</span></div><div class="line" id="152109"><span class="nick" style="color:#2e2a4a"><a href="#152109" label="[15:21:09]">&lt;dannym&gt;</a></span><span class="message">... that reminds we why I wasn't using ./doit:</span></div><div class="line" id="152110"><span class="nick" style="color:#2e2a4a"><a href="#152110" label="[15:21:10]">&lt;dannym&gt;</a></span><span class="message">make: *** [Makefile:329: ETAGS] Error 127</span></div><div class="line" id="152116"><span class="nick" style="color:#2e2a4a"><a href="#152116" label="[15:21:16]">&lt;dannym&gt;</a></span><span class="message"> /gnu/store/7zp9ifpgm3zj481nk6jg1im13g4mza2g-bash-minimal-5.0.16/bin/sh: etags: command not found</span></div><div class="line" id="152217"><span class="nick" style="color:#2e2a4a"><a href="#152217" label="[15:22:17]">&lt;dannym&gt;</a></span><span class="message">in build-gcc.sh</span></div><div class="line" id="152222"><span class="nick" style="color:#2e2a4a"><a href="#152222" label="[15:22:22]">&lt;dannym&gt;</a></span><span class="message">commenting line out</span></div><div class="line" id="152310"><span class="nick" style="color:#8dd3c7"><a href="#152310" label="[15:23:10]">&lt;janneke&gt;</a></span><span class="message">eh...do you have my latest commit?  i added</span></div><div class="line" id="152325"><span class="nick" style="color:#8dd3c7"><a href="#152325" label="[15:23:25]">&lt;janneke&gt;</a></span><span class="message">it to read: make ETAGS ||:</span></div><div class="line" id="152338"><span class="nick" style="color:#2e2a4a"><a href="#152338" label="[15:23:38]">&lt;dannym&gt;</a></span><span class="message">I have it</span></div><div class="line" id="152349"><span class="nick" style="color:#2e2a4a"><a href="#152349" label="[15:23:49]">&lt;dannym&gt;</a></span><span class="message">Ok, then maybe it's something else</span></div><div class="line" id="152349"><span class="nick" style="color:#8dd3c7"><a href="#152349" label="[15:23:49]">&lt;janneke&gt;</a></span><span class="message">==&gt; ed3951f squash! WIP build: Add support for ARM.</span></div><div class="line" id="152353"><span class="nick" style="color:#8dd3c7"><a href="#152353" label="[15:23:53]">&lt;janneke&gt;</a></span><span class="message">ok, good</span></div><div class="line" id="225115"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><br /></div></body></html>

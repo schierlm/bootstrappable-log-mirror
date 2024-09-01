@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-04-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001622"><span class="nick" style="color:#389600"><a href="#001622" label="[00:16:22]">&lt;stikonas&gt;</a></span><span class="message">I think c4droid left some time ago</span></div><div class="line" id="001724"><span class="nick" style="color:#389600"><a href="#001724" label="[00:17:24]">&lt;stikonas&gt;</a></span><span class="message">live-bootstrap.pdf is now a bit out of date...</span></div><div class="line" id="001829"><span class="nick" style="color:#389600"><a href="#001829" label="[00:18:29]">&lt;stikonas&gt;</a></span><span class="message">with that untar.c I reordered/changed a few things at the beginning</span></div><div class="line" id="022834"><span class="nick" style="color:#2e2a4a"><a href="#022834" label="[02:28:34]">&lt;OriansJ`&gt;</a></span><span class="message">stikonas[m]: hopefully they look at the IRC log but if not, I hope they find the answers that they are looking for.</span></div><div class="line" id="023435"><span class="nick" style="color:#2e2a4a"><a href="#023435" label="[02:34:35]">&lt;OriansJ`&gt;</a></span><span class="message">As for the changes in live-bootstrap that I haven't updated; I'll attempt to make it more accurate this weeked or I'll merge a pull request if someone updates it sooner.</span></div><div class="line" id="025005"><span class="nick" style="color:#2e2a4a"><a href="#025005" label="[02:50:05]">&lt;OriansJ`&gt;</a></span><span class="message">hmm It appears chmod doesn't belong in unistd.h but sys/stat.h <a rel="nofollow" href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/sys_stat.h.html">https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/sys_stat.h.html</a> </span></div><div class="line" id="030806"><span class="nick" style="color:#2e2a4a"><a href="#030806" label="[03:08:06]">&lt;OriansJ`&gt;</a></span><span class="message">hmm struct stat needs support for short in the struct</span></div><div class="line" id="031513"><span class="nick" style="color:#2e2a4a"><a href="#031513" label="[03:15:13]">&lt;OriansJ`&gt;</a></span><span class="message">so <a rel="nofollow" href="https://paste.debian.net/1194353/">https://paste.debian.net/1194353/</a> </span></div><div class="line" id="031756"><span class="nick" style="color:#2e2a4a"><a href="#031756" label="[03:17:56]">&lt;OriansJ`&gt;</a></span><span class="message">adding support for shorts as a type is simple but getting shorts written and read correctly would take a bit more work</span></div><div class="line" id="032103"><span class="nick" style="color:#2e2a4a"><a href="#032103" label="[03:21:03]">&lt;OriansJ`&gt;</a></span><span class="message">but I don't think the stat family of syscall primitives are needed yet.</span></div><div class="line" id="033830"><span class="nick" style="color:#2e2a4a"><a href="#033830" label="[03:38:30]">&lt;OriansJ`&gt;</a></span><span class="message">but it'll add mknod and mkdir, fchmod and umask to M2libc</span></div><div class="line" id="034230"><span class="nick" style="color:#2e2a4a"><a href="#034230" label="[03:42:30]">&lt;OriansJ`&gt;</a></span><span class="message">the diff for each architecture however seems simple enough: <a rel="nofollow" href="https://paste.debian.net/1194354/">https://paste.debian.net/1194354/</a> </span></div><div class="line" id="035801"><span class="nick" style="color:#2e2a4a"><a href="#035801" label="[03:58:01]">&lt;OriansJ`&gt;</a></span><span class="message">thank god I made a copy of the syscall tables for AArch64, armv7l, x86 and armv7l; (probably need to find ones for PowerPC and PowerPC64le</span></div><div class="line" id="040118"><span class="nick" style="color:#2e2a4a"><a href="#040118" label="[04:01:18]">&lt;OriansJ`&gt;</a></span><span class="message">knight will have to be updated later to support such primitives but I'll just add it to my ever growing todo list</span></div><div class="line" id="043045"><span class="nick" style="color:#2e2a4a"><a href="#043045" label="[04:30:45]">&lt;OriansJ`&gt;</a></span><span class="message">I'll get AArch64 done tomorrow</span></div><div class="line" id="043156"><span class="nick" style="color:#2e2a4a"><a href="#043156" label="[04:31:56]">&lt;OriansJ`&gt;</a></span><span class="message">but first draft of sys/stat.h support in M2libc is now up</span></div><div class="line" id="043207"><span class="nick" style="color:#2e2a4a"><a href="#043207" label="[04:32:07]">&lt;OriansJ`&gt;</a></span><span class="message">(proper testing later when I get the chance)</span></div><div class="line" id="053449"><span class="nick" style="color:#6b8072"><a href="#053449" label="[05:34:49]">&lt;pabs3&gt;</a></span><span class="message">Kotlin bootstrapping continues <a rel="nofollow" href="https://github.com/ebourg/kotlin-bootstrapping">https://github.com/ebourg/kotlin-bootstrapping</a> </span></div><div class="line" id="062819"><span class="nick" style="color:#80b1d3"><a href="#062819" label="[06:28:19]">&lt;gforce_de1977&gt;</a></span><span class="message">fossy: can you please merge the 2 pending pull requests?</span></div><div class="line" id="070841"><span class="nick" style="color:#6d2462"><a href="#070841" label="[07:08:41]">&lt;fossy&gt;</a></span><span class="message">ill look at those again shortly</span></div><div class="line" id="070904"><span class="nick" style="color:#6d2462"><a href="#070904" label="[07:09:04]">&lt;fossy&gt;</a></span><span class="message">I have a reasonably large pr coming up</span></div><div class="line" id="070917"><span class="nick" style="color:#6d2462"><a href="#070917" label="[07:09:17]">&lt;fossy&gt;</a></span><span class="message">with all the Perl stuff</span></div><div class="line" id="091234"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="091240"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><div class="line" id="112037"><span class="nick" style="color:#6d2462"><a href="#112037" label="[11:20:37]">&lt;fossy&gt;</a></span><span class="message">stikonas: what do you think of <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/105/files#diff-41f5e4a26ef4d37c4849977d750e42efad96633eb851616f15f2e8fab04a1c27R100">https://github.com/fosslinux/live-bootstrap/pull/105/files#diff-41f5e4a26ef4d37c4849977d750e42efad96633eb851616f15f2e8fab04a1c27R100</a> </span></div><div class="line" id="112129"><span class="nick" style="color:#389600"><a href="#112129" label="[11:21:29]">&lt;stikonas&gt;</a></span><span class="message">I guess it looks fine</span></div><div class="line" id="112152"><span class="nick" style="color:#389600"><a href="#112152" label="[11:21:52]">&lt;stikonas&gt;</a></span><span class="message">it basically just updates to newer version of that script</span></div><div class="line" id="112210"><span class="nick" style="color:#389600"><a href="#112210" label="[11:22:10]">&lt;stikonas&gt;</a></span><span class="message">with some improvements in readability</span></div><div class="line" id="112248"><span class="nick" style="color:#389600"><a href="#112248" label="[11:22:48]">&lt;stikonas&gt;</a></span><span class="message">oh but yes, there are those os.system calls</span></div><div class="line" id="112305"><span class="nick" style="color:#389600"><a href="#112305" label="[11:23:05]">&lt;stikonas&gt;</a></span><span class="message">which are kind of deprecated in favour of subprocess</span></div><div class="line" id="131931"><span class="nick" style="color:#6d2462"><a href="#131931" label="[13:19:31]">&lt;fossy&gt;</a></span><span class="message">the adding of the log?</span></div><div class="line" id="132018"><span class="nick" style="color:#389600"><a href="#132018" label="[13:20:18]">&lt;stikonas&gt;</a></span><span class="message">no, I meant new lines, etc...</span></div><div class="line" id="132023"><span class="nick" style="color:#389600"><a href="#132023" label="[13:20:23]">&lt;stikonas&gt;</a></span><span class="message">well, log too I guess</span></div><div class="line" id="132110"><span class="nick" style="color:#389600"><a href="#132110" label="[13:21:10]">&lt;stikonas&gt;</a></span><span class="message">so which perl have you got working?</span></div><div class="line" id="132307"><span class="nick" style="color:#6d2462"><a href="#132307" label="[13:23:07]">&lt;fossy&gt;</a></span><span class="message">5.32.1 is close to done</span></div><div class="line" id="132317"><span class="nick" style="color:#6d2462"><a href="#132317" label="[13:23:17]">&lt;fossy&gt;</a></span><span class="message">i had to go back to 5.10 and add extensions for one regen script but that wasn't too bad</span></div><div class="line" id="132343"><span class="nick" style="color:#389600"><a href="#132343" label="[13:23:43]">&lt;stikonas&gt;</a></span><span class="message">oh nice</span></div><div class="line" id="132357"><span class="nick" style="color:#389600"><a href="#132357" label="[13:23:57]">&lt;stikonas&gt;</a></span><span class="message">maybe then I can add some stuff that needs newer perl</span></div><div class="line" id="132416"><span class="nick" style="color:#389600"><a href="#132416" label="[13:24:16]">&lt;stikonas&gt;</a></span><span class="message">like latest automake and maybe new texinfo (we have none right now)</span></div><div class="line" id="132503"><span class="nick" style="color:#389600"><a href="#132503" label="[13:25:03]">&lt;stikonas&gt;</a></span><span class="message">we also need to build guile :( ...</span></div><div class="line" id="140444"><span class="nick" style="color:#6d2462"><a href="#140444" label="[14:04:44]">&lt;fossy&gt;</a></span><span class="message">yeah thats my plan for after perl</span></div><div class="line" id="160941"><span class="nick" style="color:#389600"><a href="#160941" label="[16:09:41]">&lt;stikonas&gt;</a></span><span class="message">gforce_de1977: 'git clone' -&gt; 'git', 'clone' I think...</span></div><div class="line" id="181316"><span class="nick" style="color:#234e69"><a href="#181316" label="[18:13:16]">&lt;bauen1&gt;</a></span><span class="message">also i've just noticed that we appear to be mixing tabs and spaces in some scripts already</span></div><div class="line" id="183223"><span class="nick" style="color:#389600"><a href="#183223" label="[18:32:23]">&lt;stikonas&gt;</a></span><span class="message">bauen1: where? might be accidental</span></div><div class="line" id="183225"><span class="nick" style="color:#389600"><a href="#183225" label="[18:32:25]">&lt;stikonas&gt;</a></span><span class="message">should be 4 spaces</span></div><div class="line" id="183428"><span class="nick" style="color:#389600"><a href="#183428" label="[18:34:28]">&lt;stikonas&gt;</a></span><span class="message">I probably should switch my emacs config not to use tabs</span></div><div class="line" id="183433"><span class="nick" style="color:#389600"><a href="#183433" label="[18:34:33]">&lt;stikonas&gt;</a></span><span class="message">(which is default for emacs)</span></div><div class="line" id="183533"><span class="nick" style="color:#234e69"><a href="#183533" label="[18:35:33]">&lt;bauen1&gt;</a></span><span class="message">stikonas: it was a script that uses `--srcdir` and was recently edited (added MAKEINFO=true) where i noticed it</span></div><div class="line" id="183550"><span class="nick" style="color:#234e69"><a href="#183550" label="[18:35:50]">&lt;bauen1&gt;</a></span><span class="message">that's how i noticed, because my neovim had converted the tab to 4 spaces in my commit</span></div><div class="line" id="183617"><span class="nick" style="color:#234e69"><a href="#183617" label="[18:36:17]">&lt;bauen1&gt;</a></span><span class="message">stikonas: maybe there are other such cases mixed in my wip commits on add-gnu-stow</span></div><div class="line" id="183956"><span class="nick" style="color:#389600"><a href="#183956" label="[18:39:56]">&lt;stikonas&gt;</a></span><span class="message">ok, I can fix that a bit later today</span></div><div class="line" id="194340"><span class="nick" style="color:#80b1d3"><a href="#194340" label="[19:43:40]">&lt;gforce_de1977&gt;</a></span><span class="message">sorry, stikonas: fossy: fixed the commit: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/105">https://github.com/fosslinux/live-bootstrap/pull/105</a>  - i really have to be more careful</span></div><div class="line" id="194544"><span class="nick" style="color:#80b1d3"><a href="#194544" label="[19:45:44]">&lt;gforce_de1977&gt;</a></span><span class="message">for the space vs. tab issue: is it possible to add a checker for this?</span></div><div class="line" id="204615"><span class="nick" style="color:#389600"><a href="#204615" label="[20:46:15]">&lt;stikonas&gt;</a></span><span class="message">gforce_de1977: possibly, although, we have some upstream files, which might have different coding style</span></div><div class="line" id="211528"><span class="nick" style="color:#389600"><a href="#211528" label="[21:15:28]">&lt;stikonas&gt;</a></span><span class="message">gforce_de1977: there are still two pylint issues <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/105/checks">https://github.com/fosslinux/live-bootstrap/pull/105/checks</a> </span></div><div class="line" id="212632"><span class="nick" style="color:#80b1d3"><a href="#212632" label="[21:26:32]">&lt;gforce_de1977&gt;</a></span><span class="message">stikonas: sorry, will fix it tomorrow, too tired now, sleeping...</span></div><div class="line" id="231007"><span class="nick" style="color:#2e2a4a"><a href="#231007" label="[23:10:07]">&lt;OriansJ`&gt;</a></span><span class="message">gforce_de1977: did adding sync solve the bug?</span></div><br /></div></body></html>

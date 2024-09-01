@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-02-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002939"><span class="nick" style="color:#389600"><a href="#002939" label="[00:29:39]">&lt;stikonas&gt;</a></span><span class="message">oh I think there is one more issue with uefi/M2libc, we need to implement truncating files on opening</span></div><div class="line" id="002947"><span class="nick" style="color:#389600"><a href="#002947" label="[00:29:47]">&lt;stikonas&gt;</a></span><span class="message">now with cp fixed</span></div><div class="line" id="003014"><span class="nick" style="color:#389600"><a href="#003014" label="[00:30:14]">&lt;stikonas&gt;</a></span><span class="message">cp bin/mes-m2 bin/mes and later mescc -o bin/mes ends up with too big file</span></div><div class="line" id="004743"><span class="nick" style="color:#8dd3c7"><a href="#004743" label="[00:47:43]">&lt;Googulator&gt;</a></span><span class="message">yeah, builder-hex0 just pretends that every file opened for writing is new</span></div><div class="line" id="005149"><span class="nick" style="color:#389600"><a href="#005149" label="[00:51:49]">&lt;stikonas&gt;</a></span><span class="message">well, this append problem in stage0-uefi was known to me for a long time (since last year)</span></div><div class="line" id="005211"><span class="nick" style="color:#389600"><a href="#005211" label="[00:52:11]">&lt;stikonas&gt;</a></span><span class="message">I just didn't realize we actually hit it in the bootstrap</span></div><div class="line" id="005219"><span class="nick" style="color:#389600"><a href="#005219" label="[00:52:19]">&lt;stikonas&gt;</a></span><span class="message">well, bin/mes actually still works</span></div><div class="line" id="005228"><span class="nick" style="color:#389600"><a href="#005228" label="[00:52:28]">&lt;stikonas&gt;</a></span><span class="message">it's just that it's too big and fails checksum...</span></div><div class="line" id="005334"><span class="nick" style="color:#389600"><a href="#005334" label="[00:53:34]">&lt;stikonas&gt;</a></span><span class="message">and uefi api to reset file size was a bit clunky, so I haven't bothered yet...</span></div><div class="line" id="005505"><span class="nick" style="color:#389600"><a href="#005505" label="[00:55:05]">&lt;stikonas&gt;</a></span><span class="message">but yes, we should just truncate any newly opened file to 0 size...</span></div><div class="line" id="005514"><span class="nick" style="color:#389600"><a href="#005514" label="[00:55:14]">&lt;stikonas&gt;</a></span><span class="message">well, if opened for writing</span></div><div class="line" id="015402"><span class="nick" style="color:#2e2a4a"><a href="#015402" label="[01:54:02]">&lt;oriansj&gt;</a></span><span class="message">well if opened with O_TRUNC</span></div><div class="line" id="015421"><span class="nick" style="color:#2e2a4a"><a href="#015421" label="[01:54:21]">&lt;oriansj&gt;</a></span><span class="message">otherwise the open would not want truncation.</span></div><div class="line" id="015510"><span class="nick" style="color:#2e2a4a"><a href="#015510" label="[01:55:10]">&lt;oriansj&gt;</a></span><span class="message">and that is defined in fcntl.h</span></div><div class="line" id="044427"><span class="nick" style="color:#6b8072"><a href="#044427" label="[04:44:27]">&lt;pabs3&gt;</a></span><span class="message">oriansj: what was the reason for the savannah rejection?</span></div><div class="line" id="044428"><span class="nick" style="color:#6b8072"><a href="#044428" label="[04:44:28]">&lt;pabs3&gt;</a></span><span class="message">to me it seems like #bootstrappable projects should be considered necessary as the foundation of any FOSS system, so they should have been accepted in a heartbeat</span></div><div class="line" id="082032"><span class="nick" style="color:#80b1d3"><a href="#082032" label="[08:20:32]">&lt;janneke&gt;</a></span><span class="message">pabs3: ignorance/stubbornness about binary files, bootstrap seeds, and also test data, i believe</span></div><div class="line" id="082046"><span class="nick" style="color:#80b1d3"><a href="#082046" label="[08:20:46]">&lt;janneke&gt;</a></span><span class="message">pabs3: i believe the bootstrap/essential argument was made, but we should try to make it even stronger, dunno</span></div><div class="line" id="082115"><span class="nick" style="color:#80b1d3"><a href="#082115" label="[08:21:15]">&lt;janneke&gt;</a></span><span class="message">as i said, i'm for waiting a bit until the guidelines have been improved, that could really help</span></div><div class="line" id="134110"><span class="nick" style="color:#2e2a4a"><a href="#134110" label="[13:41:10]">&lt;oriansj&gt;</a></span><span class="message">pabs3: duplication was their main argument; as all of the pieces are already submodules in stage0, they didn't want the pieces as separate repos for some reason.</span></div><div class="line" id="134423"><span class="nick" style="color:#8dd3c7"><a href="#134423" label="[13:44:23]">&lt;Googulator&gt;</a></span><span class="message">...and, e820: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/437">https://github.com/fosslinux/live-bootstrap/pull/437</a> </span></div><div class="line" id="134541"><span class="nick" style="color:#8dd3c7"><a href="#134541" label="[13:45:41]">&lt;Googulator&gt;</a></span><span class="message">that means, -qr 8192 now works, and actually yields 8GiB RAM available once the Linux kernel boots</span></div><div class="line" id="134642"><span class="nick" style="color:#8dd3c7"><a href="#134642" label="[13:46:42]">&lt;Googulator&gt;</a></span><span class="message">accompanying PR for builder-hex0: <a rel="nofollow" href="https://github.com/ironmeld/builder-hex0/pull/12">https://github.com/ironmeld/builder-hex0/pull/12</a> </span></div><div class="line" id="135448"><span class="nick" style="color:#2e2a4a"><a href="#135448" label="[13:54:48]">&lt;oriansj&gt;</a></span><span class="message">nice</span></div><div class="line" id="140234"><span class="nick" style="color:#6d2462"><a href="#140234" label="[14:02:34]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; stage0 is not really where development goes to these days</span></div><div class="line" id="140256"><span class="nick" style="color:#6d2462"><a href="#140256" label="[14:02:56]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Since even kernel bootstrap doesn't use it...</span></div><div class="line" id="140316"><span class="nick" style="color:#6d2462"><a href="#140316" label="[14:03:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Though I guess stage0 is useful if you would build your own custom hw</span></div><div class="line" id="140336"><span class="nick" style="color:#8dd3c7"><a href="#140336" label="[14:03:36]">&lt;Googulator&gt;</a></span><span class="message">original stage0 for knight, you mean?</span></div><div class="line" id="140345"><span class="nick" style="color:#6d2462"><a href="#140345" label="[14:03:45]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yes...</span></div><div class="line" id="140346"><span class="nick" style="color:#8dd3c7"><a href="#140346" label="[14:03:46]">&lt;Googulator&gt;</a></span><span class="message">stage0-posix _is_ used by kernel bootstrap</span></div><div class="line" id="140405"><span class="nick" style="color:#6d2462"><a href="#140405" label="[14:04:05]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; That's the one that is in savannah</span></div><div class="line" id="140419"><span class="nick" style="color:#6d2462"><a href="#140419" label="[14:04:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; (Without -posix)</span></div><div class="line" id="140444"><span class="nick" style="color:#6d2462"><a href="#140444" label="[14:04:44]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; <a rel="nofollow" href="https://savannah.nongnu.org/projects/stage0">https://savannah.nongnu.org/projects/stage0</a> </span></div><div class="line" id="142342"><span class="nick" style="color:#6b8072"><a href="#142342" label="[14:23:42]">&lt;pabs3&gt;</a></span><span class="message">oriansj: wut? submodules are separate repos, just with pointers between them?</span></div><div class="line" id="175452"><span class="nick" style="color:#2e2a4a"><a href="#175452" label="[17:54:52]">&lt;oriansj&gt;</a></span><span class="message">pabs3: yep. welcome to my wonderful confusion regarding putting things into savannah</span></div><div class="line" id="204518"><span class="nick" style="color:#234e69"><a href="#204518" label="[20:45:18]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: The initrd code from Fiwix 1.4.0 was written by me and was a hack because it presumed the existence of hard coded physical memory ranges.</span></div><div class="line" id="204620"><span class="nick" style="color:#234e69"><a href="#204620" label="[20:46:20]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: Mikaku rewrote it and I think his implementation was better in that it mapped the initrd to an available virtual memory range.</span></div><div class="line" id="204809"><span class="nick" style="color:#234e69"><a href="#204809" label="[20:48:09]">&lt;rickmasters&gt;</a></span><span class="message">But I think you are saying virtual range may not be a good choice because user space may try to occupy the same range.</span></div><div class="line" id="212401"><span class="nick" style="color:#234e69"><a href="#212401" label="[21:24:01]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: sorry, after looking at this further, it doesn't appear to be a virtual memory conflict.</span></div><div class="line" id="212506"><span class="nick" style="color:#234e69"><a href="#212506" label="[21:25:06]">&lt;rickmasters&gt;</a></span><span class="message">It may be more related to the new (optional) user/kernel memory split of 2G/2G versus 3G/1G that we are using.</span></div><div class="line" id="212607"><span class="nick" style="color:#234e69"><a href="#212607" label="[21:26:07]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku introduced the 2/2 split that so we could map in a larger initrd into kernel space.</span></div><div class="line" id="212714"><span class="nick" style="color:#234e69"><a href="#212714" label="[21:27:14]">&lt;rickmasters&gt;</a></span><span class="message">I'm still looking into how that relates to the change in available user space memory you are seeing.</span></div><br /></div></body></html>

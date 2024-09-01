@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-10-11.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000746"><span class="nick" style="color:#389600"><a href="#000746" label="[00:07:46]">&lt;fossy&gt;</a></span><span class="message">good news, the gawk works, and it is *significantly* faster</span></div><div class="line" id="001450"><span class="nick" style="color:#8dd3c7"><a href="#001450" label="[00:14:50]">&lt;stikonas&gt;</a></span><span class="message">that's good</span></div><div class="line" id="001554"><span class="nick" style="color:#8dd3c7"><a href="#001554" label="[00:15:54]">&lt;stikonas&gt;</a></span><span class="message">so most of the rough edges after kernel landed seem to be getting resolved now</span></div><div class="line" id="001621"><span class="nick" style="color:#389600"><a href="#001621" label="[00:16:21]">&lt;fossy&gt;</a></span><span class="message">yeah</span></div><div class="line" id="001736"><span class="nick" style="color:#8dd3c7"><a href="#001736" label="[00:17:36]">&lt;stikonas&gt;</a></span><span class="message">although, I'm still a bit confused why kexec doesn't work with 64-bit kernel. From what I saw online, theoretically it should work</span></div><div class="line" id="001845"><span class="nick" style="color:#8dd3c7"><a href="#001845" label="[00:18:45]">&lt;stikonas&gt;</a></span><span class="message">or maybe because kexec architectrure has to match kernel architecture...</span></div><div class="line" id="001859"><span class="nick" style="color:#8dd3c7"><a href="#001859" label="[00:18:59]">&lt;stikonas&gt;</a></span><span class="message">i.e. 64 bit kexec is needed for 64 bit kernel...</span></div><div class="line" id="001931"><span class="nick" style="color:#389600"><a href="#001931" label="[00:19:31]">&lt;fossy&gt;</a></span><span class="message">yes, that is the case</span></div><div class="line" id="001954"><span class="nick" style="color:#389600"><a href="#001954" label="[00:19:54]">&lt;fossy&gt;</a></span><span class="message">if you look through kexec code, you will notice the syscall structure, the jumps, etc are all different for different archs, including x86 -&gt; x86_64</span></div><div class="line" id="002059"><span class="nick" style="color:#8dd3c7"><a href="#002059" label="[00:20:59]">&lt;stikonas&gt;</a></span><span class="message">I see</span></div><div class="line" id="002523"><span class="nick" style="color:#8dd3c7"><a href="#002523" label="[00:25:23]">&lt;stikonas&gt;</a></span><span class="message">hmm, live-bootstrap is starred by quite a lot of people...</span></div><div class="line" id="002535"><span class="nick" style="color:#8dd3c7"><a href="#002535" label="[00:25:35]">&lt;stikonas&gt;</a></span><span class="message">122...</span></div><div class="line" id="002553"><span class="nick" style="color:#8dd3c7"><a href="#002553" label="[00:25:53]">&lt;stikonas&gt;</a></span><span class="message">although where are all the PRs from them...</span></div><div class="line" id="002929"><span class="nick" style="color:#389600"><a href="#002929" label="[00:29:29]">&lt;fossy&gt;</a></span><span class="message">LOL</span></div><div class="line" id="002941"><span class="nick" style="color:#389600"><a href="#002941" label="[00:29:41]">&lt;fossy&gt;</a></span><span class="message">i think that's probably from hn and other such publicity</span></div><div class="line" id="004219"><span class="nick" style="color:#8dd3c7"><a href="#004219" label="[00:42:19]">&lt;stikonas&gt;</a></span><span class="message">ok, I'll try gawk once you push it</span></div><div class="line" id="004223"><span class="nick" style="color:#8dd3c7"><a href="#004223" label="[00:42:23]">&lt;stikonas&gt;</a></span><span class="message">sed got oomkilled</span></div><div class="line" id="010037"><span class="nick" style="color:#389600"><a href="#010037" label="[01:00:37]">&lt;fossy&gt;</a></span><span class="message">yeah, same for me</span></div><div class="line" id="011408"><span class="nick" style="color:#389600"><a href="#011408" label="[01:14:08]">&lt;fossy&gt;</a></span><span class="message">using your kernel</span></div><div class="line" id="012226"><span class="nick" style="color:#6b8072"><a href="#012226" label="[01:22:26]">&lt;oriansj&gt;</a></span><span class="message">stikonas: far fewer people contribute than will use starring to mark they think progress on something is interesting.</span></div><div class="line" id="012322"><span class="nick" style="color:#80b1d3"><a href="#012322" label="[01:23:22]">&lt;pabs3&gt;</a></span><span class="message">starring is used as bookmarks by many folks, so isn't particularly meaningful</span></div><div class="line" id="012642"><span class="nick" style="color:#6b8072"><a href="#012642" label="[01:26:42]">&lt;oriansj&gt;</a></span><span class="message">hence why stage0 has 507 stars but only 564 commits 522 done by me (92%)</span></div><div class="line" id="013120"><span class="nick" style="color:#6b8072"><a href="#013120" label="[01:31:20]">&lt;oriansj&gt;</a></span><span class="message">the majority of commits not done by me are fixing typos (thank you for that stikonas) or someone wanting to fix something (thank you markjenkins and siraben) or making stage0 more MesCC friendly (thank you janneke)</span></div><div class="line" id="013247"><span class="nick" style="color:#6b8072"><a href="#013247" label="[01:32:47]">&lt;oriansj&gt;</a></span><span class="message">stage0-posix on the other hand only got 32 stars but has 251 commits; only 105 are done by me.</span></div><div class="line" id="013451"><span class="nick" style="color:#6b8072"><a href="#013451" label="[01:34:51]">&lt;oriansj&gt;</a></span><span class="message">stikonas has 62 for RISC-V support, janneke has 28 commits getting it all started, yt has 27 for AArch64 support and 8 other people contributing to make it all possible.</span></div><div class="line" id="013542"><span class="nick" style="color:#6b8072"><a href="#013542" label="[01:35:42]">&lt;oriansj&gt;</a></span><span class="message">By github standards stage0 is a success but stage0-posix is invisible. However by cooperation standards, stage0-posix has been considerably much more successful than stage0</span></div><div class="line" id="013630"><span class="nick" style="color:#6d2462"><a href="#013630" label="[01:36:30]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, number of commits is somewhat poor metric. I tend to use smaller commits</span></div><div class="line" id="014322"><span class="nick" style="color:#389600"><a href="#014322" label="[01:43:22]">&lt;fossy&gt;</a></span><span class="message">^</span></div><div class="line" id="014607"><span class="nick" style="color:#389600"><a href="#014607" label="[01:46:07]">&lt;fossy&gt;</a></span><span class="message">this is rather disappointing... gawk seems to not really work.. even with my system gawk, it gives a bunch of &quot;did not change, something is wrong&quot; messages</span></div><div class="line" id="015915"><span class="nick" style="color:#6d2462"><a href="#015915" label="[01:59:15]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm</span></div><div class="line" id="015937"><span class="nick" style="color:#389600"><a href="#015937" label="[01:59:37]">&lt;fossy&gt;</a></span><span class="message">i'm trying newer scripts, maybe fixed</span></div><div class="line" id="025710"><span class="nick" style="color:#389600"><a href="#025710" label="[02:57:10]">&lt;fossy&gt;</a></span><span class="message">nope</span></div><div class="line" id="025716"><span class="nick" style="color:#389600"><a href="#025716" label="[02:57:16]">&lt;fossy&gt;</a></span><span class="message">i don't think we can use gawk :\</span></div><div class="line" id="071046"><span class="nick" style="color:#389600"><a href="#071046" label="[07:10:46]">&lt;fossy&gt;</a></span><span class="message">Ok, now looking at the code for deblob in more detial, there seems to be a hidden option where we can just force a hard wipe + delete of all files with blobs, which is ok for our use case, rather than going through and extracting + removing them</span></div><div class="line" id="230754"><span class="nick" style="color:#8dd3c7"><a href="#230754" label="[23:07:54]">&lt;stikonas&gt;</a></span><span class="message">fossy, oriansj: another cheap feature that we can add to kaem: <a rel="nofollow" href="https://github.com/oriansj/mescc-tools/pull/31">https://github.com/oriansj/mescc-tools/pull/31</a> </span></div><div class="line" id="230800"><span class="nick" style="color:#8dd3c7"><a href="#230800" label="[23:08:00]">&lt;stikonas&gt;</a></span><span class="message">(terminate commands on semicolon)</span></div><div class="line" id="233130"><span class="nick" style="color:#389600"><a href="#233130" label="[23:31:30]">&lt;fossy&gt;</a></span><span class="message">Yeah that looks reasonable to me</span></div><div class="line" id="233412"><span class="nick" style="color:#389600"><a href="#233412" label="[23:34:12]">&lt;fossy&gt;</a></span><span class="message">oops, may have used wrong merge strategy, looking at commit history</span></div><div class="line" id="233418"><span class="nick" style="color:#389600"><a href="#233418" label="[23:34:18]">&lt;fossy&gt;</a></span><span class="message">my bad if that is the case, oriansj</span></div><div class="line" id="234202"><span class="nick" style="color:#8dd3c7"><a href="#234202" label="[23:42:02]">&lt;stikonas&gt;</a></span><span class="message">yeah, I think mescc-tools usually doesn't include merge commit</span></div><div class="line" id="234324"><span class="nick" style="color:#8dd3c7"><a href="#234324" label="[23:43:24]">&lt;stikonas&gt;</a></span><span class="message">fossy: I also briefly checked if it's possible to move flex 2.5.11 after musl (to reduce gap between heirloom-tools and musl). The answer is: in principle yes, but heirloom-tools need to be rebuild with musl too, so in practice it's easier to move both at the same time</span></div><div class="line" id="234442"><span class="nick" style="color:#8dd3c7"><a href="#234442" label="[23:44:42]">&lt;stikonas&gt;</a></span><span class="message">which basically means if we get something else to run bash scripts, e.g. gash, then we just simply replace heirloom-&gt;bash-&gt;flex-&gt;musl with musl-&gt;heirloom-&gt;bash-&gt;flex</span></div><div class="line" id="235525"><span class="nick" style="color:#6b8072"><a href="#235525" label="[23:55:25]">&lt;oriansj&gt;</a></span><span class="message">fossy: it is fine and it looks simple enough to be worth adding.</span></div><br /></div></body></html>

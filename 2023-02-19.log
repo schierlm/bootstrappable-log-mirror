@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-02-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="015253"><span class="nick" style="color:#389600"><a href="#015253" label="[01:52:53]">&lt;stikonas&gt;</a></span><span class="message">fossy: so I think I've finally got get_files and src_pkg changes working. Early checksums before sort have different hashes (as ls shows directories first), but the ones after sort should match the ones generated with find</span></div><div class="line" id="015319"><span class="nick" style="color:#389600"><a href="#015319" label="[01:53:19]">&lt;stikonas&gt;</a></span><span class="message">I'll now have to rerun live-bootstrap a few times to get checksums right for my commits, so it will take time...</span></div><div class="line" id="022832"><span class="nick" style="color:#389600"><a href="#022832" label="[02:28:32]">&lt;stikonas&gt;</a></span><span class="message">argh, I actually still messed something up (installation of tar-1.34 much later in sysc got broken)</span></div><div class="line" id="030723"><span class="nick" style="color:#8dd3c7"><a href="#030723" label="[03:07:23]">&lt;next4th&gt;</a></span><span class="message">dose the goal of baremental bootstrap is to cross compile a linux kernel?  i think next step(s) can be duksos <a rel="nofollow" href="https://sr.ht/~vdupras/duskos/">https://sr.ht/~vdupras/duskos/</a>  , which is a forth os with an almost c compiler!</span></div><div class="line" id="030752"><span class="nick" style="color:#389600"><a href="#030752" label="[03:07:52]">&lt;stikonas&gt;</a></span><span class="message">next4th: we already almost have it with rickmaster's builder-hex0</span></div><div class="line" id="030821"><span class="nick" style="color:#389600"><a href="#030821" label="[03:08:21]">&lt;stikonas&gt;</a></span><span class="message">I suspect it is much smaller than duskos</span></div><div class="line" id="030908"><span class="nick" style="color:#389600"><a href="#030908" label="[03:09:08]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/ironmeld/builder-hex0/blob/main/builder-hex0.hex2">https://github.com/ironmeld/builder-hex0/blob/main/builder-hex0.hex2</a> </span></div><div class="line" id="030918"><span class="nick" style="color:#389600"><a href="#030918" label="[03:09:18]">&lt;stikonas&gt;</a></span><span class="message">(and hex0 version at <a rel="nofollow" href="https://github.com/ironmeld/builder-hex0/blob/main/builder-hex0.hex0">https://github.com/ironmeld/builder-hex0/blob/main/builder-hex0.hex0</a>) </span></div><div class="line" id="030935"><span class="nick" style="color:#389600"><a href="#030935" label="[03:09:35]">&lt;stikonas&gt;</a></span><span class="message">it can run stage0-posix and early steps of live-bootstrap up to tcc</span></div><div class="line" id="030941"><span class="nick" style="color:#389600"><a href="#030941" label="[03:09:41]">&lt;stikonas&gt;</a></span><span class="message">then it can build fiwix kernel</span></div><div class="line" id="030943"><span class="nick" style="color:#8dd3c7"><a href="#030943" label="[03:09:43]">&lt;next4th&gt;</a></span><span class="message">oh, that's cool!</span></div><div class="line" id="030948"><span class="nick" style="color:#389600"><a href="#030948" label="[03:09:48]">&lt;stikonas&gt;</a></span><span class="message">which can then run all the way to linux</span></div><div class="line" id="030957"><span class="nick" style="color:#389600"><a href="#030957" label="[03:09:57]">&lt;stikonas&gt;</a></span><span class="message">the only missing bits are kernel transitions</span></div><div class="line" id="031002"><span class="nick" style="color:#389600"><a href="#031002" label="[03:10:02]">&lt;stikonas&gt;</a></span><span class="message">rickmasters is workin on this now</span></div><div class="line" id="031009"><span class="nick" style="color:#389600"><a href="#031009" label="[03:10:09]">&lt;stikonas&gt;</a></span><span class="message">(and also upstreaming his changes to fiwix os)</span></div><div class="line" id="031206"><span class="nick" style="color:#389600"><a href="#031206" label="[03:12:06]">&lt;stikonas&gt;</a></span><span class="message">next4th: there is also less complete stage0-uefi</span></div><div class="line" id="031225"><span class="nick" style="color:#389600"><a href="#031225" label="[03:12:25]">&lt;stikonas&gt;</a></span><span class="message">it can build M2-Planet (almost/subset of C compiler)</span></div><div class="line" id="031239"><span class="nick" style="color:#389600"><a href="#031239" label="[03:12:39]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://git.stikonas.eu/andrius/stage0-uefi">https://git.stikonas.eu/andrius/stage0-uefi</a> </span></div><div class="line" id="031553"><span class="nick" style="color:#8dd3c7"><a href="#031553" label="[03:15:53]">&lt;next4th&gt;</a></span><span class="message">stikonas: thank you, i'm learning this bootstrap progress for fun, not much i could contribute, but those does excite me :)</span></div><div class="line" id="031756"><span class="nick" style="color:#2e2a4a"><a href="#031756" label="[03:17:56]">&lt;stikonas[m]&gt;</a></span><span class="message">Yeah, take a look and ask questions</span></div><div class="line" id="031841"><span class="nick" style="color:#2e2a4a"><a href="#031841" label="[03:18:41]">&lt;stikonas[m]&gt;</a></span><span class="message">(Though I'll be away for half a day)</span></div><div class="line" id="031951"><span class="nick" style="color:#8dd3c7"><a href="#031951" label="[03:19:51]">&lt;next4th&gt;</a></span><span class="message">sure, and that's look so much fun, i'm reading the wiki now..  thanks!</span></div><div class="line" id="041342"><span class="nick" style="color:#2e2a4a"><a href="#041342" label="[04:13:42]">&lt;stikonas[m]&gt;</a></span><span class="message">next4th: also take a look at <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst">https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst</a> </span></div><div class="line" id="042233"><span class="nick" style="color:#8dd3c7"><a href="#042233" label="[04:22:33]">&lt;next4th&gt;</a></span><span class="message">yeah, just looked, so with boot2now we got: (sysc (sysb (live-bootstrap:sysa builder-hex0)) -&gt; gcc10</span></div><div class="line" id="042452"><span class="nick" style="color:#8dd3c7"><a href="#042452" label="[04:24:52]">&lt;next4th&gt;</a></span><span class="message">guess i could give it a run with enough time and resource :)</span></div><div class="line" id="043307"><span class="nick" style="color:#8dd3c7"><a href="#043307" label="[04:33:07]">&lt;next4th&gt;</a></span><span class="message">that parts.rst is very useful</span></div><br /></div></body></html>

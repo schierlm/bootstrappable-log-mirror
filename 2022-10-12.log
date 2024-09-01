@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-10-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="012112"><span class="nick" style="color:#8dd3c7"><a href="#012112" label="[01:21:12]">&lt;stikonas&gt;</a></span><span class="message">oriansj: hmm, I'm thinking that maybe libc*.M1 and headers in <a rel="nofollow" href="https://github.com/oriansj/M2libc/tree/main/amd64">https://github.com/oriansj/M2libc/tree/main/amd64</a>  should go to linux subdirectory...</span></div><div class="line" id="012125"><span class="nick" style="color:#8dd3c7"><a href="#012125" label="[01:21:25]">&lt;stikonas&gt;</a></span><span class="message">but probably not the defs file</span></div><div class="line" id="014238"><span class="nick" style="color:#8dd3c7"><a href="#014238" label="[01:42:38]">&lt;stikonas&gt;</a></span><span class="message">hmm, I think libc-core.M1 would be quite big for UEFI</span></div><div class="line" id="014422"><span class="nick" style="color:#8dd3c7"><a href="#014422" label="[01:44:22]">&lt;stikonas&gt;</a></span><span class="message">we have to restrict ourselves to cc_amd64 subset of C and it's tricky to call UEFI functions from it (e.g. no support for &amp;)</span></div><div class="line" id="014438"><span class="nick" style="color:#8dd3c7"><a href="#014438" label="[01:44:38]">&lt;stikonas&gt;</a></span><span class="message">so possibly I'll just steal the whole startup sequence from cc_amd64.m1</span></div><div class="line" id="015046"><span class="nick" style="color:#8dd3c7"><a href="#015046" label="[01:50:46]">&lt;stikonas&gt;</a></span><span class="message">anyway, I don't expect M2.efi to be ready before the ned of this month...</span></div><div class="line" id="032807"><span class="nick" style="color:#2e2a4a"><a href="#032807" label="[03:28:07]">&lt;oriansj&gt;</a></span><span class="message">stikonas: probably as you'll be creating a UEFI folder to mirror the linux folder</span></div><div class="line" id="032906"><span class="nick" style="color:#2e2a4a"><a href="#032906" label="[03:29:06]">&lt;oriansj&gt;</a></span><span class="message">(and we have to figure out how we want M2-Mesoplanet to chose which folder to collect files from)</span></div><div class="line" id="032944"><span class="nick" style="color:#2e2a4a"><a href="#032944" label="[03:29:44]">&lt;oriansj&gt;</a></span><span class="message">and minus the stack setup, everything else can be done in C</span></div><div class="line" id="033550"><span class="nick" style="color:#2e2a4a"><a href="#033550" label="[03:35:50]">&lt;oriansj&gt;</a></span><span class="message">civodul: please do share the error messages and/or logs so that we can help if you need/want it.</span></div><div class="line" id="033715"><span class="nick" style="color:#2e2a4a"><a href="#033715" label="[03:37:15]">&lt;oriansj&gt;</a></span><span class="message">ilmu[m]: Hail is for greeting, not thanking but I love the spirit ^_^</span></div><div class="line" id="050350"><span class="nick" style="color:#2e2a4a"><a href="#050350" label="[05:03:50]">&lt;oriansj&gt;</a></span><span class="message">pabs3: well provided there is low bandwidth communication, global software development could continue. It only takes a few hundred HAMs around the world to provide such a network over packet switch radio.</span></div><div class="line" id="050507"><span class="nick" style="color:#2e2a4a"><a href="#050507" label="[05:05:07]">&lt;oriansj&gt;</a></span><span class="message">assuming developers can adapt to minimal network communication methods such as IRC and usenet</span></div><div class="line" id="050521"><span class="nick" style="color:#6b8072"><a href="#050521" label="[05:05:21]">&lt;muurkha&gt;</a></span><span class="message">why a few hundred?</span></div><div class="line" id="050543"><span class="nick" style="color:#6b8072"><a href="#050543" label="[05:05:43]">&lt;muurkha&gt;</a></span><span class="message">I mean, why not two?</span></div><div class="line" id="050619"><span class="nick" style="color:#2e2a4a"><a href="#050619" label="[05:06:19]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well the question is the size of the network region around them that they can provide bandwith for</span></div><div class="line" id="050646"><span class="nick" style="color:#6b8072"><a href="#050646" label="[05:06:46]">&lt;muurkha&gt;</a></span><span class="message">I guess it depends on where the developers are</span></div><div class="line" id="050650"><span class="nick" style="color:#2e2a4a"><a href="#050650" label="[05:06:50]">&lt;oriansj&gt;</a></span><span class="message">^bandwith^bandwith^</span></div><div class="line" id="050657"><span class="nick" style="color:#6b8072"><a href="#050657" label="[05:06:57]">&lt;muurkha&gt;</a></span><span class="message">heh</span></div><div class="line" id="050731"><span class="nick" style="color:#2e2a4a"><a href="#050731" label="[05:07:31]">&lt;oriansj&gt;</a></span><span class="message">^bandwith^bandwidth^</span></div><div class="line" id="050818"><span class="nick" style="color:#2e2a4a"><a href="#050818" label="[05:08:18]">&lt;oriansj&gt;</a></span><span class="message">and what network is available to power between the developers and the network relays</span></div><div class="line" id="050906"><span class="nick" style="color:#2e2a4a"><a href="#050906" label="[05:09:06]">&lt;oriansj&gt;</a></span><span class="message">for example there may be cables between towns and cities that continue to function, so even whole countries may remain connected after collapse</span></div><div class="line" id="051039"><span class="nick" style="color:#2e2a4a"><a href="#051039" label="[05:10:39]">&lt;oriansj&gt;</a></span><span class="message">but in a worst case scenerio; the relays may only be able to service a couple square miles (if less the number grows into the thousands)</span></div><div class="line" id="051150"><span class="nick" style="color:#6b8072"><a href="#051150" label="[05:11:50]">&lt;muurkha&gt;</a></span><span class="message">I was crossing the pedestrian bridge over the Sarmiento Line Train the other day, and I realized it would be possible to drop a magnetically anchored radio transponder onto the top of the train from the bridge</span></div><div class="line" id="051259"><span class="nick" style="color:#6b8072"><a href="#051259" label="[05:12:59]">&lt;muurkha&gt;</a></span><span class="message">that train goes back and forth between Station 11 in downtown and Moreno Station about 18 hours a day, making about 12 trips</span></div><div class="line" id="051342"><span class="nick" style="color:#6b8072"><a href="#051342" label="[05:13:42]">&lt;muurkha&gt;</a></span><span class="message">those are about 150 km apart</span></div><div class="line" id="051429"><span class="nick" style="color:#2e2a4a"><a href="#051429" label="[05:14:29]">&lt;oriansj&gt;</a></span><span class="message">assuming the train keeps running</span></div><div class="line" id="051432"><span class="nick" style="color:#6b8072"><a href="#051432" label="[05:14:32]">&lt;muurkha&gt;</a></span><span class="message">right</span></div><div class="line" id="051458"><span class="nick" style="color:#6b8072"><a href="#051458" label="[05:14:58]">&lt;muurkha&gt;</a></span><span class="message">if the transponder has a range of 500 m, that covers about 150 square km, with a round trip latency of up to an hour and a half</span></div><div class="line" id="051702"><span class="nick" style="color:#6b8072"><a href="#051702" label="[05:17:02]">&lt;muurkha&gt;</a></span><span class="message">typically a handheld GMRS radio has a kilometer or three of range for voice traffic; they use UHF</span></div><div class="line" id="051724"><span class="nick" style="color:#6b8072"><a href="#051724" label="[05:17:24]">&lt;muurkha&gt;</a></span><span class="message">but that's mostly limited by surface topography; if you can get line of sight to a repeater you can get tens of km range out of them</span></div><div class="line" id="051835"><span class="nick" style="color:#6b8072"><a href="#051835" label="[05:18:35]">&lt;muurkha&gt;</a></span><span class="message">they cost about US$6: <a rel="nofollow" href="https://articulo.mercadolibre.com.ar/MLA-617285621-handy-walkie-alcance-5km-real-handies-manos-libres-par-x2-_JM">https://articulo.mercadolibre.com.ar/MLA-617285621-handy-walkie-alcance-5km-real-handies-manos-libres-par-x2-_JM</a> </span></div><div class="line" id="051839"><span class="nick" style="color:#2e2a4a"><a href="#051839" label="[05:18:39]">&lt;oriansj&gt;</a></span><span class="message">and there are things like: <a rel="nofollow" href="https://github.com/Lora-net/LoRaMac-node">https://github.com/Lora-net/LoRaMac-node</a>  which enable cheap nodes</span></div><div class="line" id="051939"><span class="nick" style="color:#6b8072"><a href="#051939" label="[05:19:39]">&lt;muurkha&gt;</a></span><span class="message">oh neat, I haven't tried out my LoRa radios yet</span></div><div class="line" id="052251"><span class="nick" style="color:#6b8072"><a href="#052251" label="[05:22:51]">&lt;muurkha&gt;</a></span><span class="message">ultimately if you can integrate a signal over ten times as long a time period, you can receive the same number of bits at a ten times lower power level</span></div><div class="line" id="052338"><span class="nick" style="color:#6b8072"><a href="#052338" label="[05:23:38]">&lt;muurkha&gt;</a></span><span class="message">some of my notes on this from 9 years ago are in <a rel="nofollow" href="https://dercuano.github.io/notes/ultraslow-radio.html">https://dercuano.github.io/notes/ultraslow-radio.html</a> </span></div><div class="line" id="052513"><span class="nick" style="color:#6b8072"><a href="#052513" label="[05:25:13]">&lt;muurkha&gt;</a></span><span class="message">there's a lot of military research on signals with low probability of detection, not just interference robustness, which might be important if you're living in an environment where telecommunication is considered subversive</span></div><div class="line" id="052757"><span class="nick" style="color:#2e2a4a"><a href="#052757" label="[05:27:57]">&lt;oriansj&gt;</a></span><span class="message">muurkha: good stuff</span></div><div class="line" id="052818"><span class="nick" style="color:#6b8072"><a href="#052818" label="[05:28:18]">&lt;muurkha&gt;</a></span><span class="message">without a common time source, clock drift limits feasible integration times, but as long as you can passively receive GPS or GLONASS, you can use those to synchronize your clocks, getting arbitrarily long integration times</span></div><div class="line" id="053041"><span class="nick" style="color:#6b8072"><a href="#053041" label="[05:30:41]">&lt;muurkha&gt;</a></span><span class="message">so you could plausibly communicate at one bit per week</span></div><div class="line" id="134624"><span class="nick" style="color:#2e2a4a"><a href="#134624" label="[13:46:24]">&lt;oriansj&gt;</a></span><span class="message">muurkha: definitely not enough bandwidth for downloading the Linux kernel in one's lifetime</span></div><br /></div></body></html>

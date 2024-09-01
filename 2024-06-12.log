@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="023937"><span class="nick" style="color:#389600"><a href="#023937" label="[02:39:37]">&lt;Googulator&gt;</a></span><span class="message">rekado: did you see my post about the newly found Yale Haskell sources?</span></div><div class="line" id="024344"><span class="nick" style="color:#389600"><a href="#024344" label="[02:43:44]">&lt;Googulator&gt;</a></span><span class="message">rekado it appears the Yale Haskell team was aware of clisp, and actually began to port to it</span></div><div class="line" id="024515"><span class="nick" style="color:#389600"><a href="#024515" label="[02:45:15]">&lt;Googulator&gt;</a></span><span class="message">(an older version of clisp, that is - the included port doesn't work with modern clisp, and I was unable to compile the period-accurate clisp 2.11 sources found @ <a rel="nofollow" href="http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/lisp/impl/clisp/source/haible/clispsrc.tgz">http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/lisp/impl/clisp/source/haible/clispsrc.tgz</a>  )</span></div><div class="line" id="140705"><span class="nick" style="color:#8dd3c7"><a href="#140705" label="[14:07:05]">&lt;fossy&gt;</a></span><span class="message">stikonas, I can reproduce the qemu issue, but i'm not sure why it occurs</span></div><div class="line" id="141135"><span class="nick" style="color:#2e2a4a"><a href="#141135" label="[14:11:35]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; fossy: it's caused specifically by tcc-boot upgrade</span></div><div class="line" id="141203"><span class="nick" style="color:#2e2a4a"><a href="#141203" label="[14:12:03]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; (Even though this is not a compiler used to build fiwix...)</span></div><div class="line" id="141224"><span class="nick" style="color:#2e2a4a"><a href="#141224" label="[14:12:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I need to test more to fins out which commit</span></div><div class="line" id="141311"><span class="nick" style="color:#2e2a4a"><a href="#141311" label="[14:13:11]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But given that most are riscv specific I have some suspects</span></div><div class="line" id="141314"><span class="nick" style="color:#2e2a4a"><a href="#141314" label="[14:13:14]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; <a rel="nofollow" href="https://gitlab.com/janneke/tinycc/-/commits/mes-0.26.1?ref_type=heads">https://gitlab.com/janneke/tinycc/-/commits/mes-0.26.1?ref_type=heads</a> </span></div><div class="line" id="141334"><span class="nick" style="color:#2e2a4a"><a href="#141334" label="[14:13:34]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Might be <a rel="nofollow" href="https://gitlab.com/janneke/tinycc/-/commit/dd46e018f64cbd67d907ce6ea91923e627206363">https://gitlab.com/janneke/tinycc/-/commit/dd46e018f64cbd67d907ce6ea91923e627206363</a> </span></div><div class="line" id="153754"><span class="nick" style="color:#6b8072"><a href="#153754" label="[15:37:54]">&lt;aggi&gt;</a></span><span class="message">finally, i could reproduce tccboot, moving back onto slackware11 as buildhost</span></div><div class="line" id="153825"><span class="nick" style="color:#6b8072"><a href="#153825" label="[15:38:25]">&lt;aggi&gt;</a></span><span class="message">there was several issues... tccboot when compiled itself with tcc got problems/crashes then</span></div><div class="line" id="153855"><span class="nick" style="color:#6b8072"><a href="#153855" label="[15:38:55]">&lt;aggi&gt;</a></span><span class="message">yet when compiled with gcc3, it's easily reproduced with a tiny change made to Makefile</span></div><div class="line" id="153935"><span class="nick" style="color:#6b8072"><a href="#153935" label="[15:39:35]">&lt;aggi&gt;</a></span><span class="message">however, i want to avoid gcc for as long as possible in the dependency graph, and want to keep that _optional_ for GNU stuff later</span></div><div class="line" id="154013"><span class="nick" style="color:#6b8072"><a href="#154013" label="[15:40:13]">&lt;aggi&gt;</a></span><span class="message">this means, currently, tccboot/kernel-bootstrapping of mine remain locked/blocked against gcc, contradicting the whole idea</span></div><div class="line" id="154047"><span class="nick" style="color:#6b8072"><a href="#154047" label="[15:40:47]">&lt;aggi&gt;</a></span><span class="message">and, something else, the AoT kernel compilation of linux-2.4 as published by seyko2 seems to merely be a sanity check before kernel-sources are stuffed into tccboot</span></div><div class="line" id="154216"><span class="nick" style="color:#6b8072"><a href="#154216" label="[15:42:16]">&lt;aggi&gt;</a></span><span class="message">to verify compilation linking only, not intending to boot such a kernel-image, and instead use tccboot later</span></div><div class="line" id="154349"><span class="nick" style="color:#6b8072"><a href="#154349" label="[15:43:49]">&lt;aggi&gt;</a></span><span class="message">i don't see an easy way of debugging/repairing tccboot compiled with tcc itself, hence i had to get back to seeing why the AoT-compiled kernel crashes</span></div><div class="line" id="154442"><span class="nick" style="color:#6b8072"><a href="#154442" label="[15:44:42]">&lt;aggi&gt;</a></span><span class="message">for this, i got a known-working state re-produced from source, to see how tccboot JIT-kernel image and tcc AoT-kernel image differ</span></div><div class="line" id="154529"><span class="nick" style="color:#6b8072"><a href="#154529" label="[15:45:29]">&lt;aggi&gt;</a></span><span class="message">and imo, if tccboot cannot be compiled with tcc but relies upon gcc3 early, it's of little to no use in a kernel-bootstrapping scenario</span></div><div class="line" id="154702"><span class="nick" style="color:#6b8072"><a href="#154702" label="[15:47:02]">&lt;aggi&gt;</a></span><span class="message">that's probably why tccboot was mostly abandoned, and there was no interest in maintaining a linux-2.x with tcc-toolchain for native boot either</span></div><div class="line" id="154801"><span class="nick" style="color:#6b8072"><a href="#154801" label="[15:48:01]">&lt;aggi&gt;</a></span><span class="message">because, linux-2.5 already made some changes to Kbuild incompatible with tcc, among other stability issues to stabilize this</span></div><div class="line" id="161544"><span class="nick" style="color:#6b8072"><a href="#161544" label="[16:15:44]">&lt;aggi&gt;</a></span><span class="message">there's two options to proceed: repairing tccboot compiled with i386-tcc, and/or repairing the AoT compiled kernel-crash</span></div><div class="line" id="161701"><span class="nick" style="color:#6b8072"><a href="#161701" label="[16:17:01]">&lt;aggi&gt;</a></span><span class="message">and both required reproducing tccboot (which was rather trivial after moving from aarch32 to buildhost=x86)</span></div><div class="line" id="161745"><span class="nick" style="color:#6b8072"><a href="#161745" label="[16:17:45]">&lt;aggi&gt;</a></span><span class="message">i may have to see too how buildhost poisoned buildtarget with the i686-musl-cross-gcc within tccboot</span></div><div class="line" id="161824"><span class="nick" style="color:#6b8072"><a href="#161824" label="[16:18:24]">&lt;aggi&gt;</a></span><span class="message">then i can avoid the cumbersome slackware11-x86 buildhost setup</span></div><div class="line" id="162317"><span class="nick" style="color:#6b8072"><a href="#162317" label="[16:23:17]">&lt;aggi&gt;</a></span><span class="message">ACTION departs for a little while</span></div><br /></div></body></html>

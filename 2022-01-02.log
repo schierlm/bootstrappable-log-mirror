@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-01-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000904"><span class="nick" style="color:#389600"><a href="#000904" label="[00:09:04]">&lt;doras&gt;</a></span><span class="message">oriansj: I created <a rel="nofollow" href="https://github.com/oriansj/mes-m2/pull/17">https://github.com/oriansj/mes-m2/pull/17</a> </span></div><div class="line" id="004042"><span class="nick" style="color:#8dd3c7"><a href="#004042" label="[00:40:42]">&lt;oriansj&gt;</a></span><span class="message">doras: merged</span></div><div class="line" id="004058"><span class="nick" style="color:#8dd3c7"><a href="#004058" label="[00:40:58]">&lt;oriansj&gt;</a></span><span class="message">thank you for improving mes-m2</span></div><div class="line" id="004110"><span class="nick" style="color:#389600"><a href="#004110" label="[00:41:10]">&lt;doras&gt;</a></span><span class="message">Thanks :)</span></div><div class="line" id="025905"><span class="nick" style="color:#6b8072"><a href="#025905" label="[02:59:05]">&lt;bauen1&gt;</a></span><span class="message">i finally have all (well probably more like most) bugs eliminated from my uart driver and the entire thing is now ~320 bytes big ..., so i need to probably add a tiny bit more init code so it can run from flash, add hex0 and then work on reducing the size quite a lot</span></div><div class="line" id="030107"><span class="nick" style="color:#6b8072"><a href="#030107" label="[03:01:07]">&lt;bauen1&gt;</a></span><span class="message">and maybe i can come up with a circuit to support the programming of the spi flash, hand toggling 256 bytes isn't particularely fun, and i also need to figure out a debounced way of toggling the clock</span></div><div class="line" id="102253"><span class="nick" style="color:#389600"><a href="#102253" label="[10:22:53]">&lt;doras&gt;</a></span><span class="message">stikonas, fossy: I created <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/143">https://github.com/fosslinux/live-bootstrap/pull/143</a> </span></div><div class="line" id="102349"><span class="nick" style="color:#389600"><a href="#102349" label="[10:23:49]">&lt;doras&gt;</a></span><span class="message">Please double-check me that all the hashes are correct. It did work for me locally, but I'm only building using my local bwrap mode.</span></div><div class="line" id="123245"><span class="nick" style="color:#80b1d3"><a href="#123245" label="[12:32:45]">&lt;stikonas&gt;</a></span><span class="message">doras, fossy: hashes for <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/143">https://github.com/fosslinux/live-bootstrap/pull/143</a>  are correct. It builds fine on my system in chroot mode</span></div><div class="line" id="123310"><span class="nick" style="color:#80b1d3"><a href="#123310" label="[12:33:10]">&lt;stikonas&gt;</a></span><span class="message">doras: so just mes-m2 update is enough to fix everything?</span></div><div class="line" id="160942"><span class="nick" style="color:#389600"><a href="#160942" label="[16:09:42]">&lt;doras&gt;</a></span><span class="message">stikonas @stikonas:libera.chat: everything is a large word. I have a few more fixes that I'm accomulating for rootless bootstrap without user namespaces, which is what BuildStream required.</span></div><div class="line" id="161010"><span class="nick" style="color:#389600"><a href="#161010" label="[16:10:10]">&lt;doras&gt;</a></span><span class="message">However, this one was the first which appeared immediately useful to the existing modes.</span></div><div class="line" id="161110"><span class="nick" style="color:#80b1d3"><a href="#161110" label="[16:11:10]">&lt;stikonas&gt;</a></span><span class="message">yeah, this one is genuine bug rather than &quot;new feature&quot;</span></div><div class="line" id="161118"><span class="nick" style="color:#389600"><a href="#161118" label="[16:11:18]">&lt;doras&gt;</a></span><span class="message">I'll clean up and submit my changes for review when I manage to fully bootstrap sysa inside BuildStream's sandbox.</span></div><div class="line" id="161625"><span class="nick" style="color:#389600"><a href="#161625" label="[16:16:25]">&lt;doras&gt;</a></span><span class="message">I got to the first /dev node mounting so far.</span></div><div class="line" id="161705"><span class="nick" style="color:#389600"><a href="#161705" label="[16:17:05]">&lt;doras&gt;</a></span><span class="message">BuildStream doesn't have all the /dev nodes that we currently expect.</span></div><div class="line" id="161759"><span class="nick" style="color:#389600"><a href="#161759" label="[16:17:59]">&lt;doras&gt;</a></span><span class="message">Most likely because we don't actually need all of them for non-initramfs bootstrap.</span></div><div class="line" id="162315"><span class="nick" style="color:#80b1d3"><a href="#162315" label="[16:23:15]">&lt;stikonas&gt;</a></span><span class="message">yeah, we can put that code if block</span></div><div class="line" id="162619"><span class="nick" style="color:#389600"><a href="#162619" label="[16:26:19]">&lt;doras&gt;</a></span><span class="message">I want to know which ones we do need for the bwrap mode though. I'll test it later today.</span></div><div class="line" id="210901"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="230039"><span class="nick">***</span><span class="message notice">robin_ is now known as robin</span></div><br /></div></body></html>

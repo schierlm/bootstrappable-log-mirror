@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-12-09.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004821"><span class="nick" style="color:#8dd3c7"><a href="#004821" label="[00:48:21]">&lt;yt&gt;</a></span><span class="message">OriansJ: cc_aarch64 is up <a rel="nofollow" href="https://github.com/oriansj/mescc-tools-seed/pull/17">https://github.com/oriansj/mescc-tools-seed/pull/17</a> </span></div><div class="line" id="013525"><span class="nick">***</span><span class="message notice">wowaname is now known as opal</span></div><div class="line" id="022727"><span class="nick" style="color:#8dd3c7"><a href="#022727" label="[02:27:27]">&lt;yt&gt;</a></span><span class="message">OriansJ: fossy: I've just noticed that mescc-tools-seed/{x86,AMD64}/mescc-tools-full-kaem.kaem are missing a copyright header</span></div><div class="line" id="023615"><span class="nick" style="color:#2e2a4a"><a href="#023615" label="[02:36:15]">&lt;fossy&gt;</a></span><span class="message">oops</span></div><div class="line" id="025744"><span class="nick" style="color:#6b8072"><a href="#025744" label="[02:57:44]">&lt;OriansJ&gt;</a></span><span class="message">ytt: I'll start the review shortly and fossy could you please take care of the copyright header issue please and make a pull request?</span></div><div class="line" id="030736"><span class="nick" style="color:#6b8072"><a href="#030736" label="[03:07:36]">&lt;OriansJ&gt;</a></span><span class="message">yt: one thing you might not have noticed in M1 is &lt;2 willpad 2 nulls and &lt;500 will do 500 nulls</span></div><div class="line" id="030824"><span class="nick" style="color:#6b8072"><a href="#030824" label="[03:08:24]">&lt;OriansJ&gt;</a></span><span class="message">So people wouldn't need to do large blocks of '00'</span></div><div class="line" id="031118"><span class="nick" style="color:#6b8072"><a href="#031118" label="[03:11:18]">&lt;OriansJ&gt;</a></span><span class="message">and hex2 just has bare &lt; which will pad to architectural alignment.</span></div><div class="line" id="031453"><span class="nick" style="color:#6b8072"><a href="#031453" label="[03:14:53]">&lt;OriansJ&gt;</a></span><span class="message">It was done so people doing armv7l didn't have to keep figuring out or fixing alignment; hex2 will just insert nulls and fix up the addresses accordingly.</span></div><div class="line" id="065653"><span class="nick" style="color:#2e2a4a"><a href="#065653" label="[06:56:53]">&lt;fossy&gt;</a></span><span class="message">OriansJ: sure</span></div><div class="line" id="110242"><span class="nick" style="color:#80b1d3"><a href="#110242" label="[11:02:42]">&lt;siraben&gt;</a></span><span class="message">I am now able to build blynn-compiler using mescc-tools-seed. Impressive stuff!</span></div><div class="line" id="110259"><span class="nick" style="color:#80b1d3"><a href="#110259" label="[11:02:59]">&lt;siraben&gt;</a></span><span class="message">So we have a bootstrap from a few hundred hex bytes to a subset of Haskell</span></div><div class="line" id="111421"><span class="nick" style="color:#80b1d3"><a href="#111421" label="[11:14:21]">&lt;siraben&gt;</a></span><span class="message">OriansJ: how should generated/lonely.c be adjusted so that M2-Planet can compile it? I can edit the Haskell code in effectively.hs to do this</span></div><div class="line" id="120430"><span class="nick" style="color:#8dd3c7"><a href="#120430" label="[12:04:30]">&lt;yt&gt;</a></span><span class="message">OriansJ: you're right, I didn't notice that hex2 feature, that would've been quite handy</span></div><div class="line" id="120517"><span class="nick" style="color:#8dd3c7"><a href="#120517" label="[12:05:17]">&lt;yt&gt;</a></span><span class="message">I ended up moving all the strings to the data section at the end so I didn't have to worry about alignment in the text section (at least in cc_aarch64)</span></div><div class="line" id="120555"><span class="nick" style="color:#8dd3c7"><a href="#120555" label="[12:05:55]">&lt;yt&gt;</a></span><span class="message">AArch64's hex2-0 doesn't have this feature either, so I'd have had to deal with it in the final hex2 files anyway</span></div><div class="line" id="121322"><span class="nick">***</span><span class="message notice">yt` is now known as yt</span></div><div class="line" id="132341"><span class="nick" style="color:#80b1d3"><a href="#132341" label="[13:23:41]">&lt;siraben&gt;</a></span><span class="message">OriansJ: i have changed effectively.hs to output array assignments, <a rel="nofollow" href="http://ix.io/2Hid">http://ix.io/2Hid</a>  will this work?</span></div><div class="line" id="132352"><span class="nick" style="color:#80b1d3"><a href="#132352" label="[13:23:52]">&lt;siraben&gt;</a></span><span class="message">Will M2-Planet compile it?</span></div><div class="line" id="132503"><span class="nick" style="color:#80b1d3"><a href="#132503" label="[13:25:03]">&lt;siraben&gt;</a></span><span class="message">if needed I can also change `sizeof(prog)` in `unsigned prog_size=sizeof(prog)/sizeof(*prog);` line to a calculation in effectively.hs</span></div><div class="line" id="134523"><span class="nick" style="color:#6b8072"><a href="#134523" label="[13:45:23]">&lt;OriansJ&gt;</a></span><span class="message">siraben: an easy way to know was to just do M2-Planet --architecture x86 -f file and if you see M1 code; it'll work (likely)</span></div><div class="line" id="134645"><span class="nick" style="color:#6b8072"><a href="#134645" label="[13:46:45]">&lt;OriansJ&gt;</a></span><span class="message">yt: fair but it would have made your Developer files easier to write</span></div><div class="line" id="134733"><span class="nick" style="color:#80b1d3"><a href="#134733" label="[13:47:33]">&lt;siraben&gt;</a></span><span class="message">OriansJ: <a rel="nofollow" href="http://ix.io/2Hik">http://ix.io/2Hik</a> </span></div><div class="line" id="134734"><span class="nick" style="color:#80b1d3"><a href="#134734" label="[13:47:34]">&lt;siraben&gt;</a></span><span class="message">would this work?</span></div><div class="line" id="134757"><span class="nick" style="color:#80b1d3"><a href="#134757" label="[13:47:57]">&lt;siraben&gt;</a></span><span class="message">Oh looks like the declarations at the top need to be updated</span></div><div class="line" id="134802"><span class="nick" style="color:#80b1d3"><a href="#134802" label="[13:48:02]">&lt;siraben&gt;</a></span><span class="message">revert back to unsigned int []</span></div><div class="line" id="135610"><span class="nick" style="color:#80b1d3"><a href="#135610" label="[13:56:10]">&lt;siraben&gt;</a></span><span class="message">oops, it wouldn't work in normal gcc because of the array assignment</span></div><div class="line" id="155543"><span class="nick" style="color:#80b1d3"><a href="#155543" label="[15:55:43]">&lt;siraben&gt;</a></span><span class="message">OriansJ: opened a PR that removes dependencies from blynn-compiler to only mescc-tools-seed</span></div><div class="line" id="155827"><span class="nick" style="color:#6d2462"><a href="#155827" label="[15:58:27]">&lt;pder&gt;</a></span><span class="message">Regarding blynn-compiler, I am wondering if the simplest approach to dealing with that prog array is to just read this data from an external file.  I tried changing unsigned prog[] to char *prog but found that M2-Planet does not allow string literals longer than 4096</span></div><div class="line" id="183106"><span class="nick" style="color:#80b1d3"><a href="#183106" label="[18:31:06]">&lt;siraben&gt;</a></span><span class="message">hm pder left can they still see messages</span></div><div class="line" id="183118"><span class="nick" style="color:#80b1d3"><a href="#183118" label="[18:31:18]">&lt;siraben&gt;</a></span><span class="message">can't we just malloc the array and assign the members?</span></div><div class="line" id="183619"><span class="nick" style="color:#234e69"><a href="#183619" label="[18:36:19]">&lt;rain1&gt;</a></span><span class="message">why don't you extend the max length of literals ?</span></div><div class="line" id="192717"><span class="nick" style="color:#6d2462"><a href="#192717" label="[19:27:17]">&lt;pder&gt;</a></span><span class="message">I was thinking along the approach that OriansJ suggested, where we dont repeated compile each step after lonely.  Instead vm would be run with arguments to load the &quot;prog&quot; array and a .hs file to execute and it would output another prog array that is used in the next step.  This eliminates the need for rts.c and recompiling each time.</span></div><div class="line" id="192839"><span class="nick" style="color:#6d2462"><a href="#192839" label="[19:28:39]">&lt;pder&gt;</a></span><span class="message">vm has -l or --load-rom to load a file containing a comma separated list of numbers</span></div><div class="line" id="210314"><span class="nick" style="color:#80b1d3"><a href="#210314" label="[21:03:14]">&lt;siraben&gt;</a></span><span class="message">pder: perhaps, but that would require larger changes to the haskell files, it's much easier to adjust the output of effectively.hs to complete the chain</span></div><div class="line" id="210338"><span class="nick" style="color:#80b1d3"><a href="#210338" label="[21:03:38]">&lt;siraben&gt;</a></span><span class="message">also let me know if you see these messages, on the Matrix bridge I see leave/join</span></div><div class="line" id="210634"><span class="nick" style="color:#6d2462"><a href="#210634" label="[21:06:34]">&lt;pder&gt;</a></span><span class="message">siraben: yeah, I am not entirely sure what is the most straightforward route.  rts.c needs some more work to be buildable by M2-Planet, and OriansJ has already moved some of this functionality into vm.c</span></div><br /></div></body></html>

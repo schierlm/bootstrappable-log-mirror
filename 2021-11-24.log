@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-11-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000111"><span class="nick" style="color:#389600"><a href="#000111" label="[00:01:11]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: I don't think so</span></div><div class="line" id="000121"><span class="nick" style="color:#389600"><a href="#000121" label="[00:01:21]">&lt;stikonas&gt;</a></span><span class="message">at least I don't think we need to do more in M2libc...</span></div><div class="line" id="000854"><span class="nick" style="color:#8dd3c7"><a href="#000854" label="[00:08:54]">&lt;gbrlwck&gt;</a></span><span class="message">do you think this addition to stdlib.c would suffice? <a rel="nofollow" href="https://termbin.com/4xt5">https://termbin.com/4xt5</a> </span></div><div class="line" id="000916"><span class="nick" style="color:#8dd3c7"><a href="#000916" label="[00:09:16]">&lt;gbrlwck&gt;</a></span><span class="message">not sure how i would check for the permissions</span></div><div class="line" id="000930"><span class="nick" style="color:#8dd3c7"><a href="#000930" label="[00:09:30]">&lt;gbrlwck&gt;</a></span><span class="message">no</span></div><div class="line" id="000930"><span class="nick" style="color:#8dd3c7"><a href="#000930" label="[00:09:30]">&lt;gbrlwck&gt;</a></span><span class="message">wait</span></div><div class="line" id="001000"><span class="nick" style="color:#8dd3c7"><a href="#001000" label="[00:10:00]">&lt;gbrlwck&gt;</a></span><span class="message">without the &quot;fi-&gt;fd&quot; line</span></div><div class="line" id="001607"><span class="nick" style="color:#8dd3c7"><a href="#001607" label="[00:16:07]">&lt;gbrlwck&gt;</a></span><span class="message">no, it didn't like &quot;fi.fd = fildes&quot;, so i changed it (back) to &quot;fi-&gt;fd = fildes&quot; (and it compiled happily)</span></div><div class="line" id="002516"><span class="nick" style="color:#8dd3c7"><a href="#002516" label="[00:25:16]">&lt;gbrlwck&gt;</a></span><span class="message">bummer; segfault</span></div><div class="line" id="004455"><span class="nick" style="color:#8dd3c7"><a href="#004455" label="[00:44:55]">&lt;gbrlwck&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/gbrlwck/M2libc/commit/86817bc44008c138fb1f5f10afd6b1dbbeda9658">https://github.com/gbrlwck/M2libc/commit/86817bc44008c138fb1f5f10afd6b1dbbeda9658</a>  if anybody wants to have a look.  segfault happens in _END_IF_main_48 (not sure if that information is of much use)</span></div><div class="line" id="012202"><span class="nick" style="color:#389600"><a href="#012202" label="[01:22:02]">&lt;stikonas&gt;</a></span><span class="message">maybe fildes -&gt; fd?</span></div><div class="line" id="012206"><span class="nick" style="color:#389600"><a href="#012206" label="[01:22:06]">&lt;stikonas&gt;</a></span><span class="message">that's what man fdopen uses</span></div><div class="line" id="013226"><span class="nick" style="color:#8dd3c7"><a href="#013226" label="[01:32:26]">&lt;gbrlwck&gt;</a></span><span class="message">how do you mean?</span></div><div class="line" id="013424"><span class="nick" style="color:#8dd3c7"><a href="#013424" label="[01:34:24]">&lt;gbrlwck&gt;</a></span><span class="message">ah, i see</span></div><div class="line" id="013509"><span class="nick" style="color:#8dd3c7"><a href="#013509" label="[01:35:09]">&lt;gbrlwck&gt;</a></span><span class="message">i saw fildes there: <a rel="nofollow" href="https://man7.org/linux/man-pages/man3/fdopen.3p.html">https://man7.org/linux/man-pages/man3/fdopen.3p.html</a> </span></div><div class="line" id="020647"><span class="nick" style="color:#389600"><a href="#020647" label="[02:06:47]">&lt;stikonas&gt;</a></span><span class="message">hmm, yes, this one has fildes...</span></div><div class="line" id="020652"><span class="nick" style="color:#389600"><a href="#020652" label="[02:06:52]">&lt;stikonas&gt;</a></span><span class="message">strange...</span></div><div class="line" id="020701"><span class="nick" style="color:#389600"><a href="#020701" label="[02:07:01]">&lt;stikonas&gt;</a></span><span class="message">it's probably older though</span></div><div class="line" id="020702"><span class="nick" style="color:#389600"><a href="#020702" label="[02:07:02]">&lt;stikonas&gt;</a></span><span class="message">2017...</span></div><div class="line" id="020732"><span class="nick" style="color:#389600"><a href="#020732" label="[02:07:32]">&lt;stikonas&gt;</a></span><span class="message">this is newer <a rel="nofollow" href="https://linux.die.net/man/3/fdopen">https://linux.die.net/man/3/fdopen</a> </span></div><div class="line" id="020744"><span class="nick" style="color:#389600"><a href="#020744" label="[02:07:44]">&lt;stikonas&gt;</a></span><span class="message">ant it seems the same as running &quot;man fdopen&quot;</span></div><div class="line" id="020800"><span class="nick" style="color:#389600"><a href="#020800" label="[02:08:00]">&lt;stikonas&gt;</a></span><span class="message">anyway, it's a minor thing...</span></div><div class="line" id="031421"><span class="nick" style="color:#6b8072"><a href="#031421" label="[03:14:21]">&lt;oriansj&gt;</a></span><span class="message">gbrlwck: your M2-Mesoplanet improvement has been merged, thank you</span></div><div class="line" id="050032"><span class="nick" style="color:#6b8072"><a href="#050032" label="[05:00:32]">&lt;oriansj&gt;</a></span><span class="message">I think O_EXCL is wrong in M2libc</span></div><div class="line" id="050206"><span class="nick" style="color:#6b8072"><a href="#050206" label="[05:02:06]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1220619/">https://paste.debian.net/1220619/</a> </span></div><div class="line" id="050221"><span class="nick" style="color:#6b8072"><a href="#050221" label="[05:02:21]">&lt;oriansj&gt;</a></span><span class="message">a test file which should be hitting file numbers but isn't</span></div><div class="line" id="131150"><span class="nick" style="color:#6b8072"><a href="#131150" label="[13:11:50]">&lt;oriansj&gt;</a></span><span class="message">no, the value is correct; so what is being passed to open is correct</span></div><div class="line" id="134847"><span class="nick" style="color:#6b8072"><a href="#134847" label="[13:48:47]">&lt;oriansj&gt;</a></span><span class="message">ok the open is returning -17 instead of -1</span></div><div class="line" id="135406"><span class="nick" style="color:#6b8072"><a href="#135406" label="[13:54:06]">&lt;oriansj&gt;</a></span><span class="message">and now fixed</span></div><div class="line" id="140828"><span class="nick" style="color:#8dd3c7"><a href="#140828" label="[14:08:28]">&lt;gbrlwck&gt;</a></span><span class="message">oriansj: cool, thanks!</span></div><div class="line" id="141020"><span class="nick" style="color:#8dd3c7"><a href="#141020" label="[14:10:20]">&lt;gbrlwck&gt;</a></span><span class="message">any ideas how do inspect/debug the segfault we're getting with bootstrapped M2-Mesoplanet?</span></div><div class="line" id="220422"><span class="nick" style="color:#8dd3c7"><a href="#220422" label="[22:04:22]">&lt;gbrlwck&gt;</a></span><span class="message">i made some syntax highlighting rules for (riscv64 flavored) M1: <a rel="nofollow" href="https://github.com/gbrlwck/M1-mode.el">https://github.com/gbrlwck/M1-mode.el</a> </span></div><div class="line" id="220510"><span class="nick" style="color:#8dd3c7"><a href="#220510" label="[22:05:10]">&lt;gbrlwck&gt;</a></span><span class="message">:b</span></div><div class="line" id="233630"><span class="nick" style="color:#80b1d3"><a href="#233630" label="[23:36:30]">&lt;muurkha&gt;</a></span><span class="message">happy Freddie Mercury Day!</span></div><br /></div></body></html>

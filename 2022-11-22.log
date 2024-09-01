@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-11-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000344"><span class="nick" style="color:#389600"><a href="#000344" label="[00:03:44]">&lt;stikonas&gt;</a></span><span class="message">oriansj: any thoughts on what we should do with FILE structure for UEFI?</span></div><div class="line" id="000443"><span class="nick" style="color:#389600"><a href="#000443" label="[00:04:43]">&lt;stikonas&gt;</a></span><span class="message">so in UEFI files are accessed via  struct efi_file_protocol* pointer that has methods like open, close, etc...</span></div><div class="line" id="000452"><span class="nick" style="color:#389600"><a href="#000452" label="[00:04:52]">&lt;stikonas&gt;</a></span><span class="message">but at the same time we want to keep struct __IO_FILE</span></div><div class="line" id="000517"><span class="nick" style="color:#389600"><a href="#000517" label="[00:05:17]">&lt;stikonas&gt;</a></span><span class="message">should we store struct efi_file_protocol* pointer as int fd;</span></div><div class="line" id="001013"><span class="nick" style="color:#389600"><a href="#001013" label="[00:10:13]">&lt;stikonas&gt;</a></span><span class="message">we can probably reuse 0 1 and 2 for stdin, stdout and stderr and hope that UEFI does not assign 0x1 and 0x2 address in memory to file handles</span></div><div class="line" id="093203"><span class="nick" style="color:#8dd3c7"><a href="#093203" label="[09:32:03]">&lt;bauen1&gt;</a></span><span class="message">muurkha: appologies, I didn't realize that the wifi was that bad</span></div><div class="line" id="101427"><span class="nick" style="color:#2e2a4a"><a href="#101427" label="[10:14:27]">&lt;fossy&gt;</a></span><span class="message">rickmasters, how exactly is the invalid byte manifesting itself? especially in gnu build systems, an &quot;invalid byte&quot; can be a myriad of misleading things (at one point, i recall something that looked like a corruption, but it was an incompatbility with musl!)</span></div><div class="line" id="101459"><span class="nick" style="color:#2e2a4a"><a href="#101459" label="[10:14:59]">&lt;fossy&gt;</a></span><span class="message">^ perhaps someone could relay this if rickmasters comes back when i'm not around? he appears to appear in the early hours of the morning for me, haha</span></div><div class="line" id="132034"><span class="nick" style="color:#6b8072"><a href="#132034" label="[13:20:34]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged</span></div><div class="line" id="132154"><span class="nick" style="color:#80b1d3"><a href="#132154" label="[13:21:54]">&lt;stikonas[m]&gt;</a></span><span class="message">oriansj: thanks</span></div><div class="line" id="132312"><span class="nick" style="color:#6b8072"><a href="#132312" label="[13:23:12]">&lt;oriansj&gt;</a></span><span class="message">well fd doesn't really exist in UEFI right, so it seems reasonable to use struct efi_file_protocol* but we also can probably just open up stdin/stdout/stderr and ensure they are 0-2</span></div><div class="line" id="141534"><span class="nick" style="color:#6d2462"><a href="#141534" label="[14:15:34]">&lt;rickmasters&gt;</a></span><span class="message">fossy: the invalid byte appears in the file scan-tmp.c while building flex-1.5.11</span></div><div class="line" id="141635"><span class="nick" style="color:#6d2462"><a href="#141635" label="[14:16:35]">&lt;rickmasters&gt;</a></span><span class="message">scan-tmp.c was renamed from lex.yy.c and was produced by the command 'lex scan.lex.l'</span></div><div class="line" id="141715"><span class="nick" style="color:#6d2462"><a href="#141715" label="[14:17:15]">&lt;rickmasters&gt;</a></span><span class="message">The lex command comes from heirloom-devtools-070527</span></div><div class="line" id="142133"><span class="nick" style="color:#6d2462"><a href="#142133" label="[14:21:33]">&lt;rickmasters&gt;</a></span><span class="message">So there are various possible causes for corruption like this and it may take a long time to track it down.</span></div><div class="line" id="142548"><span class="nick" style="color:#6d2462"><a href="#142548" label="[14:25:48]">&lt;rickmasters&gt;</a></span><span class="message">I'm pursuing a theory that the fiwix kernel is providing non-zeroed memory to the process in a situation where linux provides zeroed memory.</span></div><div class="line" id="142837"><span class="nick" style="color:#6d2462"><a href="#142837" label="[14:28:37]">&lt;rickmasters&gt;</a></span><span class="message">But I'm just getting started. The lex parser is generated by yacc which complicates debugging.</span></div><div class="line" id="143351"><span class="nick" style="color:#6d2462"><a href="#143351" label="[14:33:51]">&lt;rickmasters&gt;</a></span><span class="message">I had to solve some issues: How can I examine the ram drive after failure? Answer: use pmemsave from the qemu console. Also, hack fiwix to sync the fs before halting.</span></div><div class="line" id="143534"><span class="nick" style="color:#80b1d3"><a href="#143534" label="[14:35:34]">&lt;stikonas[m]&gt;</a></span><span class="message">Yeah, i hit sone of non zeroed memory issues in stage0-uefi too</span></div><div class="line" id="143553"><span class="nick" style="color:#80b1d3"><a href="#143553" label="[14:35:53]">&lt;stikonas[m]&gt;</a></span><span class="message">So I've ended up zeroing it all at the start</span></div><div class="line" id="143558"><span class="nick" style="color:#6d2462"><a href="#143558" label="[14:35:58]">&lt;rickmasters&gt;</a></span><span class="message">Also, why is the parser.c file missing from the lex directory? Answer: it's an &quot;intermediate file&quot; so make &quot;helpfully&quot; deletes it on cleanup.</span></div><div class="line" id="143610"><span class="nick" style="color:#80b1d3"><a href="#143610" label="[14:36:10]">&lt;stikonas[m]&gt;</a></span><span class="message">Makes those early apps a bit slower but oh well...</span></div><div class="line" id="143830"><span class="nick" style="color:#6d2462"><a href="#143830" label="[14:38:30]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: yes I had to zero memory for brk system call in builder-hex0 to make some programs work right, don't remember which one.</span></div><div class="line" id="144822"><span class="nick" style="color:#6d2462"><a href="#144822" label="[14:48:22]">&lt;rickmasters&gt;</a></span><span class="message">fossy: correction: that was flex-2.5.11 not 1.5.11</span></div><div class="line" id="145837"><span class="nick" style="color:#80b1d3"><a href="#145837" label="[14:58:37]">&lt;stikonas[m]&gt;</a></span><span class="message">Probably everything starting from hex2</span></div><div class="line" id="145851"><span class="nick" style="color:#80b1d3"><a href="#145851" label="[14:58:51]">&lt;stikonas[m]&gt;</a></span><span class="message">So hex2, M0 and cc_x86</span></div><div class="line" id="145921"><span class="nick" style="color:#80b1d3"><a href="#145921" label="[14:59:21]">&lt;stikonas[m]&gt;</a></span><span class="message">Everything after that might be fine as they use calloc()</span></div><div class="line" id="213850"><span class="nick" style="color:#80b1d3"><a href="#213850" label="[21:38:50]">&lt;stikonas[m]&gt;</a></span><span class="message">in principle it might be better to do zeroing in these applications rather than in syscall</span></div><div class="line" id="213900"><span class="nick" style="color:#80b1d3"><a href="#213900" label="[21:39:00]">&lt;stikonas[m]&gt;</a></span><span class="message">(just to make kernel written in hex0 smaller)</span></div><div class="line" id="213939"><span class="nick" style="color:#80b1d3"><a href="#213939" label="[21:39:39]">&lt;stikonas[m]&gt;</a></span><span class="message">as writing hex2, and even more so M0 and cc_x86 is easier than hex0 code</span></div><div class="line" id="214450"><span class="nick" style="color:#80b1d3"><a href="#214450" label="[21:44:50]">&lt;stikonas[m]&gt;</a></span><span class="message">but I guess it makes little sense to undo what is working now</span></div><br /></div></body></html>

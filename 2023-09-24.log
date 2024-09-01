@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-09-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000504"><span class="nick" style="color:#389600"><a href="#000504" label="[00:05:04]">&lt;oriansj&gt;</a></span><span class="message">muurkha: one could argue that is the same weakness of scheme macros. The temptation of being clever can easily result in code that difficult (if not impossible for others to understand)</span></div><div class="line" id="014309"><span class="nick" style="color:#8dd3c7"><a href="#014309" label="[01:43:09]">&lt;muurkha&gt;</a></span><span class="message">oriansj: yes, and even more so, non-Scheme macros; Scheme's macro systems are deliberately very constrained to limit the risk</span></div><div class="line" id="020147"><span class="nick" style="color:#389600"><a href="#020147" label="[02:01:47]">&lt;oriansj&gt;</a></span><span class="message">well simple macros are a very powerful tool and I do agree very constrained macros is a great idea.</span></div><div class="line" id="020315"><span class="nick" style="color:#389600"><a href="#020315" label="[02:03:15]">&lt;oriansj&gt;</a></span><span class="message">but when one has a good compiled s-expression language, I don't see any reason to have macros</span></div><div class="line" id="021215"><span class="nick" style="color:#8dd3c7"><a href="#021215" label="[02:12:15]">&lt;muurkha&gt;</a></span><span class="message">macros are the simplest way to implement a lot of kinds of syntactic sugar</span></div><div class="line" id="021249"><span class="nick" style="color:#8dd3c7"><a href="#021249" label="[02:12:49]">&lt;muurkha&gt;</a></span><span class="message">like Scheme's (define (raskage glaud1 glaud2) ...) for (define raskage (lambda (glaud1 glaud2) ...))</span></div><div class="line" id="021318"><span class="nick" style="color:#8dd3c7"><a href="#021318" label="[02:13:18]">&lt;muurkha&gt;</a></span><span class="message">or its (and a b) for (let ((newvar a)) (if a a b)) and analogously for or</span></div><div class="line" id="021355"><span class="nick" style="color:#2e2a4a"><a href="#021355" label="[02:13:55]">&lt;notgull&gt;</a></span><span class="message">Being clever is good if you're the only one working on the project. Unfortunately that is pretty rarely the case</span></div><div class="line" id="021356"><span class="nick" style="color:#8dd3c7"><a href="#021356" label="[02:13:56]">&lt;muurkha&gt;</a></span><span class="message">and similarly for variadic and, or, addition, etc.</span></div><div class="line" id="021405"><span class="nick" style="color:#2e2a4a"><a href="#021405" label="[02:14:05]">&lt;notgull&gt;</a></span><span class="message">Same reason why people hate preprcessor macros in C</span></div><div class="line" id="021520"><span class="nick" style="color:#8dd3c7"><a href="#021520" label="[02:15:20]">&lt;muurkha&gt;</a></span><span class="message">People hate preprocessor macros in C largely because they're bug-prone and unreliable.  Scheme macros do not have those problems, and they prevent you from having to be clever, allowing you to use a simple macro definition for many constructs instead of a much more complex compiler case.</span></div><div class="line" id="021637"><span class="nick" style="color:#8dd3c7"><a href="#021637" label="[02:16:37]">&lt;muurkha&gt;</a></span><span class="message">Being clever is not good if you're the only one working on the project, either, if working code is your objective: &quot;Debugging is twice as hard as writing the code in the first place, so if you write the code as cleverly as possible, you will not be smart enough to debug it.&quot;</span></div><div class="line" id="021806"><span class="nick" style="color:#8dd3c7"><a href="#021806" label="[02:18:06]">&lt;muurkha&gt;</a></span><span class="message">Even Common Lisp macros, which are much less constrained than syntax-rules (the R⁵RS macro system), do not suffer the pervasive unreliability problems of C preprocessor macros</span></div><div class="line" id="022054"><span class="nick" style="color:#2e2a4a"><a href="#022054" label="[02:20:54]">&lt;notgull&gt;</a></span><span class="message">True</span></div><div class="line" id="022356"><span class="nick" style="color:#8dd3c7"><a href="#022356" label="[02:23:56]">&lt;muurkha&gt;</a></span><span class="message">The thing that most reduces my appetite for Lisp macros is lightweight lambda syntax, like in Smalltalk, Ruby, and recent versions of JS</span></div><div class="line" id="022433"><span class="nick" style="color:#8dd3c7"><a href="#022433" label="[02:24:33]">&lt;muurkha&gt;</a></span><span class="message">in <a rel="nofollow" href="http://canonical.org/~kragen/sw/dev3/qvaders">http://canonical.org/~kragen/sw/dev3/qvaders</a>  it allows me to write things like</span></div><div class="line" id="022438"><span class="nick" style="color:#8dd3c7"><a href="#022438" label="[02:24:38]">&lt;muurkha&gt;</a></span><span class="message">            vaders.each(v =&gt; {v.Δx = -v.Δx; v.y += 8})</span></div><div class="line" id="022502"><span class="nick" style="color:#8dd3c7"><a href="#022502" label="[02:25:02]">&lt;muurkha&gt;</a></span><span class="message">if (vaders.where(({x}) =&gt; x &lt; 0).count()) vaders.each(vader =&gt; vader.Δx += .5)</span></div><div class="line" id="022513"><span class="nick" style="color:#8dd3c7"><a href="#022513" label="[02:25:13]">&lt;muurkha&gt;</a></span><span class="message">        bombs.outside(screen).each(b =&gt; {blam(b, .8); b.die()})</span></div><div class="line" id="022627"><span class="nick" style="color:#8dd3c7"><a href="#022627" label="[02:26:27]">&lt;muurkha&gt;</a></span><span class="message">that's not quite as syntactically lightweight as it would be in Smalltalk but it's a great deal better than writing vaders.each(function(vader) { vader.Δx += .5 })</span></div><div class="line" id="022651"><span class="nick" style="color:#8dd3c7"><a href="#022651" label="[02:26:51]">&lt;muurkha&gt;</a></span><span class="message">or (each vaders (lambda (vader) (incf (Δx vader) .5)))</span></div><div class="line" id="022708"><span class="nick" style="color:#2e2a4a"><a href="#022708" label="[02:27:08]">&lt;notgull&gt;</a></span><span class="message">Lambdas are pretty nice</span></div><div class="line" id="022719"><span class="nick" style="color:#8dd3c7"><a href="#022719" label="[02:27:19]">&lt;muurkha&gt;</a></span><span class="message">which results in a strong temptation to write a macro that allows you to write it as</span></div><div class="line" id="022733"><span class="nick" style="color:#8dd3c7"><a href="#022733" label="[02:27:33]">&lt;muurkha&gt;</a></span><span class="message">(each vader vaders (incf (Δx vader) .5))</span></div><div class="line" id="023025"><span class="nick" style="color:#8dd3c7"><a href="#023025" label="[02:30:25]">&lt;muurkha&gt;</a></span><span class="message">the objective is a clear expression of the ideas of the game (or compiler or whatever) with a minimum of syntactic noise obscuring the signal.  dynamic typing often helps with this, but it can hurt by making it harder to figure out what you're looking at</span></div><div class="line" id="023334"><span class="nick" style="color:#8dd3c7"><a href="#023334" label="[02:33:34]">&lt;muurkha&gt;</a></span><span class="message">S-expression syntax also has some real disadvantages on that part; (x y) in different contexts can be an assignment of y to x, an invocation of x with y as an argument, a condition-action pair in which y is evaluated if x is true, a list of the value of x and the value of y (for example in Scheme `case`), or a list of the two literal symbols 'x and 'y.  Larry Wall said, &quot;Lisp has all the visual</span></div><div class="line" id="023340"><span class="nick" style="color:#8dd3c7"><a href="#023340" label="[02:33:40]">&lt;muurkha&gt;</a></span><span class="message">appeal of oatmeal with fingernail clippings mixed in.&quot;</span></div><div class="line" id="023507"><span class="nick" style="color:#8dd3c7"><a href="#023507" label="[02:35:07]">&lt;muurkha&gt;</a></span><span class="message">and often you end up with more syntactic tokens than in infix syntaxes, as in my incf example here, which is 8 tokens in Common Lisp but 5 tokens in JS, even without the added inconvenience that the whitespace in the Lisp is semantically meaningful</span></div><div class="line" id="023532"><span class="nick" style="color:#8dd3c7"><a href="#023532" label="[02:35:32]">&lt;muurkha&gt;</a></span><span class="message">s/on that part/on that count/</span></div><div class="line" id="023851"><span class="nick" style="color:#8dd3c7"><a href="#023851" label="[02:38:51]">&lt;muurkha&gt;</a></span><span class="message">But there are a lot of things you can do with macros but not with lightweight lambda syntax.</span></div><div class="line" id="044058"><span class="nick" style="color:#389600"><a href="#044058" label="[04:40:58]">&lt;oriansj&gt;</a></span><span class="message">muurkha: excellently put</span></div><div class="line" id="113425"><span class="nick" style="color:#6b8072"><a href="#113425" label="[11:34:25]">&lt;lilyp&gt;</a></span><span class="message">muurkha: coming from C++, that lambda does look like line noise to me, though :)</span></div><div class="line" id="113833"><span class="nick" style="color:#6b8072"><a href="#113833" label="[11:38:33]">&lt;lilyp&gt;</a></span><span class="message">btw. we do have stuff like cut so (for-each (cut (incf Δx) &lt;&gt; .5) vaders) would work as well, provided you generalize incf for getters with setters</span></div><div class="line" id="190320"><span class="nick" style="color:#8dd3c7"><a href="#190320" label="[19:03:20]">&lt;muurkha&gt;</a></span><span class="message">lilyp: point-free programming usually leads to terser code but I have not yet learned to find it readable.  where does cut come from?  I'm not familiar with for-each, cut, and &lt;&gt;</span></div><div class="line" id="190605"><span class="nick" style="color:#6b8072"><a href="#190605" label="[19:06:05]">&lt;lilyp&gt;</a></span><span class="message">cut is from SRFI 26</span></div><div class="line" id="190613"><span class="nick" style="color:#8dd3c7"><a href="#190613" label="[19:06:13]">&lt;muurkha&gt;</a></span><span class="message">aha, thanks</span></div><div class="line" id="190650"><span class="nick" style="color:#6b8072"><a href="#190650" label="[19:06:50]">&lt;lilyp&gt;</a></span><span class="message">it's your best friend when you want to do (lambda (x) (f x y)) or the like</span></div><div class="line" id="190702"><span class="nick" style="color:#8dd3c7"><a href="#190702" label="[19:07:02]">&lt;muurkha&gt;</a></span><span class="message">aha, so it's not really point-free</span></div><div class="line" id="190705"><span class="nick" style="color:#8dd3c7"><a href="#190705" label="[19:07:05]">&lt;muurkha&gt;</a></span><span class="message">&lt;&gt; is a point</span></div><div class="line" id="190751"><span class="nick" style="color:#8dd3c7"><a href="#190751" label="[19:07:51]">&lt;muurkha&gt;</a></span><span class="message">thanks for turning me on to SRFI 26!</span></div><div class="line" id="195752"><span class="nick" style="color:#80b1d3"><a href="#195752" label="[19:57:52]">&lt;janneke&gt;</a></span><span class="message">fwiw, in most every case cut can be replaced by cute</span></div><div class="line" id="210258"><span class="nick" style="color:#6b8072"><a href="#210258" label="[21:02:58]">&lt;lilyp&gt;</a></span><span class="message">true, but sometimes the compiler doesn't like you when you do that</span></div><div class="line" id="210318"><span class="nick" style="color:#6b8072"><a href="#210318" label="[21:03:18]">&lt;lilyp&gt;</a></span><span class="message">(warning: potentially wrong number of arguments …)</span></div><div class="line" id="221857"><span class="nick" style="color:#8dd3c7"><a href="#221857" label="[22:18:57]">&lt;muurkha&gt;</a></span><span class="message">it's unfortunate that (cut if &lt;&gt; 0 1) is illegal</span></div><div class="line" id="222012"><span class="nick" style="color:#8dd3c7"><a href="#222012" label="[22:20:12]">&lt;muurkha&gt;</a></span><span class="message">that's sort of in the same direction as (cut + (* &lt;&gt; 3) 1) though (meaning (lambda (m) (+ (* m 3) 1))) which is also illegal</span></div><div class="line" id="222357"><span class="nick" style="color:#8dd3c7"><a href="#222357" label="[22:23:57]">&lt;muurkha&gt;</a></span><span class="message">is there a SRFI for setf, incf, etc.?</span></div><div class="line" id="224527"><span class="nick" style="color:#8dd3c7"><a href="#224527" label="[22:45:27]">&lt;muurkha&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://www.righto.com/2020/11/reverse-engineering-classic-mk4116-16.html">https://www.righto.com/2020/11/reverse-engineering-classic-mk4116-16.html</a>  is an example of a popular 1-bit-wide memory chip from the 70s</span></div><div class="line" id="224653"><span class="nick" style="color:#8dd3c7"><a href="#224653" label="[22:46:53]">&lt;muurkha&gt;</a></span><span class="message">my memory is that this kind of thing was the normal way to do things at least until the end of the 36-pin DIMM age</span></div><div class="line" id="225407"><span class="nick" style="color:#8dd3c7"><a href="#225407" label="[22:54:07]">&lt;muurkha&gt;</a></span><span class="message">it makes sense that nobody is selling 1-bit-wide 16-kilobit SRAM or DRAM chips today; fabrication densities are much higher, and if you need 16 kilobytes of memory, it makes more sense to get it on a single chip with 8 data lines</span></div><div class="line" id="225453"><span class="nick" style="color:#8dd3c7"><a href="#225453" label="[22:54:53]">&lt;muurkha&gt;</a></span><span class="message">or more, like 16, 21, 32, 64, or 72</span></div><div class="line" id="225619"><span class="nick" style="color:#8dd3c7"><a href="#225619" label="[22:56:19]">&lt;muurkha&gt;</a></span><span class="message">but when you're pushing the fabrication technology's limits, especially when clock skew is no worry, it makes sense to gang up 8 or 16 chips on a single address bus and set of control signals, each connected to one bit of the data bus</span></div><br /></div></body></html>

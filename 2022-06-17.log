@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-06-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="025236"><span class="nick" style="color:#8dd3c7"><a href="#025236" label="[02:52:36]">&lt;oriansj&gt;</a></span><span class="message">and I just realized we did a standards violation with kaem</span></div><div class="line" id="025316"><span class="nick" style="color:#8dd3c7"><a href="#025316" label="[02:53:16]">&lt;oriansj&gt;</a></span><span class="message">we are supposed to be setting $SHELL if it doesn't exist and overriding it if it does</span></div><div class="line" id="092900"><span class="nick" style="color:#2e2a4a"><a href="#092900" label="[09:29:00]">&lt;nimaje&gt;</a></span><span class="message">man environ says 'SHELL   The full pathname of the user's login shell.'  on my system, that sounds like it should only be set by shells that are executed as login shell</span></div><div class="line" id="111618"><span class="nick" style="color:#6b8072"><a href="#111618" label="[11:16:18]">&lt;stikonas[m]&gt;</a></span><span class="message">It probably doesn't matter, kaem will never be fully POSIX compatible</span></div><div class="line" id="111641"><span class="nick" style="color:#6b8072"><a href="#111641" label="[11:16:41]">&lt;stikonas[m]&gt;</a></span><span class="message">SHELL is of course easy to add</span></div><div class="line" id="111655"><span class="nick" style="color:#6b8072"><a href="#111655" label="[11:16:55]">&lt;stikonas[m]&gt;</a></span><span class="message">But not super important</span></div><div class="line" id="121740"><span class="nick" style="color:#8dd3c7"><a href="#121740" label="[12:17:40]">&lt;oriansj&gt;</a></span><span class="message">nimaje: and <a rel="nofollow" href="https://pubs.opengroup.org/onlinepubs/9699919799/">https://pubs.opengroup.org/onlinepubs/9699919799/</a>  says it should be the user's command language interpreter</span></div><div class="line" id="121846"><span class="nick" style="color:#8dd3c7"><a href="#121846" label="[12:18:46]">&lt;oriansj&gt;</a></span><span class="message">which I guess could even be guile or python if one wanted</span></div><div class="line" id="122244"><span class="nick" style="color:#2e2a4a"><a href="#122244" label="[12:22:44]">&lt;nimaje&gt;</a></span><span class="message">&quot;the user's command language interpreter&quot; so the users login shell, well probably only  login  should set it</span></div><div class="line" id="122330"><span class="nick" style="color:#8dd3c7"><a href="#122330" label="[12:23:30]">&lt;oriansj&gt;</a></span><span class="message">stikonas: yep just 21 lines total. 7 to override, 4 to determine/store shell name and 10 to add SHELL if it doesn't exist</span></div><div class="line" id="122533"><span class="nick" style="color:#8dd3c7"><a href="#122533" label="[12:25:33]">&lt;oriansj&gt;</a></span><span class="message">nimaje: I can see the value in that perspective and I can see the appeal for those writing a shell.</span></div><div class="line" id="122647"><span class="nick" style="color:#8dd3c7"><a href="#122647" label="[12:26:47]">&lt;oriansj&gt;</a></span><span class="message">but if you change shells during your interactive use, should not SHELL change to accurately reflect the shell one is currently using?</span></div><div class="line" id="122759"><span class="nick" style="color:#2e2a4a"><a href="#122759" label="[12:27:59]">&lt;nimaje&gt;</a></span><span class="message">is there another valid usecase for SHELL than for terminals to know what shell they should spawn for the user when they aren't given some command to run?</span></div><div class="line" id="122927"><span class="nick" style="color:#80b1d3"><a href="#122927" label="[12:29:27]">&lt;stikonas&gt;</a></span><span class="message">nimaje: in principle you can use it if you share a script between bash and kaem</span></div><div class="line" id="122938"><span class="nick" style="color:#8dd3c7"><a href="#122938" label="[12:29:38]">&lt;oriansj&gt;</a></span><span class="message">knowing which shell you are in so you can provide the correct commands back to the user. (like Guix, it doesn't need to display the hash command to dash/fish shell users)</span></div><div class="line" id="122939"><span class="nick" style="color:#80b1d3"><a href="#122939" label="[12:29:39]">&lt;stikonas&gt;</a></span><span class="message">and you want to hide some features not supported by kaem</span></div><div class="line" id="123006"><span class="nick" style="color:#80b1d3"><a href="#123006" label="[12:30:06]">&lt;stikonas&gt;</a></span><span class="message">but I'm not aware of anybody sharing the same file between bash and kaem</span></div><div class="line" id="123102"><span class="nick" style="color:#80b1d3"><a href="#123102" label="[12:31:02]">&lt;stikonas&gt;</a></span><span class="message">given that kaem has no support for functions, it's better to just write a separate code for kaem and bash</span></div><div class="line" id="123125"><span class="nick" style="color:#8dd3c7"><a href="#123125" label="[12:31:25]">&lt;oriansj&gt;</a></span><span class="message">also if one has say echo $SHELL in a script, you would be able to know what shell actually ran your script</span></div><div class="line" id="123553"><span class="nick" style="color:#2e2a4a"><a href="#123553" label="[12:35:53]">&lt;nimaje&gt;</a></span><span class="message">yeah, that stuff could be useful, but it isn't what SHELL gives you, bash has BASH_VERSION to detect that your script runs in bash and some other shells similar variables</span></div><div class="line" id="124128"><span class="nick" style="color:#8dd3c7"><a href="#124128" label="[12:41:28]">&lt;oriansj&gt;</a></span><span class="message">nimaje: but BASH_VERSION isn't exported into envp and passed to programs</span></div><div class="line" id="124252"><span class="nick" style="color:#8dd3c7"><a href="#124252" label="[12:42:52]">&lt;oriansj&gt;</a></span><span class="message">so say a C program can't go look at envp and know: hey the parent shell was bash so the commands the user needs to run are blah or the parent shell was fish and we need to show them something different</span></div><div class="line" id="125240"><span class="nick" style="color:#2e2a4a"><a href="#125240" label="[12:52:40]">&lt;nimaje&gt;</a></span><span class="message">so, should the variable you propose only set for interactive use or for scripts too? what if some script wants to get some command from stdout it calls? what if the user has written a small wrapper in some other language, but would want the commands for his interactive shell?</span></div><div class="line" id="125439"><span class="nick" style="color:#8dd3c7"><a href="#125439" label="[12:54:39]">&lt;oriansj&gt;</a></span><span class="message">nimaje: well envp is copied when passed to sub-processes. so keep that in mind</span></div><div class="line" id="125552"><span class="nick" style="color:#8dd3c7"><a href="#125552" label="[12:55:52]">&lt;oriansj&gt;</a></span><span class="message">So when a command interpreter starts running, it should ensure it knows the SHELL of is envp and set the envp for the commands it calls so that they know who is calling them.</span></div><div class="line" id="125648"><span class="nick" style="color:#8dd3c7"><a href="#125648" label="[12:56:48]">&lt;oriansj&gt;</a></span><span class="message">interactive use or not withstanding, it is a basic thing to know about the environment you are running in.</span></div><div class="line" id="125728"><span class="nick" style="color:#8dd3c7"><a href="#125728" label="[12:57:28]">&lt;oriansj&gt;</a></span><span class="message">and perhaps using the environment variable SHELL wouldn't be the correct choice</span></div><div class="line" id="125804"><span class="nick" style="color:#8dd3c7"><a href="#125804" label="[12:58:04]">&lt;oriansj&gt;</a></span><span class="message">perhaps a new variable like COMMAND_INTERPRETER or something should be the envp variable modified and passed</span></div><div class="line" id="125831"><span class="nick" style="color:#2e2a4a"><a href="#125831" label="[12:58:31]">&lt;nimaje&gt;</a></span><span class="message">yeah, but some progams want to change that variable, would that be only interactive shells (that would not work for scripts that want to get a command from the program they call) or any command interpreter that uses a language similar to sh, not caring if interactive or not (that would not work for small wrapper utilities), ...</span></div><div class="line" id="130104"><span class="nick" style="color:#80b1d3"><a href="#130104" label="[13:01:04]">&lt;stikonas&gt;</a></span><span class="message">in general kaem would probably benefit from reading the whole file into buffer if we want to add next batch of features...</span></div><div class="line" id="130117"><span class="nick" style="color:#80b1d3"><a href="#130117" label="[13:01:17]">&lt;stikonas&gt;</a></span><span class="message">now it's executing stuff as it reads</span></div><div class="line" id="130253"><span class="nick" style="color:#8dd3c7"><a href="#130253" label="[13:02:53]">&lt;oriansj&gt;</a></span><span class="message">nimaje: I perhaps fail to see a valid and useful need to change that variable outside of the very special case of &quot;I am a command interpreter and will be overriding that value for the subprocesses that I spawn&quot;</span></div><div class="line" id="130441"><span class="nick" style="color:#8dd3c7"><a href="#130441" label="[13:04:41]">&lt;oriansj&gt;</a></span><span class="message">stikonas: kaem is approaching its upper bound of functionality, as one could do a proper shell parser and all the rest and make for a much better shell but it was never intended to be able to drive the whole process to completion</span></div><div class="line" id="130547"><span class="nick" style="color:#80b1d3"><a href="#130547" label="[13:05:47]">&lt;stikonas&gt;</a></span><span class="message">yes, I agree that it's approaching it. Especially if we don't want to add more syscalls</span></div><div class="line" id="130557"><span class="nick" style="color:#80b1d3"><a href="#130557" label="[13:05:57]">&lt;stikonas&gt;</a></span><span class="message">though possibly stuff like loops or function could be added</span></div><div class="line" id="130629"><span class="nick" style="color:#80b1d3"><a href="#130629" label="[13:06:29]">&lt;stikonas&gt;</a></span><span class="message">but on the other hand if gash work gets finished, we can just switch to gash</span></div><div class="line" id="130855"><span class="nick" style="color:#8dd3c7"><a href="#130855" label="[13:08:55]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well gash is finished(ish); it is the mes.c improvements that are needed and janneke tends to get that stuff done.</span></div><div class="line" id="131031"><span class="nick" style="color:#80b1d3"><a href="#131031" label="[13:10:31]">&lt;stikonas&gt;</a></span><span class="message">well, yes, I meant when gash can run on mes (probably by adjusting both mes.c and gash)</span></div><div class="line" id="131211"><span class="nick" style="color:#80b1d3"><a href="#131211" label="[13:12:11]">&lt;stikonas&gt;</a></span><span class="message">I think if we build mes-m2 with kaem, then we still need to rebuild mes lib c and mes with mescc and then I think gash might run, so we won't need kaem for tcc and subsequent steps</span></div><div class="line" id="131240"><span class="nick" style="color:#8dd3c7"><a href="#131240" label="[13:12:40]">&lt;oriansj&gt;</a></span><span class="message">plus if we need to there are also shells which are written in C and could be converted to M2-Planet subset rather easily</span></div><div class="line" id="131331"><span class="nick" style="color:#8dd3c7"><a href="#131331" label="[13:13:31]">&lt;oriansj&gt;</a></span><span class="message">and an even larger subset should be directly buildable by mescc</span></div><div class="line" id="141959"><span class="nick" style="color:#2e2a4a"><a href="#141959" label="[14:19:59]">&lt;nimaje&gt;</a></span><span class="message">oriansj: just imagine some program C that supports that envvar and outputs some command to run after it and a user has two command interpreter A and B, prefering A but having a program D that uses C and needs to run the outputted command written in B and some wrapper W that does some stuff around calling C also written in B, now D would want that C outputs the command for B and W would want</span></div><div class="line" id="142001"><span class="nick" style="color:#2e2a4a"><a href="#142001" label="[14:20:01]">&lt;nimaje&gt;</a></span><span class="message">that C outputs the command for the calling interpreter (in that case A) so which of these conflicting usecases should be supported? (another problem is that programs have to understand the values (TERM is a mess))</span></div><div class="line" id="155144"><span class="nick" style="color:#6d2462"><a href="#155144" label="[15:51:44]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/Rust-GCC/gccrs/wiki/Frequently-Asked-Questions">https://github.com/Rust-GCC/gccrs/wiki/Frequently-Asked-Questions</a>  &quot;It could be possible to bootstrap the official rustc compiler using GCC Rust.&quot;</span></div><div class="line" id="155159"><span class="nick" style="color:#6d2462"><a href="#155159" label="[15:51:59]">&lt;Hagfish&gt;</a></span><span class="message">i was hoping for something more than &quot;could be possible&quot;, but it's nice to see it mentioned</span></div><div class="line" id="160221"><span class="nick" style="color:#234e69"><a href="#160221" label="[16:02:21]">&lt;stikonas_&gt;</a></span><span class="message">yes, gccrs is still work in progress</span></div><div class="line" id="160225"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="160234"><span class="nick" style="color:#80b1d3"><a href="#160234" label="[16:02:34]">&lt;stikonas&gt;</a></span><span class="message">for now mrustc is the only alternative</span></div><div class="line" id="181915"><span class="nick" style="color:#8dd3c7"><a href="#181915" label="[18:19:15]">&lt;oriansj&gt;</a></span><span class="message">nimaje: let me be certain I understand your question. User prefers shell ${A} but also has shell ${B} installed. They Run command ${C} in shell ${A} which needs its output to be run in ${B}. Ok output #!/usr/bin/env ${B} and it'll work fine.</span></div><div class="line" id="182146"><span class="nick" style="color:#8dd3c7"><a href="#182146" label="[18:21:46]">&lt;oriansj&gt;</a></span><span class="message">(I am a huge fan of being explicit in your dependencies and being honest about your needs)</span></div><div class="line" id="202612"><span class="nick" style="color:#2e2a4a"><a href="#202612" label="[20:26:12]">&lt;nimaje&gt;</a></span><span class="message">no, the user has two programs, D and W both written in B, D needs to run the command of C and W is some wrapper around C so it would want C to output that command for the calling interpreter (probably A as that is what the user uses inteactively)</span></div><br /></div></body></html>

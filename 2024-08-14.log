@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-08-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000612"><span class="nick" style="color:#389600"><a href="#000612" label="[00:06:12]">&lt;aggi&gt;</a></span><span class="message">just tried it, and yes, they're transpiling c-to-shell; tested $pnut-sh cp.c cp.sh, and the emitted script works with oksh interpreter</span></div><div class="line" id="000646"><span class="nick" style="color:#389600"><a href="#000646" label="[00:06:46]">&lt;aggi&gt;</a></span><span class="message">don't know which gap this was filling for bootstrapping</span></div><div class="line" id="000732"><span class="nick" style="color:#389600"><a href="#000732" label="[00:07:32]">&lt;aggi&gt;</a></span><span class="message">or why anyone would want to transpile c-to-shell</span></div><div class="line" id="001050"><span class="nick" style="color:#8dd3c7"><a href="#001050" label="[00:10:50]">&lt;nimaje&gt;</a></span><span class="message">as I understand it, it is a for fun project</span></div><div class="line" id="004325"><span class="nick" style="color:#2e2a4a"><a href="#004325" label="[00:43:25]">&lt;fossy&gt;</a></span><span class="message">pabs3: that's really nice, i would love to see more of that :D</span></div><div class="line" id="004626"><span class="nick" style="color:#6b8072"><a href="#004626" label="[00:46:26]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; well, at the very least that make dist would have a list of pregenerated files</span></div><div class="line" id="013532"><span class="nick" style="color:#6b8072"><a href="#013532" label="[01:35:32]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; pnut is interesting as it also has a self hosted i386 backend. It's possible to go pnut.sh -&gt; pnut.exe -&gt; pnut1.exe and have pnut.exe and pnut1.exe be identical. Note the have an exe extension, but they are just statically linked elf binaries. pnut.exe does not needs any external assemblers or linkers, plus they ship their own libc.</span></div><div class="line" id="014239"><span class="nick" style="color:#6b8072"><a href="#014239" label="[01:42:39]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; If it can also compile tcc then that would be very useful. I suspect the reference in the readme to compiling tcc may currently be aspirational, but hopefully they just need to publish the correct commands to build it. It may also eventually be possible to do cc_x86 -&gt; (maybe M2) -&gt; pnut -&gt; tcc</span></div><div class="line" id="023331"><span class="nick" style="color:#80b1d3"><a href="#023331" label="[02:33:31]">&lt;pabs3&gt;</a></span><span class="message">fossy: personally I think autotools `make dist` should do that by default. could also shunt the autocruft into a second tarball for those who actually need it, ie they are on a platform with no autotools yet</span></div><div class="line" id="024115"><span class="nick" style="color:#6d2462"><a href="#024115" label="[02:41:15]">&lt;andydude&gt;</a></span><span class="message">huh</span></div><div class="line" id="024301"><span class="nick" style="color:#6d2462"><a href="#024301" label="[02:43:01]">&lt;andydude&gt;</a></span><span class="message">There are plenty of systems out there with a shell and no C compiler, for example, macos without devtools</span></div><div class="line" id="024453"><span class="nick" style="color:#6d2462"><a href="#024453" label="[02:44:53]">&lt;andydude&gt;</a></span><span class="message">Also, my understanding of autotools is increasing by the day</span></div><div class="line" id="024502"><span class="nick" style="color:#234e69"><a href="#024502" label="[02:45:02]">&lt;oriansj&gt;</a></span><span class="message">well if someone finds it fun; I am sure something interesting will come of it. If not oh well.</span></div><div class="line" id="024506"><span class="nick" style="color:#234e69"><a href="#024506" label="[02:45:06]">&lt;oriansj&gt;</a></span><span class="message">andydude: good</span></div><div class="line" id="024533"><span class="nick" style="color:#6d2462"><a href="#024533" label="[02:45:33]">&lt;andydude&gt;</a></span><span class="message">So far I've at least made stub files for all of automake</span></div><div class="line" id="024542"><span class="nick" style="color:#6d2462"><a href="#024542" label="[02:45:42]">&lt;andydude&gt;</a></span><span class="message">Now I just need to write it :P</span></div><div class="line" id="024643"><span class="nick" style="color:#6d2462"><a href="#024643" label="[02:46:43]">&lt;andydude&gt;</a></span><span class="message">I'm a little torn about the file wrapper, its entire purpose seems to be to replace \r with \n</span></div><div class="line" id="025011"><span class="nick" style="color:#6d2462"><a href="#025011" label="[02:50:11]">&lt;andydude&gt;</a></span><span class="message">Always when I'm writing C I wish I had started the project in Python</span></div><div class="line" id="025451"><span class="nick" style="color:#234e69"><a href="#025451" label="[02:54:51]">&lt;oriansj&gt;</a></span><span class="message">andydude: you can always redo it in C after you figure out the details</span></div><div class="line" id="025535"><span class="nick" style="color:#234e69"><a href="#025535" label="[02:55:35]">&lt;oriansj&gt;</a></span><span class="message">also you might find this interesting: <a rel="nofollow" href="https://github.com/leahneukirchen/redo-c">https://github.com/leahneukirchen/redo-c</a> </span></div><div class="line" id="030001"><span class="nick" style="color:#2e2a4a"><a href="#030001" label="[03:00:01]">&lt;fossy&gt;</a></span><span class="message">pabs3: i largely agree</span></div><div class="line" id="030203"><span class="nick" style="color:#2e2a4a"><a href="#030203" label="[03:02:03]">&lt;fossy&gt;</a></span><span class="message">the paradigm i'm most opposed to is the inclusion of autogenerated files in git repositories (or whatever your &quot;development source&quot; is)</span></div><div class="line" id="030236"><span class="nick" style="color:#2e2a4a"><a href="#030236" label="[03:02:36]">&lt;fossy&gt;</a></span><span class="message">and a second is non-existent documentation on what those autogenerated files might be</span></div><div class="line" id="030243"><span class="nick" style="color:#2e2a4a"><a href="#030243" label="[03:02:43]">&lt;fossy&gt;</a></span><span class="message">often the second is a consequence of the first though</span></div><div class="line" id="030253"><span class="nick" style="color:#80b1d3"><a href="#030253" label="[03:02:53]">&lt;pabs3&gt;</a></span><span class="message">yeah, that first one shits me too <a rel="nofollow" href="https://wiki.debian.org/AutoGeneratedFiles">https://wiki.debian.org/AutoGeneratedFiles</a> </span></div><div class="line" id="031153"><span class="nick" style="color:#80b1d3"><a href="#031153" label="[03:11:53]">&lt;pabs3&gt;</a></span><span class="message">what kind of documentation are you thinking of? just .gitignore or something more human-oriented?</span></div><div class="line" id="031408"><span class="nick" style="color:#2e2a4a"><a href="#031408" label="[03:14:08]">&lt;fossy&gt;</a></span><span class="message">really - anything</span></div><div class="line" id="031431"><span class="nick" style="color:#2e2a4a"><a href="#031431" label="[03:14:31]">&lt;fossy&gt;</a></span><span class="message">as long as it can be reasonably interpreted without excessive difficulty</span></div><div class="line" id="031531"><span class="nick" style="color:#2e2a4a"><a href="#031531" label="[03:15:31]">&lt;fossy&gt;</a></span><span class="message">honestly a list of pregenerated files and the command/process to regenerate it is fine in my opinion</span></div><div class="line" id="031553"><span class="nick" style="color:#2e2a4a"><a href="#031553" label="[03:15:53]">&lt;fossy&gt;</a></span><span class="message">but even a list of pregenerated files with processes somewhere else</span></div><div class="line" id="045128"><span class="nick" style="color:#6d2462"><a href="#045128" label="[04:51:28]">&lt;andydude&gt;</a></span><span class="message">fossy: I was considering making a github repo about bios and uefi on intel and amd, but it seemed to be too big of a project, I never knew where to start</span></div><div class="line" id="045444"><span class="nick" style="color:#6d2462"><a href="#045444" label="[04:54:44]">&lt;andydude&gt;</a></span><span class="message">to clarify, a repo with only docs, no code</span></div><div class="line" id="054925"><span class="nick" style="color:#80b1d3"><a href="#054925" label="[05:49:25]">&lt;pabs3&gt;</a></span><span class="message">fossy: ugh, postgres are committing the generated ./configure <a rel="nofollow" href="https://news.ycombinator.com/item?id=41232621#41239118">https://news.ycombinator.com/item?id=41232621#41239118</a> </span></div><div class="line" id="104325"><span class="nick" style="color:#2e2a4a"><a href="#104325" label="[10:43:25]">&lt;fossy&gt;</a></span><span class="message">andydude: sorry, what specifically about bios and uefi?</span></div><div class="line" id="104404"><span class="nick" style="color:#2e2a4a"><a href="#104404" label="[10:44:04]">&lt;fossy&gt;</a></span><span class="message">eek, pabs3</span></div><div class="line" id="114357"><span class="nick" style="color:#6c3d55"><a href="#114357" label="[11:43:57]">&lt;joostvb&gt;</a></span><span class="message">but also <a rel="nofollow" href="https://peter.eisentraut.org/blog/2024/08/13/the-new-postgresql-17-make-dist">https://peter.eisentraut.org/blog/2024/08/13/the-new-postgresql-17-make-dist</a>  : not all is bad @ postgres build system</span></div><div class="line" id="115516"><span class="nick" style="color:#8dd3c7"><a href="#115516" label="[11:55:16]">&lt;nimaje&gt;</a></span><span class="message">but why didn't they remove that auto-generated file from the repo with that change?</span></div><div class="line" id="115659"><span class="nick" style="color:#6c3d55"><a href="#115659" label="[11:56:59]">&lt;joostvb&gt;</a></span><span class="message">good question</span></div><div class="line" id="115732"><span class="nick" style="color:#6c3d55"><a href="#115732" label="[11:57:32]">&lt;joostvb&gt;</a></span><span class="message">nimaje: i'd guess you've found a bug</span></div><div class="line" id="115922"><span class="nick" style="color:#8dd3c7"><a href="#115922" label="[11:59:22]">&lt;nimaje&gt;</a></span><span class="message">well, it was cryptonector on hn (and probably others too), I just checked that it really still exist in the repo</span></div><div class="line" id="120242"><span class="nick" style="color:#6c3d55"><a href="#120242" label="[12:02:42]">&lt;joostvb&gt;</a></span><span class="message">a, i c</span></div><div class="line" id="134455"><span class="nick" style="color:#8dd3c7"><a href="#134455" label="[13:44:55]">&lt;nimaje&gt;</a></span><span class="message">should have read that comment shared by pabs3 better, they have no intent to remove that configure script from the repo</span></div><br /></div></body></html>

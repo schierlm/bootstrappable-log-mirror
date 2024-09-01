@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-08-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013200"><span class="nick" style="color:#8dd3c7"><a href="#013200" label="[01:32:00]">&lt;stikonas[m]&gt;</a></span><span class="message">It's probably some sort of alignment issue... Or maybe qemu issue...</span></div><div class="line" id="013345"><span class="nick" style="color:#8dd3c7"><a href="#013345" label="[01:33:45]">&lt;stikonas[m]&gt;</a></span><span class="message">At this stage steps are still quick enough. But that might get more annoying in later stages, e.g. mes</span></div><div class="line" id="035840"><span class="nick" style="color:#2e2a4a"><a href="#035840" label="[03:58:40]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well right now mes doesn't work with RISC-V yet, nor does M2-Planet which is quite painful when compiled by cc_* in virtualization. (Like 20 minutes to self-host sort of pain [then 1 minute to compile everything else needed to finish the bootstrap])</span></div><div class="line" id="045731"><span class="nick" style="color:#6b8072"><a href="#045731" label="[04:57:31]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://news.ycombinator.com/item?id=28268667">https://news.ycombinator.com/item?id=28268667</a> </span></div><div class="line" id="045744"><span class="nick" style="color:#6b8072"><a href="#045744" label="[04:57:44]">&lt;Hagfish&gt;</a></span><span class="message">bootstrappable being featured again, and there seems to be some momentum in the comments</span></div><div class="line" id="045750"><span class="nick" style="color:#6b8072"><a href="#045750" label="[04:57:50]">&lt;Hagfish&gt;</a></span><span class="message">free upvotes for everyone!</span></div><div class="line" id="064536"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="135411"><span class="nick" style="color:#2e2a4a"><a href="#135411" label="[13:54:11]">&lt;oriansj&gt;</a></span><span class="message">stikonas: if it is an alignment issue the fix is trivial. After the ELF_header simply insert one \x00 at a time until it disappears (shouldn't take more than 7 attempts)</span></div><div class="line" id="135453"><span class="nick" style="color:#2e2a4a"><a href="#135453" label="[13:54:53]">&lt;oriansj&gt;</a></span><span class="message">(adjusting your e_entry address if manually calculated of course)</span></div><div class="line" id="140832"><span class="nick" style="color:#8dd3c7"><a href="#140832" label="[14:08:32]">&lt;stikonas[m]&gt;</a></span><span class="message">Yeah, i can try that once i find some time</span></div><div class="line" id="213735"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke_</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-01-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000013"><span class="nick" style="color:#389600"><a href="#000013" label="[00:00:13]">&lt;stikonas&gt;</a></span><span class="message">well, it works if I do if (1) there</span></div><div class="line" id="000027"><span class="nick" style="color:#389600"><a href="#000027" label="[00:00:27]">&lt;stikonas&gt;</a></span><span class="message">(as expected at this stage)</span></div><div class="line" id="000117"><span class="nick" style="color:#389600"><a href="#000117" label="[00:01:17]">&lt;stikonas&gt;</a></span><span class="message">oh, maybe unlink doesn't work if file is open in read only mode</span></div><div class="line" id="000157"><span class="nick" style="color:#389600"><a href="#000157" label="[00:01:57]">&lt;stikonas&gt;</a></span><span class="message">that would make sense</span></div><div class="line" id="000256"><span class="nick" style="color:#389600"><a href="#000256" label="[00:02:56]">&lt;stikonas&gt;</a></span><span class="message">oriansj: that's it!</span></div><div class="line" id="000300"><span class="nick" style="color:#389600"><a href="#000300" label="[00:03:00]">&lt;stikonas&gt;</a></span><span class="message">works ow</span></div><div class="line" id="000302"><span class="nick" style="color:#389600"><a href="#000302" label="[00:03:02]">&lt;stikonas&gt;</a></span><span class="message">works ow</span></div><div class="line" id="000304"><span class="nick" style="color:#389600"><a href="#000304" label="[00:03:04]">&lt;stikonas&gt;</a></span><span class="message">now</span></div><div class="line" id="000313"><span class="nick" style="color:#389600"><a href="#000313" label="[00:03:13]">&lt;stikonas&gt;</a></span><span class="message">it was two bugs cancelling each other out</span></div><div class="line" id="000515"><span class="nick" style="color:#389600"><a href="#000515" label="[00:05:15]">&lt;stikonas&gt;</a></span><span class="message">so the other bug was here <a rel="nofollow" href="https://github.com/oriansj/M2libc/blob/80d32745dcab5b21683ed3e79e943b158397c224/uefi/unistd.c#L281">https://github.com/oriansj/M2libc/blob/80d32745dcab5b21683ed3e79e943b158397c224/uefi/unistd.c#L281</a> </span></div><div class="line" id="000542"><span class="nick" style="color:#389600"><a href="#000542" label="[00:05:42]">&lt;stikonas&gt;</a></span><span class="message">which was doing &quot;w&quot; before due to flag == O_WRONLY|O_CREAT|O_TRUNC being true</span></div><div class="line" id="001248"><span class="nick" style="color:#389600"><a href="#001248" label="[00:12:48]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/53">https://github.com/oriansj/M2libc/pull/53</a> </span></div><div class="line" id="001303"><span class="nick" style="color:#389600"><a href="#001303" label="[00:13:03]">&lt;stikonas&gt;</a></span><span class="message">if you don't mind, I would prefer 2 separate commits / PRs</span></div><div class="line" id="001307"><span class="nick" style="color:#389600"><a href="#001307" label="[00:13:07]">&lt;stikonas&gt;</a></span><span class="message">first is just fixing that bug</span></div><div class="line" id="001315"><span class="nick" style="color:#389600"><a href="#001315" label="[00:13:15]">&lt;stikonas&gt;</a></span><span class="message">but I haven't added any acess implementation</span></div><div class="line" id="001322"><span class="nick" style="color:#389600"><a href="#001322" label="[00:13:22]">&lt;stikonas&gt;</a></span><span class="message">will look at that later</span></div><div class="line" id="001333"><span class="nick" style="color:#389600"><a href="#001333" label="[00:13:33]">&lt;stikonas&gt;</a></span><span class="message">we shouldn't mix it up with bugfix anyway</span></div><div class="line" id="005227"><span class="nick" style="color:#389600"><a href="#005227" label="[00:52:27]">&lt;stikonas&gt;</a></span><span class="message">ok, got access() working too</span></div><div class="line" id="005234"><span class="nick" style="color:#389600"><a href="#005234" label="[00:52:34]">&lt;stikonas&gt;</a></span><span class="message">and now  I can run mes --help and mes --version</span></div><div class="line" id="005431"><span class="nick" style="color:#389600"><a href="#005431" label="[00:54:31]">&lt;stikonas&gt;</a></span><span class="message">mes without arguments seems to start but as expected does not accept any input (stdin is not implemented in M2libc/uefi)</span></div><div class="line" id="005845"><span class="nick" style="color:#8dd3c7"><a href="#005845" label="[00:58:45]">&lt;oriansj&gt;</a></span><span class="message">stikonas: good work</span></div><div class="line" id="005925"><span class="nick" style="color:#389600"><a href="#005925" label="[00:59:25]">&lt;stikonas&gt;</a></span><span class="message">well, you helped today</span></div><div class="line" id="013131"><span class="nick" style="color:#389600"><a href="#013131" label="[01:31:31]">&lt;stikonas&gt;</a></span><span class="message">oh I also kind of accidentally pushed M1 defines that posix-runner needs</span></div><div class="line" id="013136"><span class="nick" style="color:#389600"><a href="#013136" label="[01:31:36]">&lt;stikonas&gt;</a></span><span class="message">but I guess it's ok</span></div><div class="line" id="013148"><span class="nick" style="color:#389600"><a href="#013148" label="[01:31:48]">&lt;stikonas&gt;</a></span><span class="message">even if it's not a final list, we can update it</span></div><div class="line" id="021342"><span class="nick" style="color:#2e2a4a"><a href="#021342" label="[02:13:42]">&lt;muurkha&gt;</a></span><span class="message">I just realized that SeRV is the same size as a MuP21 or a Z80: <a rel="nofollow" href="https://github.com/olofk/serv">https://github.com/olofk/serv</a> </span></div><div class="line" id="023357"><span class="nick" style="color:#2e2a4a"><a href="#023357" label="[02:33:57]">&lt;muurkha&gt;</a></span><span class="message">2.1 CMOS gate equivalents is roughly 8400 transistors</span></div><div class="line" id="023431"><span class="nick" style="color:#2e2a4a"><a href="#023431" label="[02:34:31]">&lt;muurkha&gt;</a></span><span class="message">the Z80 is 8500, the MuP21 is 7500.  Calculus Vaporis would be about 4000 and is probably faster than SERV but more of a pain to program</span></div><div class="line" id="030800"><span class="nick" style="color:#8dd3c7"><a href="#030800" label="[03:08:00]">&lt;oriansj&gt;</a></span><span class="message">muurkha: yeah, the minimal bedrock hardware is approaching something one might be able to make at home</span></div><div class="line" id="040315"><span class="nick" style="color:#2e2a4a"><a href="#040315" label="[04:03:15]">&lt;muurkha&gt;</a></span><span class="message">Konrad Zuse did 80 years ago</span></div><div class="line" id="040334"><span class="nick" style="color:#2e2a4a"><a href="#040334" label="[04:03:34]">&lt;muurkha&gt;</a></span><span class="message">gotta get the RAM requirements down tho</span></div><div class="line" id="074237"><span class="nick" style="color:#6b8072"><a href="#074237" label="[07:42:37]">&lt;fossy&gt;</a></span><span class="message">Piraty: heh, nope, i did not use abi-dumper at all in live-bootstrap :)</span></div><div class="line" id="112032"><span class="nick" style="color:#8dd3c7"><a href="#112032" label="[11:20:32]">&lt;oriansj&gt;</a></span><span class="message">muurkha: or improve the at home transistor yield. As one can get quite far with 1MB of RAM.</span></div><div class="line" id="124614"><span class="nick" style="color:#389600"><a href="#124614" label="[12:46:14]">&lt;stikonas&gt;</a></span><span class="message">yeah, abi-dumper is not useful for live-bootstrap</span></div><div class="line" id="124622"><span class="nick" style="color:#389600"><a href="#124622" label="[12:46:22]">&lt;stikonas&gt;</a></span><span class="message">I've used it before for other things</span></div><div class="line" id="124642"><span class="nick" style="color:#389600"><a href="#124642" label="[12:46:42]">&lt;stikonas&gt;</a></span><span class="message">but live-bootstrap mostly builds things statically anyway</span></div><div class="line" id="124723"><span class="nick" style="color:#389600"><a href="#124723" label="[12:47:23]">&lt;stikonas&gt;</a></span><span class="message">so you can't break existing binaries by upgrading some library</span></div><div class="line" id="124758"><span class="nick" style="color:#389600"><a href="#124758" label="[12:47:58]">&lt;stikonas&gt;</a></span><span class="message">and I guess in general abi-dumper is more useful for application developers than distro maintainers</span></div><div class="line" id="125044"><span class="nick" style="color:#80b1d3"><a href="#125044" label="[12:50:44]">&lt;pabs3&gt;</a></span><span class="message">we have talked about using it in Debian to block testing migration on ABI breakage</span></div><div class="line" id="182809"><span class="nick" style="color:#6d2462"><a href="#182809" label="[18:28:09]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku has merged the final outstanding live-bootstrap related PR into upstream Fiwix!</span></div><div class="line" id="182845"><span class="nick" style="color:#234e69"><a href="#182845" label="[18:28:45]">&lt;Mikaku&gt;</a></span><span class="message">yeah!, we did it! :-)</span></div><div class="line" id="182930"><span class="nick" style="color:#6d2462"><a href="#182930" label="[18:29:30]">&lt;rickmasters&gt;</a></span><span class="message">It took 27 PRs that I dragged out over a year but we finally did it!</span></div><div class="line" id="183044"><span class="nick" style="color:#6d2462"><a href="#183044" label="[18:30:44]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku has released a source tarball that can now be directly pulled into live-bootstrap: <a rel="nofollow" href="https://github.com/mikaku/Fiwix/releases/tag/v1.5.0-lb1">https://github.com/mikaku/Fiwix/releases/tag/v1.5.0-lb1</a> </span></div><div class="line" id="183245"><span class="nick" style="color:#6d2462"><a href="#183245" label="[18:32:45]">&lt;rickmasters&gt;</a></span><span class="message">I am working on a PR for live-bootstrap to pull from there, as well as adopt necessary changes to the build process.</span></div><div class="line" id="195908"><span class="nick" style="color:#2e2a4a"><a href="#195908" label="[19:59:08]">&lt;muurkha&gt;</a></span><span class="message">fantastic!</span></div><div class="line" id="200025"><span class="nick" style="color:#2e2a4a"><a href="#200025" label="[20:00:25]">&lt;muurkha&gt;</a></span><span class="message">oriansj: you don't need anywhere close to 1MB of RAM if you have tape or disk</span></div><div class="line" id="200131"><span class="nick" style="color:#2e2a4a"><a href="#200131" label="[20:01:31]">&lt;muurkha&gt;</a></span><span class="message">but Zuse's Z3 had 64 words of RAM, which is likely not enough</span></div><div class="line" id="225838"><span class="nick" style="color:#6c3d55"><a href="#225838" label="[22:58:38]">&lt;euleritian&gt;</a></span><span class="message">Mikaku: rickmasters: Congratulations! That sounds wonderful!</span></div><div class="line" id="230038"><span class="nick" style="color:#6d2462"><a href="#230038" label="[23:00:38]">&lt;rickmasters&gt;</a></span><span class="message">euleritian: thanks!</span></div><div class="line" id="231240"><span class="nick" style="color:#389600"><a href="#231240" label="[23:12:40]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: congratulations too!</span></div><div class="line" id="231433"><span class="nick" style="color:#6d2462"><a href="#231433" label="[23:14:33]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: Thanks! Also, Issue and PR was just submitted to live-bootstrap to pull from upstream.</span></div><div class="line" id="231611"><span class="nick" style="color:#6d2462"><a href="#231611" label="[23:16:11]">&lt;rickmasters&gt;</a></span><span class="message">Looks like I need to add some license declarations...</span></div><br /></div></body></html>

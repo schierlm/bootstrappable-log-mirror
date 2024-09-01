@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-10-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001829"><span class="nick" style="color:#8dd3c7"><a href="#001829" label="[00:18:29]">&lt;stikonas&gt;</a></span><span class="message">oriansj: hmm, I think I might need some UEFI specific behaviour in cc_amd64 and M2-Planet</span></div><div class="line" id="001844"><span class="nick" style="color:#8dd3c7"><a href="#001844" label="[00:18:44]">&lt;stikonas&gt;</a></span><span class="message">oh, actually this might be envp issue...</span></div><div class="line" id="001908"><span class="nick" style="color:#8dd3c7"><a href="#001908" label="[00:19:08]">&lt;stikonas&gt;</a></span><span class="message">maybe if I push envp=NULL onto stack that will fix depth of local variables</span></div><div class="line" id="002111"><span class="nick" style="color:#8dd3c7"><a href="#002111" label="[00:21:11]">&lt;stikonas&gt;</a></span><span class="message">yes, that does the trick</span></div><div class="line" id="010406"><span class="nick" style="color:#8dd3c7"><a href="#010406" label="[01:04:06]">&lt;stikonas&gt;</a></span><span class="message">ok, &quot;M2.efi --help&quot; now works</span></div><div class="line" id="010422"><span class="nick" style="color:#8dd3c7"><a href="#010422" label="[01:04:22]">&lt;stikonas&gt;</a></span><span class="message">I think I'm only missing fopen/fclose</span></div><div class="line" id="010428"><span class="nick" style="color:#8dd3c7"><a href="#010428" label="[01:04:28]">&lt;stikonas&gt;</a></span><span class="message">though that is still quite a bit of work</span></div><div class="line" id="012226"><span class="nick" style="color:#2e2a4a"><a href="#012226" label="[01:22:26]">&lt;oriansj&gt;</a></span><span class="message">depends entirely if you plan on dealing with UTF-16 files (probably not worth the trouble as we could write a simple UTF-16 to ASCII converter)</span></div><div class="line" id="014301"><span class="nick" style="color:#6b8072"><a href="#014301" label="[01:43:01]">&lt;Hagfish&gt;</a></span><span class="message">getting to M2 sounds like a significant milestone, well done.  i hope fopen/fclose goes smoothly so that the hard work can be even more appreciated</span></div><div class="line" id="015403"><span class="nick" style="color:#80b1d3"><a href="#015403" label="[01:54:03]">&lt;stikonas[m]&gt;</a></span><span class="message">oriansj: no utf-16 names...</span></div><div class="line" id="015435"><span class="nick" style="color:#80b1d3"><a href="#015435" label="[01:54:35]">&lt;stikonas[m]&gt;</a></span><span class="message">My converter for load options just removes every second zero</span></div><div class="line" id="015532"><span class="nick" style="color:#80b1d3"><a href="#015532" label="[01:55:32]">&lt;stikonas[m]&gt;</a></span><span class="message">And for fopen I guess I'll do reverse, insert zeroes between all chars</span></div><div class="line" id="020906"><span class="nick" style="color:#80b1d3"><a href="#020906" label="[02:09:06]">&lt;stikonas[m]&gt;</a></span><span class="message">Oh files themselves are ASCII too</span></div><div class="line" id="020917"><span class="nick" style="color:#80b1d3"><a href="#020917" label="[02:09:17]">&lt;stikonas[m]&gt;</a></span><span class="message">Don't think we need utf-16</span></div><div class="line" id="021041"><span class="nick" style="color:#2e2a4a"><a href="#021041" label="[02:10:41]">&lt;oriansj&gt;</a></span><span class="message">good, it was a terrible encoding to choose anyway</span></div><div class="line" id="021150"><span class="nick" style="color:#2e2a4a"><a href="#021150" label="[02:11:50]">&lt;oriansj&gt;</a></span><span class="message">and multi-string support in M2-Planet actually enables a new and rich possiblity for making better --help messages</span></div><div class="line" id="021322"><span class="nick" style="color:#2e2a4a"><a href="#021322" label="[02:13:22]">&lt;oriansj&gt;</a></span><span class="message">eg: <a rel="nofollow" href="https://paste.debian.net/1257908/">https://paste.debian.net/1257908/</a> </span></div><div class="line" id="023520"><span class="nick" style="color:#2e2a4a"><a href="#023520" label="[02:35:20]">&lt;oriansj&gt;</a></span><span class="message">(not in things needing to be built by cc_* but otherwise we should be able to put extra love in the user experience)</span></div><div class="line" id="103338"><span class="nick" style="color:#80b1d3"><a href="#103338" label="[10:33:38]">&lt;stikonas[m]&gt;</a></span><span class="message">oriansj: doesn't cc_* support multilinear strings too?</span></div><div class="line" id="103754"><span class="nick" style="color:#80b1d3"><a href="#103754" label="[10:37:54]">&lt;stikonas[m]&gt;</a></span><span class="message">At least asm blocks seem to use multi line strings</span></div><div class="line" id="132720"><span class="nick" style="color:#6d2462"><a href="#132720" label="[13:27:20]">&lt;mihi&gt;</a></span><span class="message">stikonas[m], fossy: Anyone seen &quot;sha256sum: WARNING: 1 computed checksum did NOT match</span></div><div class="line" id="132720"><span class="nick" style="color:#6d2462"><a href="#132720" label="[13:27:20]">&lt;mihi&gt;</a></span><span class="message"> | gc-8.0.4.tar.gz: FAILED&quot; with live-bootstrap? This was running on GitHub CI, so I cannot inspect the actual files...</span></div><div class="line" id="133844"><span class="nick" style="color:#6d2462"><a href="#133844" label="[13:38:44]">&lt;mihi&gt;</a></span><span class="message">I will probably rerun this later and see if it happens again.</span></div><div class="line" id="141445"><span class="nick" style="color:#80b1d3"><a href="#141445" label="[14:14:45]">&lt;stikonas[m]&gt;</a></span><span class="message">mihi: bad download? Maybe rerun and see if it is one off</span></div><div class="line" id="142532"><span class="nick" style="color:#2e2a4a"><a href="#142532" label="[14:25:32]">&lt;oriansj&gt;</a></span><span class="message">stikonas: that is correct, that is only inside of asm for cc_* because assembly was easy to just dump into the output but gluing together strings in other cases is a good bit more complex</span></div><div class="line" id="142923"><span class="nick" style="color:#2e2a4a"><a href="#142923" label="[14:29:23]">&lt;oriansj&gt;</a></span><span class="message">mihi: either bad download (very unlikely if running on GitHub CI) or the file changed (Possibly by GitHub messing around with compression)</span></div><div class="line" id="173533"><span class="nick" style="color:#80b1d3"><a href="#173533" label="[17:35:33]">&lt;stikonas[m]&gt;</a></span><span class="message">Compression shouldn't change upstream tarball</span></div><div class="line" id="173601"><span class="nick" style="color:#80b1d3"><a href="#173601" label="[17:36:01]">&lt;stikonas[m]&gt;</a></span><span class="message">That's not git archive package</span></div><div class="line" id="210123"><span class="nick" style="color:#6d2462"><a href="#210123" label="[21:01:23]">&lt;mihi&gt;</a></span><span class="message">stikonas[m], seems to have been a one-time fluke (not only github servers to blame but also www.hboehm.info or anything in between). I now changed my CI job to upload distfiles as github artifact so I can examine the files if they ever have incorrect checksum again.</span></div><div class="line" id="210331"><span class="nick" style="color:#6d2462"><a href="#210331" label="[21:03:31]">&lt;mihi&gt;</a></span><span class="message">However, I'm fighting a bit with how live-bootstrap propagates distfiles and repo-preseeded to sysc in chroot mode. Currently I patched helpers.sh sys_transfer so that it moves them over. But probably I broke something else that did it when trying to split it up into four steps of less than an hour each.</span></div><div class="line" id="225602"><span class="nick" style="color:#80b1d3"><a href="#225602" label="[22:56:02]">&lt;stikonas[m]&gt;</a></span><span class="message">mihi: repo-preseeded might be broken...</span></div><div class="line" id="225612"><span class="nick" style="color:#80b1d3"><a href="#225612" label="[22:56:12]">&lt;stikonas[m]&gt;</a></span><span class="message">I haven't tested it after fossy's changes</span></div><div class="line" id="230314"><span class="nick" style="color:#80b1d3"><a href="#230314" label="[23:03:14]">&lt;stikonas[m]&gt;</a></span><span class="message">Distfiles are only relevant in --external-sources mode, then they are copied in sys_transfer if I remember correctly</span></div><br /></div></body></html>

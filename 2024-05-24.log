@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-05-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="030720"><span class="nick" style="color:#389600"><a href="#030720" label="[03:07:20]">&lt;Googulator&gt;</a></span><span class="message">back at my computer, Guix build (in chroot'd live-bootstrap) reached Guile 3.0.9, and then died with a test failure - given how far it got, I'd guess this is related to chroot. Will retry on bare metal, which has just got ready for an attempt at a Guix bootstrap.</span></div><div class="line" id="033323"><span class="nick" style="color:#389600"><a href="#033323" label="[03:33:23]">&lt;Googulator&gt;</a></span><span class="message">the failure appears to be getaddrinfo failing within the Guix build environment - this could be chroot-related, or it could be /etc/services missing in that environment (or something else altogether)</span></div><div class="line" id="043542"><span class="nick" style="color:#389600"><a href="#043542" label="[04:35:42]">&lt;Googulator&gt;</a></span><span class="message">looks like we need a real /etc/hosts with at least &quot;127.0.0.1 localhost&quot; in it for Guix to complete tests :)</span></div><div class="line" id="085504"><span class="nick" style="color:#8dd3c7"><a href="#085504" label="[08:55:04]">&lt;fossy&gt;</a></span><span class="message">Googulator: regarding sbin-&gt;bin; just simplicity; and i think that it is probably the most compatible solution when it comes to bootstrapping things on top was my original thought; but happy to hear otherwise</span></div><div class="line" id="090105"><span class="nick" style="color:#8dd3c7"><a href="#090105" label="[09:01:05]">&lt;fossy&gt;</a></span><span class="message">Googulator: also, what's the end goal of #469? Everything required to bootstrap guix, or actually bootstrapping guix? I don't think we want guix in the main path, and we don't have any kind of even de-facto plugin standard yet..</span></div><div class="line" id="090200"><span class="nick" style="color:#389600"><a href="#090200" label="[09:02:00]">&lt;Googulator&gt;</a></span><span class="message">At this point, it's just prerequisite changes to existing packages</span></div><div class="line" id="090204"><span class="nick" style="color:#8dd3c7"><a href="#090204" label="[09:02:04]">&lt;fossy&gt;</a></span><span class="message">Okay cool</span></div><div class="line" id="090208"><span class="nick" style="color:#8dd3c7"><a href="#090208" label="[09:02:08]">&lt;fossy&gt;</a></span><span class="message">that's totally fine with me then</span></div><div class="line" id="090210"><span class="nick" style="color:#389600"><a href="#090210" label="[09:02:10]">&lt;Googulator&gt;</a></span><span class="message">All the new code used for Guix is in the gist</span></div><div class="line" id="090218"><span class="nick" style="color:#8dd3c7"><a href="#090218" label="[09:02:18]">&lt;fossy&gt;</a></span><span class="message">good changes to make regardless anyways</span></div><div class="line" id="090343"><span class="nick" style="color:#389600"><a href="#090343" label="[09:03:43]">&lt;Googulator&gt;</a></span><span class="message">Eventually I do plan to turn the other prerequisites into real live-bootstrap packages, maybe even Guix (the package manager) itself, behind a bootstrap.cfg option</span></div><div class="line" id="090401"><span class="nick" style="color:#389600"><a href="#090401" label="[09:04:01]">&lt;Googulator&gt;</a></span><span class="message">but calling the system image build is definitely not something to put in the bootstrap chain</span></div><div class="line" id="090424"><span class="nick" style="color:#8dd3c7"><a href="#090424" label="[09:04:24]">&lt;fossy&gt;</a></span><span class="message">mmm, okay</span></div><div class="line" id="090436"><span class="nick" style="color:#389600"><a href="#090436" label="[09:04:36]">&lt;Googulator&gt;</a></span><span class="message">But #469 is only fixes to enable bootstrapping the rest on top</span></div><div class="line" id="090447"><span class="nick" style="color:#8dd3c7"><a href="#090447" label="[09:04:47]">&lt;fossy&gt;</a></span><span class="message">:D</span></div><div class="line" id="090542"><span class="nick" style="color:#389600"><a href="#090542" label="[09:05:42]">&lt;Googulator&gt;</a></span><span class="message">(btw, compiling Guix's scheme files is really slow on real hardware, so it definitely would need to be default-off, if we ever add the option)</span></div><div class="line" id="091204"><span class="nick" style="color:#8dd3c7"><a href="#091204" label="[09:12:04]">&lt;fossy&gt;</a></span><span class="message">why &quot;on real hardware&quot;?</span></div><div class="line" id="091217"><span class="nick" style="color:#8dd3c7"><a href="#091217" label="[09:12:17]">&lt;fossy&gt;</a></span><span class="message">is that as in not in qemu/chroot or something?</span></div><div class="line" id="091415"><span class="nick" style="color:#389600"><a href="#091415" label="[09:14:15]">&lt;Googulator&gt;</a></span><span class="message">I'm doing bare metal bootstraps on Core 2-era hardware, which I consider old enough that it's unlikely anyone could have hid a hardware backdoor that anticipates how we would use the system for bootstrapping, and subverts it</span></div><div class="line" id="091456"><span class="nick" style="color:#389600"><a href="#091456" label="[09:14:56]">&lt;Googulator&gt;</a></span><span class="message">but new enough that it 1.) has enough performance, and 2.) probably cannot be maliciously emulated on even the most modern bleeding edge hardware</span></div><div class="line" id="091501"><span class="nick" style="color:#8dd3c7"><a href="#091501" label="[09:15:01]">&lt;fossy&gt;</a></span><span class="message">Ah, right</span></div><div class="line" id="215230"><span class="nick" style="color:#389600"><a href="#215230" label="[21:52:30]">&lt;Googulator&gt;</a></span><span class="message">Whew, got past another major hurdle: after several successful builds as part of guix's bootstrap, it would try to fetch a clean copy of the Guix Git repository - from the URL #f (as I understand it, that's what Scheme calls null)</span></div><div class="line" id="215432"><span class="nick" style="color:#389600"><a href="#215432" label="[21:54:32]">&lt;Googulator&gt;</a></span><span class="message">turns out, this was caused by 2 separate issues: /usr/manifest wasn't populated (populating it took a lot of trial and error due to sparse documentation on the manifest format), and Guix has a weird behavior where it ignores the manifest if the Guix binary's full path doesn't end with &quot;/bin/guix&quot;</span></div><div class="line" id="215513"><span class="nick" style="color:#389600"><a href="#215513" label="[21:55:13]">&lt;Googulator&gt;</a></span><span class="message">of course, in LB, /usr/bin == /usr/sbin, and /usr/sbin somehow came earlier on the $PATH, so Guix was running as /usr/sbin/guix</span></div><div class="line" id="215610"><span class="nick" style="color:#389600"><a href="#215610" label="[21:56:10]">&lt;Googulator&gt;</a></span><span class="message">with both of those fixed (and an upgrade to libgit2 &amp; guile-git, as there appears to be some 32-vs-64-bit issues in the older version), it's now finally cloning the Guix Git repository!</span></div><div class="line" id="234115"><span class="nick" style="color:#389600"><a href="#234115" label="[23:41:15]">&lt;Googulator&gt;</a></span><span class="message">bad news: libxml2 build successfully (including the Python bindings), but our Python 3.11 fails to load it - because Guix builds it against glibc, which has fcntl64, unlike Musl.</span></div><div class="line" id="234245"><span class="nick" style="color:#389600"><a href="#234245" label="[23:42:45]">&lt;Googulator&gt;</a></span><span class="message">For some reason, the host Python and the host libc get dragged into the build environment at that point, which is a bit surprising to me given how Guix is supposed to work.</span></div><br /></div></body></html>

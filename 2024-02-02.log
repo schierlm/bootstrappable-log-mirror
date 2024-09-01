@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-02-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="040630"><span class="nick" style="color:#389600"><a href="#040630" label="[04:06:30]">&lt;oriansj&gt;</a></span><span class="message">rickmasters: just noticed your pull requests will review and merge shortly (I rarely login to github and they seem not to send me notice of pull requests)</span></div><div class="line" id="092542"><span class="nick" style="color:#8dd3c7"><a href="#092542" label="[09:25:42]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; Oh my god. I have to bootstrap flex from 0 on x86_64 before I can build the kernel. I am so annoyed.</span></div><div class="line" id="095138"><span class="nick" style="color:#8dd3c7"><a href="#095138" label="[09:51:38]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; Thankfully live-bootstrap seems to have been down this road already. Thankful for the reference!</span></div><div class="line" id="135713"><span class="nick" style="color:#389600"><a href="#135713" label="[13:57:13]">&lt;oriansj&gt;</a></span><span class="message">Googulator: well finally got around to muxzcat.c and it definitely (with work) is something that M2-Planet can compile and definitely clean up because that code is a mess.</span></div><div class="line" id="135840"><span class="nick" style="color:#389600"><a href="#135840" label="[13:58:40]">&lt;oriansj&gt;</a></span><span class="message">so it'll take me a week or so but I should be able to add that to mescc-tools-extra and then you'll be able to include .xz files</span></div><div class="line" id="140341"><span class="nick" style="color:#2e2a4a"><a href="#140341" label="[14:03:41]">&lt;Googulator&gt;</a></span><span class="message">That's great news, thanks!</span></div><div class="line" id="140425"><span class="nick" style="color:#2e2a4a"><a href="#140425" label="[14:04:25]">&lt;Googulator&gt;</a></span><span class="message">Just switching the Linux kernel tarball from gz to xz will drop us below 256MiB, although that will grow again if we want to get rid of the HTTP-only stage</span></div><div class="line" id="142727"><span class="nick" style="color:#6b8072"><a href="#142727" label="[14:27:27]">&lt;deesix&gt;</a></span><span class="message">Is there a procedure to pre-download everything so it can run in a non-networked environment?</span></div><div class="line" id="143426"><span class="nick" style="color:#2e2a4a"><a href="#143426" label="[14:34:26]">&lt;Googulator&gt;</a></span><span class="message">--external-sources</span></div><div class="line" id="143438"><span class="nick" style="color:#2e2a4a"><a href="#143438" label="[14:34:38]">&lt;Googulator&gt;</a></span><span class="message">but of course, that will never fit below 256MiB</span></div><div class="line" id="145520"><span class="nick" style="color:#389600"><a href="#145520" label="[14:55:20]">&lt;oriansj&gt;</a></span><span class="message">god I wish the XDG standard included .login_env to cover the login shell edge case properly.</span></div><div class="line" id="145617"><span class="nick" style="color:#389600"><a href="#145617" label="[14:56:17]">&lt;oriansj&gt;</a></span><span class="message">then we could get all shells to just read ${HOME}/.login_env and then use the configuration folder the users freaking want regardless of shell.</span></div><div class="line" id="145658"><span class="nick" style="color:#8dd3c7"><a href="#145658" label="[14:56:58]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Well, but different shells use different syntax...</span></div><div class="line" id="145712"><span class="nick" style="color:#8dd3c7"><a href="#145712" label="[14:57:12]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; How would they a work with the same file?</span></div><div class="line" id="145731"><span class="nick" style="color:#8dd3c7"><a href="#145731" label="[14:57:31]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; E.g. csh is quite different</span></div><div class="line" id="145801"><span class="nick" style="color:#2e2a4a"><a href="#145801" label="[14:58:01]">&lt;Googulator&gt;</a></span><span class="message">csh isn't considered a POSIX-compliant shell AFAIK</span></div><div class="line" id="145837"><span class="nick" style="color:#2e2a4a"><a href="#145837" label="[14:58:37]">&lt;Googulator&gt;</a></span><span class="message">but Bourne-compatible shells should indeed support a common env file</span></div><div class="line" id="150621"><span class="nick" style="color:#389600"><a href="#150621" label="[15:06:21]">&lt;oriansj&gt;</a></span><span class="message">well we need only consider shells that might be updated to support XDG</span></div><div class="line" id="150720"><span class="nick" style="color:#389600"><a href="#150720" label="[15:07:20]">&lt;oriansj&gt;</a></span><span class="message">and it doesn't matter if all shells support it as only XDG compliant shells would read that file</span></div><div class="line" id="150813"><span class="nick" style="color:#2e2a4a"><a href="#150813" label="[15:08:13]">&lt;Googulator&gt;</a></span><span class="message">does anyone even use csh today?</span></div><div class="line" id="150827"><span class="nick" style="color:#389600"><a href="#150827" label="[15:08:27]">&lt;oriansj&gt;</a></span><span class="message">and those that opt into will just need to be able to handle VARIABLE=VALUE\n and populate that VARIABLE into the env</span></div><div class="line" id="152959"><span class="nick" style="color:#389600"><a href="#152959" label="[15:29:59]">&lt;oriansj&gt;</a></span><span class="message">Googulator: as someone dealing with legacy code bases: yes</span></div><div class="line" id="153617"><span class="nick" style="color:#8dd3c7"><a href="#153617" label="[15:36:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Googulator: yep, all the hw people use csh I think</span></div><div class="line" id="154753"><span class="nick" style="color:#389600"><a href="#154753" label="[15:47:53]">&lt;oriansj&gt;</a></span><span class="message">and if we can keep the contents of .login_env to just VARIABLE=VALUE\n then display managers can support the spec too (as it only would take a dozen lines tops)</span></div><div class="line" id="155234"><span class="nick" style="color:#389600"><a href="#155234" label="[15:52:34]">&lt;oriansj&gt;</a></span><span class="message">no need to support comments or anything else</span></div><div class="line" id="155349"><span class="nick" style="color:#389600"><a href="#155349" label="[15:53:49]">&lt;oriansj&gt;</a></span><span class="message">but as it isn't part of any standard; odds are that it will likely never become a default -_-</span></div><div class="line" id="155458"><span class="nick" style="color:#2e2a4a"><a href="#155458" label="[15:54:58]">&lt;Googulator&gt;</a></span><span class="message">oriansj: I mean as a login shell</span></div><div class="line" id="155548"><span class="nick" style="color:#2e2a4a"><a href="#155548" label="[15:55:48]">&lt;Googulator&gt;</a></span><span class="message">(yale-haskell also requires csh as a scripting language to build, but that's different from using it as a login shell)</span></div><div class="line" id="155641"><span class="nick" style="color:#389600"><a href="#155641" label="[15:56:41]">&lt;oriansj&gt;</a></span><span class="message">oh, in which case all of the people I know who uses csh as a login shell are either retired or dead.</span></div><div class="line" id="155705"><span class="nick" style="color:#389600"><a href="#155705" label="[15:57:05]">&lt;oriansj&gt;</a></span><span class="message">(or intentionally working to make things completely unsupportable)</span></div><div class="line" id="155744"><span class="nick" style="color:#2e2a4a"><a href="#155744" label="[15:57:44]">&lt;Googulator&gt;</a></span><span class="message">in that case, it's relatively safe to assume that people's login shells are Bourne-compatible</span></div><div class="line" id="155758"><span class="nick" style="color:#2e2a4a"><a href="#155758" label="[15:57:58]">&lt;Googulator&gt;</a></span><span class="message">(unless someone uses PowerShell on Linux for whatever reason)</span></div><div class="line" id="161020"><span class="nick" style="color:#6b8072"><a href="#161020" label="[16:10:20]">&lt;deesix&gt;</a></span><span class="message">FreeBSD &lt; 14 (several supported versions) has csh as root's interactive shell, IIRC.</span></div><div class="line" id="163816"><span class="nick" style="color:#8dd3c7"><a href="#163816" label="[16:38:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Googulator: yes he silicon designers tend to use csh as login shell too</span></div><div class="line" id="163835"><span class="nick" style="color:#8dd3c7"><a href="#163835" label="[16:38:35]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; s/he/hw/</span></div><div class="line" id="180046"><span class="nick" style="color:#80b1d3"><a href="#180046" label="[18:00:46]">&lt;pder&gt;</a></span><span class="message">oriansj: I was also looking at muxzcat.c and looked at reworking it so it be compiled by M2-Planet and included in mescc-tools-extra, however it could also be simply compiled with only minimal changes by tcc</span></div><div class="line" id="180113"><span class="nick" style="color:#80b1d3"><a href="#180113" label="[18:01:13]">&lt;pder&gt;</a></span><span class="message">The only changes needed would be to read and write files specified on the command line instead of using stdin and stdout</span></div><div class="line" id="180125"><span class="nick" style="color:#389600"><a href="#180125" label="[18:01:25]">&lt;oriansj&gt;</a></span><span class="message">indeed</span></div><div class="line" id="180150"><span class="nick" style="color:#389600"><a href="#180150" label="[18:01:50]">&lt;oriansj&gt;</a></span><span class="message">but if it can be built by M2-Planet, then even mes and tcc can be xz'd</span></div><div class="line" id="180255"><span class="nick" style="color:#80b1d3"><a href="#180255" label="[18:02:55]">&lt;pder&gt;</a></span><span class="message">that is true, I think your approach is ultimately better just more work upfront</span></div><div class="line" id="183736"><span class="nick" style="color:#389600"><a href="#183736" label="[18:37:36]">&lt;oriansj&gt;</a></span><span class="message">I'd rather do more work now than more work later; because bad choices compound like interest on a shady credit card. And I have seen where a single missing column in a database cost millions.</span></div><div class="line" id="185014"><span class="nick" style="color:#389600"><a href="#185014" label="[18:50:14]">&lt;oriansj&gt;</a></span><span class="message">it also appears they hand wrote their own replacement for struct FILE with custom flush functions???</span></div><div class="line" id="185030"><span class="nick" style="color:#389600"><a href="#185030" label="[18:50:30]">&lt;oriansj&gt;</a></span><span class="message">I think my version will be a good bit smaller</span></div><div class="line" id="185241"><span class="nick" style="color:#389600"><a href="#185241" label="[18:52:41]">&lt;oriansj&gt;</a></span><span class="message">so many macros</span></div><div class="line" id="185918"><span class="nick" style="color:#389600"><a href="#185918" label="[18:59:18]">&lt;oriansj&gt;</a></span><span class="message">I am 203 insertions(+), 420 deletions(-) in and this is going to be interesting</span></div><div class="line" id="223907"><span class="nick" style="color:#80b1d3"><a href="#223907" label="[22:39:07]">&lt;pder&gt;</a></span><span class="message">oriansj: I'm a fan of the unifdef utility: <a rel="nofollow" href="https://dotat.at/prog/unifdef/">https://dotat.at/prog/unifdef/</a>   It allows you to easily strip out the preprocessor directives and the code they surround and leave the rest of the file alone</span></div><div class="line" id="224617"><span class="nick" style="color:#80b1d3"><a href="#224617" label="[22:46:17]">&lt;pder&gt;</a></span><span class="message">for example if you dont care about supporting __KERNEL32TINY__ just run unifdef -U__KERNEL32TINY__ muxzcat.c</span></div><div class="line" id="224733"><span class="nick" style="color:#80b1d3"><a href="#224733" label="[22:47:33]">&lt;pder&gt;</a></span><span class="message">its handy just to make code more readable when its sprinkled with so many #ifdefs</span></div><div class="line" id="233321"><span class="nick" style="color:#8dd3c7"><a href="#233321" label="[23:33:21]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; huh, they use the C preprocessor to autogenerate a java version? <a rel="nofollow" href="https://github.com/pts/muxzcat/blob/master/genjava.sh#L6">https://github.com/pts/muxzcat/blob/master/genjava.sh#L6</a> </span></div><div class="line" id="235403"><span class="nick" style="color:#8dd3c7"><a href="#235403" label="[23:54:03]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Well, it's not completely auto generation...</span></div><div class="line" id="235418"><span class="nick" style="color:#8dd3c7"><a href="#235418" label="[23:54:18]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; It's Java code hidden in #ifdefs</span></div><div class="line" id="235456"><span class="nick" style="color:#8dd3c7"><a href="#235456" label="[23:54:56]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Or at least bits that are different from C...</span></div><br /></div></body></html>

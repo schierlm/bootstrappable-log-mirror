@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-08-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001110"><span class="nick" style="color:#389600"><a href="#001110" label="[00:11:10]">&lt;oriansj&gt;</a></span><span class="message">lrvick: yeah, legacy code sadly will retain in bootstrapping hot paths for a long time. Fortunately guix hides most of that nicely.</span></div><div class="line" id="032001"><span class="nick" style="color:#389600"><a href="#032001" label="[03:20:01]">&lt;oriansj&gt;</a></span><span class="message">bootstrap-seeds x86/POSIX/hex0 is now 190bytes</span></div><div class="line" id="033846"><span class="nick" style="color:#8dd3c7"><a href="#033846" label="[03:38:46]">&lt;lrvick&gt;</a></span><span class="message">nice!</span></div><div class="line" id="113140"><span class="nick" style="color:#2e2a4a"><a href="#113140" label="[11:31:40]">&lt;nimaje&gt;</a></span><span class="message">andydude: I wrote a hex0.py that I find more reasonable <a rel="nofollow" href="https://0x0.st/XJWT.py">https://0x0.st/XJWT.py</a> </span></div><div class="line" id="114232"><span class="nick" style="color:#6b8072"><a href="#114232" label="[11:42:32]">&lt;nikolar&gt;</a></span><span class="message">does anyone have a working example of compiling the kernel with tcc</span></div><div class="line" id="121534"><span class="nick" style="color:#80b1d3"><a href="#121534" label="[12:15:34]">&lt;stikonas&gt;</a></span><span class="message">nikolar: we only have this <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/steps/fiwix-1.5.0-lb1/pass1.kaem">https://github.com/fosslinux/live-bootstrap/blob/master/steps/fiwix-1.5.0-lb1/pass1.kaem</a> </span></div><div class="line" id="121555"><span class="nick" style="color:#80b1d3"><a href="#121555" label="[12:15:55]">&lt;stikonas&gt;</a></span><span class="message">it compiles Fiwix kernel with tcc</span></div><div class="line" id="121639"><span class="nick" style="color:#6b8072"><a href="#121639" label="[12:16:39]">&lt;nikolar&gt;</a></span><span class="message">thanks</span></div><div class="line" id="121644"><span class="nick" style="color:#6b8072"><a href="#121644" label="[12:16:44]">&lt;nikolar&gt;</a></span><span class="message">what's a fiwix kernel though</span></div><div class="line" id="121816"><span class="nick" style="color:#80b1d3"><a href="#121816" label="[12:18:16]">&lt;stikonas&gt;</a></span><span class="message">it's just a small x86 only kernel that is POSiX compatible</span></div><div class="line" id="121823"><span class="nick" style="color:#2e2a4a"><a href="#121823" label="[12:18:23]">&lt;nimaje&gt;</a></span><span class="message">*the* fiwix kernel, not 'a' fiwix kernel (as opposed to the linux kernel)</span></div><div class="line" id="122447"><span class="nick" style="color:#80b1d3"><a href="#122447" label="[12:24:47]">&lt;stikonas&gt;</a></span><span class="message">and no modern linux kernel is compatible with tcc as far as I know... Current releases don't even build with C-only GCC (up to 4.7.4) though there are still long-term supported versions that can be built with GCC 4.6</span></div><div class="line" id="122751"><span class="nick" style="color:#6b8072"><a href="#122751" label="[12:27:51]">&lt;nikolar&gt;</a></span><span class="message">Interesting</span></div><div class="line" id="132323"><span class="nick" style="color:#6d2462"><a href="#132323" label="[13:23:23]">&lt;aggi&gt;</a></span><span class="message">nikolar: i could re-produce tccboot on a slackware11 buildhost (JIT), and once i had an AoT compiled kernel too</span></div><div class="line" id="132359"><span class="nick" style="color:#6b8072"><a href="#132359" label="[13:23:59]">&lt;nikolar&gt;</a></span><span class="message">i couldn't though</span></div><div class="line" id="132400"><span class="nick" style="color:#6d2462"><a href="#132400" label="[13:24:00]">&lt;aggi&gt;</a></span><span class="message">that didn't panic, but i had to reduce the kconfig further than the one from tccboot (due to linking issues and/or missing symbols)</span></div><div class="line" id="132406"><span class="nick" style="color:#6b8072"><a href="#132406" label="[13:24:06]">&lt;nikolar&gt;</a></span><span class="message">not that there are good instructions heh</span></div><div class="line" id="132440"><span class="nick" style="color:#6d2462"><a href="#132440" label="[13:24:40]">&lt;aggi&gt;</a></span><span class="message">haven't got time to proceed with kernel-2.4 yet, becaus i transitioned the system-profile of mine to tcc-toolchain, just recently</span></div><div class="line" id="132551"><span class="nick" style="color:#6d2462"><a href="#132551" label="[13:25:51]">&lt;aggi&gt;</a></span><span class="message">i will retry linux-5.9 too, which may be possible if i add some &quot;pre-generated&quot; files, that's the ones gcc -E emits with Kbuild</span></div><div class="line" id="132633"><span class="nick" style="color:#6d2462"><a href="#132633" label="[13:26:33]">&lt;aggi&gt;</a></span><span class="message">and maybe, yasm can cope with the 16bit bootcode assembly parts</span></div><div class="line" id="132647"><span class="nick" style="color:#6d2462"><a href="#132647" label="[13:26:47]">&lt;aggi&gt;</a></span><span class="message">and, there is some linking problem, which may need binutils</span></div><div class="line" id="132804"><span class="nick" style="color:#6d2462"><a href="#132804" label="[13:28:04]">&lt;aggi&gt;</a></span><span class="message">btw.; the ancient AR utility gave me more headache than i expected</span></div><div class="line" id="132818"><span class="nick" style="color:#6d2462"><a href="#132818" label="[13:28:18]">&lt;aggi&gt;</a></span><span class="message">tcc-implementation of it behaves slightly different than binutils</span></div><div class="line" id="132936"><span class="nick" style="color:#6b8072"><a href="#132936" label="[13:29:36]">&lt;nikolar&gt;</a></span><span class="message">of course</span></div><div class="line" id="133018"><span class="nick" style="color:#6d2462"><a href="#133018" label="[13:30:18]">&lt;aggi&gt;</a></span><span class="message">currently i got only util-linux and nilfs-utils remaining on todo, that got static-linking issues due to this</span></div><div class="line" id="133058"><span class="nick" style="color:#6d2462"><a href="#133058" label="[13:30:58]">&lt;aggi&gt;</a></span><span class="message">and of cause, i need to address the perl issue, which isn't suitable for autotools when statically linked, not yet</span></div><div class="line" id="133406"><span class="nick" style="color:#6b8072"><a href="#133406" label="[13:34:06]">&lt;nikolar&gt;</a></span><span class="message">sounds like a mess</span></div><div class="line" id="133456"><span class="nick" style="color:#6d2462"><a href="#133456" label="[13:34:56]">&lt;aggi&gt;</a></span><span class="message">i maintain it with a gentoo-overlay, keep all emerge/build logs, and everything is tracked with git in detail</span></div><div class="line" id="133642"><span class="nick" style="color:#6d2462"><a href="#133642" label="[13:36:42]">&lt;aggi&gt;</a></span><span class="message">the python/portage and perl/autotools issue are a giant blocker, on the user-space side</span></div><div class="line" id="133717"><span class="nick" style="color:#6b8072"><a href="#133717" label="[13:37:17]">&lt;nikolar&gt;</a></span><span class="message">makes sense</span></div><div class="line" id="133740"><span class="nick" style="color:#6d2462"><a href="#133740" label="[13:37:40]">&lt;aggi&gt;</a></span><span class="message">i must repair perl, because i cannot re-write 500 makefiles to avoid autotools</span></div><div class="line" id="133747"><span class="nick" style="color:#6d2462"><a href="#133747" label="[13:37:47]">&lt;aggi&gt;</a></span><span class="message">that's just too much</span></div><div class="line" id="133758"><span class="nick" style="color:#6d2462"><a href="#133758" label="[13:37:58]">&lt;aggi&gt;</a></span><span class="message">i can live with avoiding python/portage however</span></div><div class="line" id="134250"><span class="nick" style="color:#6b8072"><a href="#134250" label="[13:42:50]">&lt;nikolar&gt;</a></span><span class="message">heh</span></div><div class="line" id="134921"><span class="nick" style="color:#6d2462"><a href="#134921" label="[13:49:21]">&lt;aggi&gt;</a></span><span class="message">sorry, i'll keep quiet, just had my coffee to squeeze a few more hours of brainpower</span></div><div class="line" id="135713"><span class="nick" style="color:#6b8072"><a href="#135713" label="[13:57:13]">&lt;nikolar&gt;</a></span><span class="message">nah it's alright</span></div><div class="line" id="204306"><span class="nick" style="color:#234e69"><a href="#204306" label="[20:43:06]">&lt;andydude&gt;</a></span><span class="message">nimaje: that's certainly shorter than mine</span></div><div class="line" id="204427"><span class="nick" style="color:#234e69"><a href="#204427" label="[20:44:27]">&lt;andydude&gt;</a></span><span class="message">nimaje: my goal was to visualize the DFA, not brevity</span></div><div class="line" id="214251"><span class="nick" style="color:#6c3d55"><a href="#214251" label="[21:42:51]">&lt;lechner&gt;</a></span><span class="message">Hi, which tool does the reverse of hex0, please, i.e. produce a perhaps even annotated hex string that can serve as input to hex0. Thanks!</span></div><div class="line" id="215519"><span class="nick" style="color:#80b1d3"><a href="#215519" label="[21:55:19]">&lt;stikonas&gt;</a></span><span class="message">lechner: no such tool exist</span></div><div class="line" id="215537"><span class="nick" style="color:#80b1d3"><a href="#215537" label="[21:55:37]">&lt;stikonas&gt;</a></span><span class="message">well, disassembler can do a bit of that</span></div><div class="line" id="215621"><span class="nick" style="color:#80b1d3"><a href="#215621" label="[21:56:21]">&lt;stikonas&gt;</a></span><span class="message">objdump doesn't like stage0-posix binaries though...</span></div><div class="line" id="215631"><span class="nick" style="color:#80b1d3"><a href="#215631" label="[21:56:31]">&lt;stikonas&gt;</a></span><span class="message">gdb works better though</span></div><div class="line" id="215712"><span class="nick" style="color:#6c3d55"><a href="#215712" label="[21:57:12]">&lt;lechner&gt;</a></span><span class="message">stikonas / thanks!</span></div><div class="line" id="215948"><span class="nick" style="color:#80b1d3"><a href="#215948" label="[21:59:48]">&lt;stikonas&gt;</a></span><span class="message">oh, interestingly llvm-objdump works  better on stage0-posix binaries</span></div><div class="line" id="220051"><span class="nick" style="color:#80b1d3"><a href="#220051" label="[22:00:51]">&lt;stikonas&gt;</a></span><span class="message">oh, but also not perfectly...</span></div><div class="line" id="220100"><span class="nick" style="color:#80b1d3"><a href="#220100" label="[22:01:00]">&lt;stikonas&gt;</a></span><span class="message">it doesn't properly recognize elf header</span></div><div class="line" id="220343"><span class="nick" style="color:#234e69"><a href="#220343" label="[22:03:43]">&lt;andydude&gt;</a></span><span class="message">I would say objdump is probably the closest, xxd would be the second runner up</span></div><div class="line" id="220455"><span class="nick" style="color:#234e69"><a href="#220455" label="[22:04:55]">&lt;andydude&gt;</a></span><span class="message">My favorite description of hex0 is sed -e &quot;GET RID OF COMMENTS&quot; | xxd -r -p</span></div><br /></div></body></html>

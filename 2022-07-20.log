@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-07-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000020"><span class="nick" style="color:#389600"><a href="#000020" label="[00:00:20]">&lt;stikonas&gt;</a></span><span class="message">oh I actually miscalculated header size, so now .text size of x86 and amd64 is exacty equal</span></div><div class="line" id="001657"><span class="nick" style="color:#8dd3c7"><a href="#001657" label="[00:16:57]">&lt;Hagfish&gt;</a></span><span class="message">that's kinda nice, i guess.  is that just a coincidence?</span></div><div class="line" id="005018"><span class="nick" style="color:#389600"><a href="#005018" label="[00:50:18]">&lt;stikonas&gt;</a></span><span class="message">yes, coincidence</span></div><div class="line" id="011129"><span class="nick" style="color:#389600"><a href="#011129" label="[01:11:29]">&lt;stikonas&gt;</a></span><span class="message">ok, new amd64 seed is now ready <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds/pull/21">https://github.com/oriansj/bootstrap-seeds/pull/21</a> </span></div><div class="line" id="011522"><span class="nick" style="color:#389600"><a href="#011522" label="[01:15:22]">&lt;stikonas&gt;</a></span><span class="message">and <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-amd64/pull/3">https://github.com/oriansj/stage0-posix-amd64/pull/3</a> </span></div><div class="line" id="011542"><span class="nick" style="color:#8dd3c7"><a href="#011542" label="[01:15:42]">&lt;Hagfish&gt;</a></span><span class="message">nice!</span></div><div class="line" id="042803"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="043532"><span class="nick" style="color:#6b8072"><a href="#043532" label="[04:35:32]">&lt;oriansj&gt;</a></span><span class="message">stikonas: looks good, thank you</span></div><div class="line" id="211223"><span class="nick" style="color:#389600"><a href="#211223" label="[21:12:23]">&lt;stikonas&gt;</a></span><span class="message">oriansj: any reason for catm on x86 not to be written in hex1?</span></div><div class="line" id="211240"><span class="nick" style="color:#389600"><a href="#211240" label="[21:12:40]">&lt;stikonas&gt;</a></span><span class="message">I'm now reducing size of catm a bit too using the same tricks</span></div><div class="line" id="211453"><span class="nick" style="color:#389600"><a href="#211453" label="[21:14:53]">&lt;stikonas&gt;</a></span><span class="message">so thinking of whether we should manually encode jumps or just let hex1 do it</span></div><div class="line" id="220914"><span class="nick" style="color:#389600"><a href="#220914" label="[22:09:14]">&lt;stikonas&gt;</a></span><span class="message">or even hex2 can be used...</span></div><div class="line" id="235726"><span class="nick" style="color:#6b8072"><a href="#235726" label="[23:57:26]">&lt;oriansj&gt;</a></span><span class="message">stikonas: the only reason it was written in hex0 instead of hex1 was that I wasn't sure of the build order yet and wanted to have the freedom to move it before hex1 if needed.</span></div><div class="line" id="235831"><span class="nick" style="color:#389600"><a href="#235831" label="[23:58:31]">&lt;stikonas&gt;</a></span><span class="message">well, hex1 actually needs more changes...</span></div><div class="line" id="235839"><span class="nick" style="color:#389600"><a href="#235839" label="[23:58:39]">&lt;stikonas&gt;</a></span><span class="message">since 8 byte displacements are not supported</span></div><div class="line" id="235842"><span class="nick" style="color:#6b8072"><a href="#235842" label="[23:58:42]">&lt;oriansj&gt;</a></span><span class="message">in fact in AArch64 hex2 is built before catm is</span></div><div class="line" id="235851"><span class="nick" style="color:#389600"><a href="#235851" label="[23:58:51]">&lt;stikonas&gt;</a></span><span class="message">one needs to build it for hex2</span></div><div class="line" id="235905"><span class="nick" style="color:#389600"><a href="#235905" label="[23:59:05]">&lt;stikonas&gt;</a></span><span class="message">well, I guess we can do the same for x86</span></div><div class="line" id="235917"><span class="nick" style="color:#6b8072"><a href="#235917" label="[23:59:17]">&lt;oriansj&gt;</a></span><span class="message">so we could move it after hex2 for simplicity</span></div><div class="line" id="235932"><span class="nick" style="color:#389600"><a href="#235932" label="[23:59:32]">&lt;stikonas&gt;</a></span><span class="message">ok, I'll do that...</span></div><br /></div></body></html>

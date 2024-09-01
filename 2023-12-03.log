@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-12-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="032256"><span class="nick" style="color:#389600"><a href="#032256" label="[03:22:56]">&lt;Googulator&gt;</a></span><span class="message">Of all the various things we build in linux / sysc before we build openssl, are all of those actually prerequisites of openssl?</span></div><div class="line" id="032509"><span class="nick" style="color:#389600"><a href="#032509" label="[03:25:09]">&lt;Googulator&gt;</a></span><span class="message">I was thinking of putting openssl and all of its requirements into srcfs (bringing them over into the Linux environment via initramfs), and *mandating* (not merely allowing) https for all subsequent downloads</span></div><div class="line" id="032541"><span class="nick" style="color:#389600"><a href="#032541" label="[03:25:41]">&lt;Googulator&gt;</a></span><span class="message">This way, we remove the NIC &amp; its firmware from the list of things that could potentially backdoor the process</span></div><div class="line" id="032622"><span class="nick" style="color:#389600"><a href="#032622" label="[03:26:22]">&lt;Googulator&gt;</a></span><span class="message">this would solve our HTTP download woes, and provide additional security - at the cost of a larger srcfs</span></div><div class="line" id="032714"><span class="nick" style="color:#389600"><a href="#032714" label="[03:27:14]">&lt;Googulator&gt;</a></span><span class="message">if the NIC only ever sees ciphertext, it can't inject a backdoor unless it breaks the cipher</span></div><div class="line" id="033926"><span class="nick" style="color:#389600"><a href="#033926" label="[03:39:26]">&lt;Googulator&gt;</a></span><span class="message">fossy: found another issue - in the &quot;bc&quot; build, ./fix-libmath-h fails with &quot;UNKNOWN ARGUMENT&quot; -&gt; Error 1</span></div><div class="line" id="033944"><span class="nick" style="color:#389600"><a href="#033944" label="[03:39:44]">&lt;Googulator&gt;</a></span><span class="message">&quot;UNKNOWN ARGUMENT&quot; in all caps is a kaem error - but we should be way past using kaem at this point</span></div><div class="line" id="034004"><span class="nick" style="color:#389600"><a href="#034004" label="[03:40:04]">&lt;Googulator&gt;</a></span><span class="message">fix-libmath-h is missing a shebang, and for whatever reason, make decides to fall back to using kaem here</span></div><div class="line" id="034048"><span class="nick" style="color:#389600"><a href="#034048" label="[03:40:48]">&lt;Googulator&gt;</a></span><span class="message">I suggest a patch to bc which adds the missing shebang, but it's worth investigating why make chooses kaem in kernel-bootstrap, but bash otherwise</span></div><div class="line" id="034245"><span class="nick" style="color:#389600"><a href="#034245" label="[03:42:45]">&lt;Googulator&gt;</a></span><span class="message">fossy: also, is pass2.sh ever used in bash-2.05b? In the manifest (and also in the pre-refactor sysa files), I only ever see pass1.kaem being called</span></div><div class="line" id="034300"><span class="nick" style="color:#389600"><a href="#034300" label="[03:43:00]">&lt;Googulator&gt;</a></span><span class="message">the next bash built after that is 5.2.15, which is the final one</span></div><div class="line" id="045309"><span class="nick" style="color:#8dd3c7"><a href="#045309" label="[04:53:09]">&lt;GoogulatorMobile&gt;</a></span><span class="message">fossy: found it - $SHELL is not set in env, and kaem is hardcoded to set itself as $SHELL if it's not explicitly set</span></div><div class="line" id="045426"><span class="nick" style="color:#8dd3c7"><a href="#045426" label="[04:54:26]">&lt;GoogulatorMobile&gt;</a></span><span class="message">You'll need to either add an &quot;export SHELL=/usr/bin/bash&quot; to update_env.sh, or drop the hardcoded default from kaem (why is it even needed?)</span></div><div class="line" id="054923"><span class="nick" style="color:#2e2a4a"><a href="#054923" label="[05:49:23]">&lt;fossy&gt;</a></span><span class="message">GoogulatorMobile: yeah, I found that locally as well, i've got that fixed now, thanks :)</span></div><div class="line" id="054931"><span class="nick" style="color:#2e2a4a"><a href="#054931" label="[05:49:31]">&lt;fossy&gt;</a></span><span class="message">pass2.sh may not be used? i think it might be an older relic</span></div><div class="line" id="055806"><span class="nick" style="color:#8dd3c7"><a href="#055806" label="[05:58:06]">&lt;GoogulatorMobile&gt;</a></span><span class="message">fossy: do you also have a fix for &quot;cp: cannot stat /init.3: No such file or directory&quot; already?</span></div><div class="line" id="055814"><span class="nick" style="color:#8dd3c7"><a href="#055814" label="[05:58:14]">&lt;GoogulatorMobile&gt;</a></span><span class="message">It hits right after Linux is built</span></div><div class="line" id="061123"><span class="nick" style="color:#389600"><a href="#061123" label="[06:11:23]">&lt;Googulator&gt;</a></span><span class="message">ok, turns out, for some reason, no init.3 is ever generated</span></div><div class="line" id="061844"><span class="nick" style="color:#389600"><a href="#061844" label="[06:18:44]">&lt;Googulator&gt;</a></span><span class="message">or rather, it's generated, and then lost to the builder-hex0 -&gt; fiwix kexec</span></div><div class="line" id="061856"><span class="nick" style="color:#389600"><a href="#061856" label="[06:18:56]">&lt;Googulator&gt;</a></span><span class="message">not included in fiwix-file-list.txt</span></div><div class="line" id="062204"><span class="nick" style="color:#2e2a4a"><a href="#062204" label="[06:22:04]">&lt;fossy&gt;</a></span><span class="message">Googulator: i just pushed my most recent changes to the simplify branch. that is also fixed there</span></div><div class="line" id="062703"><span class="nick" style="color:#389600"><a href="#062703" label="[06:27:03]">&lt;Googulator&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/simplify/rootfs.py#L39">https://github.com/fosslinux/live-bootstrap/blob/simplify/rootfs.py#L39</a>  looks like this is the next issue to tackle</span></div><div class="line" id="062715"><span class="nick" style="color:#389600"><a href="#062715" label="[06:27:15]">&lt;Googulator&gt;</a></span><span class="message">&quot;hdb1&quot; won't exist in linux</span></div><div class="line" id="062737"><span class="nick" style="color:#389600"><a href="#062737" label="[06:27:37]">&lt;Googulator&gt;</a></span><span class="message">is this a leftover from disk-in-Fiwix?</span></div><div class="line" id="062836"><span class="nick" style="color:#389600"><a href="#062836" label="[06:28:36]">&lt;Googulator&gt;</a></span><span class="message">I'm gonna attempt with this changed to &quot;sda&quot;</span></div><div class="line" id="062859"><span class="nick" style="color:#389600"><a href="#062859" label="[06:28:59]">&lt;Googulator&gt;</a></span><span class="message">(I already have a fix in place for creating sda1)</span></div><div class="line" id="075058"><span class="nick" style="color:#389600"><a href="#075058" label="[07:50:58]">&lt;Googulator&gt;</a></span><span class="message">initrd_size: 0</span></div><div class="line" id="075101"><span class="nick" style="color:#389600"><a href="#075101" label="[07:51:01]">&lt;Googulator&gt;</a></span><span class="message">ouch!</span></div><div class="line" id="084331"><span class="nick" style="color:#6b8072"><a href="#084331" label="[08:43:31]">&lt;hl&gt;</a></span><span class="message">got spare 37C3/CCC tickets if anyone wants them</span></div><div class="line" id="094757"><span class="nick" style="color:#2e2a4a"><a href="#094757" label="[09:47:57]">&lt;fossy&gt;</a></span><span class="message">Googulator: yes, that does not currently work, i am working on that right now</span></div><div class="line" id="094807"><span class="nick" style="color:#2e2a4a"><a href="#094807" label="[09:48:07]">&lt;fossy&gt;</a></span><span class="message">don't worry too much about that right now, it is incomplete</span></div><div class="line" id="102030"><span class="nick" style="color:#389600"><a href="#102030" label="[10:20:30]">&lt;Googulator&gt;</a></span><span class="message">managed to bypass that - now Linux kernel boots, but dies due to no initramfs and no rootfs</span></div><div class="line" id="102201"><span class="nick" style="color:#389600"><a href="#102201" label="[10:22:01]">&lt;Googulator&gt;</a></span><span class="message">also, why the switch to ext3 file system?</span></div><div class="line" id="111814"><span class="nick" style="color:#2e2a4a"><a href="#111814" label="[11:18:14]">&lt;fossy&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/334/files#diff-e3cf7b4ae6ba10383ad9b192d90d49c82c4435b0b5740bf213691c699f277200R45-R52">https://github.com/fosslinux/live-bootstrap/pull/334/files#diff-e3cf7b4ae6ba10383ad9b192d90d49c82c4435b0b5740bf213691c699f277200R45-R52</a> </span></div><div class="line" id="111826"><span class="nick" style="color:#2e2a4a"><a href="#111826" label="[11:18:26]">&lt;fossy&gt;</a></span><span class="message">explains that</span></div><div class="line" id="111841"><span class="nick" style="color:#2e2a4a"><a href="#111841" label="[11:18:41]">&lt;fossy&gt;</a></span><span class="message">if that doesn't quite answer it feel free to ask</span></div><div class="line" id="154259"><span class="nick" style="color:#80b1d3"><a href="#154259" label="[15:42:59]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Googulator: bash pass2 was an attempt to get interactive bash earlier</span></div><div class="line" id="154317"><span class="nick" style="color:#80b1d3"><a href="#154317" label="[15:43:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; rickmasters had some issues with it on fiwix</span></div><div class="line" id="154335"><span class="nick" style="color:#80b1d3"><a href="#154335" label="[15:43:35]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; So it got disabled for now</span></div><div class="line" id="162640"><span class="nick" style="color:#389600"><a href="#162640" label="[16:26:40]">&lt;Googulator&gt;</a></span><span class="message">fossy: but that's for the &quot;external&quot; disk, which is (AFAIK) currently unused</span></div><div class="line" id="162706"><span class="nick" style="color:#389600"><a href="#162706" label="[16:27:06]">&lt;Googulator&gt;</a></span><span class="message">there's no reason to force the root disk to be ext3 too</span></div><div class="line" id="162718"><span class="nick" style="color:#389600"><a href="#162718" label="[16:27:18]">&lt;Googulator&gt;</a></span><span class="message">even if we start using external</span></div><div class="line" id="204424"><span class="nick" style="color:#389600"><a href="#204424" label="[20:44:24]">&lt;Googulator&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/cosinusoidally/tcc_bootstrap_alt/commit/b90763c40626b50d83cd6c2c5d2f1eb1fcb681d4">https://github.com/cosinusoidally/tcc_bootstrap_alt/commit/b90763c40626b50d83cd6c2c5d2f1eb1fcb681d4</a>  nice progress!</span></div><div class="line" id="204455"><span class="nick" style="color:#389600"><a href="#204455" label="[20:44:55]">&lt;Googulator&gt;</a></span><span class="message">.26 is the one we currently build with mes, right?</span></div><div class="line" id="204503"><span class="nick" style="color:#389600"><a href="#204503" label="[20:45:03]">&lt;Googulator&gt;</a></span><span class="message">(tcc 0.9.26)</span></div><div class="line" id="205152"><span class="nick" style="color:#389600"><a href="#205152" label="[20:51:52]">&lt;Googulator&gt;</a></span><span class="message">in fact, even better: <a rel="nofollow" href="https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/tcc_27/run_27.kaem">https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/tcc_27/run_27.kaem</a> </span></div><div class="line" id="205216"><span class="nick" style="color:#389600"><a href="#205216" label="[20:52:16]">&lt;Googulator&gt;</a></span><span class="message">Can tcc 0.9.27 build meslibc?</span></div><div class="line" id="205243"><span class="nick" style="color:#389600"><a href="#205243" label="[20:52:43]">&lt;Googulator&gt;</a></span><span class="message">alternatively, do we need meslibc at all, or can we just go straight to musl 1.1.24 here?</span></div><div class="line" id="214514"><span class="nick" style="color:#389600"><a href="#214514" label="[21:45:14]">&lt;Googulator&gt;</a></span><span class="message">fossy: I think I found why initramfs generation is failing</span></div><div class="line" id="214549"><span class="nick" style="color:#389600"><a href="#214549" label="[21:45:49]">&lt;Googulator&gt;</a></span><span class="message">gen_init_cpio is expecting a very different file list format than what we give it</span></div><div class="line" id="215634"><span class="nick" style="color:#389600"><a href="#215634" label="[21:56:34]">&lt;Googulator&gt;</a></span><span class="message">it seems disabling interrupts had a pleasant side effect in qemu: during srcfs read, the lines printed out are no longer missing their last character &amp; newline</span></div><div class="line" id="215733"><span class="nick" style="color:#389600"><a href="#215733" label="[21:57:33]">&lt;Googulator&gt;</a></span><span class="message">so qemu wasn't as unaffected by the interrupt problem as I thought, it just manifested in a more cosmetic way</span></div><div class="line" id="220831"><span class="nick" style="color:#389600"><a href="#220831" label="[22:08:31]">&lt;Googulator&gt;</a></span><span class="message">as soon as interrupts are reenabled for userspace, the missing character error comes back</span></div><div class="line" id="221437"><span class="nick" style="color:#389600"><a href="#221437" label="[22:14:37]">&lt;Googulator&gt;</a></span><span class="message">since nothing in builder-hex0's &quot;userspace&quot; will ever interact with hardware other than the CPU or the RAM, except via 16-bit BIOS routines, and &quot;int 80h&quot; does work even if interrupts are otherwise disabled, I think it's best to just keep interrupts disabled for the entirety of builder-hex0's execution (with the exception of 16-bit routines where</span></div><div class="line" id="221438"><span class="nick" style="color:#389600"><a href="#221438" label="[22:14:38]">&lt;Googulator&gt;</a></span><span class="message">BIOS is able to handle interrupts)</span></div><div class="line" id="221517"><span class="nick" style="color:#389600"><a href="#221517" label="[22:15:17]">&lt;Googulator&gt;</a></span><span class="message">then, kexec-fiwix can perform a &quot;sti&quot; in its trampoline right before jumping to Fiwix proper</span></div><div class="line" id="221539"><span class="nick" style="color:#389600"><a href="#221539" label="[22:15:39]">&lt;Googulator&gt;</a></span><span class="message">it can do that because in builder-hex0, everything runs in ring 0 (hence &quot;userspace&quot; in scare quotes)</span></div><div class="line" id="222030"><span class="nick" style="color:#389600"><a href="#222030" label="[22:20:30]">&lt;Googulator&gt;</a></span><span class="message">and from that point on, we don't ever need to rely on BIOS for anything, because Fiwix is a true kernel with its own drivers</span></div><div class="line" id="223525"><span class="nick" style="color:#389600"><a href="#223525" label="[22:35:25]">&lt;Googulator&gt;</a></span><span class="message">alternatively, we could implement interrupt proxying, which would also simplify things like disk or console access - we could just &quot;int 13h&quot; or &quot;int 10h&quot; straight from protected mode</span></div><div class="line" id="223858"><span class="nick" style="color:#389600"><a href="#223858" label="[22:38:58]">&lt;Googulator&gt;</a></span><span class="message">unfortunately x86 has no instruction like &quot;int al&quot;, but it can still be done using self-modifying code</span></div><br /></div></body></html>

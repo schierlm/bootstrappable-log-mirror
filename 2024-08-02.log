@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-08-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="152712"><span class="nick" style="color:#389600"><a href="#152712" label="[15:27:12]">&lt;mid-kid&gt;</a></span><span class="message">&lt;@oriansj&gt; aggi: interesting observation about configure's behavior looking for unneeded things. Makes me wonder how much many configure scripts and builds could be simplified if people cared.</span></div><div class="line" id="152740"><span class="nick" style="color:#389600"><a href="#152740" label="[15:27:40]">&lt;mid-kid&gt;</a></span><span class="message">if you know the exact details about the system being compiled for in many cases you don't need to run the configure script at all</span></div><div class="line" id="152811"><span class="nick" style="color:#389600"><a href="#152811" label="[15:28:11]">&lt;mid-kid&gt;</a></span><span class="message">you just make a config.h with the necessary defines and replace the relevant markers in the Makefile.in</span></div><div class="line" id="152847"><span class="nick" style="color:#389600"><a href="#152847" label="[15:28:47]">&lt;mid-kid&gt;</a></span><span class="message">sometimes this can make compiling for &quot;weird&quot; systems easier, since it's harder to debug the tests than just hardcode a define</span></div><div class="line" id="152850"><span class="nick" style="color:#389600"><a href="#152850" label="[15:28:50]">&lt;mid-kid&gt;</a></span><span class="message">but</span></div><div class="line" id="152929"><span class="nick" style="color:#389600"><a href="#152929" label="[15:29:29]">&lt;mid-kid&gt;</a></span><span class="message">the idea of autoconf is basically introducing graceful degradation into the build system</span></div><div class="line" id="153117"><span class="nick" style="color:#389600"><a href="#153117" label="[15:31:17]">&lt;mid-kid&gt;</a></span><span class="message">testing and adapting for different systems makes software more flexible and allows automatically picking up new features introduced by newer versions of compilers/libraries on the platforms that have them</span></div><div class="line" id="153145"><span class="nick" style="color:#389600"><a href="#153145" label="[15:31:45]">&lt;mid-kid&gt;</a></span><span class="message">and you don't have to specifically support every platform, in many cases, it may just work</span></div><div class="line" id="153236"><span class="nick" style="color:#389600"><a href="#153236" label="[15:32:36]">&lt;mid-kid&gt;</a></span><span class="message">and when it doesn't work, autoconf is rather descriptive about it and catches it before it becomes an issue at runtime</span></div><div class="line" id="153247"><span class="nick" style="color:#389600"><a href="#153247" label="[15:32:47]">&lt;mid-kid&gt;</a></span><span class="message">s/an issue/a hard to debug issue/</span></div><div class="line" id="153441"><span class="nick" style="color:#389600"><a href="#153441" label="[15:34:41]">&lt;mid-kid&gt;</a></span><span class="message">so it's generally unwise to hardcode autoconf output unless you're 100% sure everything will always be a certain way</span></div><div class="line" id="153533"><span class="nick" style="color:#389600"><a href="#153533" label="[15:35:33]">&lt;mid-kid&gt;</a></span><span class="message">I've seen people remove autoconf from projects in favor of makefile, resulting in a lot of headaches on different plaforms</span></div><div class="line" id="153616"><span class="nick" style="color:#389600"><a href="#153616" label="[15:36:16]">&lt;mid-kid&gt;</a></span><span class="message">But for a project like this where everything is always 100% known and verified (byte-matching), it might make sense to reduce the amount of dependencies by doing that</span></div><div class="line" id="153912"><span class="nick" style="color:#8dd3c7"><a href="#153912" label="[15:39:12]">&lt;aggi&gt;</a></span><span class="message">mid-kid: musl-libc-&lt;1.1.x|1.2.x&gt; are mis-compiled by tcc-toolchain for dynamic linking aginst libc.so</span></div><div class="line" id="153949"><span class="nick" style="color:#8dd3c7"><a href="#153949" label="[15:39:49]">&lt;aggi&gt;</a></span><span class="message">i couldn't debug/bisct agsinst gcc yet, why that is</span></div><div class="line" id="154011"><span class="nick" style="color:#8dd3c7"><a href="#154011" label="[15:40:11]">&lt;aggi&gt;</a></span><span class="message">in worst case, i'll run this static-linking</span></div><div class="line" id="154139"><span class="nick" style="color:#8dd3c7"><a href="#154139" label="[15:41:39]">&lt;aggi&gt;</a></span><span class="message">tried a few things last night, compiling with tcc, and linking with gcc for example, no look yet</span></div><div class="line" id="154204"><span class="nick" style="color:#8dd3c7"><a href="#154204" label="[15:42:04]">&lt;aggi&gt;</a></span><span class="message">musl-libc doesn't use GNU-buildsystem</span></div><div class="line" id="154222"><span class="nick" style="color:#8dd3c7"><a href="#154222" label="[15:42:22]">&lt;aggi&gt;</a></span><span class="message">i could try with any other, such as uclibc or newlib</span></div><div class="line" id="154313"><span class="nick" style="color:#8dd3c7"><a href="#154313" label="[15:43:13]">&lt;aggi&gt;</a></span><span class="message">i am in no hurry over this, none of my problems</span></div><div class="line" id="162658"><span class="nick" style="color:#2e2a4a"><a href="#162658" label="[16:26:58]">&lt;andydude&gt;</a></span><span class="message">@mid-kid: I'm currently trying to rewrite autoconf in C</span></div><div class="line" id="162913"><span class="nick" style="color:#2e2a4a"><a href="#162913" label="[16:29:13]">&lt;andydude&gt;</a></span><span class="message">I would eschew any attempt at replacing m4, make, shell, etc. but I have an irrational fear of perl5</span></div><div class="line" id="170919"><span class="nick" style="color:#6b8072"><a href="#170919" label="[17:09:19]">&lt;Googulator&gt;</a></span><span class="message">andydude: that would be awesome; supporting GNU build system as soon as we have a real shell</span></div><div class="line" id="170951"><span class="nick" style="color:#6b8072"><a href="#170951" label="[17:09:51]">&lt;Googulator&gt;</a></span><span class="message">in live-bootstrap, the first shell we build has a nasty bug that makes a WSL2-based bootstrap impossible</span></div><div class="line" id="171007"><span class="nick" style="color:#6b8072"><a href="#171007" label="[17:10:07]">&lt;Googulator&gt;</a></span><span class="message">and that bug is related to not using autoconf</span></div><div class="line" id="171042"><span class="nick" style="color:#6b8072"><a href="#171042" label="[17:10:42]">&lt;Googulator&gt;</a></span><span class="message">if I rebuild the same version of Bash using an autoconf / configure-generated makefile, globbing works perfectly</span></div><div class="line" id="171105"><span class="nick" style="color:#6b8072"><a href="#171105" label="[17:11:05]">&lt;Googulator&gt;</a></span><span class="message">unfortunately that bug triggers precisely in the autoconf bootstrap</span></div><div class="line" id="174225"><span class="nick" style="color:#80b1d3"><a href="#174225" label="[17:42:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; It might be possible to.determine what config define is needed.to fix that bug...</span></div><div class="line" id="174247"><span class="nick" style="color:#80b1d3"><a href="#174247" label="[17:42:47]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But hard to do unless you have access to wsl2</span></div><div class="line" id="234637"><span class="nick" style="color:#389600"><a href="#234637" label="[23:46:37]">&lt;mid-kid&gt;</a></span><span class="message">anyone know what paths gcc searches for specs files</span></div><div class="line" id="234909"><span class="nick" style="color:#389600"><a href="#234909" label="[23:49:09]">&lt;mid-kid&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/gcc-mirror/gcc/blob/master/gcc/gcc.cc#L8478-L8497">https://github.com/gcc-mirror/gcc/blob/master/gcc/gcc.cc#L8478-L8497</a> </span></div><div class="line" id="235007"><span class="nick" style="color:#389600"><a href="#235007" label="[23:50:07]">&lt;mid-kid&gt;</a></span><span class="message">it's not documented anywhere but I know gcc has a way to override the internal specs file by putting a file somewhere in its install dirs</span></div><div class="line" id="235011"><span class="nick" style="color:#389600"><a href="#235011" label="[23:50:11]">&lt;mid-kid&gt;</a></span><span class="message">I just always forget where</span></div><div class="line" id="235204"><span class="nick" style="color:#389600"><a href="#235204" label="[23:52:04]">&lt;mid-kid&gt;</a></span><span class="message">and this code seems to imply it's searching a path so I would like to know how it works</span></div><br /></div></body></html>

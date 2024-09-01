@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-02-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="014440"><span class="nick" style="color:#389600"><a href="#014440" label="[01:44:40]">&lt;stikonas&gt;</a></span><span class="message">hmm, looks like newer binutils is not so trivial to get early in the bootstrap if we don't use pregenerated files...</span></div><div class="line" id="014540"><span class="nick" style="color:#8dd3c7"><a href="#014540" label="[01:45:40]">&lt;muurkha&gt;</a></span><span class="message">we can't build it with older versions of binutils?</span></div><div class="line" id="014543"><span class="nick" style="color:#389600"><a href="#014543" label="[01:45:43]">&lt;stikonas&gt;</a></span><span class="message">I was trying 2.24 now and it almost worked but it is having trouble with old libtool 1.4. (And libtool 2.2.4 needs ld from binutils)</span></div><div class="line" id="014557"><span class="nick" style="color:#389600"><a href="#014557" label="[01:45:57]">&lt;stikonas&gt;</a></span><span class="message">muurkha: yes we can</span></div><div class="line" id="014603"><span class="nick" style="color:#8dd3c7"><a href="#014603" label="[01:46:03]">&lt;muurkha&gt;</a></span><span class="message">whew</span></div><div class="line" id="014607"><span class="nick" style="color:#389600"><a href="#014607" label="[01:46:07]">&lt;stikonas&gt;</a></span><span class="message">but I was trying to eliminate some of the ancient software</span></div><div class="line" id="014708"><span class="nick" style="color:#389600"><a href="#014708" label="[01:47:08]">&lt;stikonas&gt;</a></span><span class="message">and binutiils is one of those toolchain packages taht are critical for new ISAs</span></div><div class="line" id="014746"><span class="nick" style="color:#389600"><a href="#014746" label="[01:47:46]">&lt;stikonas&gt;</a></span><span class="message">perhaps I can investigate building some intermediate libtool versions</span></div><div class="line" id="014810"><span class="nick" style="color:#389600"><a href="#014810" label="[01:48:10]">&lt;stikonas&gt;</a></span><span class="message">or perhaps I can try to hack around the problem by patching binutils</span></div><div class="line" id="015524"><span class="nick" style="color:#8dd3c7"><a href="#015524" label="[01:55:24]">&lt;muurkha&gt;</a></span><span class="message">or we could just use an ancient ISA to bootstrap</span></div><div class="line" id="015828"><span class="nick" style="color:#389600"><a href="#015828" label="[01:58:28]">&lt;stikonas&gt;</a></span><span class="message">well, yes, that we already have today</span></div><div class="line" id="015836"><span class="nick" style="color:#389600"><a href="#015836" label="[01:58:36]">&lt;stikonas&gt;</a></span><span class="message">anyway, it's likely that I can find something simpler</span></div><div class="line" id="015843"><span class="nick" style="color:#389600"><a href="#015843" label="[01:58:43]">&lt;stikonas&gt;</a></span><span class="message">there are various things that can be tweaked</span></div><div class="line" id="015856"><span class="nick" style="color:#8dd3c7"><a href="#015856" label="[01:58:56]">&lt;muurkha&gt;</a></span><span class="message">that would be pretty cool</span></div><div class="line" id="015958"><span class="nick" style="color:#389600"><a href="#015958" label="[01:59:58]">&lt;stikonas&gt;</a></span><span class="message">well we just need to unbreak dependency loop, so either patch / figure out build options needeed to build binutils 2.24 with older libtool, or figure out if it's possible to build libtool 2.2.4 without ld (possibly there is cofigure option)</span></div><div class="line" id="021302"><span class="nick" style="color:#8dd3c7"><a href="#021302" label="[02:13:02]">&lt;muurkha&gt;</a></span><span class="message">yeah!</span></div><div class="line" id="032921"><span class="nick" style="color:#2e2a4a"><a href="#032921" label="[03:29:21]">&lt;oriansj&gt;</a></span><span class="message">Bootstrapping is a never ending problem of adding new targets and fixing bootstrapping chains that died due to shame and neglect</span></div><div class="line" id="033401"><span class="nick" style="color:#6b8072"><a href="#033401" label="[03:34:01]">&lt;stikonas[m]&gt;</a></span><span class="message">Anyway, tcc is not able to build libtool 2.2.4 without previous binutils</span></div><div class="line" id="075456"><span class="nick" style="color:#80b1d3"><a href="#075456" label="[07:54:56]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: not really sure how big it is, tbh (bit hard to tell without a package haha), but i think that we are right on the cusp of 4GB RAM being used, and it just puts it over the limit</span></div><div class="line" id="075816"><span class="nick" style="color:#80b1d3"><a href="#075816" label="[07:58:16]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: do you maybe want to make a separate PR for all the pre-binutils changes, just so we can get that delta in (esp if it causes large checksums changes?)</span></div><div class="line" id="075852"><span class="nick" style="color:#80b1d3"><a href="#075852" label="[07:58:52]">&lt;fossy&gt;</a></span><span class="message">why not something between 2.14 and 2.24?</span></div><div class="line" id="075934"><span class="nick" style="color:#80b1d3"><a href="#075934" label="[07:59:34]">&lt;fossy&gt;</a></span><span class="message">gah, binutils 2.28 is the first to support riscv?!!!</span></div><div class="line" id="075942"><span class="nick" style="color:#80b1d3"><a href="#075942" label="[07:59:42]">&lt;fossy&gt;</a></span><span class="message">that is rather unfortunate</span></div><div class="line" id="080713"><span class="nick" style="color:#6b8072"><a href="#080713" label="[08:07:13]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: yeah, I can do partial or once I'm back home</span></div><div class="line" id="080739"><span class="nick" style="color:#6b8072"><a href="#080739" label="[08:07:39]">&lt;stikonas[m]&gt;</a></span><span class="message">But yes, no riscv</span></div><div class="line" id="161320"><span class="nick" style="color:#6b8072"><a href="#161320" label="[16:13:20]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/248">https://github.com/fosslinux/live-bootstrap/pull/248</a> </span></div><div class="line" id="161422"><span class="nick" style="color:#6b8072"><a href="#161422" label="[16:14:22]">&lt;stikonas[m]&gt;</a></span><span class="message">I think we can also update findutils later, now I&quot;ve moved findutils after gcc, so much newer versions should work</span></div><div class="line" id="170559"><span class="nick" style="color:#6d2462"><a href="#170559" label="[17:05:59]">&lt;rickmasters&gt;</a></span><span class="message">After a bug fix to Fiwix this morning from Mikaku, the kernel bootstrap matches all package checksums up through Linux!</span></div><div class="line" id="170734"><span class="nick" style="color:#8dd3c7"><a href="#170734" label="[17:07:34]">&lt;muurkha&gt;</a></span><span class="message">holy shit, congratulations!</span></div><div class="line" id="170740"><span class="nick" style="color:#8dd3c7"><a href="#170740" label="[17:07:40]">&lt;muurkha&gt;</a></span><span class="message">ACTION high-fives rickmasters </span></div><div class="line" id="170850"><span class="nick" style="color:#6d2462"><a href="#170850" label="[17:08:50]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: thanks!</span></div><div class="line" id="171145"><span class="nick" style="color:#6d2462"><a href="#171145" label="[17:11:45]">&lt;rickmasters&gt;</a></span><span class="message">Now there is nothing blocking me from finishing the live-bootstrap integration.</span></div><div class="line" id="175439"><span class="nick" style="color:#234e69"><a href="#175439" label="[17:54:39]">&lt;Hagfish&gt;</a></span><span class="message">that's fantastic!  thanks for the great news, and for your and Mikaku's perseverance!</span></div><div class="line" id="185403"><span class="nick" style="color:#6c3d55"><a href="#185403" label="[18:54:03]">&lt;Mikaku&gt;</a></span><span class="message">Hagfish: thank you, really glad to be of help</span></div><div class="line" id="213729"><span class="nick" style="color:#d9d9d9"><a href="#213729" label="[21:37:29]">&lt;pder&gt;</a></span><span class="message">fossy, stikonas: I just made a PR for updating live-bootstrap to use mes 0.24.2</span></div><div class="line" id="214005"><span class="nick" style="color:#d9d9d9"><a href="#214005" label="[21:40:05]">&lt;pder&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/249">https://github.com/fosslinux/live-bootstrap/pull/249</a> </span></div><br /></div></body></html>

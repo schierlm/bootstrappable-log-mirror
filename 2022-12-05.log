@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-12-05.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001057"><span class="nick" style="color:#389600"><a href="#001057" label="[00:10:57]">&lt;stikonas&gt;</a></span><span class="message">oriansj: hmm, I'm not too sure if we can get size of right hand size of equality...</span></div><div class="line" id="001126"><span class="nick" style="color:#389600"><a href="#001126" label="[00:11:26]">&lt;stikonas&gt;</a></span><span class="message">I was looking at variable_load function</span></div><div class="line" id="001133"><span class="nick" style="color:#389600"><a href="#001133" label="[00:11:33]">&lt;stikonas&gt;</a></span><span class="message">and we have access to current_target-&gt;size</span></div><div class="line" id="001141"><span class="nick" style="color:#389600"><a href="#001141" label="[00:11:41]">&lt;stikonas&gt;</a></span><span class="message">but I think that's LHS</span></div><div class="line" id="001225"><span class="nick" style="color:#389600"><a href="#001225" label="[00:12:25]">&lt;stikonas&gt;</a></span><span class="message">but in case of uint_16 a = uint8 value, we don't want to read 16 bits...</span></div><div class="line" id="001319"><span class="nick" style="color:#389600"><a href="#001319" label="[00:13:19]">&lt;stikonas&gt;</a></span><span class="message">although, if we can't do anything, then maybe we'll have to live with program source level workarounds</span></div><div class="line" id="001324"><span class="nick" style="color:#389600"><a href="#001324" label="[00:13:24]">&lt;stikonas&gt;</a></span><span class="message">which might be better than no support at all</span></div><div class="line" id="001933"><span class="nick" style="color:#8dd3c7"><a href="#001933" label="[00:19:33]">&lt;oriansj&gt;</a></span><span class="message">well we only read into a register and write a subset of that register to memory</span></div><div class="line" id="002003"><span class="nick" style="color:#8dd3c7"><a href="#002003" label="[00:20:03]">&lt;oriansj&gt;</a></span><span class="message">so the right side is what we are reading into the register and the left side is what we are writing into memory</span></div><div class="line" id="002211"><span class="nick" style="color:#389600"><a href="#002211" label="[00:22:11]">&lt;stikonas&gt;</a></span><span class="message">oriansj: actually, I'm checking what we have now. It might already be enough for my UEFI purposes</span></div><div class="line" id="002334"><span class="nick" style="color:#389600"><a href="#002334" label="[00:23:34]">&lt;stikonas&gt;</a></span><span class="message">even if more advanced operation don't work...</span></div><div class="line" id="002344"><span class="nick" style="color:#389600"><a href="#002344" label="[00:23:44]">&lt;stikonas&gt;</a></span><span class="message">(for UEFI we mostly care about storing it)</span></div><div class="line" id="002438"><span class="nick" style="color:#389600"><a href="#002438" label="[00:24:38]">&lt;stikonas&gt;</a></span><span class="message">hmm, yes, it actually works with minor workaround on UEFI side</span></div><div class="line" id="002549"><span class="nick" style="color:#389600"><a href="#002549" label="[00:25:49]">&lt;stikonas&gt;</a></span><span class="message">hmm, debian pastebin considers my code spam</span></div><div class="line" id="002707"><span class="nick" style="color:#2e2a4a"><a href="#002707" label="[00:27:07]">&lt;muurkha&gt;</a></span><span class="message">ugh</span></div><div class="line" id="002730"><span class="nick" style="color:#389600"><a href="#002730" label="[00:27:30]">&lt;stikonas&gt;</a></span><span class="message">well, I have a HTTP server, will just upload it there</span></div><div class="line" id="002812"><span class="nick" style="color:#389600"><a href="#002812" label="[00:28:12]">&lt;stikonas&gt;</a></span><span class="message">so something like this seems to work <a rel="nofollow" href="https://stikonas.eu/files/bootstrap/struct.txt">https://stikonas.eu/files/bootstrap/struct.txt</a> </span></div><div class="line" id="002933"><span class="nick" style="color:#8dd3c7"><a href="#002933" label="[00:29:33]">&lt;oriansj&gt;</a></span><span class="message">device_path += sizeof(struct efi_device_path_protocol); only works on M2-planet and definitely not C</span></div><div class="line" id="002946"><span class="nick" style="color:#389600"><a href="#002946" label="[00:29:46]">&lt;stikonas&gt;</a></span><span class="message">oriansj: oh yes, I'm aware of that</span></div><div class="line" id="002958"><span class="nick" style="color:#389600"><a href="#002958" label="[00:29:58]">&lt;stikonas&gt;</a></span><span class="message">in C you need += 1</span></div><div class="line" id="003007"><span class="nick" style="color:#389600"><a href="#003007" label="[00:30:07]">&lt;stikonas&gt;</a></span><span class="message">or better device_path[1]-&gt;type</span></div><div class="line" id="003026"><span class="nick" style="color:#389600"><a href="#003026" label="[00:30:26]">&lt;stikonas&gt;</a></span><span class="message">but I think that [1]-&gt;type does not yet work in UEFI</span></div><div class="line" id="003029"><span class="nick" style="color:#389600"><a href="#003029" label="[00:30:29]">&lt;stikonas&gt;</a></span><span class="message">well, I can try...</span></div><div class="line" id="003044"><span class="nick" style="color:#8dd3c7"><a href="#003044" label="[00:30:44]">&lt;oriansj&gt;</a></span><span class="message">well we can fix that</span></div><div class="line" id="003050"><span class="nick" style="color:#389600"><a href="#003050" label="[00:30:50]">&lt;stikonas&gt;</a></span><span class="message">let me first test it</span></div><div class="line" id="003052"><span class="nick" style="color:#389600"><a href="#003052" label="[00:30:52]">&lt;stikonas&gt;</a></span><span class="message">it might just work</span></div><div class="line" id="003054"><span class="nick" style="color:#8dd3c7"><a href="#003054" label="[00:30:54]">&lt;oriansj&gt;</a></span><span class="message">and add a test for it</span></div><div class="line" id="003128"><span class="nick" style="color:#389600"><a href="#003128" label="[00:31:28]">&lt;stikonas&gt;</a></span><span class="message">no, doesn't work...</span></div><div class="line" id="003151"><span class="nick" style="color:#389600"><a href="#003151" label="[00:31:51]">&lt;stikonas&gt;</a></span><span class="message">ok, so there are two TODOs then</span></div><div class="line" id="003154"><span class="nick" style="color:#389600"><a href="#003154" label="[00:31:54]">&lt;stikonas&gt;</a></span><span class="message">fix [1]-&gt;</span></div><div class="line" id="003209"><span class="nick" style="color:#389600"><a href="#003209" label="[00:32:09]">&lt;stikonas&gt;</a></span><span class="message">and need to finish porting remaining loading/storing to load/store_value</span></div><div class="line" id="003455"><span class="nick" style="color:#389600"><a href="#003455" label="[00:34:55]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I think we have an extra dereference when we use [1]-&gt;</span></div><div class="line" id="003513"><span class="nick" style="color:#389600"><a href="#003513" label="[00:35:13]">&lt;stikonas&gt;</a></span><span class="message">which we should not be doing</span></div><div class="line" id="004217"><span class="nick" style="color:#8dd3c7"><a href="#004217" label="[00:42:17]">&lt;oriansj&gt;</a></span><span class="message">easy to test for that case and remove it</span></div><div class="line" id="004449"><span class="nick" style="color:#389600"><a href="#004449" label="[00:44:49]">&lt;stikonas&gt;</a></span><span class="message">yeah, I think I am alraedy doing some test for &quot;.&quot; case</span></div><div class="line" id="004454"><span class="nick" style="color:#389600"><a href="#004454" label="[00:44:54]">&lt;stikonas&gt;</a></span><span class="message">it might be similar</span></div><div class="line" id="005623"><span class="nick" style="color:#8dd3c7"><a href="#005623" label="[00:56:23]">&lt;oriansj&gt;</a></span><span class="message">probably</span></div><div class="line" id="011130"><span class="nick" style="color:#389600"><a href="#011130" label="[01:11:30]">&lt;stikonas&gt;</a></span><span class="message">well, I might look into it after I get spawning to work in uefi</span></div><div class="line" id="011136"><span class="nick" style="color:#389600"><a href="#011136" label="[01:11:36]">&lt;stikonas&gt;</a></span><span class="message">which should be close to working...</span></div><div class="line" id="020332"><span class="nick" style="color:#389600"><a href="#020332" label="[02:03:32]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/27/files">https://github.com/oriansj/M2libc/pull/27/files</a> </span></div><div class="line" id="020341"><span class="nick" style="color:#389600"><a href="#020341" label="[02:03:41]">&lt;stikonas&gt;</a></span><span class="message">(spawn function for UEFI)</span></div><div class="line" id="020545"><span class="nick" style="color:#389600"><a href="#020545" label="[02:05:45]">&lt;stikonas&gt;</a></span><span class="message">and kaem changes: <a rel="nofollow" href="https://github.com/oriansj/mescc-tools/pull/39">https://github.com/oriansj/mescc-tools/pull/39</a> </span></div><div class="line" id="020858"><span class="nick" style="color:#389600"><a href="#020858" label="[02:08:58]">&lt;stikonas&gt;</a></span><span class="message">hmm there is a minor bug in the first PR</span></div><div class="line" id="020912"><span class="nick" style="color:#389600"><a href="#020912" label="[02:09:12]">&lt;stikonas&gt;</a></span><span class="message">all / in argv get converted to \</span></div><div class="line" id="020918"><span class="nick" style="color:#389600"><a href="#020918" label="[02:09:18]">&lt;stikonas&gt;</a></span><span class="message">or maybe not so minor</span></div><div class="line" id="020930"><span class="nick" style="color:#389600"><a href="#020930" label="[02:09:30]">&lt;stikonas&gt;</a></span><span class="message">hmm, maybe let me mark it as draft for now</span></div><div class="line" id="021208"><span class="nick" style="color:#389600"><a href="#021208" label="[02:12:08]">&lt;stikonas&gt;</a></span><span class="message">kaem PR can be merged though</span></div><div class="line" id="022616"><span class="nick" style="color:#8dd3c7"><a href="#022616" label="[02:26:16]">&lt;oriansj&gt;</a></span><span class="message">stikonas: your kaem pull has been merged</span></div><div class="line" id="023209"><span class="nick" style="color:#6b8072"><a href="#023209" label="[02:32:09]">&lt;stikonas[m]&gt;</a></span><span class="message">Thanks</span></div><div class="line" id="023221"><span class="nick" style="color:#6b8072"><a href="#023221" label="[02:32:21]">&lt;stikonas[m]&gt;</a></span><span class="message">I'll sort out m2libc tomorrow</span></div><div class="line" id="023312"><span class="nick" style="color:#6b8072"><a href="#023312" label="[02:33:12]">&lt;stikonas[m]&gt;</a></span><span class="message">But it's starting to work</span></div><div class="line" id="023342"><span class="nick" style="color:#6b8072"><a href="#023342" label="[02:33:42]">&lt;stikonas[m]&gt;</a></span><span class="message">kaem was able to run another kaem that then ran hex2.efi --version</span></div><div class="line" id="025247"><span class="nick" style="color:#8dd3c7"><a href="#025247" label="[02:52:47]">&lt;oriansj&gt;</a></span><span class="message">very nice</span></div><div class="line" id="194114"><span class="nick" style="color:#80b1d3"><a href="#194114" label="[19:41:14]">&lt;rickmasters&gt;</a></span><span class="message">Here is another update on running live-bootstrap on the Fiwix kernel.</span></div><div class="line" id="194124"><span class="nick" style="color:#80b1d3"><a href="#194124" label="[19:41:24]">&lt;rickmasters&gt;</a></span><span class="message">he good news is that I have been able to build every package up to and including gcc-4.0.4 pass1.</span></div><div class="line" id="194134"><span class="nick" style="color:#80b1d3"><a href="#194134" label="[19:41:34]">&lt;rickmasters&gt;</a></span><span class="message">So, it is only ten packages away from building Linux.</span></div><div class="line" id="194147"><span class="nick" style="color:#80b1d3"><a href="#194147" label="[19:41:47]">&lt;rickmasters&gt;</a></span><span class="message">The bad news is that there is an intermittent kernel failure around removing directories that remains unresolved.</span></div><div class="line" id="194202"><span class="nick" style="color:#80b1d3"><a href="#194202" label="[19:42:02]">&lt;rickmasters&gt;</a></span><span class="message">Also, there was a failure in automake-2.64 deep inside autoconf, for which I put in a small temporary workaround until I can figure it out.</span></div><div class="line" id="194217"><span class="nick" style="color:#80b1d3"><a href="#194217" label="[19:42:17]">&lt;rickmasters&gt;</a></span><span class="message">I'm stuck now on a kernel read error when checksumming the linux tar file, probably due to its size.</span></div><div class="line" id="194227"><span class="nick" style="color:#80b1d3"><a href="#194227" label="[19:42:27]">&lt;rickmasters&gt;</a></span><span class="message">I'm working on that right not but I don't have a lot to go on yet.</span></div><div class="line" id="194242"><span class="nick" style="color:#80b1d3"><a href="#194242" label="[19:42:42]">&lt;rickmasters&gt;</a></span><span class="message">In summary, I think I'm making good progress but I suspect the kernel issues that I've run into might take longer to resolve.</span></div><div class="line" id="224118"><span class="nick" style="color:#389600"><a href="#224118" label="[22:41:18]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I've now updated <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/27">https://github.com/oriansj/M2libc/pull/27</a>  not to convert / to \</span></div><div class="line" id="234647"><span class="nick" style="color:#8dd3c7"><a href="#234647" label="[23:46:47]">&lt;oriansj&gt;</a></span><span class="message">rickmasters: glad to hear good progress; honestly more than I expected to see in such a short period of time.</span></div><br /></div></body></html>

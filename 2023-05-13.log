@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-05-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001921"><span class="nick" style="color:#389600"><a href="#001921" label="[00:19:21]">&lt;stikonas&gt;</a></span><span class="message">yes, but we don't need to implement C17 directly</span></div><div class="line" id="001950"><span class="nick" style="color:#389600"><a href="#001950" label="[00:19:50]">&lt;stikonas&gt;</a></span><span class="message">C is reasonably stable, so once you have C99 compiler, it's fairly easy to build something that supports C17</span></div><div class="line" id="010206"><span class="nick" style="color:#8dd3c7"><a href="#010206" label="[01:02:06]">&lt;muurkha&gt;</a></span><span class="message">even GNU89 gets you pretty far</span></div><div class="line" id="040622"><span class="nick" style="color:#8dd3c7"><a href="#040622" label="[04:06:22]">&lt;muurkha&gt;</a></span><span class="message">more notes about uxn and bootstrapping: <a rel="nofollow" href="https://100r.co/site/weathering_software_winter.html">https://100r.co/site/weathering_software_winter.html</a> </span></div><div class="line" id="040631"><span class="nick" style="color:#8dd3c7"><a href="#040631" label="[04:06:31]">&lt;muurkha&gt;</a></span><span class="message">&quot;I wanted a way of doing computers that nobody could take away from me.&quot;</span></div><div class="line" id="040947"><span class="nick" style="color:#8dd3c7"><a href="#040947" label="[04:09:47]">&lt;muurkha&gt;</a></span><span class="message">it covers the NES, Smalltalk, Oberon, Pascal, Plan9, Java, Inferno, the Commodore 64, Kolmogorov complexity, Chifir, Subleq OISC, and so on</span></div><div class="line" id="071511"><span class="nick" style="color:#2e2a4a"><a href="#071511" label="[07:15:11]">&lt;drakonis&gt;</a></span><span class="message">ah, nice.</span></div><div class="line" id="094721"><span class="nick" style="color:#6b8072"><a href="#094721" label="[09:47:21]">&lt;Irvise_&gt;</a></span><span class="message">The oldest copy I found from GNAT is GNAT 3.07 which was designed to work with GCC 2.7.2, and it is still not bootstrappable...</span></div><div class="line" id="094841"><span class="nick" style="color:#6b8072"><a href="#094841" label="[09:48:41]">&lt;Irvise_&gt;</a></span><span class="message">There is another issue here. Each GNAT release requires a specific GCC version and a specific previous GNAT version. That means, that if we were going to reproduce the original &quot;path&quot; (assuming it could be done directly without bootstrapping issues), then that would require the compilation of dozens of GCC/GNAT pairs...</span></div><div class="line" id="094847"><span class="nick" style="color:#6b8072"><a href="#094847" label="[09:48:47]">&lt;Irvise_&gt;</a></span><span class="message">That is a bit issue.</span></div><div class="line" id="095040"><span class="nick" style="color:#6b8072"><a href="#095040" label="[09:50:40]">&lt;Irvise_&gt;</a></span><span class="message">oriansj: I would say that the Ada-Ed approach towards bootstrapping Ada is toast :/</span></div><div class="line" id="095049"><span class="nick" style="color:#6b8072"><a href="#095049" label="[09:50:49]">&lt;Irvise_&gt;</a></span><span class="message">s/bit/big</span></div><div class="line" id="095114"><span class="nick" style="color:#6b8072"><a href="#095114" label="[09:51:14]">&lt;Irvise_&gt;</a></span><span class="message">And just for the curious, GNAT 3.07 is from 1996.</span></div><div class="line" id="095807"><span class="nick" style="color:#6b8072"><a href="#095807" label="[09:58:07]">&lt;Irvise_&gt;</a></span><span class="message">I would say that creating a compiler that can target the same GCC version as the one in the bootstrap path for C would be ideal. It would just be a single step.</span></div><div class="line" id="095830"><span class="nick" style="color:#6b8072"><a href="#095830" label="[09:58:30]">&lt;Irvise_&gt;</a></span><span class="message">We would need the bootstrapping of three tools: gnat, gnatbind and gnatlink.</span></div><div class="line" id="132104"><span class="nick" style="color:#80b1d3"><a href="#132104" label="[13:21:04]">&lt;oriansj&gt;</a></span><span class="message">Irvise_: well that is far from ideal.</span></div><div class="line" id="132246"><span class="nick" style="color:#80b1d3"><a href="#132246" label="[13:22:46]">&lt;oriansj&gt;</a></span><span class="message">but I guess people working on Ada never had a problem on putting all the work on the compiler writer's shoulders</span></div><div class="line" id="133544"><span class="nick" style="color:#80b1d3"><a href="#133544" label="[13:35:44]">&lt;oriansj&gt;</a></span><span class="message">muurkha: yeah, a fuly natural response given that experience.</span></div><div class="line" id="155014"><span class="nick" style="color:#6b8072"><a href="#155014" label="[15:50:14]">&lt;Irvise_&gt;</a></span><span class="message">Not really, it is actually worse. Before Ada was mainlined in GCC 3.1, it required a specific GCC version because it maintained a bunch of patches for each version. So one would have to patch old GCC, compile Ada somehow; rinse and repeat... Imagine bootstrapping this in ARM/RISC-V...</span></div><div class="line" id="155029"><span class="nick" style="color:#6b8072"><a href="#155029" label="[15:50:29]">&lt;Irvise_&gt;</a></span><span class="message">An external compiler seems way easier somehow xD</span></div><div class="line" id="160135"><span class="nick" style="color:#80b1d3"><a href="#160135" label="[16:01:35]">&lt;oriansj&gt;</a></span><span class="message">Irvise_: when you put it that way, even using Haskell to bootstrap Ada wouldn't even be a step back</span></div><div class="line" id="160219"><span class="nick" style="color:#80b1d3"><a href="#160219" label="[16:02:19]">&lt;oriansj&gt;</a></span><span class="message">(assuming one used the subset of Haskell that we did already bootstrap)</span></div><div class="line" id="162829"><span class="nick" style="color:#6b8072"><a href="#162829" label="[16:28:29]">&lt;Irvise_&gt;</a></span><span class="message">Yup. But we were already looking into TR7 Scheme (or Lotus) as they can be compiled for x86*, ARM and RISC-V with TCC support and are written in simple C :)</span></div><div class="line" id="162843"><span class="nick" style="color:#6b8072"><a href="#162843" label="[16:28:43]">&lt;Irvise_&gt;</a></span><span class="message">We want to get before the GCC compilation :)</span></div><div class="line" id="170742"><span class="nick" style="color:#8dd3c7"><a href="#170742" label="[17:07:42]">&lt;muurkha&gt;</a></span><span class="message">Irvise_: yeah, I think the GNAT path was bootstrapped using proprietary Ada compilers</span></div><div class="line" id="170823"><span class="nick" style="color:#8dd3c7"><a href="#170823" label="[17:08:23]">&lt;muurkha&gt;</a></span><span class="message">it might be more reasonable to create a compiler that can compile current GNAT</span></div><div class="line" id="170853"><span class="nick" style="color:#8dd3c7"><a href="#170853" label="[17:08:53]">&lt;muurkha&gt;</a></span><span class="message">because I suspect current GNAT can compile the previous versions</span></div><div class="line" id="190900"><span class="nick" style="color:#6d2462"><a href="#190900" label="[19:09:00]">&lt;Christoph[m]&gt;</a></span><span class="message">Oh, there's a subset of Haskell already bootstrapped? How does that work?</span></div><div class="line" id="191229"><span class="nick" style="color:#234e69"><a href="#191229" label="[19:12:29]">&lt;stikonas[m]&gt;</a></span><span class="message">Christoph: well, there is hugs and nh99 I think</span></div><div class="line" id="191248"><span class="nick" style="color:#234e69"><a href="#191248" label="[19:12:48]">&lt;stikonas[m]&gt;</a></span><span class="message">(Or maybe 98)</span></div><div class="line" id="200701"><span class="nick" style="color:#80b1d3"><a href="#200701" label="[20:07:01]">&lt;oriansj&gt;</a></span><span class="message">stikonas[m]: indeed and the blynn haskell compiler can be bootstrapped by M2-Planet</span></div><div class="line" id="200844"><span class="nick" style="color:#80b1d3"><a href="#200844" label="[20:08:44]">&lt;oriansj&gt;</a></span><span class="message">so if one uses a subset of haskell, they are effectively bootstrapped already; we just don't have a working step from that subset of haskell to GHC yet</span></div><div class="line" id="200911"><span class="nick" style="color:#80b1d3"><a href="#200911" label="[20:09:11]">&lt;oriansj&gt;</a></span><span class="message">which might mean haskell might be an easier bootstrap than Ada</span></div><div class="line" id="201047"><span class="nick" style="color:#80b1d3"><a href="#201047" label="[20:10:47]">&lt;oriansj&gt;</a></span><span class="message">There was a proposal to write a lisp interpreter in the blynn Haskell subset, which could run MesCC; so that the root languages would be Haskell, C and Lisp</span></div><div class="line" id="201408"><span class="nick" style="color:#80b1d3"><a href="#201408" label="[20:14:08]">&lt;oriansj&gt;</a></span><span class="message">but it would be certainly cool to see someone making something cool in that Haskell subset</span></div><div class="line" id="221117"><span class="nick" style="color:#234e69"><a href="#221117" label="[22:11:17]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, building mes with M2-Planet is simpler</span></div><div class="line" id="221146"><span class="nick" style="color:#234e69"><a href="#221146" label="[22:11:46]">&lt;stikonas[m]&gt;</a></span><span class="message">Especially given that M2-Planet compatibility wasn't upstreamed to blynn</span></div><div class="line" id="222335"><span class="nick" style="color:#80b1d3"><a href="#222335" label="[22:23:35]">&lt;oriansj&gt;</a></span><span class="message">very true;</span></div><div class="line" id="223631"><span class="nick" style="color:#6c3d55"><a href="#223631" label="[22:36:31]">&lt;stikonas_&gt;</a></span><span class="message">hmm, mescc riscv64 define work is going quite slowly, though mostly because I'm not too familiar with scheme</span></div><div class="line" id="231832"><span class="nick" style="color:#80b1d3"><a href="#231832" label="[23:18:32]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well porting mescc always took longer than M2-planet and RISC-V wasn't a fast port either.</span></div><div class="line" id="233020"><span class="nick" style="color:#d9d9d9"><a href="#233020" label="[23:30:20]">&lt;ericson2314&gt;</a></span><span class="message">emilytrau: it looks like kaem-minimal is unused?</span></div><div class="line" id="233158"><span class="nick" style="color:#d9d9d9"><a href="#233158" label="[23:31:58]">&lt;ericson2314&gt;</a></span><span class="message">were you perhaps trying to break up stage0-posix-x86.nix?</span></div><div class="line" id="234344"><span class="nick" style="color:#234e69"><a href="#234344" label="[23:43:44]">&lt;stikonas[m]&gt;</a></span><span class="message">ericson2314: I think breaking up stage0-posix-x86 was the reason why kaem-minimal was not used</span></div><div class="line" id="234403"><span class="nick" style="color:#234e69"><a href="#234403" label="[23:44:03]">&lt;stikonas[m]&gt;</a></span><span class="message">in particular kaem-minimal does not support environmental variables</span></div><div class="line" id="234552"><span class="nick" style="color:#d9d9d9"><a href="#234552" label="[23:45:52]">&lt;ericson2314&gt;</a></span><span class="message">ah OK</span></div><div class="line" id="234554"><span class="nick" style="color:#d9d9d9"><a href="#234554" label="[23:45:54]">&lt;ericson2314&gt;</a></span><span class="message">makes sense</span></div><div class="line" id="234618"><span class="nick" style="color:#d9d9d9"><a href="#234618" label="[23:46:18]">&lt;ericson2314&gt;</a></span><span class="message">it would also be good to use derivationStrict</span></div><br /></div></body></html>

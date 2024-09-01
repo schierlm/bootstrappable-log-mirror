@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-08-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="071816"><span class="nick" style="color:#389600"><a href="#071816" label="[07:18:16]">&lt;muurkha&gt;</a></span><span class="message">oriansj: I don't know of any MMUs that exist as a separate part at all, although I know some have existed</span></div><div class="line" id="072011"><span class="nick" style="color:#389600"><a href="#072011" label="[07:20:11]">&lt;muurkha&gt;</a></span><span class="message">my current plan for an MMU is to check local-variable accesses and maybe instance-variable accesses at compile time so I can compile them to regular machine instructions that need no dynamic checking to run on a machine without an MMU</span></div><div class="line" id="072135"><span class="nick" style="color:#389600"><a href="#072135" label="[07:21:35]">&lt;muurkha&gt;</a></span><span class="message">and then compile accesses to linear memory to invoke a millicode routine that traverses a page table in software, so it can safely run on a machine without an MMU</span></div><div class="line" id="072432"><span class="nick" style="color:#389600"><a href="#072432" label="[07:24:32]">&lt;muurkha&gt;</a></span><span class="message">and provide an ARM-like load-multiple instruction in the virtual machine which copies one or more words from linear memory to successive local variables, and a corresponding store-multiple instruction</span></div><div class="line" id="072625"><span class="nick" style="color:#389600"><a href="#072625" label="[07:26:25]">&lt;muurkha&gt;</a></span><span class="message">my prototypes so far suggest that with even a very simple compiler I should be able to get a slowdown of only about 75%</span></div><div class="line" id="074848"><span class="nick" style="color:#389600"><a href="#074848" label="[07:48:48]">&lt;muurkha&gt;</a></span><span class="message">my Thumb-2 assembly sketch of software page table traversal is:</span></div><div class="line" id="074851"><span class="nick" style="color:#389600"><a href="#074851" label="[07:48:51]">&lt;muurkha&gt;</a></span><span class="message">        and r5, r7              @ as before, limit index range</span></div><div class="line" id="074851"><span class="nick" style="color:#389600"><a href="#074851" label="[07:48:51]">&lt;muurkha&gt;</a></span><span class="message">        ubfx r0, r5, #10, #22   @ unsigned bitfield extract of 22 bits</span></div><div class="line" id="074851"><span class="nick" style="color:#389600"><a href="#074851" label="[07:48:51]">&lt;muurkha&gt;</a></span><span class="message">        ldr r0, [r8, r0, lsl #2] @ load page pointer</span></div><div class="line" id="074851"><span class="nick" style="color:#389600"><a href="#074851" label="[07:48:51]">&lt;muurkha&gt;</a></span><span class="message">        cbz r0, tramp_fall_pag_54</span></div><div class="line" id="074852"><span class="nick" style="color:#389600"><a href="#074852" label="[07:48:52]">&lt;muurkha&gt;</a></span><span class="message">        ubfx r5, r5, #2, #8     @ implicitly discard problematic low bits</span></div><div class="line" id="074854"><span class="nick" style="color:#389600"><a href="#074854" label="[07:48:54]">&lt;muurkha&gt;</a></span><span class="message">        ldr r5, [r0, r5, lsl #2] @ load desired word</span></div><div class="line" id="075210"><span class="nick" style="color:#389600"><a href="#075210" label="[07:52:10]">&lt;muurkha&gt;</a></span><span class="message">that's for the single-word access case, with the desired virtual memory address in r5, a bit mask for valid virtual memory addresses in r7, and the page table base pointer in r8.  it handles unaligned access in an arguably undesirable way</span></div><div class="line" id="075346"><span class="nick" style="color:#389600"><a href="#075346" label="[07:53:46]">&lt;muurkha&gt;</a></span><span class="message">obviously this is going to be more than 4x slower than a regular unchecked physical memory access, but I'm banking on the fact that most accesses are to local variables rather than linear memory</span></div><div class="line" id="075408"><span class="nick" style="color:#389600"><a href="#075408" label="[07:54:08]">&lt;muurkha&gt;</a></span><span class="message">and those execute at full speed</span></div><div class="line" id="075637"><span class="nick" style="color:#389600"><a href="#075637" label="[07:56:37]">&lt;muurkha&gt;</a></span><span class="message">but even the above is just 9 estimated cycles on my target platform</span></div><div class="line" id="234102"><span class="nick" style="color:#8dd3c7"><a href="#234102" label="[23:41:02]">&lt;oriansj&gt;</a></span><span class="message">muurkha: nice. a very efficient (in terms of removing hardware) apporach to the problem.</span></div><div class="line" id="235545"><span class="nick" style="color:#8dd3c7"><a href="#235545" label="[23:55:45]">&lt;oriansj&gt;</a></span><span class="message">I've been toying with a couple different designs. 1) make some physical memory address special and only the supervisor process would have access to that page of physical memory. A single pin to swtich between the pointers values in memory 2) 2 pins: READ, WRITE which then allow the reading or writing of the MMU's internal registers. 3) scrap the concept of external MMU and just have an internal MMU which only really needs a single</span></div><div class="line" id="235545"><span class="nick" style="color:#8dd3c7"><a href="#235545" label="[23:55:45]">&lt;oriansj&gt;</a></span><span class="message">register to point to the pagetable which the process would be using.</span></div><br /></div></body></html>

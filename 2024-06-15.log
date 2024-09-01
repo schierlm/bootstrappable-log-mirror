@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-15.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="031444"><span class="nick" style="color:#389600"><a href="#031444" label="[03:14:44]">&lt;oriansj&gt;</a></span><span class="message">aggi: the z80 was an 8bit processor not 16bit processor. the z280 was the 16bit version of the z80</span></div><div class="line" id="031504"><span class="nick" style="color:#389600"><a href="#031504" label="[03:15:04]">&lt;oriansj&gt;</a></span><span class="message">there are fpga versions of 64bit RISC-V readily available</span></div><div class="line" id="031808"><span class="nick" style="color:#389600"><a href="#031808" label="[03:18:08]">&lt;oriansj&gt;</a></span><span class="message">lanodan: well one wouldn't need coreboot or libreboot to boot a modern operating system. Only a simple BIOS in ROM with a half dozen primitives</span></div><div class="line" id="031839"><span class="nick" style="color:#389600"><a href="#031839" label="[03:18:39]">&lt;oriansj&gt;</a></span><span class="message">which could either be written by hand or cross-compiled on an 8bit system.</span></div><div class="line" id="033823"><span class="nick" style="color:#8dd3c7"><a href="#033823" label="[03:38:23]">&lt;aggi&gt;</a></span><span class="message">don't remember exactly how the i286 compared to i8086, which involved MMU, to extend the address space beyond 16bit, too with the z280</span></div><div class="line" id="034017"><span class="nick" style="color:#8dd3c7"><a href="#034017" label="[03:40:17]">&lt;aggi&gt;</a></span><span class="message">the z80 did provide 16bit registers and address space</span></div><div class="line" id="034157"><span class="nick" style="color:#8dd3c7"><a href="#034157" label="[03:41:57]">&lt;aggi&gt;</a></span><span class="message">in any case, for a long time z80 era systems were more easily coped with to implement free/open hardware, on moderately priced FPGA</span></div><div class="line" id="034238"><span class="nick" style="color:#8dd3c7"><a href="#034238" label="[03:42:38]">&lt;aggi&gt;</a></span><span class="message">as a reference, a FPGA capable for ao480 was tagged at ~$800 last time i checked online... that's rather expensive in comparison to what a z80/6502 would need</span></div><div class="line" id="034254"><span class="nick" style="color:#8dd3c7"><a href="#034254" label="[03:42:54]">&lt;aggi&gt;</a></span><span class="message">a gigatron ttl shipped for $150</span></div><div class="line" id="034424"><span class="nick" style="color:#8dd3c7"><a href="#034424" label="[03:44:24]">&lt;aggi&gt;</a></span><span class="message">i quickly checked the github repo of ao486, and there was some binary-blobs which i couldn't quickly find references to sources and utilities for</span></div><div class="line" id="034637"><span class="nick" style="color:#8dd3c7"><a href="#034637" label="[03:46:37]">&lt;aggi&gt;</a></span><span class="message">insofar, 16bit isn't a dead end, it's a necessity still for bootcode/BIOS related parts, and it's the mode which even most high-end x86_64 systems booted with</span></div><div class="line" id="034827"><span class="nick" style="color:#8dd3c7"><a href="#034827" label="[03:48:27]">&lt;aggi&gt;</a></span><span class="message">there's another notable difference between i8086 and z80/z280... zilog is in production still, for ~40years</span></div><div class="line" id="035018"><span class="nick" style="color:#8dd3c7"><a href="#035018" label="[03:50:18]">&lt;aggi&gt;</a></span><span class="message">the 32bit ao486 is signifcantly more expensive</span></div><div class="line" id="035246"><span class="nick" style="color:#8dd3c7"><a href="#035246" label="[03:52:46]">&lt;aggi&gt;</a></span><span class="message">googling for risc-v 64bit FPGA deployments, the Xilinx Nexys4DDR is mentioned, for ~$350, don't know if this includes licenses for development utilities</span></div><div class="line" id="035326"><span class="nick" style="color:#8dd3c7"><a href="#035326" label="[03:53:26]">&lt;aggi&gt;</a></span><span class="message">j-core.org documented the fun they had, with Xilinx on a Linux development host... i am not in the mood for this tbh</span></div><div class="line" id="040229"><span class="nick" style="color:#8dd3c7"><a href="#040229" label="[04:02:29]">&lt;aggi&gt;</a></span><span class="message">i didn't follow news at the fpga/hardware front for a little while since then, including various free/open development tools for this</span></div><div class="line" id="040710"><span class="nick" style="color:#8dd3c7"><a href="#040710" label="[04:07:10]">&lt;aggi&gt;</a></span><span class="message">in any case it seems to have been a huge gap to bridge, to arrive at a 32bit *nix coming from the PDP-11</span></div><div class="line" id="040909"><span class="nick" style="color:#389600"><a href="#040909" label="[04:09:09]">&lt;oriansj&gt;</a></span><span class="message">well I did point out that most 8bit processors had a 16bit address space (that was common)</span></div><div class="line" id="040950"><span class="nick" style="color:#8dd3c7"><a href="#040950" label="[04:09:50]">&lt;aggi&gt;</a></span><span class="message">since DEC was proprietary, and defunct since 1998, this could explain how gnu/gcc didn't have a clean system-integration path (wherever it first appeared)</span></div><div class="line" id="041004"><span class="nick" style="color:#389600"><a href="#041004" label="[04:10:04]">&lt;oriansj&gt;</a></span><span class="message">and that 8bit systems could provide a role in the creation of bios and ROMs</span></div><div class="line" id="041109"><span class="nick" style="color:#389600"><a href="#041109" label="[04:11:09]">&lt;oriansj&gt;</a></span><span class="message">also the FSF intentionally avoided 16bit systems as they were likely to be replaced by 32bit systems and it was deemed not worth the effort</span></div><div class="line" id="041157"><span class="nick" style="color:#389600"><a href="#041157" label="[04:11:57]">&lt;oriansj&gt;</a></span><span class="message">and that ultimately was the right choice for creating a POSIX system and ultimately still remains a simple target for bootstrapping</span></div><div class="line" id="041348"><span class="nick" style="color:#389600"><a href="#041348" label="[04:13:48]">&lt;oriansj&gt;</a></span><span class="message">32bit address space, allows one to make a much simpler ISA design (as RISC style designs tend to use 2-4x memory of more complex designs)</span></div><div class="line" id="041507"><span class="nick" style="color:#8dd3c7"><a href="#041507" label="[04:15:07]">&lt;aggi&gt;</a></span><span class="message">i merely tried to understand, how GNU/GCC were missing pieces with their bootstrapping (documented in the info docs of gcc-2.7 iirc), and had to rely upon a giant binary seed of unknown origin</span></div><div class="line" id="042240"><span class="nick" style="color:#389600"><a href="#042240" label="[04:22:40]">&lt;oriansj&gt;</a></span><span class="message">aggi: well GNU/GCC skipped the bootstrap from source bit entirely</span></div><div class="line" id="042258"><span class="nick" style="color:#389600"><a href="#042258" label="[04:22:58]">&lt;oriansj&gt;</a></span><span class="message">they went for just ship something which can be built and used</span></div><div class="line" id="042320"><span class="nick" style="color:#389600"><a href="#042320" label="[04:23:20]">&lt;oriansj&gt;</a></span><span class="message">growing outwards to support a bunch of very questionable compilers</span></div><div class="line" id="042421"><span class="nick" style="color:#389600"><a href="#042421" label="[04:24:21]">&lt;oriansj&gt;</a></span><span class="message">but enabled people to quickly get GCC on their system and as vendors started charging for C compilers (Looking at you DEC and Sun) GCC quickly became a default</span></div><div class="line" id="042500"><span class="nick" style="color:#389600"><a href="#042500" label="[04:25:00]">&lt;oriansj&gt;</a></span><span class="message">it wasn't until Guix that giving GCC a proper bootstrap got the effort required to actually do it properly.</span></div><div class="line" id="114225"><span class="nick" style="color:#2e2a4a"><a href="#114225" label="[11:42:25]">&lt;lanodan&gt;</a></span><span class="message">Slept on it and primitive coreboot/libreboot reminded me of the stuff Oxide has done on their amd machines, I guess they could try going full firmware bootstrap or close to it even on x86 (quite like how Sun OpenFirmware uses forth for the drivers).</span></div><div class="line" id="123942"><span class="nick" style="color:#6b8072"><a href="#123942" label="[12:39:42]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Well, any FW bootstrap iš machine specific</span></div><div class="line" id="124030"><span class="nick" style="color:#6b8072"><a href="#124030" label="[12:40:30]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Which manęs it much more tedious than kernel bootstrap or userspace bootstrap</span></div><div class="line" id="124045"><span class="nick" style="color:#6b8072"><a href="#124045" label="[12:40:45]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Those are to most extent ISA specific</span></div><div class="line" id="124109"><span class="nick" style="color:#6b8072"><a href="#124109" label="[12:41:09]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Well, kernel bootstrap is FW API specific but there aren't that many of those</span></div><div class="line" id="155448"><span class="nick" style="color:#6b8072"><a href="#155448" label="[15:54:48]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I managed to run stage0-posix-x86 inside a chroot inside a tmpfs inside the initrd of the slackware 8.1 installer (by bumping ph_memsz in hex2_x86.hex1). That confirms nothing was leaking through when I was running it on a full slackware 8.1 install.</span></div><div class="line" id="155509"><span class="nick" style="color:#6b8072"><a href="#155509" label="[15:55:09]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; My tcc_bootstrap_alt also works</span></div><div class="line" id="155707"><span class="nick" style="color:#6b8072"><a href="#155707" label="[15:57:07]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Not quite sure which exact version of stage0-posix-x86 I'm using though. Probably an early 2023 one (I was using this copy I incorporated into another one of my projects <a rel="nofollow" href="https://github.com/cosinusoidally/mishmashvm/tree/master/tcc_js_bootstrap/alt_bootstrap/stage0-posix">https://github.com/cosinusoidally/mishmashvm/tree/master/tcc_js_bootstrap/alt_bootstrap/stage0-posix</a>  )</span></div><div class="line" id="174818"><span class="nick" style="color:#389600"><a href="#174818" label="[17:48:18]">&lt;oriansj&gt;</a></span><span class="message">lanodan: yeah a FORTH firmware is definitely possible; as is a lisp firmware or basic firmware or anything else someone would like to build. Unfortunately firmware is going to be a constant porting project.</span></div><div class="line" id="191454"><span class="nick" style="color:#2e2a4a"><a href="#191454" label="[19:14:54]">&lt;lanodan&gt;</a></span><span class="message">Yeah, just means there's prior art in slapping an interpreter and forth/lisp/… already have small auditable implementations</span></div><div class="line" id="205520"><span class="nick" style="color:#389600"><a href="#205520" label="[20:55:20]">&lt;oriansj&gt;</a></span><span class="message">well the smallest ROM would just be a handful of BIOS calls for disk I/O, basic VGA and keyboard reading. A FORTH would add 4-16KB more upon that and a LISP would add 8-64KB more upon the BIOS requirement.</span></div><div class="line" id="205606"><span class="nick" style="color:#389600"><a href="#205606" label="[20:56:06]">&lt;oriansj&gt;</a></span><span class="message">(Yes I know Boot Sector FORTH and LISP fit in 510 bytes; but you'll want something much better than those)</span></div><div class="line" id="205655"><span class="nick" style="color:#389600"><a href="#205655" label="[20:56:55]">&lt;oriansj&gt;</a></span><span class="message">(as they lack Filesystem support, DISK I/O support or other quality of life essentials)</span></div><div class="line" id="220257"><span class="nick" style="color:#8dd3c7"><a href="#220257" label="[22:02:57]">&lt;aggi&gt;</a></span><span class="message">another test-case</span></div><div class="line" id="220259"><span class="nick" style="color:#8dd3c7"><a href="#220259" label="[22:02:59]">&lt;aggi&gt;</a></span><span class="message">linux/include/linux/compiler.h:46:2: error: #error &quot;GCC &gt;= 4.2 miscompiles kernel 2.4, do not use it!&quot;</span></div><div class="line" id="220328"><span class="nick" style="color:#8dd3c7"><a href="#220328" label="[22:03:28]">&lt;aggi&gt;</a></span><span class="message">GNU/linux got a weird understanding of standard C</span></div><br /></div></body></html>

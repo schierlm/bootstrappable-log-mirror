@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-12-01.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="220717"><span class="nick" style="color:#389600"><a href="#220717" label="[22:07:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; fyi I've made some more progress on my alt tcc bootstrap. I'm now able to go from cc_x86 up to tcc 0.9.23. I start with a cut down stage0 posix and bootstrap up to tcc 0.9.23 <a rel="nofollow" href="https://github.com/cosinusoidally/tcc_bootstrap_alt/tree/dev">https://github.com/cosinusoidally/tcc_bootstrap_alt/tree/dev</a>  contains the code. ./mk_seeds followed by ./x86/artifact/kaem-optional-seed kaem.x86 will run the whole process (or there is the convenience wrapper...</span></div><div class="line" id="220722"><span class="nick" style="color:#389600"><a href="#220722" label="[22:07:22]">&lt;matrix_bridge&gt;</a></span><span class="message">... mk_from_bootstrap_seed).</span></div><div class="line" id="220831"><span class="nick" style="color:#389600"><a href="#220831" label="[22:08:31]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; unbuffered io seems to be a bit of a bottleneck though. It takes about 40s when it should ideally take &lt; 10s</span></div><div class="line" id="221125"><span class="nick" style="color:#389600"><a href="#221125" label="[22:11:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; actually &lt; 5s should be feasible</span></div><div class="line" id="224918"><span class="nick" style="color:#389600"><a href="#224918" label="[22:49:18]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; cosinusoidally: why don't you use M2-planet then?</span></div><div class="line" id="224933"><span class="nick" style="color:#389600"><a href="#224933" label="[22:49:33]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; That is much faster with buffered I/o</span></div><div class="line" id="225019"><span class="nick" style="color:#389600"><a href="#225019" label="[22:50:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Also, you'll probably hit m2libc problems with later versions of tcc</span></div><br /></div></body></html>

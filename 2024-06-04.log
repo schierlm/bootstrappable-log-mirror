@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002427"><span class="nick" style="color:#389600"><a href="#002427" label="[00:24:27]">&lt;mihi&gt;</a></span><span class="message">Googulator, &quot;seems like Haskell and OCaml aren't the only languages used in Guix without being bootstrapped&quot; -&gt; where did you read this? I'm pretty sure fpc is not bootstrapped either, and I would not be surprised if there are a few handful others...</span></div><div class="line" id="002542"><span class="nick" style="color:#389600"><a href="#002542" label="[00:25:42]">&lt;mihi&gt;</a></span><span class="message">(i.e. where did you read a claim that these two were the only ones)</span></div><div class="line" id="020719"><span class="nick" style="color:#8dd3c7"><a href="#020719" label="[02:07:19]">&lt;Googulator&gt;</a></span><span class="message">mihi: no such claim, these are just the ones that are commonly mentioned as unbootstrapped</span></div><div class="line" id="025856"><span class="nick" style="color:#2e2a4a"><a href="#025856" label="[02:58:56]">&lt;oriansj&gt;</a></span><span class="message">well Haskell is the elephant in the room (of unbootstrapped languages); others such as C#, Ada, Pascal (FPC to be precise) and Nim are also worthy of mention</span></div><div class="line" id="031923"><span class="nick" style="color:#6b8072"><a href="#031923" label="[03:19:23]">&lt;stikonas&gt;</a></span><span class="message">well, ruby has pregenerated files problem</span></div><div class="line" id="031944"><span class="nick" style="color:#6b8072"><a href="#031944" label="[03:19:44]">&lt;stikonas&gt;</a></span><span class="message">less severe than completely unbootstrapped languages like haskell</span></div><div class="line" id="031950"><span class="nick" style="color:#6b8072"><a href="#031950" label="[03:19:50]">&lt;stikonas&gt;</a></span><span class="message">but ruby is quite common...</span></div><div class="line" id="172608"><span class="nick" style="color:#2e2a4a"><a href="#172608" label="[17:26:08]">&lt;oriansj&gt;</a></span><span class="message">stikonas: completely fair, (sadly guix still is ok with pregenerated files) purging of pregenerated files might end up requiring the creation of a new linux distro to support that ethos</span></div><div class="line" id="173929"><span class="nick" style="color:#80b1d3"><a href="#173929" label="[17:39:29]">&lt;civodul&gt;</a></span><span class="message">oriansj: where did you see that Guix is “ok with pregenerated files”?</span></div><div class="line" id="173943"><span class="nick" style="color:#80b1d3"><a href="#173943" label="[17:39:43]">&lt;civodul&gt;</a></span><span class="message">it definitely isn’t, otherwise it wouldn’t care about bootstrapping</span></div><div class="line" id="174009"><span class="nick" style="color:#80b1d3"><a href="#174009" label="[17:40:09]">&lt;civodul&gt;</a></span><span class="message">now, if you’re talking about Autotools, this is tricky, but the goal is to build from source, including that</span></div><div class="line" id="174041"><span class="nick" style="color:#2e2a4a"><a href="#174041" label="[17:40:41]">&lt;oriansj&gt;</a></span><span class="message">civodul: as you know Guix much better than I; is there an active push to eliminate *ALL* pregenerated source code files in guix builds?</span></div><div class="line" id="174106"><span class="nick" style="color:#80b1d3"><a href="#174106" label="[17:41:06]">&lt;civodul&gt;</a></span><span class="message">always has been</span></div><div class="line" id="174116"><span class="nick" style="color:#80b1d3"><a href="#174116" label="[17:41:16]">&lt;civodul&gt;</a></span><span class="message">but like i write, for Autotools, it is tricky</span></div><div class="line" id="174131"><span class="nick" style="color:#80b1d3"><a href="#174131" label="[17:41:31]">&lt;civodul&gt;</a></span><span class="message">we can’t just create circular dependency in the graph</span></div><div class="line" id="174131"><span class="nick" style="color:#2e2a4a"><a href="#174131" label="[17:41:31]">&lt;oriansj&gt;</a></span><span class="message">I know the FSF doesn't have such a requirement and things are built using pregenerated C files</span></div><div class="line" id="174143"><span class="nick" style="color:#80b1d3"><a href="#174143" label="[17:41:43]">&lt;civodul&gt;</a></span><span class="message">the FSF has nothing to do with Guix development though :-)</span></div><div class="line" id="174208"><span class="nick" style="color:#2e2a4a"><a href="#174208" label="[17:42:08]">&lt;oriansj&gt;</a></span><span class="message">and Live-bootstrap is flushing out how to escape those circular dependencies</span></div><div class="line" id="174219"><span class="nick" style="color:#80b1d3"><a href="#174219" label="[17:42:19]">&lt;civodul&gt;</a></span><span class="message">this is great, Guix can learn from live-bootstrap</span></div><div class="line" id="174240"><span class="nick" style="color:#80b1d3"><a href="#174240" label="[17:42:40]">&lt;civodul&gt;</a></span><span class="message">i hope Guix can take things like removing generated files from Flex/Bison</span></div><div class="line" id="174246"><span class="nick" style="color:#2e2a4a"><a href="#174246" label="[17:42:46]">&lt;oriansj&gt;</a></span><span class="message">and I certainly hope I am wrong about guix being ok with pregenerated files.</span></div><div class="line" id="174248"><span class="nick" style="color:#80b1d3"><a href="#174248" label="[17:42:48]">&lt;civodul&gt;</a></span><span class="message">(i think stikonas worked on it in the past)</span></div><div class="line" id="174315"><span class="nick" style="color:#2e2a4a"><a href="#174315" label="[17:43:15]">&lt;oriansj&gt;</a></span><span class="message">civodul: Googulator earlier posted something you might find interesting for bootstrapping Guix</span></div><div class="line" id="174326"><span class="nick" style="color:#80b1d3"><a href="#174326" label="[17:43:26]">&lt;civodul&gt;</a></span><span class="message">Guix was the first distro to care about bootstrapping, how’s that about evidence that it cares about removing pregenerated files? :-)</span></div><div class="line" id="174332"><span class="nick" style="color:#80b1d3"><a href="#174332" label="[17:43:32]">&lt;civodul&gt;</a></span><span class="message">ok</span></div><div class="line" id="174450"><span class="nick" style="color:#2e2a4a"><a href="#174450" label="[17:44:50]">&lt;oriansj&gt;</a></span><span class="message">Short cuts taken to keep things moving forward sort of thing; which now just requires walking back to fix sort of situation?</span></div><div class="line" id="174755"><span class="nick" style="color:#6d2462"><a href="#174755" label="[17:47:55]">&lt;janneke&gt;</a></span><span class="message">civodul: what other distributions do you know of that care about bootstrapping?</span></div><div class="line" id="175008"><span class="nick" style="color:#6d2462"><a href="#175008" label="[17:50:08]">&lt;janneke&gt;</a></span><span class="message">(the nixos effort seems to have stalled, i'll have to try to nudge them some time)</span></div><div class="line" id="180748"><span class="nick" style="color:#80b1d3"><a href="#180748" label="[18:07:48]">&lt;civodul&gt;</a></span><span class="message">janneke: apart from live-bootstrap, i don’t know</span></div><div class="line" id="180822"><span class="nick" style="color:#234e69"><a href="#180822" label="[18:08:22]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; live-bootatrap is not really a distribution though</span></div><div class="line" id="180844"><span class="nick" style="color:#80b1d3"><a href="#180844" label="[18:08:44]">&lt;civodul&gt;</a></span><span class="message">right</span></div><div class="line" id="180849"><span class="nick" style="color:#234e69"><a href="#180849" label="[18:08:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; It's closer to being a tool to bootstrap distributions</span></div><div class="line" id="180859"><span class="nick" style="color:#80b1d3"><a href="#180859" label="[18:08:59]">&lt;civodul&gt;</a></span><span class="message">ACTION nods</span></div><div class="line" id="180918"><span class="nick" style="color:#80b1d3"><a href="#180918" label="[18:09:18]">&lt;civodul&gt;</a></span><span class="message">i think Guix should learn and borrow from live-bootstrap</span></div><div class="line" id="180934"><span class="nick" style="color:#80b1d3"><a href="#180934" label="[18:09:34]">&lt;civodul&gt;</a></span><span class="message">if someone is willing to submit patches to Guix in that direction, i’m sure they’d be very welcome</span></div><div class="line" id="180935"><span class="nick" style="color:#234e69"><a href="#180935" label="[18:09:35]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; mid_kid here managed to bootstrap gentoo off live-bootstrap</span></div><div class="line" id="180936"><span class="nick" style="color:#6d2462"><a href="#180936" label="[18:09:36]">&lt;janneke&gt;</a></span><span class="message">civodul: right, saying &quot;first&quot; suggests there are others that care</span></div><div class="line" id="180957"><span class="nick" style="color:#80b1d3"><a href="#180957" label="[18:09:57]">&lt;civodul&gt;</a></span><span class="message">janneke: heh, true!</span></div><div class="line" id="181020"><span class="nick" style="color:#234e69"><a href="#181020" label="[18:10:20]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But yeah, generally distros don't care...</span></div><div class="line" id="181021"><span class="nick" style="color:#6d2462"><a href="#181021" label="[18:10:21]">&lt;janneke&gt;</a></span><span class="message">but posssibly &quot;first&quot; sounds more inspiring, dunno :)</span></div><div class="line" id="181032"><span class="nick" style="color:#80b1d3"><a href="#181032" label="[18:10:32]">&lt;civodul&gt;</a></span><span class="message">leaves the door open :-)</span></div><div class="line" id="181047"><span class="nick" style="color:#6d2462"><a href="#181047" label="[18:10:47]">&lt;janneke&gt;</a></span><span class="message">yes</span></div><div class="line" id="181113"><span class="nick" style="color:#234e69"><a href="#181113" label="[18:11:13]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Well, some other non distros care somewhat, e.g. freedesktop-sdk</span></div><div class="line" id="181215"><span class="nick" style="color:#80b1d3"><a href="#181215" label="[18:12:15]">&lt;civodul&gt;</a></span><span class="message">oh right, which is very nice</span></div><div class="line" id="181233"><span class="nick" style="color:#80b1d3"><a href="#181233" label="[18:12:33]">&lt;civodul&gt;</a></span><span class="message">(i’d call it a distro actually, even if it’s of a different kind)</span></div><div class="line" id="181245"><span class="nick" style="color:#234e69"><a href="#181245" label="[18:12:45]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; LFS too I guess</span></div><div class="line" id="181300"><span class="nick" style="color:#234e69"><a href="#181300" label="[18:13:00]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But they themselves don't care about bootstrap</span></div><div class="line" id="181328"><span class="nick" style="color:#234e69"><a href="#181328" label="[18:13:28]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; mid_kid did live-bootstrap-&gt;LFS-&gt;gentoo actually</span></div><div class="line" id="181457"><span class="nick" style="color:#234e69"><a href="#181457" label="[18:14:57]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Personally for guix it would be good to be able to build bootstrap binaries both outside and inside guix. Which think Googulator is looking at...</span></div><div class="line" id="215754"><span class="nick" style="color:#2e2a4a"><a href="#215754" label="[21:57:54]">&lt;oriansj&gt;</a></span><span class="message">the long tail of making source only bootstrapping (with no pregenerated files) is just going to be a slow process and the hard part isn't doing the improvements but keeping that expectation as part of the cultural norm. Making the dark hidden pregenerated files obvious and tracked; so that we can know that progress is being made.</span></div><div class="line" id="215843"><span class="nick" style="color:#2e2a4a"><a href="#215843" label="[21:58:43]">&lt;oriansj&gt;</a></span><span class="message">For example the Ruby pregenerated file issue was one I was not aware of until recently and wouldn't have known unless someone else looked into it.</span></div><div class="line" id="215946"><span class="nick" style="color:#2e2a4a"><a href="#215946" label="[21:59:46]">&lt;oriansj&gt;</a></span><span class="message">But that is going to require people looking and coordinating and writing up the findings and ultimately someone is going to have to sort all of those problems out.</span></div><div class="line" id="220028"><span class="nick" style="color:#2e2a4a"><a href="#220028" label="[22:00:28]">&lt;oriansj&gt;</a></span><span class="message">can/will guix being willing to require of *ALL* new packages a pregenerated file check?</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-02-26.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000908"><span class="nick" style="color:#8dd3c7"><a href="#000908" label="[00:09:08]">&lt;OriansJ`&gt;</a></span><span class="message">dddddd: almost there but not quite; in this specific case that markjenkinsznc is working on is to take  say: LOAD32 R0 R2 8   ; Get -&gt;Expression value and turn it into   abcd 0 2 0008      # LOAD32 R0 R2 8   ; Get -&gt;Expression value</span></div><div class="line" id="001013"><span class="nick" style="color:#8dd3c7"><a href="#001013" label="[00:10:13]">&lt;OriansJ`&gt;</a></span><span class="message">So that nearly all of the # line up and most of the ; line up</span></div><div class="line" id="001013"><span class="nick" style="color:#2e2a4a"><a href="#001013" label="[00:10:13]">&lt;dddddd&gt;</a></span><span class="message">So, when I talked about porting this feature (comments from the original in the output) I'm talking about the M1 written in asm (say, x86) having this functionality too (instead of just output the data discarding the comments).</span></div><div class="line" id="001045"><span class="nick" style="color:#8dd3c7"><a href="#001045" label="[00:10:45]">&lt;OriansJ`&gt;</a></span><span class="message">dddddd: no, this feature will only be in the Python version that markjenkinsznc is working on</span></div><div class="line" id="001133"><span class="nick" style="color:#8dd3c7"><a href="#001133" label="[00:11:33]">&lt;OriansJ`&gt;</a></span><span class="message">unless someone is willing to do the work on the C code to make it happen</span></div><div class="line" id="001205"><span class="nick" style="color:#2e2a4a"><a href="#001205" label="[00:12:05]">&lt;dddddd&gt;</a></span><span class="message">s/M1/M0/</span></div><div class="line" id="001216"><span class="nick" style="color:#2e2a4a"><a href="#001216" label="[00:12:16]">&lt;dddddd&gt;</a></span><span class="message">ok, got it. Thanks.</span></div><div class="line" id="001303"><span class="nick" style="color:#8dd3c7"><a href="#001303" label="[00:13:03]">&lt;OriansJ`&gt;</a></span><span class="message">dddddd: the M0 being written in hex2 will be as small as possible as the primary goal as auditing hex2 is a massive pain</span></div><div class="line" id="001427"><span class="nick" style="color:#8dd3c7"><a href="#001427" label="[00:14:27]">&lt;OriansJ`&gt;</a></span><span class="message">Auditing M0 code, only requires one to check the DEFINEs and then see if the functions do what you expect them to do</span></div><div class="line" id="001501"><span class="nick" style="color:#8dd3c7"><a href="#001501" label="[00:15:01]">&lt;OriansJ`&gt;</a></span><span class="message">hex2 audits require you to check every single byte</span></div><div class="line" id="001928"><span class="nick" style="color:#2e2a4a"><a href="#001928" label="[00:19:28]">&lt;dddddd&gt;</a></span><span class="message">I can see how having the original macros and the comment, near the output, helps.</span></div><div class="line" id="002504"><span class="nick" style="color:#8dd3c7"><a href="#002504" label="[00:25:04]">&lt;OriansJ`&gt;</a></span><span class="message">dddddd: all told the hex-monitor, hex0, hex1, hex2 and M0-compact end up being 3766bytes total</span></div><div class="line" id="002531"><span class="nick" style="color:#8dd3c7"><a href="#002531" label="[00:25:31]">&lt;OriansJ`&gt;</a></span><span class="message">after which cc_x86.s is a 16,386byte assembly program</span></div><div class="line" id="002803"><span class="nick" style="color:#8dd3c7"><a href="#002803" label="[00:28:03]">&lt;OriansJ`&gt;</a></span><span class="message">and part of me is wondering what sort of encoding changes could I make to knight to result in much denser binaries without adding complexity to the hardware implementation</span></div><div class="line" id="003227"><span class="nick" style="color:#2e2a4a"><a href="#003227" label="[00:32:27]">&lt;dddddd&gt;</a></span><span class="message">I'm not sure if optimizing a hundred of bytes is really worth thinking about it.</span></div><div class="line" id="003348"><span class="nick" style="color:#2e2a4a"><a href="#003348" label="[00:33:48]">&lt;dddddd&gt;</a></span><span class="message">No doubt if the result is just a bit harder to understand.</span></div><div class="line" id="003452"><span class="nick" style="color:#8dd3c7"><a href="#003452" label="[00:34:52]">&lt;OriansJ`&gt;</a></span><span class="message">dddddd: but perhaps fewer circuits needed to implement if done correctly</span></div><div class="line" id="003513"><span class="nick" style="color:#8dd3c7"><a href="#003513" label="[00:35:13]">&lt;OriansJ`&gt;</a></span><span class="message">So it is a background thought but not one that interferes with current work</span></div><div class="line" id="003517"><span class="nick" style="color:#2e2a4a"><a href="#003517" label="[00:35:17]">&lt;dddddd&gt;</a></span><span class="message">Then the goal is not bytes saving, but less circuit.</span></div><div class="line" id="003530"><span class="nick" style="color:#8dd3c7"><a href="#003530" label="[00:35:30]">&lt;OriansJ`&gt;</a></span><span class="message">dddddd: why not both if possible</span></div><div class="line" id="004140"><span class="nick" style="color:#2e2a4a"><a href="#004140" label="[00:41:40]">&lt;dddddd&gt;</a></span><span class="message">Would be great, of course. And if you think both are related... go for it.</span></div><div class="line" id="004642"><span class="nick" style="color:#8dd3c7"><a href="#004642" label="[00:46:42]">&lt;OriansJ`&gt;</a></span><span class="message">dddddd: well not now as it will be possible to allocate the time for that sor of work as we get closer to putting knight into real metal</span></div><div class="line" id="004848"><span class="nick" style="color:#8dd3c7"><a href="#004848" label="[00:48:48]">&lt;OriansJ`&gt;</a></span><span class="message">but it would be an interesting bit of study for a computer science student and an electrical engineer to sit down and figure out what sort of optimizations could result in a much more optimal design. (compared to a design done by hand and with the goal of being extended past 8192bits)</span></div><div class="line" id="013955"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="014044"><span class="nick" style="color:#6b8072"><a href="#014044" label="[01:40:44]">&lt;fossy&gt;</a></span><span class="message">When I make it please be highly critical of the new design.... I dont want something thats not robust merged</span></div><div class="line" id="020210"><span class="nick" style="color:#8dd3c7"><a href="#020210" label="[02:02:10]">&lt;OriansJ`&gt;</a></span><span class="message">fossy: well if you added a monkey_lives; added a flag argument to enable it and then fuzzed the program with AFL for 8 hours you should be able to clear out most of the things I would be pointing out but I will careful to put it through its paces</span></div><div class="line" id="023331"><span class="nick" style="color:#2e2a4a"><a href="#023331" label="[02:33:31]">&lt;dddddd&gt;</a></span><span class="message">fuzzing helps with robustness, but I understand fossy is also (maybe mostly) asking for design flaws?</span></div><div class="line" id="024621"><span class="nick" style="color:#8dd3c7"><a href="#024621" label="[02:46:21]">&lt;OriansJ`&gt;</a></span><span class="message">dddddd: well if fossy writes clean code with understandability at its core, design flaws will be obvious</span></div><div class="line" id="024704"><span class="nick" style="color:#8dd3c7"><a href="#024704" label="[02:47:04]">&lt;OriansJ`&gt;</a></span><span class="message">with practice fossy will be able to be able to pick up the difference between good and bad design smells</span></div><div class="line" id="045445"><span class="nick" style="color:#6b8072"><a href="#045445" label="[04:54:45]">&lt;fossy&gt;</a></span><span class="message">yes I mean design flaws</span></div><div class="line" id="070211"><span class="nick" style="color:#80b1d3"><a href="#070211" label="[07:02:11]">&lt;markjenkinsznc&gt;</a></span><span class="message">OriansJ, I've tightened up the column widths for M0-macro-compact.hex2 28 plus a space for the hex and after the number sign 1 space, 27 space for the assembler comment plus 1 pad <a rel="nofollow" href="https://github.com/oriansj/stage0/compare/master...markjenkins:M0-compact-hex2-redo3">https://github.com/oriansj/stage0/compare/master...markjenkins:M0-compact-hex2-redo3</a> </span></div><div class="line" id="070346"><span class="nick" style="color:#80b1d3"><a href="#070346" label="[07:03:46]">&lt;markjenkinsznc&gt;</a></span><span class="message">Out of 588 lines, 20 of them (4%) have hex and the commented assembler instruction exceeding the column width</span></div><div class="line" id="070423"><span class="nick" style="color:#80b1d3"><a href="#070423" label="[07:04:23]">&lt;markjenkinsznc&gt;</a></span><span class="message">And there are 4 lines where the hex is fine but the assembler comment takes up too much space</span></div><div class="line" id="070500"><span class="nick" style="color:#80b1d3"><a href="#070500" label="[07:05:00]">&lt;markjenkinsznc&gt;</a></span><span class="message">This is aprox my golidilocks zone</span></div><div class="line" id="070640"><span class="nick" style="color:#80b1d3"><a href="#070640" label="[07:06:40]">&lt;markjenkinsznc&gt;</a></span><span class="message">Started on a work in progress basis to do alignment of operands in hex, see start, main, match, and match_cmpbyte as a sample for feedback</span></div><div class="line" id="070641"><span class="nick" style="color:#80b1d3"><a href="#070641" label="[07:06:41]">&lt;markjenkinsznc&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/markjenkins/stage0/commit/0a3389b809b04eeaa6080389acb96bebbf4dee3c">https://github.com/markjenkins/stage0/commit/0a3389b809b04eeaa6080389acb96bebbf4dee3c</a> </span></div><div class="line" id="070700"><span class="nick" style="color:#80b1d3"><a href="#070700" label="[07:07:00]">&lt;markjenkinsznc&gt;</a></span><span class="message">and night</span></div><div class="line" id="103816"><span class="nick" style="color:#6b8072"><a href="#103816" label="[10:38:16]">&lt;fossy&gt;</a></span><span class="message">OriansJ`: thanks for promtimg me to do fuzzing</span></div><div class="line" id="103826"><span class="nick" style="color:#6b8072"><a href="#103826" label="[10:38:26]">&lt;fossy&gt;</a></span><span class="message">half an hour uncovered 3 obvious bugs</span></div><div class="line" id="121047"><span class="nick" style="color:#8dd3c7"><a href="#121047" label="[12:10:47]">&lt;OriansJ`&gt;</a></span><span class="message">fossy: glad to help</span></div><div class="line" id="221458"><span class="nick" style="color:#6d2462"><a href="#221458" label="[22:14:58]">&lt;dongcarl&gt;</a></span><span class="message">Did people see this: <a rel="nofollow" href="http://selfie.cs.uni-salzburg.at/">http://selfie.cs.uni-salzburg.at/</a> </span></div><div class="line" id="225727"><span class="nick" style="color:#234e69"><a href="#225727" label="[22:57:27]">&lt;janneke&gt;</a></span><span class="message">dongcarl: nice</span></div><br /></div></body></html>

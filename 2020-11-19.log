@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-11-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="122251"><span class="nick" style="color:#8dd3c7"><a href="#122251" label="[12:22:51]">&lt;OriansJ&gt;</a></span><span class="message">I think the make rules might be accidentially recursive: <a rel="nofollow" href="https://paste.debian.net/1173171/">https://paste.debian.net/1173171/</a> </span></div><div class="line" id="122755"><span class="nick" style="color:#2e2a4a"><a href="#122755" label="[12:27:55]">&lt;siraben&gt;</a></span><span class="message">OriansJ: I think you can remove the wasm and site-generation stuff</span></div><div class="line" id="122809"><span class="nick" style="color:#2e2a4a"><a href="#122809" label="[12:28:09]">&lt;siraben&gt;</a></span><span class="message">`cobble` is Ben Lynn's own website generator</span></div><div class="line" id="122902"><span class="nick" style="color:#8dd3c7"><a href="#122902" label="[12:29:02]">&lt;OriansJ&gt;</a></span><span class="message">siraben: true and to properly start fuzzing the vm, I'll need to make changes with how it handles input</span></div><div class="line" id="122958"><span class="nick" style="color:#8dd3c7"><a href="#122958" label="[12:29:58]">&lt;OriansJ&gt;</a></span><span class="message">So it is going to be a rather major changes to get it into bootstrapping shape; which will probably not be liked upstream.</span></div><div class="line" id="123200"><span class="nick" style="color:#8dd3c7"><a href="#123200" label="[12:32:00]">&lt;OriansJ&gt;</a></span><span class="message">But fortunately because you got them to license it under the GPLv3; that isn't going to be an issue for us.</span></div><div class="line" id="123243"><span class="nick" style="color:#6b8072"><a href="#123243" label="[12:32:43]">&lt;xentrac&gt;</a></span><span class="message">hooray!</span></div><div class="line" id="123713"><span class="nick" style="color:#8dd3c7"><a href="#123713" label="[12:37:13]">&lt;OriansJ&gt;</a></span><span class="message">But there remains alot of work  to strip out everything implicit in the bootstrap and make it all explicit and obvious.</span></div><div class="line" id="123750"><span class="nick" style="color:#8dd3c7"><a href="#123750" label="[12:37:50]">&lt;OriansJ&gt;</a></span><span class="message">and I am starting to think he never heard of &gt;&gt; in bash</span></div><div class="line" id="123815"><span class="nick" style="color:#6b8072"><a href="#123815" label="[12:38:15]">&lt;xentrac&gt;</a></span><span class="message">hah</span></div><div class="line" id="124017"><span class="nick" style="color:#8dd3c7"><a href="#124017" label="[12:40:17]">&lt;OriansJ&gt;</a></span><span class="message">well why do (cat rts.c &amp;&amp; ./vm run effectively.hs &lt; lonely.hs) &gt; lonely.c; when cp rts.c lonely.c &amp;&amp; ./vm run effectively.hs &lt; lonely.hs &gt;&gt; lonely.c is more clear</span></div><div class="line" id="124242"><span class="nick" style="color:#6b8072"><a href="#124242" label="[12:42:42]">&lt;xentrac&gt;</a></span><span class="message">de gustibus non est disputandum</span></div><div class="line" id="124407"><span class="nick" style="color:#8dd3c7"><a href="#124407" label="[12:44:07]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: huh?</span></div><div class="line" id="124449"><span class="nick" style="color:#6b8072"><a href="#124449" label="[12:44:49]">&lt;xentrac&gt;</a></span><span class="message">it seems like a matter of subjective preference to me</span></div><div class="line" id="124529"><span class="nick" style="color:#8dd3c7"><a href="#124529" label="[12:45:29]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: fair but I also tend to work with a far more minimal shell (kaem)</span></div><div class="line" id="125124"><span class="nick" style="color:#2e2a4a"><a href="#125124" label="[12:51:24]">&lt;siraben&gt;</a></span><span class="message">OriansJ: I noticed you used &gt;| which I hadn't seen before</span></div><div class="line" id="125131"><span class="nick" style="color:#2e2a4a"><a href="#125131" label="[12:51:31]">&lt;siraben&gt;</a></span><span class="message">Didn't know it was another operator altogether!</span></div><div class="line" id="125208"><span class="nick" style="color:#8dd3c7"><a href="#125208" label="[12:52:08]">&lt;OriansJ&gt;</a></span><span class="message">siraben: noclobber is just standard for my ~/.bashrc because I make mistakes</span></div><div class="line" id="125259"><span class="nick" style="color:#8dd3c7"><a href="#125259" label="[12:52:59]">&lt;OriansJ&gt;</a></span><span class="message">set -o noclobber</span></div><div class="line" id="125306"><span class="nick" style="color:#6b8072"><a href="#125306" label="[12:53:06]">&lt;xentrac&gt;</a></span><span class="message">from csh</span></div><div class="line" id="125359"><span class="nick" style="color:#8dd3c7"><a href="#125359" label="[12:53:59]">&lt;OriansJ&gt;</a></span><span class="message">So if I do thing &gt; $foo and I got what $foo is wrong; it doesn't damage anything I might care about</span></div><div class="line" id="125455"><span class="nick" style="color:#8dd3c7"><a href="#125455" label="[12:54:55]">&lt;OriansJ&gt;</a></span><span class="message">but if I am writing to thing &gt; foo and I know that I am going to overwrite something; just toss on the |</span></div><div class="line" id="125533"><span class="nick" style="color:#2e2a4a"><a href="#125533" label="[12:55:33]">&lt;siraben&gt;</a></span><span class="message">OriansJ: expect a *lot* of segfaults during fuzzing. One thing I'm tempted to do is port the assembler to Haskell for the earlier stages.</span></div><div class="line" id="125624"><span class="nick" style="color:#2e2a4a"><a href="#125624" label="[12:56:24]">&lt;siraben&gt;</a></span><span class="message">the barely.hs compiler moves the assembler from C to Haskell <a rel="nofollow" href="https://github.com/blynn/compiler/blob/cc5288045ae13d1e02de6100840adfc5ab0d7cfc/type.lhs#L262">https://github.com/blynn/compiler/blob/cc5288045ae13d1e02de6100840adfc5ab0d7cfc/type.lhs#L262</a> </span></div><div class="line" id="125704"><span class="nick" style="color:#8dd3c7"><a href="#125704" label="[12:57:04]">&lt;OriansJ&gt;</a></span><span class="message">siraben: I can fix alot of segfaults pretty quickly with require</span></div><div class="line" id="125717"><span class="nick" style="color:#2e2a4a"><a href="#125717" label="[12:57:17]">&lt;siraben&gt;</a></span><span class="message">with require?</span></div><div class="line" id="125739"><span class="nick" style="color:#8dd3c7"><a href="#125739" label="[12:57:39]">&lt;OriansJ&gt;</a></span><span class="message">think of it like M2-Planet's version of assert but it operates at runtime</span></div><div class="line" id="125756"><span class="nick" style="color:#2e2a4a"><a href="#125756" label="[12:57:56]">&lt;siraben&gt;</a></span><span class="message">Ah, interesting.</span></div><div class="line" id="125805"><span class="nick" style="color:#8dd3c7"><a href="#125805" label="[12:58:05]">&lt;OriansJ&gt;</a></span><span class="message">require(bool, message_string_when_error);</span></div><div class="line" id="125853"><span class="nick" style="color:#8dd3c7"><a href="#125853" label="[12:58:53]">&lt;OriansJ&gt;</a></span><span class="message">so if foo != TYPE_H =&gt; require( foo != TYPE_H, &quot;foo was type_h\n&quot;);</span></div><div class="line" id="125909"><span class="nick" style="color:#8dd3c7"><a href="#125909" label="[12:59:09]">&lt;OriansJ&gt;</a></span><span class="message">and it will exit with EXIT_FAILURE</span></div><div class="line" id="125913"><span class="nick" style="color:#2e2a4a"><a href="#125913" label="[12:59:13]">&lt;siraben&gt;</a></span><span class="message">I see.</span></div><div class="line" id="125947"><span class="nick" style="color:#2e2a4a"><a href="#125947" label="[12:59:47]">&lt;siraben&gt;</a></span><span class="message">One thing I'd like to understand is the garbage collector `evac`, that's the only part I didn't read in detail</span></div><div class="line" id="130029"><span class="nick" style="color:#8dd3c7"><a href="#130029" label="[13:00:29]">&lt;OriansJ&gt;</a></span><span class="message">siraben: well we are going to get deep into its guts and tear it to pieces squeezing out all the understanding that can be found in it.</span></div><div class="line" id="130033"><span class="nick" style="color:#2e2a4a"><a href="#130033" label="[13:00:33]">&lt;siraben&gt;</a></span><span class="message">Let me know if you have any questions regarding how/why the VM works.</span></div><div class="line" id="130040"><span class="nick" style="color:#2e2a4a"><a href="#130040" label="[13:00:40]">&lt;siraben&gt;</a></span><span class="message">Great!</span></div><div class="line" id="130107"><span class="nick" style="color:#8dd3c7"><a href="#130107" label="[13:01:07]">&lt;OriansJ&gt;</a></span><span class="message">siraben: how VMs work is usually just a state machine, which I just need to map out.</span></div><div class="line" id="130200"><span class="nick" style="color:#8dd3c7"><a href="#130200" label="[13:02:00]">&lt;OriansJ&gt;</a></span><span class="message">The why for primitives I might need to have a greater understanding of Haskell and I am sure that you can help with that.</span></div><div class="line" id="130207"><span class="nick" style="color:#80b1d3"><a href="#130207" label="[13:02:07]">&lt;nimaje&gt;</a></span><span class="message">(asserts are also at runtime, but normally defined to nothing in a release build)</span></div><div class="line" id="130230"><span class="nick" style="color:#2e2a4a"><a href="#130230" label="[13:02:30]">&lt;siraben&gt;</a></span><span class="message">OriansJ: Sure thing.</span></div><div class="line" id="130300"><span class="nick" style="color:#2e2a4a"><a href="#130300" label="[13:03:00]">&lt;siraben&gt;</a></span><span class="message">Ah, I also need to adjust the generated C code in the later stages to make it M2-Planet compatible.</span></div><div class="line" id="130417"><span class="nick" style="color:#8dd3c7"><a href="#130417" label="[13:04:17]">&lt;OriansJ&gt;</a></span><span class="message">siraben: that definitely looks like it might take a while</span></div><div class="line" id="130428"><span class="nick" style="color:#8dd3c7"><a href="#130428" label="[13:04:28]">&lt;OriansJ&gt;</a></span><span class="message">but I am sure you can handle it</span></div><div class="line" id="130510"><span class="nick" style="color:#2e2a4a"><a href="#130510" label="[13:05:10]">&lt;siraben&gt;</a></span><span class="message">Yeah. I'll need to understand what subset of C I can use</span></div><div class="line" id="131016"><span class="nick" style="color:#8dd3c7"><a href="#131016" label="[13:10:16]">&lt;OriansJ&gt;</a></span><span class="message">siraben: well start with this subset: <a rel="nofollow" href="https://bootstrapping.miraheze.org/wiki/Stage0#cc_.2A_.2B_family">https://bootstrapping.miraheze.org/wiki/Stage0#cc_.2A_.2B_family</a>  and if you need more of the C language let me know</span></div><div class="line" id="131119"><span class="nick" style="color:#2e2a4a"><a href="#131119" label="[13:11:19]">&lt;siraben&gt;</a></span><span class="message">Looks like the C code generation starts from the guardedly.hs compiler</span></div><div class="line" id="131228"><span class="nick" style="color:#2e2a4a"><a href="#131228" label="[13:12:28]">&lt;siraben&gt;</a></span><span class="message">How would you translate `static unsigned root[] = {1,2,3,4,5};`?</span></div><div class="line" id="131613"><span class="nick" style="color:#8dd3c7"><a href="#131613" label="[13:16:13]">&lt;OriansJ&gt;</a></span><span class="message">well first I'd make it unsigned* root; do a root=calloc(5, sizeof(unsigned)); and then do root[0]=1; root[1]=2; etc but depending on how common that is we could implement that feature in M2-Planet</span></div><div class="line" id="131659"><span class="nick" style="color:#2e2a4a"><a href="#131659" label="[13:16:59]">&lt;siraben&gt;</a></span><span class="message">It's going to be a large array storing the program, <a rel="nofollow" href="https://github.com/blynn/compiler/blob/42ff37bc98c8b6e9d4fb34510e804d6cfea25d33/guardedly.hs#L946">https://github.com/blynn/compiler/blob/42ff37bc98c8b6e9d4fb34510e804d6cfea25d33/guardedly.hs#L946</a> </span></div><div class="line" id="131712"><span class="nick" style="color:#2e2a4a"><a href="#131712" label="[13:17:12]">&lt;siraben&gt;</a></span><span class="message">That's the code generation, should be somewhat readable if you look at the strings.</span></div><div class="line" id="131739"><span class="nick" style="color:#2e2a4a"><a href="#131739" label="[13:17:39]">&lt;siraben&gt;</a></span><span class="message">I could make it a sequence of array assignments, if needed.</span></div><div class="line" id="131846"><span class="nick" style="color:#8dd3c7"><a href="#131846" label="[13:18:46]">&lt;OriansJ&gt;</a></span><span class="message">siraben: let me think on that a bit</span></div><div class="line" id="131909"><span class="nick" style="color:#2e2a4a"><a href="#131909" label="[13:19:09]">&lt;siraben&gt;</a></span><span class="message">I wouldn't want to complicate the C source, it really wouldn't be a lot of work to generate the list of assignments.</span></div><div class="line" id="131920"><span class="nick" style="color:#2e2a4a"><a href="#131920" label="[13:19:20]">&lt;siraben&gt;</a></span><span class="message">OTOH performance might suffer</span></div><div class="line" id="132009"><span class="nick" style="color:#8dd3c7"><a href="#132009" label="[13:20:09]">&lt;OriansJ&gt;</a></span><span class="message">siraben: performance is not a priority for bootstrapping, just a nice to have</span></div><div class="line" id="132055"><span class="nick" style="color:#8dd3c7"><a href="#132055" label="[13:20:55]">&lt;OriansJ&gt;</a></span><span class="message">keep things as simple as possible and later if it matters we can make it faster.</span></div><div class="line" id="132310"><span class="nick" style="color:#6b8072"><a href="#132310" label="[13:23:10]">&lt;xentrac&gt;</a></span><span class="message">stacking layers of interpreters on top of each other suffers progressive slowdown, not layers of compilers</span></div><div class="line" id="132337"><span class="nick" style="color:#2e2a4a"><a href="#132337" label="[13:23:37]">&lt;siraben&gt;</a></span><span class="message">Right.</span></div><div class="line" id="132401"><span class="nick" style="color:#6b8072"><a href="#132401" label="[13:24:01]">&lt;xentrac&gt;</a></span><span class="message">making compilers slow usually requires making them sophisticated</span></div><div class="line" id="132424"><span class="nick" style="color:#2e2a4a"><a href="#132424" label="[13:24:24]">&lt;siraben&gt;</a></span><span class="message">Depending on what the later stages look like, it could mean removing the intermediate C language altogether, going from Hex → ASM → blynn-compiler → mes</span></div><div class="line" id="132435"><span class="nick" style="color:#6b8072"><a href="#132435" label="[13:24:35]">&lt;xentrac&gt;</a></span><span class="message">(although maybe if someone writes a bootstrapping compiler in prolog they'll create a counterexample)</span></div><div class="line" id="132806"><span class="nick" style="color:#8dd3c7"><a href="#132806" label="[13:28:06]">&lt;OriansJ&gt;</a></span><span class="message">siraben: I would be surprised if it was easier to write a Haskell compiler in Assembly than to write a C compiler in assembly (cc_x86 only took 20 hours total)</span></div><div class="line" id="132847"><span class="nick" style="color:#2e2a4a"><a href="#132847" label="[13:28:47]">&lt;siraben&gt;</a></span><span class="message">OriansJ: It would involve porting vm.c to assembly</span></div><div class="line" id="133105"><span class="nick" style="color:#2e2a4a"><a href="#133105" label="[13:31:05]">&lt;siraben&gt;</a></span><span class="message">OriansJ: as a PoC, here is the vm ported to EVM assembly <a rel="nofollow" href="https://gist.github.com/siraben/cbf698c0455f55d41c01c14177e8d90a">https://gist.github.com/siraben/cbf698c0455f55d41c01c14177e8d90a</a> </span></div><div class="line" id="133130"><span class="nick" style="color:#2e2a4a"><a href="#133130" label="[13:31:30]">&lt;siraben&gt;</a></span><span class="message">modulo the GC</span></div><div class="line" id="133243"><span class="nick" style="color:#6b8072"><a href="#133243" label="[13:32:43]">&lt;xentrac&gt;</a></span><span class="message">nice job!</span></div><div class="line" id="133319"><span class="nick" style="color:#6b8072"><a href="#133319" label="[13:33:19]">&lt;xentrac&gt;</a></span><span class="message">btw, not relevant to what we're doing here, but do you know about the B and C combinators?</span></div><div class="line" id="133329"><span class="nick" style="color:#2e2a4a"><a href="#133329" label="[13:33:29]">&lt;siraben&gt;</a></span><span class="message">Did I not comment them in vm.c?</span></div><div class="line" id="133346"><span class="nick" style="color:#6b8072"><a href="#133346" label="[13:33:46]">&lt;xentrac&gt;</a></span><span class="message">*blush* well uh I haven't actually looked...</span></div><div class="line" id="133351"><span class="nick" style="color:#6b8072"><a href="#133351" label="[13:33:51]">&lt;xentrac&gt;</a></span><span class="message">sorry!</span></div><div class="line" id="133356"><span class="nick" style="color:#8dd3c7"><a href="#133356" label="[13:33:56]">&lt;OriansJ&gt;</a></span><span class="message">siraben: problem that we don't have a bootstrapped EVM virtual machine to run said code</span></div><div class="line" id="133421"><span class="nick" style="color:#6b8072"><a href="#133421" label="[13:34:21]">&lt;xentrac&gt;</a></span><span class="message">they are in fact mentioned in here</span></div><div class="line" id="133425"><span class="nick" style="color:#2e2a4a"><a href="#133425" label="[13:34:25]">&lt;siraben&gt;</a></span><span class="message">OriansJ: haha of course, but I'm only using the basic opcodes of the EVM</span></div><div class="line" id="133456"><span class="nick" style="color:#8dd3c7"><a href="#133456" label="[13:34:56]">&lt;OriansJ&gt;</a></span><span class="message">we have M1 macro assembly and bare metal to work with here (until I get M3 done)</span></div><div class="line" id="133511"><span class="nick" style="color:#2e2a4a"><a href="#133511" label="[13:35:11]">&lt;siraben&gt;</a></span><span class="message">You have a Forth as well, right?</span></div><div class="line" id="134501"><span class="nick" style="color:#8dd3c7"><a href="#134501" label="[13:45:01]">&lt;OriansJ&gt;</a></span><span class="message">siraben: yes</span></div><div class="line" id="134516"><span class="nick" style="color:#2e2a4a"><a href="#134516" label="[13:45:16]">&lt;siraben&gt;</a></span><span class="message">I love Forth!</span></div><div class="line" id="134549"><span class="nick" style="color:#8dd3c7"><a href="#134549" label="[13:45:49]">&lt;OriansJ&gt;</a></span><span class="message">I am glad it makes you happy.</span></div><div class="line" id="134618"><span class="nick" style="color:#2e2a4a"><a href="#134618" label="[13:46:18]">&lt;siraben&gt;</a></span><span class="message">Of course for entirely different reasons than Haskell, Lisp, C, etc. lol</span></div><div class="line" id="134751"><span class="nick" style="color:#8dd3c7"><a href="#134751" label="[13:47:51]">&lt;OriansJ&gt;</a></span><span class="message">here is our existing FORTH library: <a rel="nofollow" href="https://github.com/oriansj/stage0/blob/master/stage3/inital_library.fs">https://github.com/oriansj/stage0/blob/master/stage3/inital_library.fs</a>  and implementation: <a rel="nofollow" href="https://github.com/oriansj/stage0/blob/master/stage2/forth.s">https://github.com/oriansj/stage0/blob/master/stage2/forth.s</a> </span></div><div class="line" id="135442"><span class="nick" style="color:#8dd3c7"><a href="#135442" label="[13:54:42]">&lt;OriansJ&gt;</a></span><span class="message">hmmm vm; does not like being moved to bin/vm</span></div><div class="line" id="135803"><span class="nick" style="color:#8dd3c7"><a href="#135803" label="[13:58:03]">&lt;OriansJ&gt;</a></span><span class="message">guess I gotta fix vm.c to like it</span></div><div class="line" id="140422"><span class="nick" style="color:#8dd3c7"><a href="#140422" label="[14:04:22]">&lt;OriansJ&gt;</a></span><span class="message">and a cleaned up makefile is now up</span></div><div class="line" id="142155"><span class="nick" style="color:#2e2a4a"><a href="#142155" label="[14:21:55]">&lt;siraben&gt;</a></span><span class="message">Nice!</span></div><div class="line" id="153456"><span class="nick">***</span><span class="message notice">ericonr- is now known as ericonr</span></div><div class="line" id="205638"><span class="nick" style="color:#6d2462"><a href="#205638" label="[20:56:38]">&lt;fossy&gt;</a></span><span class="message">OriansJ: is VM.c complete in m2 planet now?</span></div><div class="line" id="205649"><span class="nick" style="color:#6d2462"><a href="#205649" label="[20:56:49]">&lt;fossy&gt;</a></span><span class="message">This weekend we will see some further kaem improvements</span></div><div class="line" id="205654"><span class="nick" style="color:#6d2462"><a href="#205654" label="[20:56:54]">&lt;fossy&gt;</a></span><span class="message">And fixes</span></div><div class="line" id="214820"><span class="nick">***</span><span class="message notice">nckx is now known as jorts</span></div><div class="line" id="215423"><span class="nick">***</span><span class="message notice">jorts is now known as nckx</span></div><br /></div></body></html>

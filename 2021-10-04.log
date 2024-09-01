@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-10-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001241"><span class="nick" style="color:#8dd3c7"><a href="#001241" label="[00:12:41]">&lt;oriansj&gt;</a></span><span class="message">and since ${ARCH}/bin works best, that is what will be done. I am also going to be adding a ${ARCH}/artifact to hold every build temp and hold file, to enable one to perform a manual step audit after the fact</span></div><div class="line" id="001354"><span class="nick" style="color:#8dd3c7"><a href="#001354" label="[00:13:54]">&lt;oriansj&gt;</a></span><span class="message">and it'll solve where to put the mescc-tools-extra build artifacts problem when doing multi-architecture parallel builds</span></div><div class="line" id="001908"><span class="nick" style="color:#2e2a4a"><a href="#001908" label="[00:19:08]">&lt;stikonas[m]&gt;</a></span><span class="message">sounds good, will be less messy</span></div><div class="line" id="011803"><span class="nick" style="color:#6b8072"><a href="#011803" label="[01:18:03]">&lt;stikonas&gt;</a></span><span class="message">hmm, forgot to wire in after.kaem hook for risc-v...</span></div><div class="line" id="011810"><span class="nick" style="color:#6b8072"><a href="#011810" label="[01:18:10]">&lt;stikonas&gt;</a></span><span class="message">well, we can do that for the next release</span></div><div class="line" id="011818"><span class="nick" style="color:#6b8072"><a href="#011818" label="[01:18:18]">&lt;stikonas&gt;</a></span><span class="message">sounds like it might be soonish anyway</span></div><div class="line" id="020804"><span class="nick" style="color:#6b8072"><a href="#020804" label="[02:08:04]">&lt;stikonas&gt;</a></span><span class="message">fossy: do you want to have exec in kaem?</span></div><div class="line" id="020826"><span class="nick" style="color:#6b8072"><a href="#020826" label="[02:08:26]">&lt;stikonas&gt;</a></span><span class="message">might reduce the number of parent processes that are waiting</span></div><div class="line" id="021033"><span class="nick" style="color:#6b8072"><a href="#021033" label="[02:10:33]">&lt;stikonas&gt;</a></span><span class="message">some 5 minute attempt at implementing it: <a rel="nofollow" href="https://github.com/stikonas/mescc-tools/commit/96e2d701b9853083ff88440c61e88ee1390de3d5">https://github.com/stikonas/mescc-tools/commit/96e2d701b9853083ff88440c61e88ee1390de3d5</a> </span></div><div class="line" id="024254"><span class="nick" style="color:#8dd3c7"><a href="#024254" label="[02:42:54]">&lt;oriansj&gt;</a></span><span class="message">yeah, it is gonna be a full rewrite of the kaem scripts for stage0-posix but it'll be much cleaner</span></div><div class="line" id="024637"><span class="nick" style="color:#8dd3c7"><a href="#024637" label="[02:46:37]">&lt;oriansj&gt;</a></span><span class="message">So I'll be doing each arch as a separate commit. It is *BIG*</span></div><div class="line" id="025719"><span class="nick" style="color:#80b1d3"><a href="#025719" label="[02:57:19]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: i have no problems with that</span></div><div class="line" id="031125"><span class="nick" style="color:#8dd3c7"><a href="#031125" label="[03:11:25]">&lt;oriansj&gt;</a></span><span class="message">and x86 for stage0-posix has been entirely isolated</span></div><div class="line" id="031148"><span class="nick" style="color:#8dd3c7"><a href="#031148" label="[03:11:48]">&lt;oriansj&gt;</a></span><span class="message">and I'll isolate the rest over the next couple days</span></div><div class="line" id="033630"><span class="nick" style="color:#6d2462"><a href="#033630" label="[03:36:30]">&lt;pabs3&gt;</a></span><span class="message">&quot;Supply Chain Security and Tar&quot; <a rel="nofollow" href="https://www.openwall.com/lists/oss-security/2021/10/03/1">https://www.openwall.com/lists/oss-security/2021/10/03/1</a> </span></div><div class="line" id="034544"><span class="nick" style="color:#8dd3c7"><a href="#034544" label="[03:45:44]">&lt;oriansj&gt;</a></span><span class="message">advantage of stupid tools. Less places for attacks</span></div><div class="line" id="035859"><span class="nick" style="color:#8dd3c7"><a href="#035859" label="[03:58:59]">&lt;oriansj&gt;</a></span><span class="message">and AMD64 has been isolated</span></div><div class="line" id="035925"><span class="nick" style="color:#234e69"><a href="#035925" label="[03:59:25]">&lt;xentrac&gt;</a></span><span class="message">isolated?</span></div><div class="line" id="040104"><span class="nick" style="color:#8dd3c7"><a href="#040104" label="[04:01:04]">&lt;oriansj&gt;</a></span><span class="message">xentrac: the stage0-posix bootstrap builds are now being isolated into their architecture specific directories to enable all of the architectures to be build in parallel to speed up cross-platform testing.</span></div><div class="line" id="040202"><span class="nick" style="color:#8dd3c7"><a href="#040202" label="[04:02:02]">&lt;oriansj&gt;</a></span><span class="message">it is a big change so I am doing each architecture one at a time</span></div><div class="line" id="040202"><span class="nick" style="color:#8dd3c7"><a href="#040202" label="[04:02:02]">&lt;oriansj&gt;</a></span><span class="message">as you can see here: <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/commit/3e330783345d1ec5448df3de7cf5eb7c9734e11a">https://github.com/oriansj/stage0-posix/commit/3e330783345d1ec5448df3de7cf5eb7c9734e11a</a> </span></div><div class="line" id="040256"><span class="nick" style="color:#234e69"><a href="#040256" label="[04:02:56]">&lt;xentrac&gt;</a></span><span class="message">aha, cool!</span></div><div class="line" id="040416"><span class="nick" style="color:#8dd3c7"><a href="#040416" label="[04:04:16]">&lt;oriansj&gt;</a></span><span class="message">and now all of the temp and hold files created during the bootstrap are now preserved to enable an audit to go in and find exactly where something might have corrupted a bootstrap</span></div><div class="line" id="040515"><span class="nick" style="color:#8dd3c7"><a href="#040515" label="[04:05:15]">&lt;oriansj&gt;</a></span><span class="message">So one can archive (tar up) the artifact folder to provide a full audit trail for every single binary produced by stage0-posix</span></div><div class="line" id="040555"><span class="nick" style="color:#234e69"><a href="#040555" label="[04:05:55]">&lt;xentrac&gt;</a></span><span class="message">wonderful</span></div><div class="line" id="133510"><span class="nick" style="color:#6c3d55"><a href="#133510" label="[13:35:10]">&lt;Hagfish&gt;</a></span><span class="message">&quot;It is possible to create a source distribution which leads to different files seen by the build environment than compared to a careful reviewer and other Linux distributions.&quot;</span></div><div class="line" id="133522"><span class="nick" style="color:#6c3d55"><a href="#133522" label="[13:35:22]">&lt;Hagfish&gt;</a></span><span class="message">oof, that's sneaky</span></div><div class="line" id="133550"><span class="nick" style="color:#80b1d3"><a href="#133550" label="[13:35:50]">&lt;fossy&gt;</a></span><span class="message">i think a very easy way to make sure this dosen't occur is to just extract a few times with a few different tar implementations and make sure they are all the same</span></div><div class="line" id="133619"><span class="nick" style="color:#80b1d3"><a href="#133619" label="[13:36:19]">&lt;fossy&gt;</a></span><span class="message">probably bsdtar and gnu tar</span></div><div class="line" id="133708"><span class="nick" style="color:#6c3d55"><a href="#133708" label="[13:37:08]">&lt;Hagfish&gt;</a></span><span class="message">that's a cheap solution, yeah</span></div><div class="line" id="133736"><span class="nick" style="color:#6c3d55"><a href="#133736" label="[13:37:36]">&lt;Hagfish&gt;</a></span><span class="message">i also think that there should be a --paranoid option to these tools which check that the archive doesn't contain any strange data</span></div><div class="line" id="133812"><span class="nick" style="color:#6c3d55"><a href="#133812" label="[13:38:12]">&lt;Hagfish&gt;</a></span><span class="message">for example, there shouldn't be any data in the archive that doesn't end up as a created file (other than metadata)</span></div><div class="line" id="133828"><span class="nick" style="color:#6c3d55"><a href="#133828" label="[13:38:28]">&lt;Hagfish&gt;</a></span><span class="message">when extracting</span></div><div class="line" id="141911"><span class="nick" style="color:#6b8072"><a href="#141911" label="[14:19:11]">&lt;stikonas&gt;</a></span><span class="message">we also have mescc-tools-extra untar</span></div><div class="line" id="144422"><span class="nick" style="color:#6c3d55"><a href="#144422" label="[14:44:22]">&lt;Hagfish&gt;</a></span><span class="message">that would be a good place to add checks that nothing dodgy is hiding in the .tar files</span></div><div class="line" id="152301"><span class="nick" style="color:#6b8072"><a href="#152301" label="[15:23:01]">&lt;stikonas&gt;</a></span><span class="message">well, but that tar thing just looks like a bug in implementation</span></div><div class="line" id="152328"><span class="nick" style="color:#6b8072"><a href="#152328" label="[15:23:28]">&lt;stikonas&gt;</a></span><span class="message">it's not a problem in bootstrapping</span></div><div class="line" id="152334"><span class="nick" style="color:#6b8072"><a href="#152334" label="[15:23:34]">&lt;stikonas&gt;</a></span><span class="message">because you can review untar source code</span></div><div class="line" id="152350"><span class="nick" style="color:#6b8072"><a href="#152350" label="[15:23:50]">&lt;stikonas&gt;</a></span><span class="message">and make sure that behaves as required</span></div><div class="line" id="152411"><span class="nick" style="color:#6b8072"><a href="#152411" label="[15:24:11]">&lt;stikonas&gt;</a></span><span class="message">it is a problem if you rely on tar blobs to unpack other tarballs (including tar itself)</span></div><div class="line" id="152757"><span class="nick" style="color:#6b8072"><a href="#152757" label="[15:27:57]">&lt;stikonas&gt;</a></span><span class="message">mescc-tools untar actually returns 1 on that archive</span></div><div class="line" id="152801"><span class="nick" style="color:#6b8072"><a href="#152801" label="[15:28:01]">&lt;stikonas&gt;</a></span><span class="message">so it does have a bug</span></div><div class="line" id="153032"><span class="nick" style="color:#6b8072"><a href="#153032" label="[15:30:32]">&lt;stikonas&gt;</a></span><span class="message">which is expected I guess since that implementation is taken from libarchive</span></div><div class="line" id="153432"><span class="nick" style="color:#6c3d55"><a href="#153432" label="[15:34:32]">&lt;Hagfish&gt;</a></span><span class="message">interesting.  thanks for checking</span></div><div class="line" id="161549"><span class="nick" style="color:#234e69"><a href="#161549" label="[16:15:49]">&lt;xentrac&gt;</a></span><span class="message">interesting source of nondeterminism I learned about yesterday: recent versions of GCC build everything as PIE by default, so that recent Linux kernels (or ld.so?) can employ ASLR with the segments of the executable</span></div><div class="line" id="161741"><span class="nick" style="color:#234e69"><a href="#161741" label="[16:17:41]">&lt;xentrac&gt;</a></span><span class="message">of course this doesn't have to result in nondeterministic externally visible behavior of the executable, but it can</span></div><div class="line" id="174012"><span class="nick" style="color:#234e69"><a href="#174012" label="[17:40:12]">&lt;xentrac&gt;</a></span><span class="message">happy Sputnik Day!</span></div><div class="line" id="191339"><span class="nick">***</span><span class="message notice">pgreco_ is now known as pgreco</span></div><div class="line" id="192123"><span class="nick" style="color:#8dd3c7"><a href="#192123" label="[19:21:23]">&lt;oriansj&gt;</a></span><span class="message">well untar is not defensively programmed yet.</span></div><div class="line" id="192158"><span class="nick" style="color:#8dd3c7"><a href="#192158" label="[19:21:58]">&lt;oriansj&gt;</a></span><span class="message">So if someone wants expand it with input validation, it will probably be a good idea</span></div><div class="line" id="192409"><span class="nick" style="color:#8dd3c7"><a href="#192409" label="[19:24:09]">&lt;oriansj&gt;</a></span><span class="message">xentrac: all I can think of when I see that name is: <a rel="nofollow" href="https://archive.org/details/GETLAMP-Supnik">https://archive.org/details/GETLAMP-Supnik</a> </span></div><div class="line" id="192719"><span class="nick" style="color:#234e69"><a href="#192719" label="[19:27:19]">&lt;xentrac&gt;</a></span><span class="message">haha</span></div><div class="line" id="203556"><span class="nick" style="color:#6b8072"><a href="#203556" label="[20:35:56]">&lt;stikonas&gt;</a></span><span class="message">oriansj: can you merge <a rel="nofollow" href="https://github.com/oriansj/mescc-tools/pull/27">https://github.com/oriansj/mescc-tools/pull/27</a> </span></div><div class="line" id="203604"><span class="nick" style="color:#6b8072"><a href="#203604" label="[20:36:04]">&lt;stikonas&gt;</a></span><span class="message">fossy said he is happy with exec built-in</span></div><div class="line" id="213006"><span class="nick" style="color:#6b8072"><a href="#213006" label="[21:30:06]">&lt;stikonas&gt;</a></span><span class="message">hmm, M2-Planet has a crashy argument handler...</span></div><div class="line" id="213023"><span class="nick" style="color:#6b8072"><a href="#213023" label="[21:30:23]">&lt;stikonas&gt;</a></span><span class="message">&quot;M2-Planet -f&quot; segfaults</span></div><div class="line" id="213853"><span class="nick" style="color:#6c3d55"><a href="#213853" label="[21:38:53]">&lt;Hagfish&gt;</a></span><span class="message">oof.  that's something a fuzzer could find, right?</span></div><div class="line" id="214519"><span class="nick" style="color:#6b8072"><a href="#214519" label="[21:45:19]">&lt;stikonas&gt;</a></span><span class="message">I guess depends on how you run fuzzer</span></div><div class="line" id="214529"><span class="nick" style="color:#6b8072"><a href="#214529" label="[21:45:29]">&lt;stikonas&gt;</a></span><span class="message">if it doesn't fuzz command line arguments, then it won't find it</span></div><div class="line" id="214636"><span class="nick" style="color:#6b8072"><a href="#214636" label="[21:46:36]">&lt;stikonas&gt;</a></span><span class="message">well, the code just uses argv[i +1] without checking argc</span></div><div class="line" id="214741"><span class="nick" style="color:#6b8072"><a href="#214741" label="[21:47:41]">&lt;stikonas&gt;</a></span><span class="message">so a single if there to compare argc and i+1 would avoid the crash and then can exit gracefully</span></div><div class="line" id="224912"><span class="nick" style="color:#80b1d3"><a href="#224912" label="[22:49:12]">&lt;fossy&gt;</a></span><span class="message">stikonas: would you mind also adding a check that execve never returns? Just add a line below that exits if it ever gets there after the execve</span></div><div class="line" id="224928"><span class="nick" style="color:#80b1d3"><a href="#224928" label="[22:49:28]">&lt;fossy&gt;</a></span><span class="message">I would prefer to fail fast there in case the exec fails</span></div><div class="line" id="225045"><span class="nick" style="color:#6c3d55"><a href="#225045" label="[22:50:45]">&lt;Hagfish&gt;</a></span><span class="message">smart</span></div><div class="line" id="225251"><span class="nick" style="color:#6b8072"><a href="#225251" label="[22:52:51]">&lt;stikonas&gt;</a></span><span class="message">fossy: don't we already have _exit(EXIT_SUCCESS); ?</span></div><div class="line" id="225320"><span class="nick" style="color:#6b8072"><a href="#225320" label="[22:53:20]">&lt;stikonas&gt;</a></span><span class="message">or do you want meto fail in case of exec?</span></div><div class="line" id="225423"><span class="nick" style="color:#6b8072"><a href="#225423" label="[22:54:23]">&lt;stikonas&gt;</a></span><span class="message">oh, actually we don't want EXIT_SUCCESS...</span></div><div class="line" id="225427"><span class="nick" style="color:#6b8072"><a href="#225427" label="[22:54:27]">&lt;stikonas&gt;</a></span><span class="message">if execve fails...</span></div><div class="line" id="225539"><span class="nick" style="color:#6b8072"><a href="#225539" label="[22:55:39]">&lt;stikonas&gt;</a></span><span class="message">yeah, I can add it</span></div><div class="line" id="230009"><span class="nick" style="color:#6b8072"><a href="#230009" label="[23:00:09]">&lt;stikonas&gt;</a></span><span class="message">no too sure how to test it though...</span></div><div class="line" id="230119"><span class="nick" style="color:#6b8072"><a href="#230119" label="[23:01:19]">&lt;stikonas&gt;</a></span><span class="message">fossy: did you mean this <a rel="nofollow" href="https://github.com/oriansj/mescc-tools/pull/27/files">https://github.com/oriansj/mescc-tools/pull/27/files</a>  ?</span></div><div class="line" id="231853"><span class="nick" style="color:#80b1d3"><a href="#231853" label="[23:18:53]">&lt;fossy&gt;</a></span><span class="message">Yes</span></div><div class="line" id="231933"><span class="nick" style="color:#80b1d3"><a href="#231933" label="[23:19:33]">&lt;fossy&gt;</a></span><span class="message">I am unsure why the other one is EXIT_SUCCESS anyway</span></div><div class="line" id="232240"><span class="nick" style="color:#6b8072"><a href="#232240" label="[23:22:40]">&lt;stikonas&gt;</a></span><span class="message">hmm, the other probably doesn't matter that much...</span></div><div class="line" id="232250"><span class="nick" style="color:#6b8072"><a href="#232250" label="[23:22:50]">&lt;stikonas&gt;</a></span><span class="message">it's just a child exiting</span></div><div class="line" id="232322"><span class="nick" style="color:#80b1d3"><a href="#232322" label="[23:23:22]">&lt;fossy&gt;</a></span><span class="message">oh right waitpid handles that</span></div><div class="line" id="232325"><span class="nick" style="color:#6b8072"><a href="#232325" label="[23:23:25]">&lt;stikonas&gt;</a></span><span class="message">although, we still want parent to detet failure</span></div><div class="line" id="232342"><span class="nick" style="color:#80b1d3"><a href="#232342" label="[23:23:42]">&lt;fossy&gt;</a></span><span class="message">?</span></div><div class="line" id="232348"><span class="nick" style="color:#6b8072"><a href="#232348" label="[23:23:48]">&lt;stikonas&gt;</a></span><span class="message">but yes, I guess waitpid will see that execve failed</span></div><div class="line" id="232352"><span class="nick" style="color:#80b1d3"><a href="#232352" label="[23:23:52]">&lt;fossy&gt;</a></span><span class="message">there is no parent when you exec</span></div><div class="line" id="232358"><span class="nick" style="color:#6b8072"><a href="#232358" label="[23:23:58]">&lt;stikonas&gt;</a></span><span class="message">no, I mean without exec</span></div><div class="line" id="232401"><span class="nick" style="color:#80b1d3"><a href="#232401" label="[23:24:01]">&lt;fossy&gt;</a></span><span class="message">oh</span></div><div class="line" id="232403"><span class="nick" style="color:#80b1d3"><a href="#232403" label="[23:24:03]">&lt;fossy&gt;</a></span><span class="message">right</span></div><div class="line" id="232419"><span class="nick" style="color:#6b8072"><a href="#232419" label="[23:24:19]">&lt;stikonas&gt;</a></span><span class="message">what if execve fails after forking</span></div><div class="line" id="232449"><span class="nick" style="color:#6b8072"><a href="#232449" label="[23:24:49]">&lt;stikonas&gt;</a></span><span class="message">I'm just trying to understand if we just want exit(failure) in both cases...</span></div><div class="line" id="232503"><span class="nick" style="color:#6b8072"><a href="#232503" label="[23:25:03]">&lt;stikonas&gt;</a></span><span class="message">then I can remove that if</span></div><div class="line" id="232514"><span class="nick" style="color:#6b8072"><a href="#232514" label="[23:25:14]">&lt;stikonas&gt;</a></span><span class="message">in both cases that's abnormal situation</span></div><div class="line" id="232554"><span class="nick" style="color:#6b8072"><a href="#232554" label="[23:25:54]">&lt;stikonas&gt;</a></span><span class="message">fossy: do you know why it uses _exit rather than exit?</span></div><div class="line" id="232718"><span class="nick" style="color:#6b8072"><a href="#232718" label="[23:27:18]">&lt;stikonas&gt;</a></span><span class="message">hmm, the difference seems to be whether we run kill_io function</span></div><div class="line" id="232757"><span class="nick" style="color:#6b8072"><a href="#232757" label="[23:27:57]">&lt;stikonas&gt;</a></span><span class="message">so without forking (with exec) I guess I actually want exit and not _exit</span></div><div class="line" id="232822"><span class="nick" style="color:#6b8072"><a href="#232822" label="[23:28:22]">&lt;stikonas&gt;</a></span><span class="message">getting a bit confused though...</span></div><br /></div></body></html>

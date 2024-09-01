@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-08-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="165008"><span class="nick" style="color:#389600"><a href="#165008" label="[16:50:08]">&lt;oriansj&gt;</a></span><span class="message">I have an idea for a feature in M1-macro but I wonder if anyone has a better refinement: #IFDEF blocks</span></div><div class="line" id="165052"><span class="nick" style="color:#389600"><a href="#165052" label="[16:50:52]">&lt;oriansj&gt;</a></span><span class="message">The goal being we would no longer need libc-core.M1 and libc-full.M1</span></div><div class="line" id="165330"><span class="nick" style="color:#389600"><a href="#165330" label="[16:53:30]">&lt;oriansj&gt;</a></span><span class="message">instead we have the __init_io() use asm(&quot;#DEFINE STDIO.C 1&quot;); and then if that define is not found, the block of assembly in libc.M1 can be skipped entirely and we can stop being conerned of if the program uses stdio.h or not</span></div><div class="line" id="165928"><span class="nick" style="color:#8dd3c7"><a href="#165928" label="[16:59:28]">&lt;muurkha&gt;</a></span><span class="message">hmm</span></div><div class="line" id="171106"><span class="nick" style="color:#2e2a4a"><a href="#171106" label="[17:11:06]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I guess makes sense...</span></div><div class="line" id="171112"><span class="nick" style="color:#2e2a4a"><a href="#171112" label="[17:11:12]">&lt;stikonas&gt;</a></span><span class="message">and it shouldn't be too hard</span></div><div class="line" id="171121"><span class="nick" style="color:#2e2a4a"><a href="#171121" label="[17:11:21]">&lt;stikonas&gt;</a></span><span class="message">but I guess only for C version of M1, not M0</span></div><div class="line" id="185624"><span class="nick" style="color:#2e2a4a"><a href="#185624" label="[18:56:24]">&lt;stikonas&gt;</a></span><span class="message">oriansj: though maybe it makes sense to do it for the next release?</span></div><div class="line" id="185656"><span class="nick" style="color:#2e2a4a"><a href="#185656" label="[18:56:56]">&lt;stikonas&gt;</a></span><span class="message">we'll probably want a new stage0-posix release soonish for riscv64 bootstrap</span></div><div class="line" id="203049"><span class="nick" style="color:#6b8072"><a href="#203049" label="[20:30:49]">&lt;theruran&gt;</a></span><span class="message">why this recursive definition in the stage0-posix README?</span></div><div class="line" id="203101"><span class="nick" style="color:#6b8072"><a href="#203101" label="[20:31:01]">&lt;theruran&gt;</a></span><span class="message">&quot;M0 is an architecture specific version of M1 which will come later.&quot; ... &quot;M1 is a cross-platform version of M0, along with being much more powerful and faster.&quot;</span></div><div class="line" id="203220"><span class="nick" style="color:#6b8072"><a href="#203220" label="[20:32:20]">&lt;theruran&gt;</a></span><span class="message">and is there nothing written in M0 because `find . -name &quot;*.M0&quot;` returns nothing</span></div><div class="line" id="204751"><span class="nick" style="color:#2e2a4a"><a href="#204751" label="[20:47:51]">&lt;stikonas&gt;</a></span><span class="message">theruran: feel free to update it, we have another description here <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst#8m0">https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst#8m0</a> </span></div><div class="line" id="231651"><span class="nick" style="color:#6b8072"><a href="#231651" label="[23:16:51]">&lt;theruran&gt;</a></span><span class="message">looks like M1 is barely mentioned: &quot;and C version of M0 called M1. These are more capable than their platform specific hex counterparts and are fully cross-platform.&quot;</span></div><div class="line" id="232254"><span class="nick" style="color:#2e2a4a"><a href="#232254" label="[23:22:54]">&lt;stikonas&gt;</a></span><span class="message">there isn't that much more to it though</span></div><div class="line" id="232302"><span class="nick" style="color:#2e2a4a"><a href="#232302" label="[23:23:02]">&lt;stikonas&gt;</a></span><span class="message">it's purpose is exactly the same</span></div><div class="line" id="232334"><span class="nick" style="color:#2e2a4a"><a href="#232334" label="[23:23:34]">&lt;stikonas&gt;</a></span><span class="message">it's just that C version has better error checking, better argument parsing and supports all features that individual arch specific versions of M0 support</span></div><div class="line" id="232350"><span class="nick" style="color:#2e2a4a"><a href="#232350" label="[23:23:50]">&lt;stikonas&gt;</a></span><span class="message">so e.g. both x86 and riscv64 support is in M1</span></div><div class="line" id="232416"><span class="nick" style="color:#2e2a4a"><a href="#232416" label="[23:24:16]">&lt;stikonas&gt;</a></span><span class="message">but M0_x86 can't assemble riscv64  assembly</span></div><div class="line" id="233503"><span class="nick" style="color:#389600"><a href="#233503" label="[23:35:03]">&lt;oriansj&gt;</a></span><span class="message">stikonas: yeah, I'd probably get that feature in the next mescc-tools release but I probably want to think through details to make sure I don't introduce anything breaking backwards compatibility</span></div><br /></div></body></html>

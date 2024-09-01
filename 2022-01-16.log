@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-01-16.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="114815"><span class="nick" style="color:#8dd3c7"><a href="#114815" label="[11:48:15]">&lt;doras&gt;</a></span><span class="message">I concluded that the difference in getcwd's behavior regarding long directory paths is indeed related to the filesystem used for the bootstrap, and that this different behavior is only seen when using musl. This is because musl's getcwd implementation doesn't attempt to work around filesystems that have limitations around directory paths, unlike glibc. I therefore decided to force the fallback implementation using a patch.</span></div><div class="line" id="114954"><span class="nick" style="color:#8dd3c7"><a href="#114954" label="[11:49:54]">&lt;doras&gt;</a></span><span class="message">And with this patch in place, I finally managed to fully bootstrap sysa using BuildStream.</span></div><div class="line" id="115313"><span class="nick" style="color:#8dd3c7"><a href="#115313" label="[11:53:13]">&lt;doras&gt;</a></span><span class="message">I still need to rework some my commits to live-bootstrap, figure out where to put my custom BuildStream element, check if I actually need to patch BuildStream's FUSE filesystem to complete the bootstrap or if it's a nice-to-have.</span></div><div class="line" id="123407"><span class="nick" style="color:#2e2a4a"><a href="#123407" label="[12:34:07]">&lt;Hagfish&gt;</a></span><span class="message">that's some great sleuthing, and congratulations on getting to sysa!</span></div><div class="line" id="123948"><span class="nick" style="color:#6b8072"><a href="#123948" label="[12:39:48]">&lt;stikonas[m]&gt;</a></span><span class="message">well, we had a couple of other places where we had to force some specific behaviour because there were differences between qemu and chroot modes, and I think in case of bash it was intermittent</span></div><br /></div></body></html>

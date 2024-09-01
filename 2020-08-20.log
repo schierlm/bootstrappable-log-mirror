@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-08-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004540"><span class="nick" style="color:#389600"><a href="#004540" label="[00:45:40]">&lt;OriansJ`&gt;</a></span><span class="message">bauen1: you would also have to properly parse the ELF header as it would be trivial to add dummy segments with wrong values for file size.</span></div><div class="line" id="010232"><span class="nick" style="color:#389600"><a href="#010232" label="[01:02:32]">&lt;OriansJ`&gt;</a></span><span class="message">as one could easily change  e_phoff and e_shoff then you'll have to use those values to determine where to find the values you want but p_filesz and p_memsz and be zero; which makes it hard to know there the end of the file will be</span></div><div class="line" id="010351"><span class="nick" style="color:#389600"><a href="#010351" label="[01:03:51]">&lt;OriansJ`&gt;</a></span><span class="message">EI_PAD also has enough space for a 7byte checksum if we so desire</span></div><div class="line" id="010504"><span class="nick" style="color:#389600"><a href="#010504" label="[01:05:04]">&lt;OriansJ`&gt;</a></span><span class="message">and since we don't dynamicly link our ELF files (as they are static only) we can also steal the byte from EI_ABIVERSION</span></div><div class="line" id="010538"><span class="nick" style="color:#389600"><a href="#010538" label="[01:05:38]">&lt;OriansJ`&gt;</a></span><span class="message">as Linux completely ignores it</span></div><div class="line" id="010651"><span class="nick" style="color:#389600"><a href="#010651" label="[01:06:51]">&lt;OriansJ`&gt;</a></span><span class="message">so 8bytes or 256bit checksum inside of the binary itself. wonder how many rounds it would take to determine a value that matches the sha256sum of the file itself (including the checksum in those 8 bytes)</span></div><div class="line" id="010836"><span class="nick" style="color:#389600"><a href="#010836" label="[01:08:36]">&lt;OriansJ`&gt;</a></span><span class="message">we can also use p_align to play further games (with p_vaddr equating p_offset modulus p_align)</span></div><div class="line" id="020840"><span class="nick" style="color:#389600"><a href="#020840" label="[02:08:40]">&lt;OriansJ`&gt;</a></span><span class="message">we could possibly do a proof of concept by just embedding an md5sum in the padding; that matches the md5sum of the file itself</span></div><div class="line" id="020936"><span class="nick" style="color:#2e2a4a"><a href="#020936" label="[02:09:36]">&lt;xentrac&gt;</a></span><span class="message">how would you do that?</span></div><div class="line" id="021036"><span class="nick" style="color:#389600"><a href="#021036" label="[02:10:36]">&lt;OriansJ`&gt;</a></span><span class="message">good question as I have not done something like this previously but I do have a gif which displays an MD5SUM which exactly matches the MD5SUM of the file itself</span></div><div class="line" id="021110"><span class="nick" style="color:#389600"><a href="#021110" label="[02:11:10]">&lt;OriansJ`&gt;</a></span><span class="message"> <a rel="nofollow" href="https://shells.aachen.ccc.de/~spq/md5.gif">https://shells.aachen.ccc.de/~spq/md5.gif</a> </span></div><div class="line" id="021133"><span class="nick" style="color:#2e2a4a"><a href="#021133" label="[02:11:33]">&lt;xentrac&gt;</a></span><span class="message">oh, I think I remember that</span></div><div class="line" id="021220"><span class="nick" style="color:#389600"><a href="#021220" label="[02:12:20]">&lt;OriansJ`&gt;</a></span><span class="message"> <a rel="nofollow" href="https://news.ycombinator.com/item?id=13823704">https://news.ycombinator.com/item?id=13823704</a> </span></div><div class="line" id="021615"><span class="nick" style="color:#2e2a4a"><a href="#021615" label="[02:16:15]">&lt;xentrac&gt;</a></span><span class="message">more detailed link: <a rel="nofollow" href="https://old.reddit.com/r/programming/comments/5y03g9/animated_gif_displaying_its_own_md5_hash/">https://old.reddit.com/r/programming/comments/5y03g9/animated_gif_displaying_its_own_md5_hash/</a> </span></div><div class="line" id="022122"><span class="nick" style="color:#2e2a4a"><a href="#022122" label="[02:21:22]">&lt;xentrac&gt;</a></span><span class="message">you could maybe do something similar in ASCII with sequences like d7s9W^H^H^H^H^Hf for &quot;f&quot;</span></div><div class="line" id="022658"><span class="nick" style="color:#389600"><a href="#022658" label="[02:26:58]">&lt;OriansJ`&gt;</a></span><span class="message">or we could do a simpler prototype; 1 bit per byte of the binary</span></div><div class="line" id="022959"><span class="nick" style="color:#2e2a4a"><a href="#022959" label="[02:29:59]">&lt;xentrac&gt;</a></span><span class="message">like, &quot;if you run md5sum on this file, it gives you the same result as if you run the following algorithm on this file&quot;?</span></div><div class="line" id="023023"><span class="nick" style="color:#2e2a4a"><a href="#023023" label="[02:30:23]">&lt;xentrac&gt;</a></span><span class="message">not sure that's an equally surprising result :)</span></div><div class="line" id="023445"><span class="nick" style="color:#389600"><a href="#023445" label="[02:34:45]">&lt;OriansJ`&gt;</a></span><span class="message">true</span></div><div class="line" id="023845"><span class="nick" style="color:#2e2a4a"><a href="#023845" label="[02:38:45]">&lt;xentrac&gt;</a></span><span class="message">I think if you can get the result in your terminal by typing &quot;cat file&quot; it's probably surprising though.  even if it's only the last line of the file.  thus my suggestion of backspaces</span></div><div class="line" id="024404"><span class="nick" style="color:#389600"><a href="#024404" label="[02:44:04]">&lt;OriansJ`&gt;</a></span><span class="message">I was thinking of seeing what would happen if I just took the output of md5sum and feed it back into the data in that block and looping until collision</span></div><div class="line" id="025036"><span class="nick" style="color:#389600"><a href="#025036" label="[02:50:36]">&lt;OriansJ`&gt;</a></span><span class="message">oh right I got the math wrong 8bytes is only 64bits</span></div><div class="line" id="025053"><span class="nick" style="color:#389600"><a href="#025053" label="[02:50:53]">&lt;OriansJ`&gt;</a></span><span class="message">what 64bit checksum would we use?</span></div><div class="line" id="030128"><span class="nick" style="color:#389600"><a href="#030128" label="[03:01:28]">&lt;OriansJ`&gt;</a></span><span class="message">say crc64</span></div><div class="line" id="101046"><span class="nick" style="color:#6b8072"><a href="#101046" label="[10:10:46]">&lt;bauen1&gt;</a></span><span class="message">OriansJ`: you're right</span></div><div class="line" id="101102"><span class="nick" style="color:#6b8072"><a href="#101102" label="[10:11:02]">&lt;bauen1&gt;</a></span><span class="message">OriansJ`: <a rel="nofollow" href="https://github.com/oriansj/mes-m2/blob/master/lib/x86-mes/elf32-header.hex2">https://github.com/oriansj/mes-m2/blob/master/lib/x86-mes/elf32-header.hex2</a>  seems to be the ELF header used by mes</span></div><div class="line" id="101138"><span class="nick" style="color:#6b8072"><a href="#101138" label="[10:11:38]">&lt;bauen1&gt;</a></span><span class="message">OriansJ`: so that would mean i would have to do a bit of adjusting to find the pt_filesz / pt_memsz and automatically determine the offset of the _start symbol</span></div><div class="line" id="101141"><span class="nick" style="color:#6b8072"><a href="#101141" label="[10:11:41]">&lt;bauen1&gt;</a></span><span class="message">*entry point</span></div><div class="line" id="101406"><span class="nick" style="color:#6b8072"><a href="#101406" label="[10:14:06]">&lt;bauen1&gt;</a></span><span class="message">and actually i'm targeting amd64</span></div><div class="line" id="101611"><span class="nick" style="color:#6b8072"><a href="#101611" label="[10:16:11]">&lt;bauen1&gt;</a></span><span class="message">which i suppose isn't supported by mes-m2 yet</span></div><div class="line" id="113414"><span class="nick" style="color:#80b1d3"><a href="#113414" label="[11:34:14]">&lt;fossy&gt;</a></span><span class="message">bauen1: it is supported</span></div><div class="line" id="124545"><span class="nick" style="color:#6b8072"><a href="#124545" label="[12:45:45]">&lt;bauen1&gt;</a></span><span class="message">fossy: i haven't really been able to get mes-m2 to work (as in run test200)</span></div><div class="line" id="124605"><span class="nick" style="color:#6b8072"><a href="#124605" label="[12:46:05]">&lt;bauen1&gt;</a></span><span class="message">fossy: so where is the source of the elf64 header that mes-m2 uses ?</span></div><div class="line" id="224634"><span class="nick" style="color:#80b1d3"><a href="#224634" label="[22:46:34]">&lt;fossy&gt;</a></span><span class="message">bauen1: mes-m2 is an interpreter, not a compiler</span></div><div class="line" id="224644"><span class="nick" style="color:#80b1d3"><a href="#224644" label="[22:46:44]">&lt;fossy&gt;</a></span><span class="message">so it dosent make any elfs</span></div><div class="line" id="224714"><span class="nick" style="color:#6b8072"><a href="#224714" label="[22:47:14]">&lt;bauen1&gt;</a></span><span class="message">sorry, i meant mescc (which is included in mes-m2 ?)</span></div><div class="line" id="231829"><span class="nick" style="color:#6b8072"><a href="#231829" label="[23:18:29]">&lt;bauen1&gt;</a></span><span class="message">debugging a compiler backdoor is ~~bloody hell~~ fun</span></div><div class="line" id="231857"><span class="nick" style="color:#6b8072"><a href="#231857" label="[23:18:57]">&lt;bauen1&gt;</a></span><span class="message">i just figured out that hex1_amd64 actually writes past the end of its own binary (into my backdoor)</span></div><div class="line" id="232322"><span class="nick" style="color:#6b8072"><a href="#232322" label="[23:23:22]">&lt;bauen1&gt;</a></span><span class="message">which probably isn't guaranteed to be allowed (according to POSIX)</span></div><div class="line" id="232345"><span class="nick" style="color:#2e2a4a"><a href="#232345" label="[23:23:45]">&lt;xentrac&gt;</a></span><span class="message">haha</span></div><div class="line" id="234025"><span class="nick" style="color:#80b1d3"><a href="#234025" label="[23:40:25]">&lt;fossy&gt;</a></span><span class="message">ohhh</span></div><div class="line" id="234045"><span class="nick" style="color:#80b1d3"><a href="#234045" label="[23:40:45]">&lt;fossy&gt;</a></span><span class="message">bauen1: mescc dosent run under mes m2 yet</span></div><div class="line" id="234057"><span class="nick" style="color:#80b1d3"><a href="#234057" label="[23:40:57]">&lt;fossy&gt;</a></span><span class="message">Thats the missing stage of the chain</span></div><div class="line" id="234449"><span class="nick" style="color:#80b1d3"><a href="#234449" label="[23:44:49]">&lt;fossy&gt;</a></span><span class="message">but it uses hex2</span></div><div class="line" id="234457"><span class="nick" style="color:#80b1d3"><a href="#234457" label="[23:44:57]">&lt;fossy&gt;</a></span><span class="message">and m1</span></div><br /></div></body></html>

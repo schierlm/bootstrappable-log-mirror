@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-02-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="022724"><span class="nick" style="color:#8dd3c7"><a href="#022724" label="[02:27:24]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: well PISC <a rel="nofollow" href="https://www.bradrodriguez.com/papers/piscedu2.htm">https://www.bradrodriguez.com/papers/piscedu2.htm</a>  only needs 22 TTL chips</span></div><div class="line" id="022749"><span class="nick" style="color:#8dd3c7"><a href="#022749" label="[02:27:49]">&lt;OriansJ&gt;</a></span><span class="message">(Not counting the EPROM and RAM)</span></div><div class="line" id="023509"><span class="nick" style="color:#2e2a4a"><a href="#023509" label="[02:35:09]">&lt;xentrac&gt;</a></span><span class="message">if you don't count EPROM, all you need is a register and RAM</span></div><div class="line" id="023933"><span class="nick" style="color:#8dd3c7"><a href="#023933" label="[02:39:33]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: only if you have a big enough EPROM</span></div><div class="line" id="024108"><span class="nick" style="color:#8dd3c7"><a href="#024108" label="[02:41:08]">&lt;OriansJ&gt;</a></span><span class="message">but yes you are correct, EPROM and ROM are easy ways to &quot;cheat&quot; on chip counts when compared to individual gates</span></div><div class="line" id="033628"><span class="nick" style="color:#6b8072"><a href="#033628" label="[03:36:28]">&lt;markjenkinsznc&gt;</a></span><span class="message">OriansJ, I just opened <a rel="nofollow" href="https://github.com/oriansj/stage0/issues/27">https://github.com/oriansj/stage0/issues/27</a>  , I hope this isn't a distraction from other things like mes-m2, unless you're dying to fix it you can count on me solving it in a week or two</span></div><div class="line" id="033650"><span class="nick" style="color:#6b8072"><a href="#033650" label="[03:36:50]">&lt;markjenkinsznc&gt;</a></span><span class="message">Proof of concept: <a rel="nofollow" href="https://github.com/oriansj/stage0/compare/master...markjenkins:M0nullpointerbug">https://github.com/oriansj/stage0/compare/master...markjenkins:M0nullpointerbug</a> </span></div><div class="line" id="041350"><span class="nick" style="color:#2e2a4a"><a href="#041350" label="[04:13:50]">&lt;xentrac&gt;</a></span><span class="message">oops</span></div><div class="line" id="041402"><span class="nick" style="color:#2e2a4a"><a href="#041402" label="[04:14:02]">&lt;xentrac&gt;</a></span><span class="message">I don't think you need a very big EPROM</span></div><div class="line" id="041420"><span class="nick" style="color:#2e2a4a"><a href="#041420" label="[04:14:20]">&lt;xentrac&gt;</a></span><span class="message"> <a rel="nofollow" href="https://news.ycombinator.com/item?id=22362670">https://news.ycombinator.com/item?id=22362670</a>  may be of interest; I tried to analyze how long different human artifacts would last</span></div><div class="line" id="042710"><span class="nick" style="color:#8dd3c7"><a href="#042710" label="[04:27:10]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: umm writing to address zero for knight isn't a null pointer dereference; however using store32 on a 16bit register set isn't a valid instruction</span></div><div class="line" id="042906"><span class="nick" style="color:#8dd3c7"><a href="#042906" label="[04:29:06]">&lt;OriansJ&gt;</a></span><span class="message">now if one would replace the store32 with a store16; it would work on 16bit knight as well</span></div><div class="line" id="043116"><span class="nick" style="color:#8dd3c7"><a href="#043116" label="[04:31:16]">&lt;OriansJ&gt;</a></span><span class="message">if anything the correct behavior is for knight16 to throw an invalid instruction exception on 32bit read/writes; just like it should be an invalid except for 64bit  read/writes on 32bit versions. (or 256bit read/writes on 128bit machines)</span></div><div class="line" id="043343"><span class="nick" style="color:#8dd3c7"><a href="#043343" label="[04:33:43]">&lt;OriansJ&gt;</a></span><span class="message">M0 on average requires double the amount of memory as the source file provided.</span></div><div class="line" id="043534"><span class="nick" style="color:#8dd3c7"><a href="#043534" label="[04:35:34]">&lt;OriansJ&gt;</a></span><span class="message">I could get that down to 2KB + size of DEFINEs but it will slow things down a good bit.</span></div><div class="line" id="043751"><span class="nick" style="color:#8dd3c7"><a href="#043751" label="[04:37:51]">&lt;OriansJ&gt;</a></span><span class="message">getting cc_x86 to run in 64KB however will require me to convert from a walk tokenization method to a pull tokenization method; a bit more complex but entirely possible</span></div><div class="line" id="164927"><span class="nick" style="color:#6b8072"><a href="#164927" label="[16:49:27]">&lt;markjenkinsznc&gt;</a></span><span class="message">OriansJ, thanks. Have tried to follow up on GitHub but having issues there this morning. It makes total sense to me M0-macro.s shouldn't work on 16 bit mode because it has LOAD32 instructions, that is load 32 bits from memory to a register (must be at least 32 bits).</span></div><div class="line" id="165037"><span class="nick" style="color:#6b8072"><a href="#165037" label="[16:50:37]">&lt;markjenkinsznc&gt;</a></span><span class="message">Semantically, STORE32 should be workable on 16bit as you can store a 16 bit value in 32 bits of memory, but no point if several calls to LOAD32 have already made trouble</span></div><div class="line" id="165203"><span class="nick" style="color:#6b8072"><a href="#165203" label="[16:52:03]">&lt;markjenkinsznc&gt;</a></span><span class="message">I'm going to try and wrap my head around LOAD/STORE32 in a 64 bit context as I feel like that should be workable.</span></div><div class="line" id="165322"><span class="nick" style="color:#6b8072"><a href="#165322" label="[16:53:22]">&lt;markjenkinsznc&gt;</a></span><span class="message">Could retitle my github issue or just close and re-open if I can articulate a good case for that (will discuss in chat before opening a new one)</span></div><div class="line" id="181138"><span class="nick" style="color:#2e2a4a"><a href="#181138" label="[18:11:38]">&lt;xentrac&gt;</a></span><span class="message">so <a rel="nofollow" href="https://mysterymath.github.io/simple_cpu/">https://mysterymath.github.io/simple_cpu/</a>  was a CPU built out of an SRAM chip, four EEPROMs, two pulllup resistors, and four LEDs with current-limiting resistors</span></div><div class="line" id="181238"><span class="nick" style="color:#2e2a4a"><a href="#181238" label="[18:12:38]">&lt;xentrac&gt;</a></span><span class="message">but maybe that's a little unfair since those EEPROMs are serial EEPROMs, not regular parallel EPROMs like a 2764</span></div><br /></div></body></html>

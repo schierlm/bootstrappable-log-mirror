@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-12-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001502"><span class="nick" style="color:#8dd3c7"><a href="#001502" label="[00:15:02]">&lt;stikonas&gt;</a></span><span class="message">hmm, I think I found a shorter Java bootstrap than Guix uses. Although, I'm not sure if it's worth changing how guix does it, it works after all. I've just managed to get icedtea 7 compiled directly, skipping icedtea 6</span></div><div class="line" id="011609"><span class="nick" style="color:#2e2a4a"><a href="#011609" label="[01:16:09]">&lt;xentrac&gt;</a></span><span class="message">congratulations! that sounds pretty worthwhile to me</span></div><div class="line" id="011626"><span class="nick" style="color:#2e2a4a"><a href="#011626" label="[01:16:26]">&lt;xentrac&gt;</a></span><span class="message">I mean it means that we can eliminate icedtea 6 from the tcb</span></div><div class="line" id="013519"><span class="nick" style="color:#8dd3c7"><a href="#013519" label="[01:35:19]">&lt;stikonas&gt;</a></span><span class="message">xentrac: we'll see... In the end it might not be any quicker... For some reason I was only able to build icedtea-7 with jamvm as VM, and that one failed to build icedtea-8 (but maybe some unrelated issue). Trying to build icedtea-7 with hotspot now from icedtea-7 (jamvm)</span></div><div class="line" id="013652"><span class="nick" style="color:#8dd3c7"><a href="#013652" label="[01:36:52]">&lt;stikonas&gt;</a></span><span class="message">and building ecj-4.2.1 with ecj-3.2 was a bit unpleasant, had to patch out some @Overrides. I'm not sure why guix is not hitting this issue...</span></div><div class="line" id="014348"><span class="nick" style="color:#2e2a4a"><a href="#014348" label="[01:43:48]">&lt;xentrac&gt;</a></span><span class="message">because the base class didn't have the method being @overridden?</span></div><div class="line" id="014703"><span class="nick" style="color:#8dd3c7"><a href="#014703" label="[01:47:03]">&lt;stikonas&gt;</a></span><span class="message">yes, I think old versions of ecj use @Override behaviour from java 1.5</span></div><div class="line" id="014717"><span class="nick" style="color:#8dd3c7"><a href="#014717" label="[01:47:17]">&lt;stikonas&gt;</a></span><span class="message">and I think it was changed how it behaves in Java 1.6</span></div><div class="line" id="014741"><span class="nick" style="color:#2e2a4a"><a href="#014741" label="[01:47:41]">&lt;xentrac&gt;</a></span><span class="message">oh?</span></div><div class="line" id="014748"><span class="nick" style="color:#2e2a4a"><a href="#014748" label="[01:47:48]">&lt;xentrac&gt;</a></span><span class="message">how so?</span></div><div class="line" id="014800"><span class="nick" style="color:#8dd3c7"><a href="#014800" label="[01:48:00]">&lt;stikonas&gt;</a></span><span class="message">not too sure, I don't really know Java...</span></div><div class="line" id="014816"><span class="nick" style="color:#8dd3c7"><a href="#014816" label="[01:48:16]">&lt;stikonas&gt;</a></span><span class="message">I do know a bit of Groovy but not Java :D</span></div><div class="line" id="014843"><span class="nick" style="color:#8dd3c7"><a href="#014843" label="[01:48:43]">&lt;stikonas&gt;</a></span><span class="message">hmm, looks like this issue <a rel="nofollow" href="https://stackoverflow.com/questions/3619036/override-annotation-in-jdk-1-6">https://stackoverflow.com/questions/3619036/override-annotation-in-jdk-1-6</a> </span></div><div class="line" id="014938"><span class="nick" style="color:#8dd3c7"><a href="#014938" label="[01:49:38]">&lt;stikonas&gt;</a></span><span class="message">well, but early in bootstrap we don't have Java 1.6 available yet...</span></div><div class="line" id="015102"><span class="nick" style="color:#2e2a4a"><a href="#015102" label="[01:51:02]">&lt;xentrac&gt;</a></span><span class="message">ah, in Java 1.5 @Override wasn't kosher for implementations of interface methods</span></div><div class="line" id="015123"><span class="nick" style="color:#8dd3c7"><a href="#015123" label="[01:51:23]">&lt;stikonas&gt;</a></span><span class="message">yeah, so when I was trying to build icedtea-6 on Gentoo, I was hitting this issue even more</span></div><div class="line" id="015140"><span class="nick" style="color:#8dd3c7"><a href="#015140" label="[01:51:40]">&lt;stikonas&gt;</a></span><span class="message">that's why I decided to instead compile ecj-4.2 and then go to icedtea-7</span></div><div class="line" id="015210"><span class="nick" style="color:#8dd3c7"><a href="#015210" label="[01:52:10]">&lt;stikonas&gt;</a></span><span class="message">so I don't understand how it worked for guix... which builds icedtea with ecj-3.2...</span></div><div class="line" id="015228"><span class="nick" style="color:#2e2a4a"><a href="#015228" label="[01:52:28]">&lt;xentrac&gt;</a></span><span class="message">perhaps if we're patching things in the bootstrap chain to get it to compile, the easiest thing in this case would be to patch @Override to be a no-op</span></div><div class="line" id="015304"><span class="nick" style="color:#2e2a4a"><a href="#015304" label="[01:53:04]">&lt;xentrac&gt;</a></span><span class="message">I mean, its only effect is to cause compile errors, right?  which is useful when you're developing things but not when you're compiling things someone else wrote</span></div><div class="line" id="015345"><span class="nick" style="color:#8dd3c7"><a href="#015345" label="[01:53:45]">&lt;stikonas&gt;</a></span><span class="message">or perhaps some command line options in wrappers are different...</span></div><div class="line" id="015411"><span class="nick" style="color:#8dd3c7"><a href="#015411" label="[01:54:11]">&lt;stikonas&gt;</a></span><span class="message">yeah, I think it's just compile time check...</span></div><div class="line" id="141018"><span class="nick" style="color:#6b8072"><a href="#141018" label="[14:10:18]">&lt;rekado_&gt;</a></span><span class="message">stikonas: I’d be happy to cut out icedtea-6 if it isn’t needed.</span></div><div class="line" id="141039"><span class="nick" style="color:#6b8072"><a href="#141039" label="[14:10:39]">&lt;rekado_&gt;</a></span><span class="message">I tried splitting up the big icedtea-6 into several independent packages earlier, but then ran out of time.</span></div><div class="line" id="141108"><span class="nick" style="color:#6b8072"><a href="#141108" label="[14:11:08]">&lt;rekado_&gt;</a></span><span class="message">the goal would have been to only build as little of icedtea-6 as needed to move on to icedtea-7 or later.</span></div><div class="line" id="141145"><span class="nick" style="color:#6b8072"><a href="#141145" label="[14:11:45]">&lt;rekado_&gt;</a></span><span class="message">is there a reason why you do this on Gentoo and not in Guix which has stronger guarantees about the composition of the build environment?</span></div><div class="line" id="194401"><span class="nick" style="color:#8dd3c7"><a href="#194401" label="[19:44:01]">&lt;stikonas&gt;</a></span><span class="message">rekado_: well, it can probably be avoided, but probably more testing is needed</span></div><div class="line" id="194441"><span class="nick" style="color:#8dd3c7"><a href="#194441" label="[19:44:41]">&lt;stikonas&gt;</a></span><span class="message">first of all, testing on guix...</span></div><div class="line" id="194447"><span class="nick" style="color:#8dd3c7"><a href="#194447" label="[19:44:47]">&lt;stikonas&gt;</a></span><span class="message">at the moment I was testing on Gentoo</span></div><div class="line" id="194508"><span class="nick" style="color:#8dd3c7"><a href="#194508" label="[19:45:08]">&lt;stikonas&gt;</a></span><span class="message">I'll see if I can clean up some stuff... but it won't be in the next few days</span></div><div class="line" id="203314"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="210219"><span class="nick">***</span><span class="message notice">xwvvvvwx- is now known as xwvvvvwx</span></div><br /></div></body></html>

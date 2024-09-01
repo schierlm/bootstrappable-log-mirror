@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-11.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003631"><span class="nick" style="color:#389600"><a href="#003631" label="[00:36:31]">&lt;stikonas&gt;</a></span><span class="message">fossy: were you able to reproduce qemu issue?</span></div><div class="line" id="003731"><span class="nick" style="color:#389600"><a href="#003731" label="[00:37:31]">&lt;stikonas&gt;</a></span><span class="message">I haven't yet captured what causes it, but probably what happens is at some point something causes reboot</span></div><div class="line" id="003753"><span class="nick" style="color:#389600"><a href="#003753" label="[00:37:53]">&lt;stikonas&gt;</a></span><span class="message">so instead of kexec, it just restarts into initial image</span></div><div class="line" id="022447"><span class="nick" style="color:#389600"><a href="#022447" label="[02:24:47]">&lt;stikonas&gt;</a></span><span class="message">ok, it looks like Fiwix at least starts booting</span></div><div class="line" id="022459"><span class="nick" style="color:#389600"><a href="#022459" label="[02:24:59]">&lt;stikonas&gt;</a></span><span class="message">I haven't been able to capture exact error, reboot happened too fast</span></div><div class="line" id="022640"><span class="nick" style="color:#389600"><a href="#022640" label="[02:26:40]">&lt;stikonas&gt;</a></span><span class="message">hmm, I should run it in non-interactive mode...</span></div><div class="line" id="022838"><span class="nick" style="color:#8dd3c7"><a href="#022838" label="[02:28:38]">&lt;Googulator&gt;</a></span><span class="message">Sounds like yet another iteration of the annoying Fiwix freeze/crash bug that affects Hyper-V and some newer(?) qemu versions</span></div><div class="line" id="022905"><span class="nick" style="color:#8dd3c7"><a href="#022905" label="[02:29:05]">&lt;Googulator&gt;</a></span><span class="message">do some random changes to the code, e.g. debug prints to try and figure it out, and it just goes away</span></div><div class="line" id="022908"><span class="nick" style="color:#389600"><a href="#022908" label="[02:29:08]">&lt;stikonas&gt;</a></span><span class="message">well, I've now started it without --interactive</span></div><div class="line" id="022914"><span class="nick" style="color:#389600"><a href="#022914" label="[02:29:14]">&lt;stikonas&gt;</a></span><span class="message">and tee'ed output to log file</span></div><div class="line" id="022922"><span class="nick" style="color:#389600"><a href="#022922" label="[02:29:22]">&lt;stikonas&gt;</a></span><span class="message">though I might finish tomorrow</span></div><div class="line" id="022936"><span class="nick" style="color:#8dd3c7"><a href="#022936" label="[02:29:36]">&lt;Googulator&gt;</a></span><span class="message">for a while I thought it was related to newer generation Intel CPUs, but has since been reproduced on AMD and older Intel systems</span></div><div class="line" id="023024"><span class="nick" style="color:#389600"><a href="#023024" label="[02:30:24]">&lt;stikonas&gt;</a></span><span class="message">in principle fiwix shouldn't even be affected by meslibc...</span></div><div class="line" id="023034"><span class="nick" style="color:#389600"><a href="#023034" label="[02:30:34]">&lt;stikonas&gt;</a></span><span class="message">it's kernel</span></div><div class="line" id="023114"><span class="nick" style="color:#8dd3c7"><a href="#023114" label="[02:31:14]">&lt;Googulator&gt;</a></span><span class="message">did the hash change?</span></div><div class="line" id="023128"><span class="nick" style="color:#389600"><a href="#023128" label="[02:31:28]">&lt;stikonas&gt;</a></span><span class="message">I think so</span></div><div class="line" id="023202"><span class="nick" style="color:#8dd3c7"><a href="#023202" label="[02:32:02]">&lt;Googulator&gt;</a></span><span class="message">my theory is that it's some weird memory management bug that's extremely sensitive to the exact memory layout of each kernel's code</span></div><div class="line" id="023212"><span class="nick" style="color:#389600"><a href="#023212" label="[02:32:12]">&lt;stikonas&gt;</a></span><span class="message">hmm, but I also upgraded tinycc...</span></div><div class="line" id="023237"><span class="nick" style="color:#389600"><a href="#023237" label="[02:32:37]">&lt;stikonas&gt;</a></span><span class="message">that's one thing I can try later</span></div><div class="line" id="023237"><span class="nick" style="color:#389600"><a href="#023237" label="[02:32:37]">&lt;stikonas&gt;</a></span><span class="message">if logs don't show anything</span></div><div class="line" id="023237"><span class="nick" style="color:#389600"><a href="#023237" label="[02:32:37]">&lt;stikonas&gt;</a></span><span class="message">just undo tinycc upgrade</span></div><div class="line" id="023237"><span class="nick" style="color:#389600"><a href="#023237" label="[02:32:37]">&lt;stikonas&gt;</a></span><span class="message">but that's only used to bootstrap tcc 0.9.27</span></div><div class="line" id="023310"><span class="nick" style="color:#8dd3c7"><a href="#023310" label="[02:33:10]">&lt;Googulator&gt;</a></span><span class="message">In that case, it shouldn't change the checksum of the final tcc</span></div><div class="line" id="023335"><span class="nick" style="color:#8dd3c7"><a href="#023335" label="[02:33:35]">&lt;Googulator&gt;</a></span><span class="message">if it does, then either the old one or the new one is miscompiling in such a way that it propagates across subsequent builds</span></div><div class="line" id="023344"><span class="nick" style="color:#389600"><a href="#023344" label="[02:33:44]">&lt;stikonas&gt;</a></span><span class="message">well, final tcc changes to to meslibc upgrade</span></div><div class="line" id="023356"><span class="nick" style="color:#389600"><a href="#023356" label="[02:33:56]">&lt;stikonas&gt;</a></span><span class="message">hmm</span></div><div class="line" id="023406"><span class="nick" style="color:#389600"><a href="#023406" label="[02:34:06]">&lt;stikonas&gt;</a></span><span class="message">well, there are things to try</span></div><div class="line" id="023410"><span class="nick" style="color:#8dd3c7"><a href="#023410" label="[02:34:10]">&lt;Googulator&gt;</a></span><span class="message">but if you revert only the tccboot change, it should leave the final tcc unchanged from the one with everything changed</span></div><div class="line" id="023430"><span class="nick" style="color:#389600"><a href="#023430" label="[02:34:30]">&lt;stikonas&gt;</a></span><span class="message">well, libc also changed</span></div><div class="line" id="023437"><span class="nick" style="color:#389600"><a href="#023437" label="[02:34:37]">&lt;stikonas&gt;</a></span><span class="message">so final tcc binary will be different too</span></div><div class="line" id="023448"><span class="nick" style="color:#389600"><a href="#023448" label="[02:34:48]">&lt;stikonas&gt;</a></span><span class="message">(due to static linking of libc)</span></div><div class="line" id="023504"><span class="nick" style="color:#389600"><a href="#023504" label="[02:35:04]">&lt;stikonas&gt;</a></span><span class="message">anywya, I still have some things to try</span></div><div class="line" id="023515"><span class="nick" style="color:#389600"><a href="#023515" label="[02:35:15]">&lt;stikonas&gt;</a></span><span class="message">just annoying to have an issue where I didn't expect any...</span></div><div class="line" id="023525"><span class="nick" style="color:#8dd3c7"><a href="#023525" label="[02:35:25]">&lt;Googulator&gt;</a></span><span class="message">I mean, mes 0.26.1 plus old tccboot should produce the same tcc checksum as mes 0.26.1 plus new tccboot</span></div><div class="line" id="023535"><span class="nick" style="color:#8dd3c7"><a href="#023535" label="[02:35:35]">&lt;Googulator&gt;</a></span><span class="message">if not, something is veeeery wrong</span></div><div class="line" id="023800"><span class="nick" style="color:#389600"><a href="#023800" label="[02:38:00]">&lt;stikonas&gt;</a></span><span class="message">why is that?</span></div><div class="line" id="023807"><span class="nick" style="color:#389600"><a href="#023807" label="[02:38:07]">&lt;stikonas&gt;</a></span><span class="message">tccboot changes might change codegen a bit...</span></div><div class="line" id="023825"><span class="nick" style="color:#389600"><a href="#023825" label="[02:38:25]">&lt;stikonas&gt;</a></span><span class="message">though I think in the end we rebuild tcc-0.9.27 twice</span></div><div class="line" id="023831"><span class="nick" style="color:#389600"><a href="#023831" label="[02:38:31]">&lt;stikonas&gt;</a></span><span class="message">so it shouldn't propagate that far</span></div><div class="line" id="023849"><span class="nick" style="color:#389600"><a href="#023849" label="[02:38:49]">&lt;stikonas&gt;</a></span><span class="message">anyway, I'll debug further tomorrow</span></div><div class="line" id="094140"><span class="nick" style="color:#2e2a4a"><a href="#094140" label="[09:41:40]">&lt;lanodan&gt;</a></span><span class="message">Maybe dev86 would work for a x86_16 replacement? Seems to build fine with tcc but haven't thrown real payloads at it yet (likely lilo since it explicitly uses it).</span></div><div class="line" id="155102"><span class="nick" style="color:#6b8072"><a href="#155102" label="[15:51:02]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://xorvoid.com/forsp.html">https://xorvoid.com/forsp.html</a> </span></div><div class="line" id="155144"><span class="nick" style="color:#6b8072"><a href="#155144" label="[15:51:44]">&lt;oriansj&gt;</a></span><span class="message">well found a LISP/FORTH hybrid</span></div><div class="line" id="205858"><span class="nick" style="color:#80b1d3"><a href="#205858" label="[20:58:58]">&lt;aggi&gt;</a></span><span class="message">finally, some little progress with tccboot</span></div><div class="line" id="210000"><span class="nick" style="color:#80b1d3"><a href="#210000" label="[21:00:00]">&lt;aggi&gt;</a></span><span class="message">compilation of it is sensitive to the BUILDHOST used... even when it's isolated by cross-compilation (and -nostdlib/-nostdinc of cause)</span></div><div class="line" id="210222"><span class="nick" style="color:#80b1d3"><a href="#210222" label="[21:02:22]">&lt;aggi&gt;</a></span><span class="message">i moved this setup from BUILDHOST=aarch32 onto BUILDHOST=x86 (slackware11), and a voila, tccboot succeeded compilation of a few linux source files, and then hit a compilation error</span></div><div class="line" id="210254"><span class="nick" style="color:#80b1d3"><a href="#210254" label="[21:02:54]">&lt;aggi&gt;</a></span><span class="message">at least, i got something now, to debug and work with</span></div><div class="line" id="210346"><span class="nick" style="color:#80b1d3"><a href="#210346" label="[21:03:46]">&lt;aggi&gt;</a></span><span class="message">and it is rather concerning, something was/is leaking from BUILDHOST into BUILDTARGET, because i do not see which header or object could have with tccboot</span></div><div class="line" id="210445"><span class="nick" style="color:#80b1d3"><a href="#210445" label="[21:04:45]">&lt;aggi&gt;</a></span><span class="message">furthermore, i noticed some extremely weird error, that was a specific version of tcc.o/tccboot reported a missing symbol for memcpy()</span></div><div class="line" id="210515"><span class="nick" style="color:#80b1d3"><a href="#210515" label="[21:05:15]">&lt;aggi&gt;</a></span><span class="message">depending on how that's approached, it is highly suspicious</span></div><div class="line" id="210605"><span class="nick" style="color:#80b1d3"><a href="#210605" label="[21:06:05]">&lt;aggi&gt;</a></span><span class="message">because, then i quickly tested to supply a memcpy() inside lib.c of tccboot - all of the sudden i386-tcc (depending on version) freaked out with an internal parsing error</span></div><div class="line" id="210709"><span class="nick" style="color:#80b1d3"><a href="#210709" label="[21:07:09]">&lt;aggi&gt;</a></span><span class="message">yet, neither tccboot nor tcc.o supply a memcpy() nor could i understand why adding such a particular symbol would make a compiler freak-out with internal parsing errors</span></div><div class="line" id="210732"><span class="nick" style="color:#80b1d3"><a href="#210732" label="[21:07:32]">&lt;aggi&gt;</a></span><span class="message">renaming memcpy() to whatever my_memcpy() didn't trigger this... so what?</span></div><div class="line" id="210851"><span class="nick" style="color:#80b1d3"><a href="#210851" label="[21:08:51]">&lt;aggi&gt;</a></span><span class="message">there's some incomprehensible magic involved, with the memcpy() symbol for example, and other defects when cross-compiling tcc.o/tccboot</span></div><div class="line" id="211236"><span class="nick" style="color:#80b1d3"><a href="#211236" label="[21:12:36]">&lt;aggi&gt;</a></span><span class="message">something else seems to make a difference: compiling tccboot with i386-tcc itself, or a i686-gcc3 (non-cross), or a i686-gcc6 (cross)</span></div><div class="line" id="211320"><span class="nick" style="color:#80b1d3"><a href="#211320" label="[21:13:20]">&lt;aggi&gt;</a></span><span class="message">which isn't plausible either, because at least recent tcc-version does cleanly separate cross-compilation from the BUILDHOST</span></div><div class="line" id="211358"><span class="nick" style="color:#80b1d3"><a href="#211358" label="[21:13:58]">&lt;aggi&gt;</a></span><span class="message">really confusing, an i am referring to compiling tccboot/tcc.o which seems to break already, with weird side-effects onto kernel-compilation</span></div><div class="line" id="211430"><span class="nick" style="color:#80b1d3"><a href="#211430" label="[21:14:30]">&lt;aggi&gt;</a></span><span class="message">and i suspect, too the AoT kernel-compilation variant with i386-tcc (instead of tccboot JIT) is affected by this</span></div><div class="line" id="211600"><span class="nick" style="color:#80b1d3"><a href="#211600" label="[21:16:00]">&lt;aggi&gt;</a></span><span class="message">some memory alignment problem for example, mis-matched PTR_SIZE, all of the sudden, an interrupt-service routine or anything doesn't match</span></div><div class="line" id="211630"><span class="nick" style="color:#80b1d3"><a href="#211630" label="[21:16:30]">&lt;aggi&gt;</a></span><span class="message">since that much i could diagnose last night again, kernel crashes as soon as an interrupt shall be processed</span></div><div class="line" id="211726"><span class="nick" style="color:#80b1d3"><a href="#211726" label="[21:17:26]">&lt;aggi&gt;</a></span><span class="message">as far as tccboot was concerned, i didn't change anything with my test-setup, other than moving i386-tcc from aarch32 onto a x86 buildhost to compile tccboot</span></div><div class="line" id="211750"><span class="nick" style="color:#80b1d3"><a href="#211750" label="[21:17:50]">&lt;aggi&gt;</a></span><span class="message">a voila, it does at least compile a few kernel c sources and assmbly</span></div><div class="line" id="211839"><span class="nick" style="color:#80b1d3"><a href="#211839" label="[21:18:39]">&lt;aggi&gt;</a></span><span class="message">and i can conclude something else already, that is, even if i succeed with repairing/re-producing tccboot (for JIT kernel compile) or AoT kernel compilation with tcc</span></div><div class="line" id="211906"><span class="nick" style="color:#80b1d3"><a href="#211906" label="[21:19:06]">&lt;aggi&gt;</a></span><span class="message">that's merely a lucky hit, an old slackware11 seems more closely resemble some BUILDHOST leakage into BUILDTARGET that was known-working year 2004</span></div><div class="line" id="212147"><span class="nick" style="color:#80b1d3"><a href="#212147" label="[21:21:47]">&lt;aggi&gt;</a></span><span class="message">and i am not willing to accept such quality issues, when bootstrapping kernel with tcc (and gcc alike)</span></div><div class="line" id="212338"><span class="nick" style="color:#80b1d3"><a href="#212338" label="[21:23:38]">&lt;aggi&gt;</a></span><span class="message">so, sorry for the noise, but this crazyness had cost me a few weeks and month of lifetime</span></div><div class="line" id="212944"><span class="nick" style="color:#80b1d3"><a href="#212944" label="[21:29:44]">&lt;aggi&gt;</a></span><span class="message">the memcpy() issue with tccboot/tcc.o is highly suspicious, and i got a few test-cases for this</span></div><div class="line" id="213324"><span class="nick" style="color:#80b1d3"><a href="#213324" label="[21:33:24]">&lt;aggi&gt;</a></span><span class="message">i see.. usr/src/linux/include/asm/string-486.h</span></div><div class="line" id="214737"><span class="nick" style="color:#80b1d3"><a href="#214737" label="[21:47:37]">&lt;aggi&gt;</a></span><span class="message">i would summarize, defining the task as &quot;kernel bootstrapping&quot;: it's compromised for 20 years already</span></div><div class="line" id="214856"><span class="nick" style="color:#80b1d3"><a href="#214856" label="[21:48:56]">&lt;aggi&gt;</a></span><span class="message">besides, thanks for the hint pointing to fiwix, which to my understanding couldn't be compiled by tcc, _and_ loaded and executed by syslinux for example</span></div><div class="line" id="214916"><span class="nick" style="color:#80b1d3"><a href="#214916" label="[21:49:16]">&lt;aggi&gt;</a></span><span class="message">hence the kexec() magic you were discussing</span></div><div class="line" id="215031"><span class="nick" style="color:#80b1d3"><a href="#215031" label="[21:50:31]">&lt;aggi&gt;</a></span><span class="message">question: would tccboot/linux-2.4 have any benefit for #bootstrappable?</span></div><div class="line" id="215241"><span class="nick" style="color:#80b1d3"><a href="#215241" label="[21:52:41]">&lt;aggi&gt;</a></span><span class="message">as far as tccboot itself was concerned, it's #include &lt;linux/kernel.h&gt; etc. inside tccboot.h are a showstopper already, for the reasons mentioned above</span></div><div class="line" id="223631"><span class="nick" style="color:#389600"><a href="#223631" label="[22:36:31]">&lt;stikonas&gt;</a></span><span class="message">aggi: fiwix can be compiled by tcc</span></div><div class="line" id="223655"><span class="nick" style="color:#389600"><a href="#223655" label="[22:36:55]">&lt;stikonas&gt;</a></span><span class="message">kexec is just used because it is better for our purposes</span></div><div class="line" id="223828"><span class="nick" style="color:#389600"><a href="#223828" label="[22:38:28]">&lt;stikonas&gt;</a></span><span class="message">we compile kernel, put it somewhere in the memory  and boot</span></div><div class="line" id="223839"><span class="nick" style="color:#389600"><a href="#223839" label="[22:38:39]">&lt;stikonas&gt;</a></span><span class="message">which is much simpler than dealing with bootloaders</span></div><div class="line" id="223853"><span class="nick" style="color:#389600"><a href="#223853" label="[22:38:53]">&lt;stikonas&gt;</a></span><span class="message">bootloaders immedaitely force you to deal with I/O devices...</span></div><div class="line" id="223905"><span class="nick" style="color:#389600"><a href="#223905" label="[22:39:05]">&lt;stikonas&gt;</a></span><span class="message">so you immediately have lots of different drivers (depending on your storage)</span></div><div class="line" id="224028"><span class="nick" style="color:#389600"><a href="#224028" label="[22:40:28]">&lt;stikonas&gt;</a></span><span class="message">for live-bootstrap tccboot/linux-2.4 probably wouldn't have any benefit</span></div><div class="line" id="224033"><span class="nick" style="color:#389600"><a href="#224033" label="[22:40:33]">&lt;stikonas&gt;</a></span><span class="message">since we got fiwix working</span></div><div class="line" id="224101"><span class="nick" style="color:#389600"><a href="#224101" label="[22:41:01]">&lt;stikonas&gt;</a></span><span class="message">but the rule here is, if you enjoy doing something, please do so</span></div><div class="line" id="224118"><span class="nick" style="color:#389600"><a href="#224118" label="[22:41:18]">&lt;stikonas&gt;</a></span><span class="message">so if you like tinkering with tccboot/linux-2.4, then we are not stopping you :)</span></div><br /></div></body></html>

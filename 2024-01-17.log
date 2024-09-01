@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-01-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="021403"><span class="nick" style="color:#389600"><a href="#021403" label="[02:14:03]">&lt;lrvick&gt;</a></span><span class="message">Deterministic Dockerfiles for stage0 and live-bootstrap (built from it) are now up at <a rel="nofollow" href="https://git.distrust.co/public/packages/src/branch/main/src/bootstrap">https://git.distrust.co/public/packages/src/branch/main/src/bootstrap</a> </span></div><div class="line" id="021516"><span class="nick" style="color:#389600"><a href="#021516" label="[02:15:16]">&lt;lrvick&gt;</a></span><span class="message">using this as a drop-in replacement for alpine as the bootstrap container for the distro</span></div><div class="line" id="021912"><span class="nick" style="color:#8dd3c7"><a href="#021912" label="[02:19:12]">&lt;stikonas&gt;</a></span><span class="message">nice</span></div><div class="line" id="022034"><span class="nick" style="color:#8dd3c7"><a href="#022034" label="[02:20:34]">&lt;stikonas&gt;</a></span><span class="message">lrvick: it goes all the way to gcc 13?</span></div><div class="line" id="041125"><span class="nick" style="color:#389600"><a href="#041125" label="[04:11:25]">&lt;lrvick&gt;</a></span><span class="message">Yep!</span></div><div class="line" id="062651"><span class="nick" style="color:#2e2a4a"><a href="#062651" label="[06:26:51]">&lt;muurkha&gt;</a></span><span class="message">lrvick: congratulations!  that's fantastic!</span></div><div class="line" id="062707"><span class="nick" style="color:#2e2a4a"><a href="#062707" label="[06:27:07]">&lt;muurkha&gt;</a></span><span class="message">hopefully that will make it enormously easier for people to reproduce reproducibility</span></div><div class="line" id="065039"><span class="nick" style="color:#389600"><a href="#065039" label="[06:50:39]">&lt;lrvick&gt;</a></span><span class="message">Just now realizing after all this this only gets me to 32 bit gcc13, which cannot build musl for x86_64 to then build gcc as x86_64</span></div><div class="line" id="065124"><span class="nick" style="color:#389600"><a href="#065124" label="[06:51:24]">&lt;lrvick&gt;</a></span><span class="message">it is actually not obvious to me the best order of operations to bootstrap myself up to a x86_64 toolchain from here.</span></div><div class="line" id="065139"><span class="nick" style="color:#389600"><a href="#065139" label="[06:51:39]">&lt;lrvick&gt;</a></span><span class="message">ACTION tries gcc first</span></div><div class="line" id="070030"><span class="nick" style="color:#389600"><a href="#070030" label="[07:00:30]">&lt;lrvick&gt;</a></span><span class="message">Okay seems like the play is, let bootstrap x86 gcc13 build x86_64 gcc, then use that to build x86_64 musl, then from there build out all my usual 64 bit toolchain</span></div><div class="line" id="095859"><span class="nick" style="color:#389600"><a href="#095859" label="[09:58:59]">&lt;lrvick&gt;</a></span><span class="message">If anyone has successfully cross compiled a x86_64-linux-musl tooolchain from a i386-linux-musl base like live-bootstrap, I would love the reference. Trying to use &quot;musl-cross-make&quot; as a guide but binutils explodes with what seem to be 64bit related issues: <a rel="nofollow" href="https://dpaste.org/AXAiB">https://dpaste.org/AXAiB</a> </span></div><div class="line" id="101035"><span class="nick" style="color:#6b8072"><a href="#101035" label="[10:10:35]">&lt;Googulator&gt;</a></span><span class="message">Mikaku: does Fiwix itself ever run 16-bit code or make BIOS calls, especially early in its startup?</span></div><div class="line" id="103352"><span class="nick" style="color:#80b1d3"><a href="#103352" label="[10:33:52]">&lt;Mikaku&gt;</a></span><span class="message">Googulator: no</span></div><div class="line" id="103446"><span class="nick" style="color:#80b1d3"><a href="#103446" label="[10:34:46]">&lt;Mikaku&gt;</a></span><span class="message">Googulator: the kernel starts here &lt;<a rel="nofollow" href="https://github.com/mikaku/Fiwix/blob/10014c5cb31edc7ea5bef3e9a13a675da618b99b/kernel/boot.S#L89">https://github.com/mikaku/Fiwix/blob/10014c5cb31edc7ea5bef3e9a13a675da618b99b/kernel/boot.S#L89</a>&gt; </span></div><div class="line" id="150528"><span class="nick" style="color:#6d2462"><a href="#150528" label="[15:05:28]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; lrvick: what order are you building packages?</span></div><div class="line" id="150604"><span class="nick" style="color:#6d2462"><a href="#150604" label="[15:06:04]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; You first need to build libc and gcc</span></div><div class="line" id="150615"><span class="nick" style="color:#6d2462"><a href="#150615" label="[15:06:15]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; And leave binutils for later</span></div><div class="line" id="150645"><span class="nick" style="color:#6d2462"><a href="#150645" label="[15:06:45]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Some runes from Linus from scratch might be useful</span></div><div class="line" id="184847"><span class="nick" style="color:#2e2a4a"><a href="#184847" label="[18:48:47]">&lt;muurkha&gt;</a></span><span class="message">bootstrapping thread about bcompiler on <a rel="nofollow" href="https://news.ycombinator.com/item?id=39011100">https://news.ycombinator.com/item?id=39011100</a> </span></div><div class="line" id="190243"><span class="nick" style="color:#389600"><a href="#190243" label="[19:02:43]">&lt;lrvick&gt;</a></span><span class="message">I was trying to build binutils first as most cross compiler guides seem to do that</span></div><div class="line" id="190324"><span class="nick" style="color:#6d2462"><a href="#190324" label="[19:03:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Our binutils should already support 64 bit binaries</span></div><div class="line" id="190343"><span class="nick" style="color:#6d2462"><a href="#190343" label="[19:03:43]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I think we pass required configure option</span></div><div class="line" id="190435"><span class="nick" style="color:#6d2462"><a href="#190435" label="[19:04:35]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yeah, we have --enable-64-bit-bfd</span></div><div class="line" id="190644"><span class="nick" style="color:#389600"><a href="#190644" label="[19:06:44]">&lt;lrvick&gt;</a></span><span class="message">oh, great</span></div><div class="line" id="190704"><span class="nick" style="color:#389600"><a href="#190704" label="[19:07:04]">&lt;lrvick&gt;</a></span><span class="message">in that case I guess I need to skip to gcc</span></div><div class="line" id="190708"><span class="nick" style="color:#389600"><a href="#190708" label="[19:07:08]">&lt;lrvick&gt;</a></span><span class="message">or musl</span></div><div class="line" id="190838"><span class="nick" style="color:#6d2462"><a href="#190838" label="[19:08:38]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Probably gcc</span></div><div class="line" id="190901"><span class="nick" style="color:#6d2462"><a href="#190901" label="[19:09:01]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I think GCC can't build 64 bit binaries</span></div><div class="line" id="190918"><span class="nick" style="color:#6d2462"><a href="#190918" label="[19:09:18]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; So you need GCC crosscompiler</span></div><div class="line" id="190925"><span class="nick" style="color:#6d2462"><a href="#190925" label="[19:09:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Then build musl</span></div><div class="line" id="190951"><span class="nick" style="color:#6d2462"><a href="#190951" label="[19:09:51]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Then build native GCC and binutils (not sure about order here)</span></div><div class="line" id="191036"><span class="nick" style="color:#389600"><a href="#191036" label="[19:10:36]">&lt;lrvick&gt;</a></span><span class="message">weirdly I was able to build 64 bit busybox, but other binaries exploded.</span></div><div class="line" id="191050"><span class="nick" style="color:#389600"><a href="#191050" label="[19:10:50]">&lt;lrvick&gt;</a></span><span class="message">I assume busybox ships with magic</span></div><div class="line" id="191302"><span class="nick" style="color:#6d2462"><a href="#191302" label="[19:13:02]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; We should try to get native 64 bit bootstrap working too...</span></div><div class="line" id="191315"><span class="nick" style="color:#6d2462"><a href="#191315" label="[19:13:15]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Though kernel part would be harder</span></div><div class="line" id="191325"><span class="nick" style="color:#389600"><a href="#191325" label="[19:13:25]">&lt;lrvick&gt;</a></span><span class="message">Trying gcc now. fingers crossed (pun intended)</span></div><div class="line" id="191349"><span class="nick" style="color:#6d2462"><a href="#191349" label="[19:13:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But userspace is probably not too far from working</span></div><div class="line" id="191522"><span class="nick" style="color:#6b8072"><a href="#191522" label="[19:15:22]">&lt;Googulator&gt;</a></span><span class="message">Can gcc 4.0.4 running in Fiwix build a 64-bit Linux kernel?</span></div><div class="line" id="191608"><span class="nick" style="color:#6b8072"><a href="#191608" label="[19:16:08]">&lt;Googulator&gt;</a></span><span class="message">As I imagine that would be the ideal next step: changing the Linux kernel build from 32-bit to 64-bit with support for a 32-bit userspace</span></div><div class="line" id="191631"><span class="nick" style="color:#6b8072"><a href="#191631" label="[19:16:31]">&lt;Googulator&gt;</a></span><span class="message">&amp; then as we boot into Linux. we can transition to building 64-bit binaries</span></div><div class="line" id="191643"><span class="nick" style="color:#6d2462"><a href="#191643" label="[19:16:43]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yeah, that might work</span></div><div class="line" id="191702"><span class="nick" style="color:#6d2462"><a href="#191702" label="[19:17:02]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; We also need to fix mescc a bit</span></div><div class="line" id="191706"><span class="nick" style="color:#6b8072"><a href="#191706" label="[19:17:06]">&lt;Googulator&gt;</a></span><span class="message">And it would also fix the psyntax bootstrap</span></div><div class="line" id="191716"><span class="nick" style="color:#6b8072"><a href="#191716" label="[19:17:16]">&lt;Googulator&gt;</a></span><span class="message">(which generates wrong labels on 32-bit Guile)</span></div><div class="line" id="191717"><span class="nick" style="color:#6d2462"><a href="#191717" label="[19:17:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; How?</span></div><div class="line" id="191722"><span class="nick" style="color:#6d2462"><a href="#191722" label="[19:17:22]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Oh...</span></div><div class="line" id="191737"><span class="nick" style="color:#6d2462"><a href="#191737" label="[19:17:37]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; We probably still want to support 32 bit mode</span></div><div class="line" id="191747"><span class="nick" style="color:#6d2462"><a href="#191747" label="[19:17:47]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; At least till 2038...</span></div><div class="line" id="191838"><span class="nick" style="color:#6b8072"><a href="#191838" label="[19:18:38]">&lt;Googulator&gt;</a></span><span class="message">Although a case could be made for always bootstrapping with the system clock set to a predefined value, say the Unix epoch or Y2K</span></div><div class="line" id="191859"><span class="nick" style="color:#6b8072"><a href="#191859" label="[19:18:59]">&lt;Googulator&gt;</a></span><span class="message">of course, that complicates HTTPS, which is time-dependent :(</span></div><div class="line" id="191908"><span class="nick" style="color:#6d2462"><a href="#191908" label="[19:19:08]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yeah, but that needs kernel support</span></div><div class="line" id="191924"><span class="nick" style="color:#6d2462"><a href="#191924" label="[19:19:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; And https would be messed up too</span></div><div class="line" id="192101"><span class="nick" style="color:#6b8072"><a href="#192101" label="[19:21:01]">&lt;Googulator&gt;</a></span><span class="message">It could be worked around using a forwarder that locally hosts binaries over HTTP (or HTTPS with certificates defined as valid for the bootstrap epoch), which would also reduce exposure of the bootstrap system to potentially malicious HTTP(S) hosts</span></div><div class="line" id="192117"><span class="nick" style="color:#6b8072"><a href="#192117" label="[19:21:17]">&lt;Googulator&gt;</a></span><span class="message">while retaining the limited size of the SRCFS</span></div><div class="line" id="192215"><span class="nick" style="color:#6b8072"><a href="#192215" label="[19:22:15]">&lt;Googulator&gt;</a></span><span class="message">as right now, I'm rather concerned with the fact that we're allowing an unpatched 4.9.10 kernel to receive TCP streams from untrusted or at best semi-trusted Web hosts</span></div><div class="line" id="192309"><span class="nick" style="color:#6b8072"><a href="#192309" label="[19:23:09]">&lt;Googulator&gt;</a></span><span class="message">Checksums mean we can safely tolerate plain HTTP - but none of that protects against attacks involving malformed packets / TCP streams that try to execute code in the kernel space</span></div><div class="line" id="192535"><span class="nick" style="color:#6b8072"><a href="#192535" label="[19:25:35]">&lt;Googulator&gt;</a></span><span class="message">Just a short while ago, we had to change our source for OpenSSL from artfiles.org to mirror.math.princeton.edu because the former started redirecting to HTTPS - but do we trust either of those sites to _only_ serve us the openssl sources over HTTP, without doing any shenanigans in the low level packet stream?</span></div><div class="line" id="192626"><span class="nick" style="color:#6b8072"><a href="#192626" label="[19:26:26]">&lt;Googulator&gt;</a></span><span class="message">More importantly, do we trust these sites *not to get hacked* to then do shenanigans? Compromise mirror.math.princeton.edu, patch the HTTP server, and you compromise the bootstrap process.</span></div><div class="line" id="192819"><span class="nick" style="color:#6b8072"><a href="#192819" label="[19:28:19]">&lt;Googulator&gt;</a></span><span class="message">Checksums are of no help, because once you get kernel mode ACE, you can install your payload, and then serve the real openssl sources, which userspace gladly accepts because it does have the correct checksum - the exploit happened earlier.</span></div><div class="line" id="192908"><span class="nick" style="color:#6b8072"><a href="#192908" label="[19:29:08]">&lt;Googulator&gt;</a></span><span class="message">(of course, all of this is predicated with Linux 4.9.10 actually having a kernel mode ACE vulnerability exploitable via TCP)</span></div><div class="line" id="192915"><span class="nick" style="color:#6b8072"><a href="#192915" label="[19:29:15]">&lt;Googulator&gt;</a></span><span class="message">*predicated on</span></div><div class="line" id="193437"><span class="nick" style="color:#389600"><a href="#193437" label="[19:34:37]">&lt;lrvick&gt;</a></span><span class="message">As a qubes user I never want my host kernel I must trust to touch the network for the reasons you outlined. Though building/shipping qemu to use only as a download proxy would be a lot... but also reasonably safe. I assume there are a long list of blockers there.</span></div><div class="line" id="205256"><span class="nick" style="color:#80b1d3"><a href="#205256" label="[20:52:56]">&lt;Mikaku&gt;</a></span><span class="message">Googulator: nice catch on PR #68</span></div><div class="line" id="205331"><span class="nick" style="color:#6b8072"><a href="#205331" label="[20:53:31]">&lt;Googulator&gt;</a></span><span class="message">of course, it doesn't explain pder's issues, since that should only come into play when going from Fiwix to Linux</span></div><div class="line" id="205337"><span class="nick" style="color:#80b1d3"><a href="#205337" label="[20:53:37]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters and me missed that bug</span></div><div class="line" id="210043"><span class="nick" style="color:#389600"><a href="#210043" label="[21:00:43]">&lt;lrvick&gt;</a></span><span class="message">ran into the stdc-predef.h issue building cross-x86_64 gcc and found this: <a rel="nofollow" href="https://wiki.debian.org/toolchain/BootstrapIssues#stdc-predef.h_not_found">https://wiki.debian.org/toolchain/BootstrapIssues#stdc-predef.h_not_found</a> </span></div><div class="line" id="210109"><span class="nick" style="color:#389600"><a href="#210109" label="[21:01:09]">&lt;lrvick&gt;</a></span><span class="message">if no one has hit this yet, I can try the workarounds and see what happens</span></div><div class="line" id="210247"><span class="nick" style="color:#234e69"><a href="#210247" label="[21:02:47]">&lt;pder&gt;</a></span><span class="message">The issue Ive been having during Fiwix boot is still mysterious.  I tried enabling CONFIG_QEMU_DEBUGCON in include/fiwix/config.h and added -debugcon /dev/stdout to qemu options and Fiwix boots and carries on</span></div><div class="line" id="210458"><span class="nick" style="color:#234e69"><a href="#210458" label="[21:04:58]">&lt;pder&gt;</a></span><span class="message">rickmasters: I appreciate the offer and I might take you up on that after exhausting a few more things</span></div><div class="line" id="211135"><span class="nick" style="color:#6b8072"><a href="#211135" label="[21:11:35]">&lt;Googulator&gt;</a></span><span class="message">What if you add CONFIG_QEMU_DEBUGCON, but not actually enable the debug console in qemu?</span></div><div class="line" id="212920"><span class="nick" style="color:#234e69"><a href="#212920" label="[21:29:20]">&lt;pder&gt;</a></span><span class="message">Googulator: trying that now</span></div><div class="line" id="215057"><span class="nick" style="color:#234e69"><a href="#215057" label="[21:50:57]">&lt;pder&gt;</a></span><span class="message">Googulator: boots into Fiwix and continues with CONFIG_QEMU_DEBUGCON but no additional parameters to qemu</span></div><div class="line" id="231955"><span class="nick" style="color:#389600"><a href="#231955" label="[23:19:55]">&lt;lrvick&gt;</a></span><span class="message">The stdc-predef.h error was a red herring. True error was &quot;configure: error: cannot compute suffix of object files: cannot compile&quot; when configuring libgcc: <a rel="nofollow" href="https://dpaste.org/h3dOK/raw">https://dpaste.org/h3dOK/raw</a> </span></div><div class="line" id="232117"><span class="nick" style="color:#389600"><a href="#232117" label="[23:21:17]">&lt;lrvick&gt;</a></span><span class="message">Maybe I need to force a system include path or something.</span></div><div class="line" id="234955"><span class="nick" style="color:#389600"><a href="#234955" label="[23:49:55]">&lt;lrvick&gt;</a></span><span class="message">seems binutils related</span></div><br /></div></body></html>

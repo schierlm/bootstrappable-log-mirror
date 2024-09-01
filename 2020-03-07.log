@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-03-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000019"><span class="nick" style="color:#389600"><a href="#000019" label="[00:00:19]">&lt;fossy&gt;</a></span><span class="message">Keep sending critisims of the code my way if you have more :)</span></div><div class="line" id="000036"><span class="nick" style="color:#8dd3c7"><a href="#000036" label="[00:00:36]">&lt;OriansJ&gt;</a></span><span class="message">odds are if you need to put prepend_string or postpend_string in a loop, there is probably a more efficient way of doing it by just having index variables and walking the strings</span></div><div class="line" id="000241"><span class="nick" style="color:#8dd3c7"><a href="#000241" label="[00:02:41]">&lt;OriansJ&gt;</a></span><span class="message">I would recommend breaking the variable functions into a seperate .c file and creating a .h which only has the struct definition and a few commonly shared functions' prototype</span></div><div class="line" id="000257"><span class="nick" style="color:#389600"><a href="#000257" label="[00:02:57]">&lt;fossy&gt;</a></span><span class="message">I was thinking about that, splitting into multiple files</span></div><div class="line" id="000313"><span class="nick" style="color:#389600"><a href="#000313" label="[00:03:13]">&lt;fossy&gt;</a></span><span class="message">I think its a good idea - ill go with it</span></div><div class="line" id="000335"><span class="nick" style="color:#389600"><a href="#000335" label="[00:03:35]">&lt;fossy&gt;</a></span><span class="message">4. Split variable stuff out of kaem.c</span></div><div class="line" id="000606"><span class="nick" style="color:#8dd3c7"><a href="#000606" label="[00:06:06]">&lt;OriansJ&gt;</a></span><span class="message">looking at how -&gt;pos is being used; odds are you probably don't even need it in the struct if you just did proper local index variables and the passing of ints where appropriate</span></div><div class="line" id="000642"><span class="nick" style="color:#389600"><a href="#000642" label="[00:06:42]">&lt;fossy&gt;</a></span><span class="message">Yeah, you are right</span></div><div class="line" id="000745"><span class="nick" style="color:#389600"><a href="#000745" label="[00:07:45]">&lt;fossy&gt;</a></span><span class="message">After this refactor I plan to take a bit of a break from kaem, to be honest I dont enjoy working on the same piece of software every day</span></div><div class="line" id="000746"><span class="nick" style="color:#8dd3c7"><a href="#000746" label="[00:07:46]">&lt;OriansJ&gt;</a></span><span class="message">possibly add foo=1 ./bin/bar sort of environment variables to the future TODO list</span></div><div class="line" id="000752"><span class="nick" style="color:#389600"><a href="#000752" label="[00:07:52]">&lt;fossy&gt;</a></span><span class="message">Yep</span></div><div class="line" id="000801"><span class="nick" style="color:#389600"><a href="#000801" label="[00:08:01]">&lt;fossy&gt;</a></span><span class="message">Not a blocker for pushing though?</span></div><div class="line" id="000806"><span class="nick" style="color:#8dd3c7"><a href="#000806" label="[00:08:06]">&lt;OriansJ&gt;</a></span><span class="message">fossy: completely fair</span></div><div class="line" id="000812"><span class="nick" style="color:#8dd3c7"><a href="#000812" label="[00:08:12]">&lt;OriansJ&gt;</a></span><span class="message">not a blocker at all</span></div><div class="line" id="000821"><span class="nick" style="color:#8dd3c7"><a href="#000821" label="[00:08:21]">&lt;OriansJ&gt;</a></span><span class="message">the kaem repo is your playground</span></div><div class="line" id="000827"><span class="nick" style="color:#389600"><a href="#000827" label="[00:08:27]">&lt;fossy&gt;</a></span><span class="message">But the multiple variable substitution is a blocker right</span></div><div class="line" id="000839"><span class="nick" style="color:#8dd3c7"><a href="#000839" label="[00:08:39]">&lt;OriansJ&gt;</a></span><span class="message">break it to your hearts content</span></div><div class="line" id="000852"><span class="nick" style="color:#389600"><a href="#000852" label="[00:08:52]">&lt;fossy&gt;</a></span><span class="message">I do not enjoy breaking things</span></div><div class="line" id="000922"><span class="nick" style="color:#389600"><a href="#000922" label="[00:09:22]">&lt;fossy&gt;</a></span><span class="message">OriansJ: how do you plan to integrate kaem with mescc tools? As a submodule?</span></div><div class="line" id="000942"><span class="nick" style="color:#8dd3c7"><a href="#000942" label="[00:09:42]">&lt;OriansJ&gt;</a></span><span class="message">fossy: yes it will become a proper submodule</span></div><div class="line" id="001000"><span class="nick" style="color:#389600"><a href="#001000" label="[00:10:00]">&lt;fossy&gt;</a></span><span class="message">ok</span></div><div class="line" id="001014"><span class="nick" style="color:#8dd3c7"><a href="#001014" label="[00:10:14]">&lt;OriansJ&gt;</a></span><span class="message">with updates when I feel the current kaem commit is good enough</span></div><div class="line" id="001051"><span class="nick" style="color:#389600"><a href="#001051" label="[00:10:51]">&lt;fossy&gt;</a></span><span class="message">righto</span></div><div class="line" id="001121"><span class="nick" style="color:#389600"><a href="#001121" label="[00:11:21]">&lt;fossy&gt;</a></span><span class="message">Take your time, but any further things to make the current commit good enough than those 4?</span></div><div class="line" id="001152"><span class="nick" style="color:#8dd3c7"><a href="#001152" label="[00:11:52]">&lt;OriansJ&gt;</a></span><span class="message">create feature branches in kaem's repo when you want your work reviewed before squash and merge</span></div><div class="line" id="001209"><span class="nick" style="color:#389600"><a href="#001209" label="[00:12:09]">&lt;fossy&gt;</a></span><span class="message">Quite reasonable and very normal</span></div><div class="line" id="001232"><span class="nick" style="color:#8dd3c7"><a href="#001232" label="[00:12:32]">&lt;OriansJ&gt;</a></span><span class="message">The master branch is your responsibility to keep it clean and working on as many commits as you can</span></div><div class="line" id="001311"><span class="nick" style="color:#389600"><a href="#001311" label="[00:13:11]">&lt;fossy&gt;</a></span><span class="message">From this refactor on, 100% of commits on master will build and past tests</span></div><div class="line" id="001319"><span class="nick" style="color:#389600"><a href="#001319" label="[00:13:19]">&lt;fossy&gt;</a></span><span class="message">(Is my plan)</span></div><div class="line" id="001328"><span class="nick" style="color:#8dd3c7"><a href="#001328" label="[00:13:28]">&lt;OriansJ&gt;</a></span><span class="message">fossy: I like it</span></div><div class="line" id="001350"><span class="nick" style="color:#8dd3c7"><a href="#001350" label="[00:13:50]">&lt;OriansJ&gt;</a></span><span class="message">and yes, getting those 4 done will make me very happy</span></div><div class="line" id="001416"><span class="nick" style="color:#389600"><a href="#001416" label="[00:14:16]">&lt;fossy&gt;</a></span><span class="message">ok.</span></div><div class="line" id="001428"><span class="nick" style="color:#389600"><a href="#001428" label="[00:14:28]">&lt;fossy&gt;</a></span><span class="message">Once those 4 are done, would you like push, or another reivew?</span></div><div class="line" id="001432"><span class="nick" style="color:#8dd3c7"><a href="#001432" label="[00:14:32]">&lt;OriansJ&gt;</a></span><span class="message">and then we can cascade it down into mescc-tools, mescc-tools-seed and finally stage0 if everything is nice and happy</span></div><div class="line" id="001513"><span class="nick" style="color:#8dd3c7"><a href="#001513" label="[00:15:13]">&lt;OriansJ&gt;</a></span><span class="message">fossy: push</span></div><div class="line" id="001531"><span class="nick" style="color:#389600"><a href="#001531" label="[00:15:31]">&lt;fossy&gt;</a></span><span class="message">OK.</span></div><div class="line" id="001626"><span class="nick" style="color:#389600"><a href="#001626" label="[00:16:26]">&lt;fossy&gt;</a></span><span class="message">dddddd: if you have more comments I would like to hear them very soon, those &quot;finicky details&quot; would be good to hear</span></div><div class="line" id="001709"><span class="nick" style="color:#389600"><a href="#001709" label="[00:17:09]">&lt;fossy&gt;</a></span><span class="message">(If you have the time)</span></div><div class="line" id="001905"><span class="nick" style="color:#2e2a4a"><a href="#001905" label="[00:19:05]">&lt;dddddd&gt;</a></span><span class="message">sure, about EjN or the next one?</span></div><div class="line" id="001956"><span class="nick" style="color:#2e2a4a"><a href="#001956" label="[00:19:56]">&lt;dddddd&gt;</a></span><span class="message">I can anotate EjN and send you back and/or do it with the next one (with the 4 points in place)</span></div><div class="line" id="002042"><span class="nick" style="color:#389600"><a href="#002042" label="[00:20:42]">&lt;fossy&gt;</a></span><span class="message">EjN please.</span></div><div class="line" id="002054"><span class="nick" style="color:#389600"><a href="#002054" label="[00:20:54]">&lt;fossy&gt;</a></span><span class="message">unless you would prefer the next.</span></div><div class="line" id="002058"><span class="nick" style="color:#389600"><a href="#002058" label="[00:20:58]">&lt;fossy&gt;</a></span><span class="message">Up to you</span></div><div class="line" id="002146"><span class="nick" style="color:#2e2a4a"><a href="#002146" label="[00:21:46]">&lt;dddddd&gt;</a></span><span class="message">In fine doing both. I'll do EjN now.</span></div><div class="line" id="002201"><span class="nick" style="color:#2e2a4a"><a href="#002201" label="[00:22:01]">&lt;dddddd&gt;</a></span><span class="message">*I'm</span></div><div class="line" id="002203"><span class="nick" style="color:#389600"><a href="#002203" label="[00:22:03]">&lt;fossy&gt;</a></span><span class="message">Thank you very much.</span></div><div class="line" id="002210"><span class="nick" style="color:#2e2a4a"><a href="#002210" label="[00:22:10]">&lt;dddddd&gt;</a></span><span class="message">np (:</span></div><div class="line" id="002307"><span class="nick" style="color:#8dd3c7"><a href="#002307" label="[00:23:07]">&lt;OriansJ&gt;</a></span><span class="message">keep up the good work fossy</span></div><div class="line" id="002335"><span class="nick" style="color:#389600"><a href="#002335" label="[00:23:35]">&lt;fossy&gt;</a></span><span class="message">^-^ thank you both, my coding is getting better slowly I think</span></div><div class="line" id="011242"><span class="nick">***</span><span class="message notice">roptat_ is now known as roptat</span></div><div class="line" id="013719"><span class="nick" style="color:#389600"><a href="#013719" label="[01:37:19]">&lt;fossy&gt;</a></span><span class="message">dddddd: FYI I broke the builtins.</span></div><div class="line" id="013747"><span class="nick" style="color:#389600"><a href="#013747" label="[01:37:47]">&lt;fossy&gt;</a></span><span class="message">Please ignore the return TRUE stuff, thats broken, im fixing it</span></div><div class="line" id="013835"><span class="nick" style="color:#2e2a4a"><a href="#013835" label="[01:38:35]">&lt;dddddd&gt;</a></span><span class="message">return TRUE wrt builtins, ok... I'll skip that.</span></div><div class="line" id="014333"><span class="nick" style="color:#389600"><a href="#014333" label="[01:43:33]">&lt;fossy&gt;</a></span><span class="message">thanks</span></div><div class="line" id="090008"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="103153"><span class="nick" style="color:#389600"><a href="#103153" label="[10:31:53]">&lt;fossy&gt;</a></span><span class="message">OriansJ: how do you feel the best way to pass both index_input and index_target in and out of a function is? I was thinking a struct</span></div><div class="line" id="122422"><span class="nick" style="color:#80b1d3"><a href="#122422" label="[12:24:22]">&lt;rain1&gt;</a></span><span class="message">hello all</span></div><div class="line" id="122850"><span class="nick" style="color:#6d2462"><a href="#122850" label="[12:28:50]">&lt;janneke&gt;</a></span><span class="message">hello rain1</span></div><div class="line" id="144311"><span class="nick" style="color:#8dd3c7"><a href="#144311" label="[14:43:11]">&lt;OriansJ&gt;</a></span><span class="message">fossy: you might not need to pass both in and out of a function.</span></div><div class="line" id="144650"><span class="nick" style="color:#8dd3c7"><a href="#144650" label="[14:46:50]">&lt;OriansJ&gt;</a></span><span class="message">as you can simply know that index_target will be index_target+bytes_processed; which would make those sort of functions a single integer return.</span></div><div class="line" id="205710"><span class="nick" style="color:#389600"><a href="#205710" label="[20:57:10]">&lt;fossy&gt;</a></span><span class="message">O</span></div><div class="line" id="205716"><span class="nick" style="color:#389600"><a href="#205716" label="[20:57:16]">&lt;fossy&gt;</a></span><span class="message">OriansJ: a good point.</span></div><div class="line" id="221823"><span class="nick" style="color:#389600"><a href="#221823" label="[22:18:23]">&lt;fossy&gt;</a></span><span class="message">OriansJ: I think I have found a M2-Planet bug</span></div><div class="line" id="221835"><span class="nick" style="color:#389600"><a href="#221835" label="[22:18:35]">&lt;fossy&gt;</a></span><span class="message">lemme get you a minimal test case</span></div><div class="line" id="222306"><span class="nick" style="color:#389600"><a href="#222306" label="[22:23:06]">&lt;fossy&gt;</a></span><span class="message">hm. maybe not a bug at all</span></div><div class="line" id="222319"><span class="nick" style="color:#389600"><a href="#222319" label="[22:23:19]">&lt;fossy&gt;</a></span><span class="message">can you redeclare the same variable inside a goto, after it has been run once, in normal C?</span></div><div class="line" id="222336"><span class="nick" style="color:#389600"><a href="#222336" label="[22:23:36]">&lt;fossy&gt;</a></span><span class="message">I don't use gotos much, but they were by far the cleanest way to add multiple variable support to kaem, only 5 extra LOC</span></div><div class="line" id="222345"><span class="nick" style="color:#389600"><a href="#222345" label="[22:23:45]">&lt;fossy&gt;</a></span><span class="message">way more trivial than i thought :D</span></div><div class="line" id="222905"><span class="nick" style="color:#389600"><a href="#222905" label="[22:29:05]">&lt;fossy&gt;</a></span><span class="message">wow, kaem is so much faster without postpend chat</span></div><div class="line" id="222907"><span class="nick" style="color:#389600"><a href="#222907" label="[22:29:07]">&lt;fossy&gt;</a></span><span class="message">char</span></div><br /></div></body></html>

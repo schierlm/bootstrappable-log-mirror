@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-06-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003012"><span class="nick" style="color:#389600"><a href="#003012" label="[00:30:12]">&lt;oriansj&gt;</a></span><span class="message">theruran: that has to produce a really interesting delta because stage0-posix should not be impacted by its environment</span></div><div class="line" id="005905"><span class="nick" style="color:#389600"><a href="#005905" label="[00:59:05]">&lt;oriansj&gt;</a></span><span class="message">we don't embed timestamps of any kind. And the ELF headers are effectively hard coded, so the only changes possible would be functional</span></div><div class="line" id="010324"><span class="nick" style="color:#389600"><a href="#010324" label="[01:03:24]">&lt;oriansj&gt;</a></span><span class="message">and all of the submodules are on the correct commits, correct? As different M2libc commits can result in different file checksums</span></div><div class="line" id="021722"><span class="nick" style="color:#8dd3c7"><a href="#021722" label="[02:17:22]">&lt;theruran&gt;</a></span><span class="message">oh I forgot to update the submodules again after switching back to master HEAD 🙄</span></div><div class="line" id="025741"><span class="nick" style="color:#8dd3c7"><a href="#025741" label="[02:57:41]">&lt;theruran&gt;</a></span><span class="message">OK all passed this time! sorry, I often forget about git submodules and whatnot</span></div><div class="line" id="033816"><span class="nick" style="color:#389600"><a href="#033816" label="[03:38:16]">&lt;oriansj&gt;</a></span><span class="message">theruran: did you run the kaem.$ARCH file directly or did you use the make command?</span></div><div class="line" id="033830"><span class="nick" style="color:#8dd3c7"><a href="#033830" label="[03:38:30]">&lt;theruran&gt;</a></span><span class="message">sh ./kaem.amd64</span></div><div class="line" id="034219"><span class="nick" style="color:#389600"><a href="#034219" label="[03:42:19]">&lt;oriansj&gt;</a></span><span class="message">I wonder what it would take to add a program to mescc-tools-extra to just sanity check the submodule commit value and the expected value stored in .git/modules/${NAME}/refs/heads/master</span></div><div class="line" id="034618"><span class="nick" style="color:#389600"><a href="#034618" label="[03:46:18]">&lt;oriansj&gt;</a></span><span class="message">like do we just need a sha1sum program and a program to stitch things together?</span></div><div class="line" id="052050"><span class="nick" style="color:#8dd3c7"><a href="#052050" label="[05:20:50]">&lt;theruran&gt;</a></span><span class="message">I would expect a `make amd64` target tbh</span></div><div class="line" id="052118"><span class="nick" style="color:#8dd3c7"><a href="#052118" label="[05:21:18]">&lt;theruran&gt;</a></span><span class="message">also kaem.x86 is chmod +x but not the others</span></div><div class="line" id="053609"><span class="nick" style="color:#389600"><a href="#053609" label="[05:36:09]">&lt;oriansj&gt;</a></span><span class="message">well an easy thing to fix and the execute bit doesn't actually matter for kaem; it'll run the file just fine without it</span></div><div class="line" id="053731"><span class="nick" style="color:#389600"><a href="#053731" label="[05:37:31]">&lt;oriansj&gt;</a></span><span class="message">running the kaem script with bash via ./kaem.x86; yeah that bit would need to be set</span></div><br /></div></body></html>

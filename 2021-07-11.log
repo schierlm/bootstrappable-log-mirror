@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-11.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="075015"><span class="nick" style="color:#8dd3c7"><a href="#075015" label="[07:50:15]">&lt;varno&gt;</a></span><span class="message">well, I am going to have to try to see how hard building a linux kernel in freebsd is.</span></div><div class="line" id="075100"><span class="nick" style="color:#8dd3c7"><a href="#075100" label="[07:51:00]">&lt;varno&gt;</a></span><span class="message">I think the freebsd kernel is likely to be simpler to build than the linux one, afaik</span></div><div class="line" id="075158"><span class="nick" style="color:#8dd3c7"><a href="#075158" label="[07:51:58]">&lt;varno&gt;</a></span><span class="message">I don't know if it is possible to build the linux kernel strait from minix.</span></div><div class="line" id="075239"><span class="nick" style="color:#8dd3c7"><a href="#075239" label="[07:52:39]">&lt;varno&gt;</a></span><span class="message">I would love to do it directly from sel4, but the userland just isnt there yet afaik.</span></div><div class="line" id="075402"><span class="nick" style="color:#8dd3c7"><a href="#075402" label="[07:54:02]">&lt;varno&gt;</a></span><span class="message">The other big problem is solving microcode. But I don't know how much work adding risc-v support to gcc4 would be.</span></div><div class="line" id="191016"><span class="nick" style="color:#2e2a4a"><a href="#191016" label="[19:10:16]">&lt;oriansj&gt;</a></span><span class="message">fossy: serial interfaces have always required required enter to be hit first. I am not certain why.</span></div><div class="line" id="191122"><span class="nick" style="color:#2e2a4a"><a href="#191122" label="[19:11:22]">&lt;oriansj&gt;</a></span><span class="message">varno: well the kernel problem is largely a reflection of the filesystem problem.</span></div><div class="line" id="191213"><span class="nick" style="color:#2e2a4a"><a href="#191213" label="[19:12:13]">&lt;oriansj&gt;</a></span><span class="message">You need to have an operating system with a file system to build an operating system that supports the complexity in modern filesystems.</span></div><div class="line" id="191409"><span class="nick" style="color:#2e2a4a"><a href="#191409" label="[19:14:09]">&lt;oriansj&gt;</a></span><span class="message">I've learn that programming languages do not have to depend on operating systems but were a choice made to simplify work being done in an environment of multiple diffferent operating systems and not enough programming working on creating software.</span></div><div class="line" id="191606"><span class="nick" style="color:#2e2a4a"><a href="#191606" label="[19:16:06]">&lt;oriansj&gt;</a></span><span class="message">So I am under the belief that any POSIX could be used to bootstrap linux if it is able to run te tools required to build Linux, along with having all of the required sources.</span></div><div class="line" id="192133"><span class="nick" style="color:#2e2a4a"><a href="#192133" label="[19:21:33]">&lt;oriansj&gt;</a></span><span class="message">As for the Microcode problem, we will address it the second someone here thinks it is a fun project to work on (or angry enough to say fuck it and knock that shit out)</span></div><div class="line" id="192353"><span class="nick" style="color:#2e2a4a"><a href="#192353" label="[19:23:53]">&lt;oriansj&gt;</a></span><span class="message">Every bootstrapping problem is solvable. They sometimes just require things solved first or a sacrifice of sufficient size.</span></div><div class="line" id="192506"><span class="nick" style="color:#2e2a4a"><a href="#192506" label="[19:25:06]">&lt;oriansj&gt;</a></span><span class="message">It only took a dozen of us (and 5 years of work) to go from hex on a POSIX to GCC</span></div><div class="line" id="192633"><span class="nick" style="color:#2e2a4a"><a href="#192633" label="[19:26:33]">&lt;oriansj&gt;</a></span><span class="message">So with a little more effort we will solve the kernel bootstrap problem. (even if I have to do it myself) and shart digging into the hardware itself.</span></div><br /></div></body></html>

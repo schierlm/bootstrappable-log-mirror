@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-08-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001655"><span class="nick" style="color:#8dd3c7"><a href="#001655" label="[00:16:55]">&lt;oriansj&gt;</a></span><span class="message">stikonas: looks good. Merged</span></div><div class="line" id="002047"><span class="nick" style="color:#2e2a4a"><a href="#002047" label="[00:20:47]">&lt;stikonas&gt;</a></span><span class="message">next time for M0 hex encoding will be a bit easier since I won't have to combine words, can just leave everything with .WORD</span></div><div class="line" id="002139"><span class="nick" style="color:#2e2a4a"><a href="#002139" label="[00:21:39]">&lt;stikonas&gt;</a></span><span class="message">on the other hand writing assembly version will take longer...</span></div><div class="line" id="002310"><span class="nick" style="color:#6b8072"><a href="#002310" label="[00:23:10]">&lt;stikonas[m]&gt;</a></span><span class="message">Interestingly, hex2.hex1 used exactly 62 labels, so each alphanumeric character was used</span></div><div class="line" id="003028"><span class="nick" style="color:#8dd3c7"><a href="#003028" label="[00:30:28]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well you could also use digits too (it works fine in hex1 and hex2 but not in M0 or M1)</span></div><div class="line" id="003059"><span class="nick" style="color:#6b8072"><a href="#003059" label="[00:30:59]">&lt;stikonas[m]&gt;</a></span><span class="message">I used digits, hence 62</span></div><div class="line" id="003112"><span class="nick" style="color:#6b8072"><a href="#003112" label="[00:31:12]">&lt;stikonas[m]&gt;</a></span><span class="message">Luckily avoided things like commas</span></div><div class="line" id="003127"><span class="nick" style="color:#6b8072"><a href="#003127" label="[00:31:27]">&lt;stikonas[m]&gt;</a></span><span class="message">Those should have worked too</span></div><div class="line" id="003214"><span class="nick" style="color:#8dd3c7"><a href="#003214" label="[00:32:14]">&lt;oriansj&gt;</a></span><span class="message">well every ascii char works in hex1 but not in hex2 which actually cares about the specials</span></div><div class="line" id="003254"><span class="nick" style="color:#6b8072"><a href="#003254" label="[00:32:54]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, hex2 has long labels, so not really a problem</span></div><div class="line" id="003259"><span class="nick" style="color:#8dd3c7"><a href="#003259" label="[00:32:59]">&lt;oriansj&gt;</a></span><span class="message">So there are 127 (including \x7F DEL) possible hex1 labels but using them will break on hex2</span></div><div class="line" id="003329"><span class="nick" style="color:#8dd3c7"><a href="#003329" label="[00:33:29]">&lt;oriansj&gt;</a></span><span class="message">but yeah 66 is the reasonably functional hex1 limit</span></div><div class="line" id="003354"><span class="nick" style="color:#6b8072"><a href="#003354" label="[00:33:54]">&lt;stikonas[m]&gt;</a></span><span class="message">Yeah, I would rather not use space as label</span></div><div class="line" id="003403"><span class="nick" style="color:#6b8072"><a href="#003403" label="[00:34:03]">&lt;stikonas[m]&gt;</a></span><span class="message">Or line feed</span></div><div class="line" id="003413"><span class="nick" style="color:#8dd3c7"><a href="#003413" label="[00:34:13]">&lt;oriansj&gt;</a></span><span class="message">or :: as a label</span></div><div class="line" id="003440"><span class="nick" style="color:#8dd3c7"><a href="#003440" label="[00:34:40]">&lt;oriansj&gt;</a></span><span class="message">or :&lt; or :&gt; or :$ if one wants a major debugging headache</span></div><div class="line" id="003440"><span class="nick" style="color:#6b8072"><a href="#003440" label="[00:34:40]">&lt;stikonas[m]&gt;</a></span><span class="message">Anyway, it was enough even for riscv which is longer than hex2 for other arches</span></div><div class="line" id="003445"><span class="nick" style="color:#80b1d3"><a href="#003445" label="[00:34:45]">&lt;xentrac&gt;</a></span><span class="message">haha</span></div><div class="line" id="003532"><span class="nick" style="color:#80b1d3"><a href="#003532" label="[00:35:32]">&lt;xentrac&gt;</a></span><span class="message">62 seems reasonable</span></div><div class="line" id="003536"><span class="nick" style="color:#6b8072"><a href="#003536" label="[00:35:36]">&lt;stikonas[m]&gt;</a></span><span class="message">:) would cause debugging smile</span></div><div class="line" id="003554"><span class="nick" style="color:#80b1d3"><a href="#003554" label="[00:35:54]">&lt;xentrac&gt;</a></span><span class="message">:-(</span></div><div class="line" id="003613"><span class="nick" style="color:#8dd3c7"><a href="#003613" label="[00:36:13]">&lt;oriansj&gt;</a></span><span class="message">stikonas: I must say you have created the most impressive hex2 in hex1 ever written and you should feel quite proud.</span></div><div class="line" id="003619"><span class="nick" style="color:#80b1d3"><a href="#003619" label="[00:36:19]">&lt;xentrac&gt;</a></span><span class="message">+1</span></div><div class="line" id="003642"><span class="nick" style="color:#8dd3c7"><a href="#003642" label="[00:36:42]">&lt;oriansj&gt;</a></span><span class="message">xentrac: wouldn't work in hex1 but :-D will</span></div><div class="line" id="003654"><span class="nick" style="color:#80b1d3"><a href="#003654" label="[00:36:54]">&lt;xentrac&gt;</a></span><span class="message">I wonder if it would be worthwhile to make hex1 labels fixed 2 bytes instead of 1</span></div><div class="line" id="003705"><span class="nick" style="color:#6b8072"><a href="#003705" label="[00:37:05]">&lt;stikonas[m]&gt;</a></span><span class="message">No need...</span></div><div class="line" id="003718"><span class="nick" style="color:#80b1d3"><a href="#003718" label="[00:37:18]">&lt;xentrac&gt;</a></span><span class="message">because if stikonas[m] has to go to 63 he's going to end up with :@ or :! or something</span></div><div class="line" id="003723"><span class="nick" style="color:#6b8072"><a href="#003723" label="[00:37:23]">&lt;stikonas[m]&gt;</a></span><span class="message">We only need to write hex2 in hex1</span></div><div class="line" id="003739"><span class="nick" style="color:#6b8072"><a href="#003739" label="[00:37:39]">&lt;stikonas[m]&gt;</a></span><span class="message">I won't need 63</span></div><div class="line" id="003748"><span class="nick" style="color:#6b8072"><a href="#003748" label="[00:37:48]">&lt;stikonas[m]&gt;</a></span><span class="message">62 was enough</span></div><div class="line" id="003754"><span class="nick" style="color:#8dd3c7"><a href="#003754" label="[00:37:54]">&lt;oriansj&gt;</a></span><span class="message">xentrac: If one needs more than 127 functions/labels to write a minimal hex2. Then the architecture might not be bootstrappable.</span></div><div class="line" id="003804"><span class="nick" style="color:#80b1d3"><a href="#003804" label="[00:38:04]">&lt;xentrac&gt;</a></span><span class="message">someone might have to fix a bug at some point, stikonas[m]</span></div><div class="line" id="003821"><span class="nick" style="color:#6b8072"><a href="#003821" label="[00:38:21]">&lt;stikonas[m]&gt;</a></span><span class="message">Or just do hex0-&gt;hex2 directly</span></div><div class="line" id="003828"><span class="nick" style="color:#80b1d3"><a href="#003828" label="[00:38:28]">&lt;xentrac&gt;</a></span><span class="message">oriansj: wait, are you considering using :^R and :^T?</span></div><div class="line" id="003905"><span class="nick" style="color:#80b1d3"><a href="#003905" label="[00:39:05]">&lt;xentrac&gt;</a></span><span class="message">shades of Perl</span></div><div class="line" id="003908"><span class="nick" style="color:#6b8072"><a href="#003908" label="[00:39:08]">&lt;stikonas[m]&gt;</a></span><span class="message">Most likely any bugfix can be done without introducing any new labels</span></div><div class="line" id="003914"><span class="nick" style="color:#8dd3c7"><a href="#003914" label="[00:39:14]">&lt;oriansj&gt;</a></span><span class="message">xentrac: all ascii are valid in hex1 as hex1 labels</span></div><div class="line" id="003940"><span class="nick" style="color:#80b1d3"><a href="#003940" label="[00:39:40]">&lt;xentrac&gt;</a></span><span class="message">yeah, but valid is one thing, tolerable is another ;)</span></div><div class="line" id="003944"><span class="nick" style="color:#6b8072"><a href="#003944" label="[00:39:44]">&lt;stikonas[m]&gt;</a></span><span class="message">hex1 just reads any character after :</span></div><div class="line" id="003948"><span class="nick" style="color:#8dd3c7"><a href="#003948" label="[00:39:48]">&lt;oriansj&gt;</a></span><span class="message">in theory all 8bit values are also valid hex1 labels. However then we run into a bigger problem.</span></div><div class="line" id="003955"><span class="nick" style="color:#80b1d3"><a href="#003955" label="[00:39:55]">&lt;xentrac&gt;</a></span><span class="message">:★</span></div><div class="line" id="004044"><span class="nick" style="color:#8dd3c7"><a href="#004044" label="[00:40:44]">&lt;oriansj&gt;</a></span><span class="message">petscii and other character sets are certainly possible but audit across diverse architectures becomes a little more complex</span></div><div class="line" id="004130"><span class="nick" style="color:#8dd3c7"><a href="#004130" label="[00:41:30]">&lt;oriansj&gt;</a></span><span class="message">stikonas: specifically 1 byte as unicode might require multiple bytes for a character.</span></div><div class="line" id="004330"><span class="nick" style="color:#8dd3c7"><a href="#004330" label="[00:43:30]">&lt;oriansj&gt;</a></span><span class="message">:♠ :╭ :┴ :♥ :♣ :♦</span></div><div class="line" id="004413"><span class="nick" style="color:#8dd3c7"><a href="#004413" label="[00:44:13]">&lt;oriansj&gt;</a></span><span class="message">and yes using the delete character is absolutely valid in hex1 but a bitch to audit; so it would be flagged by sin</span></div><div class="line" id="004445"><span class="nick" style="color:#2e2a4a"><a href="#004445" label="[00:44:45]">&lt;stikonas&gt;</a></span><span class="message">anyway, I can't imagine any arch requiring more complicated hex2...</span></div><div class="line" id="004455"><span class="nick" style="color:#2e2a4a"><a href="#004455" label="[00:44:55]">&lt;stikonas&gt;</a></span><span class="message">current hex2 is already quite flexible</span></div><div class="line" id="004507"><span class="nick" style="color:#2e2a4a"><a href="#004507" label="[00:45:07]">&lt;stikonas&gt;</a></span><span class="message">the only way you can make it more complicated is to have more different instruction formats</span></div><div class="line" id="005211"><span class="nick" style="color:#8dd3c7"><a href="#005211" label="[00:52:11]">&lt;oriansj&gt;</a></span><span class="message">stikonas: and they only have ~!@$%&amp; to work with. and % and &amp; are standardized for 32bit relative and 32bit absolute addresses.</span></div><div class="line" id="005304"><span class="nick" style="color:#8dd3c7"><a href="#005304" label="[00:53:04]">&lt;oriansj&gt;</a></span><span class="message">So if one can't encode the jumps and calls needed in 4 different formats; then the architecture is the problem.</span></div><div class="line" id="013426"><span class="nick" style="color:#6d2462"><a href="#013426" label="[01:34:26]">&lt;fossy&gt;</a></span><span class="message">finally!!!</span></div><div class="line" id="013437"><span class="nick" style="color:#6d2462"><a href="#013437" label="[01:34:37]">&lt;fossy&gt;</a></span><span class="message">libunistring-0.9.10: build successful</span></div><div class="line" id="013439"><span class="nick" style="color:#6d2462"><a href="#013439" label="[01:34:39]">&lt;fossy&gt;</a></span><span class="message">Bootstrapping completed.</span></div><div class="line" id="013448"><span class="nick" style="color:#6d2462"><a href="#013448" label="[01:34:48]">&lt;fossy&gt;</a></span><span class="message">now i just need to check chroot mode works then this massive PR will be ready</span></div><div class="line" id="013505"><span class="nick" style="color:#80b1d3"><a href="#013505" label="[01:35:05]">&lt;xentrac&gt;</a></span><span class="message">congratulations!</span></div><div class="line" id="013648"><span class="nick" style="color:#8dd3c7"><a href="#013648" label="[01:36:48]">&lt;oriansj&gt;</a></span><span class="message">fossy: Miracles of hard work. Nicely done</span></div><div class="line" id="013742"><span class="nick" style="color:#2e2a4a"><a href="#013742" label="[01:37:42]">&lt;stikonas&gt;</a></span><span class="message">fossy: nice!</span></div><div class="line" id="013812"><span class="nick" style="color:#80b1d3"><a href="#013812" label="[01:38:12]">&lt;xentrac&gt;</a></span><span class="message">stikonas: moreover, to have more different instruction formats without which you can't write the next stage</span></div><div class="line" id="014405"><span class="nick" style="color:#8dd3c7"><a href="#014405" label="[01:44:05]">&lt;oriansj&gt;</a></span><span class="message">xentrac: well the instruction formats supported in hex2 are only the jumps, calls and the loading of absolute addresses. M1 can support alternate instruction formats for the loading of immediates and stack offsets</span></div><div class="line" id="014533"><span class="nick" style="color:#8dd3c7"><a href="#014533" label="[01:45:33]">&lt;oriansj&gt;</a></span><span class="message">for example one can work around the lack of an instruction format by loading a 32bit immediate and immediately jumping over it. (or 64bit if you so decide)</span></div><div class="line" id="014623"><span class="nick" style="color:#8dd3c7"><a href="#014623" label="[01:46:23]">&lt;oriansj&gt;</a></span><span class="message">it is certainly inefficient (especially in architectures that don't support PC relative loading)</span></div><div class="line" id="014720"><span class="nick" style="color:#80b1d3"><a href="#014720" label="[01:47:20]">&lt;xentrac&gt;</a></span><span class="message">oriansj: right, exactly</span></div><div class="line" id="014752"><span class="nick" style="color:#8dd3c7"><a href="#014752" label="[01:47:52]">&lt;oriansj&gt;</a></span><span class="message">like copy PC to regisyter, load with an offset and jump over</span></div><div class="line" id="015038"><span class="nick" style="color:#80b1d3"><a href="#015038" label="[01:50:38]">&lt;xentrac&gt;</a></span><span class="message">right</span></div><div class="line" id="015151"><span class="nick" style="color:#8dd3c7"><a href="#015151" label="[01:51:51]">&lt;oriansj&gt;</a></span><span class="message">or in less reasonable architectures: copy the link register to a register you can use, push the link register value, do a call over the immediate, copy the link register to a register you can use, load the immediate, pop the link register value, copy the value back into the link register.</span></div><div class="line" id="015301"><span class="nick" style="color:#8dd3c7"><a href="#015301" label="[01:53:01]">&lt;oriansj&gt;</a></span><span class="message">Because you know 24bit instructions are so much more efficient than a 48bit instruction when it comes to loading a 32bit value....</span></div><div class="line" id="015613"><span class="nick" style="color:#8dd3c7"><a href="#015613" label="[01:56:13]">&lt;oriansj&gt;</a></span><span class="message">oops I forgot the assembler had push and pop as pseudo-instructions and it was actually store and and add immediate instruction; subtract immediate and load instruction.</span></div><div class="line" id="015642"><span class="nick" style="color:#80b1d3"><a href="#015642" label="[01:56:42]">&lt;xentrac&gt;</a></span><span class="message">hahaha</span></div><div class="line" id="015757"><span class="nick" style="color:#8dd3c7"><a href="#015757" label="[01:57:57]">&lt;oriansj&gt;</a></span><span class="message">so 31bytes instead of 6bytes...</span></div><div class="line" id="015831"><span class="nick" style="color:#80b1d3"><a href="#015831" label="[01:58:31]">&lt;xentrac&gt;</a></span><span class="message">yeah, doesn't matter</span></div><div class="line" id="024247"><span class="nick" style="color:#234e69"><a href="#024247" label="[02:42:47]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://news.ycombinator.com/item?id=28295669">https://news.ycombinator.com/item?id=28295669</a>  &quot; Experimental binary transparency for pacman with sigstore and rekor &quot;</span></div><div class="line" id="024253"><span class="nick" style="color:#234e69"><a href="#024253" label="[02:42:53]">&lt;Hagfish&gt;</a></span><span class="message">the absolute madlads!</span></div><div class="line" id="024315"><span class="nick" style="color:#234e69"><a href="#024315" label="[02:43:15]">&lt;Hagfish&gt;</a></span><span class="message">they've actually written the code to make binary transparency work at the distro level</span></div><div class="line" id="024409"><span class="nick" style="color:#234e69"><a href="#024409" label="[02:44:09]">&lt;Hagfish&gt;</a></span><span class="message">no comments on HN yet, but please add any helpful remarks you can think of to encourage discussion there</span></div><div class="line" id="025629"><span class="nick" style="color:#8dd3c7"><a href="#025629" label="[02:56:29]">&lt;oriansj&gt;</a></span><span class="message">just need to do updates over tor to ensure you can't know who is recieving your evil updates</span></div><div class="line" id="232405"><span class="nick">***</span><span class="message notice">edf0_ is now known as edf0</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-06-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="170627"><span class="nick" style="color:#8dd3c7"><a href="#170627" label="[17:06:27]">&lt;GNU\Andrew&gt;</a></span><span class="message">Noisytoot: Well, you lead me here through thr Website :)</span></div><div class="line" id="171336"><span class="nick" style="color:#8dd3c7"><a href="#171336" label="[17:13:36]">&lt;GNU\Andrew&gt;</a></span><span class="message">An option for compiler writers: Write a manual describing how the compiler is compiled, and let the user compile the compiler</span></div><div class="line" id="171358"><span class="nick" style="color:#8dd3c7"><a href="#171358" label="[17:13:58]">&lt;GNU\Andrew&gt;</a></span><span class="message">Which would only really work for minimal low-level languages but is good enough for my purposes</span></div><div class="line" id="171428"><span class="nick" style="color:#8dd3c7"><a href="#171428" label="[17:14:28]">&lt;GNU\Andrew&gt;</a></span><span class="message">Theoretically no manual is really needed as they could read the source if it's well-written (and should be)</span></div><div class="line" id="173646"><span class="nick" style="color:#8dd3c7"><a href="#173646" label="[17:36:46]">&lt;GNU\Andrew&gt;</a></span><span class="message">That's also the only way to completely avoid the bootstrapping problem</span></div><div class="line" id="175239"><span class="nick" style="color:#2e2a4a"><a href="#175239" label="[17:52:39]">&lt;stikonas_&gt;</a></span><span class="message">GNU\Andrew: that's a lot of work for user</span></div><div class="line" id="175244"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="175300"><span class="nick" style="color:#6b8072"><a href="#175300" label="[17:53:00]">&lt;unmatched-paren&gt;</a></span><span class="message">why would that only work for minimal low-level languages?</span></div><div class="line" id="175301"><span class="nick" style="color:#80b1d3"><a href="#175301" label="[17:53:01]">&lt;stikonas&gt;</a></span><span class="message">and then it's not just compiler, you need to assemble and link it</span></div><div class="line" id="175319"><span class="nick" style="color:#8dd3c7"><a href="#175319" label="[17:53:19]">&lt;GNU\Andrew&gt;</a></span><span class="message">But it's really the only way that doesn't depend on distributing prebuilt binaries</span></div><div class="line" id="175329"><span class="nick" style="color:#80b1d3"><a href="#175329" label="[17:53:29]">&lt;stikonas&gt;</a></span><span class="message">yes, but e.g. GCC is just too big</span></div><div class="line" id="175339"><span class="nick" style="color:#8dd3c7"><a href="#175339" label="[17:53:39]">&lt;GNU\Andrew&gt;</a></span><span class="message">stikonas: Yup; being an assembler and linker is easier than being a compiler ... yeah</span></div><div class="line" id="175341"><span class="nick" style="color:#80b1d3"><a href="#175341" label="[17:53:41]">&lt;stikonas&gt;</a></span><span class="message">stage0-posix is basically doing something like that but for small compiler</span></div><div class="line" id="175345"><span class="nick" style="color:#6b8072"><a href="#175345" label="[17:53:45]">&lt;unmatched-paren&gt;</a></span><span class="message">Anyway, how do you build GCC without GCC</span></div><div class="line" id="175348"><span class="nick" style="color:#8dd3c7"><a href="#175348" label="[17:53:48]">&lt;GNU\Andrew&gt;</a></span><span class="message">unmatched-paren: Practically*</span></div><div class="line" id="175352"><span class="nick" style="color:#6b8072"><a href="#175352" label="[17:53:52]">&lt;unmatched-paren&gt;</a></span><span class="message">a manual won't help there</span></div><div class="line" id="175408"><span class="nick" style="color:#8dd3c7"><a href="#175408" label="[17:54:08]">&lt;GNU\Andrew&gt;</a></span><span class="message">unmatched-paren: Run through the GCC code, calculating things yourself, writing object files with a hexeditor</span></div><div class="line" id="175410"><span class="nick" style="color:#80b1d3"><a href="#175410" label="[17:54:10]">&lt;stikonas&gt;</a></span><span class="message">unmatched-paren: manual would help, you can theoretically compile it manually</span></div><div class="line" id="175415"><span class="nick" style="color:#80b1d3"><a href="#175415" label="[17:54:15]">&lt;stikonas&gt;</a></span><span class="message">but calculation is infeasibly long</span></div><div class="line" id="175420"><span class="nick" style="color:#8dd3c7"><a href="#175420" label="[17:54:20]">&lt;GNU\Andrew&gt;</a></span><span class="message">gcc is too bad</span></div><div class="line" id="175424"><span class="nick" style="color:#8dd3c7"><a href="#175424" label="[17:54:24]">&lt;GNU\Andrew&gt;</a></span><span class="message">too big, yeah</span></div><div class="line" id="175426"><span class="nick" style="color:#6b8072"><a href="#175426" label="[17:54:26]">&lt;unmatched-paren&gt;</a></span><span class="message">GNU|Andrew: Oh, that's what you mean!</span></div><div class="line" id="175434"><span class="nick" style="color:#8dd3c7"><a href="#175434" label="[17:54:34]">&lt;GNU\Andrew&gt;</a></span><span class="message">it's a \, not | btw</span></div><div class="line" id="175438"><span class="nick" style="color:#8dd3c7"><a href="#175438" label="[17:54:38]">&lt;GNU\Andrew&gt;</a></span><span class="message">(my nick)</span></div><div class="line" id="175448"><span class="nick" style="color:#8dd3c7"><a href="#175448" label="[17:54:48]">&lt;GNU\Andrew&gt;</a></span><span class="message">It makes sense to me (somewhat a purist i guess)</span></div><div class="line" id="175449"><span class="nick" style="color:#6b8072"><a href="#175449" label="[17:54:49]">&lt;unmatched-paren&gt;</a></span><span class="message">It shows as a | for me</span></div><div class="line" id="175457"><span class="nick" style="color:#8dd3c7"><a href="#175457" label="[17:54:57]">&lt;GNU\Andrew&gt;</a></span><span class="message">unmatched-paren: bad client :)</span></div><div class="line" id="175511"><span class="nick" style="color:#80b1d3"><a href="#175511" label="[17:55:11]">&lt;stikonas&gt;</a></span><span class="message">well, cc_x86 is much smaller but we build it with M0 which is again smaller</span></div><div class="line" id="175539"><span class="nick" style="color:#6b8072"><a href="#175539" label="[17:55:39]">&lt;unmatched-paren&gt;</a></span><span class="message">Pretty much every compiler would be infeasible to build manually</span></div><div class="line" id="175556"><span class="nick" style="color:#6b8072"><a href="#175556" label="[17:55:56]">&lt;unmatched-paren&gt;</a></span><span class="message">That'd perhaps work with e.g. M2 and cc_*</span></div><div class="line" id="175621"><span class="nick" style="color:#80b1d3"><a href="#175621" label="[17:56:21]">&lt;stikonas&gt;</a></span><span class="message">well, there cc_* would work</span></div><div class="line" id="175625"><span class="nick" style="color:#6b8072"><a href="#175625" label="[17:56:25]">&lt;unmatched-paren&gt;</a></span><span class="message">but once you get to practical languages, it would just be too much</span></div><div class="line" id="175626"><span class="nick" style="color:#80b1d3"><a href="#175626" label="[17:56:26]">&lt;stikonas&gt;</a></span><span class="message">but it's easier to do it in steps</span></div><div class="line" id="175638"><span class="nick" style="color:#80b1d3"><a href="#175638" label="[17:56:38]">&lt;stikonas&gt;</a></span><span class="message">hex0-&gt;hex1-&gt;hex2-&gt;M0-&gt;cc_x86</span></div><div class="line" id="175652"><span class="nick" style="color:#80b1d3"><a href="#175652" label="[17:56:52]">&lt;stikonas&gt;</a></span><span class="message">for basically the same reasons why compilers don't build binaries</span></div><div class="line" id="175656"><span class="nick" style="color:#8dd3c7"><a href="#175656" label="[17:56:56]">&lt;GNU\Andrew&gt;</a></span><span class="message">Assemblers would be easier, and probablytestuder-and-andrew's-new-language as it's very low level</span></div><div class="line" id="175702"><span class="nick" style="color:#8dd3c7"><a href="#175702" label="[17:57:02]">&lt;GNU\Andrew&gt;</a></span><span class="message">stikonas: yup</span></div><div class="line" id="175708"><span class="nick" style="color:#80b1d3"><a href="#175708" label="[17:57:08]">&lt;stikonas&gt;</a></span><span class="message">compilers usually spit out assembly rather than machine code</span></div><div class="line" id="175736"><span class="nick" style="color:#6b8072"><a href="#175736" label="[17:57:36]">&lt;unmatched-paren&gt;</a></span><span class="message">Well, I guess it's more often LLVM/QBE IR really</span></div><div class="line" id="175753"><span class="nick" style="color:#80b1d3"><a href="#175753" label="[17:57:53]">&lt;stikonas&gt;</a></span><span class="message">GNU\Andrew: well, try building <a rel="nofollow" href="https://github.com/oriansj/stage0-posix">https://github.com/oriansj/stage0-posix</a> </span></div><div class="line" id="175810"><span class="nick" style="color:#80b1d3"><a href="#175810" label="[17:58:10]">&lt;stikonas&gt;</a></span><span class="message">well, IR is spit out just for optimization</span></div><div class="line" id="175819"><span class="nick" style="color:#80b1d3"><a href="#175819" label="[17:58:19]">&lt;stikonas&gt;</a></span><span class="message">for non-optimizing compiler IR is useless</span></div><div class="line" id="175823"><span class="nick" style="color:#6b8072"><a href="#175823" label="[17:58:23]">&lt;unmatched-paren&gt;</a></span><span class="message">and portability</span></div><div class="line" id="175859"><span class="nick" style="color:#80b1d3"><a href="#175859" label="[17:58:59]">&lt;stikonas&gt;</a></span><span class="message">well, I guess IR lets you write a few languages and only worry once about assembly architecture</span></div><div class="line" id="180029"><span class="nick" style="color:#8dd3c7"><a href="#180029" label="[18:00:29]">&lt;GNU\Andrew&gt;</a></span><span class="message">ill try after i wake up tomorrow</span></div><div class="line" id="180123"><span class="nick" style="color:#80b1d3"><a href="#180123" label="[18:01:23]">&lt;stikonas&gt;</a></span><span class="message">basically we can build GCC from 357 byte hex linker and 757 byte trivial shell</span></div><div class="line" id="180130"><span class="nick" style="color:#80b1d3"><a href="#180130" label="[18:01:30]">&lt;stikonas&gt;</a></span><span class="message">(assuming POSIX kernel)</span></div><div class="line" id="180150"><span class="nick" style="color:#6b8072"><a href="#180150" label="[18:01:50]">&lt;unmatched-paren&gt;</a></span><span class="message">and a ~3KiB trivial kernel</span></div><div class="line" id="180200"><span class="nick" style="color:#80b1d3"><a href="#180200" label="[18:02:00]">&lt;stikonas&gt;</a></span><span class="message">well, that is partially true</span></div><div class="line" id="180207"><span class="nick" style="color:#80b1d3"><a href="#180207" label="[18:02:07]">&lt;stikonas&gt;</a></span><span class="message">we can build M2-Planet with 3KiB kernel</span></div><div class="line" id="180210"><span class="nick" style="color:#80b1d3"><a href="#180210" label="[18:02:10]">&lt;stikonas&gt;</a></span><span class="message">but not GCC</span></div><div class="line" id="180215"><span class="nick" style="color:#6b8072"><a href="#180215" label="[18:02:15]">&lt;unmatched-paren&gt;</a></span><span class="message">oh, fair enough</span></div><div class="line" id="180230"><span class="nick" style="color:#80b1d3"><a href="#180230" label="[18:02:30]">&lt;stikonas&gt;</a></span><span class="message">we need another simple kernel written in C</span></div><div class="line" id="180237"><span class="nick" style="color:#6b8072"><a href="#180237" label="[18:02:37]">&lt;unmatched-paren&gt;</a></span><span class="message">mhm.</span></div><div class="line" id="180248"><span class="nick" style="color:#80b1d3"><a href="#180248" label="[18:02:48]">&lt;stikonas&gt;</a></span><span class="message">actually in M2 subset of C</span></div><div class="line" id="222513"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="234213"><span class="nick" style="color:#6d2462"><a href="#234213" label="[23:42:13]">&lt;oriansj&gt;</a></span><span class="message">GNU\Andrew: well I was tempted to write a book on bootstrapping but I was hoping to solve the kernel problem fully first. (Time being sparse as it is for me)</span></div><div class="line" id="234430"><span class="nick" style="color:#6d2462"><a href="#234430" label="[23:44:30]">&lt;oriansj&gt;</a></span><span class="message">based upon stage0-posix of course (probably doing one architecture per book) and covering everything from how to hand toggle in the first bits into memory all the way until you build M2-Planet and a kernel capable of running the remaining steps for the journey to Linux/GCC/Guile</span></div><div class="line" id="234614"><span class="nick" style="color:#6d2462"><a href="#234614" label="[23:46:14]">&lt;oriansj&gt;</a></span><span class="message">with fun little  bits like how to hand make a filesystem, manually populate it with source code for our binaries to build and of course details on all of the magic, how and why.</span></div><div class="line" id="234751"><span class="nick" style="color:#6d2462"><a href="#234751" label="[23:47:51]">&lt;oriansj&gt;</a></span><span class="message">Oh and have a Media set of all of the source code needed to bootstrap everything for all architectures, along with all of the source code in Gnu Guix's package list</span></div><div class="line" id="235015"><span class="nick" style="color:#6d2462"><a href="#235015" label="[23:50:15]">&lt;oriansj&gt;</a></span><span class="message">and after we solve the bootstrapping hardware/libre-lithography problem, I'll add book(s) that would cover everything one would need to make the chips to run the code in the previous books</span></div><div class="line" id="235108"><span class="nick" style="color:#6d2462"><a href="#235108" label="[23:51:08]">&lt;oriansj&gt;</a></span><span class="message">and after we solve the matter compiler problem, I'll either be dead or pulling a Donald Knuth and add even more to what I thought would be a limited set</span></div><br /></div></body></html>

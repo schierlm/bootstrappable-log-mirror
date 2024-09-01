@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-01-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000005"><span class="nick" style="color:#389600"><a href="#000005" label="[00:00:05]">&lt;stikonas&gt;</a></span><span class="message">maybe at some point we should try to advertise it more</span></div><div class="line" id="202853"><span class="nick" style="color:#389600"><a href="#202853" label="[20:28:53]">&lt;stikonas&gt;</a></span><span class="message">hmm, apparently on base address matters a bit even for position independent binaries</span></div><div class="line" id="202935"><span class="nick" style="color:#389600"><a href="#202935" label="[20:29:35]">&lt;stikonas&gt;</a></span><span class="message">ir cannot be too small, e.g. can't be 0 or even 0x1000. But e.g. 0x10000 works</span></div><div class="line" id="202956"><span class="nick" style="color:#389600"><a href="#202956" label="[20:29:56]">&lt;stikonas&gt;</a></span><span class="message">I guess low address range is reserved for something</span></div><div class="line" id="203044"><span class="nick" style="color:#8dd3c7"><a href="#203044" label="[20:30:44]">&lt;oriansj&gt;</a></span><span class="message">stikonas: depends on the architecture. Sometimes for stack. Othertimes it is the memory addresses reserved for system ROM</span></div><div class="line" id="203055"><span class="nick" style="color:#389600"><a href="#203055" label="[20:30:55]">&lt;stikonas&gt;</a></span><span class="message">oriansj: it's amd64</span></div><div class="line" id="203142"><span class="nick" style="color:#389600"><a href="#203142" label="[20:31:42]">&lt;stikonas&gt;</a></span><span class="message">I was updating M0 there to use position independent addresses and also switch to GAS style defines</span></div><div class="line" id="203157"><span class="nick" style="color:#8dd3c7"><a href="#203157" label="[20:31:57]">&lt;oriansj&gt;</a></span><span class="message">Then it is usually stack; as the stack pointer is usually put below the binary so that stack overflow hits the zero page and faults</span></div><div class="line" id="203206"><span class="nick" style="color:#389600"><a href="#203206" label="[20:32:06]">&lt;stikonas&gt;</a></span><span class="message">initially used hex2 without --base-address and it crashed</span></div><div class="line" id="203219"><span class="nick" style="color:#389600"><a href="#203219" label="[20:32:19]">&lt;stikonas&gt;</a></span><span class="message">on the other hand, on UEFI we can use hex2 without --base-address at all</span></div><div class="line" id="203229"><span class="nick" style="color:#389600"><a href="#203229" label="[20:32:29]">&lt;stikonas&gt;</a></span><span class="message">so it must be something in ELF header</span></div><br /></div></body></html>

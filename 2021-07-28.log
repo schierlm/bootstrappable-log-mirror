@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="022855"><span class="nick" style="color:#8dd3c7"><a href="#022855" label="[02:28:55]">&lt;oriansj&gt;</a></span><span class="message">stikonas: yeah, I'll move the files from mescc-tools to stage0-posix</span></div><div class="line" id="023338"><span class="nick" style="color:#2e2a4a"><a href="#023338" label="[02:33:38]">&lt;stikonas&gt;</a></span><span class="message">aren't those in bootstrap-seed</span></div><div class="line" id="023353"><span class="nick" style="color:#2e2a4a"><a href="#023353" label="[02:33:53]">&lt;stikonas&gt;</a></span><span class="message">or maybe there are more files</span></div><div class="line" id="023409"><span class="nick" style="color:#2e2a4a"><a href="#023409" label="[02:34:09]">&lt;stikonas&gt;</a></span><span class="message">I was thinking of bootstrap-seeds/POSIX/PV64/hex0_RV64.S</span></div><div class="line" id="023422"><span class="nick" style="color:#8dd3c7"><a href="#023422" label="[02:34:22]">&lt;oriansj&gt;</a></span><span class="message">stikonas: I thought you were referencing the M0 example in mescc-tools</span></div><div class="line" id="023433"><span class="nick" style="color:#2e2a4a"><a href="#023433" label="[02:34:33]">&lt;stikonas&gt;</a></span><span class="message">no, I meant .S file in bootstrap-seeds</span></div><div class="line" id="023445"><span class="nick" style="color:#8dd3c7"><a href="#023445" label="[02:34:45]">&lt;oriansj&gt;</a></span><span class="message">ok, I'll fix that too</span></div><div class="line" id="023447"><span class="nick" style="color:#2e2a4a"><a href="#023447" label="[02:34:47]">&lt;stikonas&gt;</a></span><span class="message">isn't M0 in mesc-tools actual source file for cc_x86</span></div><div class="line" id="023459"><span class="nick" style="color:#8dd3c7"><a href="#023459" label="[02:34:59]">&lt;oriansj&gt;</a></span><span class="message">nope</span></div><div class="line" id="023510"><span class="nick" style="color:#8dd3c7"><a href="#023510" label="[02:35:10]">&lt;oriansj&gt;</a></span><span class="message">just C version of M0 for knight</span></div><div class="line" id="023554"><span class="nick" style="color:#8dd3c7"><a href="#023554" label="[02:35:54]">&lt;oriansj&gt;</a></span><span class="message">the C code for the cc_* are in <a rel="nofollow" href="https://github.com/oriansj/stage0/tree/master/stage2/High_level_prototypes">https://github.com/oriansj/stage0/tree/master/stage2/High_level_prototypes</a> </span></div><div class="line" id="023733"><span class="nick" style="color:#8dd3c7"><a href="#023733" label="[02:37:33]">&lt;oriansj&gt;</a></span><span class="message">along with this masterpiece of efficient FORTH programming: <a rel="nofollow" href="https://github.com/oriansj/stage0/blob/master/stage2/High_level_prototypes/forth/FORTH.c">https://github.com/oriansj/stage0/blob/master/stage2/High_level_prototypes/forth/FORTH.c</a> </span></div><div class="line" id="030743"><span class="nick" style="color:#8dd3c7"><a href="#030743" label="[03:07:43]">&lt;oriansj&gt;</a></span><span class="message">well C version of hex2 really has grown to deal with a great deal of architecture specific crap</span></div><div class="line" id="030840"><span class="nick" style="color:#8dd3c7"><a href="#030840" label="[03:08:40]">&lt;oriansj&gt;</a></span><span class="message">and 208 lines of dealing with just the arguments</span></div><div class="line" id="055140"><span class="nick" style="color:#8dd3c7"><a href="#055140" label="[05:51:40]">&lt;oriansj&gt;</a></span><span class="message">stikonas[m]: I have a very rough draft of word based support in hex2 up in the latest commit.</span></div><div class="line" id="055203"><span class="nick" style="color:#8dd3c7"><a href="#055203" label="[05:52:03]">&lt;oriansj&gt;</a></span><span class="message">The logic is entirely in hex2_word.c</span></div><div class="line" id="055559"><span class="nick" style="color:#8dd3c7"><a href="#055559" label="[05:55:59]">&lt;oriansj&gt;</a></span><span class="message">I've only confirmed the essentials but the jump and branch immdiate block bits might be wrong. Could you please do a sanity check.</span></div><div class="line" id="075144"><span class="nick" style="color:#6b8072"><a href="#075144" label="[07:51:44]">&lt;siraben&gt;</a></span><span class="message">oriansj: lol I love that forth.c file</span></div><div class="line" id="075149"><span class="nick" style="color:#6b8072"><a href="#075149" label="[07:51:49]">&lt;siraben&gt;</a></span><span class="message">##forth would have a field day with that</span></div><div class="line" id="075201"><span class="nick" style="color:#6b8072"><a href="#075201" label="[07:52:01]">&lt;siraben&gt;</a></span><span class="message">but truly and honestly, Forth is not a bootstrapping language</span></div><div class="line" id="075208"><span class="nick" style="color:#6b8072"><a href="#075208" label="[07:52:08]">&lt;siraben&gt;</a></span><span class="message">the language prevents you from building up abstractions well</span></div><div class="line" id="092343"><span class="nick" style="color:#80b1d3"><a href="#092343" label="[09:23:43]">&lt;stikonas[m]&gt;</a></span><span class="message">oriansj: I'll check in (European) evening today</span></div><div class="line" id="150121"><span class="nick" style="color:#8dd3c7"><a href="#150121" label="[15:01:21]">&lt;oriansj&gt;</a></span><span class="message">The big question is are U format instruction relative displacement or absolute addresses</span></div><div class="line" id="153518"><span class="nick" style="color:#2e2a4a"><a href="#153518" label="[15:35:18]">&lt;stikonas&gt;</a></span><span class="message">oriansj: U format is relative</span></div><div class="line" id="153531"><span class="nick" style="color:#2e2a4a"><a href="#153531" label="[15:35:31]">&lt;stikonas&gt;</a></span><span class="message">it's relative to program counter</span></div><div class="line" id="153544"><span class="nick" style="color:#2e2a4a"><a href="#153544" label="[15:35:44]">&lt;stikonas&gt;</a></span><span class="message">at least auipc instruction is</span></div><div class="line" id="153634"><span class="nick" style="color:#8dd3c7"><a href="#153634" label="[15:36:34]">&lt;oriansj&gt;</a></span><span class="message">stikonas: good, then as it is now, should function for your needs</span></div><div class="line" id="153706"><span class="nick" style="color:#2e2a4a"><a href="#153706" label="[15:37:06]">&lt;stikonas&gt;</a></span><span class="message">well, I'll check this evening...</span></div><div class="line" id="153728"><span class="nick" style="color:#2e2a4a"><a href="#153728" label="[15:37:28]">&lt;stikonas&gt;</a></span><span class="message">although, before I start writing hex1, I might do kaem too, we'll see</span></div><div class="line" id="163350"><span class="nick" style="color:#8dd3c7"><a href="#163350" label="[16:33:50]">&lt;oriansj&gt;</a></span><span class="message">I'll start on matching work for M1 as otherwise all immediates will be of the jump and load relative type.</span></div><div class="line" id="231229"><span class="nick">***</span><span class="message notice">jackhill is now known as KM4MBG</span></div><br /></div></body></html>

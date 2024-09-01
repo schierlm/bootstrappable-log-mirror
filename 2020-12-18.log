@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-12-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011450"><span class="nick" style="color:#8dd3c7"><a href="#011450" label="[01:14:50]">&lt;OriansJ&gt;</a></span><span class="message">and the build for raw in blynn-compiler is now in much smaller pieces</span></div><div class="line" id="034149"><span class="nick" style="color:#2e2a4a"><a href="#034149" label="[03:41:49]">&lt;siraben&gt;</a></span><span class="message">OriansJ: Just saw your commits, looks good!</span></div><div class="line" id="045719"><span class="nick" style="color:#6b8072"><a href="#045719" label="[04:57:19]">&lt;pder&gt;</a></span><span class="message">Thanks for your work on blynn-compiler OriansJ.  What does the option --rts_c stand for?  I wonder if this could be clearer</span></div><div class="line" id="090216"><span class="nick" style="color:#2e2a4a"><a href="#090216" label="[09:02:16]">&lt;siraben&gt;</a></span><span class="message">pder: I think I'll move my PR to OriansJ's master so everyone's branches can just rebase</span></div><div class="line" id="110548"><span class="nick" style="color:#2e2a4a"><a href="#110548" label="[11:05:48]">&lt;siraben&gt;</a></span><span class="message">OriansJ: I have rebased my branch and opened a PR on your master</span></div><div class="line" id="124238"><span class="nick" style="color:#80b1d3"><a href="#124238" label="[12:42:38]">&lt;yt_&gt;</a></span><span class="message">deesix: OriansJ: I think my slight preference is towards standardising on the wasteful stack using SP. I found it helpful when debugging that objdump and gdb were matching what the M1/M0 macros were saying.</span></div><div class="line" id="124738"><span class="nick" style="color:#80b1d3"><a href="#124738" label="[12:47:38]">&lt;yt_&gt;</a></span><span class="message">on a related note, I've been wondering if it is possible for M2-Planet to maintain a frame pointer and a chain of (minimal) stack frames (just LR and FP) and if that would be enough for gdb to generate stack traces</span></div><div class="line" id="125605"><span class="nick" style="color:#2e2a4a"><a href="#125605" label="[12:56:05]">&lt;siraben&gt;</a></span><span class="message">OriansJ: thanks for merging</span></div><div class="line" id="140050"><span class="nick" style="color:#6d2462"><a href="#140050" label="[14:00:50]">&lt;deesix&gt;</a></span><span class="message">yt, I don't know what gdb needs for stack traces; maybe OriansJ knows. As for the matching asm, do you mean something more like 'str x0, [sp, #-16]!' instead of PUSH_X</span></div><div class="line" id="140053"><span class="nick" style="color:#6d2462"><a href="#140053" label="[14:00:53]">&lt;deesix&gt;</a></span><span class="message">0? 'mov x8, #0xd6' instead of SET_X8_TO_SYS_BRK? What about the &quot;ahead&quot; and &quot;skip&quot; sets, that objdump prints with actual addrs? Maybe I'm reading too much and you only</span></div><div class="line" id="140100"><span class="nick" style="color:#6d2462"><a href="#140100" label="[14:01:00]">&lt;deesix&gt;</a></span><span class="message"> talk about the sp/x18 confusion...</span></div><div class="line" id="140302"><span class="nick" style="color:#6d2462"><a href="#140302" label="[14:03:02]">&lt;deesix&gt;</a></span><span class="message">(sorry for the broken lines)</span></div><div class="line" id="145756"><span class="nick" style="color:#6b8072"><a href="#145756" label="[14:57:56]">&lt;pder&gt;</a></span><span class="message">siraben, thanks for your work on the ghc wrappers</span></div><div class="line" id="145907"><span class="nick" style="color:#2e2a4a"><a href="#145907" label="[14:59:07]">&lt;siraben&gt;</a></span><span class="message">pder: no problem, as always would be happy to answer questions</span></div><div class="line" id="145943"><span class="nick" style="color:#2e2a4a"><a href="#145943" label="[14:59:43]">&lt;siraben&gt;</a></span><span class="message">i've been reading some of the Haskell code recently and oh my it's such a powerful subset</span></div><div class="line" id="145950"><span class="nick" style="color:#2e2a4a"><a href="#145950" label="[14:59:50]">&lt;siraben&gt;</a></span><span class="message">very idiomatic</span></div><div class="line" id="150528"><span class="nick" style="color:#234e69"><a href="#150528" label="[15:05:28]">&lt;mihi&gt;</a></span><span class="message">hi OriansJ et al, are you interested in contributions to mescc-tools(-seed) that &quot;only&quot; make the bootstrap (significantly) faster? All tests on x86 32-bit linux.</span></div><div class="line" id="150648"><span class="nick" style="color:#234e69"><a href="#150648" label="[15:06:48]">&lt;mihi&gt;</a></span><span class="message">First I changed hex2_linker.c to use a hash table instead of the linear jump_table list (similar to how M1 does it) and it improves hex2 speed compiling m2-planet on itself by 33% (or 80% when using gcc-compiled hex2)</span></div><div class="line" id="150755"><span class="nick" style="color:#234e69"><a href="#150755" label="[15:07:55]">&lt;mihi&gt;</a></span><span class="message">then I tried to rewrite hex2_linker (named fasthex_linker) to use pointer lookup tables instead of the if cascades (due to a lack of optimized switch statement) and it saves another 75% when built with gcc, but unfortunately does not build with m2-planet...</span></div><div class="line" id="150943"><span class="nick" style="color:#234e69"><a href="#150943" label="[15:09:43]">&lt;mihi&gt;</a></span><span class="message">And last I implemented I/O buffering in functions/file.c, which improves the hex2 speed (and also speed of other tools) when compiled with m2-planet by another 80%. But that one either requires a function call to opt-in or change of all tools to properly fclose() their fopen()ed files...</span></div><div class="line" id="151023"><span class="nick" style="color:#234e69"><a href="#151023" label="[15:10:23]">&lt;mihi&gt;</a></span><span class="message">all in all, &gt;90% of the mescc-tools time (so M1, blood-elf, hex2) is spent in hex2, so I looked at optimizing that one first</span></div><div class="line" id="151128"><span class="nick" style="color:#234e69"><a href="#151128" label="[15:11:28]">&lt;mihi&gt;</a></span><span class="message">blood-elf could also get a cosmetic fix that avoids reversing the jump table, but I doubt the speed increase is noticable</span></div><div class="line" id="151215"><span class="nick" style="color:#234e69"><a href="#151215" label="[15:12:15]">&lt;mihi&gt;</a></span><span class="message">before I try to clean up my current mess and send pull requests, I wanted to ask if you are even interested in them. They do add some complexity to the bootstrap code, but on the other hand they make working with the tools much faster.</span></div><div class="line" id="151623"><span class="nick" style="color:#234e69"><a href="#151623" label="[15:16:23]">&lt;mihi&gt;</a></span><span class="message">some questions about M2-planet: I noticed that apart from increment/decrement, static functions, switch statements and typecasts (which are easy to code around), also the &amp; operator is not supported. I can work around by calloc'ing a buffer, writing the value there, and passing the buffer instead, but I wonder if there is an easier / more efficient way available that I'm missing?</span></div><div class="line" id="151938"><span class="nick" style="color:#234e69"><a href="#151938" label="[15:19:38]">&lt;mihi&gt;</a></span><span class="message">and about the library: was there a point (I'm missing) in renaming fputs to file_print in the &quot;standard library&quot;? Also, I don't see the benefits of in_set. All invocations I've seen can be easily rewritten to constructs (x == 'a' || x == 'c' || x == 'd') that are neither harder to write or harder to read, and a lot easier to optimize by a decent C compiler.</span></div><div class="line" id="152027"><span class="nick" style="color:#234e69"><a href="#152027" label="[15:20:27]">&lt;mihi&gt;</a></span><span class="message">that being said, I think both the code quality and the documentation of mescc-tools-seed are very good :-)</span></div><div class="line" id="152914"><span class="nick" style="color:#234e69"><a href="#152914" label="[15:29:14]">&lt;mihi&gt;</a></span><span class="message">unlike the documentation quality of GNU mes (ping janneke :D) - I'm trying for some while to just get it built on Debian. I think I have the prereqs from INSTALL file installed, yet ./configure --prefix=/opt/mes &amp;&amp; make stops with a nondescriptive error message in GNUmakefile:95...</span></div><div class="line" id="153001"><span class="nick" style="color:#2e2a4a"><a href="#153001" label="[15:30:01]">&lt;siraben&gt;</a></span><span class="message">mihi: wow those those optimizations sound great! thanks for your preliminary work!</span></div><div class="line" id="153007"><span class="nick" style="color:#234e69"><a href="#153007" label="[15:30:07]">&lt;mihi&gt;</a></span><span class="message">(I once was able to build it, but then I made the mistake to &quot;make install&quot; it (to the default prefix of /usr/local), which messed with the tcc installed there by overwriting/shadowing some include files. Then I decided to throw away the VM and start from scratch</span></div><div class="line" id="153302"><span class="nick" style="color:#6b8072"><a href="#153302" label="[15:33:02]">&lt;pder&gt;</a></span><span class="message">mihi: that is great!  thanks for your work</span></div><div class="line" id="154347"><span class="nick" style="color:#234e69"><a href="#154347" label="[15:43:47]">&lt;mihi&gt;</a></span><span class="message">OK, when I manually remove GUILD_OPTIMIZE from config.sh, mes at least starts building</span></div><div class="line" id="154600"><span class="nick" style="color:#234e69"><a href="#154600" label="[15:46:00]">&lt;mihi&gt;</a></span><span class="message">also, when tcc is in $PATH and not passing CC=gcc to ./configure, the build segfaults :-O</span></div><div class="line" id="154721"><span class="nick" style="color:#234e69"><a href="#154721" label="[15:47:21]">&lt;mihi&gt;</a></span><span class="message">so, preliminary result is to try &quot;./configure CC=gcc GUILD_OPTIMIZE= prefix=/opt/mes&quot; and see how far it gets</span></div><div class="line" id="154917"><span class="nick" style="color:#6c3d55"><a href="#154917" label="[15:49:17]">&lt;xentrac&gt;</a></span><span class="message">I'm not qualified to comment on whether the specific changes you've made are good tradeoffs, or to answer your questions, but I'm very glad to see you working on them!</span></div><div class="line" id="155008"><span class="nick" style="color:#6c3d55"><a href="#155008" label="[15:50:08]">&lt;xentrac&gt;</a></span><span class="message">I think in general there's a tradeoff between extreme simplicity/auditability and performance, but that doesn't imply that the current state of things is Pareto optimal</span></div><div class="line" id="190126"><span class="nick" style="color:#234e69"><a href="#190126" label="[19:01:26]">&lt;mihi&gt;</a></span><span class="message">I think I found a bug in mescc (unless this is covered by nasal daemons somehow). Taking the remainder of an unsigned integer with a positive constant can return a negative result :-( <a rel="nofollow" href="https://paste.debian.net/hidden/1e68b241/">https://paste.debian.net/hidden/1e68b241/</a> </span></div><div class="line" id="190208"><span class="nick" style="color:#234e69"><a href="#190208" label="[19:02:08]">&lt;mihi&gt;</a></span><span class="message">I know there is overflow involved, but I thought overflow on unsigned types to be well-defined (and not nasal daemons)</span></div><div class="line" id="190350"><span class="nick" style="color:#234e69"><a href="#190350" label="[19:03:50]">&lt;mihi&gt;</a></span><span class="message">after adding a workaround for this bug, my fasthex2_linker also compiles with mescc. But it runs even slower than hex2_linker compiled with outbuffer-enabled M2-planet</span></div><div class="line" id="190429"><span class="nick" style="color:#234e69"><a href="#190429" label="[19:04:29]">&lt;mihi&gt;</a></span><span class="message">probably because the libc functions called by it do not implement output buffering either :)</span></div><div class="line" id="192756"><span class="nick" style="color:#d9d9d9"><a href="#192756" label="[19:27:56]">&lt;janneke&gt;</a></span><span class="message">mihi: sorry to hear that</span></div><div class="line" id="192818"><span class="nick" style="color:#d9d9d9"><a href="#192818" label="[19:28:18]">&lt;janneke&gt;</a></span><span class="message">ah, and you found a bug; great!</span></div><div class="line" id="192902"><span class="nick" style="color:#234e69"><a href="#192902" label="[19:29:02]">&lt;mihi&gt;</a></span><span class="message">janneke, on the positive side, I got it running :)</span></div><div class="line" id="192942"><span class="nick" style="color:#d9d9d9"><a href="#192942" label="[19:29:42]">&lt;janneke&gt;</a></span><span class="message">hehe</span></div><div class="line" id="193000"><span class="nick" style="color:#234e69"><a href="#193000" label="[19:30:00]">&lt;mihi&gt;</a></span><span class="message">MES=guile /opt/mes/bin/mescc -L /opt/mes/lib -l c+gnu *.c -o mescc-bin</span></div><div class="line" id="193004"><span class="nick" style="color:#bc80bd"><a href="#193004" label="[19:30:04]">*</a></span><span class="message">janneke is hunting down a mes-tcc arm miscompilation problem</span></div><div class="line" id="193121"><span class="nick" style="color:#234e69"><a href="#193121" label="[19:31:21]">&lt;mihi&gt;</a></span><span class="message">also, backtraces from m2-planet + blood-elf look prettier than mescc ones, so to track down the bug I went back to printf debugging...</span></div><div class="line" id="193317"><span class="nick" style="color:#d9d9d9"><a href="#193317" label="[19:33:17]">&lt;janneke&gt;</a></span><span class="message">hmm</span></div><div class="line" id="193327"><span class="nick" style="color:#d9d9d9"><a href="#193327" label="[19:33:27]">&lt;janneke&gt;</a></span><span class="message">more room for improvement ;)</span></div><div class="line" id="200755"><span class="nick" style="color:#6b8072"><a href="#200755" label="[20:07:55]">&lt;pder&gt;</a></span><span class="message">I pushed another branch for blynn-compiler named marginally-m2-wip.  I was able to modify virtually.hs to generate M2-Planet compatible code when outputing marginally.c.  Unfortunately M2-Planet crashes when trying to compile this file.  It looks like a stack overflow on recursive_output().  I suspect it is related to the tens of thousands of calls to initalize the prog array one element at</span></div><div class="line" id="200757"><span class="nick" style="color:#6b8072"><a href="#200757" label="[20:07:57]">&lt;pder&gt;</a></span><span class="message">a time.</span></div><div class="line" id="200827"><span class="nick" style="color:#6b8072"><a href="#200827" label="[20:08:27]">&lt;pder&gt;</a></span><span class="message">You can reproduce by running make marginally.c followed by ./marginally.sh</span></div><div class="line" id="202053"><span class="nick" style="color:#2e2a4a"><a href="#202053" label="[20:20:53]">&lt;siraben&gt;</a></span><span class="message">pder: ooh getting marginally to compile would be a big improvement because the haskell syntax now becomes whitespace sensitive</span></div><div class="line" id="202138"><span class="nick" style="color:#2e2a4a"><a href="#202138" label="[20:21:38]">&lt;siraben&gt;</a></span><span class="message">auto formatting/linting tools and so on would work even better</span></div><div class="line" id="203105"><span class="nick" style="color:#6b8072"><a href="#203105" label="[20:31:05]">&lt;pder&gt;</a></span><span class="message">siraben: if you check out my branch, I am curious how to handle to ffi generation.</span></div><div class="line" id="203140"><span class="nick" style="color:#6b8072"><a href="#203140" label="[20:31:40]">&lt;pder&gt;</a></span><span class="message">I need to replace putchar(n) with fputc(n, stdout)</span></div><div class="line" id="203152"><span class="nick" style="color:#6b8072"><a href="#203152" label="[20:31:52]">&lt;pder&gt;</a></span><span class="message">and getchar() with fgetc(stdin)</span></div><div class="line" id="203213"><span class="nick" style="color:#6b8072"><a href="#203213" label="[20:32:13]">&lt;pder&gt;</a></span><span class="message">Just run make marginally.c</span></div><div class="line" id="203330"><span class="nick" style="color:#6b8072"><a href="#203330" label="[20:33:30]">&lt;pder&gt;</a></span><span class="message">It appears M2-Planet does not like calling prog[n] = x;  tens of thousands of times in a row</span></div><div class="line" id="204231"><span class="nick" style="color:#3c5b35"><a href="#204231" label="[20:42:31]">&lt;stikonas&gt;</a></span><span class="message">sorry, I wasn't following blynn-compiler stuff very closely. Is marginally.c supposed to be compiled into native executable, so that bin/vm is no longer required?</span></div><div class="line" id="211224"><span class="nick" style="color:#6b8072"><a href="#211224" label="[21:12:24]">&lt;pder&gt;</a></span><span class="message">stikonas: the virtually.hs compiler contains code that is similar to what is in vm.c however, there are some bits that are generated dynamically, such as the run() function</span></div><div class="line" id="211337"><span class="nick" style="color:#6b8072"><a href="#211337" label="[21:13:37]">&lt;pder&gt;</a></span><span class="message">so running virtually with marginally.hs as input outputs c code that can be compiled for the next stage</span></div><div class="line" id="211420"><span class="nick" style="color:#6b8072"><a href="#211420" label="[21:14:20]">&lt;pder&gt;</a></span><span class="message">I've been working on making the marginally.c output M2-Planet compatible</span></div><div class="line" id="223808"><span class="nick" style="color:#234e69"><a href="#223808" label="[22:38:08]">&lt;mihi&gt;</a></span><span class="message">OriansJ, pull request for you: <a rel="nofollow" href="https://github.com/oriansj/mes-m2/pull/7">https://github.com/oriansj/mes-m2/pull/7</a>  (making mes-m2 buildable by (vanilla) Mes)</span></div><div class="line" id="223841"><span class="nick" style="color:#234e69"><a href="#223841" label="[22:38:41]">&lt;mihi&gt;</a></span><span class="message">still builds with M2-Planet and with gcc, of course.</span></div><br /></div></body></html>

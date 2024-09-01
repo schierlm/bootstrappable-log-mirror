@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-12-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013315"><span class="nick" style="color:#8dd3c7"><a href="#013315" label="[01:33:15]">&lt;oriansj&gt;</a></span><span class="message">pder: that is a known issue if M2-Planet isn't on commit 64a3a1b6740ea027ca04b866270431d57ae89cb6 or later</span></div><div class="line" id="013324"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="013625"><span class="nick" style="color:#8dd3c7"><a href="#013625" label="[01:36:25]">&lt;oriansj&gt;</a></span><span class="message">xentrac: in which case, I'd argue to not buffer the output as it will save bytes and make for smaller binary <a rel="nofollow" href="https://paste.debian.net/1121327/">https://paste.debian.net/1121327/</a> </span></div><div class="line" id="025052"><span class="nick" style="color:#8dd3c7"><a href="#025052" label="[02:50:52]">&lt;oriansj&gt;</a></span><span class="message">xentrac: it saves more than 10 bytes (only 78 in this version I wrote) <a rel="nofollow" href="https://paste.debian.net/1121331/">https://paste.debian.net/1121331/</a> </span></div><div class="line" id="034041"><span class="nick" style="color:#2e2a4a"><a href="#034041" label="[03:40:41]">&lt;xentrac&gt;</a></span><span class="message">oriansj: I did indeed start with a version that doesn't buffer the output, but then concluded that to add further functionality like composing bytes out of bitfields, much less backpatching forward jumps for conditionals, you need some kind of buffering.  in your work you delegate the backpatching part to a separate linker which has most of the complexity of an assembler</span></div><div class="line" id="034101"><span class="nick" style="color:#2e2a4a"><a href="#034101" label="[03:41:01]">&lt;xentrac&gt;</a></span><span class="message">although I wonder if you can eliminate backpatching entirely if you just use conditional returns, hmm</span></div><div class="line" id="034224"><span class="nick" style="color:#2e2a4a"><a href="#034224" label="[03:42:24]">&lt;xentrac&gt;</a></span><span class="message">heh, I like &quot;Call it a good day&quot;</span></div><div class="line" id="035454"><span class="nick" style="color:#2e2a4a"><a href="#035454" label="[03:54:54]">&lt;xentrac&gt;</a></span><span class="message">oriansj: I think your code erroneously interprets input byte decimal 252 as EOF</span></div><div class="line" id="035522"><span class="nick" style="color:#2e2a4a"><a href="#035522" label="[03:55:22]">&lt;xentrac&gt;</a></span><span class="message">well. I guess whether it's erroneous is in the eye of the beholder</span></div><div class="line" id="035610"><span class="nick" style="color:#2e2a4a"><a href="#035610" label="[03:56:10]">&lt;xentrac&gt;</a></span><span class="message">it's probably justified to assume that read(2) won't touch the buffer on EOF, but that isn't part of its documented interface</span></div><div class="line" id="101052"><span class="nick">***</span><span class="message notice">xwvvvvwx- is now known as xwvvvvwx</span></div><div class="line" id="101052"><span class="nick">***</span><span class="message notice">apetresc_ is now known as apetresc</span></div><div class="line" id="121041"><span class="nick" style="color:#8dd3c7"><a href="#121041" label="[12:10:41]">&lt;oriansj&gt;</a></span><span class="message">xentrac: no need to do backpatching if you are simply a 2 pass assembler, simply read the addresses of the labels on the first pass and on the second pass dump the output as you go. makes for a simpler implementation.</span></div><div class="line" id="121323"><span class="nick" style="color:#8dd3c7"><a href="#121323" label="[12:13:23]">&lt;oriansj&gt;</a></span><span class="message">the -4 for EOF is because it maps to ctrl-d in legacy TTYs, which is a reasonable compromise if one assumes only ASCII inputs (utf-8 has no place in bootstrapping, prior to a proper C compiler)</span></div><div class="line" id="121749"><span class="nick" style="color:#8dd3c7"><a href="#121749" label="[12:17:49]">&lt;oriansj&gt;</a></span><span class="message">as for why my linker has most of the complexity of an assembler; it is because M0/M1 is designed to be built upon hex2 and not including that functionality allowed me to make M0/M1 smaller and simpler to understand and implement. (remember M0 had to be written in hex2). now you are correct if one wanted to write a real assembler in a higher language than hex2; there are many things they would want to include (syntax checking for 1).</span></div><div class="line" id="131356"><span class="nick" style="color:#6b8072"><a href="#131356" label="[13:13:56]">&lt;CORDIC&gt;</a></span><span class="message">&quot;&quot;Second Pass&quot;&quot; requires a Buffer, IMHO.</span></div><div class="line" id="131512"><span class="nick" style="color:#6b8072"><a href="#131512" label="[13:15:12]">&lt;CORDIC&gt;</a></span><span class="message">And it is obvious.</span></div><div class="line" id="133719"><span class="nick" style="color:#80b1d3"><a href="#133719" label="[13:37:19]">&lt;ng0&gt;</a></span><span class="message">is gash-devel@nongnu.org a mailinglist? nothing in the release announcement clarifies this</span></div><div class="line" id="133755"><span class="nick" style="color:#80b1d3"><a href="#133755" label="[13:37:55]">&lt;ng0&gt;</a></span><span class="message">i have a couple of patches to send for fixing a build, or at least i need to write them and i don't like vendoring patches</span></div><div class="line" id="134151"><span class="nick" style="color:#6d2462"><a href="#134151" label="[13:41:51]">&lt;janneke&gt;</a></span><span class="message">ng0: this page <a rel="nofollow" href="https://lists.nongnu.org/mailman/listinfo/gash-devel">https://lists.nongnu.org/mailman/listinfo/gash-devel</a>  suggests that the address is `gash-devel@gnu.org'</span></div><div class="line" id="134205"><span class="nick" style="color:#80b1d3"><a href="#134205" label="[13:42:05]">&lt;ng0&gt;</a></span><span class="message">ok, thanks</span></div><div class="line" id="134231"><span class="nick" style="color:#80b1d3"><a href="#134231" label="[13:42:31]">&lt;ng0&gt;</a></span><span class="message">then the announcement had the wrong address</span></div><div class="line" id="134552"><span class="nick" style="color:#6d2462"><a href="#134552" label="[13:45:52]">&lt;janneke&gt;</a></span><span class="message">ng0: i'm testing @nongnu.org right now</span></div><div class="line" id="134728"><span class="nick" style="color:#80b1d3"><a href="#134728" label="[13:47:28]">&lt;ng0&gt;</a></span><span class="message">all i run into is git being called during the build and i need to make the date invocation more portable. I'll have more once I can get back to it, my bulkbuild is running now, could be a couple of days</span></div><div class="line" id="134749"><span class="nick" style="color:#80b1d3"><a href="#134749" label="[13:47:49]">&lt;ng0&gt;</a></span><span class="message">git call is not fatal, but date is</span></div><div class="line" id="134825"><span class="nick" style="color:#2e2a4a"><a href="#134825" label="[13:48:25]">&lt;xentrac&gt;</a></span><span class="message">oriansj: shouldn't ^D be +4, not -4?</span></div><div class="line" id="134838"><span class="nick" style="color:#6d2462"><a href="#134838" label="[13:48:38]">&lt;janneke&gt;</a></span><span class="message">ng0: thanks for reporting, upstream loves you for that</span></div><div class="line" id="134915"><span class="nick" style="color:#80b1d3"><a href="#134915" label="[13:49:15]">&lt;ng0&gt;</a></span><span class="message">i mean, i will report it myself :) I'm probably the only one besides guix who packages it right now</span></div><div class="line" id="134958"><span class="nick" style="color:#80b1d3"><a href="#134958" label="[13:49:58]">&lt;ng0&gt;</a></span><span class="message">had gash in pkgsrc-wip in spring i think and for a while now in pkgsrc as shells/guile-gash</span></div><div class="line" id="150652"><span class="nick">***</span><span class="message notice">deesix_ is now known as deesix</span></div><div class="line" id="153221"><span class="nick" style="color:#234e69"><a href="#153221" label="[15:32:21]">&lt;pder1&gt;</a></span><span class="message">oriansj: thanks, I figured out what was going on.  If I had commit 64a3a1b674 checked out in M2-Planet the mescc-tool-seed build would fail for both x86 and AMD64.  The reason is due to mescc-tools-seed containing an out of date amd64_defs.M1 and x86_defs.M1 that didn't have the new instruction added in M2-Planet.</span></div><div class="line" id="153307"><span class="nick" style="color:#234e69"><a href="#153307" label="[15:33:07]">&lt;pder1&gt;</a></span><span class="message">Copying the defs file from M2-Planet into mescc-tools-seed/x86 or amd64 fixed the build and the mes-m2 tests pass.</span></div><div class="line" id="161134"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="161432"><span class="nick" style="color:#6d2462"><a href="#161432" label="[16:14:32]">&lt;janneke&gt;</a></span><span class="message">ng0: what distro/xxx are you packaging gash for?</span></div><div class="line" id="161443"><span class="nick" style="color:#80b1d3"><a href="#161443" label="[16:14:43]">&lt;ng0&gt;</a></span><span class="message">everything pkgsrc targets</span></div><div class="line" id="161450"><span class="nick" style="color:#80b1d3"><a href="#161450" label="[16:14:50]">&lt;ng0&gt;</a></span><span class="message">*every OS</span></div><div class="line" id="161456"><span class="nick" style="color:#6d2462"><a href="#161456" label="[16:14:56]">&lt;janneke&gt;</a></span><span class="message">what is pkgsrc?</span></div><div class="line" id="161509"><span class="nick" style="color:#6c3d55"><a href="#161509" label="[16:15:09]">*</a></span><span class="message">janneke shows their ignorance</span></div><div class="line" id="161511"><span class="nick" style="color:#80b1d3"><a href="#161511" label="[16:15:11]">&lt;ng0&gt;</a></span><span class="message">a cross-system package distribution</span></div><div class="line" id="161521"><span class="nick" style="color:#80b1d3"><a href="#161521" label="[16:15:21]">&lt;ng0&gt;</a></span><span class="message">exists since the 90s</span></div><div class="line" id="161537"><span class="nick" style="color:#6d2462"><a href="#161537" label="[16:15:37]">&lt;janneke&gt;</a></span><span class="message">ah</span></div><div class="line" id="161539"><span class="nick" style="color:#80b1d3"><a href="#161539" label="[16:15:39]">&lt;ng0&gt;</a></span><span class="message"> <a rel="nofollow" href="http://pkgsrc.org">http://pkgsrc.org</a> </span></div><div class="line" id="161845"><span class="nick" style="color:#80b1d3"><a href="#161845" label="[16:18:45]">&lt;ng0&gt;</a></span><span class="message">i mean, i only test on NetBSD, but there are bulk builds which test on all (/almost all?) platforms and OS'.</span></div><div class="line" id="162047"><span class="nick" style="color:#6d2462"><a href="#162047" label="[16:20:47]">&lt;janneke&gt;</a></span><span class="message">is that the `pkg' command on e.g. freebsd?  i'm trying to browse the user manual, but all commands seem prefixed with pkg_ so it seems to be something else?</span></div><div class="line" id="162102"><span class="nick" style="color:#80b1d3"><a href="#162102" label="[16:21:02]">&lt;ng0&gt;</a></span><span class="message">no, they are not similar. but share a common root</span></div><div class="line" id="162200"><span class="nick" style="color:#6c3d55"><a href="#162200" label="[16:22:00]">*</a></span><span class="message">ng0 tries to remember history</span></div><div class="line" id="162202"><span class="nick" style="color:#80b1d3"><a href="#162202" label="[16:22:02]">&lt;ng0&gt;</a></span><span class="message">one moment</span></div><div class="line" id="162730"><span class="nick" style="color:#80b1d3"><a href="#162730" label="[16:27:30]">&lt;ng0&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.netbsd.org/docs/pkgsrc/introduction.html">https://www.netbsd.org/docs/pkgsrc/introduction.html</a>  this, and i think the focus with freebsd ports is elsewhere. maybe this interview part helps to understand why there's a smiliarity: <a rel="nofollow" href="https://www.netbsd.org/gallery/10years.html#alcrooks">https://www.netbsd.org/gallery/10years.html#alcrooks</a> </span></div><div class="line" id="201406"><span class="nick">***</span><span class="message notice">awilfox_ is now known as awilfox</span></div><br /></div></body></html>

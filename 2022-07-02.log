@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-07-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="223719"><span class="nick" style="color:#8dd3c7"><a href="#223719" label="[22:37:19]">&lt;stikonas&gt;</a></span><span class="message">Guest34: hi again</span></div><div class="line" id="223727"><span class="nick" style="color:#2e2a4a"><a href="#223727" label="[22:37:27]">&lt;Guest34&gt;</a></span><span class="message">Hello!</span></div><div class="line" id="223729"><span class="nick" style="color:#8dd3c7"><a href="#223729" label="[22:37:29]">&lt;stikonas&gt;</a></span><span class="message">Guest34: take a look at long bootstrap of GCC on x86 <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst">https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst</a> </span></div><div class="line" id="223755"><span class="nick" style="color:#8dd3c7"><a href="#223755" label="[22:37:55]">&lt;stikonas&gt;</a></span><span class="message">so for riscv we can only do firrst 3 and a half steps</span></div><div class="line" id="223924"><span class="nick" style="color:#2e2a4a"><a href="#223924" label="[22:39:24]">&lt;Guest34&gt;</a></span><span class="message">OK, thanks for this exact reference. So is it because of a lack of a Mes interpreter?</span></div><div class="line" id="223934"><span class="nick" style="color:#2e2a4a"><a href="#223934" label="[22:39:34]">&lt;Guest34&gt;</a></span><span class="message">for RISC-V?</span></div><div class="line" id="223952"><span class="nick" style="color:#8dd3c7"><a href="#223952" label="[22:39:52]">&lt;stikonas&gt;</a></span><span class="message">mes interpreter can be ported fairly easily to riscv but mescc compiler (written in scheme) that mes interprets is not done</span></div><div class="line" id="223957"><span class="nick" style="color:#8dd3c7"><a href="#223957" label="[22:39:57]">&lt;stikonas&gt;</a></span><span class="message">(hence 3.5 steps)</span></div><div class="line" id="224053"><span class="nick" style="color:#8dd3c7"><a href="#224053" label="[22:40:53]">&lt;stikonas&gt;</a></span><span class="message">and there will be a few more tricky steps later...</span></div><div class="line" id="224108"><span class="nick" style="color:#8dd3c7"><a href="#224108" label="[22:41:08]">&lt;stikonas&gt;</a></span><span class="message">such as porting risc-v support to older GCC, etc...</span></div><div class="line" id="224116"><span class="nick" style="color:#8dd3c7"><a href="#224116" label="[22:41:16]">&lt;stikonas&gt;</a></span><span class="message">so that might take a long time to do if we are ever able to</span></div><div class="line" id="224124"><span class="nick" style="color:#8dd3c7"><a href="#224124" label="[22:41:24]">&lt;stikonas&gt;</a></span><span class="message">note that we don't even have it working on x86_64</span></div><div class="line" id="224129"><span class="nick" style="color:#8dd3c7"><a href="#224129" label="[22:41:29]">&lt;stikonas&gt;</a></span><span class="message">only actual x86</span></div><div class="line" id="224637"><span class="nick" style="color:#2e2a4a"><a href="#224637" label="[22:46:37]">&lt;Guest34&gt;</a></span><span class="message">OK! Thank you. So, work needs to be done. Once it get more familiar with all of this, I may try to make it happen (unless somebody would have done it before, most likely). It is going to take a lot of time from my side to dive into it. Though I like all of this, the fact that I have another time-taking primary occupation (not even related to</span></div><div class="line" id="224637"><span class="nick" style="color:#2e2a4a"><a href="#224637" label="[22:46:37]">&lt;Guest34&gt;</a></span><span class="message">software) slows down a lot my pace of learning. Thanks for pointing out the right resource. I saved me some time localizing it.</span></div><div class="line" id="224711"><span class="nick" style="color:#2e2a4a"><a href="#224711" label="[22:47:11]">&lt;Guest34&gt;</a></span><span class="message">Have a good day!</span></div><div class="line" id="224717"><span class="nick" style="color:#8dd3c7"><a href="#224717" label="[22:47:17]">&lt;stikonas&gt;</a></span><span class="message">Guest34: feel free to join again</span></div><div class="line" id="224724"><span class="nick" style="color:#2e2a4a"><a href="#224724" label="[22:47:24]">&lt;Guest34&gt;</a></span><span class="message">☺</span></div><br /></div></body></html>

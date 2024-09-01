@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-02-26.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="072557"><span class="nick" style="color:#8dd3c7"><a href="#072557" label="[07:25:57]">&lt;alMalsamo&gt;</a></span><span class="message">&quot;Work is ongoing to use other, smaller POSIX kernels.&quot;  what other kernels does this refer to?</span></div><div class="line" id="111046"><span class="nick" style="color:#2e2a4a"><a href="#111046" label="[11:10:46]">&lt;unmatched-paren&gt;</a></span><span class="message">alMalsamo: if i had to guess, i'd say minix</span></div><div class="line" id="111110"><span class="nick" style="color:#2e2a4a"><a href="#111110" label="[11:11:10]">&lt;unmatched-paren&gt;</a></span><span class="message">since that's the smallest posix i can think of</span></div><div class="line" id="111157"><span class="nick" style="color:#2e2a4a"><a href="#111157" label="[11:11:57]">&lt;unmatched-paren&gt;</a></span><span class="message">at some point we probably will have to write our own tiny kernel</span></div><div class="line" id="111217"><span class="nick" style="color:#2e2a4a"><a href="#111217" label="[11:12:17]">&lt;unmatched-paren&gt;</a></span><span class="message">we could attempt to boot from bare metal with that</span></div><div class="line" id="121106"><span class="nick" style="color:#6b8072"><a href="#121106" label="[12:11:06]">&lt;oriansj&gt;</a></span><span class="message">pabs3: well we knew bootstrapping is a rapidly moving target. It is why getting sources we can use checked into long term storage is an essential task (so that source sticks around long term).</span></div><div class="line" id="121230"><span class="nick" style="color:#6b8072"><a href="#121230" label="[12:12:30]">&lt;oriansj&gt;</a></span><span class="message">unmatched-paren: interesting find but the lack of a license is a serious problem.</span></div><div class="line" id="121705"><span class="nick" style="color:#6b8072"><a href="#121705" label="[12:17:05]">&lt;oriansj&gt;</a></span><span class="message">alMalsamo: well bauen1 has a kernel that he wrote and was working to get it buildable by TCC, I am uncertain of the exact status of that work (last I checked it was x86 only and needed GCC)</span></div><div class="line" id="121828"><span class="nick" style="color:#6b8072"><a href="#121828" label="[12:18:28]">&lt;oriansj&gt;</a></span><span class="message">but that being said we only need only a dozen or so system calls supported to bootstrap up to TCC; so simpler, single tasking kernels are also an option.</span></div><div class="line" id="123519"><span class="nick" style="color:#80b1d3"><a href="#123519" label="[12:35:19]">&lt;bauen1&gt;</a></span><span class="message">oriansj: yes, i didn't work any further on it</span></div><div class="line" id="123927"><span class="nick" style="color:#6b8072"><a href="#123927" label="[12:39:27]">&lt;oriansj&gt;</a></span><span class="message">bauen1: I guess lost interest?</span></div><div class="line" id="124110"><span class="nick" style="color:#80b1d3"><a href="#124110" label="[12:41:10]">&lt;bauen1&gt;</a></span><span class="message">oriansj: well, that but mostly time</span></div><div class="line" id="124140"><span class="nick" style="color:#6b8072"><a href="#124140" label="[12:41:40]">&lt;oriansj&gt;</a></span><span class="message">bauen1: that I get very much</span></div><div class="line" id="124246"><span class="nick" style="color:#80b1d3"><a href="#124246" label="[12:42:46]">&lt;bauen1&gt;</a></span><span class="message">oriansj: if i have time and interest again, i would also start looking into writing a microkernel, as that is potentially easier to bootstrap on bare metal</span></div><div class="line" id="124653"><span class="nick" style="color:#6b8072"><a href="#124653" label="[12:46:53]">&lt;oriansj&gt;</a></span><span class="message">bauen1: hmmm, well if we wanted to go extreme and solve it I could take a month to convert a C kernel to assembly and then hand convert to M0</span></div><div class="line" id="125820"><span class="nick" style="color:#6d2462"><a href="#125820" label="[12:58:20]">&lt;stikonas&gt;</a></span><span class="message">we should at least get C kernel working...</span></div><div class="line" id="130032"><span class="nick" style="color:#6d2462"><a href="#130032" label="[13:00:32]">&lt;stikonas&gt;</a></span><span class="message">but that might take time. We don't have many people doing kernel work here.</span></div><div class="line" id="131023"><span class="nick" style="color:#80b1d3"><a href="#131023" label="[13:10:23]">&lt;bauen1&gt;</a></span><span class="message">stikonas: there's quite a few hobby C kernels that (in theory) could be converted to be tinycc compatible (or tinycc could be patched), that could support running at least parts of the bootstrap, see e.g. <a rel="nofollow" href="https://github.com/klange/toaruos/">https://github.com/klange/toaruos/</a>  and osdev</span></div><div class="line" id="132122"><span class="nick" style="color:#6b8072"><a href="#132122" label="[13:21:22]">&lt;oriansj&gt;</a></span><span class="message">fortunately (or perhaps not so) our needs are rather boring: atleast single tasking, a handful of syscalls and that is it</span></div><div class="line" id="132200"><span class="nick" style="color:#6b8072"><a href="#132200" label="[13:22:00]">&lt;oriansj&gt;</a></span><span class="message">perhaps a hint of virtual memory</span></div><div class="line" id="132634"><span class="nick" style="color:#6b8072"><a href="#132634" label="[13:26:34]">&lt;oriansj&gt;</a></span><span class="message">no need for SMP support</span></div><div class="line" id="132723"><span class="nick" style="color:#6b8072"><a href="#132723" label="[13:27:23]">&lt;oriansj&gt;</a></span><span class="message">no need for networking support</span></div><div class="line" id="132818"><span class="nick" style="color:#6b8072"><a href="#132818" label="[13:28:18]">&lt;oriansj&gt;</a></span><span class="message">no need for any libc or dynamic linking</span></div><div class="line" id="132818"><span class="nick" style="color:#234e69"><a href="#132818" label="[13:28:18]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">What architecture would be best for a bootstrapping microkernel/kernel?</span></div><div class="line" id="132849"><span class="nick" style="color:#6b8072"><a href="#132849" label="[13:28:49]">&lt;oriansj&gt;</a></span><span class="message">AwesomeAdam54321: doesn't matter honestly, we only need one properly bootstrapped.</span></div><div class="line" id="132936"><span class="nick" style="color:#6b8072"><a href="#132936" label="[13:29:36]">&lt;oriansj&gt;</a></span><span class="message">so I guess the one that most appeals to someone willing to do the work</span></div><div class="line" id="133903"><span class="nick" style="color:#80b1d3"><a href="#133903" label="[13:39:03]">&lt;bauen1&gt;</a></span><span class="message">arm sbcs are quite cheap to come by and often already have open source drivers for everything</span></div><div class="line" id="133959"><span class="nick" style="color:#6b8072"><a href="#133959" label="[13:39:59]">&lt;oriansj&gt;</a></span><span class="message">bauen1: well the only driver needed would be reading/writing to a single media</span></div><div class="line" id="134134"><span class="nick" style="color:#6b8072"><a href="#134134" label="[13:41:34]">&lt;oriansj&gt;</a></span><span class="message">no need for TTY support or even basic display</span></div><div class="line" id="134235"><span class="nick" style="color:#6b8072"><a href="#134235" label="[13:42:35]">&lt;oriansj&gt;</a></span><span class="message">(unless one wishes to just display what is being exec'd and what is exiting)</span></div><div class="line" id="140926"><span class="nick" style="color:#80b1d3"><a href="#140926" label="[14:09:26]">&lt;bauen1&gt;</a></span><span class="message">oriansj: you'd need some sort of filesystem, now you could get away with read-only filesystems and a tmpfs if you have enough ram</span></div><div class="line" id="141019"><span class="nick" style="color:#6b8072"><a href="#141019" label="[14:10:19]">&lt;oriansj&gt;</a></span><span class="message">bauen1: well we can assume as much RAM as we need.</span></div><div class="line" id="141044"><span class="nick" style="color:#6b8072"><a href="#141044" label="[14:10:44]">&lt;oriansj&gt;</a></span><span class="message">as 4GB seems to be enough for live-bootstrap to really get going</span></div><div class="line" id="141156"><span class="nick" style="color:#6b8072"><a href="#141156" label="[14:11:56]">&lt;oriansj&gt;</a></span><span class="message">and we only need to support the stage0-posix, Mes-m2 and TCC-meslibc bits</span></div><div class="line" id="141225"><span class="nick" style="color:#6b8072"><a href="#141225" label="[14:12:25]">&lt;oriansj&gt;</a></span><span class="message">as we can just use TCC to build a more powerful kernel with much more support</span></div><div class="line" id="141341"><span class="nick" style="color:#6b8072"><a href="#141341" label="[14:13:41]">&lt;oriansj&gt;</a></span><span class="message">and then we just write that kernel somewhere (like a separate media) with a handful of pieces and continue from there</span></div><div class="line" id="141603"><span class="nick" style="color:#6b8072"><a href="#141603" label="[14:16:03]">&lt;oriansj&gt;</a></span><span class="message">possibly step 20 (tcc 0.9.27 (musl)) if we really need it</span></div><div class="line" id="141812"><span class="nick">***</span><span class="message notice">Guest8046 is now known as roptat</span></div><div class="line" id="142256"><span class="nick" style="color:#6b8072"><a href="#142256" label="[14:22:56]">&lt;oriansj&gt;</a></span><span class="message">as we would want the kernel to be as *MINIMAL* as possible; to make the assembly version into something auditable.</span></div><div class="line" id="142711"><span class="nick" style="color:#6b8072"><a href="#142711" label="[14:27:11]">&lt;oriansj&gt;</a></span><span class="message">cc_* is about 16KB of assembly and it isn't the easiest thing to audit. So if the assembly version of the kernel can be under 64KB it will still be auditable (with considerable effort) so smaller will be better.</span></div><div class="line" id="142713"><span class="nick" style="color:#80b1d3"><a href="#142713" label="[14:27:13]">&lt;bauen1&gt;</a></span><span class="message">oriansj: i still think you'd need some more drivers, as you would need to audit the source code before you compile and execute it</span></div><div class="line" id="142805"><span class="nick" style="color:#6b8072"><a href="#142805" label="[14:28:05]">&lt;oriansj&gt;</a></span><span class="message">bauen1: let us assume one has a trusted method of putting source code on the media and we can solve that later</span></div><div class="line" id="142901"><span class="nick" style="color:#6b8072"><a href="#142901" label="[14:29:01]">&lt;oriansj&gt;</a></span><span class="message">we are not going to be doing development nor auditing on that kernel while it runs</span></div><div class="line" id="143027"><span class="nick" style="color:#6b8072"><a href="#143027" label="[14:30:27]">&lt;oriansj&gt;</a></span><span class="message">everything that can stripped out, should be</span></div><div class="line" id="143417"><span class="nick" style="color:#6d2462"><a href="#143417" label="[14:34:17]">&lt;stikonas&gt;</a></span><span class="message">oriansj: only C prototype of cc_* is 16 KiB</span></div><div class="line" id="143424"><span class="nick" style="color:#6d2462"><a href="#143424" label="[14:34:24]">&lt;stikonas&gt;</a></span><span class="message">cc_* itself is about 200 KiB of assembly</span></div><div class="line" id="143443"><span class="nick" style="color:#6b8072"><a href="#143443" label="[14:34:43]">&lt;oriansj&gt;</a></span><span class="message">stikonas: compiled binary size</span></div><div class="line" id="143447"><span class="nick" style="color:#6d2462"><a href="#143447" label="[14:34:47]">&lt;stikonas&gt;</a></span><span class="message">oh I see</span></div><div class="line" id="143507"><span class="nick" style="color:#6d2462"><a href="#143507" label="[14:35:07]">&lt;stikonas&gt;</a></span><span class="message">but yes, I agree that we should first get something stripped down (without development or auditing)</span></div><div class="line" id="143516"><span class="nick" style="color:#6b8072"><a href="#143516" label="[14:35:16]">&lt;oriansj&gt;</a></span><span class="message">I don't count the comments against the auditability of assembly</span></div><div class="line" id="143544"><span class="nick" style="color:#6b8072"><a href="#143544" label="[14:35:44]">&lt;oriansj&gt;</a></span><span class="message">also there is an upper bound in which trusted binaries could be loaded onto media: <a rel="nofollow" href="https://www.hermieusupply.com/en-EN/flight-strip.html">https://www.hermieusupply.com/en-EN/flight-strip.html</a> </span></div><div class="line" id="144806"><span class="nick" style="color:#6b8072"><a href="#144806" label="[14:48:06]">&lt;oriansj&gt;</a></span><span class="message">I guess I have a new project I need to find time for.</span></div><div class="line" id="144915"><span class="nick" style="color:#6b8072"><a href="#144915" label="[14:49:15]">&lt;oriansj&gt;</a></span><span class="message">*Adds to TODO file*</span></div><div class="line" id="202921"><span class="nick" style="color:#6b8072"><a href="#202921" label="[20:29:21]">&lt;oriansj&gt;</a></span><span class="message">stikonas, fossy: to simplify integration of stage0-posix into live-bootstrap; I have created: <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-x86">https://github.com/oriansj/stage0-posix-x86</a> </span></div><div class="line" id="203018"><span class="nick" style="color:#6b8072"><a href="#203018" label="[20:30:18]">&lt;oriansj&gt;</a></span><span class="message">just make it a git submodule named x86 and copy the kaem.x86, after.kaem and x86.answers files from stage0-posix</span></div><div class="line" id="203047"><span class="nick" style="color:#6d2462"><a href="#203047" label="[20:30:47]">&lt;stikonas&gt;</a></span><span class="message">oriansj: and then you are adding x86 part as a submodule t stage0-posix?</span></div><div class="line" id="203100"><span class="nick" style="color:#6b8072"><a href="#203100" label="[20:31:00]">&lt;oriansj&gt;</a></span><span class="message">you both have commit access to the repo to allow any updates you need</span></div><div class="line" id="203102"><span class="nick" style="color:#6d2462"><a href="#203102" label="[20:31:02]">&lt;stikonas&gt;</a></span><span class="message">(just asking to understand whether we are dublicating code)</span></div><div class="line" id="203119"><span class="nick" style="color:#6b8072"><a href="#203119" label="[20:31:19]">&lt;oriansj&gt;</a></span><span class="message">stikonas: yes I am going to replace the x86 folder with a submodule pointing to that repo</span></div><div class="line" id="203130"><span class="nick" style="color:#6d2462"><a href="#203130" label="[20:31:30]">&lt;stikonas&gt;</a></span><span class="message">I guess that's fine</span></div><div class="line" id="203245"><span class="nick" style="color:#6b8072"><a href="#203245" label="[20:32:45]">&lt;oriansj&gt;</a></span><span class="message">and I'll be repeating this process for all other architecture as well and granting the most active developers for those architectures commit access to them</span></div><div class="line" id="203308"><span class="nick" style="color:#6d2462"><a href="#203308" label="[20:33:08]">&lt;stikonas&gt;</a></span><span class="message">well, I guess benefits would be only visible once we start reducing rootfs.py into something very minimal</span></div><div class="line" id="203308"><span class="nick" style="color:#6d2462"><a href="#203308" label="[20:33:08]">&lt;stikonas&gt;</a></span><span class="message">but that's coming soon after fossy is done with his current PR</span></div><div class="line" id="203841"><span class="nick" style="color:#6b8072"><a href="#203841" label="[20:38:41]">&lt;oriansj&gt;</a></span><span class="message">and hopefully the lack of submodules and binaries will enable the bits to finally make it onto savannah</span></div><div class="line" id="203953"><span class="nick" style="color:#6d2462"><a href="#203953" label="[20:39:53]">&lt;stikonas&gt;</a></span><span class="message">yaeh, I think that binaries part was a bit of misunderstanding</span></div><div class="line" id="204022"><span class="nick" style="color:#6d2462"><a href="#204022" label="[20:40:22]">&lt;stikonas&gt;</a></span><span class="message">after all our binaries are so minimal that you can inspect them by hand (that takes a bit of effort but is certainly doable)</span></div><div class="line" id="205952"><span class="nick" style="color:#6b8072"><a href="#205952" label="[20:59:52]">&lt;oriansj&gt;</a></span><span class="message">yeah, I am guessing bootstrap-seeds will never make it onto savannah without a few champions</span></div><br /></div></body></html>

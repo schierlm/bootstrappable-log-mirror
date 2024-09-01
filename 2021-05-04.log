@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-05-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004232"><span class="nick" style="color:#8dd3c7"><a href="#004232" label="[00:42:32]">&lt;stikonas&gt;</a></span><span class="message">gef: how will that work in libc?</span></div><div class="line" id="004253"><span class="nick" style="color:#8dd3c7"><a href="#004253" label="[00:42:53]">&lt;stikonas&gt;</a></span><span class="message">I just don't see an easy way to patch libc like that</span></div><div class="line" id="004312"><span class="nick" style="color:#8dd3c7"><a href="#004312" label="[00:43:12]">&lt;stikonas&gt;</a></span><span class="message">libc's in different programs are completely independent</span></div><div class="line" id="004320"><span class="nick" style="color:#8dd3c7"><a href="#004320" label="[00:43:20]">&lt;stikonas&gt;</a></span><span class="message">and we use multiple libc</span></div><div class="line" id="004507"><span class="nick" style="color:#8dd3c7"><a href="#004507" label="[00:45:07]">&lt;stikonas&gt;</a></span><span class="message">I think bauen1 said you can only do that in kernel</span></div><div class="line" id="004526"><span class="nick" style="color:#8dd3c7"><a href="#004526" label="[00:45:26]">&lt;stikonas&gt;</a></span><span class="message">but then we can only do that once we have our own kernel...</span></div><div class="line" id="004553"><span class="nick" style="color:#8dd3c7"><a href="#004553" label="[00:45:53]">&lt;stikonas&gt;</a></span><span class="message">i think removing timestamps in from final files is easier</span></div><div class="line" id="004559"><span class="nick" style="color:#8dd3c7"><a href="#004559" label="[00:45:59]">&lt;stikonas&gt;</a></span><span class="message">especially once we have upkgs</span></div><div class="line" id="004630"><span class="nick" style="color:#8dd3c7"><a href="#004630" label="[00:46:30]">&lt;stikonas&gt;</a></span><span class="message">(once installation happens with DESTDIR, it's quite easy to purge timestamps)</span></div><div class="line" id="004644"><span class="nick" style="color:#8dd3c7"><a href="#004644" label="[00:46:44]">&lt;stikonas&gt;</a></span><span class="message">at least if we fix touch</span></div><div class="line" id="005050"><span class="nick" style="color:#2e2a4a"><a href="#005050" label="[00:50:50]">&lt;gef&gt;</a></span><span class="message">stikonas: the monotonic increase should theoretically always work, otherwise software makes invalid assumptions about execution order. Timestamps could be a form of validation between different runs, in that the sequence of steps is stable (it is not a guarantee per se, but it will catch many a perpetrator). IMHO, this matters primarily for the earlier steps of bootstrapping.</span></div><div class="line" id="005119"><span class="nick" style="color:#8dd3c7"><a href="#005119" label="[00:51:19]">&lt;stikonas&gt;</a></span><span class="message">gef: how would libc know the previous timestamp?</span></div><div class="line" id="005147"><span class="nick" style="color:#8dd3c7"><a href="#005147" label="[00:51:47]">&lt;stikonas&gt;</a></span><span class="message">I mean in the code as a variable</span></div><div class="line" id="005158"><span class="nick" style="color:#2e2a4a"><a href="#005158" label="[00:51:58]">&lt;gef&gt;</a></span><span class="message">ah, it has to be thrown away at that point, libc arrives much later, is that what you ask?</span></div><div class="line" id="005201"><span class="nick" style="color:#8dd3c7"><a href="#005201" label="[00:52:01]">&lt;stikonas&gt;</a></span><span class="message">it sounds like some &quot;global&quot; inter process variable</span></div><div class="line" id="005237"><span class="nick" style="color:#8dd3c7"><a href="#005237" label="[00:52:37]">&lt;stikonas&gt;</a></span><span class="message">well, I'm just confused how one would implement this monotonically increasing timestamp</span></div><div class="line" id="005246"><span class="nick" style="color:#8dd3c7"><a href="#005246" label="[00:52:46]">&lt;stikonas&gt;</a></span><span class="message">on each write</span></div><div class="line" id="005305"><span class="nick" style="color:#2e2a4a"><a href="#005305" label="[00:53:05]">&lt;gef&gt;</a></span><span class="message">idea: perhaps some higher bits of the timestamp represent a phase of the bootstrapping - does that sound interesting?</span></div><div class="line" id="005340"><span class="nick" style="color:#8dd3c7"><a href="#005340" label="[00:53:40]">&lt;stikonas&gt;</a></span><span class="message">we would have to manually number that</span></div><div class="line" id="005407"><span class="nick" style="color:#8dd3c7"><a href="#005407" label="[00:54:07]">&lt;stikonas&gt;</a></span><span class="message">and after all the renumberings in parts.md I'm a bit sceptical to introduce manual numbering (and this time in code)</span></div><div class="line" id="005457"><span class="nick" style="color:#8dd3c7"><a href="#005457" label="[00:54:57]">&lt;stikonas&gt;</a></span><span class="message">well, it's just that it seems to me that two executales never share any memory state</span></div><div class="line" id="005559"><span class="nick" style="color:#8dd3c7"><a href="#005559" label="[00:55:59]">&lt;stikonas&gt;</a></span><span class="message">and I think POSIX basically guaranteeds that unless some process forks, in which case two processes will share state</span></div><div class="line" id="005611"><span class="nick" style="color:#8dd3c7"><a href="#005611" label="[00:56:11]">&lt;stikonas&gt;</a></span><span class="message">maybe one can try to use that</span></div><div class="line" id="005628"><span class="nick" style="color:#8dd3c7"><a href="#005628" label="[00:56:28]">&lt;stikonas&gt;</a></span><span class="message">but I think implementation will be a bit tricky</span></div><div class="line" id="005658"><span class="nick" style="color:#8dd3c7"><a href="#005658" label="[00:56:58]">&lt;stikonas&gt;</a></span><span class="message">i.e. we need to patch libc to have some reservered memory are between all processes</span></div><div class="line" id="005735"><span class="nick" style="color:#8dd3c7"><a href="#005735" label="[00:57:35]">&lt;stikonas&gt;</a></span><span class="message">and that will only work without threads for sequential buidls (athough at the moment that's what we have)</span></div><div class="line" id="010157"><span class="nick" style="color:#6b8072"><a href="#010157" label="[01:01:57]">&lt;OriansJ&gt;</a></span><span class="message">stikonas: fopen(&quot;/example.timer&quot;, &quot;rw&quot;);</span></div><div class="line" id="010225"><span class="nick" style="color:#8dd3c7"><a href="#010225" label="[01:02:25]">&lt;stikonas&gt;</a></span><span class="message">well, ok, we can keep it in VFS&gt;..</span></div><div class="line" id="010231"><span class="nick" style="color:#8dd3c7"><a href="#010231" label="[01:02:31]">&lt;stikonas&gt;</a></span><span class="message">that will simplify things...</span></div><div class="line" id="024831"><span class="nick" style="color:#80b1d3"><a href="#024831" label="[02:48:31]">&lt;siraben&gt;</a></span><span class="message">yay, I see <a rel="nofollow" href="https://news.ycombinator.com/item?id=27023088">https://news.ycombinator.com/item?id=27023088</a>  on the front page</span></div><div class="line" id="025007"><span class="nick" style="color:#2e2a4a"><a href="#025007" label="[02:50:07]">&lt;gef&gt;</a></span><span class="message">here is a bootstrapping problem for future geek generations:</span></div><div class="line" id="025007"><span class="nick" style="color:#2e2a4a"><a href="#025007" label="[02:50:07]">&lt;gef&gt;</a></span><span class="message">* use *polyglot assembly* to implement an OISC emulator of boot sector size, which can result into a compiler usable for bootstrapping: <a rel="nofollow" href="https://vojtechkral.github.io/blag/polyglot-assembly/">https://vojtechkral.github.io/blag/polyglot-assembly/</a> </span></div><div class="line" id="025007"><span class="nick" style="color:#2e2a4a"><a href="#025007" label="[02:50:07]">&lt;gef&gt;</a></span><span class="message">&quot;The basic idea is pretty simple: The code starts with a magical snippet that gets interpreted by both architectures and basically performs a conditional jump based on which architecture is runing the code.&quot;</span></div><div class="line" id="130319"><span class="nick" style="color:#6d2462"><a href="#130319" label="[13:03:19]">&lt;fossy&gt;</a></span><span class="message">watdaf</span></div><div class="line" id="130337"><span class="nick" style="color:#6d2462"><a href="#130337" label="[13:03:37]">&lt;fossy&gt;</a></span><span class="message">holy shit the stars just blew up</span></div><div class="line" id="130340"><span class="nick" style="color:#6d2462"><a href="#130340" label="[13:03:40]">&lt;fossy&gt;</a></span><span class="message">it went from like 5 stars to 49 stars on live bootstrap</span></div><div class="line" id="132117"><span class="nick" style="color:#234e69"><a href="#132117" label="[13:21:17]">&lt;pabs3&gt;</a></span><span class="message">fossy: it got on the HN front page <a rel="nofollow" href="https://news.ycombinator.com/item?id=27023088">https://news.ycombinator.com/item?id=27023088</a> </span></div><div class="line" id="140041"><span class="nick" style="color:#6c3d55"><a href="#140041" label="[14:00:41]">&lt;bauen1&gt;</a></span><span class="message">^ and now live-bootstrap has a lot more &quot;to show&quot; like gcc-4.0.4 running</span></div><div class="line" id="141123"><span class="nick" style="color:#d9d9d9"><a href="#141123" label="[14:11:23]">&lt;gforce_de1977&gt;</a></span><span class="message">nice graph during my experiments: <a rel="nofollow" href="http://intercity-vpn.de/bootstrap/bootstrap-usedmem700M-usedmem2x.png">http://intercity-vpn.de/bootstrap/bootstrap-usedmem700M-usedmem2x.png</a> </span></div><div class="line" id="141532"><span class="nick">***</span><span class="message notice">alendvai__ is now known as attila_lendvai</span></div><div class="line" id="181737"><span class="nick" style="color:#bc80bd"><a href="#181737" label="[18:17:37]">&lt;melg8&gt;</a></span><span class="message">Hi, i've managed to fix touch by rebuilding it on coreutils 5 second pass. But now encountered another problem. It can't handle symlinks. First available version with that setup is  8.1 (2009-11-18) [stable] in contrast with our 6.10 (2008-01-22) [stable]. So, can somebody explain why 6.10 were choosed? and what problems might be, with trying 8.1</span></div><div class="line" id="181737"><span class="nick" style="color:#bc80bd"><a href="#181737" label="[18:17:37]">&lt;melg8&gt;</a></span><span class="message">to build? and should i add it as separate step, or try to replace 6.10?</span></div><div class="line" id="212817"><span class="nick" style="color:#d9d9d9"><a href="#212817" label="[21:28:17]">&lt;gforce_de1977&gt;</a></span><span class="message">trying to lower the max RAM-requirement, now close to 512mb 8-)))  <a rel="nofollow" href="http://intercity-vpn.de/1.png">http://intercity-vpn.de/1.png</a> </span></div><div class="line" id="213222"><span class="nick" style="color:#bc80bd"><a href="#213222" label="[21:32:22]">&lt;melg8&gt;</a></span><span class="message">how you achieve that?</span></div><div class="line" id="213405"><span class="nick" style="color:#d9d9d9"><a href="#213405" label="[21:34:05]">&lt;gforce_de1977&gt;</a></span><span class="message">melg8: measures needed RAM from /proc/meminfo every second and plot it</span></div><div class="line" id="213926"><span class="nick" style="color:#bc80bd"><a href="#213926" label="[21:39:26]">&lt;melg8&gt;</a></span><span class="message">I mean, how you try to lower max ram? by doing what?</span></div><div class="line" id="214315"><span class="nick" style="color:#d9d9d9"><a href="#214315" label="[21:43:15]">&lt;gforce_de1977&gt;</a></span><span class="message">melg8: deleting sources and unneeded old stuff while compiling new stuff</span></div><div class="line" id="214330"><span class="nick" style="color:#d9d9d9"><a href="#214330" label="[21:43:30]">&lt;gforce_de1977&gt;</a></span><span class="message">only keep resulting binaries</span></div><div class="line" id="214352"><span class="nick" style="color:#bc80bd"><a href="#214352" label="[21:43:52]">&lt;melg8&gt;</a></span><span class="message">so at the end there is nothing from, like M2?</span></div><div class="line" id="214400"><span class="nick" style="color:#d9d9d9"><a href="#214400" label="[21:44:00]">&lt;gforce_de1977&gt;</a></span><span class="message">yes</span></div><div class="line" id="214444"><span class="nick" style="color:#d9d9d9"><a href="#214444" label="[21:44:44]">&lt;gforce_de1977&gt;</a></span><span class="message">dont get me wrong, this is totally unneeded work, but i was interested</span></div><div class="line" id="214500"><span class="nick" style="color:#bc80bd"><a href="#214500" label="[21:45:00]">&lt;melg8&gt;</a></span><span class="message">nice idea, but i think that we need both options - minimal and full, so it could be build in constraint env, but also - so we could control intermediate results</span></div><div class="line" id="214533"><span class="nick" style="color:#d9d9d9"><a href="#214533" label="[21:45:33]">&lt;gforce_de1977&gt;</a></span><span class="message">you are right, i will add an --autocleanup option for this stuff later</span></div><div class="line" id="214659"><span class="nick" style="color:#d9d9d9"><a href="#214659" label="[21:46:59]">&lt;gforce_de1977&gt;</a></span><span class="message">finding somebody who has an i386 PC mit 512mb RAM will be hard, but 256mb should be possible 8-)</span></div><div class="line" id="215126"><span class="nick" style="color:#bc80bd"><a href="#215126" label="[21:51:26]">&lt;melg8&gt;</a></span><span class="message">it would be useful if somebody will try to start 20 builds at same time) just for fun and reproducibility purposes)</span></div><div class="line" id="220006"><span class="nick" style="color:#d9d9d9"><a href="#220006" label="[22:00:06]">&lt;gforce_de1977&gt;</a></span><span class="message">melg8: i did already several 1000 builds for fun, see the 'issues' on github. there indeed some problems with reproducibility, but solveable</span></div><div class="line" id="220302"><span class="nick" style="color:#bc80bd"><a href="#220302" label="[22:03:02]">&lt;melg8&gt;</a></span><span class="message">yea, im working on reproducibility side of things as well, but i want to clear out my diffs from all dates changes, and then try to fix the rest, hope is to achieve bit by bit reproducibility</span></div><div class="line" id="220539"><span class="nick" style="color:#3c5b35"><a href="#220539" label="[22:05:39]">&lt;xentrac&gt;</a></span><span class="message">yaay</span></div><br /></div></body></html>

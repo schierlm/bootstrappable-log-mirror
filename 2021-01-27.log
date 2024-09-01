@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-01-27.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="015202"><span class="nick" style="color:#8dd3c7"><a href="#015202" label="[01:52:02]">&lt;stikonas&gt;</a></span><span class="message">argh... lex is much harder to port away from wchar_t :(</span></div><div class="line" id="015220"><span class="nick" style="color:#8dd3c7"><a href="#015220" label="[01:52:20]">&lt;stikonas&gt;</a></span><span class="message">yacc was relatively straightforward...</span></div><div class="line" id="015718"><span class="nick" style="color:#2e2a4a"><a href="#015718" label="[01:57:18]">&lt;fossy&gt;</a></span><span class="message">:/</span></div><div class="line" id="015728"><span class="nick" style="color:#2e2a4a"><a href="#015728" label="[01:57:28]">&lt;fossy&gt;</a></span><span class="message">anything in particular ur running into</span></div><div class="line" id="015856"><span class="nick" style="color:#8dd3c7"><a href="#015856" label="[01:58:56]">&lt;stikonas&gt;</a></span><span class="message">well, I have partial WIP commit that generates lex.yy.c but that one has some truncated strings (as with yacc)</span></div><div class="line" id="015905"><span class="nick" style="color:#8dd3c7"><a href="#015905" label="[01:59:05]">&lt;stikonas&gt;</a></span><span class="message">but I can't easily replace remaining wchars with chars</span></div><div class="line" id="015913"><span class="nick" style="color:#8dd3c7"><a href="#015913" label="[01:59:13]">&lt;stikonas&gt;</a></span><span class="message">because some functions don't work with them</span></div><div class="line" id="015931"><span class="nick" style="color:#8dd3c7"><a href="#015931" label="[01:59:31]">&lt;stikonas&gt;</a></span><span class="message">I think in particular yycgid</span></div><div class="line" id="020007"><span class="nick" style="color:#8dd3c7"><a href="#020007" label="[02:00:07]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/eunuchs/heirloom-project/blob/master/heirloom/heirloom-devtools/lex/sub3.c#L172">https://github.com/eunuchs/heirloom-project/blob/master/heirloom/heirloom-devtools/lex/sub3.c#L172</a> </span></div><div class="line" id="020017"><span class="nick" style="color:#8dd3c7"><a href="#020017" label="[02:00:17]">&lt;stikonas&gt;</a></span><span class="message">this needs more thinking than blindly replacing...</span></div><div class="line" id="020159"><span class="nick" style="color:#8dd3c7"><a href="#020159" label="[02:01:59]">&lt;stikonas&gt;</a></span><span class="message">this is my WIP patch for now... <a rel="nofollow" href="https://git.stikonas.eu/andrius/lex">https://git.stikonas.eu/andrius/lex</a> </span></div><div class="line" id="020208"><span class="nick" style="color:#8dd3c7"><a href="#020208" label="[02:02:08]">&lt;stikonas&gt;</a></span><span class="message">but in any case, I&quot;ll look more some other day</span></div><div class="line" id="020213"><span class="nick" style="color:#8dd3c7"><a href="#020213" label="[02:02:13]">&lt;stikonas&gt;</a></span><span class="message">sleep now...</span></div><div class="line" id="020656"><span class="nick" style="color:#2e2a4a"><a href="#020656" label="[02:06:56]">&lt;fossy&gt;</a></span><span class="message">what is wrong with just making that function take a char</span></div><div class="line" id="021226"><span class="nick" style="color:#6b8072"><a href="#021226" label="[02:12:26]">&lt;stikonas[m]&gt;</a></span><span class="message">Then setsymbol function fails</span></div><div class="line" id="021244"><span class="nick" style="color:#6b8072"><a href="#021244" label="[02:12:44]">&lt;stikonas[m]&gt;</a></span><span class="message">i=-1 there</span></div><div class="line" id="023036"><span class="nick" style="color:#2e2a4a"><a href="#023036" label="[02:30:36]">&lt;fossy&gt;</a></span><span class="message">ugh</span></div><div class="line" id="023554"><span class="nick" style="color:#80b1d3"><a href="#023554" label="[02:35:54]">&lt;deesix&gt;</a></span><span class="message">OriansJ, how can I run the Knight binaries during M2-Planet testing? I guess one part is to override the arch, then configure something for the system to recognize the binaries and use the VM in stage0, maybe? Do you have any script/doc about this procedure?</span></div><div class="line" id="023902"><span class="nick" style="color:#6d2462"><a href="#023902" label="[02:39:02]">&lt;OriansJ&gt;</a></span><span class="message">deesix: well the knight native binaries are the most simple to test, Simply vm --rom binary --tape_01 input --tape_02 output</span></div><div class="line" id="023941"><span class="nick" style="color:#80b1d3"><a href="#023941" label="[02:39:41]">&lt;deesix&gt;</a></span><span class="message">hmm, but that's not what the scripts are doing, right? How do you glue it all?</span></div><div class="line" id="024004"><span class="nick" style="color:#6d2462"><a href="#024004" label="[02:40:04]">&lt;OriansJ&gt;</a></span><span class="message">deesix: I've just been manually running them</span></div><div class="line" id="024115"><span class="nick" style="color:#80b1d3"><a href="#024115" label="[02:41:15]">&lt;deesix&gt;</a></span><span class="message">So lines like... ./test/results/test0006-knight-native-binary &gt;| test/test0006/proof || exit 4</span></div><div class="line" id="024121"><span class="nick" style="color:#6d2462"><a href="#024121" label="[02:41:21]">&lt;OriansJ&gt;</a></span><span class="message">test0000 for example is just vm --rom ./test/results/test0000-knight-native-binary &amp;&amp; echo $?</span></div><div class="line" id="024139"><span class="nick" style="color:#80b1d3"><a href="#024139" label="[02:41:39]">&lt;deesix&gt;</a></span><span class="message">... are not used, hmmm</span></div><div class="line" id="024151"><span class="nick" style="color:#6d2462"><a href="#024151" label="[02:41:51]">&lt;OriansJ&gt;</a></span><span class="message">become vm --rom ./test/results/test0006-knight-native-binary --tape_02 test/test0006/proof</span></div><div class="line" id="024249"><span class="nick" style="color:#80b1d3"><a href="#024249" label="[02:42:49]">&lt;deesix&gt;</a></span><span class="message">Any reason not to call the vm from the scripts?</span></div><div class="line" id="024824"><span class="nick" style="color:#6d2462"><a href="#024824" label="[02:48:24]">&lt;OriansJ&gt;</a></span><span class="message">deesix: well we wouldn't want to try to run the vm if the stage0 vm isn't installed as it would result in failing tests</span></div><div class="line" id="024904"><span class="nick" style="color:#6d2462"><a href="#024904" label="[02:49:04]">&lt;OriansJ&gt;</a></span><span class="message">but as knight-native isn't something uname or get_machine is ever going to actually return without an override, it wouldn't be a problem to do that.</span></div><div class="line" id="024922"><span class="nick" style="color:#6d2462"><a href="#024922" label="[02:49:22]">&lt;OriansJ&gt;</a></span><span class="message">knight-posix however is a bit more complicated</span></div><div class="line" id="024932"><span class="nick" style="color:#6d2462"><a href="#024932" label="[02:49:32]">&lt;OriansJ&gt;</a></span><span class="message">as you need more than stage0's vm built</span></div><div class="line" id="024953"><span class="nick" style="color:#80b1d3"><a href="#024953" label="[02:49:53]">&lt;deesix&gt;</a></span><span class="message">I think I leave Knight out of the unification for a while.</span></div><div class="line" id="025025"><span class="nick" style="color:#6d2462"><a href="#025025" label="[02:50:25]">&lt;OriansJ&gt;</a></span><span class="message">as you need execve_image.c built too but after that it is actually quite similiar</span></div><div class="line" id="025038"><span class="nick" style="color:#80b1d3"><a href="#025038" label="[02:50:38]">&lt;deesix&gt;</a></span><span class="message">... as M2libc migration is not complete and this other situation about running binaries.</span></div><div class="line" id="025119"><span class="nick" style="color:#6d2462"><a href="#025119" label="[02:51:19]">&lt;OriansJ&gt;</a></span><span class="message">as you need to convert the binary into a program image with argc, argv and envp included for loading into Memory prior to execution.</span></div><div class="line" id="025200"><span class="nick" style="color:#6d2462"><a href="#025200" label="[02:52:00]">&lt;OriansJ&gt;</a></span><span class="message">just gcc High_level_prototypes/execve_image.c -o bin/execve_image and you have it</span></div><div class="line" id="025452"><span class="nick" style="color:#6d2462"><a href="#025452" label="[02:54:52]">&lt;OriansJ&gt;</a></span><span class="message">then you would use it like this: execve_image test/results/test1000-knight-posix-binary --architecture x86 -f test/common_x86/functions/file.c  -f test/common_x86/functions/malloc.c -f functions/calloc.c &gt;| memory_image</span></div><div class="line" id="025553"><span class="nick" style="color:#6d2462"><a href="#025553" label="[02:55:53]">&lt;OriansJ&gt;</a></span><span class="message">and then just vm --POSIX-MODE --rom memory_image --memory 2M</span></div><div class="line" id="030030"><span class="nick" style="color:#6d2462"><a href="#030030" label="[03:00:30]">&lt;OriansJ&gt;</a></span><span class="message">I guess it is just another mess for me to clean up</span></div><div class="line" id="030200"><span class="nick" style="color:#80b1d3"><a href="#030200" label="[03:02:00]">&lt;deesix&gt;</a></span><span class="message">OriansJ, thanks for the details. I'll keep them in mind and maybe some way to plug it all arises.</span></div><div class="line" id="030308"><span class="nick" style="color:#80b1d3"><a href="#030308" label="[03:03:08]">&lt;deesix&gt;</a></span><span class="message">Manually running them doesn't seems fun, for sure.</span></div><div class="line" id="030332"><span class="nick" style="color:#6d2462"><a href="#030332" label="[03:03:32]">&lt;OriansJ&gt;</a></span><span class="message">well knight-native will always be pure bare metal knight. knight-posix should exist in a few years and thus I'll probably make an environmental variable which if set would enable that testing</span></div><div class="line" id="030450"><span class="nick" style="color:#6d2462"><a href="#030450" label="[03:04:50]">&lt;OriansJ&gt;</a></span><span class="message">plus other people probably would want to test knight without having to do all the manual work too.</span></div><div class="line" id="030501"><span class="nick" style="color:#6d2462"><a href="#030501" label="[03:05:01]">&lt;OriansJ&gt;</a></span><span class="message">So just gotta find time to do the work.</span></div><div class="line" id="031056"><span class="nick" style="color:#6d2462"><a href="#031056" label="[03:10:56]">&lt;OriansJ&gt;</a></span><span class="message">but first I need to get guix pull to work on my new build server.</span></div><div class="line" id="031209"><span class="nick" style="color:#80b1d3"><a href="#031209" label="[03:12:09]">&lt;deesix&gt;</a></span><span class="message">Yes, I found a couple of details missing in the knight-posix migration and though about fixing them and so a run check. But I guess I can patch and just let the sha cover the situation.</span></div><div class="line" id="031219"><span class="nick" style="color:#80b1d3"><a href="#031219" label="[03:12:19]">&lt;deesix&gt;</a></span><span class="message">*do a run</span></div><div class="line" id="031337"><span class="nick" style="color:#6d2462"><a href="#031337" label="[03:13:37]">&lt;OriansJ&gt;</a></span><span class="message">deesix: well a couple of the knight HALCODE calls haven't been implemented in the knight vm yet like fork and waitpid</span></div><div class="line" id="031419"><span class="nick" style="color:#6d2462"><a href="#031419" label="[03:14:19]">&lt;OriansJ&gt;</a></span><span class="message">fortunately, that doesn't matter because known of the knight posix tests depend upon them yet</span></div><div class="line" id="031550"><span class="nick" style="color:#6d2462"><a href="#031550" label="[03:15:50]">&lt;OriansJ&gt;</a></span><span class="message">fortunately knight vm doesn't care about undefined instructions that it doesn't have to run.</span></div><div class="line" id="031622"><span class="nick" style="color:#6d2462"><a href="#031622" label="[03:16:22]">&lt;OriansJ&gt;</a></span><span class="message">the disassembler might bitch that it is data but it will not prevent people from doing development and testing.</span></div><div class="line" id="032359"><span class="nick" style="color:#6d2462"><a href="#032359" label="[03:23:59]">&lt;OriansJ&gt;</a></span><span class="message">for the sake of simplicity and convention, knight-posix shares ALL Linux call numbers with AMD64; the difference being instead of putting the number in RAX, it is in the instruction itself eg 0x42000001 is sys_write and 0x42000002 is sys_open, etc. with the arguments passed in R0-R6 with the results returned in R0-R3 respectively.</span></div><div class="line" id="032618"><span class="nick" style="color:#6d2462"><a href="#032618" label="[03:26:18]">&lt;OriansJ&gt;</a></span><span class="message">mostly to make polymorphic syscalls impossible in R-X memory as that is a horrifying idea in bootstrapping audit.</span></div><div class="line" id="221821"><span class="nick" style="color:#8dd3c7"><a href="#221821" label="[22:18:21]">&lt;stikonas&gt;</a></span><span class="message">fossy: so after a bit more investigation, I think instead of patching lex we should fix mes libc</span></div><div class="line" id="221844"><span class="nick" style="color:#8dd3c7"><a href="#221844" label="[22:18:44]">&lt;stikonas&gt;</a></span><span class="message">I guess vfprintf function...</span></div><div class="line" id="221957"><span class="nick" style="color:#8dd3c7"><a href="#221957" label="[22:19:57]">&lt;stikonas&gt;</a></span><span class="message">I have a small reproducer for that bug, just need find out what causes it</span></div><div class="line" id="222404"><span class="nick">***</span><span class="message notice">malina is now known as ``````````</span></div><div class="line" id="222412"><span class="nick" style="color:#8dd3c7"><a href="#222412" label="[22:24:12]">&lt;stikonas&gt;</a></span><span class="message">argh, it's probably strlen function...</span></div><div class="line" id="222456"><span class="nick">***</span><span class="message notice">`````````` is now known as ``^``-``^``</span></div><div class="line" id="222640"><span class="nick" style="color:#8dd3c7"><a href="#222640" label="[22:26:40]">&lt;stikonas&gt;</a></span><span class="message">when it encounters multibyte wchar_t, it finds 0 quicker than end of string</span></div><div class="line" id="222858"><span class="nick" style="color:#8dd3c7"><a href="#222858" label="[22:28:58]">&lt;stikonas&gt;</a></span><span class="message">hmm...</span></div><div class="line" id="222924"><span class="nick" style="color:#8dd3c7"><a href="#222924" label="[22:29:24]">&lt;stikonas&gt;</a></span><span class="message">probably not easy to fix either because it's correct for char... Unless we implement whole wchar in mes libc...</span></div><div class="line" id="223441"><span class="nick" style="color:#80b1d3"><a href="#223441" label="[22:34:41]">&lt;deesix&gt;</a></span><span class="message">stikonas, is wchar still defined as char? (I think I read about this some days ago here).</span></div><div class="line" id="223518"><span class="nick" style="color:#8dd3c7"><a href="#223518" label="[22:35:18]">&lt;stikonas&gt;</a></span><span class="message">no, I think it's mulitibyte</span></div><div class="line" id="223521"><span class="nick" style="color:#8dd3c7"><a href="#223521" label="[22:35:21]">&lt;stikonas&gt;</a></span><span class="message">let me double check</span></div><div class="line" id="223526"><span class="nick" style="color:#80b1d3"><a href="#223526" label="[22:35:26]">&lt;deesix&gt;</a></span><span class="message">Because, indeed, I can imagine every other byte being zero and the string truncated to one letter.</span></div><div class="line" id="223548"><span class="nick" style="color:#8dd3c7"><a href="#223548" label="[22:35:48]">&lt;stikonas&gt;</a></span><span class="message">mes libc defines typedef int wchar_t</span></div><div class="line" id="223626"><span class="nick" style="color:#8dd3c7"><a href="#223626" label="[22:36:26]">&lt;stikonas&gt;</a></span><span class="message">I can add some hack, that fixes strlen if input is multibyte...</span></div><div class="line" id="223631"><span class="nick" style="color:#8dd3c7"><a href="#223631" label="[22:36:31]">&lt;stikonas&gt;</a></span><span class="message">but it's realy ugly hack</span></div><div class="line" id="223632"><span class="nick" style="color:#8dd3c7"><a href="#223632" label="[22:36:32]">&lt;stikonas&gt;</a></span><span class="message">hmm</span></div><div class="line" id="223935"><span class="nick" style="color:#80b1d3"><a href="#223935" label="[22:39:35]">&lt;deesix&gt;</a></span><span class="message">I guess it's around the 18th in the logs.</span></div><div class="line" id="224646"><span class="nick" style="color:#8dd3c7"><a href="#224646" label="[22:46:46]">&lt;stikonas&gt;</a></span><span class="message">yeah, but I don't think we can define wchar as char in lex...</span></div><div class="line" id="224653"><span class="nick" style="color:#8dd3c7"><a href="#224653" label="[22:46:53]">&lt;stikonas&gt;</a></span><span class="message">it works in yacc...</span></div><div class="line" id="224708"><span class="nick" style="color:#8dd3c7"><a href="#224708" label="[22:47:08]">&lt;stikonas&gt;</a></span><span class="message">but I think lex functions expect multibyte</span></div><div class="line" id="232949"><span class="nick" style="color:#8dd3c7"><a href="#232949" label="[23:29:49]">&lt;stikonas&gt;</a></span><span class="message">ok, I think in the end I'll patch lex...</span></div><div class="line" id="232956"><span class="nick" style="color:#8dd3c7"><a href="#232956" label="[23:29:56]">&lt;stikonas&gt;</a></span><span class="message">getting much better now...</span></div><div class="line" id="233044"><span class="nick" style="color:#8dd3c7"><a href="#233044" label="[23:30:44]">&lt;stikonas&gt;</a></span><span class="message">hacked around most of the issues</span></div><div class="line" id="234724"><span class="nick" style="color:#8dd3c7"><a href="#234724" label="[23:47:24]">&lt;stikonas&gt;</a></span><span class="message">fossy: ok, I think I've got lex working now...</span></div><div class="line" id="234904"><span class="nick" style="color:#8dd3c7"><a href="#234904" label="[23:49:04]">&lt;stikonas&gt;</a></span><span class="message">and patch is just 11 KB, so not too bad</span></div><div class="line" id="235130"><span class="nick" style="color:#8dd3c7"><a href="#235130" label="[23:51:30]">&lt;stikonas&gt;</a></span><span class="message">now need to test, prepare PR and then do flex 2.5.1...</span></div><br /></div></body></html>

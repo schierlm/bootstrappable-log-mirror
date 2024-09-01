@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-11-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004430"><span class="nick" style="color:#8dd3c7"><a href="#004430" label="[00:44:30]">&lt;stikonas&gt;</a></span><span class="message">argh, macro functions are a bit annoying...</span></div><div class="line" id="004457"><span class="nick" style="color:#8dd3c7"><a href="#004457" label="[00:44:57]">&lt;stikonas&gt;</a></span><span class="message">I might be able to easily get simple case working, but then mes also uses them recursively...</span></div><div class="line" id="004514"><span class="nick" style="color:#8dd3c7"><a href="#004514" label="[00:45:14]">&lt;stikonas&gt;</a></span><span class="message">#define CAAR(x) CAR (CAR (x))</span></div><div class="line" id="004542"><span class="nick" style="color:#8dd3c7"><a href="#004542" label="[00:45:42]">&lt;stikonas&gt;</a></span><span class="message">well, maybe it will just work by accident...</span></div><div class="line" id="010150"><span class="nick" style="color:#2e2a4a"><a href="#010150" label="[01:01:50]">&lt;oriansj&gt;</a></span><span class="message">stikonas: it is ok to not to implement a function</span></div><div class="line" id="010220"><span class="nick" style="color:#2e2a4a"><a href="#010220" label="[01:02:20]">&lt;oriansj&gt;</a></span><span class="message">also you can be insanely inefficient too</span></div><div class="line" id="010507"><span class="nick" style="color:#8dd3c7"><a href="#010507" label="[01:05:07]">&lt;stikonas&gt;</a></span><span class="message">oriansj: well, if we want to build mes-m2 then we should implement it, but yes, it can be inefficient</span></div><div class="line" id="010532"><span class="nick" style="color:#8dd3c7"><a href="#010532" label="[01:05:32]">&lt;stikonas&gt;</a></span><span class="message">anyway, reading info and matching variables to arguments in define is easy, I have those lists</span></div><div class="line" id="010537"><span class="nick" style="color:#2e2a4a"><a href="#010537" label="[01:05:37]">&lt;oriansj&gt;</a></span><span class="message">What if you do a state machine for define?</span></div><div class="line" id="010546"><span class="nick" style="color:#8dd3c7"><a href="#010546" label="[01:05:46]">&lt;stikonas&gt;</a></span><span class="message">just need to carefully insert tokens</span></div><div class="line" id="010558"><span class="nick" style="color:#2e2a4a"><a href="#010558" label="[01:05:58]">&lt;oriansj&gt;</a></span><span class="message">or not</span></div><div class="line" id="010600"><span class="nick" style="color:#8dd3c7"><a href="#010600" label="[01:06:00]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I just added one more member to the struct</span></div><div class="line" id="010618"><span class="nick" style="color:#2e2a4a"><a href="#010618" label="[01:06:18]">&lt;oriansj&gt;</a></span><span class="message">just map them and replace</span></div><div class="line" id="010635"><span class="nick" style="color:#8dd3c7"><a href="#010635" label="[01:06:35]">&lt;stikonas&gt;</a></span><span class="message">struct macro_list had next, symbol, expansion and I've added another token_list* arguments</span></div><div class="line" id="010640"><span class="nick" style="color:#8dd3c7"><a href="#010640" label="[01:06:40]">&lt;stikonas&gt;</a></span><span class="message">so mapping is done</span></div><div class="line" id="010644"><span class="nick" style="color:#8dd3c7"><a href="#010644" label="[01:06:44]">&lt;stikonas&gt;</a></span><span class="message">just need to do replacement</span></div><div class="line" id="010659"><span class="nick" style="color:#2e2a4a"><a href="#010659" label="[01:06:59]">&lt;oriansj&gt;</a></span><span class="message">nice</span></div><div class="line" id="010705"><span class="nick" style="color:#2e2a4a"><a href="#010705" label="[01:07:05]">&lt;oriansj&gt;</a></span><span class="message">good work</span></div><div class="line" id="010721"><span class="nick" style="color:#8dd3c7"><a href="#010721" label="[01:07:21]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/stikonas/M2-Planet/commits/macro_functions">https://github.com/stikonas/M2-Planet/commits/macro_functions</a> </span></div><div class="line" id="010724"><span class="nick" style="color:#8dd3c7"><a href="#010724" label="[01:07:24]">&lt;stikonas&gt;</a></span><span class="message">see last 2 commits</span></div><div class="line" id="010735"><span class="nick" style="color:#8dd3c7"><a href="#010735" label="[01:07:35]">&lt;stikonas&gt;</a></span><span class="message">but I still haven't done replacement</span></div><div class="line" id="010825"><span class="nick" style="color:#2e2a4a"><a href="#010825" label="[01:08:25]">&lt;oriansj&gt;</a></span><span class="message">just a thought</span></div><div class="line" id="010826"><span class="nick" style="color:#8dd3c7"><a href="#010826" label="[01:08:26]">&lt;stikonas&gt;</a></span><span class="message">but it's definitely doable</span></div><div class="line" id="010921"><span class="nick" style="color:#2e2a4a"><a href="#010921" label="[01:09:21]">&lt;oriansj&gt;</a></span><span class="message">but how do most C preprocessors do it?</span></div><div class="line" id="010930"><span class="nick" style="color:#8dd3c7"><a href="#010930" label="[01:09:30]">&lt;stikonas&gt;</a></span><span class="message">hmm</span></div><div class="line" id="010940"><span class="nick" style="color:#8dd3c7"><a href="#010940" label="[01:09:40]">&lt;stikonas&gt;</a></span><span class="message">must be something similar...</span></div><div class="line" id="010945"><span class="nick" style="color:#8dd3c7"><a href="#010945" label="[01:09:45]">&lt;stikonas&gt;</a></span><span class="message">it's just text replacement</span></div><div class="line" id="011000"><span class="nick" style="color:#8dd3c7"><a href="#011000" label="[01:10:00]">&lt;stikonas&gt;</a></span><span class="message">even for macro functions...</span></div><div class="line" id="011008"><span class="nick" style="color:#8dd3c7"><a href="#011008" label="[01:10:08]">&lt;stikonas&gt;</a></span><span class="message">but I guess details do matter...</span></div><div class="line" id="011738"><span class="nick" style="color:#2e2a4a"><a href="#011738" label="[01:17:38]">&lt;oriansj&gt;</a></span><span class="message">because I have suspicion that it is probably something really simple we are missing</span></div><div class="line" id="012149"><span class="nick" style="color:#8dd3c7"><a href="#012149" label="[01:21:49]">&lt;stikonas&gt;</a></span><span class="message">maybe...</span></div><div class="line" id="012207"><span class="nick" style="color:#8dd3c7"><a href="#012207" label="[01:22:07]">&lt;stikonas&gt;</a></span><span class="message">although, I wouldn't say those first two commits that I have are complicated...</span></div><div class="line" id="012226"><span class="nick" style="color:#8dd3c7"><a href="#012226" label="[01:22:26]">&lt;stikonas&gt;</a></span><span class="message">although, it might be that my data structures are not the best</span></div><div class="line" id="014100"><span class="nick" style="color:#2e2a4a"><a href="#014100" label="[01:41:00]">&lt;oriansj&gt;</a></span><span class="message">hmm <a rel="nofollow" href="https://blog.robertelder.org/7-weird-old-things-about-the-c-preprocessor/">https://blog.robertelder.org/7-weird-old-things-about-the-c-preprocessor/</a> </span></div><div class="line" id="014547"><span class="nick" style="color:#8dd3c7"><a href="#014547" label="[01:45:47]">&lt;stikonas&gt;</a></span><span class="message">well, I think we'll have to do without #define concat(a,b) a ## b</span></div><div class="line" id="014659"><span class="nick" style="color:#8dd3c7"><a href="#014659" label="[01:46:59]">&lt;stikonas&gt;</a></span><span class="message">and stuff like #define function_mac () something might be incompatible with gcc...</span></div><div class="line" id="014715"><span class="nick" style="color:#8dd3c7"><a href="#014715" label="[01:47:15]">&lt;stikonas&gt;</a></span><span class="message">but we don't need to get 100% compatibility with gcc preprocessor</span></div><div class="line" id="014730"><span class="nick" style="color:#2e2a4a"><a href="#014730" label="[01:47:30]">&lt;oriansj&gt;</a></span><span class="message">I vote we never do a full C macro processor in M2-Planet and just demand basic sanity from downstream projects?</span></div><div class="line" id="014744"><span class="nick" style="color:#8dd3c7"><a href="#014744" label="[01:47:44]">&lt;stikonas&gt;</a></span><span class="message">yeah..</span></div><div class="line" id="014803"><span class="nick" style="color:#8dd3c7"><a href="#014803" label="[01:48:03]">&lt;stikonas&gt;</a></span><span class="message">well, even if we can't implement &quot;Function Argument Pre-expansion&quot; that shouldn't be too hard to patch out in mes</span></div><div class="line" id="014812"><span class="nick" style="color:#2e2a4a"><a href="#014812" label="[01:48:12]">&lt;oriansj&gt;</a></span><span class="message">I wonder if peer pressure would be enough to convince janneke to save us the trouble...</span></div><div class="line" id="014813"><span class="nick" style="color:#8dd3c7"><a href="#014813" label="[01:48:13]">&lt;stikonas&gt;</a></span><span class="message">those things can be preexpanded manually</span></div><div class="line" id="014825"><span class="nick" style="color:#8dd3c7"><a href="#014825" label="[01:48:25]">&lt;stikonas&gt;</a></span><span class="message">well, let's first see what we can get</span></div><div class="line" id="014830"><span class="nick" style="color:#2e2a4a"><a href="#014830" label="[01:48:30]">&lt;oriansj&gt;</a></span><span class="message">fair</span></div><div class="line" id="014913"><span class="nick" style="color:#8dd3c7"><a href="#014913" label="[01:49:13]">&lt;stikonas&gt;</a></span><span class="message">at least defines without recursive pre-expansion should be doable</span></div><div class="line" id="014956"><span class="nick" style="color:#2e2a4a"><a href="#014956" label="[01:49:56]">&lt;oriansj&gt;</a></span><span class="message">yeah just banning DEFER, OBSTRUCT and EXPAND right now</span></div><div class="line" id="015005"><span class="nick" style="color:#2e2a4a"><a href="#015005" label="[01:50:05]">&lt;oriansj&gt;</a></span><span class="message">because holy fuck</span></div><div class="line" id="015056"><span class="nick" style="color:#8dd3c7"><a href="#015056" label="[01:50:56]">&lt;stikonas&gt;</a></span><span class="message">at least everything till line 57 should be doable <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/mes.git/tree/include/mes/macros.h">https://git.savannah.gnu.org/cgit/mes.git/tree/include/mes/macros.h</a> </span></div><div class="line" id="015105"><span class="nick" style="color:#2e2a4a"><a href="#015105" label="[01:51:05]">&lt;oriansj&gt;</a></span><span class="message">infinitely recursive macro definitions that require lazy evaluation to implement</span></div><div class="line" id="015201"><span class="nick" style="color:#2e2a4a"><a href="#015201" label="[01:52:01]">&lt;oriansj&gt;</a></span><span class="message">basically one needs to do a half a haskell, just to deal with what one can do with that.</span></div><div class="line" id="015254"><span class="nick" style="color:#2e2a4a"><a href="#015254" label="[01:52:54]">&lt;oriansj&gt;</a></span><span class="message">no wonder people thought bootstrapping C was impossible</span></div><div class="line" id="015429"><span class="nick" style="color:#8dd3c7"><a href="#015429" label="[01:54:29]">&lt;stikonas&gt;</a></span><span class="message">well, tcc preprocessor is as large as the whole M2-Planet...</span></div><div class="line" id="015435"><span class="nick" style="color:#8dd3c7"><a href="#015435" label="[01:54:35]">&lt;stikonas&gt;</a></span><span class="message">it's about 100KB</span></div><div class="line" id="015545"><span class="nick" style="color:#2e2a4a"><a href="#015545" label="[01:55:45]">&lt;oriansj&gt;</a></span><span class="message">hmm <a rel="nofollow" href="https://github.com/ParksProjets/C-Preprocessor/blob/master/lib/compiler.js">https://github.com/ParksProjets/C-Preprocessor/blob/master/lib/compiler.js</a> </span></div><div class="line" id="015554"><span class="nick" style="color:#8dd3c7"><a href="#015554" label="[01:55:54]">&lt;stikonas&gt;</a></span><span class="message">hmm, and I&quot;ll have to fix my commits to handle cases like #define A (1) which is not a macro function...</span></div><div class="line" id="015605"><span class="nick" style="color:#2e2a4a"><a href="#015605" label="[01:56:05]">&lt;oriansj&gt;</a></span><span class="message">looks like we could just do a simple walk apply for #defines</span></div><div class="line" id="015636"><span class="nick" style="color:#8dd3c7"><a href="#015636" label="[01:56:36]">&lt;stikonas&gt;</a></span><span class="message">I guess that's why that whitespace matters between define and paranthesis</span></div><div class="line" id="015652"><span class="nick" style="color:#8dd3c7"><a href="#015652" label="[01:56:52]">&lt;stikonas&gt;</a></span><span class="message">hmm</span></div><div class="line" id="015656"><span class="nick" style="color:#2e2a4a"><a href="#015656" label="[01:56:56]">&lt;oriansj&gt;</a></span><span class="message">but that isn't collected by M2-Planet so</span></div><div class="line" id="015657"><span class="nick" style="color:#8dd3c7"><a href="#015657" label="[01:56:57]">&lt;stikonas&gt;</a></span><span class="message">let me see that link</span></div><div class="line" id="015701"><span class="nick" style="color:#8dd3c7"><a href="#015701" label="[01:57:01]">&lt;stikonas&gt;</a></span><span class="message">oh...</span></div><div class="line" id="015804"><span class="nick" style="color:#2e2a4a"><a href="#015804" label="[01:58:04]">&lt;oriansj&gt;</a></span><span class="message">and honestly we can restrict ourselves to 3 cases</span></div><div class="line" id="015919"><span class="nick" style="color:#2e2a4a"><a href="#015919" label="[01:59:19]">&lt;oriansj&gt;</a></span><span class="message">#define foo 1 #define bar(x) thing_with_[x].car and #define caar(x) bar(bar(x))</span></div><div class="line" id="015949"><span class="nick" style="color:#2e2a4a"><a href="#015949" label="[01:59:49]">&lt;oriansj&gt;</a></span><span class="message">if no ( after the first token we do only first case</span></div><div class="line" id="020046"><span class="nick" style="color:#8dd3c7"><a href="#020046" label="[02:00:46]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://gitlab.com/janneke/nyacc/-/blob/master/module/nyacc/lang/c99/cpp.scm#L140">https://gitlab.com/janneke/nyacc/-/blob/master/module/nyacc/lang/c99/cpp.scm#L140</a> </span></div><div class="line" id="020105"><span class="nick" style="color:#2e2a4a"><a href="#020105" label="[02:01:05]">&lt;oriansj&gt;</a></span><span class="message">and the other two are just straight application of match first token and ( then use what is between the ( and ) as x and replace acordingly</span></div><div class="line" id="020108"><span class="nick" style="color:#8dd3c7"><a href="#020108" label="[02:01:08]">&lt;stikonas&gt;</a></span><span class="message">yes, I think those 3 cases are good enough...</span></div><div class="line" id="020119"><span class="nick" style="color:#8dd3c7"><a href="#020119" label="[02:01:19]">&lt;stikonas&gt;</a></span><span class="message">but then need to be careful with stuff like</span></div><div class="line" id="020124"><span class="nick" style="color:#8dd3c7"><a href="#020124" label="[02:01:24]">&lt;stikonas&gt;</a></span><span class="message">#define foo (1)</span></div><div class="line" id="020135"><span class="nick" style="color:#2e2a4a"><a href="#020135" label="[02:01:35]">&lt;oriansj&gt;</a></span><span class="message">throw a hard error</span></div><div class="line" id="020150"><span class="nick" style="color:#8dd3c7"><a href="#020150" label="[02:01:50]">&lt;stikonas&gt;</a></span><span class="message">maybe...</span></div><div class="line" id="020151"><span class="nick" style="color:#2e2a4a"><a href="#020151" label="[02:01:51]">&lt;oriansj&gt;</a></span><span class="message">just exit(FAILURE) with line_error and a sterm message</span></div><div class="line" id="020201"><span class="nick" style="color:#2e2a4a"><a href="#020201" label="[02:02:01]">&lt;oriansj&gt;</a></span><span class="message">not our problem</span></div><div class="line" id="020203"><span class="nick" style="color:#8dd3c7"><a href="#020203" label="[02:02:03]">&lt;stikonas&gt;</a></span><span class="message">let me see if mes uses it</span></div><div class="line" id="020223"><span class="nick" style="color:#8dd3c7"><a href="#020223" label="[02:02:23]">&lt;stikonas&gt;</a></span><span class="message">probably not</span></div><div class="line" id="020226"><span class="nick" style="color:#8dd3c7"><a href="#020226" label="[02:02:26]">&lt;stikonas&gt;</a></span><span class="message">then yes, not our problem</span></div><div class="line" id="020238"><span class="nick" style="color:#8dd3c7"><a href="#020238" label="[02:02:38]">&lt;stikonas&gt;</a></span><span class="message">tcc does use it...</span></div><div class="line" id="020239"><span class="nick" style="color:#2e2a4a"><a href="#020239" label="[02:02:39]">&lt;oriansj&gt;</a></span><span class="message">and if so, no logical reason not to fix it</span></div><div class="line" id="020247"><span class="nick" style="color:#8dd3c7"><a href="#020247" label="[02:02:47]">&lt;stikonas&gt;</a></span><span class="message">but I think tcc might be too advanced for M2-Planet...</span></div><div class="line" id="020327"><span class="nick" style="color:#2e2a4a"><a href="#020327" label="[02:03:27]">&lt;oriansj&gt;</a></span><span class="message">well yes, M2-Planet is just a stepping stone</span></div><div class="line" id="020414"><span class="nick" style="color:#8dd3c7"><a href="#020414" label="[02:04:14]">&lt;stikonas&gt;</a></span><span class="message">anyway, I'll think more tomorrow...</span></div><div class="line" id="124622"><span class="nick">***</span><span class="message notice">smartin1 is now known as smartin</span></div><div class="line" id="203437"><span class="nick" style="color:#6b8072"><a href="#203437" label="[20:34:37]">&lt;muurkha&gt;</a></span><span class="message">happy Arecibo Day</span></div><div class="line" id="210131"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="224203"><span class="nick" style="color:#8dd3c7"><a href="#224203" label="[22:42:03]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I did get macro functions somewhat working now</span></div><div class="line" id="224251"><span class="nick" style="color:#8dd3c7"><a href="#224251" label="[22:42:51]">&lt;stikonas&gt;</a></span><span class="message">so e.g. <a rel="nofollow" href="https://paste.debian.net/1220116/">https://paste.debian.net/1220116/</a>  is expanded correctly</span></div><div class="line" id="224307"><span class="nick" style="color:#8dd3c7"><a href="#224307" label="[22:43:07]">&lt;stikonas&gt;</a></span><span class="message">although I think it's still struggling with include/mes/macros.h</span></div><div class="line" id="224414"><span class="nick" style="color:#8dd3c7"><a href="#224414" label="[22:44:14]">&lt;stikonas&gt;</a></span><span class="message">and struggling a bit with #define M2_CELL_SIZE (3 * sizeof(long))</span></div><div class="line" id="224417"><span class="nick" style="color:#8dd3c7"><a href="#224417" label="[22:44:17]">&lt;stikonas&gt;</a></span><span class="message">that we had in mes-m2</span></div><div class="line" id="224438"><span class="nick" style="color:#8dd3c7"><a href="#224438" label="[22:44:38]">&lt;stikonas&gt;</a></span><span class="message">so either workaround is needed, e.g. #define M2_CELL_SIZE 0 + (3 * sizeof(long))</span></div><div class="line" id="224455"><span class="nick" style="color:#8dd3c7"><a href="#224455" label="[22:44:55]">&lt;stikonas&gt;</a></span><span class="message">or &quot;#define A (a)&quot; needs to be implemented</span></div><br /></div></body></html>

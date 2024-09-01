@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-06-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000025"><span class="nick" style="color:#389600"><a href="#000025" label="[00:00:25]">&lt;Melg8&gt;</a></span><span class="message">right now i try to strictly reproduce versions/repositories used by live-bootstrap - so i can double-check that i rebuild all with same hashes, but if i decide to update - M2libc will now contain this .M1 files?</span></div><div class="line" id="000804"><span class="nick" style="color:#8dd3c7"><a href="#000804" label="[00:08:04]">&lt;stikonas&gt;</a></span><span class="message">Melg8: don't forget that building GCC involves more than C compiler</span></div><div class="line" id="000813"><span class="nick" style="color:#8dd3c7"><a href="#000813" label="[00:08:13]">&lt;stikonas&gt;</a></span><span class="message">your also need e.g. bison</span></div><div class="line" id="000845"><span class="nick" style="color:#8dd3c7"><a href="#000845" label="[00:08:45]">&lt;stikonas&gt;</a></span><span class="message">maybe M2-Planet -&gt; TCC would make more sense than GCC directly</span></div><div class="line" id="001054"><span class="nick" style="color:#2e2a4a"><a href="#001054" label="[00:10:54]">&lt;Melg8[m]&gt;</a></span><span class="message">i don't like tcc because it supports only x86</span></div><div class="line" id="001101"><span class="nick" style="color:#2e2a4a"><a href="#001101" label="[00:11:01]">&lt;Melg8[m]&gt;</a></span><span class="message">or am i wrong?</span></div><div class="line" id="001803"><span class="nick" style="color:#8dd3c7"><a href="#001803" label="[00:18:03]">&lt;stikonas&gt;</a></span><span class="message">Melg8[m]: you are wrong, TCC supports more arches</span></div><div class="line" id="001819"><span class="nick" style="color:#8dd3c7"><a href="#001819" label="[00:18:19]">&lt;stikonas&gt;</a></span><span class="message">at least arm as well</span></div><div class="line" id="001849"><span class="nick" style="color:#8dd3c7"><a href="#001849" label="[00:18:49]">&lt;stikonas&gt;</a></span><span class="message">maybe unreleased tcc from git supports other arches too, but that support will have to be ported to older tcc as well</span></div><div class="line" id="001921"><span class="nick" style="color:#8dd3c7"><a href="#001921" label="[00:19:21]">&lt;stikonas&gt;</a></span><span class="message">we won't be able to build it directly anyway unless we improve m2libc (or meslibc)</span></div><div class="line" id="001950"><span class="nick" style="color:#8dd3c7"><a href="#001950" label="[00:19:50]">&lt;stikonas&gt;</a></span><span class="message">at the moment latest tcc snapshot can only be built after musl (although we don't build unreleased tcc shapshot)</span></div><div class="line" id="003736"><span class="nick" style="color:#80b1d3"><a href="#003736" label="[00:37:36]">&lt;oriansj&gt;</a></span><span class="message">Melg8: if you really don't like TCC perhaps you would be interested in 2 of our existing proposals: 1) extend MesCC to be able to Compile GCC 2) M3</span></div><div class="line" id="003834"><span class="nick" style="color:#8dd3c7"><a href="#003834" label="[00:38:34]">&lt;stikonas&gt;</a></span><span class="message">but both are probably harder than improving TCC...</span></div><div class="line" id="003907"><span class="nick" style="color:#80b1d3"><a href="#003907" label="[00:39:07]">&lt;oriansj&gt;</a></span><span class="message">stikonas: no disagreement there but then again we don't know but odds are which ever gets done first probably was easier in the first place.</span></div><div class="line" id="004055"><span class="nick" style="color:#80b1d3"><a href="#004055" label="[00:40:55]">&lt;oriansj&gt;</a></span><span class="message">like the previous argument of which is easier: writing a C compiler in assembly and then compile a scheme in C or just writing a scheme interpreter in assembly.</span></div><div class="line" id="004137"><span class="nick" style="color:#80b1d3"><a href="#004137" label="[00:41:37]">&lt;oriansj&gt;</a></span><span class="message">Turns out sometimes the harder problem is faster and easier but sometimes it looks harder because it actually is harder.</span></div><div class="line" id="005007"><span class="nick" style="color:#80b1d3"><a href="#005007" label="[00:50:07]">&lt;oriansj&gt;</a></span><span class="message">So we leave it up to the developers who choose to do work to do what they think will be fun and interesting rather than what *might* be the more efficient use of resources.</span></div><div class="line" id="005503"><span class="nick" style="color:#80b1d3"><a href="#005503" label="[00:55:03]">&lt;oriansj&gt;</a></span><span class="message">as we already spent 5+ years bootstrapping and it'll never actually be unquestionably &quot;done&quot; because there will be new languages, challenges and ideas to solve. Make your time spent something you enjoy doing rather than making my mistake of chasing something that seemed close but was never fun to work on. (those bits just end up frustrating me and remain in eternal limbo)</span></div><div class="line" id="020228"><span class="nick">***</span><span class="message notice">terpri is now known as robin</span></div><div class="line" id="034349"><span class="nick" style="color:#80b1d3"><a href="#034349" label="[03:43:49]">&lt;oriansj&gt;</a></span><span class="message">and sha256sum in mescc-tools-extra now works correctly when built by M2-Planet for 64bit targets.</span></div><div class="line" id="034418"><span class="nick" style="color:#80b1d3"><a href="#034418" label="[03:44:18]">&lt;oriansj&gt;</a></span><span class="message">a nice little 22line delta</span></div><div class="line" id="035011"><span class="nick" style="color:#80b1d3"><a href="#035011" label="[03:50:11]">&lt;oriansj&gt;</a></span><span class="message">now just to finish the wiring into stage0-posix and then live-bootstrap will have everything they could want right out of the gate; a shell written in C (kaem), a C compiler (MesCC), a scheme interpreter (mes-m2), an assembler (M1), a linker (hex2), the ability to make debuggable binaries (blood-elf), the ability to know what your host is (get_machine), the ability to combine files (catm), the ability to change file permissions (</span></div><div class="line" id="035012"><span class="nick" style="color:#80b1d3"><a href="#035012" label="[03:50:12]">&lt;oriansj&gt;</a></span><span class="message">chmod), the ability to copy the contents of files (cp), the ability to know a binary is a perfect match (sha256sum), the ability to extract a compressed file (ungz) and the ability to unpack an archive (untar). (even have a bonus checksum sha3sum too)</span></div><div class="line" id="035217"><span class="nick" style="color:#80b1d3"><a href="#035217" label="[03:52:17]">&lt;oriansj&gt;</a></span><span class="message">(oh an a fallback C compiler too [M2-Planet])</span></div><div class="line" id="035322"><span class="nick" style="color:#80b1d3"><a href="#035322" label="[03:53:22]">&lt;oriansj&gt;</a></span><span class="message">^an^and^</span></div><div class="line" id="044621"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="044645"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="044755"><span class="nick" style="color:#6d2462"><a href="#044755" label="[04:47:55]">&lt;siraben&gt;</a></span><span class="message">stikonas: yeah it wasn't an emulated build</span></div><div class="line" id="054909"><span class="nick" style="color:#2e2a4a"><a href="#054909" label="[05:49:09]">&lt;Melg8[m]&gt;</a></span><span class="message">oriansj: that's really great! but can you make a directory?) or cp -r?</span></div><div class="line" id="093829"><span class="nick" style="color:#234e69"><a href="#093829" label="[09:38:29]">&lt;stikonas[m]&gt;</a></span><span class="message">cp -r is not strictly needed early on</span></div><div class="line" id="105438"><span class="nick" style="color:#6d2462"><a href="#105438" label="[10:54:38]">&lt;siraben&gt;</a></span><span class="message">oriansj: amazing</span></div><div class="line" id="112542"><span class="nick">***</span><span class="message notice">nimaje1 is now known as nimaje</span></div><div class="line" id="121124"><span class="nick">***</span><span class="message notice">platinum.libera.chat sets mode: +o janneke</span></div><div class="line" id="162011"><span class="nick" style="color:#2e2a4a"><a href="#162011" label="[16:20:11]">&lt;Melg8[m]&gt;</a></span><span class="message">@stikonas i mean that two is essential for things nix do by default - you need to create folder ${out} and you need cp -r because if you don't - all sources would be in /nix/store and not in build folder - and than you need to fix all build scripts to use /nix/store/sha256hash-name-of-packet. Which is... fun but, not really))</span></div><div class="line" id="182841"><span class="nick">***</span><span class="message notice">sm2n_ is now known as sm2n</span></div><div class="line" id="210943"><span class="nick" style="color:#2e2a4a"><a href="#210943" label="[21:09:43]">&lt;Melg8[m]&gt;</a></span><span class="message">can gnu mes build  gash? (<a rel="nofollow" href="https://savannah.nongnu.org/projects/gash/">https://savannah.nongnu.org/projects/gash/</a>)  or it's not enough?</span></div><div class="line" id="234911"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="234942"><span class="nick" style="color:#389600"><a href="#234942" label="[23:49:42]">&lt;Melg8&gt;</a></span><span class="message">janneke thanks!</span></div><div class="line" id="235913"><span class="nick" style="color:#6c3d55"><a href="#235913" label="[23:59:13]">&lt;fossy&gt;</a></span><span class="message">&lt;siraben&gt; fossy: Wed 02 Jun 2021 15:05:10 PM UTC to 15:59 UTC</span></div><div class="line" id="235918"><span class="nick" style="color:#6c3d55"><a href="#235918" label="[23:59:18]">&lt;fossy&gt;</a></span><span class="message">Wtf without kvm</span></div><div class="line" id="235930"><span class="nick" style="color:#6c3d55"><a href="#235930" label="[23:59:30]">&lt;fossy&gt;</a></span><span class="message">Thats like my times with kvm</span></div><br /></div></body></html>

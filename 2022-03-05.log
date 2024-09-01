@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-03-05.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001403"><span class="nick" style="color:#8dd3c7"><a href="#001403" label="[00:14:03]">&lt;unmatched-paren&gt;</a></span><span class="message">phew, i finally have a complete D library compilation makefile: <a rel="nofollow" href="https://paste.debian.net/1233055/">https://paste.debian.net/1233055/</a> </span></div><div class="line" id="001436"><span class="nick" style="color:#8dd3c7"><a href="#001436" label="[00:14:36]">&lt;unmatched-paren&gt;</a></span><span class="message">i decided to use scdoc instead of ddoc so that i could create manpages instead of html</span></div><div class="line" id="001512"><span class="nick" style="color:#8dd3c7"><a href="#001512" label="[00:15:12]">&lt;unmatched-paren&gt;</a></span><span class="message">i might try and figure out unittests by studying dub's source</span></div><div class="line" id="001619"><span class="nick">***</span><span class="message notice">alMalsamo is now known as lumberjack123</span></div><div class="line" id="002809"><span class="nick" style="color:#8dd3c7"><a href="#002809" label="[00:28:09]">&lt;unmatched-paren&gt;</a></span><span class="message">i got unittests working! <a rel="nofollow" href="https://paste.debian.net/1233057/">https://paste.debian.net/1233057/</a> </span></div><div class="line" id="024726"><span class="nick">***</span><span class="message notice">alMalsamo is now known as lumberjack123</span></div><div class="line" id="025518"><span class="nick" style="color:#2e2a4a"><a href="#025518" label="[02:55:18]">&lt;nimaje&gt;</a></span><span class="message">you should only set default values for stuff like PREFIX, CC, DESTDIR, DMD via ?= and not just set a value (you want the user/packager to be able to override that stuff), and shouldn't the default for DESTDIR be empty and you install to $DESTDIR$PREFIX?</span></div><div class="line" id="030135"><span class="nick" style="color:#6b8072"><a href="#030135" label="[03:01:35]">&lt;pabs3&gt;</a></span><span class="message">correct</span></div><div class="line" id="111719"><span class="nick" style="color:#8dd3c7"><a href="#111719" label="[11:17:19]">&lt;unmatched-paren&gt;</a></span><span class="message">nimaje: thanks for the tips, but can't you override `=` values with e.g. `make CC=cproc`? when i tried that it worked (to test out the install target, i did `make install DESTDIR=.` and it worked fine</span></div><div class="line" id="111841"><span class="nick" style="color:#8dd3c7"><a href="#111841" label="[11:18:41]">&lt;unmatched-paren&gt;</a></span><span class="message">and re CC: it's set to `cc` on my machine, which is a nonexistent link on guix by default; i'll see if i can get that cc symlink working, then i'll remove the CC=</span></div><div class="line" id="112310"><span class="nick" style="color:#8dd3c7"><a href="#112310" label="[11:23:10]">&lt;unmatched-paren&gt;</a></span><span class="message">so i guess i should do `PREFIX ?= /usr/local` instead of `PREFIX ?= /usr` if i'm going to make DESTDIR empty by default?</span></div><div class="line" id="114641"><span class="nick" style="color:#2e2a4a"><a href="#114641" label="[11:46:41]">&lt;nimaje&gt;</a></span><span class="message">yes, empty DESTDIR (maybe not set works too) and PREFIX ?= /usr/local</span></div><div class="line" id="114750"><span class="nick" style="color:#8dd3c7"><a href="#114750" label="[11:47:50]">&lt;unmatched-paren&gt;</a></span><span class="message">thanks</span></div><div class="line" id="114751"><span class="nick" style="color:#2e2a4a"><a href="#114751" label="[11:47:51]">&lt;nimaje&gt;</a></span><span class="message">ah, yes make had this overriding behaviour, = will override envvars but not stuff set via arguments</span></div><div class="line" id="153229"><span class="nick">***</span><span class="message notice">blockhead_ is now known as blockhead</span></div><div class="line" id="172712"><span class="nick" style="color:#8dd3c7"><a href="#172712" label="[17:27:12]">&lt;unmatched-paren&gt;</a></span><span class="message">miraheze requires me to enable js from google for a captcha before i can save an edit... is there some way around it?</span></div><div class="line" id="173239"><span class="nick" style="color:#8dd3c7"><a href="#173239" label="[17:32:39]">&lt;unmatched-paren&gt;</a></span><span class="message">oh, i just realized i'm not logged in so of course it shows a captcha :P</span></div><div class="line" id="173721"><span class="nick" style="color:#8dd3c7"><a href="#173721" label="[17:37:21]">&lt;unmatched-paren&gt;</a></span><span class="message">hm apparently the login screen also requires a captcha now</span></div><div class="line" id="202907"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><br /></div></body></html>

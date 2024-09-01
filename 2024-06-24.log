@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="111407"><span class="nick" style="color:#389600"><a href="#111407" label="[11:14:07]">&lt;pabs3&gt;</a></span><span class="message">I note that the front page of the website is a bit broken <a rel="nofollow" href="https://bootstrappable.org/">https://bootstrappable.org/</a> </span></div><div class="line" id="111440"><span class="nick" style="color:#389600"><a href="#111440" label="[11:14:40]">&lt;pabs3&gt;</a></span><span class="message">it got replaced with a &quot;Recent Posts&quot; heading, everything on the old page went missing <a rel="nofollow" href="https://web.archive.org/web/20230601204234/https://bootstrappable.org/">https://web.archive.org/web/20230601204234/https://bootstrappable.org/</a> </span></div><div class="line" id="114333"><span class="nick" style="color:#8dd3c7"><a href="#114333" label="[11:43:33]">&lt;civodul&gt;</a></span><span class="message">pabs3: weird, it must be the Haunt upgrade that didn’t go well</span></div><div class="line" id="114412"><span class="nick" style="color:#8dd3c7"><a href="#114412" label="[11:44:12]">&lt;civodul&gt;</a></span><span class="message">the repo linked at the bottom hasn’t changed in 3 years</span></div><div class="line" id="181406"><span class="nick" style="color:#2e2a4a"><a href="#181406" label="[18:14:06]">&lt;Googulator&gt;</a></span><span class="message">aargh, OpenSSL maintainers are actively hostile to the idea of allowing plain HTTP downloads, and seem to be campaigning for others to also go HTTPS-only...</span></div><div class="line" id="181501"><span class="nick" style="color:#2e2a4a"><a href="#181501" label="[18:15:01]">&lt;Googulator&gt;</a></span><span class="message">I guess we need to work on reducing the list of packages needed for bootstrapping OpenSSL</span></div><div class="line" id="181934"><span class="nick" style="color:#2e2a4a"><a href="#181934" label="[18:19:34]">&lt;Googulator&gt;</a></span><span class="message">fossy: at first glance, we can definitely push xz, the newer tar, newer libtool, newer coreutils, gmp, mpfr, mpc &amp; autoconf-archive until after we have HTTPS</span></div><div class="line" id="182042"><span class="nick" style="color:#2e2a4a"><a href="#182042" label="[18:20:42]">&lt;Googulator&gt;</a></span><span class="message">we can also delay getting nss at the cost of some additional complexity in helper.sh (to pass --insecure if we already have SSL support, but no CA certs yet) - also, using HTTPS, we can get just the certificate data from NSS, instead of the whole massive tarball</span></div><div class="line" id="182137"><span class="nick" style="color:#2e2a4a"><a href="#182137" label="[18:21:37]">&lt;Googulator&gt;</a></span><span class="message">hopefully the newer bash &amp; make aren't strictly required either</span></div><div class="line" id="183338"><span class="nick" style="color:#2e2a4a"><a href="#183338" label="[18:33:38]">&lt;Googulator&gt;</a></span><span class="message">OpenSSL's Perl requirement appears to be 5.10.x - if I also push dist &amp; perl 5.32 to after openssl, I get a 251MiB init.img, just barely squeaking by the 256MiB target (but beware potential issues with filling up the Fiwix initrd)</span></div><div class="line" id="191302"><span class="nick" style="color:#6b8072"><a href="#191302" label="[19:13:02]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yeah, sounds like we need to move openssl pre-network</span></div><div class="line" id="202416"><span class="nick" style="color:#80b1d3"><a href="#202416" label="[20:24:16]">&lt;lanodan&gt;</a></span><span class="message">Maybe BearSSL could be used instead of OpenSSL? It's supported by curl and only needs make (even pdpmake) and a C compiler (TCC works fine).</span></div><div class="line" id="204443"><span class="nick" style="color:#8dd3c7"><a href="#204443" label="[20:44:43]">&lt;civodul&gt;</a></span><span class="message">pabs3: <a rel="nofollow" href="https://bootstrappable.org/">https://bootstrappable.org/</a>  repaired!</span></div><div class="line" id="204507"><span class="nick" style="color:#8dd3c7"><a href="#204507" label="[20:45:07]">&lt;civodul&gt;</a></span><span class="message">there was a problem with the latest version of Haunt, the web site generator</span></div><div class="line" id="204509"><span class="nick" style="color:#8dd3c7"><a href="#204509" label="[20:45:09]">&lt;civodul&gt;</a></span><span class="message"> <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/guix/bootstrappable.git/">https://git.savannah.gnu.org/cgit/guix/bootstrappable.git/</a> </span></div><div class="line" id="205138"><span class="nick" style="color:#6b8072"><a href="#205138" label="[20:51:38]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; BearSSL might work at first glabce</span></div><br /></div></body></html>

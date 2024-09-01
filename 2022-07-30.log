@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-07-30.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="121331"><span class="nick" style="color:#8dd3c7"><a href="#121331" label="[12:13:31]">&lt;stikonas&gt;</a></span><span class="message">just spotted another optimization in kaem size ...</span></div><div class="line" id="121426"><span class="nick" style="color:#8dd3c7"><a href="#121426" label="[12:14:26]">&lt;stikonas&gt;</a></span><span class="message">could save 2 * 5 bytes on x86 and 2*12 bytes on amd64</span></div><div class="line" id="121451"><span class="nick" style="color:#8dd3c7"><a href="#121451" label="[12:14:51]">&lt;stikonas&gt;</a></span><span class="message">(and also saves 2 jumps)</span></div><div class="line" id="130654"><span class="nick" style="color:#2e2a4a"><a href="#130654" label="[13:06:54]">&lt;oriansj&gt;</a></span><span class="message">stikonas: sounds likes you are starting to get good at figuring out optimizing code for size</span></div><div class="line" id="131010"><span class="nick" style="color:#8dd3c7"><a href="#131010" label="[13:10:10]">&lt;stikonas&gt;</a></span><span class="message">despite that kaem-optional.efi is going to be quite large...</span></div><div class="line" id="131218"><span class="nick" style="color:#8dd3c7"><a href="#131218" label="[13:12:18]">&lt;stikonas&gt;</a></span><span class="message">hmm, I can probably squeeze more stuff if I'm going to relink it anyway</span></div><div class="line" id="131231"><span class="nick" style="color:#8dd3c7"><a href="#131231" label="[13:12:31]">&lt;stikonas&gt;</a></span><span class="message">(kaem of posix/amd64)</span></div><div class="line" id="131259"><span class="nick" style="color:#8dd3c7"><a href="#131259" label="[13:12:59]">&lt;stikonas&gt;</a></span><span class="message">I think there is still a spare register, so can put exit status in it instead of global variable</span></div><div class="line" id="131303"><span class="nick" style="color:#8dd3c7"><a href="#131303" label="[13:13:03]">&lt;stikonas&gt;</a></span><span class="message">that's also quite a few jumps</span></div><div class="line" id="131803"><span class="nick" style="color:#2e2a4a"><a href="#131803" label="[13:18:03]">&lt;oriansj&gt;</a></span><span class="message">yeah, I was a tad overly conservative and sided on simple a bit hard</span></div><div class="line" id="132624"><span class="nick" style="color:#8dd3c7"><a href="#132624" label="[13:26:24]">&lt;stikonas&gt;</a></span><span class="message">Down to 644 bytes when built with M1</span></div><div class="line" id="132719"><span class="nick" style="color:#8dd3c7"><a href="#132719" label="[13:27:19]">&lt;stikonas&gt;</a></span><span class="message">well, some slight tricks are probably good if they are well commented and especially if they reduce number of jumps</span></div><div class="line" id="132727"><span class="nick" style="color:#8dd3c7"><a href="#132727" label="[13:27:27]">&lt;stikonas&gt;</a></span><span class="message">cause it's the jumps that make hex0 code painful</span></div><div class="line" id="132826"><span class="nick" style="color:#8dd3c7"><a href="#132826" label="[13:28:26]">&lt;stikonas&gt;</a></span><span class="message">interestingly, current stuff I'm optimizing is mostly amd64 and not much can be done on x86</span></div><div class="line" id="134146"><span class="nick" style="color:#8dd3c7"><a href="#134146" label="[13:41:46]">&lt;stikonas&gt;</a></span><span class="message">oriansj:  would you mind if I made error message a bit shorter? E.g. &quot;Subprocess error\n&quot; or do you want to keep it long?</span></div><div class="line" id="134501"><span class="nick" style="color:#2e2a4a"><a href="#134501" label="[13:45:01]">&lt;oriansj&gt;</a></span><span class="message">as long as it provides a meaningful message to the user</span></div><div class="line" id="134537"><span class="nick" style="color:#2e2a4a"><a href="#134537" label="[13:45:37]">&lt;oriansj&gt;</a></span><span class="message">you could even do DOC#8\n to indicate message #8 in the docs</span></div><div class="line" id="135024"><span class="nick" style="color:#8dd3c7"><a href="#135024" label="[13:50:24]">&lt;stikonas&gt;</a></span><span class="message">no, that's too confusing...</span></div><div class="line" id="135049"><span class="nick" style="color:#8dd3c7"><a href="#135049" label="[13:50:49]">&lt;stikonas&gt;</a></span><span class="message">especially if it's seen in the downstream project</span></div><div class="line" id="135051"><span class="nick" style="color:#8dd3c7"><a href="#135051" label="[13:50:51]">&lt;stikonas&gt;</a></span><span class="message">like live-bootstrap</span></div><div class="line" id="135353"><span class="nick" style="color:#2e2a4a"><a href="#135353" label="[13:53:53]">&lt;oriansj&gt;</a></span><span class="message">good point, we can't expect users to read documentation</span></div><div class="line" id="181720"><span class="nick" style="color:#8dd3c7"><a href="#181720" label="[18:17:20]">&lt;stikonas&gt;</a></span><span class="message">hmm, I wonder if it's worth making kaem-optional relocatable</span></div><div class="line" id="181728"><span class="nick" style="color:#8dd3c7"><a href="#181728" label="[18:17:28]">&lt;stikonas&gt;</a></span><span class="message">hex0 actually already is</span></div><div class="line" id="181744"><span class="nick" style="color:#8dd3c7"><a href="#181744" label="[18:17:44]">&lt;stikonas&gt;</a></span><span class="message">(it just doesn't have any more global variables)</span></div><div class="line" id="182046"><span class="nick" style="color:#8dd3c7"><a href="#182046" label="[18:20:46]">&lt;stikonas&gt;</a></span><span class="message">hmm, it does add a few bytes though...</span></div><div class="line" id="182048"><span class="nick" style="color:#8dd3c7"><a href="#182048" label="[18:20:48]">&lt;stikonas&gt;</a></span><span class="message">so maybe doesn't matter</span></div><div class="line" id="191820"><span class="nick" style="color:#8dd3c7"><a href="#191820" label="[19:18:20]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds/pull/26">https://github.com/oriansj/bootstrap-seeds/pull/26</a> </span></div><div class="line" id="191828"><span class="nick" style="color:#8dd3c7"><a href="#191828" label="[19:18:28]">&lt;stikonas&gt;</a></span><span class="message">618 bytes for kaem</span></div><div class="line" id="191834"><span class="nick" style="color:#8dd3c7"><a href="#191834" label="[19:18:34]">&lt;stikonas&gt;</a></span><span class="message">(on amd64)</span></div><div class="line" id="191958"><span class="nick" style="color:#8dd3c7"><a href="#191958" label="[19:19:58]">&lt;stikonas&gt;</a></span><span class="message">used to be 894, so reduction of more than 30%</span></div><div class="line" id="192134"><span class="nick" style="color:#8dd3c7"><a href="#192134" label="[19:21:34]">&lt;stikonas&gt;</a></span><span class="message">and <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-amd64/pull/6">https://github.com/oriansj/stage0-posix-amd64/pull/6</a> </span></div><div class="line" id="202308"><span class="nick" style="color:#6b8072"><a href="#202308" label="[20:23:08]">&lt;Magnesium9117&gt;</a></span><span class="message">Hello, i was wondering what happen to the website, i can't open it.</span></div><div class="line" id="203034"><span class="nick" style="color:#8dd3c7"><a href="#203034" label="[20:30:34]">&lt;stikonas&gt;</a></span><span class="message">hmm, seems stuck</span></div><div class="line" id="203055"><span class="nick" style="color:#8dd3c7"><a href="#203055" label="[20:30:55]">&lt;stikonas&gt;</a></span><span class="message">oh guix website is down too</span></div><div class="line" id="203113"><span class="nick" style="color:#8dd3c7"><a href="#203113" label="[20:31:13]">&lt;stikonas&gt;</a></span><span class="message">so I guess they'll come back together</span></div><div class="line" id="203146"><span class="nick" style="color:#8dd3c7"><a href="#203146" label="[20:31:46]">&lt;stikonas&gt;</a></span><span class="message">Magnesium9117: anything in particular you wanted from the website?</span></div><div class="line" id="203347"><span class="nick" style="color:#2e2a4a"><a href="#203347" label="[20:33:47]">&lt;oriansj&gt;</a></span><span class="message">stikonas: your pull requests have been merged. Thank you</span></div><div class="line" id="203351"><span class="nick" style="color:#8dd3c7"><a href="#203351" label="[20:33:51]">&lt;stikonas&gt;</a></span><span class="message">thanks</span></div><div class="line" id="203357"><span class="nick" style="color:#6b8072"><a href="#203357" label="[20:33:57]">&lt;Magnesium9117&gt;</a></span><span class="message">not really, i just found about it and wanted to check it out. i am using wayback machine for know. But wanted to know if it migrated to a different site or permanently closed</span></div><div class="line" id="203404"><span class="nick" style="color:#8dd3c7"><a href="#203404" label="[20:34:04]">&lt;stikonas&gt;</a></span><span class="message">I guess some of that could still be ported to x86...</span></div><div class="line" id="203410"><span class="nick" style="color:#8dd3c7"><a href="#203410" label="[20:34:10]">&lt;stikonas&gt;</a></span><span class="message">just won't be as much saved</span></div><div class="line" id="203425"><span class="nick" style="color:#8dd3c7"><a href="#203425" label="[20:34:25]">&lt;stikonas&gt;</a></span><span class="message">e.g. status can be moved onto stack</span></div><div class="line" id="203445"><span class="nick" style="color:#8dd3c7"><a href="#203445" label="[20:34:45]">&lt;stikonas&gt;</a></span><span class="message">those max_ags and max_string can also be initialized inline</span></div><div class="line" id="203509"><span class="nick" style="color:#2e2a4a"><a href="#203509" label="[20:35:09]">&lt;oriansj&gt;</a></span><span class="message">and the lack of PC relative addressing would making x86 binaries relocatable a little bigger but nothing too crazy</span></div><div class="line" id="203510"><span class="nick" style="color:#8dd3c7"><a href="#203510" label="[20:35:10]">&lt;stikonas&gt;</a></span><span class="message">#guix channel has a message on the topic</span></div><div class="line" id="203527"><span class="nick" style="color:#8dd3c7"><a href="#203527" label="[20:35:27]">&lt;stikonas&gt;</a></span><span class="message">well, for kaem-amd64 that's 3 bytes extra</span></div><div class="line" id="203554"><span class="nick" style="color:#8dd3c7"><a href="#203554" label="[20:35:54]">&lt;stikonas&gt;</a></span><span class="message">although that is probably mostly of interest for baremetal bootstrapping?</span></div><div class="line" id="203557"><span class="nick" style="color:#2e2a4a"><a href="#203557" label="[20:35:57]">&lt;oriansj&gt;</a></span><span class="message">yeah and for x86, you'll have to do a call/pop combo to get the PC to be relative off</span></div><div class="line" id="222359"><span class="nick">***</span><span class="message notice">genr8eofl__ is now known as genr8eofl</span></div><br /></div></body></html>

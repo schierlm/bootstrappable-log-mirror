@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-01-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000022"><span class="nick" style="color:#389600"><a href="#000022" label="[00:00:22]">&lt;oriansj&gt;</a></span><span class="message">alMalsamo: well x86_64 hardware can run x86 binaries natively just fine.</span></div><div class="line" id="000127"><span class="nick" style="color:#8dd3c7"><a href="#000127" label="[00:01:27]">&lt;alMalsamo&gt;</a></span><span class="message">oriansj: Yes I know this of course, unlike Itanium which tanked... but i want to end up with amd64 OS even if I have to start with an i686 kernel (for reasons I do not understand)</span></div><div class="line" id="000155"><span class="nick" style="color:#389600"><a href="#000155" label="[00:01:55]">&lt;oriansj&gt;</a></span><span class="message">and hex2, M1, M2-Planet and M2-Mesoplanet should behave identiically if run on bare metal or on DOS or on Windows or BSD or Linux or (your own kernel) or etc</span></div><div class="line" id="000244"><span class="nick" style="color:#389600"><a href="#000244" label="[00:02:44]">&lt;oriansj&gt;</a></span><span class="message">alMalsamo: you can start with an amd64 OS if you wish</span></div><div class="line" id="000437"><span class="nick" style="color:#2e2a4a"><a href="#000437" label="[00:04:37]">&lt;stikonas&gt;</a></span><span class="message">well, you can start with amd64 OS but live-bootstrap eventually would fail due to technical reasons</span></div><div class="line" id="000509"><span class="nick" style="color:#2e2a4a"><a href="#000509" label="[00:05:09]">&lt;stikonas&gt;</a></span><span class="message">it won't be able to kexec into the new kernel</span></div><div class="line" id="000538"><span class="nick" style="color:#2e2a4a"><a href="#000538" label="[00:05:38]">&lt;stikonas&gt;</a></span><span class="message">but in any case, one you bootstrap 32-bit toolchain, cross-compilation to 64-bit is not hard</span></div><div class="line" id="000707"><span class="nick" style="color:#8dd3c7"><a href="#000707" label="[00:07:07]">&lt;alMalsamo&gt;</a></span><span class="message">Hmm okay so I have to build a 32-bit toolchain first before I cross-compile a 64-bit one?  This sounds like there are a LOT of steps wow</span></div><div class="line" id="001143"><span class="nick" style="color:#2e2a4a"><a href="#001143" label="[00:11:43]">&lt;stikonas&gt;</a></span><span class="message">alMalsamo: but a lot of the steps are automated</span></div><div class="line" id="001155"><span class="nick" style="color:#2e2a4a"><a href="#001155" label="[00:11:55]">&lt;stikonas&gt;</a></span><span class="message">so just the number of steps is not really concerning</span></div><div class="line" id="001314"><span class="nick" style="color:#2e2a4a"><a href="#001314" label="[00:13:14]">&lt;stikonas&gt;</a></span><span class="message">e.g. live-bootstrap will get your from hex0/kaem-optional-seed to fairly functional 32-bit toolchain with gcc 4.7.4 and lots of extra tools (more than LFS starting point)</span></div><div class="line" id="001951"><span class="nick" style="color:#389600"><a href="#001951" label="[00:19:51]">&lt;oriansj&gt;</a></span><span class="message">stikonas: thank you for that clarification.</span></div><div class="line" id="001953"><span class="nick" style="color:#389600"><a href="#001953" label="[00:19:53]">&lt;oriansj&gt;</a></span><span class="message">alMalsamo: a LOT, no.</span></div><div class="line" id="002025"><span class="nick" style="color:#389600"><a href="#002025" label="[00:20:25]">&lt;oriansj&gt;</a></span><span class="message">a non-zero value, yes</span></div><div class="line" id="002158"><span class="nick" style="color:#8dd3c7"><a href="#002158" label="[00:21:58]">&lt;alMalsamo&gt;</a></span><span class="message">Hmm so looking at live-bootstrap README I am not sure I understand the difference between sysa sysb and sysc... are these seperate phsyical machines needed for bootstrapping (I am more interested in bare metal compared to QEMU or something) or are they aliases for seperate phases of the bootsrapping process on the same physical machine?</span></div><div class="line" id="002228"><span class="nick" style="color:#8dd3c7"><a href="#002228" label="[00:22:28]">&lt;alMalsamo&gt;</a></span><span class="message">And why exactly do I need to start with i686 kernel and toolchain?  Is this because a lot of components are written in 32-bit x86 ASM or something?</span></div><div class="line" id="002421"><span class="nick" style="color:#2e2a4a"><a href="#002421" label="[00:24:21]">&lt;stikonas&gt;</a></span><span class="message">alMalsamo: it's the same machine</span></div><div class="line" id="002521"><span class="nick" style="color:#389600"><a href="#002521" label="[00:25:21]">&lt;oriansj&gt;</a></span><span class="message">alMalsamo: The short answer for why we did the i686 bootstrap first, it was the shortest path to giving us a working bootstrap.</span></div><div class="line" id="002603"><span class="nick" style="color:#2e2a4a"><a href="#002603" label="[00:26:03]">&lt;stikonas&gt;</a></span><span class="message">but kind of different file systems in each</span></div><div class="line" id="002630"><span class="nick" style="color:#2e2a4a"><a href="#002630" label="[00:26:30]">&lt;stikonas&gt;</a></span><span class="message">sysa is the initial bootstrap system that bootstraps up to gcc</span></div><div class="line" id="002656"><span class="nick" style="color:#8dd3c7"><a href="#002656" label="[00:26:56]">&lt;alMalsamo&gt;</a></span><span class="message">stikonas: what do you mean by different file systems, does that mean different filesystems being written to partitions on my SSD?</span></div><div class="line" id="002657"><span class="nick" style="color:#2e2a4a"><a href="#002657" label="[00:26:57]">&lt;stikonas&gt;</a></span><span class="message">it then builds a linux kernel and boots it (actually kexecs into it)</span></div><div class="line" id="002710"><span class="nick" style="color:#2e2a4a"><a href="#002710" label="[00:27:10]">&lt;stikonas&gt;</a></span><span class="message">sysa and sysb are entirely in memory</span></div><div class="line" id="002737"><span class="nick" style="color:#2e2a4a"><a href="#002737" label="[00:27:37]">&lt;stikonas&gt;</a></span><span class="message">then sysb mounts filesystem on physical device</span></div><div class="line" id="002741"><span class="nick" style="color:#2e2a4a"><a href="#002741" label="[00:27:41]">&lt;stikonas&gt;</a></span><span class="message">and chroots into it (that's sysc)</span></div><div class="line" id="002810"><span class="nick" style="color:#2e2a4a"><a href="#002810" label="[00:28:10]">&lt;stikonas&gt;</a></span><span class="message">(sysb is inserted because we don't want to asume that bootstrap kernel can access hard drives)</span></div><div class="line" id="002840"><span class="nick" style="color:#2e2a4a"><a href="#002840" label="[00:28:40]">&lt;stikonas&gt;</a></span><span class="message">actually if you run live-bootstrap in chroot mode rather than qemu or real system then it skips sysb and jumps from sysa to sysc</span></div><div class="line" id="002912"><span class="nick" style="color:#2e2a4a"><a href="#002912" label="[00:29:12]">&lt;stikonas&gt;</a></span><span class="message">just before we jump to sysc we are already very close to maximum RAM limit (3 GiB)</span></div><div class="line" id="002928"><span class="nick" style="color:#2e2a4a"><a href="#002928" label="[00:29:28]">&lt;stikonas&gt;</a></span><span class="message">that's why we need a disk to continue bootstrap</span></div><div class="line" id="002933"><span class="nick" style="color:#2e2a4a"><a href="#002933" label="[00:29:33]">&lt;stikonas&gt;</a></span><span class="message">can't do any more in memory</span></div><div class="line" id="003037"><span class="nick" style="color:#2e2a4a"><a href="#003037" label="[00:30:37]">&lt;stikonas&gt;</a></span><span class="message">alMalsamo: so it's kind of places where we change kernels</span></div><div class="line" id="003103"><span class="nick" style="color:#2e2a4a"><a href="#003103" label="[00:31:03]">&lt;stikonas&gt;</a></span><span class="message">it's not that significant if you ignore kernel completely (and do chroot build)</span></div><div class="line" id="003113"><span class="nick" style="color:#2e2a4a"><a href="#003113" label="[00:31:13]">&lt;stikonas&gt;</a></span><span class="message">which is what some distros might choose to do</span></div><div class="line" id="003117"><span class="nick" style="color:#8dd3c7"><a href="#003117" label="[00:31:17]">&lt;alMalsamo&gt;</a></span><span class="message">Hmm well I just installed 16GB in my laptop, but the 3GB limit is because i686 binaries?  I thought i686 can address up to 4GB RAM...</span></div><div class="line" id="003121"><span class="nick" style="color:#2e2a4a"><a href="#003121" label="[00:31:21]">&lt;stikonas&gt;</a></span><span class="message">to bootstrap their root of trust</span></div><div class="line" id="003143"><span class="nick" style="color:#2e2a4a"><a href="#003143" label="[00:31:43]">&lt;stikonas&gt;</a></span><span class="message">alMalsamo: yes, it can do up to 4 GB but not all of it is available to userspace</span></div><div class="line" id="003204"><span class="nick" style="color:#2e2a4a"><a href="#003204" label="[00:32:04]">&lt;stikonas&gt;</a></span><span class="message">some of it is reserved for kernel</span></div><div class="line" id="003209"><span class="nick" style="color:#2e2a4a"><a href="#003209" label="[00:32:09]">&lt;stikonas&gt;</a></span><span class="message">some has to be allocated to stack</span></div><div class="line" id="003233"><span class="nick" style="color:#2e2a4a"><a href="#003233" label="[00:32:33]">&lt;stikonas&gt;</a></span><span class="message">some might be completely unused (from 0 to base address)</span></div><div class="line" id="003245"><span class="nick" style="color:#2e2a4a"><a href="#003245" label="[00:32:45]">&lt;stikonas&gt;</a></span><span class="message">but it's mostly kernelspace</span></div><div class="line" id="003502"><span class="nick" style="color:#389600"><a href="#003502" label="[00:35:02]">&lt;oriansj&gt;</a></span><span class="message">alMalsamo: also we need to leave some for running processes to do their work</span></div><div class="line" id="003534"><span class="nick" style="color:#8dd3c7"><a href="#003534" label="[00:35:34]">&lt;alMalsamo&gt;</a></span><span class="message">Hmm my current kernel image is only 7MB why would it need a whole GB for kernelspace memory?</span></div><div class="line" id="003752"><span class="nick" style="color:#2e2a4a"><a href="#003752" label="[00:37:52]">&lt;stikonas&gt;</a></span><span class="message">alMalsamo: I think it's hardcoded</span></div><div class="line" id="003759"><span class="nick" style="color:#2e2a4a"><a href="#003759" label="[00:37:59]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.kernel.org/doc/html/latest/vm/highmem.html">https://www.kernel.org/doc/html/latest/vm/highmem.html</a> </span></div><div class="line" id="003806"><span class="nick" style="color:#80b1d3"><a href="#003806" label="[00:38:06]">&lt;fossy&gt;</a></span><span class="message">hi</span></div><div class="line" id="003810"><span class="nick" style="color:#80b1d3"><a href="#003810" label="[00:38:10]">&lt;fossy&gt;</a></span><span class="message">yeah that's right</span></div><div class="line" id="003945"><span class="nick" style="color:#389600"><a href="#003945" label="[00:39:45]">&lt;oriansj&gt;</a></span><span class="message">alMalsamo: you can also see how much memory your kernel is actually using with: slabtop</span></div><div class="line" id="004017"><span class="nick" style="color:#80b1d3"><a href="#004017" label="[00:40:17]">&lt;fossy&gt;</a></span><span class="message">stikonas: btw, are you happy for doras's PR to be merged</span></div><div class="line" id="004021"><span class="nick" style="color:#80b1d3"><a href="#004021" label="[00:40:21]">&lt;fossy&gt;</a></span><span class="message">I can't see anything wrong with it</span></div><div class="line" id="004111"><span class="nick" style="color:#6d2462"><a href="#004111" label="[00:41:11]">&lt;stikonas[m]&gt;</a></span><span class="message">Didn't I approve it?</span></div><div class="line" id="004154"><span class="nick" style="color:#6d2462"><a href="#004154" label="[00:41:54]">&lt;stikonas[m]&gt;</a></span><span class="message">I just didn't merge it yet cause I was not sure if it has conflicts with your work</span></div><div class="line" id="004215"><span class="nick" style="color:#80b1d3"><a href="#004215" label="[00:42:15]">&lt;fossy&gt;</a></span><span class="message">yeah, you did approve it, just wanted to make sure there wasn't any other reason why you didn't merge</span></div><div class="line" id="004222"><span class="nick" style="color:#80b1d3"><a href="#004222" label="[00:42:22]">&lt;fossy&gt;</a></span><span class="message">coolio, i will merge in that case</span></div><div class="line" id="004231"><span class="nick" style="color:#80b1d3"><a href="#004231" label="[00:42:31]">&lt;fossy&gt;</a></span><span class="message">there's nothing in there i can't trivally merge into my branch</span></div><div class="line" id="004241"><span class="nick" style="color:#6d2462"><a href="#004241" label="[00:42:41]">&lt;stikonas[m]&gt;</a></span><span class="message">OK, go for it</span></div><div class="line" id="033435"><span class="nick" style="color:#389600"><a href="#033435" label="[03:34:35]">&lt;oriansj&gt;</a></span><span class="message">well I traced the segfault but I think it pointts to a serious bug in M2-Planet</span></div><div class="line" id="033600"><span class="nick" style="color:#389600"><a href="#033600" label="[03:36:00]">&lt;oriansj&gt;</a></span><span class="message">with the latest commit you should be able to do: make clean M2-boot</span></div><div class="line" id="033645"><span class="nick" style="color:#389600"><a href="#033645" label="[03:36:45]">&lt;oriansj&gt;</a></span><span class="message">then ./bin/M2-Mesoplanet --debug-mode 8 -f ../mescc-tools/blood-elf.c -f ../mescc-tools/stringify.c --dump-mode -o foo</span></div><div class="line" id="033645"><span class="nick" style="color:#389600"><a href="#033645" label="[03:36:45]">&lt;oriansj&gt;</a></span><span class="message">it shows the problem line is: struct utsname* unameData = calloc(1, sizeof(struct utsname));</span></div><div class="line" id="033715"><span class="nick" style="color:#389600"><a href="#033715" label="[03:37:15]">&lt;oriansj&gt;</a></span><span class="message">but the calloc returns a valid pointer, as does the malloc inside of it (the memset inside of it proves that out)</span></div><div class="line" id="033747"><span class="nick" style="color:#389600"><a href="#033747" label="[03:37:47]">&lt;oriansj&gt;</a></span><span class="message">but unameData just never gets set; which shouldn't happen</span></div><div class="line" id="033806"><span class="nick" style="color:#389600"><a href="#033806" label="[03:38:06]">&lt;oriansj&gt;</a></span><span class="message">So I need to figure out a minimal test for M2-Planet to sort out the why</span></div><div class="line" id="033827"><span class="nick" style="color:#389600"><a href="#033827" label="[03:38:27]">&lt;oriansj&gt;</a></span><span class="message">but I need some rest and will work at it tomorrow</span></div><div class="line" id="062032"><span class="nick" style="color:#234e69"><a href="#062032" label="[06:20:32]">&lt;muurkha&gt;</a></span><span class="message">wonderful you found that.  that sounds like a real bear to track down</span></div><div class="line" id="133221"><span class="nick" style="color:#389600"><a href="#133221" label="[13:32:21]">&lt;oriansj&gt;</a></span><span class="message">muurkha: the nice thing about M2-Planet, small enough enclosure to make the hunt fast</span></div><div class="line" id="203442"><span class="nick" style="color:#234e69"><a href="#203442" label="[20:34:42]">&lt;muurkha&gt;</a></span><span class="message">:)</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="015156"><span class="nick" style="color:#8dd3c7"><a href="#015156" label="[01:51:56]">&lt;stikonas&gt;</a></span><span class="message">hmm, actually doing it from GCC 4.0.4 might be easier...</span></div><div class="line" id="023048"><span class="nick" style="color:#2e2a4a"><a href="#023048" label="[02:30:48]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: sure</span></div><div class="line" id="023135"><span class="nick" style="color:#2e2a4a"><a href="#023135" label="[02:31:35]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: do you have any thoughts on changing /image to /usr. This is because when I attempt to migrate to a &quot;real&quot; FHS filesystem structure we would have to rebuild many things cause /image is hardcoded...</span></div><div class="line" id="023223"><span class="nick" style="color:#6b8072"><a href="#023223" label="[02:32:23]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: I tried use before image, it didn't work</span></div><div class="line" id="023235"><span class="nick" style="color:#2e2a4a"><a href="#023235" label="[02:32:35]">&lt;fossy&gt;</a></span><span class="message">huh, why not?</span></div><div class="line" id="023247"><span class="nick" style="color:#6b8072"><a href="#023247" label="[02:32:47]">&lt;stikonas[m]&gt;</a></span><span class="message">Possibly due to some fix includes stuff...</span></div><div class="line" id="023313"><span class="nick" style="color:#6b8072"><a href="#023313" label="[02:33:13]">&lt;stikonas[m]&gt;</a></span><span class="message">Didn't investigate more, but it was non trivial</span></div><div class="line" id="023315"><span class="nick" style="color:#2e2a4a"><a href="#023315" label="[02:33:15]">&lt;fossy&gt;</a></span><span class="message">hm, I'll give it a try. If not then I guess we will have to rebuild</span></div><div class="line" id="023352"><span class="nick" style="color:#6b8072"><a href="#023352" label="[02:33:52]">&lt;stikonas[m]&gt;</a></span><span class="message">Rebuild might hit the same problem</span></div><div class="line" id="023409"><span class="nick" style="color:#2e2a4a"><a href="#023409" label="[02:34:09]">&lt;fossy&gt;</a></span><span class="message">possibly.. what package/software wouldn't like existing in /usr though</span></div><div class="line" id="023453"><span class="nick" style="color:#6b8072"><a href="#023453" label="[02:34:53]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm, it was probably GCC pass2</span></div><div class="line" id="023459"><span class="nick" style="color:#6b8072"><a href="#023459" label="[02:34:59]">&lt;stikonas[m]&gt;</a></span><span class="message">That failed</span></div><div class="line" id="023504"><span class="nick" style="color:#2e2a4a"><a href="#023504" label="[02:35:04]">&lt;fossy&gt;</a></span><span class="message">hm ok</span></div><div class="line" id="023526"><span class="nick" style="color:#6b8072"><a href="#023526" label="[02:35:26]">&lt;stikonas[m]&gt;</a></span><span class="message">So something on build system treats usr in a special way</span></div><div class="line" id="023541"><span class="nick" style="color:#6b8072"><a href="#023541" label="[02:35:41]">&lt;stikonas[m]&gt;</a></span><span class="message">Maybe it's fixable with more work</span></div><div class="line" id="023705"><span class="nick" style="color:#6b8072"><a href="#023705" label="[02:37:05]">&lt;stikonas[m]&gt;</a></span><span class="message">But yes,I would prefer /usr too</span></div><div class="line" id="034236"><span class="nick" style="color:#2e2a4a"><a href="#034236" label="[03:42:36]">&lt;fossy&gt;</a></span><span class="message">pushed a fix to kaem for PATH variable... explains the earlier hacks we had to do lol</span></div><div class="line" id="061944"><span class="nick" style="color:#80b1d3"><a href="#061944" label="[06:19:44]">&lt;siraben&gt;</a></span><span class="message">NieDzejkob: oh you are also in formal verification (saw you at proof ground 2021)</span></div><div class="line" id="061944"><span class="nick" style="color:#2e2a4a"><a href="#061944" label="[06:19:44]">&lt;fossy&gt;</a></span><span class="message">interesting, tcc compile seems a bit slower with mes-m2... wonder why, given that we were using mes compiled by m2-planet before</span></div><div class="line" id="061947"><span class="nick" style="color:#80b1d3"><a href="#061947" label="[06:19:47]">&lt;siraben&gt;</a></span><span class="message">into*</span></div><div class="line" id="062013"><span class="nick" style="color:#80b1d3"><a href="#062013" label="[06:20:13]">&lt;siraben&gt;</a></span><span class="message">I did a little experiment recently, verifying factorial for a simple assembly language <a rel="nofollow" href="https://gist.github.com/siraben/cb58432b9cd755e80c548de40e5fe867">https://gist.github.com/siraben/cb58432b9cd755e80c548de40e5fe867</a> </span></div><div class="line" id="062024"><span class="nick" style="color:#2e2a4a"><a href="#062024" label="[06:20:24]">&lt;fossy&gt;</a></span><span class="message">what is proof ground</span></div><div class="line" id="062029"><span class="nick" style="color:#80b1d3"><a href="#062029" label="[06:20:29]">&lt;siraben&gt;</a></span><span class="message">The program is `[JZ 7; ST C; MUL ACC; ST ACC; LD C; DEC; J 0; LD ACC; HALT]`</span></div><div class="line" id="062049"><span class="nick" style="color:#80b1d3"><a href="#062049" label="[06:20:49]">&lt;siraben&gt;</a></span><span class="message">fossy: think competitive programming but for theorem proving</span></div><div class="line" id="062050"><span class="nick" style="color:#80b1d3"><a href="#062050" label="[06:20:50]">&lt;siraben&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www21.in.tum.de/~wimmers/proofground/">https://www21.in.tum.de/~wimmers/proofground/</a> </span></div><div class="line" id="062059"><span class="nick" style="color:#80b1d3"><a href="#062059" label="[06:20:59]">&lt;siraben&gt;</a></span><span class="message">basically you're given a question and have to formally verify it</span></div><div class="line" id="062108"><span class="nick" style="color:#80b1d3"><a href="#062108" label="[06:21:08]">&lt;siraben&gt;</a></span><span class="message">like a SAT solver or some data structure</span></div><div class="line" id="062137"><span class="nick" style="color:#2e2a4a"><a href="#062137" label="[06:21:37]">&lt;fossy&gt;</a></span><span class="message">right</span></div><div class="line" id="062146"><span class="nick" style="color:#2e2a4a"><a href="#062146" label="[06:21:46]">&lt;fossy&gt;</a></span><span class="message">kinda cool</span></div><div class="line" id="062206"><span class="nick" style="color:#80b1d3"><a href="#062206" label="[06:22:06]">&lt;siraben&gt;</a></span><span class="message">Of course it requires both being able to be good at proving in general then translating it to one's proof assistant</span></div><div class="line" id="062214"><span class="nick" style="color:#2e2a4a"><a href="#062214" label="[06:22:14]">&lt;fossy&gt;</a></span><span class="message">what are you using there?</span></div><div class="line" id="062220"><span class="nick" style="color:#2e2a4a"><a href="#062220" label="[06:22:20]">&lt;fossy&gt;</a></span><span class="message">in that gist</span></div><div class="line" id="062235"><span class="nick" style="color:#80b1d3"><a href="#062235" label="[06:22:35]">&lt;siraben&gt;</a></span><span class="message">I think proof writing is like programming, with enough practice it becomes natural.</span></div><div class="line" id="062235"><span class="nick" style="color:#80b1d3"><a href="#062235" label="[06:22:35]">&lt;siraben&gt;</a></span><span class="message">fossy: Coq.</span></div><div class="line" id="062239"><span class="nick" style="color:#80b1d3"><a href="#062239" label="[06:22:39]">&lt;siraben&gt;</a></span><span class="message">NieDzejkob uses Isabelle IIRC</span></div><div class="line" id="062240"><span class="nick" style="color:#2e2a4a"><a href="#062240" label="[06:22:40]">&lt;fossy&gt;</a></span><span class="message">ahha</span></div><div class="line" id="062300"><span class="nick" style="color:#80b1d3"><a href="#062300" label="[06:23:00]">&lt;siraben&gt;</a></span><span class="message">The key correctness lemma is `Lemma fact_n (n : nat) : { m : store | csteps fact_prog (0, n, set empty ACC 1) (8, fact n, m) }.`</span></div><div class="line" id="062308"><span class="nick" style="color:#80b1d3"><a href="#062308" label="[06:23:08]">&lt;siraben&gt;</a></span><span class="message">to translate what this means;</span></div><div class="line" id="062423"><span class="nick" style="color:#80b1d3"><a href="#062423" label="[06:24:23]">&lt;siraben&gt;</a></span><span class="message">it says for every natural number `n`, there is a store `m` such that the factorial program steps from the initial state where PC = 0, A (the only register) = n, mem = empty[ACC] = 1 to the final state where PC = 8, A = fact n, mem = m</span></div><div class="line" id="062708"><span class="nick" style="color:#2e2a4a"><a href="#062708" label="[06:27:08]">&lt;fossy&gt;</a></span><span class="message">zzzzzz</span></div><div class="line" id="062711"><span class="nick" style="color:#2e2a4a"><a href="#062711" label="[06:27:11]">&lt;fossy&gt;</a></span><span class="message">oops</span></div><div class="line" id="062716"><span class="nick" style="color:#2e2a4a"><a href="#062716" label="[06:27:16]">&lt;fossy&gt;</a></span><span class="message">stuck key</span></div><div class="line" id="062726"><span class="nick" style="color:#80b1d3"><a href="#062726" label="[06:27:26]">&lt;siraben&gt;</a></span><span class="message">lol thought you fell asleep</span></div><div class="line" id="062947"><span class="nick" style="color:#80b1d3"><a href="#062947" label="[06:29:47]">&lt;siraben&gt;</a></span><span class="message">anyway that was a pleasant start that took me a few hours yesterday, I'm contemplating proving a stack data structure correct in assembly</span></div><div class="line" id="063003"><span class="nick" style="color:#80b1d3"><a href="#063003" label="[06:30:03]">&lt;siraben&gt;</a></span><span class="message">so I would need to relate the abstract representation of the stack as a Coq list of natural numbers with the in-memory representation</span></div><div class="line" id="063020"><span class="nick" style="color:#80b1d3"><a href="#063020" label="[06:30:20]">&lt;siraben&gt;</a></span><span class="message">and show that the abstract representation changes as expected when I push/pop</span></div><div class="line" id="123752"><span class="nick" style="color:#6d2462"><a href="#123752" label="[12:37:52]">&lt;NieDzejkob&gt;</a></span><span class="message">siraben: haha, yeah. small world</span></div><div class="line" id="131028"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><br /></div></body></html>

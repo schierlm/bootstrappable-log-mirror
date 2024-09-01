@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-07-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="052743"><span class="nick" style="color:#389600"><a href="#052743" label="[05:27:43]">&lt;muurkha&gt;</a></span><span class="message">thinking about kerravon's PDOS and multitasking, I wrote an operating system the other night called Einkornix that does *only* multitasking.  no filesystem, memory management, booting, memory protection, shell, preemption, or networking</span></div><div class="line" id="052801"><span class="nick" style="color:#389600"><a href="#052801" label="[05:28:01]">&lt;muurkha&gt;</a></span><span class="message">it's 96 bytes: <a rel="nofollow" href="http://canonical.org/~kragen/sw/dev3/einkornix.h">http://canonical.org/~kragen/sw/dev3/einkornix.h</a> </span></div><div class="line" id="053027"><span class="nick" style="color:#389600"><a href="#053027" label="[05:30:27]">&lt;muurkha&gt;</a></span><span class="message">I also wrote a cut-down version called Monokokko which doesn't support creating or destroying tasks and uses a slightly nonstandard ABI in order to get better efficiency.  the example application embedding it is 236 bytes: <a rel="nofollow" href="http://canonical.org/~kragen/sw/dev3/monokokko.S">http://canonical.org/~kragen/sw/dev3/monokokko.S</a> </span></div><div class="line" id="053219"><span class="nick" style="color:#389600"><a href="#053219" label="[05:32:19]">&lt;muurkha&gt;</a></span><span class="message">the example programs here run inside a Linux process, so instead of doing I/O by banging on memory-mapped devices, they do it by making Linux system calls, which makes them easier to test</span></div><div class="line" id="053357"><span class="nick" style="color:#389600"><a href="#053357" label="[05:33:57]">&lt;muurkha&gt;</a></span><span class="message">but my target platform is ARM microcontrollers</span></div><div class="line" id="053622"><span class="nick" style="color:#389600"><a href="#053622" label="[05:36:22]">&lt;muurkha&gt;</a></span><span class="message">the task switching in Einkornix is 24 bytes of code in 8 Thumb-2 instructions.  The more compact version in Monokokko is 5 instructions and 20 bytes</span></div><div class="line" id="054008"><span class="nick" style="color:#389600"><a href="#054008" label="[05:40:08]">&lt;muurkha&gt;</a></span><span class="message">somewhat annoyingly, -gnodir has been removed from GCC sometime in the last 30 years, so the size of the executables you get if you build them with the Makefile in that directory depends on the name of the directory you build them in</span></div><div class="line" id="054158"><span class="nick" style="color:#389600"><a href="#054158" label="[05:41:58]">&lt;muurkha&gt;</a></span><span class="message">this is my first operating system</span></div><div class="line" id="054618"><span class="nick" style="color:#389600"><a href="#054618" label="[05:46:18]">&lt;muurkha&gt;</a></span><span class="message">I think the big difficulties with multitasking are typically memory protection, stability under load, and deadlock, and none of those are addressed here</span></div><div class="line" id="055056"><span class="nick" style="color:#389600"><a href="#055056" label="[05:50:56]">&lt;muurkha&gt;</a></span><span class="message">but I also feel like 8 instructions of assembly is pretty approachable</span></div><br /></div></body></html>

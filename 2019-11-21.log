@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-11-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="143607"><span class="nick" style="color:#8dd3c7"><a href="#143607" label="[14:36:07]">&lt;stikonas&gt;</a></span><span class="message">can I force guix to rebuild non public package? in particular jamvm-1-bootstrap I want to check build log to see if one precompiled zip ends up installed or is regenerated</span></div><div class="line" id="144215"><span class="nick" style="color:#8dd3c7"><a href="#144215" label="[14:42:15]">&lt;stikonas&gt;</a></span><span class="message">oh, I think I'm correct, there is a blob in guix java bootstrap path</span></div><div class="line" id="220813"><span class="nick" style="color:#2e2a4a"><a href="#220813" label="[22:08:13]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well that would be a serious problem;</span></div><div class="line" id="221047"><span class="nick" style="color:#2e2a4a"><a href="#221047" label="[22:10:47]">&lt;oriansj&gt;</a></span><span class="message">stikonas: please provide specific details and rekado_ please validate if the jamvm-1-bootstrap does in fact use a generated binary</span></div><div class="line" id="222426"><span class="nick" style="color:#8dd3c7"><a href="#222426" label="[22:24:26]">&lt;stikonas&gt;</a></span><span class="message">oriansj: well, sha256sum matches my theory that precompiled binary is used. The good news is that simply removing it before building forces build system to recompile it (the resulting file is then ~500 bytes larger)</span></div><div class="line" id="222458"><span class="nick" style="color:#8dd3c7"><a href="#222458" label="[22:24:58]">&lt;stikonas&gt;</a></span><span class="message">at the moment sha256sum in /gnu/store matches sha256sum of zip of .class files in jamvm-1.5.1 tarball</span></div><div class="line" id="222531"><span class="nick" style="color:#8dd3c7"><a href="#222531" label="[22:25:31]">&lt;stikonas&gt;</a></span><span class="message">I actually have some patch that I'm trying to test... But it's a bit slow since I'm still quite new to guix</span></div><div class="line" id="222626"><span class="nick" style="color:#8dd3c7"><a href="#222626" label="[22:26:26]">&lt;stikonas&gt;</a></span><span class="message">I was trying to do &quot;git pull --url --branch&quot; while pointing to my own repo but that takes ages</span></div><div class="line" id="222733"><span class="nick" style="color:#8dd3c7"><a href="#222733" label="[22:27:33]">&lt;stikonas&gt;</a></span><span class="message">rekado_: does this look reasonable? <a rel="nofollow" href="https://git.stikonas.eu/andrius/guix/commit/08008f9ce8cec3e6077547237b11d72259e8b862">https://git.stikonas.eu/andrius/guix/commit/08008f9ce8cec3e6077547237b11d72259e8b862</a> </span></div><div class="line" id="222834"><span class="nick" style="color:#8dd3c7"><a href="#222834" label="[22:28:34]">&lt;stikonas&gt;</a></span><span class="message">(I'll submit it properly to guix-patches once I'm able to test it)</span></div><div class="line" id="233258"><span class="nick" style="color:#6b8072"><a href="#233258" label="[23:32:58]">&lt;fosslinux&gt;</a></span><span class="message">uh oh</span></div><br /></div></body></html>

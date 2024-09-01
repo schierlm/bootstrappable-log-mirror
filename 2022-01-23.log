@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-01-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003145"><span class="nick" style="color:#389600"><a href="#003145" label="[00:31:45]">&lt;stikonas&gt;</a></span><span class="message">I'm fine with that</span></div><div class="line" id="003206"><span class="nick" style="color:#389600"><a href="#003206" label="[00:32:06]">&lt;stikonas&gt;</a></span><span class="message">at least for our usecase continuing after failure is usually confusing</span></div><div class="line" id="053438"><span class="nick" style="color:#2e2a4a"><a href="#053438" label="[05:34:38]">&lt;oriansj&gt;</a></span><span class="message">in funny news, turns out musl has a minor flaw in its wait.h definitions</span></div><div class="line" id="053547"><span class="nick" style="color:#2e2a4a"><a href="#053547" label="[05:35:47]">&lt;oriansj&gt;</a></span><span class="message">WIFSTOPPED can be defined in terms of WTERMSIG and WCOREDUMP without any multiplication</span></div><div class="line" id="053644"><span class="nick" style="color:#2e2a4a"><a href="#053644" label="[05:36:44]">&lt;oriansj&gt;</a></span><span class="message">((0x7F == WTERMSIG(s)) &amp;&amp; (0 == WCOREDUMP(s))) in case anyone is curious</span></div><div class="line" id="053745"><span class="nick" style="color:#2e2a4a"><a href="#053745" label="[05:37:45]">&lt;oriansj&gt;</a></span><span class="message">so 2 xors, 2 subtractions and a logical and</span></div><div class="line" id="053824"><span class="nick" style="color:#2e2a4a"><a href="#053824" label="[05:38:24]">&lt;oriansj&gt;</a></span><span class="message">correction 2 bitwise ands, 2 subtractions and a logical and</span></div><div class="line" id="055659"><span class="nick" style="color:#2e2a4a"><a href="#055659" label="[05:56:59]">&lt;oriansj&gt;</a></span><span class="message">and the updated kaem is now up with a much better ability to explain what happened to the process. Some of the functionality isn't used yet but it is there for anyone who might need it.</span></div><div class="line" id="111653"><span class="nick" style="color:#6b8072"><a href="#111653" label="[11:16:53]">&lt;stikonas[m]&gt;</a></span><span class="message">multiplication by constant can always be converted to bit operations, so optimising compiler might do it anyway</span></div><div class="line" id="163304"><span class="nick" style="color:#2e2a4a"><a href="#163304" label="[16:33:04]">&lt;oriansj&gt;</a></span><span class="message">now that M2-Mesoplanet is working, we probably should start trimming down macro functionality in M2-Planet</span></div><div class="line" id="170230"><span class="nick" style="color:#389600"><a href="#170230" label="[17:02:30]">&lt;stikonas&gt;</a></span><span class="message">oriansj: you might be able to trim it more if we  start using M2-Mesoplanet earlier</span></div><div class="line" id="170256"><span class="nick" style="color:#389600"><a href="#170256" label="[17:02:56]">&lt;stikonas&gt;</a></span><span class="message">we discussed that it needs kaem for PATH but actually we can use it in preprocessor mode -E much earlier</span></div><div class="line" id="170352"><span class="nick" style="color:#389600"><a href="#170352" label="[17:03:52]">&lt;stikonas&gt;</a></span><span class="message">in principle as soon as M2 is built but I think we should build at least C versions of M1 and hex2</span></div><div class="line" id="170406"><span class="nick" style="color:#389600"><a href="#170406" label="[17:04:06]">&lt;stikonas&gt;</a></span><span class="message">(else bootsrap will take much longer on qemu)</span></div><div class="line" id="170426"><span class="nick" style="color:#389600"><a href="#170426" label="[17:04:26]">&lt;stikonas&gt;</a></span><span class="message">oriansj: also we'll probably need some kind of -I functionality</span></div><div class="line" id="170432"><span class="nick" style="color:#389600"><a href="#170432" label="[17:04:32]">&lt;stikonas&gt;</a></span><span class="message">to specify search paths</span></div><div class="line" id="170449"><span class="nick" style="color:#389600"><a href="#170449" label="[17:04:49]">&lt;stikonas&gt;</a></span><span class="message">otherwise it's hard  to use it to build even mes-m2</span></div><div class="line" id="170515"><span class="nick" style="color:#389600"><a href="#170515" label="[17:05:15]">&lt;stikonas&gt;</a></span><span class="message">(unodified mes is of course even harder)</span></div><div class="line" id="170557"><span class="nick" style="color:#389600"><a href="#170557" label="[17:05:57]">&lt;stikonas&gt;</a></span><span class="message">even with -I support, we would need additional patches to mes-m2 to build it</span></div><div class="line" id="170649"><span class="nick" style="color:#389600"><a href="#170649" label="[17:06:49]">&lt;stikonas&gt;</a></span><span class="message">most likely there will be some includes that we don't want and need to #ifdef them</span></div><div class="line" id="173626"><span class="nick" style="color:#2e2a4a"><a href="#173626" label="[17:36:26]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well adding -I support will be quite simple to add. However meslibc might be a more complex of a problem. but something like --disable-includes would allow M2-Mesoplanet to revert to M2-Planet style behavior regarding includes</span></div><div class="line" id="173821"><span class="nick" style="color:#389600"><a href="#173821" label="[17:38:21]">&lt;stikonas&gt;</a></span><span class="message">oriansj: yes, we might need --disable-includes if it get's too messy</span></div><div class="line" id="173841"><span class="nick" style="color:#389600"><a href="#173841" label="[17:38:41]">&lt;stikonas&gt;</a></span><span class="message">I was hoping that #ifdef __M2__ might hide some includes but that's just a guess</span></div><div class="line" id="174906"><span class="nick" style="color:#2e2a4a"><a href="#174906" label="[17:49:06]">&lt;oriansj&gt;</a></span><span class="message">well that would require us to make #include functionality smarter</span></div><div class="line" id="175336"><span class="nick" style="color:#2e2a4a"><a href="#175336" label="[17:53:36]">&lt;oriansj&gt;</a></span><span class="message">in fact we probably could move the the entire conditional include logic into cc_reader.c</span></div><div class="line" id="175346"><span class="nick" style="color:#2e2a4a"><a href="#175346" label="[17:53:46]">&lt;oriansj&gt;</a></span><span class="message">so that preprocess would become considerably simpler</span></div><div class="line" id="175602"><span class="nick" style="color:#2e2a4a"><a href="#175602" label="[17:56:02]">&lt;oriansj&gt;</a></span><span class="message">but this would be a big change; as we would be doing macro evaluation on every token as we read it</span></div><div class="line" id="175959"><span class="nick" style="color:#2e2a4a"><a href="#175959" label="[17:59:59]">&lt;oriansj&gt;</a></span><span class="message">we we could probably do a half-support version using just #ifdef and #ifndef and #endif</span></div><div class="line" id="180125"><span class="nick" style="color:#2e2a4a"><a href="#180125" label="[18:01:25]">&lt;oriansj&gt;</a></span><span class="message">I can later grow it out to support #if #elif #else too</span></div><div class="line" id="180232"><span class="nick" style="color:#2e2a4a"><a href="#180232" label="[18:02:32]">&lt;oriansj&gt;</a></span><span class="message">as #if and #elif can get kinda complicated</span></div><div class="line" id="180317"><span class="nick" style="color:#2e2a4a"><a href="#180317" label="[18:03:17]">&lt;oriansj&gt;</a></span><span class="message">#else might be simple enough to include in the initial version but I'll need a solid block of time to kick out that functionality</span></div><div class="line" id="181645"><span class="nick" style="color:#6b8072"><a href="#181645" label="[18:16:45]">&lt;stikonas[m]&gt;</a></span><span class="message">Sounds like --no-includes might be easier initially</span></div><div class="line" id="181817"><span class="nick" style="color:#6b8072"><a href="#181817" label="[18:18:17]">&lt;stikonas[m]&gt;</a></span><span class="message">And longer term expanding m2libc might make more sense anyway</span></div><div class="line" id="181825"><span class="nick" style="color:#2e2a4a"><a href="#181825" label="[18:18:25]">&lt;oriansj&gt;</a></span><span class="message">well yes, it would just turn off functionality at a single spot</span></div><div class="line" id="181959"><span class="nick" style="color:#2e2a4a"><a href="#181959" label="[18:19:59]">&lt;oriansj&gt;</a></span><span class="message">basic -I support has been added to M2-Mesoplanet and patches are up</span></div><div class="line" id="182051"><span class="nick" style="color:#2e2a4a"><a href="#182051" label="[18:20:51]">&lt;oriansj&gt;</a></span><span class="message">well I did always want to provide a common shared library for M2-planet and MesCC</span></div><div class="line" id="182118"><span class="nick" style="color:#2e2a4a"><a href="#182118" label="[18:21:18]">&lt;oriansj&gt;</a></span><span class="message">(It would finally give me an excuse to harmonize M2-Planet M1 DEFINEs with MesCC)</span></div><div class="line" id="185306"><span class="nick" style="color:#389600"><a href="#185306" label="[18:53:06]">&lt;stikonas&gt;</a></span><span class="message">oriansj: found one bug</span></div><div class="line" id="185326"><span class="nick" style="color:#389600"><a href="#185326" label="[18:53:26]">&lt;stikonas&gt;</a></span><span class="message">when Mesoplanet subprocesses fail, it should also exit with non-zero exit status</span></div><div class="line" id="185634"><span class="nick" style="color:#2e2a4a"><a href="#185634" label="[18:56:34]">&lt;oriansj&gt;</a></span><span class="message">well the current spawn logic has this: <a rel="nofollow" href="https://paste.debian.net/1228110/">https://paste.debian.net/1228110/</a> </span></div><div class="line" id="185639"><span class="nick" style="color:#389600"><a href="#185639" label="[18:56:39]">&lt;stikonas&gt;</a></span><span class="message">actually, something stranger is going on</span></div><div class="line" id="185650"><span class="nick" style="color:#389600"><a href="#185650" label="[18:56:50]">&lt;stikonas&gt;</a></span><span class="message">M2-Planet --file /tmp/M2-Mesoplanet-000011 --output /tmp/M2-Planet-000011 --architecture amd64 --debug</span></div><div class="line" id="185651"><span class="nick" style="color:#389600"><a href="#185651" label="[18:56:51]">&lt;stikonas&gt;</a></span><span class="message">Subprocess: /home/andrius/repositories/bootstrap/stage0-posix/AMD64/bin/M2-Planet exited with error code</span></div><div class="line" id="185700"><span class="nick" style="color:#389600"><a href="#185700" label="[18:57:00]">&lt;stikonas&gt;</a></span><span class="message">but when I manually run that M2-Planet command, exit code is 0</span></div><div class="line" id="185705"><span class="nick" style="color:#389600"><a href="#185705" label="[18:57:05]">&lt;stikonas&gt;</a></span><span class="message">and file is successfully compiled</span></div><div class="line" id="185731"><span class="nick" style="color:#2e2a4a"><a href="#185731" label="[18:57:31]">&lt;oriansj&gt;</a></span><span class="message">so the only error value would be 0x80 which would be a core dump but it should include other error bits too</span></div><div class="line" id="190039"><span class="nick" style="color:#2e2a4a"><a href="#190039" label="[19:00:39]">&lt;oriansj&gt;</a></span><span class="message">actually, I might as well leverage the new smarter status logic I made for kaem</span></div><div class="line" id="190202"><span class="nick" style="color:#389600"><a href="#190202" label="[19:02:02]">&lt;stikonas&gt;</a></span><span class="message">generate kaem file and spawn kaem instead?</span></div><div class="line" id="190216"><span class="nick" style="color:#389600"><a href="#190216" label="[19:02:16]">&lt;stikonas&gt;</a></span><span class="message">hmm, maybe too complicated....</span></div><div class="line" id="190442"><span class="nick" style="color:#389600"><a href="#190442" label="[19:04:42]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I'm getting this stange error <a rel="nofollow" href="https://paste.debian.net/1228112/">https://paste.debian.net/1228112/</a> </span></div><div class="line" id="190455"><span class="nick" style="color:#389600"><a href="#190455" label="[19:04:55]">&lt;stikonas&gt;</a></span><span class="message">let me downgrade Mesoplanet...</span></div><div class="line" id="190648"><span class="nick" style="color:#389600"><a href="#190648" label="[19:06:48]">&lt;stikonas&gt;</a></span><span class="message">oh, commit e4ca1f3518b56e8fa4c64cedf518d8c84472e01d works fine</span></div><div class="line" id="190704"><span class="nick" style="color:#389600"><a href="#190704" label="[19:07:04]">&lt;stikonas&gt;</a></span><span class="message">let's bisect, there is just one more commit in the middle</span></div><div class="line" id="190921"><span class="nick" style="color:#389600"><a href="#190921" label="[19:09:21]">&lt;stikonas&gt;</a></span><span class="message">oriansj: yes, it's 5a706e647837a876bdbbc271524fd775adb255a4 that is broken for me</span></div><div class="line" id="191122"><span class="nick" style="color:#2e2a4a"><a href="#191122" label="[19:11:22]">&lt;oriansj&gt;</a></span><span class="message">stikonas: I just pushed a new commit, see if it fixes that for you</span></div><div class="line" id="191134"><span class="nick" style="color:#389600"><a href="#191134" label="[19:11:34]">&lt;stikonas&gt;</a></span><span class="message">ok, let me try</span></div><div class="line" id="191147"><span class="nick" style="color:#389600"><a href="#191147" label="[19:11:47]">&lt;stikonas&gt;</a></span><span class="message">if it works, I can push mescc-tools-extra build script conversion to Mesoplanet</span></div><div class="line" id="191333"><span class="nick" style="color:#2e2a4a"><a href="#191333" label="[19:13:33]">&lt;oriansj&gt;</a></span><span class="message">and --debug-mode 8 will show you the exit codes of the subprocesses if you wish</span></div><div class="line" id="191357"><span class="nick" style="color:#2e2a4a"><a href="#191357" label="[19:13:57]">&lt;oriansj&gt;</a></span><span class="message">(technically any value over 2 will do that)</span></div><div class="line" id="191437"><span class="nick" style="color:#389600"><a href="#191437" label="[19:14:37]">&lt;stikonas&gt;</a></span><span class="message">yes, I think it fixes it</span></div><div class="line" id="191508"><span class="nick" style="color:#389600"><a href="#191508" label="[19:15:08]">&lt;stikonas&gt;</a></span><span class="message">yeah, maybe for kaem debug modes would also be good</span></div><div class="line" id="191519"><span class="nick" style="color:#389600"><a href="#191519" label="[19:15:19]">&lt;stikonas&gt;</a></span><span class="message">not --verbose is getting quite verbose</span></div><div class="line" id="191523"><span class="nick" style="color:#389600"><a href="#191523" label="[19:15:23]">&lt;stikonas&gt;</a></span><span class="message">not just list of commands</span></div><div class="line" id="191529"><span class="nick" style="color:#2e2a4a"><a href="#191529" label="[19:15:29]">&lt;oriansj&gt;</a></span><span class="message">stikonas: already included that in the new kaem --verbose</span></div><div class="line" id="191631"><span class="nick" style="color:#389600"><a href="#191631" label="[19:16:31]">&lt;stikonas&gt;</a></span><span class="message">ok, amd64 and x86 have built successfully. But it is much slower :(</span></div><div class="line" id="191844"><span class="nick" style="color:#389600"><a href="#191844" label="[19:18:44]">&lt;stikonas&gt;</a></span><span class="message">oriansj: this is how build script looks like <a rel="nofollow" href="https://github.com/stikonas/mescc-tools-extra/blob/mesoplanet/mescc-tools-extra.kaem">https://github.com/stikonas/mescc-tools-extra/blob/mesoplanet/mescc-tools-extra.kaem</a> </span></div><div class="line" id="191846"><span class="nick" style="color:#389600"><a href="#191846" label="[19:18:46]">&lt;stikonas&gt;</a></span><span class="message">should I push it?</span></div><div class="line" id="192118"><span class="nick" style="color:#2e2a4a"><a href="#192118" label="[19:21:18]">&lt;oriansj&gt;</a></span><span class="message">sure</span></div><div class="line" id="192930"><span class="nick" style="color:#389600"><a href="#192930" label="[19:29:30]">&lt;stikonas&gt;</a></span><span class="message">argh, Mesoplanet doesn't know riscv32...</span></div><div class="line" id="192931"><span class="nick" style="color:#389600"><a href="#192931" label="[19:29:31]">&lt;stikonas&gt;</a></span><span class="message">I'll add it</span></div><div class="line" id="200518"><span class="nick">***</span><span class="message notice">iridium.libera.chat sets mode: +o ChanServ</span></div><div class="line" id="200518"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="212137"><span class="nick">***</span><span class="message notice">attila_lendvai_ is now known as attila_lendvai</span></div><div class="line" id="212804"><span class="nick" style="color:#389600"><a href="#212804" label="[21:28:04]">&lt;stikonas&gt;</a></span><span class="message">hmm, having some issues on at least aarch64 and riscv32...</span></div><br /></div></body></html>

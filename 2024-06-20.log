@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011945"><span class="nick" style="color:#389600"><a href="#011945" label="[01:19:45]">&lt;oriansj&gt;</a></span><span class="message">cosinusoidally: well yes, cramming a 13MB  bzImage into a 1.44MB floppy was not really an option</span></div><div class="line" id="012844"><span class="nick" style="color:#389600"><a href="#012844" label="[01:28:44]">&lt;oriansj&gt;</a></span><span class="message">in Linux 2.6.9 36% of Drivers were just PCI; 35% USB; 9% GPU; 8.5% SCSI; 2% IDE. So taking out PCI and USB drivers that you don't need would be a serious size reduction</span></div><div class="line" id="030250"><span class="nick" style="color:#389600"><a href="#030250" label="[03:02:50]">&lt;oriansj&gt;</a></span><span class="message">and I just realized that I forgot to include the unxz and wrap programs in stage0-posix's readme</span></div><div class="line" id="030255"><span class="nick" style="color:#389600"><a href="#030255" label="[03:02:55]">&lt;oriansj&gt;</a></span><span class="message">better fix that</span></div><div class="line" id="112523"><span class="nick" style="color:#8dd3c7"><a href="#112523" label="[11:25:23]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; oriansj: also note that unxz is miscompiled by M2-Planet on riscv</span></div><div class="line" id="144051"><span class="nick" style="color:#2e2a4a"><a href="#144051" label="[14:40:51]">&lt;aggi&gt;</a></span><span class="message">cosinusoidally: i am not opposed to RISC-V or ARM, for various reasons, such as the firmware situation is a little less hostile with some of them</span></div><div class="line" id="144104"><span class="nick" style="color:#2e2a4a"><a href="#144104" label="[14:41:04]">&lt;aggi&gt;</a></span><span class="message">and some devices are ultra-low power consumption</span></div><div class="line" id="144157"><span class="nick" style="color:#2e2a4a"><a href="#144157" label="[14:41:57]">&lt;aggi&gt;</a></span><span class="message">however, with regards to bootstrapping, these platforms got no path to avoid x86 as a buildhost, require additional cross-compilation steps</span></div><div class="line" id="144224"><span class="nick" style="color:#2e2a4a"><a href="#144224" label="[14:42:24]">&lt;aggi&gt;</a></span><span class="message">and finally do not solve problems there is with bootstrapping</span></div><div class="line" id="144316"><span class="nick" style="color:#2e2a4a"><a href="#144316" label="[14:43:16]">&lt;aggi&gt;</a></span><span class="message">it is merely _additional_ efforts required with RISC-V and ARM, which has to be justified by those who seek support for them</span></div><div class="line" id="144509"><span class="nick" style="color:#2e2a4a"><a href="#144509" label="[14:45:09]">&lt;aggi&gt;</a></span><span class="message">u-boot loader and device-trees didn't arrive at providing a generic interface for generic kernel support that is/was possible with x86</span></div><div class="line" id="144533"><span class="nick" style="color:#2e2a4a"><a href="#144533" label="[14:45:33]">&lt;aggi&gt;</a></span><span class="message">even worse, u-boot introduced a transitive dependency towards c++, for the bootloader, which is a hazard for bootstrapping</span></div><div class="line" id="144929"><span class="nick" style="color:#2e2a4a"><a href="#144929" label="[14:49:29]">&lt;aggi&gt;</a></span><span class="message">this is where i see many bootstrapping problems rooted: <a rel="nofollow" href="http://web.archive.org/web/20210122075331/https://www.nytimes.com/2002/05/12/us/for-parts-nasa-boldly-goes-on-ebay.html">http://web.archive.org/web/20210122075331/https://www.nytimes.com/2002/05/12/us/for-parts-nasa-boldly-goes-on-ebay.html</a> </span></div><div class="line" id="145056"><span class="nick" style="color:#2e2a4a"><a href="#145056" label="[14:50:56]">&lt;aggi&gt;</a></span><span class="message">in practice, there is no way around x86 for bootstrapping, and this platform is rigged</span></div><div class="line" id="145126"><span class="nick" style="color:#2e2a4a"><a href="#145126" label="[14:51:26]">&lt;aggi&gt;</a></span><span class="message">recently, another historical note: Zilog announced they will terminate Z80 production too</span></div><div class="line" id="150720"><span class="nick" style="color:#389600"><a href="#150720" label="[15:07:20]">&lt;oriansj&gt;</a></span><span class="message">stikonas: yeah we probably need to debug the unxz behavior on RISC-V vs x86/amd64 and figure out the why for the difference in behavior.</span></div><div class="line" id="151025"><span class="nick" style="color:#389600"><a href="#151025" label="[15:10:25]">&lt;oriansj&gt;</a></span><span class="message">aggi: shouldn't be an issue as the z80 has been completely reverse engineered: <a rel="nofollow" href="http://www.visual6502.org/JSSim/expert-z80.html">http://www.visual6502.org/JSSim/expert-z80.html</a> </span></div><div class="line" id="151112"><span class="nick" style="color:#389600"><a href="#151112" label="[15:11:12]">&lt;oriansj&gt;</a></span><span class="message">so we could with a little money start making our own z80 chips (same for 6502 chips)</span></div><div class="line" id="151257"><span class="nick" style="color:#389600"><a href="#151257" label="[15:12:57]">&lt;oriansj&gt;</a></span><span class="message">and ultimately we are going to have to make our own hardware to rule out a Nexus Intruder Program class attacker infecting our Lithography process.</span></div><div class="line" id="222415"><span class="nick" style="color:#2e2a4a"><a href="#222415" label="[22:24:15]">&lt;aggi&gt;</a></span><span class="message">i'll depart for a few weeks</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-01-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002100"><span class="nick" style="color:#389600"><a href="#002100" label="[00:21:00]">&lt;oriansj&gt;</a></span><span class="message">fossy: M2libc ;-p</span></div><div class="line" id="062025"><span class="nick" style="color:#8dd3c7"><a href="#062025" label="[06:20:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Christoph&gt; Will the bare metal features be tested going forward?</span></div><div class="line" id="074444"><span class="nick" style="color:#2e2a4a"><a href="#074444" label="[07:44:44]">&lt;lrvick&gt;</a></span><span class="message">Live-bootstrap (stagex stage1) now published: docker run -it stagex/stage1</span></div><div class="line" id="074527"><span class="nick" style="color:#2e2a4a"><a href="#074527" label="[07:45:27]">&lt;lrvick&gt;</a></span><span class="message">Working on verifying stage2-3</span></div><div class="line" id="084804"><span class="nick" style="color:#6b8072"><a href="#084804" label="[08:48:04]">&lt;muurkha&gt;</a></span><span class="message">congratulations!</span></div><div class="line" id="084826"><span class="nick" style="color:#80b1d3"><a href="#084826" label="[08:48:26]">&lt;[exa]&gt;</a></span><span class="message">&lt;3</span></div><div class="line" id="101413"><span class="nick" style="color:#2e2a4a"><a href="#101413" label="[10:14:13]">&lt;lrvick&gt;</a></span><span class="message">stage2-3 now published as well. If you just want a stage0/live-bootstrap bootstrapped, containerized, and reproducible x86_64 toolchain to build your own project with, then stage3 is probably what you want.</span></div><div class="line" id="101426"><span class="nick" style="color:#2e2a4a"><a href="#101426" label="[10:14:26]">&lt;lrvick&gt;</a></span><span class="message">Will add arm64 eventually</span></div><div class="line" id="105857"><span class="nick" style="color:#389600"><a href="#105857" label="[10:58:57]">&lt;oriansj&gt;</a></span><span class="message">lrvick: thank you</span></div><div class="line" id="120949"><span class="nick" style="color:#6b8072"><a href="#120949" label="[12:09:49]">&lt;muurkha&gt;</a></span><span class="message">lrvick: fantastic!</span></div><div class="line" id="121049"><span class="nick" style="color:#2e2a4a"><a href="#121049" label="[12:10:49]">&lt;lrvick&gt;</a></span><span class="message">Now to wait 3 days for rust to compile twice</span></div><div class="line" id="121240"><span class="nick" style="color:#6b8072"><a href="#121240" label="[12:12:40]">&lt;muurkha&gt;</a></span><span class="message">ugh</span></div><div class="line" id="121424"><span class="nick" style="color:#2e2a4a"><a href="#121424" label="[12:14:24]">&lt;lrvick&gt;</a></span><span class="message">It is wild that building rust takes like 10x longer than then entire bootstrapping process, including several builds of gcc along the way.</span></div><div class="line" id="121500"><span class="nick" style="color:#2e2a4a"><a href="#121500" label="[12:15:00]">&lt;lrvick&gt;</a></span><span class="message">and it will never get shorter, since you can only build rust with the previous version of rust.</span></div><div class="line" id="121513"><span class="nick" style="color:#6d2462"><a href="#121513" label="[12:15:13]">&lt;Foxboron&gt;</a></span><span class="message">gcc-rust is hopefully making that situation better in the future</span></div><div class="line" id="121848"><span class="nick" style="color:#2e2a4a"><a href="#121848" label="[12:18:48]">&lt;lrvick&gt;</a></span><span class="message">In general there always ends up being some major lag in the GCC implementations, as with go</span></div><div class="line" id="121906"><span class="nick" style="color:#2e2a4a"><a href="#121906" label="[12:19:06]">&lt;lrvick&gt;</a></span><span class="message">which mean you end up not being able to apply patches to your dependencies, which rely on more recent language features</span></div><div class="line" id="121926"><span class="nick" style="color:#2e2a4a"><a href="#121926" label="[12:19:26]">&lt;lrvick&gt;</a></span><span class="message">I don't forsee being able to abandon rustc any time soon, as much as I hate maintaining builds for it</span></div><div class="line" id="121958"><span class="nick" style="color:#2e2a4a"><a href="#121958" label="[12:19:58]">&lt;lrvick&gt;</a></span><span class="message">Though if gcc-rust can let me ship to building more recent versions of mrustc, that would be amazing</span></div><div class="line" id="122006"><span class="nick" style="color:#2e2a4a"><a href="#122006" label="[12:20:06]">&lt;lrvick&gt;</a></span><span class="message">err, rustc</span></div><div class="line" id="123042"><span class="nick" style="color:#6b8072"><a href="#123042" label="[12:30:42]">&lt;muurkha&gt;</a></span><span class="message">also it's in itself a helpful check on Karger–Thompson attacks on older versions of Rust</span></div><div class="line" id="132312"><span class="nick" style="color:#234e69"><a href="#132312" label="[13:23:12]">&lt;Googulator&gt;</a></span><span class="message">lrvick: do you have the Dockerfiles uploaded for each stage too?</span></div><div class="line" id="132427"><span class="nick" style="color:#234e69"><a href="#132427" label="[13:24:27]">&lt;Googulator&gt;</a></span><span class="message">Christoph: I'm doing occasional tests on bare metal, but I don't see how we could do a proper CI for the bare metal path</span></div><div class="line" id="133942"><span class="nick" style="color:#8dd3c7"><a href="#133942" label="[13:39:42]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; Googulator: Yep, they are all here. You can run &quot;make bootstrap&quot; which will build with all the needed flags to produce the exact same digests as the published images locally. <a rel="nofollow" href="https://git.distrust.co/public/stagex/src/branch/main/src/bootstrap">https://git.distrust.co/public/stagex/src/branch/main/src/bootstrap</a> </span></div><div class="line" id="134114"><span class="nick" style="color:#8dd3c7"><a href="#134114" label="[13:41:14]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; The repo covers producing deterministic OCI tgz images of stage0 all the way to x86_64 rust 1.74</span></div><div class="line" id="134233"><span class="nick" style="color:#8dd3c7"><a href="#134233" label="[13:42:33]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; and golang. Sortly adding zig, and nodejs</span></div><div class="line" id="134316"><span class="nick" style="color:#8dd3c7"><a href="#134316" label="[13:43:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Christoph&gt; Googolator: I see. Hopefully, the manual testing is enough to keep bare metal bootstrap working.</span></div><div class="line" id="134419"><span class="nick" style="color:#8dd3c7"><a href="#134419" label="[13:44:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; re bare-metal CI: I have gotten away with running qemu inside containers for doing all sorts of &quot;baremetal&quot; sim testing. Is that not an option in this case?</span></div><div class="line" id="134501"><span class="nick" style="color:#8dd3c7"><a href="#134501" label="[13:45:01]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; need so be able to forward a serial terminal to easily automate a VM headless though and capture output easily</span></div><div class="line" id="135806"><span class="nick" style="color:#6d2462"><a href="#135806" label="[13:58:06]">&lt;Foxboron&gt;</a></span><span class="message">muurkha: what is &quot;Karger-Thompson attack&quot;?</span></div><div class="line" id="143559"><span class="nick" style="color:#6b8072"><a href="#143559" label="[14:35:59]">&lt;muurkha&gt;</a></span><span class="message">Foxboron: <a rel="nofollow" href="https://en.wikipedia.org/wiki/Backdoor_">https://en.wikipedia.org/wiki/Backdoor_</a>(computing)#Compiler_backdoors  sorry</span></div><div class="line" id="143630"><span class="nick" style="color:#6d2462"><a href="#143630" label="[14:36:30]">&lt;Foxboron&gt;</a></span><span class="message">muurkha: Ah, so just another word for &quot;Trusting Trust&quot;</span></div><div class="line" id="143637"><span class="nick" style="color:#6b8072"><a href="#143637" label="[14:36:37]">&lt;muurkha&gt;</a></span><span class="message">yes</span></div><div class="line" id="155135"><span class="nick" style="color:#234e69"><a href="#155135" label="[15:51:35]">&lt;Googulator&gt;</a></span><span class="message">lrvick: that's no different from qemu mode, and won't catch issues specific to bare metal</span></div><div class="line" id="155713"><span class="nick" style="color:#234e69"><a href="#155713" label="[15:57:13]">&lt;Googulator&gt;</a></span><span class="message">Most bare metal issues come from using a graphical console (vs a serial one), a commercial BIOS with DOS/9x backwards compatibility hacks (vs SeaBIOS without such hacks), a real IDE/SATA/SCSI/NVMe disk subsystem that reports some fake CHS geometry (vs. virtio that's just a pure block device), a real network adapter spanning the whole OSI stack (vs.</span></div><div class="line" id="155714"><span class="nick" style="color:#234e69"><a href="#155714" label="[15:57:14]">&lt;Googulator&gt;</a></span><span class="message">usermode-emulated networking with &quot;nothing&quot; below the IP layer), a real USB topology where not everything is directly connected to the root hub, or memory map differences.</span></div><div class="line" id="155909"><span class="nick" style="color:#234e69"><a href="#155909" label="[15:59:09]">&lt;Googulator&gt;</a></span><span class="message">Some of these may be testable by using different QEMU options (e.g. not disabling graphical console, or using explicit IDE or SCSI disk emulation), but most of it won't be caught if emulating via qemu.</span></div><div class="line" id="155936"><span class="nick" style="color:#234e69"><a href="#155936" label="[15:59:36]">&lt;Googulator&gt;</a></span><span class="message">And of course, no way to capture textual output from an emulated graphical terminal.</span></div><div class="line" id="160241"><span class="nick" style="color:#6b8072"><a href="#160241" label="[16:02:41]">&lt;muurkha&gt;</a></span><span class="message">That's a fantastic list, thanks, Googulator!</span></div><div class="line" id="160403"><span class="nick" style="color:#234e69"><a href="#160403" label="[16:04:03]">&lt;Googulator&gt;</a></span><span class="message">there's actually one more key difference: qemu doesn't emulate real silicon, wires and electromagnetic fields between the various functional units, which are all present on bare metal</span></div><div class="line" id="160436"><span class="nick" style="color:#234e69"><a href="#160436" label="[16:04:36]">&lt;Googulator&gt;</a></span><span class="message">which means, if you clobber some MMIO registers in qemu, it will likely render the relevant functional unit unusable until you reinitialize it properly</span></div><div class="line" id="160442"><span class="nick" style="color:#234e69"><a href="#160442" label="[16:04:42]">&lt;Googulator&gt;</a></span><span class="message">but not affect the rest  of the system</span></div><div class="line" id="160547"><span class="nick" style="color:#234e69"><a href="#160547" label="[16:05:47]">&lt;Googulator&gt;</a></span><span class="message">do it on bare metal, and you lock up, instantly reboot, get weird malfunctions in seemingly unrelated places, or even damage hardware</span></div><div class="line" id="160700"><span class="nick" style="color:#234e69"><a href="#160700" label="[16:07:00]">&lt;Googulator&gt;</a></span><span class="message">because clobbering MMIO  often causes components to malfunction in _analog_ ways</span></div><div class="line" id="160814"><span class="nick" style="color:#6b8072"><a href="#160814" label="[16:08:14]">&lt;muurkha&gt;</a></span><span class="message">that's a good point</span></div><div class="line" id="160828"><span class="nick" style="color:#6b8072"><a href="#160828" label="[16:08:28]">&lt;muurkha&gt;</a></span><span class="message">you may end up with something crowbarring your power supply or something, you mean?</span></div><div class="line" id="160852"><span class="nick" style="color:#234e69"><a href="#160852" label="[16:08:52]">&lt;Googulator&gt;</a></span><span class="message">Classic example is writing garbage to the PCIE root complex registers</span></div><div class="line" id="160905"><span class="nick" style="color:#234e69"><a href="#160905" label="[16:09:05]">&lt;Googulator&gt;</a></span><span class="message">in qemu, you lose PCIE until you reprogram the root complex correctly</span></div><div class="line" id="160916"><span class="nick" style="color:#6b8072"><a href="#160916" label="[16:09:16]">&lt;muurkha&gt;</a></span><span class="message">I don't have a good grasp on how current hardware tends to misbehave in circumstances like these</span></div><div class="line" id="161117"><span class="nick" style="color:#234e69"><a href="#161117" label="[16:11:17]">&lt;Googulator&gt;</a></span><span class="message">on bare metal, the misconfigured PCIE block sends a 3GHz swatooth wave through pins that aren't supposed to have high frequencies present, inducing eddy currents in nearby traces of the PCB, that will interfere with the CPU's attempts to communicate with DRAM</span></div><div class="line" id="161317"><span class="nick" style="color:#234e69"><a href="#161317" label="[16:13:17]">&lt;Googulator&gt;</a></span><span class="message">the only emulator that gets even remotely close to emulating such behavior is MAME</span></div><div class="line" id="161348"><span class="nick" style="color:#234e69"><a href="#161348" label="[16:13:48]">&lt;Googulator&gt;</a></span><span class="message">which is way too slow to bootstrap on, if it even supports x86-32</span></div><div class="line" id="163942"><span class="nick" style="color:#6b8072"><a href="#163942" label="[16:39:42]">&lt;muurkha&gt;</a></span><span class="message">that's an awesome failure mode :)</span></div><div class="line" id="164434"><span class="nick" style="color:#234e69"><a href="#164434" label="[16:44:34]">&lt;Googulator&gt;</a></span><span class="message">even simpler - mux the same UART to 2 sets of pins on a real Raspberry Pi, vs one emulated in qemu</span></div><div class="line" id="164449"><span class="nick" style="color:#234e69"><a href="#164449" label="[16:44:49]">&lt;Googulator&gt;</a></span><span class="message">in qemu, IIRC it just works</span></div><div class="line" id="164544"><span class="nick" style="color:#234e69"><a href="#164544" label="[16:45:44]">&lt;Googulator&gt;</a></span><span class="message">on a real Pi, best case scenario is you get a weak signal on both pins that works with short cable runs, but not longer ones</span></div><div class="line" id="164609"><span class="nick" style="color:#6b8072"><a href="#164609" label="[16:46:09]">&lt;muurkha&gt;</a></span><span class="message">hey, at least you aren't burning out your GPIOs with shoot-through current</span></div><div class="line" id="164731"><span class="nick" style="color:#234e69"><a href="#164731" label="[16:47:31]">&lt;Googulator&gt;</a></span><span class="message">and of course, qemu's emulated Intel SATA controllers aren't made up of transistors that wear out with use</span></div><div class="line" id="164744"><span class="nick" style="color:#234e69"><a href="#164744" label="[16:47:44]">&lt;Googulator&gt;</a></span><span class="message">unlike real ones in certain chipsets</span></div><div class="line" id="164840"><span class="nick" style="color:#6b8072"><a href="#164840" label="[16:48:40]">&lt;muurkha&gt;</a></span><span class="message">ooh!  really?</span></div><div class="line" id="164853"><span class="nick" style="color:#6b8072"><a href="#164853" label="[16:48:53]">&lt;muurkha&gt;</a></span><span class="message">Flash, or are they just driving regular transistors way too hard?</span></div><div class="line" id="165154"><span class="nick" style="color:#234e69"><a href="#165154" label="[16:51:54]">&lt;Googulator&gt;</a></span><span class="message">No, it was an actual silicon bug that forced a recall of several chipsets back in the day</span></div><div class="line" id="165548"><span class="nick" style="color:#234e69"><a href="#165548" label="[16:55:48]">&lt;Googulator&gt;</a></span><span class="message">lrvick: phase2 is the pivot from 32-bit to 64-bit, right?</span></div><div class="line" id="165610"><span class="nick" style="color:#234e69"><a href="#165610" label="[16:56:10]">&lt;Googulator&gt;</a></span><span class="message">&amp; then phase3 is where native 64-bit binaries are first executed</span></div><div class="line" id="165623"><span class="nick" style="color:#234e69"><a href="#165623" label="[16:56:23]">&lt;Googulator&gt;</a></span><span class="message">I mean stage2 and stage3</span></div><div class="line" id="165916"><span class="nick" style="color:#234e69"><a href="#165916" label="[16:59:16]">&lt;Googulator&gt;</a></span><span class="message">musl-1.2.4 uses &quot;--host=${TARGET}&quot; - won't that mean it expects the host system to be able to execute 64-bit binaries at this point, since ${TARGET} is a 64-bit one?</span></div><div class="line" id="175319"><span class="nick" style="color:#8dd3c7"><a href="#175319" label="[17:53:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; muurkha: as transistors get smaller, wear is becoming more important</span></div><div class="line" id="181215"><span class="nick" style="color:#8dd3c7"><a href="#181215" label="[18:12:15]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Christoph&gt; Hm, so there are substantial differences. Is there a suitable place to conserve your knowledge? Maybe the Wiki? Would you like to jot down some pointers for future bare metallers?</span></div><div class="line" id="220334"><span class="nick" style="color:#8dd3c7"><a href="#220334" label="[22:03:34]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; @irc_libera_googulator:stikonas.eu: If you mean in stage2, yes, but that is the headers and musl used for the produced binaries. It is a bit odd, but musl-cross-make by rich felkner does the same thing and both work, so long as you still have your i386 musl so file around for that stage too.</span></div><div class="line" id="220426"><span class="nick" style="color:#8dd3c7"><a href="#220426" label="[22:04:26]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; I won't pretend anything there is optimal. I can only attest that it all works, and does in fact get me a full native x86_64 env in the end.</span></div><div class="line" id="220457"><span class="nick" style="color:#8dd3c7"><a href="#220457" label="[22:04:57]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; cross compiling breaks my head a bit</span></div><div class="line" id="231042"><span class="nick" style="color:#8dd3c7"><a href="#231042" label="[23:10:42]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; Foxboron: Ran into my first package with the dumb uname nonsense I didn't notice before until I reproduced across different systems. Perl. <a rel="nofollow" href="https://dpaste.org/CjKFT">https://dpaste.org/CjKFT</a> </span></div><div class="line" id="231051"><span class="nick" style="color:#8dd3c7"><a href="#231051" label="[23:10:51]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; but others have solved this.</span></div><div class="line" id="231053"><span class="nick" style="color:#8dd3c7"><a href="#231053" label="[23:10:53]">&lt;matrix_bridge&gt;</a></span><span class="message">ACTION Lance R. Vick finds references</span></div><br /></div></body></html>

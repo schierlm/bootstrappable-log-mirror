@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-06-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="014343"><span class="nick" style="color:#389600"><a href="#014343" label="[01:43:43]">&lt;roconnor&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.budgetronics.eu/en/building-kits/mynor-single-board-computer-kit-main-board/a-25819-20">https://www.budgetronics.eu/en/building-kits/mynor-single-board-computer-kit-main-board/a-25819-20</a> </span></div><div class="line" id="014946"><span class="nick" style="color:#8dd3c7"><a href="#014946" label="[01:49:46]">&lt;oriansj&gt;</a></span><span class="message">roconnor: yeah the 64KB eeprom hides all of the logic for the CPU; and making a simple x86 system is on about the same level with most 8bit systems: <a rel="nofollow" href="http://sasteven.multics.org/8088page.html">http://sasteven.multics.org/8088page.html</a> </span></div><div class="line" id="020216"><span class="nick" style="color:#8dd3c7"><a href="#020216" label="[02:02:16]">&lt;oriansj&gt;</a></span><span class="message">mihi: well the plastic-leaded chip carrier (PLCC) form factor has most of the advantages of Dual Inline Packaging but has the advantage of being able to exceed the 64pin limit (Available in 18, 20, 22, 28, 32, 44, 68, 84 pin counts) but unfortunately the simplest 386 I found was: <a rel="nofollow" href="https://theretroweb.com/chip/documentation/m6117d-6454b7cbef102095220558.pdf">https://theretroweb.com/chip/documentation/m6117d-6454b7cbef102095220558.pdf</a> </span></div><div class="line" id="020342"><span class="nick" style="color:#8dd3c7"><a href="#020342" label="[02:03:42]">&lt;oriansj&gt;</a></span><span class="message">Quad Flat Pack (QFP) is less than ideal for replacement but certainly much easier to replace than Ball Grid Array</span></div><div class="line" id="020451"><span class="nick" style="color:#2e2a4a"><a href="#020451" label="[02:04:51]">&lt;muurkha&gt;</a></span><span class="message">supposedly someone did at one point prove that an arbitrarily large number of delay line elements and a NOR gate was adequate for universal computation, though I don't remember what their proposed memory was</span></div><div class="line" id="020542"><span class="nick" style="color:#2e2a4a"><a href="#020542" label="[02:05:42]">&lt;muurkha&gt;</a></span><span class="message">but of course an EPROM and a register is sufficient to implement any finite state machine; you don't even need a NOR gate</span></div><div class="line" id="020655"><span class="nick" style="color:#2e2a4a"><a href="#020655" label="[02:06:55]">&lt;muurkha&gt;</a></span><span class="message">you wire your input lines to some of the address lines of the EPROM, your output lines to some of the data lines of the EPROM, and the remaining address and data lines of the EPROM go to the register</span></div><div class="line" id="020750"><span class="nick" style="color:#2e2a4a"><a href="#020750" label="[02:07:50]">&lt;muurkha&gt;</a></span><span class="message">so each clock cycle the register transitions to the state looked up in the EPROM by the previous combination of state and input</span></div><div class="line" id="020901"><span class="nick" style="color:#2e2a4a"><a href="#020901" label="[02:09:01]">&lt;muurkha&gt;</a></span><span class="message">I'm not sure if you can implement a usable CPU that way with an EPROM with few enough address lines to actually buy</span></div><div class="line" id="021054"><span class="nick" style="color:#2e2a4a"><a href="#021054" label="[02:10:54]">&lt;muurkha&gt;</a></span><span class="message">although I guess that's not really an obstacle if you're allowed to use multiple EPROM chips; you can use one-hot encoding for the chip-enable lines on the EPROMs</span></div><div class="line" id="021310"><span class="nick" style="color:#8dd3c7"><a href="#021310" label="[02:13:10]">&lt;oriansj&gt;</a></span><span class="message">muurkha: mercury delay lines?</span></div><div class="line" id="021856"><span class="nick" style="color:#2e2a4a"><a href="#021856" label="[02:18:56]">&lt;muurkha&gt;</a></span><span class="message">not necessarily; D flip-flops would be a much more reasonable approach nowadays</span></div><div class="line" id="022012"><span class="nick" style="color:#2e2a4a"><a href="#022012" label="[02:20:12]">&lt;muurkha&gt;</a></span><span class="message">even in the analog-delay-line epoch, mercury got displaced; acoustic delay-line memory in many 60s calculators used torsional waves in a coil of wire instead, and I have an acoustic delay line here from a PAL VCR that is made of glass</span></div><div class="line" id="022051"><span class="nick" style="color:#2e2a4a"><a href="#022051" label="[02:20:51]">&lt;muurkha&gt;</a></span><span class="message">an ultrasonic wave reflects back and forth several times through the glass between the input transducer and the output transducer</span></div><div class="line" id="022239"><span class="nick" style="color:#2e2a4a"><a href="#022239" label="[02:22:39]">&lt;muurkha&gt;</a></span><span class="message"> <a rel="nofollow" href="https://news.ycombinator.com/item?id=36416325">https://news.ycombinator.com/item?id=36416325</a>  points out that the &quot;MyNOR&quot; board also has a 74HC08, a 74HC32, and 74HC138 and 139, which is really quite a lot of random logic, a lot more than just a NOR gate</span></div><div class="line" id="022722"><span class="nick" style="color:#8dd3c7"><a href="#022722" label="[02:27:22]">&lt;oriansj&gt;</a></span><span class="message">toss in a <a rel="nofollow" href="https://vgamuseum.info/index.php/cpu/item/download/269_d7f376888f21148d10bed1b40f27da1f">https://vgamuseum.info/index.php/cpu/item/download/269_d7f376888f21148d10bed1b40f27da1f</a>  and you'll have a vga 386SX system in only 10 Chips (vga bios, boot bios, the M6117D, F65535 and a couple RAM chips [and an optional opl if you want music while you bootstrap])</span></div><div class="line" id="022813"><span class="nick" style="color:#2e2a4a"><a href="#022813" label="[02:28:13]">&lt;muurkha&gt;</a></span><span class="message">I tried installing Linux on a 386SX once</span></div><div class="line" id="022817"><span class="nick" style="color:#2e2a4a"><a href="#022817" label="[02:28:17]">&lt;muurkha&gt;</a></span><span class="message">I was not successful</span></div><div class="line" id="022852"><span class="nick" style="color:#2e2a4a"><a href="#022852" label="[02:28:52]">&lt;muurkha&gt;</a></span><span class="message">C&amp;T 65535, not familiar with the chip</span></div><div class="line" id="022917"><span class="nick" style="color:#8dd3c7"><a href="#022917" label="[02:29:17]">&lt;oriansj&gt;</a></span><span class="message">a pretty minimal and slow vga chip honestly</span></div><div class="line" id="023204"><span class="nick" style="color:#2e2a4a"><a href="#023204" label="[02:32:04]">&lt;muurkha&gt;</a></span><span class="message">I didn't read enough of the datasheet to see if it supported TrueColor</span></div><div class="line" id="023225"><span class="nick" style="color:#2e2a4a"><a href="#023225" label="[02:32:25]">&lt;muurkha&gt;</a></span><span class="message">TrueColor simplifies graphics a lot</span></div><div class="line" id="023334"><span class="nick" style="color:#8dd3c7"><a href="#023334" label="[02:33:34]">&lt;oriansj&gt;</a></span><span class="message">it says: Additionally true color bypass modes are</span></div><div class="line" id="023352"><span class="nick" style="color:#8dd3c7"><a href="#023352" label="[02:33:52]">&lt;oriansj&gt;</a></span><span class="message">supported displaying color depths of up to 24bpp (8-red, 8-green, 8-blue).</span></div><div class="line" id="023452"><span class="nick" style="color:#2e2a4a"><a href="#023452" label="[02:34:52]">&lt;muurkha&gt;</a></span><span class="message">nice</span></div><div class="line" id="023508"><span class="nick" style="color:#2e2a4a"><a href="#023508" label="[02:35:08]">&lt;muurkha&gt;</a></span><span class="message">1MiB at 16bpp is only 524288 pixels tho</span></div><div class="line" id="023515"><span class="nick" style="color:#8dd3c7"><a href="#023515" label="[02:35:15]">&lt;oriansj&gt;</a></span><span class="message">the biggest advantage is these chips are still being made and sold</span></div><div class="line" id="023550"><span class="nick" style="color:#2e2a4a"><a href="#023550" label="[02:35:50]">&lt;muurkha&gt;</a></span><span class="message">so I guess 800×600?</span></div><div class="line" id="023621"><span class="nick" style="color:#8dd3c7"><a href="#023621" label="[02:36:21]">&lt;oriansj&gt;</a></span><span class="message">plenty for bootstrapping</span></div><div class="line" id="023631"><span class="nick" style="color:#2e2a4a"><a href="#023631" label="[02:36:31]">&lt;muurkha&gt;</a></span><span class="message">being still made and sold is definitely an advantage</span></div><div class="line" id="023639"><span class="nick" style="color:#2e2a4a"><a href="#023639" label="[02:36:39]">&lt;muurkha&gt;</a></span><span class="message">not sure VGA compatibility matters to</span></div><div class="line" id="023641"><span class="nick" style="color:#2e2a4a"><a href="#023641" label="[02:36:41]">&lt;muurkha&gt;</a></span><span class="message">*tho</span></div><div class="line" id="023742"><span class="nick" style="color:#8dd3c7"><a href="#023742" label="[02:37:42]">&lt;oriansj&gt;</a></span><span class="message">well gives us a commonly known and supported standard; which can function as a fixed target while we sort out a hardware bootstrap and start making our own custom hardware</span></div><div class="line" id="024153"><span class="nick" style="color:#2e2a4a"><a href="#024153" label="[02:41:53]">&lt;muurkha&gt;</a></span><span class="message">conceivable, but I suspect simplicity matters more than popularity</span></div><div class="line" id="024224"><span class="nick" style="color:#2e2a4a"><a href="#024224" label="[02:42:24]">&lt;muurkha&gt;</a></span><span class="message">I mean you do at least want Linux to be able to draw a text console I guess</span></div><div class="line" id="030116"><span class="nick" style="color:#8dd3c7"><a href="#030116" label="[03:01:16]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well simplicity in what direction? Is a chip with everything integrated and only a handful of I/O pins or a single CPU chip, with some single function SRAM chips and a single Video chip and you can wire up whatever I/O you want to the memory bus?</span></div><div class="line" id="030302"><span class="nick" style="color:#8dd3c7"><a href="#030302" label="[03:03:02]">&lt;oriansj&gt;</a></span><span class="message">if your video logic goes bad, is is better to throw out the whole computer or just replace the Video chip that needs replacing?</span></div><div class="line" id="031000"><span class="nick" style="color:#8dd3c7"><a href="#031000" label="[03:10:00]">&lt;oriansj&gt;</a></span><span class="message">I am partial to simple to repair and replace parts; design for repairability. The X200 came out 15 July 2008 (almost 15 years ago) and it is still my daily driver thanks to libreboot and Guix.</span></div><div class="line" id="031152"><span class="nick" style="color:#6b8072"><a href="#031152" label="[03:11:52]">&lt;sam_&gt;</a></span><span class="message">:)</span></div><div class="line" id="032353"><span class="nick" style="color:#8dd3c7"><a href="#032353" label="[03:23:53]">&lt;oriansj&gt;</a></span><span class="message">If the MNT's Reform laptop just had its nonfree RAM training replaced by free software, it would actually be a possible upgrade path</span></div><div class="line" id="033342"><span class="nick" style="color:#80b1d3"><a href="#033342" label="[03:33:42]">&lt;theruran&gt;</a></span><span class="message">what about the Raptor Talos II as a bootstrap platform?</span></div><div class="line" id="033441"><span class="nick" style="color:#8dd3c7"><a href="#033441" label="[03:34:41]">&lt;oriansj&gt;</a></span><span class="message">theruran: entirely valid</span></div><div class="line" id="033749"><span class="nick" style="color:#80b1d3"><a href="#033749" label="[03:37:49]">&lt;theruran&gt;</a></span><span class="message">just expensive (:</span></div><div class="line" id="033812"><span class="nick" style="color:#8dd3c7"><a href="#033812" label="[03:38:12]">&lt;oriansj&gt;</a></span><span class="message">and less portable</span></div><div class="line" id="033939"><span class="nick" style="color:#80b1d3"><a href="#033939" label="[03:39:39]">&lt;theruran&gt;</a></span><span class="message">well I think Guix supports it??</span></div><div class="line" id="034003"><span class="nick" style="color:#8dd3c7"><a href="#034003" label="[03:40:03]">&lt;oriansj&gt;</a></span><span class="message">and not listed in: <a rel="nofollow" href="https://www.fsf.org/givingguide/v13/">https://www.fsf.org/givingguide/v13/</a>  but the motherboards are listed here: <a rel="nofollow" href="https://ryf.fsf.org/categories/mainboards">https://ryf.fsf.org/categories/mainboards</a> </span></div><div class="line" id="034203"><span class="nick" style="color:#8dd3c7"><a href="#034203" label="[03:42:03]">&lt;oriansj&gt;</a></span><span class="message">well they have <a rel="nofollow" href="https://ftpmirror.gnu.org/gnu/guix/guix-binary-1.4.0.powerpc64le-linux.tar.xz">https://ftpmirror.gnu.org/gnu/guix/guix-binary-1.4.0.powerpc64le-linux.tar.xz</a>  but that is for Guix running upon your linux distro of choice, they don't actually have install media for powerpc (32 or 64bit)</span></div><div class="line" id="034255"><span class="nick" style="color:#80b1d3"><a href="#034255" label="[03:42:55]">&lt;theruran&gt;</a></span><span class="message">ohhh</span></div><div class="line" id="034321"><span class="nick" style="color:#8dd3c7"><a href="#034321" label="[03:43:21]">&lt;oriansj&gt;</a></span><span class="message">and the stage0 porting work to powerpc only worked out the ELF oddities; not done a full set of steps yet</span></div><div class="line" id="062619"><span class="nick" style="color:#2e2a4a"><a href="#062619" label="[06:26:19]">&lt;muurkha&gt;</a></span><span class="message">oriansj: hmm, I was thinking of simplicity in the sense of less modes, less ways for software to fail, and less logic gates in the chip</span></div><div class="line" id="062711"><span class="nick" style="color:#2e2a4a"><a href="#062711" label="[06:27:11]">&lt;muurkha&gt;</a></span><span class="message">I didn't mean simplicity in the sense of &quot;lack of difficulty&quot;</span></div><div class="line" id="125759"><span class="nick" style="color:#8dd3c7"><a href="#125759" label="[12:57:59]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well less ways for software to fail and less logic gates in the chip are sometimes mutually exclusive (ECC hardware for example)</span></div><div class="line" id="130615"><span class="nick" style="color:#8dd3c7"><a href="#130615" label="[13:06:15]">&lt;oriansj&gt;</a></span><span class="message">but yes, I agree carefully thought out design details allow for simpler hardware implementations and easier to reason about software</span></div><div class="line" id="172225"><span class="nick" style="color:#2e2a4a"><a href="#172225" label="[17:22:25]">&lt;muurkha&gt;</a></span><span class="message">oriansj: indeed</span></div><br /></div></body></html>

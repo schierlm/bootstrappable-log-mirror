@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-01-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010903"><span class="nick" style="color:#389600"><a href="#010903" label="[01:09:03]">&lt;oriansj&gt;</a></span><span class="message">doras: how about a write a program in M2-Planet that generates yaml, toml, json or any other format you want but it just reads the existing url checksum formatted file</span></div><div class="line" id="010956"><span class="nick" style="color:#389600"><a href="#010956" label="[01:09:56]">&lt;oriansj&gt;</a></span><span class="message">so that live-bootstrap wouldn't actually need any changes and that information is available to be generated early in the bootstrap</span></div><div class="line" id="011049"><span class="nick" style="color:#389600"><a href="#011049" label="[01:10:49]">&lt;oriansj&gt;</a></span><span class="message">I also could write a parser for those formats in M2-Planet without too much complexity</span></div><div class="line" id="011135"><span class="nick" style="color:#8dd3c7"><a href="#011135" label="[01:11:35]">&lt;muurkha&gt;</a></span><span class="message">probably not yaml</span></div><div class="line" id="011143"><span class="nick" style="color:#389600"><a href="#011143" label="[01:11:43]">&lt;oriansj&gt;</a></span><span class="message">as long as I am not expected to be 100% feature complete</span></div><div class="line" id="011208"><span class="nick" style="color:#389600"><a href="#011208" label="[01:12:08]">&lt;oriansj&gt;</a></span><span class="message">basic yaml doesn't look too hairy to parse</span></div><div class="line" id="011423"><span class="nick" style="color:#8dd3c7"><a href="#011423" label="[01:14:23]">&lt;muurkha&gt;</a></span><span class="message">sure, subsets of yaml such as json can be quite easy to parse</span></div><div class="line" id="011842"><span class="nick" style="color:#389600"><a href="#011842" label="[01:18:42]">&lt;oriansj&gt;</a></span><span class="message">why would we expect ourselves to support an arbitrary and huge standard, when we only need a tiny subset to get real work done?</span></div><div class="line" id="012209"><span class="nick" style="color:#8dd3c7"><a href="#012209" label="[01:22:09]">&lt;muurkha&gt;</a></span><span class="message">that was why I was shocked that you mentioned it as a candidate ;)</span></div><div class="line" id="012319"><span class="nick" style="color:#2e2a4a"><a href="#012319" label="[01:23:19]">&lt;stikonas&gt;</a></span><span class="message">well, space separate columns or comma separated values should be sufficient for us</span></div><div class="line" id="012427"><span class="nick" style="color:#2e2a4a"><a href="#012427" label="[01:24:27]">&lt;stikonas&gt;</a></span><span class="message">fossy: so with MACHDEP=linux first python here has  the following hash: f26f74c3c8cc424acf401b5b3d198954d7b30d3b047f6296b827  Python-2.0.1_0.tar.bz2</span></div><div class="line" id="012432"><span class="nick" style="color:#2e2a4a"><a href="#012432" label="[01:24:32]">&lt;stikonas&gt;</a></span><span class="message">fossy: hopefully you would get the same</span></div><div class="line" id="012523"><span class="nick" style="color:#2e2a4a"><a href="#012523" label="[01:25:23]">&lt;stikonas&gt;</a></span><span class="message">by the way, I think majority of distros actually use python and not Python: <a rel="nofollow" href="https://repology.org/project/python/badges">https://repology.org/project/python/badges</a> </span></div><div class="line" id="014217"><span class="nick" style="color:#389600"><a href="#014217" label="[01:42:17]">&lt;oriansj&gt;</a></span><span class="message">muurkha: fair enough. But by now, it shouldn't come as a surprise when I keep only implementing the actually useful subset of languages.</span></div><div class="line" id="014345"><span class="nick" style="color:#2e2a4a"><a href="#014345" label="[01:43:45]">&lt;stikonas&gt;</a></span><span class="message">most of these slightly more complicated formats are useful when you want to extend your markup language but keep some compatibility with older versions, so you have both keys and values</span></div><div class="line" id="014413"><span class="nick" style="color:#2e2a4a"><a href="#014413" label="[01:44:13]">&lt;stikonas&gt;</a></span><span class="message">we are probably fine by not keeping any compatibility, so I would think just values should be sufficient</span></div><div class="line" id="014804"><span class="nick" style="color:#389600"><a href="#014804" label="[01:48:04]">&lt;oriansj&gt;</a></span><span class="message">although one could always argue that all markup languages are just poorly done versions of SQL databases</span></div><div class="line" id="014822"><span class="nick" style="color:#2e2a4a"><a href="#014822" label="[01:48:22]">&lt;stikonas&gt;</a></span><span class="message">anyway, it looks like doras might be doing the work, so we'll follow our usual principle that you decide if you do the work</span></div><div class="line" id="014846"><span class="nick" style="color:#389600"><a href="#014846" label="[01:48:46]">&lt;oriansj&gt;</a></span><span class="message">even better ^_^</span></div><div class="line" id="202640"><span class="nick" style="color:#6b8072"><a href="#202640" label="[20:26:40]">&lt;doras&gt;</a></span><span class="message">oriansj: it could be a fun exercise, but it won't provide much value compared to writing the same logic in Python. This is mostly needed so source tarball tracking and fetching can be scripted to be done pre-bootstrap without relying on rootfs.py itself.</span></div><div class="line" id="202841"><span class="nick" style="color:#6b8072"><a href="#202841" label="[20:28:41]">&lt;doras&gt;</a></span><span class="message">For the time being, we started building live-bootstrap using the bubblewrap bootstrap mode in CI. For example: <a rel="nofollow" href="https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/jobs/3591745466">https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/jobs/3591745466</a> </span></div><div class="line" id="202947"><span class="nick" style="color:#6b8072"><a href="#202947" label="[20:29:47]">&lt;doras&gt;</a></span><span class="message">Click &quot;Browse&quot; under &quot;Job artifacts&quot; to see sysc packaged up post-bootstrap in an archive.</span></div><div class="line" id="203401"><span class="nick" style="color:#6b8072"><a href="#203401" label="[20:34:01]">&lt;doras&gt;</a></span><span class="message">We use sysc to build cross-compilation toolchains for x86_64 and aarch64, and then we use them to build native toolchains for these architectures.</span></div><div class="line" id="203919"><span class="nick" style="color:#6b8072"><a href="#203919" label="[20:39:19]">&lt;doras&gt;</a></span><span class="message">We then continue build a few more packages that the next steps of our bootstrap require, currently using qemu-user where relevant (to run native aarch64 on an x86_64 build server).</span></div><div class="line" id="204120"><span class="nick" style="color:#6b8072"><a href="#204120" label="[20:41:20]">&lt;doras&gt;</a></span><span class="message">Finally, we create a Docker image containing the native toolchains and additional packages, to be used as the seed system for bootstrapping freedesktop-sdk.</span></div><div class="line" id="204324"><span class="nick" style="color:#6b8072"><a href="#204324" label="[20:43:24]">&lt;doras&gt;</a></span><span class="message">Actually bootstrapping freedesktop-sdk successfully from that seed is the next step, but this system is already very similar to the system we used up until now (mostly with an older gcc and glibc), so it hopefully shouldn't be too difficult.</span></div><div class="line" id="204524"><span class="nick" style="color:#8dd3c7"><a href="#204524" label="[20:45:24]">&lt;muurkha&gt;</a></span><span class="message">That's awesome!</span></div><div class="line" id="204731"><span class="nick" style="color:#6b8072"><a href="#204731" label="[20:47:31]">&lt;doras&gt;</a></span><span class="message">If that all of that works, then we would have a complete bootstrap chain from hex0 + kaem + kernel up to GNOME OS, all GNOME apps and actually almost all Flatpaks (at least those building from source). Minus Rust which is a pain at the moment and still requires its own binary seed.</span></div><div class="line" id="204828"><span class="nick" style="color:#6b8072"><a href="#204828" label="[20:48:28]">&lt;doras&gt;</a></span><span class="message">Note that we don't remove pre-generated files outside live-bootstrap, so take as as you wish :)</span></div><div class="line" id="204918"><span class="nick" style="color:#6b8072"><a href="#204918" label="[20:49:18]">&lt;doras&gt;</a></span><span class="message">If all of that works*</span></div><div class="line" id="211513"><span class="nick" style="color:#6b8072"><a href="#211513" label="[21:15:13]">&lt;doras&gt;</a></span><span class="message">Well, technically you could consider some tools we use in CI to build the additional packages and Docker image itself (such as Podman and BuildStream) to be binary seeds in the process. If all Podman and BuildStream binary packages are deleted from history, the bootstrap chain is broken.</span></div><div class="line" id="213458"><span class="nick" style="color:#6b8072"><a href="#213458" label="[21:34:58]">&lt;doras&gt;</a></span><span class="message">So next we would need live-bootstrap to bootstrap all of BuildStream's dependencies (Python, buildbox-casd and buildbox-fuse), Podman, git and some other tools we use in CI so we could remove the copies we have in the CI image, leaving the CI image basically with nothing but bubblewrap and Python :)</span></div><div class="line" id="213905"><span class="nick" style="color:#6b8072"><a href="#213905" label="[21:39:05]">&lt;doras&gt;</a></span><span class="message">One could then claim that live-boostrap itself could be bootstrapped on bare metal in case all Podman, Python, bubblewrap binary packages are deleted from history, providing us these tools, so our bootstrap chain remains intact.</span></div><div class="line" id="213913"><span class="nick" style="color:#6b8072"><a href="#213913" label="[21:39:13]">&lt;doras&gt;</a></span><span class="message">But the last part is a stretch goal that we likely won't hit ;)</span></div><div class="line" id="214956"><span class="nick" style="color:#2e2a4a"><a href="#214956" label="[21:49:56]">&lt;stikonas&gt;</a></span><span class="message">doras: yes, I don't expect that downstream consumers would bother with pregenerated files</span></div><div class="line" id="215759"><span class="nick" style="color:#2e2a4a"><a href="#215759" label="[21:57:59]">&lt;stikonas&gt;</a></span><span class="message">just tried running python from live-bootstrap on my normal system (with glibc)</span></div><div class="line" id="215808"><span class="nick" style="color:#2e2a4a"><a href="#215808" label="[21:58:08]">&lt;stikonas&gt;</a></span><span class="message">and it works if I specify correct linker</span></div><div class="line" id="215832"><span class="nick" style="color:#2e2a4a"><a href="#215832" label="[21:58:32]">&lt;stikonas&gt;</a></span><span class="message">(with a few warnings)</span></div><div class="line" id="215833"><span class="nick" style="color:#2e2a4a"><a href="#215833" label="[21:58:33]">&lt;stikonas&gt;</a></span><span class="message"> usr/lib/ld-musl-i386.so.1 bin/python</span></div><div class="line" id="215835"><span class="nick" style="color:#2e2a4a"><a href="#215835" label="[21:58:35]">&lt;stikonas&gt;</a></span><span class="message">Could not find platform dependent libraries &lt;exec_prefix&gt;</span></div><div class="line" id="215836"><span class="nick" style="color:#2e2a4a"><a href="#215836" label="[21:58:36]">&lt;stikonas&gt;</a></span><span class="message">Consider setting $PYTHONHOME to &lt;prefix&gt;[:&lt;exec_prefix&gt;]</span></div><div class="line" id="215838"><span class="nick" style="color:#2e2a4a"><a href="#215838" label="[21:58:38]">&lt;stikonas&gt;</a></span><span class="message">Python 2.0.1 (#1, xx/xx/xx, xx:xx:xx)</span></div><br /></div></body></html>

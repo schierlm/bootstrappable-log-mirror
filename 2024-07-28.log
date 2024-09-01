@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-07-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="150333"><span class="nick" style="color:#389600"><a href="#150333" label="[15:03:33]">&lt;aggi&gt;</a></span><span class="message">finally archived some of the cross-compilation stuff (i consider this a relevant sanity check for gcc-4.7, including it's bootstrapping towards c++)</span></div><div class="line" id="150419"><span class="nick" style="color:#389600"><a href="#150419" label="[15:04:19]">&lt;aggi&gt;</a></span><span class="message">anyway, rather excited to see tcc-toolchain (last time i tried, two years ago, i excluded musl-libc completely and used gcc/binutils for musl-1.2.x)</span></div><div class="line" id="150445"><span class="nick" style="color:#389600"><a href="#150445" label="[15:04:45]">&lt;aggi&gt;</a></span><span class="message">this time, i instantly set CC=tcc (etc..); and see musl-1.2.x fails with tcc</span></div><div class="line" id="150520"><span class="nick" style="color:#389600"><a href="#150520" label="[15:05:20]">&lt;aggi&gt;</a></span><span class="message">gladly, bootstrappable supports musl, yet chose musl-1.1.x with tcc, and musl-1.2.x with gcc</span></div><div class="line" id="150615"><span class="nick" style="color:#389600"><a href="#150615" label="[15:06:15]">&lt;aggi&gt;</a></span><span class="message">this raises two questions: if/why tcc is not and may intentionally not be supported with musl-1.2.x (just don't know)</span></div><div class="line" id="150650"><span class="nick" style="color:#389600"><a href="#150650" label="[15:06:50]">&lt;aggi&gt;</a></span><span class="message">and next question: what the most relevant differences between musl-1.1.x and musl-1.2.x would be (since i could happily live with a musl-1.1.x too if this passes with tcc)</span></div><div class="line" id="151118"><span class="nick" style="color:#389600"><a href="#151118" label="[15:11:18]">&lt;aggi&gt;</a></span><span class="message">minor problem, since i am maintaining a c-only/no-c++ profile (with gentoo), i verified crossdev/gcc-4.7 towards various target-arch, i did this with musl-1.2.x</span></div><div class="line" id="151215"><span class="nick" style="color:#389600"><a href="#151215" label="[15:12:15]">&lt;aggi&gt;</a></span><span class="message">i am not hesitant to roll-back to musl-1.1.x, but i may want to verify this against the mentioned gcc-4.7/cross-compilation test-cases before</span></div><div class="line" id="151307"><span class="nick" style="color:#389600"><a href="#151307" label="[15:13:07]">&lt;aggi&gt;</a></span><span class="message">which is additional efforts, so i would appreciate a confirmation for bootstrappable/tcc/musl-1.1.x choice for one, and if there is other side-effects with a musl-rollback in general</span></div><div class="line" id="151608"><span class="nick" style="color:#389600"><a href="#151608" label="[15:16:08]">&lt;aggi&gt;</a></span><span class="message">sam_: with regards to gentoo i noticed musl-1.1.x was removed from portage tree while ago already (more than two years ago already last time i synced portage tree)</span></div><div class="line" id="151835"><span class="nick" style="color:#389600"><a href="#151835" label="[15:18:35]">&lt;aggi&gt;</a></span><span class="message">hence if there was any further relevant detail to be aware of i would appreciate a notice, and otherwise i simply roll-back to musl-1.1.x and track the c-only/no-c++ profile for any side-effects (unrelated to tcc-toolchain)</span></div><div class="line" id="152418"><span class="nick" style="color:#8dd3c7"><a href="#152418" label="[15:24:18]">&lt;andydude&gt;</a></span><span class="message">nimaje: oh, sorry, I use that to distinguish between English prose, and Shell commands, when I'm talking. I didn't mean literal substitution</span></div><div class="line" id="152500"><span class="nick" style="color:#8dd3c7"><a href="#152500" label="[15:25:00]">&lt;andydude&gt;</a></span><span class="message">aggi: hello</span></div><div class="line" id="152524"><span class="nick" style="color:#389600"><a href="#152524" label="[15:25:24]">&lt;aggi&gt;</a></span><span class="message">a principle concern: bootstrappable confirmed tcc-toolchain support for musl-1.1.x (great!), yet transitioned to musl-1.2.x with gcc-toolchain, knowing musl-1.2 would fail with tcc</span></div><div class="line" id="152620"><span class="nick" style="color:#389600"><a href="#152620" label="[15:26:20]">&lt;aggi&gt;</a></span><span class="message">does gcc-4.x need musl-1.2, or why would a musl-libc update be desirable then if it is known to break tcc-toolchain support?</span></div><div class="line" id="152627"><span class="nick" style="color:#389600"><a href="#152627" label="[15:26:27]">&lt;aggi&gt;</a></span><span class="message">andydude: greetings</span></div><div class="line" id="152740"><span class="nick" style="color:#8dd3c7"><a href="#152740" label="[15:27:40]">&lt;andydude&gt;</a></span><span class="message">Is there a central repo where all of these changes are being made? or do I just have to climb the learning curve and learn everything?</span></div><div class="line" id="152932"><span class="nick" style="color:#8dd3c7"><a href="#152932" label="[15:29:32]">&lt;andydude&gt;</a></span><span class="message">stikonas said something about stage0-uefi, I'm very familiar with that world, so maybe I could help</span></div><div class="line" id="152957"><span class="nick" style="color:#2e2a4a"><a href="#152957" label="[15:29:57]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">andydude: Most of the bootstrapping work is done by Guix and live-bootstrap</span></div><div class="line" id="153042"><span class="nick" style="color:#389600"><a href="#153042" label="[15:30:42]">&lt;aggi&gt;</a></span><span class="message">andydude: and gentoo maintains portage tree for dependency tracking in great detail</span></div><div class="line" id="153159"><span class="nick" style="color:#8dd3c7"><a href="#153159" label="[15:31:59]">&lt;andydude&gt;</a></span><span class="message">I tried guix, but the automated mescc-tools build fails on all my machines</span></div><div class="line" id="153203"><span class="nick" style="color:#389600"><a href="#153203" label="[15:32:03]">&lt;aggi&gt;</a></span><span class="message">in gentoo terms, who maintain stage1/2/3 tarballs among #gentoo-relang, #bootstrappable does a stage0 sort of thing</span></div><div class="line" id="153215"><span class="nick" style="color:#389600"><a href="#153215" label="[15:32:15]">&lt;aggi&gt;</a></span><span class="message">* #gentoo-releng</span></div><div class="line" id="153314"><span class="nick" style="color:#8dd3c7"><a href="#153314" label="[15:33:14]">&lt;andydude&gt;</a></span><span class="message">I love Scheme, Lua, and Wren</span></div><div class="line" id="153355"><span class="nick" style="color:#8dd3c7"><a href="#153355" label="[15:33:55]">&lt;andydude&gt;</a></span><span class="message">So I may just try and reimplement existing stuff in those languages, for readability?</span></div><div class="line" id="154023"><span class="nick" style="color:#8dd3c7"><a href="#154023" label="[15:40:23]">&lt;andydude&gt;</a></span><span class="message">Wanna see my hex0 impl? <a rel="nofollow" href="https://pastebin.com/raw/an9GbbnN">https://pastebin.com/raw/an9GbbnN</a> </span></div><div class="line" id="155138"><span class="nick" style="color:#389600"><a href="#155138" label="[15:51:38]">&lt;aggi&gt;</a></span><span class="message">andydude: what is your hex0 doing?</span></div><div class="line" id="155446"><span class="nick" style="color:#6b8072"><a href="#155446" label="[15:54:46]">&lt;stikonas&gt;</a></span><span class="message">andydude: there isn't central repo, but you can always ask questions here</span></div><div class="line" id="155511"><span class="nick" style="color:#8dd3c7"><a href="#155511" label="[15:55:11]">&lt;andydude&gt;</a></span><span class="message">aggi: the same thing as every other hex0, convert hex to binary, strip comments</span></div><div class="line" id="155722"><span class="nick" style="color:#8dd3c7"><a href="#155722" label="[15:57:22]">&lt;andydude&gt;</a></span><span class="message">(read-u8) reads a byte from stdin, (write-u8) writes a byte to stdout</span></div><div class="line" id="155805"><span class="nick" style="color:#8dd3c7"><a href="#155805" label="[15:58:05]">&lt;andydude&gt;</a></span><span class="message">(hex c) returns #f for comments</span></div><div class="line" id="160120"><span class="nick" style="color:#8dd3c7"><a href="#160120" label="[16:01:20]">&lt;andydude&gt;</a></span><span class="message">I tried to use R7RS-pico as much as possible, which is basically only integers and booleans, all other datatypes are removed</span></div><div class="line" id="161812"><span class="nick" style="color:#8dd3c7"><a href="#161812" label="[16:18:12]">&lt;andydude&gt;</a></span><span class="message">(make-parameter value) returns a procedure that if provided 0 parameters acts like a getter, and if provided 1 parameter acts like a setter</span></div><div class="line" id="161941"><span class="nick" style="color:#389600"><a href="#161941" label="[16:19:41]">&lt;aggi&gt;</a></span><span class="message">andydude: reminds me of theoretical computer science, and turings programmable memory (german Turing-Band)</span></div><div class="line" id="161957"><span class="nick" style="color:#8dd3c7"><a href="#161957" label="[16:19:57]">&lt;andydude&gt;</a></span><span class="message">(read-line) is also not in R7RS-pico, but it's the most obvious way of dealing with comments</span></div><div class="line" id="162035"><span class="nick" style="color:#389600"><a href="#162035" label="[16:20:35]">&lt;aggi&gt;</a></span><span class="message">theory being, any programm can be implmented with such a most basic turing-strip type of memory, with a few operations such as reading a cell, writing a cell, and jumping to any cell</span></div><div class="line" id="162329"><span class="nick" style="color:#8dd3c7"><a href="#162329" label="[16:23:29]">&lt;andydude&gt;</a></span><span class="message">aggi: basically</span></div><div class="line" id="162424"><span class="nick" style="color:#8dd3c7"><a href="#162424" label="[16:24:24]">&lt;andydude&gt;</a></span><span class="message">That reminds me of The Story of Mel</span></div><div class="line" id="162847"><span class="nick" style="color:#8dd3c7"><a href="#162847" label="[16:28:47]">&lt;andydude&gt;</a></span><span class="message">Also found an interesting way of doing a bootstrap on windows</span></div><div class="line" id="163026"><span class="nick" style="color:#8dd3c7"><a href="#163026" label="[16:30:26]">&lt;andydude&gt;</a></span><span class="message">[System.IO.File]::WriteAllBytes(&quot;file.bin&quot;, [System.Convert]::FromHexString(&quot;...&quot;))</span></div><div class="line" id="163046"><span class="nick" style="color:#8dd3c7"><a href="#163046" label="[16:30:46]">&lt;andydude&gt;</a></span><span class="message">not really a fully functional tool, but might be useful in a pinch</span></div><div class="line" id="163401"><span class="nick" style="color:#8dd3c7"><a href="#163401" label="[16:34:01]">&lt;andydude&gt;</a></span><span class="message">PowerShell doesn't allow multi-line strings with that syntax, and the hex parser doesn't allow comments or spaces</span></div><div class="line" id="163809"><span class="nick" style="color:#2e2a4a"><a href="#163809" label="[16:38:09]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">andydude: Do you have experience with the UEFI?</span></div><div class="line" id="163815"><span class="nick" style="color:#8dd3c7"><a href="#163815" label="[16:38:15]">&lt;andydude&gt;</a></span><span class="message">Yes</span></div><div class="line" id="164444"><span class="nick" style="color:#2e2a4a"><a href="#164444" label="[16:44:44]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">Your hex0 implementation looks good</span></div><div class="line" id="164535"><span class="nick" style="color:#8dd3c7"><a href="#164535" label="[16:45:35]">&lt;andydude&gt;</a></span><span class="message">AwesomeAdam54321: thanks!</span></div><br /></div></body></html>

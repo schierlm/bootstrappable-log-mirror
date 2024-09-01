@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-01-31.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011030"><span class="nick" style="color:#8dd3c7"><a href="#011030" label="[01:10:30]">&lt;plasma41&gt;</a></span><span class="message">alMalsamo: I'm no expert, but maybe FILO is what you are after? <a rel="nofollow" href="https://www.coreboot.org/FILO">https://www.coreboot.org/FILO</a> </span></div><div class="line" id="011339"><span class="nick" style="color:#2e2a4a"><a href="#011339" label="[01:13:39]">&lt;alMalsamo&gt;</a></span><span class="message">plasma41: Thanks, it says supported filesystems not including ext4 or btrfs, does that mean if my root fs is one of those it won't boot?</span></div><div class="line" id="011459"><span class="nick" style="color:#8dd3c7"><a href="#011459" label="[01:14:59]">&lt;plasma41&gt;</a></span><span class="message">alMalsamo: I honestly have no idea, sorry</span></div><div class="line" id="011610"><span class="nick" style="color:#8dd3c7"><a href="#011610" label="[01:16:10]">&lt;plasma41&gt;</a></span><span class="message">plasma41: Try it and see (if you're feeling adventurous)</span></div><div class="line" id="011639"><span class="nick" style="color:#8dd3c7"><a href="#011639" label="[01:16:39]">&lt;plasma41&gt;</a></span><span class="message">s/plasma41:/alMalsamo:/</span></div><div class="line" id="011659"><span class="nick" style="color:#8dd3c7"><a href="#011659" label="[01:16:59]">&lt;plasma41&gt;</a></span><span class="message">I'm clearly not all here today.</span></div><div class="line" id="061013"><span class="nick">***</span><span class="message notice">dongcarl1 is now known as dongcarl</span></div><div class="line" id="093448"><span class="nick">***</span><span class="message notice">roptat is now known as Guest1387</span></div><div class="line" id="102703"><span class="nick" style="color:#6b8072"><a href="#102703" label="[10:27:03]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: i did consider having all the different checksums in one file, but merge conflicts would be pretty commonplace/likely with that maybe?</span></div><div class="line" id="102730"><span class="nick" style="color:#6b8072"><a href="#102730" label="[10:27:30]">&lt;fossy&gt;</a></span><span class="message">the mode with checksums being computed is a good idea and something i'm already planning to add after this is done</span></div><div class="line" id="103226"><span class="nick" style="color:#6b8072"><a href="#103226" label="[10:32:26]">&lt;fossy&gt;</a></span><span class="message">whoopsies</span></div><div class="line" id="103229"><span class="nick" style="color:#6b8072"><a href="#103229" label="[10:32:29]">&lt;fossy&gt;</a></span><span class="message">bash-5.1# aclocal-1.11 --version</span></div><div class="line" id="103231"><span class="nick" style="color:#6b8072"><a href="#103231" label="[10:32:31]">&lt;fossy&gt;</a></span><span class="message">aclocal (GNU automake) 1.15.1</span></div><div class="line" id="103239"><span class="nick" style="color:#6b8072"><a href="#103239" label="[10:32:39]">&lt;fossy&gt;</a></span><span class="message">i messed something up</span></div><div class="line" id="103944"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="105526"><span class="nick" style="color:#80b1d3"><a href="#105526" label="[10:55:26]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm, merge conflicts might indeed happen... Though they might be auto resolved. Hmm... Maybe dedicated checksum tree? E.g. sysa/checksums/$arch/$package</span></div><div class="line" id="111218"><span class="nick">***</span><span class="message notice">Guest1387 is now known as roptat</span></div><br /></div></body></html>

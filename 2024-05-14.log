@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-05-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000128"><span class="nick" style="color:#389600"><a href="#000128" label="[00:01:28]">&lt;stikonas&gt;</a></span><span class="message">M1 and hex2</span></div><div class="line" id="000207"><span class="nick" style="color:#389600"><a href="#000207" label="[00:02:07]">&lt;stikonas&gt;</a></span><span class="message">well, both assembly and C version is called hex2</span></div><div class="line" id="000213"><span class="nick" style="color:#389600"><a href="#000213" label="[00:02:13]">&lt;stikonas&gt;</a></span><span class="message">unlike M0/M1</span></div><div class="line" id="000324"><span class="nick" style="color:#8dd3c7"><a href="#000324" label="[00:03:24]">&lt;roconnor&gt;</a></span><span class="message">got it.</span></div><div class="line" id="002723"><span class="nick" style="color:#8dd3c7"><a href="#002723" label="[00:27:23]">&lt;roconnor&gt;</a></span><span class="message">are the M1 and hex2 format's explicitly documented anywhere?</span></div><div class="line" id="003105"><span class="nick" style="color:#389600"><a href="#003105" label="[00:31:05]">&lt;stikonas&gt;</a></span><span class="message">there is a bit here <a rel="nofollow" href="https://bootstrapping.miraheze.org/wiki/Stage0">https://bootstrapping.miraheze.org/wiki/Stage0</a> </span></div><div class="line" id="003107"><span class="nick" style="color:#389600"><a href="#003107" label="[00:31:07]">&lt;stikonas&gt;</a></span><span class="message">but it's arch specific</span></div><div class="line" id="003134"><span class="nick" style="color:#389600"><a href="#003134" label="[00:31:34]">&lt;stikonas&gt;</a></span><span class="message">e.g. risc-v uses those modifiers ! @ $ % &amp; for other things than x86</span></div><div class="line" id="003326"><span class="nick" style="color:#389600"><a href="#003326" label="[00:33:26]">&lt;stikonas&gt;</a></span><span class="message">but M0 is very simple, so you can just look at its source</span></div><div class="line" id="003330"><span class="nick" style="color:#389600"><a href="#003330" label="[00:33:30]">&lt;stikonas&gt;</a></span><span class="message">I think the binary is about 2 KiB</span></div><div class="line" id="003426"><span class="nick" style="color:#389600"><a href="#003426" label="[00:34:26]">&lt;stikonas&gt;</a></span><span class="message">and there is a C prototype... <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/blob/master/High%20Level%20Prototypes/M0-macro.c">https://github.com/oriansj/stage0-posix/blob/master/High%20Level%20Prototypes/M0-macro.c</a> </span></div><div class="line" id="003514"><span class="nick" style="color:#389600"><a href="#003514" label="[00:35:14]">&lt;stikonas&gt;</a></span><span class="message">but if you can produce a more helpful documentation, that would be good</span></div><div class="line" id="003759"><span class="nick" style="color:#8dd3c7"><a href="#003759" label="[00:37:59]">&lt;roconnor&gt;</a></span><span class="message">oh that is helpful.  I was looking at the source and wondering what all the &lt; and . were</span></div><div class="line" id="003932"><span class="nick" style="color:#2e2a4a"><a href="#003932" label="[00:39:32]">&lt;oriansj&gt;</a></span><span class="message">roconnor: they have to do with padding</span></div><div class="line" id="004004"><span class="nick" style="color:#2e2a4a"><a href="#004004" label="[00:40:04]">&lt;oriansj&gt;</a></span><span class="message">and in risc-v word alignment behavior</span></div><div class="line" id="004105"><span class="nick" style="color:#8dd3c7"><a href="#004105" label="[00:41:05]">&lt;roconnor&gt;</a></span><span class="message">looking at the source of hex2.c, it makes it sound like risc-V is somehow even worse that x86.</span></div><div class="line" id="004150"><span class="nick" style="color:#2e2a4a"><a href="#004150" label="[00:41:50]">&lt;oriansj&gt;</a></span><span class="message">roconnor: risc-v has insanely bad bit encoding; x86 is actually very simple encoding</span></div><div class="line" id="004229"><span class="nick" style="color:#2e2a4a"><a href="#004229" label="[00:42:29]">&lt;oriansj&gt;</a></span><span class="message">if I did it in octal it would have much closer matched nasm</span></div><div class="line" id="004350"><span class="nick" style="color:#2e2a4a"><a href="#004350" label="[00:43:50]">&lt;oriansj&gt;</a></span><span class="message">one thing we found is bit encoding documentation for RISC-V and ARM is backwards.</span></div><div class="line" id="004441"><span class="nick" style="color:#8dd3c7"><a href="#004441" label="[00:44:41]">&lt;roconnor&gt;</a></span><span class="message">I was under the impression that whether bits are numbered from MSB to LSB or LSB to MSB isn't standardized.</span></div><div class="line" id="004721"><span class="nick" style="color:#2e2a4a"><a href="#004721" label="[00:47:21]">&lt;oriansj&gt;</a></span><span class="message">true but if you are writing hex the standard if first char to last</span></div><div class="line" id="004904"><span class="nick" style="color:#2e2a4a"><a href="#004904" label="[00:49:04]">&lt;oriansj&gt;</a></span><span class="message">and it would be odd to do 4bits + (4bit &lt;&lt; 4) for the writing of bytes</span></div><div class="line" id="005051"><span class="nick" style="color:#389600"><a href="#005051" label="[00:50:51]">&lt;stikonas&gt;</a></span><span class="message">risc-v is really hard to program for in hex0 but on the other hand, once you reach M0 it becomes far simpler than x86</span></div><div class="line" id="005109"><span class="nick" style="color:#389600"><a href="#005109" label="[00:51:09]">&lt;stikonas&gt;</a></span><span class="message">as you can just have a short list of defines that can then express basically everything</span></div><div class="line" id="005139"><span class="nick" style="color:#389600"><a href="#005139" label="[00:51:39]">&lt;stikonas&gt;</a></span><span class="message">(you encode individual things like addi there and not add_rax,rax like in x86)</span></div><div class="line" id="013033"><span class="nick" style="color:#8dd3c7"><a href="#013033" label="[01:30:33]">&lt;roconnor&gt;</a></span><span class="message">Reading little endian hex values is kinda insane, so I can almost see why risc-V might flip the nibbles.</span></div><div class="line" id="013047"><span class="nick" style="color:#8dd3c7"><a href="#013047" label="[01:30:47]">&lt;roconnor&gt;</a></span><span class="message">almost</span></div><div class="line" id="024133"><span class="nick" style="color:#2e2a4a"><a href="#024133" label="[02:41:33]">&lt;oriansj&gt;</a></span><span class="message">and the bytes</span></div><div class="line" id="024255"><span class="nick" style="color:#2e2a4a"><a href="#024255" label="[02:42:55]">&lt;oriansj&gt;</a></span><span class="message">stikonas: yeah, I really should redo x86 as octal; just can't seem to find the motivation to redo the early stages</span></div><div class="line" id="092632"><span class="nick" style="color:#389600"><a href="#092632" label="[09:26:32]">&lt;stikonas&gt;</a></span><span class="message">oriansj: you could try to do higher level stages...</span></div><div class="line" id="092642"><span class="nick" style="color:#389600"><a href="#092642" label="[09:26:42]">&lt;stikonas&gt;</a></span><span class="message">if you are not motivated with lower level</span></div><div class="line" id="092711"><span class="nick" style="color:#389600"><a href="#092711" label="[09:27:11]">&lt;stikonas&gt;</a></span><span class="message">M2libc/M2-Planet would also need some adjustment to use octals defines</span></div><div class="line" id="140216"><span class="nick" style="color:#6b8072"><a href="#140216" label="[14:02:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; oriansj: what would the octal encoding look like? Would you mix hex an octal. eg would you have a prefix for octal digits (eg ~) and then have the opcodes be encoded something like &quot;add eax ebx&quot; where eax was defined as ~0 and ebx was ~3 (in practice it may be more complicated since you'd have to write out all the fields of the opcode/modrm/sib)</span></div><div class="line" id="145853"><span class="nick" style="color:#6b8072"><a href="#145853" label="[14:58:53]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; well, that's why I was suggesting that it's better to start with higher level stages...</span></div><div class="line" id="145914"><span class="nick" style="color:#6b8072"><a href="#145914" label="[14:59:14]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; that way we would know what exactly we need to support</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-11-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="173531"><span class="nick" style="color:#389600"><a href="#173531" label="[17:35:31]">&lt;muurkha&gt;</a></span><span class="message">though it would be better with longer variable names in some cases</span></div><div class="line" id="174409"><span class="nick" style="color:#8dd3c7"><a href="#174409" label="[17:44:09]">&lt;rickmasters&gt;</a></span><span class="message">I just changed wstrcpy to this, which seems to fix it:</span></div><div class="line" id="174416"><span class="nick" style="color:#8dd3c7"><a href="#174416" label="[17:44:16]">&lt;rickmasters&gt;</a></span><span class="message">int i = 0;</span></div><div class="line" id="174421"><span class="nick" style="color:#8dd3c7"><a href="#174421" label="[17:44:21]">&lt;rickmasters&gt;</a></span><span class="message">do {</span></div><div class="line" id="174433"><span class="nick" style="color:#8dd3c7"><a href="#174433" label="[17:44:33]">&lt;rickmasters&gt;</a></span><span class="message">    destination[i]=source[i];</span></div><div class="line" id="174435"><span class="nick" style="color:#8dd3c7"><a href="#174435" label="[17:44:35]">&lt;rickmasters&gt;</a></span><span class="message">} while (source[i++] != 0);</span></div><div class="line" id="174446"><span class="nick" style="color:#8dd3c7"><a href="#174446" label="[17:44:46]">&lt;rickmasters&gt;</a></span><span class="message">After that fix, flex-2.5.11 and then musl-1.1.24 finishes on fiwix.</span></div><div class="line" id="174502"><span class="nick" style="color:#8dd3c7"><a href="#174502" label="[17:45:02]">&lt;rickmasters&gt;</a></span><span class="message">Then it fails on &quot;build tcc-0.9.27 tcc-musl-pass1.sh&quot;</span></div><div class="line" id="174510"><span class="nick" style="color:#8dd3c7"><a href="#174510" label="[17:45:10]">&lt;rickmasters&gt;</a></span><span class="message">It builds tcc-musl, but has a memory fault trying to build tcc-musl with tcc-musl.</span></div><div class="line" id="174520"><span class="nick" style="color:#8dd3c7"><a href="#174520" label="[17:45:20]">&lt;rickmasters&gt;</a></span><span class="message">I'll start digging into that.</span></div><div class="line" id="175139"><span class="nick" style="color:#2e2a4a"><a href="#175139" label="[17:51:39]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: if  that works with linux, can you make a pull request?</span></div><div class="line" id="175249"><span class="nick" style="color:#8dd3c7"><a href="#175249" label="[17:52:49]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: sure. I just edited the patch rather than reconstruct it. Is that ok?</span></div><div class="line" id="175304"><span class="nick" style="color:#2e2a4a"><a href="#175304" label="[17:53:04]">&lt;stikonas&gt;</a></span><span class="message">yes, that's fine as long as it applies</span></div><div class="line" id="175339"><span class="nick" style="color:#2e2a4a"><a href="#175339" label="[17:53:39]">&lt;stikonas&gt;</a></span><span class="message">maybe musl is doing something that crashes fiwix?</span></div><div class="line" id="175343"><span class="nick" style="color:#8dd3c7"><a href="#175343" label="[17:53:43]">&lt;rickmasters&gt;</a></span><span class="message">yeah, i kept the number of changed lines the same for wstrcpy</span></div><div class="line" id="175404"><span class="nick" style="color:#2e2a4a"><a href="#175404" label="[17:54:04]">&lt;stikonas&gt;</a></span><span class="message">I think emacs even fixes changed line numbers for you</span></div><div class="line" id="175451"><span class="nick" style="color:#8dd3c7"><a href="#175451" label="[17:54:51]">&lt;rickmasters&gt;</a></span><span class="message">to clarify, fiwix doesn't crash - the process triggers a general protection fault and is terminated</span></div><div class="line" id="180235"><span class="nick" style="color:#8dd3c7"><a href="#180235" label="[18:02:35]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: it *appears* that fiwix will zero any mapped page not backed by an inode: <a rel="nofollow" href="https://github.com/mikaku/Fiwix/blob/ad7da45d44aa0cea54718df6deb32aac3c36f3c3/mm/mmap.c#L432">https://github.com/mikaku/Fiwix/blob/ad7da45d44aa0cea54718df6deb32aac3c36f3c3/mm/mmap.c#L432</a> </span></div><div class="line" id="180428"><span class="nick" style="color:#8dd3c7"><a href="#180428" label="[18:04:28]">&lt;rickmasters&gt;</a></span><span class="message">So, digging further might take some time. But can you think of problems other than uninitialized stack variables that might occur if it doesn't zero the stack?</span></div><div class="line" id="182849"><span class="nick" style="color:#6b8072"><a href="#182849" label="[18:28:49]">&lt;oriansj&gt;</a></span><span class="message">I can think of a couple optimizations that might assume the default stack is zero but none that should absolutely be needed.</span></div><div class="line" id="183133"><span class="nick" style="color:#6b8072"><a href="#183133" label="[18:31:33]">&lt;oriansj&gt;</a></span><span class="message">muurkha: if you notice knight zeros memory on stack pop</span></div><div class="line" id="183259"><span class="nick" style="color:#6b8072"><a href="#183259" label="[18:32:59]">&lt;oriansj&gt;</a></span><span class="message">and the compiler should be putting zero on the stack prior to use anyway (regardless of what the kernel does)</span></div><div class="line" id="192558"><span class="nick" style="color:#389600"><a href="#192558" label="[19:25:58]">&lt;muurkha&gt;</a></span><span class="message">oriansj: it's not clear to me whether the Fiwix kernel is intended to provide security boundaries between processes (i.e., support some processes having more privileges than others)</span></div><div class="line" id="192624"><span class="nick" style="color:#389600"><a href="#192624" label="[19:26:24]">&lt;muurkha&gt;</a></span><span class="message">but if it is, it wouldn't be okay for it to rely on the compiler for those security boundaries</span></div><div class="line" id="192657"><span class="nick" style="color:#389600"><a href="#192657" label="[19:26:57]">&lt;muurkha&gt;</a></span><span class="message">the fact that it supports the Linux system call interface implies that you can use a malicious compiler</span></div><div class="line" id="192731"><span class="nick" style="color:#389600"><a href="#192731" label="[19:27:31]">&lt;muurkha&gt;</a></span><span class="message">rickmasters: I explained the problem in the post I linked above on the orange website</span></div><div class="line" id="192828"><span class="nick" style="color:#389600"><a href="#192828" label="[19:28:28]">&lt;muurkha&gt;</a></span><span class="message">(the problem other than uninitialized stack variables that might occur if it doesn't zero the stack)</span></div><div class="line" id="193016"><span class="nick" style="color:#389600"><a href="#193016" label="[19:30:16]">&lt;muurkha&gt;</a></span><span class="message">with arrays in the stack frame that are set up by calling functions (such as wstrcpy!), having the compiler pre-zero them would be a performance loss, and potentially a significant one in some applications</span></div><div class="line" id="193030"><span class="nick" style="color:#389600"><a href="#193030" label="[19:30:30]">&lt;muurkha&gt;</a></span><span class="message">though not a relevant one here</span></div><div class="line" id="193646"><span class="nick" style="color:#2e2a4a"><a href="#193646" label="[19:36:46]">&lt;stikonas&gt;</a></span><span class="message">and at the moment M2-Planet does not pre-zero arrays on the stack</span></div><div class="line" id="193713"><span class="nick" style="color:#389600"><a href="#193713" label="[19:37:13]">&lt;muurkha&gt;</a></span><span class="message">for M2-Planet, the performance loss should not be an issue</span></div><div class="line" id="201803"><span class="nick" style="color:#8dd3c7"><a href="#201803" label="[20:18:03]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: so, the leakage of confidential information? Yes, it would be a problem for fiwix, but not something that would stop me in my tracks in this bootstrapping effort.</span></div><div class="line" id="202119"><span class="nick" style="color:#8dd3c7"><a href="#202119" label="[20:21:19]">&lt;rickmasters&gt;</a></span><span class="message">A malloc issue would be a heap problem of course rather than stack but its the same issue in the sense that the kernel needs to zero that too and probably manages it in a similar way</span></div><div class="line" id="202831"><span class="nick" style="color:#389600"><a href="#202831" label="[20:28:31]">&lt;muurkha&gt;</a></span><span class="message">no, it's probably not a problem relevant to bootstrapping, but it's a problem a kernel needs to solve to provide security boundaries between processes</span></div><div class="line" id="202845"><span class="nick" style="color:#389600"><a href="#202845" label="[20:28:45]">&lt;muurkha&gt;</a></span><span class="message">agreed about malloc</span></div><div class="line" id="203621"><span class="nick" style="color:#2e2a4a"><a href="#203621" label="[20:36:21]">&lt;stikonas&gt;</a></span><span class="message">indeed, leakage of confidential information is not a big deal in bootstrapping</span></div><div class="line" id="203632"><span class="nick" style="color:#2e2a4a"><a href="#203632" label="[20:36:32]">&lt;stikonas&gt;</a></span><span class="message">we have full control of what code we run there</span></div><div class="line" id="203731"><span class="nick" style="color:#2e2a4a"><a href="#203731" label="[20:37:31]">&lt;stikonas&gt;</a></span><span class="message">and checking hashes of all programs actually would help to spot if any uninitialized data somehow propagated into executables</span></div><div class="line" id="210524"><span class="nick" style="color:#389600"><a href="#210524" label="[21:05:24]">&lt;muurkha&gt;</a></span><span class="message">yeah, it could cause a determinism problem</span></div><br /></div></body></html>

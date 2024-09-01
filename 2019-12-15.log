@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-12-15.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="012923"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="023817"><span class="nick" style="color:#8dd3c7"><a href="#023817" label="[02:38:17]">&lt;fosslinux&gt;</a></span><span class="message">more strange mes error</span></div><div class="line" id="023820"><span class="nick" style="color:#8dd3c7"><a href="#023820" label="[02:38:20]">&lt;fosslinux&gt;</a></span><span class="message">mes.c:(.text+0x8da0): undefined reference to `__stack_chk_fail'</span></div><div class="line" id="023822"><span class="nick" style="color:#8dd3c7"><a href="#023822" label="[02:38:22]">&lt;fosslinux&gt;</a></span><span class="message">during linking</span></div><div class="line" id="023830"><span class="nick" style="color:#8dd3c7"><a href="#023830" label="[02:38:30]">&lt;fosslinux&gt;</a></span><span class="message">/usr/bin/gcc -static -nostdinc -nostdlib -fno-builtin -L . -nostdlib -L gcc-lib -o src/mes crt1.o gc.o hash.o lib.o math.o mes.o module.o posix.o reader.o string.o struct.o vector.o -lc</span></div><div class="line" id="031414"><span class="nick" style="color:#8dd3c7"><a href="#031414" label="[03:14:14]">&lt;fosslinux&gt;</a></span><span class="message">also my other question is, why does guix use guile for bootstrap rather than mes?</span></div><div class="line" id="041743"><span class="nick" style="color:#2e2a4a"><a href="#041743" label="[04:17:43]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: because mes can't run guix yet and guile is much faster than mes</span></div><div class="line" id="050253"><span class="nick" style="color:#8dd3c7"><a href="#050253" label="[05:02:53]">&lt;fosslinux&gt;</a></span><span class="message">oriansj: fair enough</span></div><div class="line" id="050308"><span class="nick" style="color:#8dd3c7"><a href="#050308" label="[05:03:08]">&lt;fosslinux&gt;</a></span><span class="message">oriansj: what should I do for floats on m2-planet</span></div><div class="line" id="085356"><span class="nick" style="color:#6b8072"><a href="#085356" label="[08:53:56]">&lt;janneke&gt;</a></span><span class="message">fosslinux: re __stack_chk_fail: your gcc compiles with stack protection by default; try CFLAGS=-fno-stack-protector</span></div><div class="line" id="085511"><span class="nick" style="color:#8dd3c7"><a href="#085511" label="[08:55:11]">&lt;fosslinux&gt;</a></span><span class="message">ok</span></div><div class="line" id="090517"><span class="nick" style="color:#6b8072"><a href="#090517" label="[09:05:17]">&lt;janneke&gt;</a></span><span class="message">fosslinux: floats are not supported until well into compiling tiny cc</span></div><div class="line" id="103656"><span class="nick" style="color:#8dd3c7"><a href="#103656" label="[10:36:56]">&lt;fosslinux&gt;</a></span><span class="message">janneke: hrm, om</span></div><div class="line" id="103658"><span class="nick" style="color:#8dd3c7"><a href="#103658" label="[10:36:58]">&lt;fosslinux&gt;</a></span><span class="message">ok*</span></div><div class="line" id="141950"><span class="nick" style="color:#2e2a4a"><a href="#141950" label="[14:19:50]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: M2-Planet does not support floats because compilers do not require floats to work internally. In fact they don't even require signed integers (but interpreters apparently do).</span></div><div class="line" id="142238"><span class="nick" style="color:#2e2a4a"><a href="#142238" label="[14:22:38]">&lt;oriansj&gt;</a></span><span class="message">As only compilers and interpreters are the primary targets of M2-Planet. Only structs, unions, char{,*,**}, int{,*}, unsigned, long and arrays are supported. (arrays primarily to deal with strings)</span></div><div class="line" id="174552"><span class="nick" style="color:#6b8072"><a href="#174552" label="[17:45:52]">&lt;janneke&gt;</a></span><span class="message">vagrantc: i tried CC=tcc on debian-x86 and that `just worked' for me; have i tried to convince you to use the --host=i686-unkown-linux-gnu on a x86_64 configure?</span></div><div class="line" id="174637"><span class="nick" style="color:#6b8072"><a href="#174637" label="[17:46:37]">&lt;janneke&gt;</a></span><span class="message">i was using that on guix, after doing: guix environment --system=i686-linux tcc ... that sort of thing won't work on debian (unless possibly you install a tcc with a 32bit persona)</span></div><div class="line" id="174726"><span class="nick" style="color:#80b1d3"><a href="#174726" label="[17:47:26]">&lt;vagrantc&gt;</a></span><span class="message">janneke: i haven't been using the --host= argument ... i guess maybe that could be to blame</span></div><div class="line" id="174739"><span class="nick" style="color:#6b8072"><a href="#174739" label="[17:47:39]">&lt;janneke&gt;</a></span><span class="message">the core of the problem here being that mes configure tries to get the host machine by doing $CC -dumpmachine; which tcc does not have</span></div><div class="line" id="174753"><span class="nick" style="color:#80b1d3"><a href="#174753" label="[17:47:53]">&lt;vagrantc&gt;</a></span><span class="message">janneke: also, where do you --host= values come from? they don't match any sets i'm familiar with</span></div><div class="line" id="174837"><span class="nick" style="color:#80b1d3"><a href="#174837" label="[17:48:37]">&lt;vagrantc&gt;</a></span><span class="message">i have access to a number of variables that seem almost right ... e.g. i386-linux-gnu, arm-linux-gnueabihf, etc.</span></div><div class="line" id="174923"><span class="nick" style="color:#80b1d3"><a href="#174923" label="[17:49:23]">&lt;vagrantc&gt;</a></span><span class="message">building debian packages makes it pretty easy to get variables variables that seem *almost* right ror this purpose</span></div><div class="line" id="174939"><span class="nick" style="color:#6b8072"><a href="#174939" label="[17:49:39]">&lt;janneke&gt;</a></span><span class="message">vagrantc: it's what guix uses ... and so what gcc -dumpmachine or guile -c '(display %host-type)' say</span></div><div class="line" id="175012"><span class="nick" style="color:#80b1d3"><a href="#175012" label="[17:50:12]">&lt;vagrantc&gt;</a></span><span class="message">i don't think it's what gcc -dumpmachine produces on debian</span></div><div class="line" id="175015"><span class="nick" style="color:#6b8072"><a href="#175015" label="[17:50:15]">&lt;janneke&gt;</a></span><span class="message">ah, but --host=i386-linux-gnu should also be OK</span></div><div class="line" id="175035"><span class="nick" style="color:#80b1d3"><a href="#175035" label="[17:50:35]">&lt;vagrantc&gt;</a></span><span class="message">$ gcc -dumpmachine</span></div><div class="line" id="175040"><span class="nick" style="color:#80b1d3"><a href="#175040" label="[17:50:40]">&lt;vagrantc&gt;</a></span><span class="message">aarch64-linux-gnu</span></div><div class="line" id="175044"><span class="nick" style="color:#6b8072"><a href="#175044" label="[17:50:44]">&lt;janneke&gt;</a></span><span class="message">i want any usual flavours to work</span></div><div class="line" id="175126"><span class="nick" style="color:#80b1d3"><a href="#175126" label="[17:51:26]">&lt;vagrantc&gt;</a></span><span class="message">i'll try and get you a list or a way to figure out what's in the list form a Debian viewpoint</span></div><div class="line" id="175141"><span class="nick" style="color:#6b8072"><a href="#175141" label="[17:51:41]">&lt;janneke&gt;</a></span><span class="message">vagrantc: hmm, i just tested tcc on 64bit, and that just produces a core-dumping mes -- so tcc really only works on i386 --with-courage</span></div><div class="line" id="175213"><span class="nick" style="color:#80b1d3"><a href="#175213" label="[17:52:13]">&lt;vagrantc&gt;</a></span><span class="message">ah, /usr/share/dpkg/tupletable seems pretty good</span></div><div class="line" id="175237"><span class="nick" style="color:#80b1d3"><a href="#175237" label="[17:52:37]">&lt;vagrantc&gt;</a></span><span class="message">yeah, i haven't been working on 64-bit lately</span></div><div class="line" id="175251"><span class="nick" style="color:#6b8072"><a href="#175251" label="[17:52:51]">&lt;janneke&gt;</a></span><span class="message">&quot;good&quot; :)</span></div><div class="line" id="175252"><span class="nick" style="color:#80b1d3"><a href="#175252" label="[17:52:52]">&lt;vagrantc&gt;</a></span><span class="message">i pretty much accept that that only builds the gcc variant for now</span></div><div class="line" id="175429"><span class="nick" style="color:#80b1d3"><a href="#175429" label="[17:54:29]">&lt;vagrantc&gt;</a></span><span class="message">hmmm... the tupletable seems to miss some obvious ones...</span></div><div class="line" id="181533"><span class="nick" style="color:#80b1d3"><a href="#181533" label="[18:15:33]">&lt;vagrantc&gt;</a></span><span class="message">janneke: /usr/share/dpkg/cputable also gives part of the story...</span></div><div class="line" id="181557"><span class="nick" style="color:#80b1d3"><a href="#181557" label="[18:15:57]">&lt;vagrantc&gt;</a></span><span class="message">but there's no straightforward list :/</span></div><div class="line" id="181753"><span class="nick" style="color:#6d2462"><a href="#181753" label="[18:17:53]">*</a></span><span class="message">vagrantc keeps digging</span></div><div class="line" id="181816"><span class="nick" style="color:#80b1d3"><a href="#181816" label="[18:18:16]">&lt;vagrantc&gt;</a></span><span class="message">i guess i'll just try to get you reasonable values for i386/amd64/armhf/arm64 for now and we'll go from there</span></div><div class="line" id="182830"><span class="nick" style="color:#80b1d3"><a href="#182830" label="[18:28:30]">&lt;vagrantc&gt;</a></span><span class="message">janneke: i might just enable --with-courage by default ... then maybe debian porters will suggest fixes :)</span></div><div class="line" id="185220"><span class="nick" style="color:#6b8072"><a href="#185220" label="[18:52:20]">&lt;janneke&gt;</a></span><span class="message">hah!  that's great</span></div><div class="line" id="202001"><span class="nick" style="color:#2e2a4a"><a href="#202001" label="[20:20:01]">&lt;oriansj&gt;</a></span><span class="message">well there might be a straight-forward way with get_machine</span></div><div class="line" id="202153"><span class="nick" style="color:#2e2a4a"><a href="#202153" label="[20:21:53]">&lt;oriansj&gt;</a></span><span class="message">I can add --dump-machine to get_machine and i just need to figure out how to get the userspace</span></div><div class="line" id="203659"><span class="nick" style="color:#6b8072"><a href="#203659" label="[20:36:59]">&lt;janneke&gt;</a></span><span class="message">oriansj: get_machine is great, but the &quot;problem&quot; here is a compiler on amd64/x86_64 (as get_machine correctly reports) be it i686-unknown-linux-gnu-gcc or `guix environment --system=i686-linux --ad-hoc tcc' that produces 32bit binaries</span></div><div class="line" id="203710"><span class="nick" style="color:#6b8072"><a href="#203710" label="[20:37:10]">&lt;janneke&gt;</a></span><span class="message">it's really on the compiler that can tell us that</span></div><div class="line" id="203749"><span class="nick" style="color:#6b8072"><a href="#203749" label="[20:37:49]">&lt;janneke&gt;</a></span><span class="message">hmm, so if the compiler (tcc) does not support -dumpmachine, maybe we should look at its output?</span></div><div class="line" id="203812"><span class="nick" style="color:#6b8072"><a href="#203812" label="[20:38:12]">&lt;janneke&gt;</a></span><span class="message">thanks for asking, and thanks for listening!</span></div><div class="line" id="204439"><span class="nick" style="color:#2e2a4a"><a href="#204439" label="[20:44:39]">&lt;oriansj&gt;</a></span><span class="message">janneke: well perhaps tcc is like M2-Planet in that one needs to specify a target output</span></div><div class="line" id="204838"><span class="nick" style="color:#6b8072"><a href="#204838" label="[20:48:38]">&lt;janneke&gt;</a></span><span class="message">oriansj: no, tcc -c config.c will produce a config.o of the flavour tcc was compiled for</span></div><div class="line" id="204905"><span class="nick" style="color:#6b8072"><a href="#204905" label="[20:49:05]">&lt;janneke&gt;</a></span><span class="message">now to read elf objects and display their architecture; perhaps add a simple `file' command to gash core utils</span></div><div class="line" id="204934"><span class="nick" style="color:#6b8072"><a href="#204934" label="[20:49:34]">&lt;janneke&gt;</a></span><span class="message">this is for development/distro builds only; during bootstrapping you know what you're doing anyway</span></div><div class="line" id="205000"><span class="nick" style="color:#6b8072"><a href="#205000" label="[20:50:00]">&lt;janneke&gt;</a></span><span class="message">hmm, so maybe just `file' is enough</span></div><div class="line" id="205332"><span class="nick" style="color:#80b1d3"><a href="#205332" label="[20:53:32]">&lt;vagrantc&gt;</a></span><span class="message">janneke: so, $DEB_HOST_MULTIARCH gives me: arm64 aarch64-linux-gnu, armhf arm-linux-gnueabihf, i386 i386-linux-gnu and amd64 x86_64-linux-gnu ... those are the most likely targets i'd expect to b able to build based on current work-in-progress</span></div><div class="line" id="205349"><span class="nick" style="color:#80b1d3"><a href="#205349" label="[20:53:49]">&lt;vagrantc&gt;</a></span><span class="message">janneke: from a debian perspective, anyways...</span></div><div class="line" id="205406"><span class="nick" style="color:#80b1d3"><a href="#205406" label="[20:54:06]">&lt;vagrantc&gt;</a></span><span class="message">janneke: there are a few other permutations of $DEB_*ARCH</span></div><div class="line" id="212345"><span class="nick" style="color:#6b8072"><a href="#212345" label="[21:23:45]">&lt;janneke&gt;</a></span><span class="message">ah nice, do i undestand correctly that this means &quot;tcc&quot; could be tcc:&lt;any-of-those-archs&gt;?</span></div><div class="line" id="212516"><span class="nick" style="color:#80b1d3"><a href="#212516" label="[21:25:16]">&lt;vagrantc&gt;</a></span><span class="message">yes, tcc is present on all those architectures in Debian</span></div><div class="line" id="212552"><span class="nick" style="color:#80b1d3"><a href="#212552" label="[21:25:52]">&lt;vagrantc&gt;</a></span><span class="message">as well as armel arm-linux-gnueabi ... if you're into supporting armv4 stuff</span></div><div class="line" id="212714"><span class="nick" style="color:#6b8072"><a href="#212714" label="[21:27:14]">&lt;janneke&gt;</a></span><span class="message">this is going to get interesting when dannym returns to mes/arm</span></div><div class="line" id="213023"><span class="nick" style="color:#80b1d3"><a href="#213023" label="[21:30:23]">&lt;vagrantc&gt;</a></span><span class="message">there's some discussion of tcc's arm support in <a rel="nofollow" href="https://bugs.debian.org/651841">https://bugs.debian.org/651841</a> </span></div><div class="line" id="213032"><span class="nick" style="color:#80b1d3"><a href="#213032" label="[21:30:32]">&lt;vagrantc&gt;</a></span><span class="message">the short of it ... sounds interesting</span></div><div class="line" id="213140"><span class="nick" style="color:#6b8072"><a href="#213140" label="[21:31:40]">&lt;janneke&gt;</a></span><span class="message">oh no, floats</span></div><div class="line" id="213143"><span class="nick" style="color:#6d2462"><a href="#213143" label="[21:31:43]">*</a></span><span class="message">janneke runs</span></div><div class="line" id="213147"><span class="nick" style="color:#234e69"><a href="#213147" label="[21:31:47]">&lt;xentrac&gt;</a></span><span class="message">haha</span></div><div class="line" id="213209"><span class="nick" style="color:#234e69"><a href="#213209" label="[21:32:09]">&lt;xentrac&gt;</a></span><span class="message">armv4 is all-IEEE-754, isn't it?</span></div><div class="line" id="213209"><span class="nick" style="color:#80b1d3"><a href="#213209" label="[21:32:09]">&lt;vagrantc&gt;</a></span><span class="message">heh</span></div><div class="line" id="213228"><span class="nick" style="color:#6b8072"><a href="#213228" label="[21:32:28]">&lt;janneke&gt;</a></span><span class="message">dannym, help!</span></div><div class="line" id="213238"><span class="nick" style="color:#6b8072"><a href="#213238" label="[21:32:38]">&lt;janneke&gt;</a></span><span class="message">:)</span></div><div class="line" id="231351"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><br /></div></body></html>

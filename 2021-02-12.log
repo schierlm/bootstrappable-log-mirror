@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-02-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003008"><span class="nick" style="color:#8dd3c7"><a href="#003008" label="[00:30:08]">&lt;OriansJ&gt;</a></span><span class="message">fossy: you can steal the int to hex function in M1; it covers both big and little endian orders if you want</span></div><div class="line" id="004239"><span class="nick" style="color:#2e2a4a"><a href="#004239" label="[00:42:39]">&lt;pder&gt;</a></span><span class="message">stikonas, fossy: This was the least invasive workaround I could come up with to fix the problem with output from our tcc+musl binaries truncating output when redirected to a file or pipe.</span></div><div class="line" id="004241"><span class="nick" style="color:#2e2a4a"><a href="#004241" label="[00:42:41]">&lt;pder&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/38">https://github.com/fosslinux/live-bootstrap/pull/38</a> </span></div><div class="line" id="004358"><span class="nick" style="color:#6b8072"><a href="#004358" label="[00:43:58]">&lt;stikonas&gt;</a></span><span class="message">pder: yeah, I'm looking at it now</span></div><div class="line" id="004410"><span class="nick" style="color:#6b8072"><a href="#004410" label="[00:44:10]">&lt;stikonas&gt;</a></span><span class="message">so you are keeping weak-symbols patch?</span></div><div class="line" id="004451"><span class="nick" style="color:#2e2a4a"><a href="#004451" label="[00:44:51]">&lt;pder&gt;</a></span><span class="message">Yeah, I tried removing that patch, and they fixing up missing symbols in tcc, but then I got a whole bunch more when proceeding on to m4</span></div><div class="line" id="004620"><span class="nick" style="color:#6b8072"><a href="#004620" label="[00:46:20]">&lt;stikonas&gt;</a></span><span class="message">yeah, when I initially worked on musl</span></div><div class="line" id="004647"><span class="nick" style="color:#6b8072"><a href="#004647" label="[00:46:47]">&lt;stikonas&gt;</a></span><span class="message">I tried to add some object files to tcc and it linked fine, but then I was getting more problems as I went further</span></div><div class="line" id="004924"><span class="nick" style="color:#2e2a4a"><a href="#004924" label="[00:49:24]">&lt;pder&gt;</a></span><span class="message">The problem is complicated with how weak symbols behave differently with static linking and the fact that I dont know if tcc ar is doing the correct thing</span></div><div class="line" id="005006"><span class="nick" style="color:#6b8072"><a href="#005006" label="[00:50:06]">&lt;stikonas&gt;</a></span><span class="message">yeah...</span></div><div class="line" id="005012"><span class="nick" style="color:#6b8072"><a href="#005012" label="[00:50:12]">&lt;stikonas&gt;</a></span><span class="message">well, we are close</span></div><div class="line" id="005019"><span class="nick" style="color:#6b8072"><a href="#005019" label="[00:50:19]">&lt;stikonas&gt;</a></span><span class="message">once fossy integrates our 3 PRs</span></div><div class="line" id="005032"><span class="nick" style="color:#6b8072"><a href="#005032" label="[00:50:32]">&lt;stikonas&gt;</a></span><span class="message">it's basically just perl left</span></div><div class="line" id="005436"><span class="nick" style="color:#6b8072"><a href="#005436" label="[00:54:36]">&lt;stikonas&gt;</a></span><span class="message">pder: by the way, which version of perl you were playing with?</span></div><div class="line" id="005501"><span class="nick" style="color:#2e2a4a"><a href="#005501" label="[00:55:01]">&lt;pder&gt;</a></span><span class="message">perl 5.32.0</span></div><div class="line" id="005508"><span class="nick" style="color:#2e2a4a"><a href="#005508" label="[00:55:08]">&lt;pder&gt;</a></span><span class="message">Not sure why I picked it</span></div><div class="line" id="010240"><span class="nick" style="color:#80b1d3"><a href="#010240" label="[01:02:40]">&lt;fossy&gt;</a></span><span class="message">OriansJ: OK thanks</span></div><div class="line" id="011121"><span class="nick" style="color:#6b8072"><a href="#011121" label="[01:11:21]">&lt;stikonas&gt;</a></span><span class="message">well, 5.32.0 us the latest stable version...</span></div><div class="line" id="015120"><span class="nick" style="color:#6b8072"><a href="#015120" label="[01:51:20]">&lt;stikonas&gt;</a></span><span class="message">fossy: CI in  <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/34">https://github.com/fosslinux/live-bootstrap/pull/34</a>  failed again (false negative). Although, there were only readme changes... So possibly can just ignore it</span></div><div class="line" id="015147"><span class="nick" style="color:#6b8072"><a href="#015147" label="[01:51:47]">&lt;stikonas&gt;</a></span><span class="message">(pder updated README on my request)</span></div><div class="line" id="020615"><span class="nick" style="color:#8dd3c7"><a href="#020615" label="[02:06:15]">&lt;OriansJ&gt;</a></span><span class="message">well looks like PPC64le has little endian instruction encoding</span></div><div class="line" id="020758"><span class="nick" style="color:#6d2462"><a href="#020758" label="[02:07:58]">&lt;vagrantc&gt;</a></span><span class="message">isn't that what the &quot;le&quot; is about, or is it a lot more complicated than that?</span></div><div class="line" id="020957"><span class="nick" style="color:#8dd3c7"><a href="#020957" label="[02:09:57]">&lt;OriansJ&gt;</a></span><span class="message">vagrantc: you can have Big endian instructions and little endian data (x86/AMD64)</span></div><div class="line" id="021058"><span class="nick" style="color:#6d2462"><a href="#021058" label="[02:10:58]">&lt;vagrantc&gt;</a></span><span class="message">so yes, it's complicated :)</span></div><div class="line" id="021135"><span class="nick" style="color:#8dd3c7"><a href="#021135" label="[02:11:35]">&lt;OriansJ&gt;</a></span><span class="message">and can get even messier (big endianness mismatches)</span></div><div class="line" id="021212"><span class="nick" style="color:#8dd3c7"><a href="#021212" label="[02:12:12]">&lt;OriansJ&gt;</a></span><span class="message">endianness modes per process</span></div><div class="line" id="021215"><span class="nick" style="color:#234e69"><a href="#021215" label="[02:12:15]">*</a></span><span class="message">vagrantc remembered when the armel architecture on debian was the new thing from the old &quot;arm&quot; architecture</span></div><div class="line" id="021236"><span class="nick" style="color:#6d2462"><a href="#021236" label="[02:12:36]">&lt;vagrantc&gt;</a></span><span class="message">that was perhaps my first exposure to the idea of endianess</span></div><div class="line" id="021237"><span class="nick" style="color:#8dd3c7"><a href="#021237" label="[02:12:37]">&lt;OriansJ&gt;</a></span><span class="message">bit endianness which makes things even more messy</span></div><div class="line" id="021543"><span class="nick" style="color:#6c3d55"><a href="#021543" label="[02:15:43]">&lt;dftxbs3e&gt;</a></span><span class="message">OriansJ, still need baremetal?</span></div><div class="line" id="021647"><span class="nick" style="color:#8dd3c7"><a href="#021647" label="[02:16:47]">&lt;OriansJ&gt;</a></span><span class="message">dftxbs3e: yes but I'm still behind where I need to be (starting to write a proper ELF header for PPC64le and a good hello world in hex)</span></div><div class="line" id="021809"><span class="nick" style="color:#6d2462"><a href="#021809" label="[02:18:09]">&lt;vagrantc&gt;</a></span><span class="message">i seem to recall a number of providers that give free access to POWER9 systems for working on free software projects, i can dig up links if interested</span></div><div class="line" id="021824"><span class="nick" style="color:#6c3d55"><a href="#021824" label="[02:18:24]">&lt;dftxbs3e&gt;</a></span><span class="message">OriansJ, alright! :-D</span></div><div class="line" id="021841"><span class="nick" style="color:#6c3d55"><a href="#021841" label="[02:18:41]">&lt;dftxbs3e&gt;</a></span><span class="message">vagrantc, they wanted baremetal access, OSUOSL or minicloud only gives VM AFAIK</span></div><div class="line" id="021851"><span class="nick" style="color:#6d2462"><a href="#021851" label="[02:18:51]">&lt;vagrantc&gt;</a></span><span class="message">ah</span></div><div class="line" id="034303"><span class="nick" style="color:#8dd3c7"><a href="#034303" label="[03:43:03]">&lt;OriansJ&gt;</a></span><span class="message">PowerPC does not make PC-relative loads easy.</span></div><div class="line" id="034821"><span class="nick" style="color:#6c3d55"><a href="#034821" label="[03:48:21]">&lt;dftxbs3e&gt;</a></span><span class="message">OriansJ, is there a readable PC register?</span></div><div class="line" id="034842"><span class="nick" style="color:#6c3d55"><a href="#034842" label="[03:48:42]">&lt;dftxbs3e&gt;</a></span><span class="message">Or it is like x86 you need to use the call instruction to extract it?</span></div><div class="line" id="035222"><span class="nick" style="color:#8dd3c7"><a href="#035222" label="[03:52:22]">&lt;OriansJ&gt;</a></span><span class="message">dftxbs3e: not sure yet, digging into the documentation and playing with the gnu assembler to try to find something useful</span></div><div class="line" id="035300"><span class="nick" style="color:#6c3d55"><a href="#035300" label="[03:53:00]">&lt;dftxbs3e&gt;</a></span><span class="message">hl, any ideas?</span></div><div class="line" id="035624"><span class="nick" style="color:#8dd3c7"><a href="#035624" label="[03:56:24]">&lt;OriansJ&gt;</a></span><span class="message">bl 0x4 and mflr might provide that behavior but it'll also override the link register</span></div><div class="line" id="035704"><span class="nick" style="color:#8dd3c7"><a href="#035704" label="[03:57:04]">&lt;OriansJ&gt;</a></span><span class="message">so I'll have to push the link register before it and pop the link register after it</span></div><div class="line" id="035806"><span class="nick" style="color:#8dd3c7"><a href="#035806" label="[03:58:06]">&lt;OriansJ&gt;</a></span><span class="message">but PowerPC doesn't have push and pop just store and load with increment and decrement</span></div><div class="line" id="040009"><span class="nick" style="color:#6c3d55"><a href="#040009" label="[04:00:09]">&lt;dftxbs3e&gt;</a></span><span class="message">yes :-S and like a 64-bits register load is two 32-bits load with one 32-bits shift register - didnt seem to be made to be written by humans</span></div><div class="line" id="040420"><span class="nick" style="color:#8dd3c7"><a href="#040420" label="[04:04:20]">&lt;OriansJ&gt;</a></span><span class="message">dftxbs3e: certainly not human friendly but I'll shove it into a working solution</span></div><div class="line" id="040457"><span class="nick" style="color:#8dd3c7"><a href="#040457" label="[04:04:57]">&lt;OriansJ&gt;</a></span><span class="message">even if it means I have to do 12 things just to load a 64bit immediate.</span></div><div class="line" id="040657"><span class="nick" style="color:#8dd3c7"><a href="#040657" label="[04:06:57]">&lt;OriansJ&gt;</a></span><span class="message">but thus far I am very good at segfaulting on PowerPC64le</span></div><div class="line" id="040902"><span class="nick" style="color:#8dd3c7"><a href="#040902" label="[04:09:02]">&lt;OriansJ&gt;</a></span><span class="message">it is very touchy about: .section        &quot;.opd&quot;,&quot;aw&quot;</span></div><div class="line" id="041038"><span class="nick" style="color:#8dd3c7"><a href="#041038" label="[04:10:38]">&lt;OriansJ&gt;</a></span><span class="message">have no idea what it actually means yet</span></div><div class="line" id="051204"><span class="nick" style="color:#8dd3c7"><a href="#051204" label="[05:12:04]">&lt;OriansJ&gt;</a></span><span class="message">WTF</span></div><div class="line" id="051741"><span class="nick" style="color:#6c3d55"><a href="#051741" label="[05:17:41]">&lt;dftxbs3e&gt;</a></span><span class="message">OriansJ, what</span></div><div class="line" id="052639"><span class="nick" style="color:#8dd3c7"><a href="#052639" label="[05:26:39]">&lt;OriansJ&gt;</a></span><span class="message">this is as far as I can get: <a rel="nofollow" href="https://paste.debian.net/1185171/">https://paste.debian.net/1185171/</a> </span></div><div class="line" id="052659"><span class="nick" style="color:#8dd3c7"><a href="#052659" label="[05:26:59]">&lt;OriansJ&gt;</a></span><span class="message">nothing I try seems to result in anything but segfault</span></div><div class="line" id="052753"><span class="nick" style="color:#8dd3c7"><a href="#052753" label="[05:27:53]">&lt;OriansJ&gt;</a></span><span class="message">here is the assembly code used: <a rel="nofollow" href="https://paste.debian.net/1185172/">https://paste.debian.net/1185172/</a> </span></div><div class="line" id="052902"><span class="nick" style="color:#8dd3c7"><a href="#052902" label="[05:29:02]">&lt;OriansJ&gt;</a></span><span class="message">the command in hex2 to build: hex2 --little-endian -f elf64-PowerPC.hex2 -f foo.hex2 --base-address 0x10000000 -o foo</span></div><div class="line" id="053020"><span class="nick" style="color:#8dd3c7"><a href="#053020" label="[05:30:20]">&lt;OriansJ&gt;</a></span><span class="message">I'm probably missing something important, I just don't know what yet</span></div><div class="line" id="053252"><span class="nick" style="color:#8dd3c7"><a href="#053252" label="[05:32:52]">&lt;OriansJ&gt;</a></span><span class="message">so I am going to get some sleep and try again tomorrow (hopefully I can figure out how to even execute a single instruction [even if wrong], rather than just segfaulting on every load attempt)</span></div><div class="line" id="054131"><span class="nick" style="color:#6c3d55"><a href="#054131" label="[05:41:31]">&lt;dftxbs3e&gt;</a></span><span class="message">OriansJ, will take a look but also a beginner in PowerPC assembly, only know x86 well, sleep weel</span></div><div class="line" id="054134"><span class="nick" style="color:#6c3d55"><a href="#054134" label="[05:41:34]">&lt;dftxbs3e&gt;</a></span><span class="message">well *</span></div><div class="line" id="065951"><span class="nick" style="color:#d9d9d9"><a href="#065951" label="[06:59:51]">&lt;gforce_de1977&gt;</a></span><span class="message">OriansJ: deep in my mind, i think you need 4-byte-alignment on PPC604 and the was another thing i dont remember: <a rel="nofollow" href="https://refspecs.linuxfoundation.org/ELF/ppc64/PPC-elf64abi.html#AEN286">https://refspecs.linuxfoundation.org/ELF/ppc64/PPC-elf64abi.html#AEN286</a> </span></div><div class="line" id="120606"><span class="nick">***</span><span class="message notice">mephista is now known as spicy_icecream</span></div><div class="line" id="132010"><span class="nick" style="color:#8dd3c7"><a href="#132010" label="[13:20:10]">&lt;OriansJ&gt;</a></span><span class="message">gforce_de1977: well that is why I have 00 00 01 00 00 00 00 00 ## Required alignment; aligned to 0x10000 which will put it exactly on a page</span></div><div class="line" id="132050"><span class="nick" style="color:#8dd3c7"><a href="#132050" label="[13:20:50]">&lt;OriansJ&gt;</a></span><span class="message">but just in case the 78byte elf header is throwing things off I can double null pad</span></div><div class="line" id="132622"><span class="nick" style="color:#8dd3c7"><a href="#132622" label="[13:26:22]">&lt;OriansJ&gt;</a></span><span class="message">oh and for those wanting to do the same dev environment as me: qemu-system-ppc64 -m 1024 -smp 1 -boot menu=on -drive file=prototype.qcow2 -net user,hostfwd=tcp::666-:22 -net nic (install debian PowerPC64le, only ssh-server and build-essentials+gdb)</span></div><div class="line" id="185100"><span class="nick" style="color:#6b8072"><a href="#185100" label="[18:51:00]">&lt;stikonas&gt;</a></span><span class="message">pder: I've just checked, I think perl 5.8 is the latest we can try to build</span></div><div class="line" id="185125"><span class="nick" style="color:#6b8072"><a href="#185125" label="[18:51:25]">&lt;stikonas&gt;</a></span><span class="message">newer perl's have even greater dependency on perl itself</span></div><div class="line" id="185139"><span class="nick" style="color:#6b8072"><a href="#185139" label="[18:51:39]">&lt;stikonas&gt;</a></span><span class="message">(we might build newer later once we bootstrap something)</span></div><div class="line" id="185612"><span class="nick" style="color:#6b8072"><a href="#185612" label="[18:56:12]">&lt;stikonas&gt;</a></span><span class="message">and even 5.8 might be too new...</span></div><div class="line" id="185827"><span class="nick" style="color:#6b8072"><a href="#185827" label="[18:58:27]">&lt;stikonas&gt;</a></span><span class="message">(perl seems to do some postprocessing after perly.y-&gt;perly.{c,h}</span></div><div class="line" id="193046"><span class="nick" style="color:#2e2a4a"><a href="#193046" label="[19:30:46]">&lt;pder&gt;</a></span><span class="message">stikonas: what part of autotools needs perl and how extensively?  I am wondering if perl could be skipped for now?</span></div><div class="line" id="194734"><span class="nick" style="color:#6b8072"><a href="#194734" label="[19:47:34]">&lt;stikonas&gt;</a></span><span class="message">pder: everything</span></div><div class="line" id="194739"><span class="nick" style="color:#6b8072"><a href="#194739" label="[19:47:39]">&lt;stikonas&gt;</a></span><span class="message">autotools is written in perl</span></div><div class="line" id="194754"><span class="nick" style="color:#6b8072"><a href="#194754" label="[19:47:54]">&lt;stikonas&gt;</a></span><span class="message">(and some shell scripting)</span></div><div class="line" id="194831"><span class="nick" style="color:#2e2a4a"><a href="#194831" label="[19:48:31]">&lt;pder&gt;</a></span><span class="message">doesn't guix build binutils and gcc before perl?</span></div><div class="line" id="194843"><span class="nick" style="color:#6b8072"><a href="#194843" label="[19:48:43]">&lt;stikonas&gt;</a></span><span class="message">guix doesn't bootstrap autotools</span></div><div class="line" id="194850"><span class="nick" style="color:#6b8072"><a href="#194850" label="[19:48:50]">&lt;stikonas&gt;</a></span><span class="message">it just runs configure scripts</span></div><div class="line" id="203149"><span class="nick" style="color:#2e2a4a"><a href="#203149" label="[20:31:49]">&lt;pder&gt;</a></span><span class="message">Just checked Linux From Scratch, and version 5.1 of it uses bash-2.05b like us and perl 5.8.4</span></div><div class="line" id="203423"><span class="nick" style="color:#2e2a4a"><a href="#203423" label="[20:34:23]">&lt;pder&gt;</a></span><span class="message">Also autoconf 2.59 and automake 1.8.4 fwiw</span></div><div class="line" id="203611"><span class="nick" style="color:#6b8072"><a href="#203611" label="[20:36:11]">&lt;stikonas&gt;</a></span><span class="message">and I guess perl doesn't care about pre-generated files</span></div><div class="line" id="205524"><span class="nick" style="color:#6b8072"><a href="#205524" label="[20:55:24]">&lt;stikonas&gt;</a></span><span class="message">but I guess we only need perl executable, not 20 or so that perl provides...</span></div><div class="line" id="211539"><span class="nick" style="color:#6b8072"><a href="#211539" label="[21:15:39]">&lt;stikonas&gt;</a></span><span class="message">by the way, I did two runs of live-bootstrap, all binaries had identical checksums</span></div><div class="line" id="211602"><span class="nick" style="color:#6b8072"><a href="#211602" label="[21:16:02]">&lt;stikonas&gt;</a></span><span class="message">so I think for now live-bootstrap is reproducible</span></div><div class="line" id="221725"><span class="nick" style="color:#bc80bd"><a href="#221725" label="[22:17:25]">&lt;Hagfish&gt;</a></span><span class="message">yay!  that's fantastic!</span></div><div class="line" id="221815"><span class="nick" style="color:#bc80bd"><a href="#221815" label="[22:18:15]">&lt;Hagfish&gt;</a></span><span class="message">it might seem excessive, but you could automate that process and make it a condition of a clean build</span></div><div class="line" id="221832"><span class="nick" style="color:#bc80bd"><a href="#221832" label="[22:18:32]">&lt;Hagfish&gt;</a></span><span class="message">&quot;monocultural double compiling&quot; :)</span></div><br /></div></body></html>

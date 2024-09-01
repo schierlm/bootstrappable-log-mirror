@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-01-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="025221"><span class="nick" style="color:#389600"><a href="#025221" label="[02:52:21]">&lt;fossy&gt;</a></span><span class="message">doras: thank you, reviewing now!</span></div><div class="line" id="025359"><span class="nick" style="color:#389600"><a href="#025359" label="[02:53:59]">&lt;fossy&gt;</a></span><span class="message">i don't like running rootfs.py with root as distfiles will be owned by root. otoh at the moment only tmp/ junk is owned by root at the moment</span></div><div class="line" id="025511"><span class="nick" style="color:#389600"><a href="#025511" label="[02:55:11]">&lt;fossy&gt;</a></span><span class="message">what is the difference between run() and an external script run with sudo?</span></div><div class="line" id="030310"><span class="nick" style="color:#389600"><a href="#030310" label="[03:03:10]">&lt;fossy&gt;</a></span><span class="message">doras: gah, i didnt test no --external-sources all the way through. i'm pretty sure the issue is; before, when no external-sources was given, we created a blank disk, but tmpdir._add_disk creates a partition (different behaviour for no external-sources to before). bootstrap.cfg had DISK=sda for non-external-sources, but i forgot to remove that</span></div><div class="line" id="030339"><span class="nick" style="color:#389600"><a href="#030339" label="[03:03:39]">&lt;fossy&gt;</a></span><span class="message">i did intentionally change that behaviour so a partition is created, to make it easier to inject stuff into sysc for debugging</span></div><div class="line" id="032659"><span class="nick" style="color:#8dd3c7"><a href="#032659" label="[03:26:59]">&lt;stikonas[m]&gt;</a></span><span class="message">Also running rootfs.py as root means you do remote downloads as root</span></div><div class="line" id="032715"><span class="nick" style="color:#8dd3c7"><a href="#032715" label="[03:27:15]">&lt;stikonas[m]&gt;</a></span><span class="message">It's not a browser but still...</span></div><div class="line" id="034401"><span class="nick" style="color:#2e2a4a"><a href="#034401" label="[03:44:01]">&lt;Christoph[m]&gt;</a></span><span class="message">I don't know how that works, but can you drop root privileges for dangerous tasks, or start unprivileged subprocesses for that? Or... guix has a daemon for doing the root stuff, right? Maybe that's an option?</span></div><div class="line" id="041003"><span class="nick" style="color:#389600"><a href="#041003" label="[04:10:03]">&lt;fossy&gt;</a></span><span class="message">well, right now we obtain root privs as required, rather than dropping privs.. not really sure the added complexity of dropping privs has any benefit</span></div><div class="line" id="081946"><span class="nick" style="color:#6b8072"><a href="#081946" label="[08:19:46]">&lt;doras&gt;</a></span><span class="message">fossy: if we have a small helper script to trigger the chroot bootstrap which runs as root after all preparations are done by the normal rootfs.py, we could make the chroot bootstrap two-phased such that the chroot operation between sysa and sysc is done at the script level and not by sysa itself.</span></div><div class="line" id="110732"><span class="nick" style="color:#389600"><a href="#110732" label="[11:07:32]">&lt;fossy&gt;</a></span><span class="message">doras: ah, understood</span></div><div class="line" id="195549"><span class="nick" style="color:#80b1d3"><a href="#195549" label="[19:55:49]">&lt;stikonas&gt;</a></span><span class="message">ok, hex1_AMD64 update pushed now</span></div><div class="line" id="195601"><span class="nick" style="color:#80b1d3"><a href="#195601" label="[19:56:01]">&lt;stikonas&gt;</a></span><span class="message">updated to new GAS style defs and also made it much smaller</span></div><div class="line" id="221819"><span class="nick" style="color:#80b1d3"><a href="#221819" label="[22:18:19]">&lt;stikonas&gt;</a></span><span class="message">argh, and I somehow made off by 1 error in offset calculations...</span></div><div class="line" id="221825"><span class="nick" style="color:#80b1d3"><a href="#221825" label="[22:18:25]">&lt;stikonas&gt;</a></span><span class="message">need to debug it out</span></div><br /></div></body></html>

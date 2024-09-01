@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-12-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="131840"><span class="nick" style="color:#8dd3c7"><a href="#131840" label="[13:18:40]">&lt;oriansj&gt;</a></span><span class="message">Morning</span></div><div class="line" id="133803"><span class="nick" style="color:#8dd3c7"><a href="#133803" label="[13:38:03]">&lt;oriansj&gt;</a></span><span class="message">(lambda (a b) (foo a b)) ?= (macro (a b) (foo a b))</span></div><div class="line" id="140156"><span class="nick" style="color:#2e2a4a"><a href="#140156" label="[14:01:56]">&lt;janneke&gt;</a></span><span class="message">oriansj: you're right...but my mes.c that build with m2-planet has not been released yet</span></div><div class="line" id="141000"><span class="nick" style="color:#8dd3c7"><a href="#141000" label="[14:10:00]">&lt;oriansj&gt;</a></span><span class="message">janneke: well our joint work, I am pushing as I figure things out</span></div><div class="line" id="141037"><span class="nick" style="color:#8dd3c7"><a href="#141037" label="[14:10:37]">&lt;oriansj&gt;</a></span><span class="message">hoping to import define-macro today</span></div><div class="line" id="141143"><span class="nick" style="color:#2e2a4a"><a href="#141143" label="[14:11:43]">&lt;janneke&gt;</a></span><span class="message">very nice!</span></div><div class="line" id="141235"><span class="nick" style="color:#2e2a4a"><a href="#141235" label="[14:12:35]">&lt;janneke&gt;</a></span><span class="message">oh yeah, &quot;my mes&quot; of course, really your mes-m2 work merged!</span></div><div class="line" id="141310"><span class="nick" style="color:#8dd3c7"><a href="#141310" label="[14:13:10]">&lt;oriansj&gt;</a></span><span class="message">janneke: none of this is really mine, I think of this as our work</span></div><div class="line" id="141333"><span class="nick" style="color:#2e2a4a"><a href="#141333" label="[14:13:33]">&lt;janneke&gt;</a></span><span class="message">yes, also true :-)</span></div><div class="line" id="141732"><span class="nick" style="color:#8dd3c7"><a href="#141732" label="[14:17:32]">&lt;oriansj&gt;</a></span><span class="message">still need to figure out good tests for define-macro that expose the macro expand but work in guile too</span></div><div class="line" id="150000"><span class="nick" style="color:#8dd3c7"><a href="#150000" label="[15:00:00]">&lt;oriansj&gt;</a></span><span class="message">as in theory (define-macro (foo a b) (+ a b)), should simply transform (foo 1 3) into  (+ 1 3) to be evaluated by eval but how to capture that cleanly</span></div><div class="line" id="150304"><span class="nick" style="color:#8dd3c7"><a href="#150304" label="[15:03:04]">&lt;oriansj&gt;</a></span><span class="message">as guile's macroexpand does the wrong thing (unless I am missing something so trivially obvious)</span></div><div class="line" id="151038"><span class="nick" style="color:#8dd3c7"><a href="#151038" label="[15:10:38]">&lt;oriansj&gt;</a></span><span class="message">So, I stole from define's handbook to implment define-macro; now to get the behavior of macros correct</span></div><div class="line" id="151133"><span class="nick" style="color:#8dd3c7"><a href="#151133" label="[15:11:33]">&lt;oriansj&gt;</a></span><span class="message">(with the fun side effect (define foo (macro (a b) (+ a b))) does the same thing)</span></div><div class="line" id="152807"><span class="nick" style="color:#8dd3c7"><a href="#152807" label="[15:28:07]">&lt;oriansj&gt;</a></span><span class="message">odd that guile fails so hard when given: (display (define-macro (foo a b) (+ a b)))</span></div><div class="line" id="152949"><span class="nick" style="color:#8dd3c7"><a href="#152949" label="[15:29:49]">&lt;oriansj&gt;</a></span><span class="message">and an patch is up for initial framework for support for define-macro</span></div><div class="line" id="153036"><span class="nick" style="color:#8dd3c7"><a href="#153036" label="[15:30:36]">&lt;oriansj&gt;</a></span><span class="message">now to figure out the application of transformation</span></div><div class="line" id="154705"><span class="nick" style="color:#8dd3c7"><a href="#154705" label="[15:47:05]">&lt;oriansj&gt;</a></span><span class="message">although adding this macro bit probably is going to make this lisp even slower</span></div><div class="line" id="161744"><span class="nick" style="color:#8dd3c7"><a href="#161744" label="[16:17:44]">&lt;oriansj&gt;</a></span><span class="message">ah right the implicit apply</span></div><div class="line" id="183902"><span class="nick" style="color:#8dd3c7"><a href="#183902" label="[18:39:02]">&lt;oriansj&gt;</a></span><span class="message">it is kinda amazing the sheer number of schemes that don't support macros</span></div><div class="line" id="183939"><span class="nick" style="color:#8dd3c7"><a href="#183939" label="[18:39:39]">&lt;oriansj&gt;</a></span><span class="message">it is almost as if everyone hits it and does one of two things: nope or fuck it we'll do it live</span></div><div class="line" id="190220"><span class="nick" style="color:#8dd3c7"><a href="#190220" label="[19:02:20]">&lt;oriansj&gt;</a></span><span class="message">hey rain1</span></div><div class="line" id="191240"><span class="nick" style="color:#8dd3c7"><a href="#191240" label="[19:12:40]">&lt;oriansj&gt;</a></span><span class="message">figuring out define-macro is kicking my ass</span></div><div class="line" id="191411"><span class="nick" style="color:#8dd3c7"><a href="#191411" label="[19:14:11]">&lt;oriansj&gt;</a></span><span class="message">these are the current test cases I am trying to get working: <a rel="nofollow" href="https://paste.debian.net/1119976/">https://paste.debian.net/1119976/</a> </span></div><div class="line" id="191652"><span class="nick" style="color:#8dd3c7"><a href="#191652" label="[19:16:52]">&lt;oriansj&gt;</a></span><span class="message">I keep feeling like I need to create a weird mirror of mes_eval.c in mes_macro.c to get it working right</span></div><div class="line" id="192001"><span class="nick" style="color:#8dd3c7"><a href="#192001" label="[19:20:01]">&lt;oriansj&gt;</a></span><span class="message">(although I'd be happy to accept better tests if anyone has any handy)</span></div><div class="line" id="192113"><span class="nick" style="color:#8dd3c7"><a href="#192113" label="[19:21:13]">&lt;oriansj&gt;</a></span><span class="message">rain1: how are the macros in your single_cream behaving?</span></div><div class="line" id="195023"><span class="nick" style="color:#6b8072"><a href="#195023" label="[19:50:23]">&lt;rain1&gt;</a></span><span class="message">hi</span></div><div class="line" id="195048"><span class="nick" style="color:#6b8072"><a href="#195048" label="[19:50:48]">&lt;rain1&gt;</a></span><span class="message">they seem to work well but they are a basic unhygenic defmacro type thing</span></div><div class="line" id="195109"><span class="nick" style="color:#6b8072"><a href="#195109" label="[19:51:09]">&lt;rain1&gt;</a></span><span class="message">the way i did it without having 2 evals was that everything is evaluated tice</span></div><div class="line" id="195112"><span class="nick" style="color:#6b8072"><a href="#195112" label="[19:51:12]">&lt;rain1&gt;</a></span><span class="message">twice</span></div><div class="line" id="195130"><span class="nick" style="color:#6b8072"><a href="#195130" label="[19:51:30]">&lt;rain1&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/rain-1/single_cream/blob/master/src/sch3.c#L1646">https://github.com/rain-1/single_cream/blob/master/src/sch3.c#L1646</a> </span></div><div class="line" id="195138"><span class="nick" style="color:#6b8072"><a href="#195138" label="[19:51:38]">&lt;rain1&gt;</a></span><span class="message">&quot;exec&quot; is done twice</span></div><div class="line" id="195200"><span class="nick" style="color:#6b8072"><a href="#195200" label="[19:52:00]">&lt;rain1&gt;</a></span><span class="message">the preprocess procedure is initially a no-op but gets redefined as a macro expander</span></div><div class="line" id="202615"><span class="nick" style="color:#8dd3c7"><a href="#202615" label="[20:26:15]">&lt;oriansj&gt;</a></span><span class="message">rain1: interesting solution</span></div><div class="line" id="202706"><span class="nick" style="color:#6b8072"><a href="#202706" label="[20:27:06]">&lt;rain1&gt;</a></span><span class="message">thank you</span></div><div class="line" id="202945"><span class="nick" style="color:#8dd3c7"><a href="#202945" label="[20:29:45]">&lt;oriansj&gt;</a></span><span class="message">rain1: I honestly could use your perspective on mes-m2's slow_lisp branch</span></div><div class="line" id="203159"><span class="nick" style="color:#8dd3c7"><a href="#203159" label="[20:31:59]">&lt;oriansj&gt;</a></span><span class="message">as I am trying to figure out the most flexible solution to providing macro functionality, while still preserving as much introspectability as possible (via gdb)</span></div><div class="line" id="203437"><span class="nick" style="color:#6b8072"><a href="#203437" label="[20:34:37]">&lt;rain1&gt;</a></span><span class="message">i'll have a look at it, it sounds tricky to help GDB though</span></div><div class="line" id="203555"><span class="nick" style="color:#8dd3c7"><a href="#203555" label="[20:35:55]">&lt;oriansj&gt;</a></span><span class="message">rain1: I thought the same thing about doing that with the reader and the tokenizer but one can break mes.c:61 to look at the S-expression in text form before it gets tokenized</span></div><div class="line" id="203738"><span class="nick" style="color:#8dd3c7"><a href="#203738" label="[20:37:38]">&lt;oriansj&gt;</a></span><span class="message">even if I force it go through a big ugly meh of a file; a break mes.c:66 should be the correct way of doing it if I can figure out the correct way to deal with macro expansion</span></div><div class="line" id="203800"><span class="nick" style="color:#6b8072"><a href="#203800" label="[20:38:00]">&lt;rain1&gt;</a></span><span class="message">looking at mes_macro.c I feel like it's going to be really difficult to write even a simple macro expander because you're still having ot work at that low level -&gt;car-&gt;cdr type stuff in C</span></div><div class="line" id="203814"><span class="nick" style="color:#6b8072"><a href="#203814" label="[20:38:14]">&lt;rain1&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/rain-1/single_cream/blob/master/src/preprocessor.scm#L78">https://github.com/rain-1/single_cream/blob/master/src/preprocessor.scm#L78</a> </span></div><div class="line" id="203845"><span class="nick" style="color:#6b8072"><a href="#203845" label="[20:38:45]">&lt;rain1&gt;</a></span><span class="message">that's why i used the double eval trick, so i could write the expander in scheme</span></div><div class="line" id="203913"><span class="nick" style="color:#8dd3c7"><a href="#203913" label="[20:39:13]">&lt;oriansj&gt;</a></span><span class="message">rain1: that I could do rather straight forward in C</span></div><div class="line" id="203928"><span class="nick" style="color:#8dd3c7"><a href="#203928" label="[20:39:28]">&lt;oriansj&gt;</a></span><span class="message">an almost 1:1 match even</span></div><div class="line" id="204135"><span class="nick" style="color:#8dd3c7"><a href="#204135" label="[20:41:35]">&lt;oriansj&gt;</a></span><span class="message">although I'd have to figure out the box, unbox bit</span></div><div class="line" id="213334"><span class="nick" style="color:#80b1d3"><a href="#213334" label="[21:33:34]">&lt;xentrac&gt;</a></span><span class="message">macros are required by at least r5rs, I think r4rs too (and certainly r6rs and r7rs)</span></div><div class="line" id="213828"><span class="nick" style="color:#8dd3c7"><a href="#213828" label="[21:38:28]">&lt;oriansj&gt;</a></span><span class="message">xentrac: indeed</span></div><div class="line" id="213851"><span class="nick" style="color:#8dd3c7"><a href="#213851" label="[21:38:51]">&lt;oriansj&gt;</a></span><span class="message">now just to figure out the correct way to shoe-horn macros into slow_lisp in a well defined spot</span></div><div class="line" id="215810"><span class="nick" style="color:#8dd3c7"><a href="#215810" label="[21:58:10]">&lt;oriansj&gt;</a></span><span class="message">I did however find an interesting macro expansion in C here: <a rel="nofollow" href="https://github.com/barak/scheme9/blob/master/s9.c">https://github.com/barak/scheme9/blob/master/s9.c</a> </span></div><div class="line" id="215954"><span class="nick" style="color:#8dd3c7"><a href="#215954" label="[21:59:54]">&lt;oriansj&gt;</a></span><span class="message">it appears to support define-syntax</span></div><div class="line" id="220010"><span class="nick" style="color:#8dd3c7"><a href="#220010" label="[22:00:10]">&lt;oriansj&gt;</a></span><span class="message">and it is in the public domain, so that's nice</span></div><div class="line" id="222240"><span class="nick" style="color:#8dd3c7"><a href="#222240" label="[22:22:40]">&lt;oriansj&gt;</a></span><span class="message">well this is officially the ugliest single s-expression I have seen yet</span></div><div class="line" id="222242"><span class="nick" style="color:#8dd3c7"><a href="#222242" label="[22:22:42]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1119992/">https://paste.debian.net/1119992/</a> </span></div><div class="line" id="231338"><span class="nick" style="color:#8dd3c7"><a href="#231338" label="[23:13:38]">&lt;oriansj&gt;</a></span><span class="message">fuck</span></div><div class="line" id="231342"><span class="nick" style="color:#8dd3c7"><a href="#231342" label="[23:13:42]">&lt;oriansj&gt;</a></span><span class="message">I think I might have it</span></div><div class="line" id="231400"><span class="nick" style="color:#8dd3c7"><a href="#231400" label="[23:14:00]">&lt;oriansj&gt;</a></span><span class="message">it is really janky right now but it actually can do the previously posted tests</span></div><div class="line" id="231524"><span class="nick" style="color:#8dd3c7"><a href="#231524" label="[23:15:24]">&lt;oriansj&gt;</a></span><span class="message">only 101 lines thus far</span></div><div class="line" id="231647"><span class="nick" style="color:#8dd3c7"><a href="#231647" label="[23:16:47]">&lt;oriansj&gt;</a></span><span class="message">PATCHES ARE UP!!!</span></div><div class="line" id="231734"><span class="nick" style="color:#8dd3c7"><a href="#231734" label="[23:17:34]">&lt;oriansj&gt;</a></span><span class="message">it passes these tests: <a rel="nofollow" href="https://paste.debian.net/1119998/">https://paste.debian.net/1119998/</a> </span></div><div class="line" id="232015"><span class="nick" style="color:#8dd3c7"><a href="#232015" label="[23:20:15]">&lt;oriansj&gt;</a></span><span class="message">janneke_: I really need your comments on this one</span></div><div class="line" id="232848"><span class="nick" style="color:#8dd3c7"><a href="#232848" label="[23:28:48]">&lt;oriansj&gt;</a></span><span class="message">The best part, it allows the addition of syntax-rules in an incremental fashion</span></div><br /></div></body></html>

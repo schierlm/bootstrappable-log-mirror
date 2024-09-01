@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-02-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000001"><span class="nick" style="color:#389600"><a href="#000001" label="[00:00:01]">&lt;dddddd&gt;</a></span><span class="message">So this M1.scm is not required?</span></div><div class="line" id="000018"><span class="nick" style="color:#8dd3c7"><a href="#000018" label="[00:00:18]">&lt;stikonas&gt;</a></span><span class="message">there is M1 written in M2 subset of C</span></div><div class="line" id="000047"><span class="nick" style="color:#2e2a4a"><a href="#000047" label="[00:00:47]">&lt;OriansJ&gt;</a></span><span class="message">It is already being built in mescc-tools-seed</span></div><div class="line" id="000105"><span class="nick" style="color:#389600"><a href="#000105" label="[00:01:05]">&lt;dddddd&gt;</a></span><span class="message">why am I doing it?</span></div><div class="line" id="000131"><span class="nick" style="color:#8dd3c7"><a href="#000131" label="[00:01:31]">&lt;stikonas&gt;</a></span><span class="message">ooops. Shouldn't have asked about it :D</span></div><div class="line" id="000132"><span class="nick" style="color:#2e2a4a"><a href="#000132" label="[00:01:32]">&lt;OriansJ&gt;</a></span><span class="message">for a scheme only bootstrap for guix</span></div><div class="line" id="000237"><span class="nick" style="color:#2e2a4a"><a href="#000237" label="[00:02:37]">&lt;OriansJ&gt;</a></span><span class="message">that way the  the transition from guix to use mes-m2 is an atomic action</span></div><div class="line" id="000302"><span class="nick" style="color:#2e2a4a"><a href="#000302" label="[00:03:02]">&lt;OriansJ&gt;</a></span><span class="message">aka replace the statically built guile binary with mes-m2 binary and no further work would be required</span></div><div class="line" id="000502"><span class="nick" style="color:#2e2a4a"><a href="#000502" label="[00:05:02]">&lt;OriansJ&gt;</a></span><span class="message">It also gives MesCC complete freedom to evolve slow-utils into a future competitor to bin-utils as MesCC grows into a GCC competitor</span></div><div class="line" id="000603"><span class="nick" style="color:#2e2a4a"><a href="#000603" label="[00:06:03]">&lt;OriansJ&gt;</a></span><span class="message">That way mescc-tools could avoid picking up features and instead slim down to enable easier porting and more clarity</span></div><div class="line" id="000648"><span class="nick" style="color:#2e2a4a"><a href="#000648" label="[00:06:48]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: honestly, I am grateful  to you for helping me finish it</span></div><div class="line" id="000852"><span class="nick" style="color:#389600"><a href="#000852" label="[00:08:52]">&lt;dddddd&gt;</a></span><span class="message">It's my pleasure, as always, OriansJ. Just a bit scared for a moment, confused about the real need (to prioritize another task).</span></div><div class="line" id="000931"><span class="nick" style="color:#2e2a4a"><a href="#000931" label="[00:09:31]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: I feel it is a priority (just a step below mes-m2)</span></div><div class="line" id="001050"><span class="nick" style="color:#2e2a4a"><a href="#001050" label="[00:10:50]">&lt;OriansJ&gt;</a></span><span class="message">as is having janneke pull out all binaries, except for guile from the guix bootstrap</span></div><div class="line" id="001138"><span class="nick" style="color:#80b1d3"><a href="#001138" label="[00:11:38]">&lt;fossy&gt;</a></span><span class="message">OriansJ: yes that map is accurate as per commencement.scm</span></div><div class="line" id="001202"><span class="nick" style="color:#2e2a4a"><a href="#001202" label="[00:12:02]">&lt;OriansJ&gt;</a></span><span class="message">civodul can deal with having the last NixOS C++ binaries pulled out of guix (if he hasn't had that done already)</span></div><div class="line" id="001402"><span class="nick" style="color:#2e2a4a"><a href="#001402" label="[00:14:02]">&lt;OriansJ&gt;</a></span><span class="message">fossy: thank you for helping me clarify as I was confused by the going through the GCC 2 series bit</span></div><div class="line" id="001445"><span class="nick" style="color:#389600"><a href="#001445" label="[00:14:45]">&lt;dddddd&gt;</a></span><span class="message">I tried the &quot;pyramid&quot; test (well, a similar one I already had) and looks good except in some cases: the Knight padding breaks the concept in weird ways.</span></div><div class="line" id="001804"><span class="nick" style="color:#389600"><a href="#001804" label="[00:18:04]">&lt;dddddd&gt;</a></span><span class="message">^ wrt the changes to hexify_string(), to be clear.</span></div><div class="line" id="001859"><span class="nick" style="color:#389600"><a href="#001859" label="[00:18:59]">&lt;dddddd&gt;</a></span><span class="message">Implementation-wise, that &quot;+ 12&quot; and some change in the knight part are quite opaque.</span></div><div class="line" id="002204"><span class="nick" style="color:#2e2a4a"><a href="#002204" label="[00:22:04]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: completely fair, hence why I would not have a problem if slow-util's M1 doesn't do it</span></div><div class="line" id="002402"><span class="nick" style="color:#80b1d3"><a href="#002402" label="[00:24:02]">&lt;fossy&gt;</a></span><span class="message">OriansJ: all g</span></div><div class="line" id="002429"><span class="nick" style="color:#6d2462"><a href="#002429" label="[00:24:29]">&lt;xentrac&gt;</a></span><span class="message"> <a rel="nofollow" href="http://nandgame.com/">http://nandgame.com/</a>  is pretty cool</span></div><div class="line" id="002808"><span class="nick" style="color:#389600"><a href="#002808" label="[00:28:08]">&lt;dddddd&gt;</a></span><span class="message">OriansJ, I'd prefer to output the same, only if to help testing (easy comparing, looking for bugs in the reimplementation), but this C needs a bit of love, I think.</span></div><div class="line" id="002839"><span class="nick" style="color:#2e2a4a"><a href="#002839" label="[00:28:39]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: completely fair</span></div><div class="line" id="005814"><span class="nick" style="color:#2e2a4a"><a href="#005814" label="[00:58:14]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: here I was thinking you were posting this: <a rel="nofollow" href="https://www.nand2tetris.org/">https://www.nand2tetris.org/</a> </span></div><div class="line" id="010314"><span class="nick" style="color:#6d2462"><a href="#010314" label="[01:03:14]">&lt;xentrac&gt;</a></span><span class="message">I think it's a repackaging of that</span></div><div class="line" id="010413"><span class="nick" style="color:#6d2462"><a href="#010413" label="[01:04:13]">&lt;xentrac&gt;</a></span><span class="message">in particular the rather goofy ALU design is the same</span></div><div class="line" id="012138"><span class="nick" style="color:#2e2a4a"><a href="#012138" label="[01:21:38]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: I think you are right</span></div><div class="line" id="012413"><span class="nick" style="color:#6d2462"><a href="#012413" label="[01:24:13]">&lt;xentrac&gt;</a></span><span class="message">it skips a few of the steps and doesn't use a textual netlist HDL</span></div><div class="line" id="012453"><span class="nick" style="color:#6d2462"><a href="#012453" label="[01:24:53]">&lt;xentrac&gt;</a></span><span class="message">I think it might be dropping the barrier to entry by a lot though</span></div><div class="line" id="015514"><span class="nick" style="color:#6d2462"><a href="#015514" label="[01:55:14]">&lt;xentrac&gt;</a></span><span class="message">interestingly, the final CPU is supposedly only 2084 NAND gates</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-01-01.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="160510"><span class="nick" style="color:#389600"><a href="#160510" label="[16:05:10]">&lt;stikonas&gt;</a></span><span class="message">in particular, our stage0-posix kaem scripts rely a lot on ./relative/path (rather than using relative/path)</span></div><div class="line" id="171331"><span class="nick" style="color:#8dd3c7"><a href="#171331" label="[17:13:31]">&lt;muurkha&gt;</a></span><span class="message">oriansj: the 6502 had four 8-bit registers, each with special powers, plus a 16-bit program counter.  it had a hardware stack.  it did not have a barrel shifter.  its instructions were variable length; its only conditionals were conditional jumps.  what does ARM assembly have in common with 6502?  the spelling of the EOR instruction?</span></div><div class="line" id="175728"><span class="nick" style="color:#2e2a4a"><a href="#175728" label="[17:57:28]">&lt;oriansj&gt;</a></span><span class="message">stikonas: M2libc changes have been merged</span></div><div class="line" id="175748"><span class="nick" style="color:#389600"><a href="#175748" label="[17:57:48]">&lt;stikonas&gt;</a></span><span class="message">thank you</span></div><div class="line" id="175822"><span class="nick" style="color:#389600"><a href="#175822" label="[17:58:22]">&lt;stikonas&gt;</a></span><span class="message">now I need to debug why malloc's fail...</span></div><div class="line" id="175901"><span class="nick" style="color:#389600"><a href="#175901" label="[17:59:01]">&lt;stikonas&gt;</a></span><span class="message">(or find some other workaround)</span></div><div class="line" id="180137"><span class="nick" style="color:#2e2a4a"><a href="#180137" label="[18:01:37]">&lt;oriansj&gt;</a></span><span class="message">muurkha: the answer is Sophie Wilson; the main designer of ARM and 6502 systems and programs for Acorn computer</span></div><div class="line" id="184947"><span class="nick" style="color:#389600"><a href="#184947" label="[18:49:47]">&lt;stikonas&gt;</a></span><span class="message">sigh, I think I broke something in stage0-uefi with the above change...</span></div><div class="line" id="185005"><span class="nick" style="color:#389600"><a href="#185005" label="[18:50:05]">&lt;stikonas&gt;</a></span><span class="message">(even if it helps posix-runner.efi...)</span></div><div class="line" id="190944"><span class="nick" style="color:#389600"><a href="#190944" label="[19:09:44]">&lt;stikonas&gt;</a></span><span class="message">argh, it turns out UEFI is fine with \a\\\b directory paths but not \\\a\b</span></div><div class="line" id="190954"><span class="nick" style="color:#389600"><a href="#190954" label="[19:09:54]">&lt;stikonas&gt;</a></span><span class="message">so you can't have more than one \ at the beginning of the path</span></div><div class="line" id="193703"><span class="nick" style="color:#389600"><a href="#193703" label="[19:37:03]">&lt;stikonas&gt;</a></span><span class="message">oriansj: sorry, one more try: <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/51">https://github.com/oriansj/M2libc/pull/51</a> </span></div><div class="line" id="193710"><span class="nick" style="color:#389600"><a href="#193710" label="[19:37:10]">&lt;stikonas&gt;</a></span><span class="message">this time I think it will work better</span></div><div class="line" id="193742"><span class="nick" style="color:#389600"><a href="#193742" label="[19:37:42]">&lt;stikonas&gt;</a></span><span class="message">(at the very least stage0-uefi runs to completion)</span></div><div class="line" id="195426"><span class="nick" style="color:#389600"><a href="#195426" label="[19:54:26]">&lt;stikonas&gt;</a></span><span class="message">probably something like realpath() would be better but it's a bit more complicated that we need right now for bootstrapping...</span></div><div class="line" id="195453"><span class="nick" style="color:#389600"><a href="#195453" label="[19:54:53]">&lt;stikonas&gt;</a></span><span class="message">even meslibc doesn't have realpath() yet, though we might need it for the upcoming tcc 0.9.28</span></div><div class="line" id="221325"><span class="nick" style="color:#389600"><a href="#221325" label="[22:13:25]">&lt;stikonas&gt;</a></span><span class="message">oh, I think I might know what the bug with memory allocation was...</span></div><div class="line" id="221342"><span class="nick" style="color:#389600"><a href="#221342" label="[22:13:42]">&lt;stikonas&gt;</a></span><span class="message">I probably reserved new 1 GiB brk area per process...</span></div><div class="line" id="221442"><span class="nick" style="color:#6b8072"><a href="#221442" label="[22:14:42]">&lt;Googulator&gt;</a></span><span class="message">Oops.</span></div><div class="line" id="221842"><span class="nick" style="color:#389600"><a href="#221842" label="[22:18:42]">&lt;stikonas&gt;</a></span><span class="message">indeed. I'll try to fix it and hopefully it will help with my issues...</span></div><div class="line" id="221904"><span class="nick" style="color:#389600"><a href="#221904" label="[22:19:04]">&lt;stikonas&gt;</a></span><span class="message">(at least I think I've sorted out M2libc posix path -&gt; uefi path issues)</span></div><div class="line" id="222537"><span class="nick" style="color:#6b8072"><a href="#222537" label="[22:25:37]">&lt;Googulator&gt;</a></span><span class="message">Does M2-Planet support implicit concatenation of adjacent strings &quot;like &quot; &quot;this?&quot;</span></div><div class="line" id="222721"><span class="nick" style="color:#389600"><a href="#222721" label="[22:27:21]">&lt;stikonas&gt;</a></span><span class="message">Googulator: I think so</span></div><div class="line" id="222735"><span class="nick" style="color:#389600"><a href="#222735" label="[22:27:35]">&lt;stikonas&gt;</a></span><span class="message">actually we use it a lot for asm blocks</span></div><div class="line" id="222749"><span class="nick" style="color:#389600"><a href="#222749" label="[22:27:49]">&lt;stikonas&gt;</a></span><span class="message">interstingly mescc doesn't support that</span></div><div class="line" id="222756"><span class="nick" style="color:#6b8072"><a href="#222756" label="[22:27:56]">&lt;Googulator&gt;</a></span><span class="message">Does it work properly also across line breaks?</span></div><div class="line" id="222759"><span class="nick" style="color:#389600"><a href="#222759" label="[22:27:59]">&lt;stikonas&gt;</a></span><span class="message">yes</span></div><div class="line" id="222824"><span class="nick" style="color:#389600"><a href="#222824" label="[22:28:24]">&lt;stikonas&gt;</a></span><span class="message">e.g. see <a rel="nofollow" href="https://github.com/oriansj/M2libc/blob/main/amd64/linux/unistd.c#L29">https://github.com/oriansj/M2libc/blob/main/amd64/linux/unistd.c#L29</a> </span></div><div class="line" id="222912"><span class="nick" style="color:#389600"><a href="#222912" label="[22:29:12]">&lt;stikonas&gt;</a></span><span class="message">well, if you find some bug, it shouldn't be too hard to fix...</span></div><div class="line" id="223145"><span class="nick" style="color:#389600"><a href="#223145" label="[22:31:45]">&lt;stikonas&gt;</a></span><span class="message">sigh, I'm still getting malloc issues...</span></div><div class="line" id="230814"><span class="nick" style="color:#389600"><a href="#230814" label="[23:08:14]">&lt;stikonas&gt;</a></span><span class="message">hmm, gdb seems to indicate that memory was allocated...</span></div><div class="line" id="230831"><span class="nick" style="color:#389600"><a href="#230831" label="[23:08:31]">&lt;stikonas&gt;</a></span><span class="message">maybe I'm again using some construct that confuses M2-Planet</span></div><div class="line" id="231041"><span class="nick" style="color:#389600"><a href="#231041" label="[23:10:41]">&lt;stikonas&gt;</a></span><span class="message">oriansj: do you remember if stuff like struct process* new = calloc(1, sizeof(struct process)); is allowed in M2-Planet?</span></div><div class="line" id="231110"><span class="nick" style="color:#389600"><a href="#231110" label="[23:11:10]">&lt;stikonas&gt;</a></span><span class="message">I think I'm again hitting some issue with assignment on init</span></div><div class="line" id="231218"><span class="nick" style="color:#389600"><a href="#231218" label="[23:12:18]">&lt;stikonas&gt;</a></span><span class="message">it definitely seems to work better when I split it into two lines...</span></div><div class="line" id="231839"><span class="nick" style="color:#389600"><a href="#231839" label="[23:18:39]">&lt;stikonas&gt;</a></span><span class="message">well, running posix-runner.efi AMD64/bin/kaem --verbose --file AMD64/mescc-tools-mini-kaem.kam is now able to run up to M0 (M0 gets stuck)</span></div><br /></div></body></html>

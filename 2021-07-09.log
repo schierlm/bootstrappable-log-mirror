@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-09.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="012346"><span class="nick" style="color:#8dd3c7"><a href="#012346" label="[01:23:46]">&lt;stikonas&gt;</a></span><span class="message">yeah, Guix signature checking mechanism is quite good...</span></div><div class="line" id="012422"><span class="nick" style="color:#8dd3c7"><a href="#012422" label="[01:24:22]">&lt;stikonas&gt;</a></span><span class="message">(since it prevents downgrade attacks)</span></div><div class="line" id="012445"><span class="nick" style="color:#8dd3c7"><a href="#012445" label="[01:24:45]">&lt;stikonas&gt;</a></span><span class="message">if I remember correctly, Gentoo has slightly simpler check which is vulnerable to downgrades</span></div><div class="line" id="134344"><span class="nick" style="color:#8dd3c7"><a href="#134344" label="[13:43:44]">&lt;stikonas&gt;</a></span><span class="message">fossy: so I've compared header files in /image and /usr and they seem identical...</span></div><div class="line" id="134411"><span class="nick" style="color:#8dd3c7"><a href="#134411" label="[13:44:11]">&lt;stikonas&gt;</a></span><span class="message">so I think there is probably some hardcoding in binaries</span></div><div class="line" id="134522"><span class="nick" style="color:#2e2a4a"><a href="#134522" label="[13:45:22]">&lt;fossy&gt;</a></span><span class="message">for gcc?</span></div><div class="line" id="134628"><span class="nick" style="color:#8dd3c7"><a href="#134628" label="[13:46:28]">&lt;stikonas&gt;</a></span><span class="message">well, I've built m4 musl and gcc</span></div><div class="line" id="134632"><span class="nick" style="color:#8dd3c7"><a href="#134632" label="[13:46:32]">&lt;stikonas&gt;</a></span><span class="message">into /usr</span></div><div class="line" id="134651"><span class="nick" style="color:#8dd3c7"><a href="#134651" label="[13:46:51]">&lt;stikonas&gt;</a></span><span class="message">nothing else (started with /image prefix, built until gcc)</span></div><div class="line" id="134711"><span class="nick" style="color:#8dd3c7"><a href="#134711" label="[13:47:11]">&lt;stikonas&gt;</a></span><span class="message">and then /usr prefix already could reproduce the problem</span></div><div class="line" id="134728"><span class="nick" style="color:#8dd3c7"><a href="#134728" label="[13:47:28]">&lt;stikonas&gt;</a></span><span class="message">but all the musl and gcc header files were identical</span></div><div class="line" id="134836"><span class="nick" style="color:#8dd3c7"><a href="#134836" label="[13:48:36]">&lt;stikonas&gt;</a></span><span class="message">it might be that something is going on with libgcc</span></div><div class="line" id="134852"><span class="nick" style="color:#8dd3c7"><a href="#134852" label="[13:48:52]">&lt;stikonas&gt;</a></span><span class="message">libgcc is used for basically all binaries</span></div><div class="line" id="134906"><span class="nick" style="color:#8dd3c7"><a href="#134906" label="[13:49:06]">&lt;stikonas&gt;</a></span><span class="message">(but not for musl and I guess not for gcc)</span></div><div class="line" id="135357"><span class="nick" style="color:#8dd3c7"><a href="#135357" label="[13:53:57]">&lt;stikonas&gt;</a></span><span class="message">fossy: oh it's actually libiberty</span></div><div class="line" id="135414"><span class="nick" style="color:#8dd3c7"><a href="#135414" label="[13:54:14]">&lt;stikonas&gt;</a></span><span class="message"> /image # grep -r sys_errlist *</span></div><div class="line" id="135416"><span class="nick" style="color:#8dd3c7"><a href="#135416" label="[13:54:16]">&lt;stikonas&gt;</a></span><span class="message">Binary file lib/mes/libc.a matches</span></div><div class="line" id="135423"><span class="nick" style="color:#8dd3c7"><a href="#135423" label="[13:54:23]">&lt;stikonas&gt;</a></span><span class="message">and in /usr</span></div><div class="line" id="135428"><span class="nick" style="color:#8dd3c7"><a href="#135428" label="[13:54:28]">&lt;stikonas&gt;</a></span><span class="message">there are no matches</span></div><div class="line" id="140003"><span class="nick" style="color:#8dd3c7"><a href="#140003" label="[14:00:03]">&lt;stikonas&gt;</a></span><span class="message">oh, that might be red herring... I might not have installed everything necessary in /usr</span></div><div class="line" id="140944"><span class="nick" style="color:#8dd3c7"><a href="#140944" label="[14:09:44]">&lt;stikonas&gt;</a></span><span class="message">fossy: can you try if touch /usr/lib/musl/gcc/i386-unknown-linux-musl/4.0.4/include/syslimits.h helps?</span></div><div class="line" id="141001"><span class="nick" style="color:#8dd3c7"><a href="#141001" label="[14:10:01]">&lt;stikonas&gt;</a></span><span class="message">I think it might work for me, but I don't have a proper /usr prefix now</span></div><div class="line" id="142020"><span class="nick" style="color:#2e2a4a"><a href="#142020" label="[14:20:20]">&lt;fossy&gt;</a></span><span class="message">stikonas: when I copy gsyslimits.h from gcc source tree to /usr/lib/musl/gcc/i386-unknown-linux-musl/4.0.4/include/syslimits.h ig works</span></div><div class="line" id="142024"><span class="nick" style="color:#2e2a4a"><a href="#142024" label="[14:20:24]">&lt;fossy&gt;</a></span><span class="message">thats my hack</span></div><div class="line" id="142032"><span class="nick" style="color:#2e2a4a"><a href="#142032" label="[14:20:32]">&lt;fossy&gt;</a></span><span class="message">I can also try an empty file too</span></div><div class="line" id="142631"><span class="nick" style="color:#6b8072"><a href="#142631" label="[14:26:31]">&lt;stikonas[m]&gt;</a></span><span class="message">I guess both work, if nothing from that file is used</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-04-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="100815"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="101717"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><div class="line" id="204029"><span class="nick" style="color:#8dd3c7"><a href="#204029" label="[20:40:29]">&lt;webczat&gt;</a></span><span class="message">Hi. I actually wanted to do c compiler bootstrapping, although my goals are a bit different because I don't care about the trust argument, and my starting point is likely linux kernel + busybox. is it possible to actually start from there? especially without things like guile</span></div><div class="line" id="204423"><span class="nick" style="color:#8dd3c7"><a href="#204423" label="[20:44:23]">&lt;webczat&gt;</a></span><span class="message">so I should have editor, internet access and basic awk/sed/whatever, just not coreutils.</span></div><div class="line" id="204749"><span class="nick" style="color:#2e2a4a"><a href="#204749" label="[20:47:49]">&lt;`Lion&gt;</a></span><span class="message">i think so</span></div><div class="line" id="204801"><span class="nick" style="color:#2e2a4a"><a href="#204801" label="[20:48:01]">&lt;`Lion&gt;</a></span><span class="message">printf lets you convert ascii hexadecimal to binary</span></div><div class="line" id="204937"><span class="nick" style="color:#8dd3c7"><a href="#204937" label="[20:49:37]">&lt;webczat&gt;</a></span><span class="message">well I have to strip comments. but that should be doable with these tools. I mean things like nyacc</span></div><div class="line" id="204937"><span class="nick" style="color:#2e2a4a"><a href="#204937" label="[20:49:37]">&lt;`Lion&gt;</a></span><span class="message">combined with the other busybox applets (mostly for convenience i guess) and shell built-ins like read, that should be enough to start off</span></div><div class="line" id="205022"><span class="nick" style="color:#8dd3c7"><a href="#205022" label="[20:50:22]">&lt;webczat&gt;</a></span><span class="message">because that I could likely assemble things like hex0 I know, not sure how but I know I would have enough tools to do it...</span></div><div class="line" id="205036"><span class="nick" style="color:#8dd3c7"><a href="#205036" label="[20:50:36]">&lt;webczat&gt;</a></span><span class="message">also I need some http stuff to be able to download things from git :D</span></div><div class="line" id="205051"><span class="nick" style="color:#2e2a4a"><a href="#205051" label="[20:50:51]">&lt;`Lion&gt;</a></span><span class="message">it has a wget too</span></div><div class="line" id="205226"><span class="nick" style="color:#8dd3c7"><a href="#205226" label="[20:52:26]">&lt;webczat&gt;</a></span><span class="message">I know</span></div><div class="line" id="205226"><span class="nick" style="color:#2e2a4a"><a href="#205226" label="[20:52:26]">&lt;`Lion&gt;</a></span><span class="message">no idea about nyacc</span></div><div class="line" id="205239"><span class="nick" style="color:#8dd3c7"><a href="#205239" label="[20:52:39]">&lt;webczat&gt;</a></span><span class="message">my problem is the mes compilation requiring nyacc that... requires guile?</span></div><div class="line" id="205311"><span class="nick" style="color:#2e2a4a"><a href="#205311" label="[20:53:11]">&lt;`Lion&gt;</a></span><span class="message">yeah i'm not familiar with all the stage0/mes stuff</span></div><div class="line" id="205339"><span class="nick" style="color:#2e2a4a"><a href="#205339" label="[20:53:39]">&lt;`Lion&gt;</a></span><span class="message">but if you stick around for a bit i'm sure someone else here will answer</span></div><div class="line" id="205346"><span class="nick" style="color:#8dd3c7"><a href="#205346" label="[20:53:46]">&lt;webczat&gt;</a></span><span class="message">sure</span></div><div class="line" id="205403"><span class="nick" style="color:#6b8072"><a href="#205403" label="[20:54:03]">&lt;dddddd&gt;</a></span><span class="message">Until M2-Planet no guile is involved.</span></div><div class="line" id="205421"><span class="nick" style="color:#8dd3c7"><a href="#205421" label="[20:54:21]">&lt;webczat&gt;</a></span><span class="message">yeah</span></div><div class="line" id="205451"><span class="nick" style="color:#8dd3c7"><a href="#205451" label="[20:54:51]">&lt;webczat&gt;</a></span><span class="message">but later it seems to be</span></div><div class="line" id="205602"><span class="nick" style="color:#6b8072"><a href="#205602" label="[20:56:02]">&lt;dddddd&gt;</a></span><span class="message">That's one path, but not the only one. fossy is exploring only-C path to gcc.</span></div><div class="line" id="205741"><span class="nick" style="color:#8dd3c7"><a href="#205741" label="[20:57:41]">&lt;webczat&gt;</a></span><span class="message">I am mostly asking about things I could try doing now. although not quite sure when I'd try that for real</span></div><div class="line" id="205842"><span class="nick" style="color:#80b1d3"><a href="#205842" label="[20:58:42]">&lt;rain1&gt;</a></span><span class="message">hello</span></div><div class="line" id="205844"><span class="nick" style="color:#6b8072"><a href="#205844" label="[20:58:44]">&lt;dddddd&gt;</a></span><span class="message">A recent conversation, from the 14th, might be of interest (check logs)</span></div><div class="line" id="205947"><span class="nick" style="color:#6b8072"><a href="#205947" label="[20:59:47]">&lt;dddddd&gt;</a></span><span class="message">hi, rain1</span></div><div class="line" id="210001"><span class="nick" style="color:#80b1d3"><a href="#210001" label="[21:00:01]">&lt;rain1&gt;</a></span><span class="message">o/</span></div><div class="line" id="210629"><span class="nick" style="color:#6b8072"><a href="#210629" label="[21:06:29]">&lt;dddddd&gt;</a></span><span class="message">webczat, nice; no problem. Whatever inspire you. Let's wait to fossy and OriansJ, maybe they have more concrete advice.</span></div><div class="line" id="210754"><span class="nick" style="color:#8dd3c7"><a href="#210754" label="[21:07:54]">&lt;webczat&gt;</a></span><span class="message">hmm the conversation from 14'th likely suggests I indeed need guile</span></div><div class="line" id="211551"><span class="nick" style="color:#8dd3c7"><a href="#211551" label="[21:15:51]">&lt;webczat&gt;</a></span><span class="message">also you probably figured that out but I've tested. tcc cannot build any (at least latest) libc known to me.</span></div><div class="line" id="211629"><span class="nick" style="color:#8dd3c7"><a href="#211629" label="[21:16:29]">&lt;webczat&gt;</a></span><span class="message">to be honest if it could I could also go with just tcc binary added in addition to busybox, not a problem. that doesn't break my requirements even though it is a little bit less fun</span></div><div class="line" id="211643"><span class="nick" style="color:#8dd3c7"><a href="#211643" label="[21:16:43]">&lt;webczat&gt;</a></span><span class="message">uclibc, glibc, musl</span></div><div class="line" id="211845"><span class="nick" style="color:#8dd3c7"><a href="#211845" label="[21:18:45]">&lt;webczat&gt;</a></span><span class="message">often the reason is no .macro support in assembler.</span></div><div class="line" id="211903"><span class="nick" style="color:#8dd3c7"><a href="#211903" label="[21:19:03]">&lt;webczat&gt;</a></span><span class="message">although I do ot quite remember which tcc I tested</span></div><div class="line" id="212020"><span class="nick" style="color:#8dd3c7"><a href="#212020" label="[21:20:20]">&lt;webczat&gt;</a></span><span class="message">as for compiling anything with a single cmdline... well... first: there is linux command line length limit. (glibc?) second: most libcs don't just compile, they generate syscall related things from linux kernel headers.</span></div><div class="line" id="212123"><span class="nick" style="color:#80b1d3"><a href="#212123" label="[21:21:23]">&lt;rain1&gt;</a></span><span class="message">yeah building libc is a problem</span></div><div class="line" id="212129"><span class="nick" style="color:#80b1d3"><a href="#212129" label="[21:21:29]">&lt;rain1&gt;</a></span><span class="message">i feel like tcc was close to building musl libc at some point</span></div><div class="line" id="212140"><span class="nick" style="color:#80b1d3"><a href="#212140" label="[21:21:40]">&lt;rain1&gt;</a></span><span class="message">but i don't remember if anyone managed to get it working</span></div><div class="line" id="212216"><span class="nick" style="color:#6b8072"><a href="#212216" label="[21:22:16]">&lt;dddddd&gt;</a></span><span class="message">janneke, mentioned a «mes c lib» variant for tcc</span></div><div class="line" id="212226"><span class="nick" style="color:#8dd3c7"><a href="#212226" label="[21:22:26]">&lt;webczat&gt;</a></span><span class="message">as said my goals/reasons to play with bootstrapping are explicitly not the same as goals of the project so I can relax some requirements including that I can start from tcc</span></div><div class="line" id="212304"><span class="nick" style="color:#8dd3c7"><a href="#212304" label="[21:23:04]">&lt;webczat&gt;</a></span><span class="message">if I could be able to build libc (any) from zero, just having busybox and tcc (that means 0 for me), ... it would be enough</span></div><div class="line" id="212307"><span class="nick" style="color:#6b8072"><a href="#212307" label="[21:23:07]">&lt;dddddd&gt;</a></span><span class="message">*(sorry, no &quot;,&quot; there)</span></div><div class="line" id="212344"><span class="nick" style="color:#8dd3c7"><a href="#212344" label="[21:23:44]">&lt;webczat&gt;</a></span><span class="message">although if I'd have to do all the hex0 etc it would be a bit funnier.</span></div><div class="line" id="212903"><span class="nick" style="color:#6b8072"><a href="#212903" label="[21:29:03]">&lt;dddddd&gt;</a></span><span class="message">well, you can see this as &quot;one&quot; project, but I don't see it exactly like that. Just several people filling gaps here and there, with similar but not exactly the same &quot;goal&quot;. So your reasons are welcomed too. (note that I only speak for myself)</span></div><div class="line" id="213111"><span class="nick" style="color:#6d2462"><a href="#213111" label="[21:31:11]">&lt;bauen1&gt;</a></span><span class="message">can't M2-Planet compile a version of tinycc ?</span></div><div class="line" id="213123"><span class="nick" style="color:#8dd3c7"><a href="#213123" label="[21:31:23]">&lt;webczat&gt;</a></span><span class="message">who knows...</span></div><div class="line" id="213128"><span class="nick" style="color:#6d2462"><a href="#213128" label="[21:31:28]">&lt;bauen1&gt;</a></span><span class="message">which can bootstrap an old version of gcc which then compiles a &quot;modern&quot; gcc</span></div><div class="line" id="213144"><span class="nick" style="color:#80b1d3"><a href="#213144" label="[21:31:44]">&lt;rain1&gt;</a></span><span class="message">that may be possible but we need to build libc as well as compilers</span></div><div class="line" id="213153"><span class="nick" style="color:#8dd3c7"><a href="#213153" label="[21:31:53]">&lt;webczat&gt;</a></span><span class="message">yes</span></div><div class="line" id="213154"><span class="nick" style="color:#6d2462"><a href="#213154" label="[21:31:54]">&lt;bauen1&gt;</a></span><span class="message">right</span></div><div class="line" id="213156"><span class="nick" style="color:#80b1d3"><a href="#213156" label="[21:31:56]">&lt;rain1&gt;</a></span><span class="message">and gcc is composed of many parts</span></div><div class="line" id="213200"><span class="nick" style="color:#80b1d3"><a href="#213200" label="[21:32:00]">&lt;rain1&gt;</a></span><span class="message">some of them are not resolved yet</span></div><div class="line" id="213224"><span class="nick" style="color:#8dd3c7"><a href="#213224" label="[21:32:24]">&lt;webczat&gt;</a></span><span class="message">I'd also need things like gawk...</span></div><div class="line" id="213234"><span class="nick" style="color:#6b8072"><a href="#213234" label="[21:32:34]">&lt;dddddd&gt;</a></span><span class="message">IIRC not tcc as is, M2-Planet lacks some features I think. I kind of remember some patched tcc, but maybe not for M2-Planet.</span></div><div class="line" id="213237"><span class="nick" style="color:#8dd3c7"><a href="#213237" label="[21:32:37]">&lt;webczat&gt;</a></span><span class="message">considering I intent to have busybox initially...</span></div><div class="line" id="213312"><span class="nick" style="color:#6d2462"><a href="#213312" label="[21:33:12]">&lt;bauen1&gt;</a></span><span class="message">i think if someone added a few additional assembly instructions to tinycc's assembler you could compile musl now (assuming you handwrite the __syscall wrappers in assembly and don't care about complex numbers)</span></div><div class="line" id="213316"><span class="nick" style="color:#6b8072"><a href="#213316" label="[21:33:16]">&lt;dddddd&gt;</a></span><span class="message">Let me dig some logs, I recall floats being one thing...</span></div><div class="line" id="213359"><span class="nick" style="color:#8dd3c7"><a href="#213359" label="[21:33:59]">&lt;webczat&gt;</a></span><span class="message">how do you download all these stuff from github? lol</span></div><div class="line" id="213459"><span class="nick" style="color:#6d2462"><a href="#213459" label="[21:34:59]">&lt;bauen1&gt;</a></span><span class="message">webczat: if you don't have git, you either make a archive of the repo yourself or you use githubs download zip functionality</span></div><div class="line" id="213506"><span class="nick" style="color:#6b8072"><a href="#213506" label="[21:35:06]">&lt;dddddd&gt;</a></span><span class="message">&quot;&quot;&quot;macro expansion is required for tcc, as is a bunch of ugly types like union arrays and bit-splices, enums and switch statements (not to mention long, float and double support)&quot;&quot;&quot;</span></div><div class="line" id="213623"><span class="nick" style="color:#6b8072"><a href="#213623" label="[21:36:23]">&lt;dddddd&gt;</a></span><span class="message">hmm...</span></div><div class="line" id="213629"><span class="nick" style="color:#8dd3c7"><a href="#213629" label="[21:36:29]">&lt;webczat&gt;</a></span><span class="message">why nyacc cannot be made to run on mes interpreter? disclaimer: I have never done any kind of lisp</span></div><div class="line" id="213638"><span class="nick" style="color:#6b8072"><a href="#213638" label="[21:36:38]">&lt;dddddd&gt;</a></span><span class="message">&quot;&quot;&quot;&lt;gio&gt;   I also have news about tcc: I just managed to patch it so that it does not use floating point numbers to be compiled! <a rel="nofollow" href="https://gitlab.com/giomasce/tinycc/tree/softfloat">https://gitlab.com/giomasce/tinycc/tree/softfloat</a>&quot;&quot;&quot; </span></div><div class="line" id="230852"><span class="nick" style="color:#234e69"><a href="#230852" label="[23:08:52]">&lt;fossy&gt;</a></span><span class="message">wait, what</span></div><div class="line" id="230905"><span class="nick" style="color:#234e69"><a href="#230905" label="[23:09:05]">&lt;fossy&gt;</a></span><span class="message">no floating numbers????</span></div><div class="line" id="230910"><span class="nick" style="color:#234e69"><a href="#230910" label="[23:09:10]">&lt;fossy&gt;</a></span><span class="message">Omg</span></div><div class="line" id="230927"><span class="nick" style="color:#234e69"><a href="#230927" label="[23:09:27]">&lt;fossy&gt;</a></span><span class="message">when was this, dddddd?</span></div><div class="line" id="231028"><span class="nick" style="color:#6b8072"><a href="#231028" label="[23:10:28]">&lt;dddddd&gt;</a></span><span class="message">Hi, fossy. You mean the gio quote?</span></div><div class="line" id="231037"><span class="nick" style="color:#234e69"><a href="#231037" label="[23:10:37]">&lt;fossy&gt;</a></span><span class="message">yep</span></div><div class="line" id="231108"><span class="nick" style="color:#234e69"><a href="#231108" label="[23:11:08]">&lt;fossy&gt;</a></span><span class="message">and no, tinycc cannot currently be compiled by M2-Planet</span></div><div class="line" id="231120"><span class="nick" style="color:#6b8072"><a href="#231120" label="[23:11:20]">&lt;dddddd&gt;</a></span><span class="message">Dec 16, 2018</span></div><div class="line" id="231131"><span class="nick" style="color:#234e69"><a href="#231131" label="[23:11:31]">&lt;fossy&gt;</a></span><span class="message">hm</span></div><div class="line" id="231138"><span class="nick" style="color:#234e69"><a href="#231138" label="[23:11:38]">&lt;fossy&gt;</a></span><span class="message">I must have missed that</span></div><br /></div></body></html>

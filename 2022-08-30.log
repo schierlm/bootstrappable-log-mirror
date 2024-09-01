@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-08-30.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001044"><span class="nick" style="color:#389600"><a href="#001044" label="[00:10:44]">&lt;stikonas[m]&gt;</a></span><span class="message">As far as I know double password prompt in guix cannot be removed</span></div><div class="line" id="001109"><span class="nick" style="color:#389600"><a href="#001109" label="[00:11:09]">&lt;stikonas[m]&gt;</a></span><span class="message">Guix requires world read permissions for everything in /gnu/store</span></div><div class="line" id="001119"><span class="nick" style="color:#389600"><a href="#001119" label="[00:11:19]">&lt;stikonas[m]&gt;</a></span><span class="message">Including for initramfs</span></div><div class="line" id="001215"><span class="nick" style="color:#389600"><a href="#001215" label="[00:12:15]">&lt;stikonas[m]&gt;</a></span><span class="message">So it's impossible to setup autounlock in initramfs without letting world to obtain luks passphrase</span></div><div class="line" id="005359"><span class="nick" style="color:#2e2a4a"><a href="#005359" label="[00:53:59]">&lt;oriansj&gt;</a></span><span class="message">Gooberpatrol66: you'll see it in the procedure about 5 minutes after I figure it out</span></div><div class="line" id="005501"><span class="nick" style="color:#2e2a4a"><a href="#005501" label="[00:55:01]">&lt;oriansj&gt;</a></span><span class="message">and Hagfish today I verified your enhancement on a fresh install of arch (it worked great</span></div><div class="line" id="005505"><span class="nick" style="color:#2e2a4a"><a href="#005505" label="[00:55:05]">&lt;oriansj&gt;</a></span><span class="message">)</span></div><div class="line" id="011701"><span class="nick" style="color:#6b8072"><a href="#011701" label="[01:17:01]">&lt;Hagfish&gt;</a></span><span class="message">oriansj: thanks :)  i'm glad that little segment of code meets the high standard that i've seen elsewhere in these repos</span></div><div class="line" id="011807"><span class="nick" style="color:#6b8072"><a href="#011807" label="[01:18:07]">&lt;Hagfish&gt;</a></span><span class="message">stikonas[m]: that's an interesting design detail, thank you</span></div><div class="line" id="011934"><span class="nick" style="color:#6b8072"><a href="#011934" label="[01:19:34]">&lt;Hagfish&gt;</a></span><span class="message">i'm wondering whether it would be a valid feature request to keep the password in memory for a few seconds, but i don't even know which component(s) would have to be changed to support that</span></div><div class="line" id="012503"><span class="nick" style="color:#389600"><a href="#012503" label="[01:25:03]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, it's possible but much more work than putting it in initrsmfs</span></div><div class="line" id="013438"><span class="nick" style="color:#2e2a4a"><a href="#013438" label="[01:34:38]">&lt;oriansj&gt;</a></span><span class="message">well one has to put it in the initramfs and then add a hook to have the kernel read it</span></div><div class="line" id="014220"><span class="nick" style="color:#2e2a4a"><a href="#014220" label="[01:42:20]">&lt;oriansj&gt;</a></span><span class="message">or perhaps more precisely have the init spawned by the kernel use it to mount it</span></div><div class="line" id="014626"><span class="nick" style="color:#2e2a4a"><a href="#014626" label="[01:46:26]">&lt;oriansj&gt;</a></span><span class="message">here is an example using busybox as the init: <a rel="nofollow" href="https://www.proteansec.com/hacking/luks-and-initramfs/">https://www.proteansec.com/hacking/luks-and-initramfs/</a> </span></div><div class="line" id="023820"><span class="nick" style="color:#2e2a4a"><a href="#023820" label="[02:38:20]">&lt;oriansj&gt;</a></span><span class="message">well I have a solid idea of how to do it; now just need to figure out the details that go with it.</span></div><div class="line" id="023859"><span class="nick" style="color:#2e2a4a"><a href="#023859" label="[02:38:59]">&lt;oriansj&gt;</a></span><span class="message">as it appears to be just a simple shell-out for the init using a file in the initramfs</span></div><div class="line" id="024037"><span class="nick" style="color:#2e2a4a"><a href="#024037" label="[02:40:37]">&lt;oriansj&gt;</a></span><span class="message">after that we just need to do the creation outside of the guix-daemon so it doesn't show up in the store.</span></div><div class="line" id="032307"><span class="nick" style="color:#2e2a4a"><a href="#032307" label="[03:23:07]">&lt;oriansj&gt;</a></span><span class="message">and ironically I figured out a method to eliminate the need for the luks.key to even be in the initramfs. Essentially the password is used to generate a 4KB file at runtime and inserted into the initramfs that is then passed to the kernel. That 4KB file is generated also during the install time and cryptsetup luksAddKey is used to add it to luks.</span></div><div class="line" id="032902"><span class="nick" style="color:#6b8072"><a href="#032902" label="[03:29:02]">&lt;Hagfish&gt;</a></span><span class="message">so it's sort of automatic?  i don't fully understand, but is this the solution that the original designers intended?  it sounds kinda neat</span></div><div class="line" id="033052"><span class="nick" style="color:#2e2a4a"><a href="#033052" label="[03:30:52]">&lt;oriansj&gt;</a></span><span class="message">I have a completely stupid idea</span></div><div class="line" id="033152"><span class="nick" style="color:#2e2a4a"><a href="#033152" label="[03:31:52]">&lt;oriansj&gt;</a></span><span class="message">kaem as init, it runs cryptsetup then execs into /sbin/init</span></div><div class="line" id="033202"><span class="nick" style="color:#6b8072"><a href="#033202" label="[03:32:02]">&lt;Hagfish&gt;</a></span><span class="message">hmm</span></div><div class="line" id="033219"><span class="nick" style="color:#6b8072"><a href="#033219" label="[03:32:19]">&lt;Hagfish&gt;</a></span><span class="message">i wouldn't call that stupid...  maybe &quot;creative&quot; or &quot;bold&quot;...  :D</span></div><div class="line" id="033251"><span class="nick" style="color:#2e2a4a"><a href="#033251" label="[03:32:51]">&lt;oriansj&gt;</a></span><span class="message">it can't possibliy that straight forward to setup a luks volume right?</span></div><div class="line" id="033349"><span class="nick" style="color:#6b8072"><a href="#033349" label="[03:33:49]">&lt;Hagfish&gt;</a></span><span class="message">i wouldn't know, but kaem as init seems like people would have to trust quite an unusual piece of software to do quite an important job, which it wasn't really designed for</span></div><div class="line" id="033358"><span class="nick" style="color:#6b8072"><a href="#033358" label="[03:33:58]">&lt;Hagfish&gt;</a></span><span class="message">still, i guess it can't be any worse than systemd ;)</span></div><div class="line" id="033620"><span class="nick" style="color:#2e2a4a"><a href="#033620" label="[03:36:20]">&lt;oriansj&gt;</a></span><span class="message">looking at <a rel="nofollow" href="https://docs.kernel.org/admin-guide/kernel-parameters.html">https://docs.kernel.org/admin-guide/kernel-parameters.html</a>  ; an init could easily add an option like --luks-password and grub could just pass it</span></div><div class="line" id="033650"><span class="nick" style="color:#2e2a4a"><a href="#033650" label="[03:36:50]">&lt;oriansj&gt;</a></span><span class="message">that would be much less complex than updating a cpio archive</span></div><div class="line" id="033717"><span class="nick" style="color:#6b8072"><a href="#033717" label="[03:37:17]">&lt;Hagfish&gt;</a></span><span class="message">yeah, that sounds like a very natural interface design</span></div><div class="line" id="033811"><span class="nick" style="color:#2e2a4a"><a href="#033811" label="[03:38:11]">&lt;oriansj&gt;</a></span><span class="message">just need to patch grub and the various inits to support it as any unknown kernel argument is passed to the init</span></div><div class="line" id="034028"><span class="nick" style="color:#6b8072"><a href="#034028" label="[03:40:28]">&lt;Hagfish&gt;</a></span><span class="message">i guess that makes sense, yeah</span></div><div class="line" id="034352"><span class="nick" style="color:#2e2a4a"><a href="#034352" label="[03:43:52]">&lt;oriansj&gt;</a></span><span class="message">so why if it isn't very complex and solves a very real problem, has it not been explored prior?</span></div><div class="line" id="034438"><span class="nick" style="color:#6b8072"><a href="#034438" label="[03:44:38]">&lt;Hagfish&gt;</a></span><span class="message">yeah, i don't know what the competing approach(es) is, or how people might avoid having this use case</span></div><div class="line" id="034538"><span class="nick" style="color:#2e2a4a"><a href="#034538" label="[03:45:38]">&lt;oriansj&gt;</a></span><span class="message">well if one has a keyfile in the initramfs and a hook to their init to use it, they wouldn't be prompted to type in their password twice</span></div><div class="line" id="034602"><span class="nick" style="color:#2e2a4a"><a href="#034602" label="[03:46:02]">&lt;oriansj&gt;</a></span><span class="message">it also wouldn't work if boot and / had different passwords</span></div><div class="line" id="034936"><span class="nick" style="color:#6b8072"><a href="#034936" label="[03:49:36]">&lt;Hagfish&gt;</a></span><span class="message">ah, true</span></div><div class="line" id="034955"><span class="nick" style="color:#6b8072"><a href="#034955" label="[03:49:55]">&lt;Hagfish&gt;</a></span><span class="message">i have found someone else who had the same symptom on a manjaro install:</span></div><div class="line" id="034958"><span class="nick" style="color:#6b8072"><a href="#034958" label="[03:49:58]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://archived.forum.manjaro.org/t/how-to-get-grub-to-not-ask-for-a-password-for-luks-encrypted-partition/120913?page=2">https://archived.forum.manjaro.org/t/how-to-get-grub-to-not-ask-for-a-password-for-luks-encrypted-partition/120913?page=2</a> </span></div><div class="line" id="035010"><span class="nick" style="color:#6b8072"><a href="#035010" label="[03:50:10]">&lt;Hagfish&gt;</a></span><span class="message">&quot;After checking the keyslots for the swap partition only 1 is used (root partition uses 2 slots). So I added my cryptfile to the swap partition&quot;</span></div><div class="line" id="035036"><span class="nick" style="color:#6b8072"><a href="#035036" label="[03:50:36]">&lt;Hagfish&gt;</a></span><span class="message">i don't understand the technology enough yet to debug something like that</span></div><div class="line" id="035317"><span class="nick" style="color:#2e2a4a"><a href="#035317" label="[03:53:17]">&lt;oriansj&gt;</a></span><span class="message">Hagfish: that is just doing cryptsetup open /$partition $name --key-file luks.key and then a mount by the init process</span></div><div class="line" id="035417"><span class="nick" style="color:#2e2a4a"><a href="#035417" label="[03:54:17]">&lt;oriansj&gt;</a></span><span class="message">So just having the $name in fstab for mounting properly and cryptsetup in the initramfs is enough to solve that</span></div><div class="line" id="035452"><span class="nick" style="color:#2e2a4a"><a href="#035452" label="[03:54:52]">&lt;oriansj&gt;</a></span><span class="message">say something along the lines of: /dev/mapper/sda1_crypt /               btrfs   defaults        0       0</span></div><div class="line" id="035632"><span class="nick" style="color:#2e2a4a"><a href="#035632" label="[03:56:32]">&lt;oriansj&gt;</a></span><span class="message">think of initramfs as a mini-filesystem stored in /boot that is passed to the kernel unencrypted by your bootloader (grub usually)</span></div><div class="line" id="035950"><span class="nick" style="color:#2e2a4a"><a href="#035950" label="[03:59:50]">&lt;oriansj&gt;</a></span><span class="message">you can use lsinitramfs to see the contents (here is an example  <a rel="nofollow" href="https://paste.debian.net/1252104/">https://paste.debian.net/1252104/</a>  )</span></div><div class="line" id="040255"><span class="nick" style="color:#2e2a4a"><a href="#040255" label="[04:02:55]">&lt;oriansj&gt;</a></span><span class="message">the kernel, kernel firmware and kernel modules I understand. the usr/bin/mount seems essential as does usr/lib/cryptsetup and etc/fstab</span></div><div class="line" id="040423"><span class="nick" style="color:#2e2a4a"><a href="#040423" label="[04:04:23]">&lt;oriansj&gt;</a></span><span class="message">possibly etc/lvm and etc/mdadm if you used that</span></div><div class="line" id="040652"><span class="nick" style="color:#6b8072"><a href="#040652" label="[04:06:52]">&lt;Hagfish&gt;</a></span><span class="message">usr/bin/telnet</span></div><div class="line" id="040705"><span class="nick" style="color:#6b8072"><a href="#040705" label="[04:07:05]">&lt;Hagfish&gt;</a></span><span class="message">hmm, there's more in that initramfs than i was expecting</span></div><div class="line" id="042708"><span class="nick" style="color:#2e2a4a"><a href="#042708" label="[04:27:08]">&lt;oriansj&gt;</a></span><span class="message">well debian is very conservative</span></div><div class="line" id="042809"><span class="nick" style="color:#2e2a4a"><a href="#042809" label="[04:28:09]">&lt;oriansj&gt;</a></span><span class="message">heck one could probably put Ca Plane Pour Moi by Plastic Bertrand in beep format and have it play during boot</span></div><div class="line" id="044522"><span class="nick" style="color:#2e2a4a"><a href="#044522" label="[04:45:22]">&lt;oriansj&gt;</a></span><span class="message">or if I was being extra spicy, I'd leave this here: <a rel="nofollow" href="https://paste.debian.net/1252108/">https://paste.debian.net/1252108/</a> </span></div><div class="line" id="050702"><span class="nick" style="color:#6b8072"><a href="#050702" label="[05:07:02]">&lt;Hagfish&gt;</a></span><span class="message">heh, you might need to set a cronjob to delay that commit by 100 years or so...</span></div><div class="line" id="050901"><span class="nick" style="color:#6b8072"><a href="#050901" label="[05:09:01]">&lt;Hagfish&gt;</a></span><span class="message">(or i guess i mean an &quot;at&quot; job)</span></div><div class="line" id="054851"><span class="nick" style="color:#80b1d3"><a href="#054851" label="[05:48:51]">&lt;plasma41&gt;</a></span><span class="message">I was just made aware of [this Kotlin bootstrapping project](<a rel="nofollow" href="https://github.com/ebourg/kotlin-bootstrapping/">https://github.com/ebourg/kotlin-bootstrapping/</a>)  on another IRC channel. I don't see reference to it on the bootstrapping wiki.</span></div><div class="line" id="065020"><span class="nick">***</span><span class="message notice">janneke_ is now known as janneke</span></div><div class="line" id="182549"><span class="nick" style="color:#6d2462"><a href="#182549" label="[18:25:49]">&lt;acrow&gt;</a></span><span class="message">plasma41: sadly, there does not seem to have been any kotlin progress for quite some time; after a valiant attempt and remarkable success.</span></div><br /></div></body></html>

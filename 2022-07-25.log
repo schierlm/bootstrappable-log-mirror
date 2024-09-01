@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-07-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000024"><span class="nick" style="color:#389600"><a href="#000024" label="[00:00:24]">&lt;oriansj&gt;</a></span><span class="message">well there is a big list: <a rel="nofollow" href="https://gitea.com/gitea/awesome-gitea">https://gitea.com/gitea/awesome-gitea</a> </span></div><div class="line" id="000221"><span class="nick" style="color:#2e2a4a"><a href="#000221" label="[00:02:21]">&lt;stikonas&gt;</a></span><span class="message">it should also be fairly simple to maintain as it's just a single binary (all resources are compiled in)</span></div><div class="line" id="000247"><span class="nick" style="color:#2e2a4a"><a href="#000247" label="[00:02:47]">&lt;stikonas&gt;</a></span><span class="message">oh ok, FSFE uses it too... I wasn't aware of that</span></div><div class="line" id="001117"><span class="nick" style="color:#389600"><a href="#001117" label="[00:11:17]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://blog.kronis.dev/articles/goodbye-gitlab-hello-gitea-nexus-and-drone">https://blog.kronis.dev/articles/goodbye-gitlab-hello-gitea-nexus-and-drone</a> </span></div><div class="line" id="001231"><span class="nick" style="color:#2e2a4a"><a href="#001231" label="[00:12:31]">&lt;stikonas&gt;</a></span><span class="message">hmm, haven't heard of nexus</span></div><div class="line" id="001236"><span class="nick" style="color:#2e2a4a"><a href="#001236" label="[00:12:36]">&lt;stikonas&gt;</a></span><span class="message">drone I saw earlier today...</span></div><div class="line" id="001336"><span class="nick" style="color:#2e2a4a"><a href="#001336" label="[00:13:36]">&lt;stikonas&gt;</a></span><span class="message">oh, it's some kind of binary artifactory...</span></div><div class="line" id="001439"><span class="nick" style="color:#2e2a4a"><a href="#001439" label="[00:14:39]">&lt;stikonas&gt;</a></span><span class="message">we can probably start without it and add it later</span></div><div class="line" id="001650"><span class="nick" style="color:#389600"><a href="#001650" label="[00:16:50]">&lt;oriansj&gt;</a></span><span class="message">we can even just rent a managed service: <a rel="nofollow" href="https://www.linode.com/docs/products/tools/marketplace/guides/gitea/">https://www.linode.com/docs/products/tools/marketplace/guides/gitea/</a> </span></div><div class="line" id="002046"><span class="nick" style="color:#389600"><a href="#002046" label="[00:20:46]">&lt;oriansj&gt;</a></span><span class="message">so we have fallback options if things go really bad</span></div><div class="line" id="002110"><span class="nick" style="color:#389600"><a href="#002110" label="[00:21:10]">&lt;oriansj&gt;</a></span><span class="message">of the (throws hands up and gives up) variety</span></div><div class="line" id="002254"><span class="nick" style="color:#389600"><a href="#002254" label="[00:22:54]">&lt;oriansj&gt;</a></span><span class="message">So figure out the install procedure, write up a install procedure/script and then setup the git.bootstrapping.world and give you and everyone here access</span></div><div class="line" id="002642"><span class="nick" style="color:#2e2a4a"><a href="#002642" label="[00:26:42]">&lt;stikonas&gt;</a></span><span class="message">the biggest problem with scripts is where to store passwords...</span></div><div class="line" id="002652"><span class="nick" style="color:#2e2a4a"><a href="#002652" label="[00:26:52]">&lt;stikonas&gt;</a></span><span class="message">or we can leave that part manual</span></div><div class="line" id="002736"><span class="nick" style="color:#2e2a4a"><a href="#002736" label="[00:27:36]">&lt;stikonas&gt;</a></span><span class="message">(since you don't want to store admin or mysql password in configuration script)</span></div><div class="line" id="002923"><span class="nick" style="color:#389600"><a href="#002923" label="[00:29:23]">&lt;oriansj&gt;</a></span><span class="message">stikonas: oh, my default solution is to make password generation be random and sent to the users in an encrypted message that only they can decrypt</span></div><div class="line" id="003011"><span class="nick" style="color:#2e2a4a"><a href="#003011" label="[00:30:11]">&lt;stikonas&gt;</a></span><span class="message">ok, that might work</span></div><div class="line" id="003111"><span class="nick" style="color:#389600"><a href="#003111" label="[00:31:11]">&lt;oriansj&gt;</a></span><span class="message">so the install script would call pwgen set a 200+ character password, put in a gpg encrypted block and send that to the user@email</span></div><div class="line" id="003205"><span class="nick" style="color:#389600"><a href="#003205" label="[00:32:05]">&lt;oriansj&gt;</a></span><span class="message">that way there is no way for anyone to know the password unless they can decrypt the message or can guess the contents of /dev/random</span></div><div class="line" id="003208"><span class="nick" style="color:#6b8072"><a href="#003208" label="[00:32:08]">&lt;muurkha&gt;</a></span><span class="message">no need for 200+ characters</span></div><div class="line" id="003225"><span class="nick" style="color:#6b8072"><a href="#003225" label="[00:32:25]">&lt;muurkha&gt;</a></span><span class="message">256 bits is already overkill</span></div><div class="line" id="003254"><span class="nick" style="color:#6b8072"><a href="#003254" label="[00:32:54]">&lt;muurkha&gt;</a></span><span class="message">a 256-bit passphrase looks like: he whole deny lazy tune nave fc bitch gis rake mare two upon stay col peak carol eat bert lists egg check</span></div><div class="line" id="003312"><span class="nick" style="color:#389600"><a href="#003312" label="[00:33:12]">&lt;oriansj&gt;</a></span><span class="message">muurkha: true but it ends discussion of if they are secure when dealing with auditors real quick</span></div><div class="line" id="003314"><span class="nick" style="color:#6b8072"><a href="#003314" label="[00:33:14]">&lt;muurkha&gt;</a></span><span class="message">ugh, maybe I should blacklist &quot;bitch&quot;</span></div><div class="line" id="003327"><span class="nick" style="color:#6b8072"><a href="#003327" label="[00:33:27]">&lt;muurkha&gt;</a></span><span class="message">it shouldn't, those auditors are stupid</span></div><div class="line" id="003340"><span class="nick" style="color:#2e2a4a"><a href="#003340" label="[00:33:40]">&lt;stikonas&gt;</a></span><span class="message">yes, even 30  alphanumeric charachters would already be about 150-bits of entropy</span></div><div class="line" id="003404"><span class="nick" style="color:#389600"><a href="#003404" label="[00:34:04]">&lt;oriansj&gt;</a></span><span class="message">well yes in a technical perspective but they are very very useful in getting things fixed.</span></div><div class="line" id="003443"><span class="nick" style="color:#6b8072"><a href="#003443" label="[00:34:43]">&lt;muurkha&gt;</a></span><span class="message">200+ characters generated from the low 16 bits of your PID would be easily brute-forceable</span></div><div class="line" id="003449"><span class="nick" style="color:#6b8072"><a href="#003449" label="[00:34:49]">&lt;muurkha&gt;</a></span><span class="message">as in the Debian OpenSSL debacle</span></div><div class="line" id="003534"><span class="nick" style="color:#389600"><a href="#003534" label="[00:35:34]">&lt;oriansj&gt;</a></span><span class="message">muurkha: fair, hence why I said pwgen</span></div><div class="line" id="003648"><span class="nick" style="color:#389600"><a href="#003648" label="[00:36:48]">&lt;oriansj&gt;</a></span><span class="message">and /dev/random</span></div><div class="line" id="003809"><span class="nick" style="color:#6b8072"><a href="#003809" label="[00:38:09]">&lt;muurkha&gt;</a></span><span class="message">right, but if you're using those you don't need 200+ characters</span></div><div class="line" id="003821"><span class="nick" style="color:#6b8072"><a href="#003821" label="[00:38:21]">&lt;muurkha&gt;</a></span><span class="message">a smart auditor who sees those 200+ characters will wonder what you're trying to hide</span></div><div class="line" id="003858"><span class="nick" style="color:#6b8072"><a href="#003858" label="[00:38:58]">&lt;muurkha&gt;</a></span><span class="message">or whether you know enough to be using /dev/random instead of your PID :)</span></div><div class="line" id="003955"><span class="nick" style="color:#389600"><a href="#003955" label="[00:39:55]">&lt;oriansj&gt;</a></span><span class="message">muurkha: a smart auditor would just look at the git repo and say: you are good and give us the checkbox</span></div><div class="line" id="004044"><span class="nick" style="color:#389600"><a href="#004044" label="[00:40:44]">&lt;oriansj&gt;</a></span><span class="message">but smart auditors stop being auditors because answering the auditor's questions pays better</span></div><div class="line" id="004131"><span class="nick" style="color:#389600"><a href="#004131" label="[00:41:31]">&lt;oriansj&gt;</a></span><span class="message">and has much lower liability</span></div><div class="line" id="004345"><span class="nick" style="color:#6b8072"><a href="#004345" label="[00:43:45]">&lt;muurkha&gt;</a></span><span class="message">hopefully a smart auditor would look at the git repo and report some bugs to you</span></div><div class="line" id="004708"><span class="nick" style="color:#389600"><a href="#004708" label="[00:47:08]">&lt;oriansj&gt;</a></span><span class="message">I'd be happy if they actually found something that actually was a problem. They miss absolutely basic things (unless they somehow magically get information pointing them in that direction)</span></div><div class="line" id="010722"><span class="nick">***</span><span class="message notice">genr8eofl_ is now known as genr8eofl</span></div><div class="line" id="021512"><span class="nick" style="color:#389600"><a href="#021512" label="[02:15:12]">&lt;oriansj&gt;</a></span><span class="message">stikonas: looks like a gitea setup is just download binary and copy config on a server with git and sqlite3 installed</span></div><div class="line" id="021558"><span class="nick" style="color:#2e2a4a"><a href="#021558" label="[02:15:58]">&lt;stikonas&gt;</a></span><span class="message">yes, I think you can use sqlite3...</span></div><div class="line" id="021608"><span class="nick" style="color:#2e2a4a"><a href="#021608" label="[02:16:08]">&lt;stikonas&gt;</a></span><span class="message">it is fairly simple</span></div><div class="line" id="021619"><span class="nick" style="color:#2e2a4a"><a href="#021619" label="[02:16:19]">&lt;stikonas&gt;</a></span><span class="message">I think I used mysql on my server, but sqlite3 would do</span></div><div class="line" id="021648"><span class="nick" style="color:#2e2a4a"><a href="#021648" label="[02:16:48]">&lt;stikonas&gt;</a></span><span class="message">then I think on first use it would ask you to configure some stuff, e.g. set up admin password</span></div><div class="line" id="021728"><span class="nick" style="color:#2e2a4a"><a href="#021728" label="[02:17:28]">&lt;stikonas&gt;</a></span><span class="message">well, you would still need to set up forwarding in your web server from port 8080 (or wherever it listens) to 443 on git.bootstrapping.world</span></div><div class="line" id="021729"><span class="nick" style="color:#389600"><a href="#021729" label="[02:17:29]">&lt;oriansj&gt;</a></span><span class="message">I wonder if I can script that bit out</span></div><div class="line" id="021741"><span class="nick" style="color:#2e2a4a"><a href="#021741" label="[02:17:41]">&lt;stikonas&gt;</a></span><span class="message">you can</span></div><div class="line" id="021746"><span class="nick" style="color:#2e2a4a"><a href="#021746" label="[02:17:46]">&lt;stikonas&gt;</a></span><span class="message">it won't ask that if config file is found</span></div><div class="line" id="021755"><span class="nick" style="color:#2e2a4a"><a href="#021755" label="[02:17:55]">&lt;stikonas&gt;</a></span><span class="message">so you can just upload config file</span></div><div class="line" id="021816"><span class="nick" style="color:#2e2a4a"><a href="#021816" label="[02:18:16]">&lt;stikonas&gt;</a></span><span class="message">probably do it once manually</span></div><div class="line" id="021819"><span class="nick" style="color:#389600"><a href="#021819" label="[02:18:19]">&lt;oriansj&gt;</a></span><span class="message">and setup LetsEncrypt cert with the proxy service</span></div><div class="line" id="021825"><span class="nick" style="color:#2e2a4a"><a href="#021825" label="[02:18:25]">&lt;stikonas&gt;</a></span><span class="message">then you'll have a reasonably good config file</span></div><div class="line" id="021941"><span class="nick" style="color:#389600"><a href="#021941" label="[02:19:41]">&lt;oriansj&gt;</a></span><span class="message">and I'll probably need to setup something to routinely check for newer versions of the binary and email if they appear</span></div><div class="line" id="022054"><span class="nick" style="color:#2e2a4a"><a href="#022054" label="[02:20:54]">&lt;stikonas&gt;</a></span><span class="message">hmm, I don't have that problem when I use distro packages...</span></div><div class="line" id="022118"><span class="nick" style="color:#389600"><a href="#022118" label="[02:21:18]">&lt;oriansj&gt;</a></span><span class="message">what distro has a gitea package?</span></div><div class="line" id="022132"><span class="nick" style="color:#6b8072"><a href="#022132" label="[02:21:32]">&lt;muurkha&gt;</a></span><span class="message">okay, adding a blacklist of too-evocative words to my passphrase generator took longer than I expected</span></div><div class="line" id="022146"><span class="nick" style="color:#2e2a4a"><a href="#022146" label="[02:21:46]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://repology.org/project/gitea/badges">https://repology.org/project/gitea/badges</a> </span></div><div class="line" id="022151"><span class="nick" style="color:#2e2a4a"><a href="#022151" label="[02:21:51]">&lt;stikonas&gt;</a></span><span class="message">gentoo in particular</span></div><div class="line" id="022201"><span class="nick" style="color:#2e2a4a"><a href="#022201" label="[02:22:01]">&lt;stikonas&gt;</a></span><span class="message">alternatively we can setup autoupdating rootless podman container...</span></div><div class="line" id="022208"><span class="nick" style="color:#6b8072"><a href="#022208" label="[02:22:08]">&lt;muurkha&gt;</a></span><span class="message">yay podman</span></div><div class="line" id="022217"><span class="nick" style="color:#2e2a4a"><a href="#022217" label="[02:22:17]">&lt;stikonas&gt;</a></span><span class="message">but maybe that's more setup...</span></div><div class="line" id="022521"><span class="nick" style="color:#2e2a4a"><a href="#022521" label="[02:25:21]">&lt;stikonas&gt;</a></span><span class="message">anyway, I'll go to bed soon, will be back tomorrow evening</span></div><div class="line" id="022550"><span class="nick" style="color:#389600"><a href="#022550" label="[02:25:50]">&lt;oriansj&gt;</a></span><span class="message">sweet dreams, hopefully I can get over analysis paralysis before you wake up</span></div><div class="line" id="022553"><span class="nick" style="color:#2e2a4a"><a href="#022553" label="[02:25:53]">&lt;stikonas&gt;</a></span><span class="message">haven't yet figured out the problem in kaem (uefi) but something strange is going on</span></div><div class="line" id="022616"><span class="nick" style="color:#2e2a4a"><a href="#022616" label="[02:26:16]">&lt;stikonas&gt;</a></span><span class="message">(probably while reading data)</span></div><div class="line" id="022708"><span class="nick" style="color:#2e2a4a"><a href="#022708" label="[02:27:08]">&lt;stikonas&gt;</a></span><span class="message">maybe I didn't zero allocated buffer...</span></div><div class="line" id="022715"><span class="nick" style="color:#2e2a4a"><a href="#022715" label="[02:27:15]">&lt;stikonas&gt;</a></span><span class="message">but will check later</span></div><div class="line" id="022754"><span class="nick" style="color:#389600"><a href="#022754" label="[02:27:54]">&lt;oriansj&gt;</a></span><span class="message">well there is a very good reason to only use calloc as not all systems can be expected to zero memory before handing it to you</span></div><div class="line" id="022951"><span class="nick" style="color:#2e2a4a"><a href="#022951" label="[02:29:51]">&lt;stikonas&gt;</a></span><span class="message">well, it might be something else, don't know yet</span></div><div class="line" id="023042"><span class="nick" style="color:#2e2a4a"><a href="#023042" label="[02:30:42]">&lt;stikonas&gt;</a></span><span class="message">but at some point (after some space character) higher 8-bits of 16-bit character somehow are set</span></div><div class="line" id="023055"><span class="nick" style="color:#2e2a4a"><a href="#023055" label="[02:30:55]">&lt;stikonas&gt;</a></span><span class="message">even though they should be zero</span></div><div class="line" id="023429"><span class="nick" style="color:#2e2a4a"><a href="#023429" label="[02:34:29]">&lt;stikonas&gt;</a></span><span class="message">oriansj: ok, already figured it out</span></div><div class="line" id="023446"><span class="nick" style="color:#2e2a4a"><a href="#023446" label="[02:34:46]">&lt;stikonas&gt;</a></span><span class="message">will fix it tomorrow but the bug is here</span></div><div class="line" id="023459"><span class="nick" style="color:#2e2a4a"><a href="#023459" label="[02:34:59]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://git.stikonas.eu/andrius/stage0-uefi/src/branch/main/Development/kaem-minimal.c#L67">https://git.stikonas.eu/andrius/stage0-uefi/src/branch/main/Development/kaem-minimal.c#L67</a> </span></div><div class="line" id="023532"><span class="nick" style="color:#2e2a4a"><a href="#023532" label="[02:35:32]">&lt;stikonas&gt;</a></span><span class="message">I think UEFI functions expect 16-bit of memory there instead of 8-bit</span></div><div class="line" id="023539"><span class="nick" style="color:#2e2a4a"><a href="#023539" label="[02:35:39]">&lt;stikonas&gt;</a></span><span class="message">and eventually something got corrupted</span></div><div class="line" id="023558"><span class="nick" style="color:#2e2a4a"><a href="#023558" label="[02:35:58]">&lt;stikonas&gt;</a></span><span class="message">probably uint8_t c[2] would fix it...</span></div><div class="line" id="034909"><span class="nick" style="color:#389600"><a href="#034909" label="[03:49:09]">&lt;oriansj&gt;</a></span><span class="message">I wonder if it would be too weird to require port knocking for people wishing to git push to a gitea instance on port 22</span></div><div class="line" id="085435"><span class="nick" style="color:#6b8072"><a href="#085435" label="[08:54:35]">&lt;muurkha&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/BrunoLevy/learn-fpga/blob/master/FemtoRV/RTL/PROCESSOR/femtorv32_quark.v">https://github.com/BrunoLevy/learn-fpga/blob/master/FemtoRV/RTL/PROCESSOR/femtorv32_quark.v</a>  is the smallest readable RISC-V implementation</span></div><div class="line" id="085438"><span class="nick" style="color:#6b8072"><a href="#085438" label="[08:54:38]">&lt;muurkha&gt;</a></span><span class="message">200 lines of Verilog</span></div><div class="line" id="100053"><span class="nick" style="color:#80b1d3"><a href="#100053" label="[10:00:53]">&lt;stikonas[m]&gt;</a></span><span class="message">oriansj: in my opinion SSH with no password auth should be secure enough</span></div><div class="line" id="100141"><span class="nick" style="color:#80b1d3"><a href="#100141" label="[10:01:41]">&lt;stikonas[m]&gt;</a></span><span class="message">(And maybe with some older/weaker SSH ciphers disabled)</span></div><div class="line" id="100304"><span class="nick" style="color:#80b1d3"><a href="#100304" label="[10:03:04]">&lt;stikonas[m]&gt;</a></span><span class="message">Port knocking is just a few more bits of entropy, shouldn't matter with long SSH keys</span></div><div class="line" id="100353"><span class="nick" style="color:#80b1d3"><a href="#100353" label="[10:03:53]">&lt;stikonas[m]&gt;</a></span><span class="message">And especially given the fact that SSH shell there is restructed</span></div><div class="line" id="100400"><span class="nick" style="color:#80b1d3"><a href="#100400" label="[10:04:00]">&lt;stikonas[m]&gt;</a></span><span class="message">restricted</span></div><div class="line" id="121149"><span class="nick" style="color:#389600"><a href="#121149" label="[12:11:49]">&lt;oriansj&gt;</a></span><span class="message">muurkha: neat</span></div><div class="line" id="192113"><span class="nick">***</span><span class="message notice">pgreco_ is now known as pgreco</span></div><br /></div></body></html>

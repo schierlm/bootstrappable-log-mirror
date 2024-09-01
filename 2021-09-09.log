@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-09-09.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="040824"><span class="nick" style="color:#8dd3c7"><a href="#040824" label="[04:08:24]">&lt;oriansj&gt;</a></span><span class="message">stikonas: sorry for the delay, been out sick but your pull has been merged.</span></div><div class="line" id="043342"><span class="nick" style="color:#2e2a4a"><a href="#043342" label="[04:33:42]">&lt;xentrac&gt;</a></span><span class="message">hope you're feeling better</span></div><div class="line" id="043824"><span class="nick" style="color:#8dd3c7"><a href="#043824" label="[04:38:24]">&lt;oriansj&gt;</a></span><span class="message">well it is why bus factor is important for key projects, it should be trivial for someone to take my place and continue the work.</span></div><div class="line" id="093108"><span class="nick" style="color:#6b8072"><a href="#093108" label="[09:31:08]">&lt;guerrilla&gt;</a></span><span class="message">(just reading the wiki on discarded ideas) So nobody's been able to make a readable scheme in forth? That's disappointing. I had it as a dream to hex in an assembler, then assemble a forth and forth a scheme :)</span></div><div class="line" id="093511"><span class="nick" style="color:#80b1d3"><a href="#093511" label="[09:35:11]">*</a></span><span class="message">pabs3 finds <a rel="nofollow" href="https://forums.parallax.com/discussion/160027/lisp-technically-scheme-written-in-forth">https://forums.parallax.com/discussion/160027/lisp-technically-scheme-written-in-forth</a> </span></div><div class="line" id="093548"><span class="nick" style="color:#80b1d3"><a href="#093548" label="[09:35:48]">*</a></span><span class="message">pabs3 finds <a rel="nofollow" href="https://github.com/tgvaughan/scheme.forth.jl">https://github.com/tgvaughan/scheme.forth.jl</a> </span></div><div class="line" id="094106"><span class="nick" style="color:#6b8072"><a href="#094106" label="[09:41:06]">&lt;guerrilla&gt;</a></span><span class="message">pabs3: Nice</span></div><div class="line" id="130549"><span class="nick" style="color:#8dd3c7"><a href="#130549" label="[13:05:49]">&lt;oriansj&gt;</a></span><span class="message">guerrilla: well assembling a FORTH isn't a difficult task, just harder than writing a C compiler in assembly. (As interpreters are harder to debug during development than compilers)</span></div><div class="line" id="130741"><span class="nick" style="color:#8dd3c7"><a href="#130741" label="[13:07:41]">&lt;oriansj&gt;</a></span><span class="message">That being said FORTH is not a good language for writing of Garbage collectors (unless you twist your garbage to be entirely on the stack)</span></div><div class="line" id="131113"><span class="nick" style="color:#8dd3c7"><a href="#131113" label="[13:11:13]">&lt;oriansj&gt;</a></span><span class="message">pabs3: now the problem is extend that enough to run MesCC</span></div><div class="line" id="131232"><span class="nick" style="color:#6b8072"><a href="#131232" label="[13:12:32]">&lt;guerrilla&gt;</a></span><span class="message">oriansj: Yeah, I can see that. My naive attempt would definitely be to try to do gc on the stack.</span></div><div class="line" id="131435"><span class="nick" style="color:#8dd3c7"><a href="#131435" label="[13:14:35]">&lt;oriansj&gt;</a></span><span class="message">as writing a minimal s-expression evaluator with scheme live primitives isn't anything close to having a proper macro support needed to run real scheme programs (because scheme programmers rarely skip using those features)</span></div><div class="line" id="131754"><span class="nick" style="color:#8dd3c7"><a href="#131754" label="[13:17:54]">&lt;oriansj&gt;</a></span><span class="message">these sorts of things are certainly interesting and it is easy to see much promise in them.</span></div><div class="line" id="131824"><span class="nick" style="color:#8dd3c7"><a href="#131824" label="[13:18:24]">&lt;oriansj&gt;</a></span><span class="message">The problem is once you need them to do real work and be extended to support the functionality required to be useful.</span></div><div class="line" id="131947"><span class="nick" style="color:#8dd3c7"><a href="#131947" label="[13:19:47]">&lt;oriansj&gt;</a></span><span class="message">They just don't live up to the hopes we might have for them. I'd love to be proven wrong but thus far C seems the most easy to implement and extend when it comes to growing functionality to bootstrap from hex to GCC.</span></div><div class="line" id="132236"><span class="nick" style="color:#8dd3c7"><a href="#132236" label="[13:22:36]">&lt;oriansj&gt;</a></span><span class="message">because a minimal C with structs, -&gt;, arrays and inline assembly covers a great deal of sins. Enough that we were able to bootstrap mes-m2 and run MesCC to get a full bootstrap.</span></div><div class="line" id="132453"><span class="nick" style="color:#6b8072"><a href="#132453" label="[13:24:53]">&lt;guerrilla&gt;</a></span><span class="message">Oh that's nice</span></div><div class="line" id="132525"><span class="nick" style="color:#6b8072"><a href="#132525" label="[13:25:25]">&lt;guerrilla&gt;</a></span><span class="message">The multiple languages is just more to maintain too as they grow</span></div><div class="line" id="132926"><span class="nick" style="color:#8dd3c7"><a href="#132926" label="[13:29:26]">&lt;oriansj&gt;</a></span><span class="message">So it isn't about what what is impossible, just more along the lines of much more work to achieve the exact same ends. So it isn't to discourage anyone from pursuing those options but to inform that it will be a bunch of extra work without measurable benefit.</span></div><div class="line" id="133222"><span class="nick" style="color:#6b8072"><a href="#133222" label="[13:32:22]">&lt;guerrilla&gt;</a></span><span class="message">Yeah, ok. If I do it, it'd just be a poc, for the art of it :)</span></div><div class="line" id="134039"><span class="nick" style="color:#8dd3c7"><a href="#134039" label="[13:40:39]">&lt;oriansj&gt;</a></span><span class="message">or for personal enjoyment which is always a good reason to do something.</span></div><div class="line" id="134124"><span class="nick" style="color:#6b8072"><a href="#134124" label="[13:41:24]">&lt;guerrilla&gt;</a></span><span class="message">Definitely</span></div><div class="line" id="193426"><span class="nick" style="color:#6d2462"><a href="#193426" label="[19:34:26]">&lt;siraben&gt;</a></span><span class="message">guerrilla: another thing that has been bootstrapped from MES <a rel="nofollow" href="https://github.com/oriansj/blynn-compiler">https://github.com/oriansj/blynn-compiler</a> </span></div><div class="line" id="193441"><span class="nick" style="color:#6d2462"><a href="#193441" label="[19:34:41]">&lt;siraben&gt;</a></span><span class="message">a compiler for a subset of Haskell</span></div><div class="line" id="204403"><span class="nick" style="color:#234e69"><a href="#204403" label="[20:44:03]">&lt;theruran&gt;</a></span><span class="message">oh I had half an idea - what about using Kernel's vau expressions to bootstrap Guile's syntax-case? 😆</span></div><div class="line" id="205618"><span class="nick" style="color:#6c3d55"><a href="#205618" label="[20:56:18]">&lt;stikonas&gt;</a></span><span class="message">oriansj: thanks for merging. Hopefully you are feeling better</span></div><div class="line" id="205658"><span class="nick" style="color:#6c3d55"><a href="#205658" label="[20:56:58]">&lt;stikonas&gt;</a></span><span class="message">oriansj: by the way did you also run some other (arm?) stage0-posix testing in qemu and it was slow or am I misremembering something...</span></div><div class="line" id="205802"><span class="nick" style="color:#6c3d55"><a href="#205802" label="[20:58:02]">&lt;stikonas&gt;</a></span><span class="message">if yes, then it's the same qemu issue with the same workaround that I applied to hex1 and hex2 on Risc-V</span></div><div class="line" id="205827"><span class="nick" style="color:#6c3d55"><a href="#205827" label="[20:58:27]">&lt;stikonas&gt;</a></span><span class="message">I can also reproduce it when I e.g. run qemu-i386 hex2-0 ...</span></div><div class="line" id="210315"><span class="nick" style="color:#6c3d55"><a href="#210315" label="[21:03:15]">&lt;stikonas&gt;</a></span><span class="message">I'm not even sure if bootstrapping Scheme early is the easiest path... Although, mes is what we use right now...</span></div><div class="line" id="210323"><span class="nick" style="color:#6c3d55"><a href="#210323" label="[21:03:23]">&lt;stikonas&gt;</a></span><span class="message">(until tcc is ready)</span></div><div class="line" id="210353"><span class="nick" style="color:#6c3d55"><a href="#210353" label="[21:03:53]">&lt;stikonas&gt;</a></span><span class="message">but I guess it's mostly historic, that's what already existed, so got used in bootstrap</span></div><div class="line" id="210716"><span class="nick" style="color:#6c3d55"><a href="#210716" label="[21:07:16]">&lt;stikonas&gt;</a></span><span class="message">but I'm not really Scheme/Guile/Mes expert, so not really qualified to compare</span></div><div class="line" id="220817"><span class="nick" style="color:#6c3d55"><a href="#220817" label="[22:08:17]">&lt;stikonas&gt;</a></span><span class="message">siraben: isn't blynn-compiler bootstrapped from M2-Planet</span></div><div class="line" id="220831"><span class="nick" style="color:#6c3d55"><a href="#220831" label="[22:08:31]">&lt;stikonas&gt;</a></span><span class="message">mes was not used</span></div><div class="line" id="222634"><span class="nick" style="color:#6d2462"><a href="#222634" label="[22:26:34]">&lt;siraben&gt;</a></span><span class="message">stikonas: ah, right. M2-Planet</span></div><br /></div></body></html>

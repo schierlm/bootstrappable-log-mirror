@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-01-10.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000447"><span class="nick" style="color:#389600"><a href="#000447" label="[00:04:47]">&lt;stikonas&gt;</a></span><span class="message">well, we wouldn't be able to parse xml inside live-bootstrap</span></div><div class="line" id="000518"><span class="nick" style="color:#389600"><a href="#000518" label="[00:05:18]">&lt;stikonas&gt;</a></span><span class="message">it's not just dependencies for running rootfs.py, it's also dependencies inside live-bootstrap</span></div><div class="line" id="000533"><span class="nick" style="color:#389600"><a href="#000533" label="[00:05:33]">&lt;stikonas&gt;</a></span><span class="message">and we have no way to parse XML, especially early in the bootstrap</span></div><div class="line" id="000735"><span class="nick" style="color:#389600"><a href="#000735" label="[00:07:35]">&lt;stikonas&gt;</a></span><span class="message">live-bootstrap checksums downloaded files inside bootstrap</span></div><div class="line" id="000758"><span class="nick" style="color:#389600"><a href="#000758" label="[00:07:58]">&lt;stikonas&gt;</a></span><span class="message">which means 1. we need to have URL and hash in the same place</span></div><div class="line" id="000820"><span class="nick" style="color:#389600"><a href="#000820" label="[00:08:20]">&lt;stikonas&gt;</a></span><span class="message">and also 2. we need way to pair URL and package name</span></div><div class="line" id="001018"><span class="nick" style="color:#389600"><a href="#001018" label="[00:10:18]">&lt;stikonas&gt;</a></span><span class="message">so perhaps the simplest option would be to keep individual sources files with &quot;url hash&quot; and write a python function to produce &quot;manifests&quot; such as sysa_manifest which has sources for the whole system (and perhaps rootfs.py downloader can also consume it)</span></div><div class="line" id="212505"><span class="nick" style="color:#8dd3c7"><a href="#212505" label="[21:25:05]">&lt;doras&gt;</a></span><span class="message">stikonas @stikonas:libera.chat: I'd still rather avoid touching the bootstrap itself for this change.</span></div><div class="line" id="212505"><span class="nick" style="color:#8dd3c7"><a href="#212505" label="[21:25:05]">&lt;doras&gt;</a></span><span class="message">I only want to expose this for consumption by Python. Perhaps when I have code implementing this it would become more clear.</span></div><div class="line" id="212626"><span class="nick" style="color:#8dd3c7"><a href="#212626" label="[21:26:26]">&lt;doras&gt;</a></span><span class="message">Actually, I see the last sentence you wrote is exactly my idea/plan.</span></div><div class="line" id="215307"><span class="nick" style="color:#389600"><a href="#215307" label="[21:53:07]">&lt;stikonas&gt;</a></span><span class="message">doras: well, try to implement something, it will be easier to discuss once there is some code</span></div><div class="line" id="215337"><span class="nick" style="color:#8dd3c7"><a href="#215337" label="[21:53:37]">&lt;doras&gt;</a></span><span class="message">I hope to find time this weekend.</span></div><br /></div></body></html>

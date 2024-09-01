@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-03-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002921"><span class="nick" style="color:#8dd3c7"><a href="#002921" label="[00:29:21]">&lt;stikonas&gt;</a></span><span class="message">fossy: not too sure what's going on with those linking errors, need to understand perl better than I do, but this hack workarounds them... sed -i 's/perl_call_method/Perl_call_method/' ext/Data/Dumper/Dumper.xs</span></div><div class="line" id="002942"><span class="nick" style="color:#2e2a4a"><a href="#002942" label="[00:29:42]">&lt;fossy&gt;</a></span><span class="message">stikonas: that's really odd</span></div><div class="line" id="003003"><span class="nick" style="color:#8dd3c7"><a href="#003003" label="[00:30:03]">&lt;stikonas&gt;</a></span><span class="message">yeah, perl has a lot of namespacing</span></div><div class="line" id="003017"><span class="nick" style="color:#8dd3c7"><a href="#003017" label="[00:30:17]">&lt;stikonas&gt;</a></span><span class="message">and something is going  badly in modules</span></div><div class="line" id="005833"><span class="nick" style="color:#8dd3c7"><a href="#005833" label="[00:58:33]">&lt;stikonas&gt;</a></span><span class="message">I thought once I get one module working, it will be much easier to get remaining ones...</span></div><div class="line" id="005854"><span class="nick" style="color:#8dd3c7"><a href="#005854" label="[00:58:54]">&lt;stikonas&gt;</a></span><span class="message">but it turns out to be quite some work to get each perl module built...</span></div><div class="line" id="005914"><span class="nick" style="color:#8dd3c7"><a href="#005914" label="[00:59:14]">&lt;stikonas&gt;</a></span><span class="message">although, I guess the good news is that perl 5.6 with modules should last us for a long time...</span></div><div class="line" id="005921"><span class="nick" style="color:#8dd3c7"><a href="#005921" label="[00:59:21]">&lt;stikonas&gt;</a></span><span class="message">I think even newest autotools can run on it</span></div><div class="line" id="010009"><span class="nick" style="color:#2e2a4a"><a href="#010009" label="[01:00:09]">&lt;fossy&gt;</a></span><span class="message">nice!</span></div><div class="line" id="010022"><span class="nick" style="color:#2e2a4a"><a href="#010022" label="[01:00:22]">&lt;fossy&gt;</a></span><span class="message">in kexec-tools land, it now fully compiles, but now i need to strip out some other parts for it to link</span></div><div class="line" id="010025"><span class="nick" style="color:#2e2a4a"><a href="#010025" label="[01:00:25]">&lt;fossy&gt;</a></span><span class="message">(mostly xen)</span></div><div class="line" id="010039"><span class="nick" style="color:#2e2a4a"><a href="#010039" label="[01:00:39]">&lt;fossy&gt;</a></span><span class="message">i am unconvinced that i have not crippled it so much it just won't work</span></div><div class="line" id="010041"><span class="nick" style="color:#2e2a4a"><a href="#010041" label="[01:00:41]">&lt;fossy&gt;</a></span><span class="message">but we will see</span></div><div class="line" id="021122"><span class="nick" style="color:#8dd3c7"><a href="#021122" label="[02:11:22]">&lt;stikonas&gt;</a></span><span class="message">hmm, so currently I can run somewhat newer automake (automake 1.6) but autoconf is still blocked on more modules, and we need newer autoconf more... (newer automake also depends on newer autoconf)</span></div><div class="line" id="090303"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="090319"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><div class="line" id="112741"><span class="nick" style="color:#8dd3c7"><a href="#112741" label="[11:27:41]">&lt;stikonas&gt;</a></span><span class="message">fossy: pder: we should probably regenerate ltmain.sh files too. Which means we need to run libtoolize from libtool</span></div><div class="line" id="122839"><span class="nick" style="color:#2e2a4a"><a href="#122839" label="[12:28:39]">&lt;fossy&gt;</a></span><span class="message">stikonas: from Perl?</span></div><div class="line" id="123054"><span class="nick" style="color:#8dd3c7"><a href="#123054" label="[12:30:54]">&lt;stikonas&gt;</a></span><span class="message">fossy: no, nothing to to with perl</span></div><div class="line" id="123100"><span class="nick" style="color:#8dd3c7"><a href="#123100" label="[12:31:00]">&lt;stikonas&gt;</a></span><span class="message">it's from gnu libtool</span></div><div class="line" id="123113"><span class="nick" style="color:#8dd3c7"><a href="#123113" label="[12:31:13]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.gnu.org/software/libtool/">https://www.gnu.org/software/libtool/</a> </span></div><div class="line" id="123205"><span class="nick" style="color:#8dd3c7"><a href="#123205" label="[12:32:05]">&lt;stikonas&gt;</a></span><span class="message">Perl needs more work (although, what I have in a local git already adds a few modules and does not break things)</span></div><div class="line" id="123217"><span class="nick" style="color:#8dd3c7"><a href="#123217" label="[12:32:17]">&lt;stikonas&gt;</a></span><span class="message">but not enough for newer autoconf</span></div><div class="line" id="123647"><span class="nick" style="color:#8dd3c7"><a href="#123647" label="[12:36:47]">&lt;stikonas&gt;</a></span><span class="message">oh, actually, it might be enough for autoconf 2.53 (although not enough for something like 2.59). Unfortunately, something else is breaking with 2.53</span></div><div class="line" id="123751"><span class="nick" style="color:#8dd3c7"><a href="#123751" label="[12:37:51]">&lt;stikonas&gt;</a></span><span class="message">autom4te script (written in perl) blocks on something and never returns</span></div><div class="line" id="123831"><span class="nick" style="color:#8dd3c7"><a href="#123831" label="[12:38:31]">&lt;stikonas&gt;</a></span><span class="message">(newer autoconf still needs Errno module, building it is a doable but a bit annoying because I need to patch location of errno.h header)</span></div><div class="line" id="210616"><span class="nick" style="color:#2e2a4a"><a href="#210616" label="[21:06:16]">&lt;fossy&gt;</a></span><span class="message">stikonas: yeah ik, but which package has ltmain.sh right now?</span></div><div class="line" id="211012"><span class="nick" style="color:#8dd3c7"><a href="#211012" label="[21:10:12]">&lt;stikonas&gt;</a></span><span class="message">fossy: oh it's binutils</span></div><div class="line" id="211018"><span class="nick" style="color:#8dd3c7"><a href="#211018" label="[21:10:18]">&lt;stikonas&gt;</a></span><span class="message">but probably more will have soon...</span></div><div class="line" id="211024"><span class="nick" style="color:#8dd3c7"><a href="#211024" label="[21:10:24]">&lt;stikonas&gt;</a></span><span class="message">it's quite common in autotools</span></div><div class="line" id="211058"><span class="nick" style="color:#2e2a4a"><a href="#211058" label="[21:10:58]">&lt;fossy&gt;</a></span><span class="message">yeah.</span></div><div class="line" id="211125"><span class="nick" style="color:#8dd3c7"><a href="#211125" label="[21:11:25]">&lt;stikonas&gt;</a></span><span class="message">newer gawk will have it too, I think pder wants to switch to newer version</span></div><div class="line" id="211135"><span class="nick" style="color:#8dd3c7"><a href="#211135" label="[21:11:35]">&lt;stikonas&gt;</a></span><span class="message">but at the moment old gawk was compiled manually</span></div><div class="line" id="211303"><span class="nick" style="color:#8dd3c7"><a href="#211303" label="[21:13:03]">&lt;stikonas&gt;</a></span><span class="message">maybe bash too</span></div><div class="line" id="211311"><span class="nick" style="color:#8dd3c7"><a href="#211311" label="[21:13:11]">&lt;stikonas&gt;</a></span><span class="message">at the moment we don't have anything else with autotool</span></div><div class="line" id="211316"><span class="nick" style="color:#8dd3c7"><a href="#211316" label="[21:13:16]">&lt;stikonas&gt;</a></span><span class="message">just binutils and bash</span></div><div class="line" id="211345"><span class="nick" style="color:#8dd3c7"><a href="#211345" label="[21:13:45]">&lt;stikonas&gt;</a></span><span class="message">no, bash is fine</span></div><div class="line" id="211403"><span class="nick" style="color:#8dd3c7"><a href="#211403" label="[21:14:03]">&lt;stikonas&gt;</a></span><span class="message">anyway, for now I'm rebuilding perl-5.6.2</span></div><div class="line" id="211427"><span class="nick" style="color:#8dd3c7"><a href="#211427" label="[21:14:27]">&lt;stikonas&gt;</a></span><span class="message">adding some more HAS_* defines...</span></div><div class="line" id="224524"><span class="nick" style="color:#6b8072"><a href="#224524" label="[22:45:24]">&lt;dannym&gt;</a></span><span class="message">janneke: Hmm, did you get the security quickscan mail?  I have no idea where the chat they mention is...</span></div><div class="line" id="224810"><span class="nick" style="color:#8dd3c7"><a href="#224810" label="[22:48:10]">&lt;stikonas&gt;</a></span><span class="message">fossy: pder: I've pushed <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/57">https://github.com/fosslinux/live-bootstrap/pull/57</a>  for now, can't get newer autoconf to work but not sure if it's perl's problem</span></div><div class="line" id="224815"><span class="nick" style="color:#8dd3c7"><a href="#224815" label="[22:48:15]">&lt;stikonas&gt;</a></span><span class="message">might be something unrelated</span></div><div class="line" id="233728"><span class="nick" style="color:#80b1d3"><a href="#233728" label="[23:37:28]">&lt;Hagfish&gt;</a></span><span class="message">the diff looks good to me, but what do i know :)</span></div><div class="line" id="233838"><span class="nick" style="color:#80b1d3"><a href="#233838" label="[23:38:38]">&lt;Hagfish&gt;</a></span><span class="message">i get the impression that bootstrapping perl is like solving some ancient mystery, or unsolved disappearance</span></div><div class="line" id="233852"><span class="nick" style="color:#80b1d3"><a href="#233852" label="[23:38:52]">&lt;Hagfish&gt;</a></span><span class="message">or like finding an easter egg in a 20 year old computer game</span></div><br /></div></body></html>

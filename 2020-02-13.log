@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-02-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000526"><span class="nick" style="color:#389600"><a href="#000526" label="[00:05:26]">&lt;janneke&gt;</a></span><span class="message">guess that i have the wrong cable, hoping that this one will be OK: <a rel="nofollow" href="https://www.allekabels.nl/jack-kabel/4/1193169/jack-naar-usb-kabel.html">https://www.allekabels.nl/jack-kabel/4/1193169/jack-naar-usb-kabel.html</a> </span></div><div class="line" id="193917"><span class="nick" style="color:#2e2a4a"><a href="#193917" label="[19:39:17]">&lt;markjenkinswznc&gt;</a></span><span class="message">Interesting to hear you have Pinebook Pro Janneke. I've been doing much of my knightpies development on a plain Pinebook, including taking advantage of the small size to code on public transit. Two things I find interesting about Allwinner SOCs 1) they have a small ROM which does a non-configurable fixed boot order (aprox): USB, SD/microSD, eMMC, small internal flash. All the u-boot magic happens from there. If this component really is a ROM</span></div><div class="line" id="193917"><span class="nick" style="color:#2e2a4a"><a href="#193917" label="[19:39:17]">&lt;markjenkinswznc&gt;</a></span><span class="message">it can be treated as part of the hardware (and autited). Point 2) even despite Allwinner not being a great free software citizen, thier price point has attracted driver reverse engineering and I think they did put all the hardware init stuff paired with u-boot out there as free software. All told, an interesting owner controllable platform.</span></div><div class="line" id="200604"><span class="nick" style="color:#6b8072"><a href="#200604" label="[20:06:04]">&lt;dddddd&gt;</a></span><span class="message">Point 2 is about the ATF, right?</span></div><div class="line" id="211358"><span class="nick" style="color:#2e2a4a"><a href="#211358" label="[21:13:58]">&lt;markjenkinswznc&gt;</a></span><span class="message">dddddd, re point 2, yes, I believe ATF is part of the u-boot hard init stuff, though my knowledge of these things has a ways to go</span></div><div class="line" id="211453"><span class="nick" style="color:#2e2a4a"><a href="#211453" label="[21:14:53]">&lt;markjenkinswznc&gt;</a></span><span class="message">I wasn't careful enough to explain that plain Pinebook uses an Allwinner SOC and Pinebook Pro uses a RockRidge SOC, so all the stuff about Allwinner SOC realm doesn't apply</span></div><div class="line" id="211633"><span class="nick" style="color:#2e2a4a"><a href="#211633" label="[21:16:33]">&lt;markjenkinswznc&gt;</a></span><span class="message">also checked in again and discovered I was incorrect to mention USB boot by Allwinner BROM (boot read only memory), which is good news as USB takes a lot of code to implement, access to eMMC, microSD and other flash is simpler</span></div><div class="line" id="211815"><span class="nick" style="color:#6b8072"><a href="#211815" label="[21:18:15]">&lt;dddddd&gt;</a></span><span class="message">IIRC, when compiling u-boot you provide the ATF, already compiled from another repo (not u-boot's).</span></div><div class="line" id="212230"><span class="nick" style="color:#6b8072"><a href="#212230" label="[21:22:30]">&lt;dddddd&gt;</a></span><span class="message">I'm not familiar with RockRidge.</span></div><div class="line" id="212605"><span class="nick" style="color:#2e2a4a"><a href="#212605" label="[21:26:05]">&lt;markjenkinswznc&gt;</a></span><span class="message">my oops, not RockRidge (like the iso9960 extensions), Rockchip</span></div><div class="line" id="212650"><span class="nick" style="color:#389600"><a href="#212650" label="[21:26:50]">&lt;janneke&gt;</a></span><span class="message">markjenkinswznc: yeah, thought it might be a good idea to help the arm port</span></div><div class="line" id="212744"><span class="nick" style="color:#6b8072"><a href="#212744" label="[21:27:44]">&lt;dddddd&gt;</a></span><span class="message">Yeah, something like that name. Anyway, I don't know the details. Thank you for the correction.</span></div><div class="line" id="213452"><span class="nick" style="color:#6b8072"><a href="#213452" label="[21:34:52]">&lt;dddddd&gt;</a></span><span class="message">janneke, what needs porting?</span></div><div class="line" id="213654"><span class="nick" style="color:#2e2a4a"><a href="#213654" label="[21:36:54]">&lt;markjenkinswznc&gt;</a></span><span class="message">I would assume he means Mes, in which case I might prefer a really high end x86 or Power9 workstation running qemu userland mode as the way to test a aarch64 GNU/Linux binary (a cool trick that doesn't require emulating a full VM)</span></div><div class="line" id="213825"><span class="nick" style="color:#389600"><a href="#213825" label="[21:38:25]">&lt;janneke&gt;</a></span><span class="message">dddddd: the bootstrap?</span></div><div class="line" id="213906"><span class="nick" style="color:#389600"><a href="#213906" label="[21:39:06]">&lt;janneke&gt;</a></span><span class="message">i believe most of stage0 works, but nothing onwards; guix still has a traditional bootstrap</span></div><div class="line" id="213907"><span class="nick" style="color:#2e2a4a"><a href="#213907" label="[21:39:07]">&lt;markjenkinswznc&gt;</a></span><span class="message">I'm should benchmark my Raptor computer systems Blackbird running qemu aarch64 in GNU/Linux userland mode</span></div><div class="line" id="213910"><span class="nick" style="color:#389600"><a href="#213910" label="[21:39:10]">&lt;janneke&gt;</a></span><span class="message">for arm</span></div><div class="line" id="213930"><span class="nick" style="color:#2e2a4a"><a href="#213930" label="[21:39:30]">&lt;markjenkinswznc&gt;</a></span><span class="message">ah, so M2-Planet as well as Mes for AArch64</span></div><div class="line" id="214015"><span class="nick" style="color:#6b8072"><a href="#214015" label="[21:40:15]">&lt;dddddd&gt;</a></span><span class="message">janneke, thanks... that was the questions, from with point / which parts.</span></div><div class="line" id="214024"><span class="nick" style="color:#6b8072"><a href="#214024" label="[21:40:24]">&lt;dddddd&gt;</a></span><span class="message">s/with/which/</span></div><div class="line" id="214115"><span class="nick" style="color:#389600"><a href="#214115" label="[21:41:15]">&lt;janneke&gt;</a></span><span class="message">yeah, so next stages are full source bootstrap and platform diversity; also there is auditability</span></div><div class="line" id="214142"><span class="nick" style="color:#6b8072"><a href="#214142" label="[21:41:42]">&lt;dddddd&gt;</a></span><span class="message">markjenkinswznc, qemu sometimes has bugs. I don't have problems with a more recent version, but some old one I use is unreliable.</span></div><div class="line" id="214201"><span class="nick" style="color:#389600"><a href="#214201" label="[21:42:01]">&lt;janneke&gt;</a></span><span class="message">OriansJ fork of mes can be seen as a &quot;monster audit&quot;</span></div><div class="line" id="214227"><span class="nick" style="color:#389600"><a href="#214227" label="[21:42:27]">&lt;janneke&gt;</a></span><span class="message">yes, i want to run arm without qemu, that has been troublesome esp. with tricksy debugging things</span></div><div class="line" id="214245"><span class="nick" style="color:#6b8072"><a href="#214245" label="[21:42:45]">&lt;dddddd&gt;</a></span><span class="message">janneke, so is porting of code in high level language? I'm missing something, sorry.</span></div><div class="line" id="214349"><span class="nick" style="color:#389600"><a href="#214349" label="[21:43:49]">&lt;janneke&gt;</a></span><span class="message">eh, can you rephrase that -- i cannot parse -- who is porting what?</span></div><div class="line" id="214402"><span class="nick" style="color:#2e2a4a"><a href="#214402" label="[21:44:02]">&lt;markjenkinswznc&gt;</a></span><span class="message">dddddd, good to know, though sad if aarch64 is buggy. It definitely makes sense to have the real ARM hardware as well, but if a fast workstation with the same OS as the target (allows for quemu userland trick) with an accurate emulator can speed up development in some phases, all the better</span></div><div class="line" id="214419"><span class="nick" style="color:#6b8072"><a href="#214419" label="[21:44:19]">&lt;dddddd&gt;</a></span><span class="message">janneke, &quot;to help the arm port&quot;</span></div><div class="line" id="214521"><span class="nick" style="color:#389600"><a href="#214521" label="[21:45:21]">&lt;janneke&gt;</a></span><span class="message">yes, mescc needs work; and the whole bootstrap needs to be done</span></div><div class="line" id="214536"><span class="nick" style="color:#389600"><a href="#214536" label="[21:45:36]">&lt;janneke&gt;</a></span><span class="message">dddddd: &quot;porting&quot; is probably the wrong term</span></div><div class="line" id="214617"><span class="nick" style="color:#389600"><a href="#214617" label="[21:46:17]">&lt;janneke&gt;</a></span><span class="message">&quot;attempting, implementing and fixing the reduced binary seed bootstrap for arm&quot; is probably better</span></div><div class="line" id="214647"><span class="nick" style="color:#2e2a4a"><a href="#214647" label="[21:46:47]">&lt;markjenkinswznc&gt;</a></span><span class="message">dddddd, I think what it comes down to re aarch64 (arm) is mescc-tools-seed has arm port, mescc-tools has arm port, M2-planet has arm port, and mes has arm port</span></div><div class="line" id="214648"><span class="nick" style="color:#389600"><a href="#214648" label="[21:46:48]">&lt;janneke&gt;</a></span><span class="message">i do not expect much actual &quot;porting&quot; to be done, the higher level tools &quot;should&quot; just run on arm too</span></div><div class="line" id="214739"><span class="nick" style="color:#389600"><a href="#214739" label="[21:47:39]">&lt;janneke&gt;</a></span><span class="message">but i'm pretty certain it will take a couple of months to get the bootstrap to &quot;just run&quot;</span></div><div class="line" id="214810"><span class="nick" style="color:#6b8072"><a href="#214810" label="[21:48:10]">&lt;dddddd&gt;</a></span><span class="message">markjenkinswznc, from my notes... the M2-Planet tests pass on qemu 3.1.0 (debian 10) but some crash kind of randomly in 2.1.2 (debian 8). I didn't use debugging features. Nor testes versions inbetween.</span></div><div class="line" id="214828"><span class="nick" style="color:#389600"><a href="#214828" label="[21:48:28]">&lt;janneke&gt;</a></span><span class="message">fossy has been &quot;porting&quot; the mes bootstrap from guix to bash; they can probably also tell you what we may expect</span></div><div class="line" id="214942"><span class="nick" style="color:#6b8072"><a href="#214942" label="[21:49:42]">&lt;dddddd&gt;</a></span><span class="message">s/testes/tested/</span></div><div class="line" id="221136"><span class="nick" style="color:#6b8072"><a href="#221136" label="[22:11:36]">&lt;dddddd&gt;</a></span><span class="message">janneke, OK... I'll try to remember what &quot;the&quot; bootstrap is for you, to put your comments in the right frame. Note that not everyone is at the same point or sees the same path.</span></div><div class="line" id="221235"><span class="nick" style="color:#389600"><a href="#221235" label="[22:12:35]">&lt;janneke&gt;</a></span><span class="message">dddddd: yes, i'm sometimes talking from my own perspective, context</span></div><div class="line" id="221401"><span class="nick" style="color:#6b8072"><a href="#221401" label="[22:14:01]">&lt;dddddd&gt;</a></span><span class="message">janneke, sure. It takes time to know each other perspective. Thanks for your patience.</span></div><div class="line" id="221402"><span class="nick" style="color:#389600"><a href="#221402" label="[22:14:02]">&lt;janneke&gt;</a></span><span class="message">i really meant guix's commencement.scm</span></div><div class="line" id="221454"><span class="nick" style="color:#389600"><a href="#221454" label="[22:14:54]">&lt;janneke&gt;</a></span><span class="message">:-) i like it a lot when people try hard to understand eachother, thank you</span></div><div class="line" id="221956"><span class="nick" style="color:#2e2a4a"><a href="#221956" label="[22:19:56]">&lt;markjenkinswznc&gt;</a></span><span class="message">fossy, when you were discussing gcc-seed many days ago and I didn't get a chance to weigh in, was just lurking. A shout out of moral support for gcc-seed and the overall idea of guix-less bootstraps. In my strange imagination this is actually useful for Guix for a certain case as well -- but first I have to cover two cases where it doesn't apply to give context:</span></div><div class="line" id="222001"><span class="nick" style="color:#2e2a4a"><a href="#222001" label="[22:20:01]">&lt;markjenkinswznc&gt;</a></span><span class="message">Case 1) The normal starting point for Guix users would be bootstrapping from another GNU/Linux -- and they might as well have Guix stuff come up as soon as possible (as is already the case).</span></div><div class="line" id="222007"><span class="nick" style="color:#2e2a4a"><a href="#222007" label="[22:20:07]">&lt;markjenkinswznc&gt;</a></span><span class="message">Case 2) The other extreme would be something like building knight ISA out of TTL, hand verifying a bootrom on tape and/or with an inspection circuit built in LEDs and running stage0, M2-planet, mes-m2, and some kind of M2 authored kernel to provide a sufficient environment to cross compile a Guix GNU/Linux for some other platform. That also might as well also have Guix specifics come up as soon as possible on first GNU/Linux boot.</span></div><div class="line" id="222013"><span class="nick" style="color:#2e2a4a"><a href="#222013" label="[22:20:13]">&lt;markjenkinswznc&gt;</a></span><span class="message">Case 3) Where gcc-seed helps: I'm imagining bootstrapping Guix with help of gcc-seed from a strange middle ground involing three three computers A, B, C as follows:</span></div><div class="line" id="222019"><span class="nick" style="color:#2e2a4a"><a href="#222019" label="[22:20:19]">&lt;markjenkinswznc&gt;</a></span><span class="message">Computer A is a retro platform (hardware+OS) I'm willing to sort of trust that's not GNU/Linux on x86/amd64 where it should be possible to build gcc-seed or something similar that's shell based and the 2004 tccboot bootloader-compiler hack to produce a x86 boot image for computer B (old x86 linux 2.4 compatible).</span></div><div class="line" id="222024"><span class="nick" style="color:#2e2a4a"><a href="#222024" label="[22:20:24]">&lt;markjenkinswznc&gt;</a></span><span class="message">Computer B self-compiles Linux with the 2004 tccboot hack and uses a gcc-seed or similar built userland, and computer B bootstraps Guix to be run on any Guix supported platform, perhaps even creating a reproducable .iso. Computer C boots Guix from boot media created by computer B.</span></div><div class="line" id="222028"><span class="nick" style="color:#2e2a4a"><a href="#222028" label="[22:20:28]">&lt;markjenkinswznc&gt;</a></span><span class="message">In this middle-ground case, gcc-seed or similar helps move the process along faster as Guix support isn't required to go from A-&gt;B, the idea is to escape from computer A to a minimal GNU/Linux that runs on computer B as fast as possible with dependancies and instruction set and executable format porting effort re computer A minimized as much as possible.</span></div><div class="line" id="222039"><span class="nick" style="color:#2e2a4a"><a href="#222039" label="[22:20:39]">&lt;markjenkinswznc&gt;</a></span><span class="message">that's all for now</span></div><div class="line" id="222042"><span class="nick" style="color:#80b1d3"><a href="#222042" label="[22:20:42]">&lt;vagrantc&gt;</a></span><span class="message">whoah, this might be better as a blog post :)</span></div><div class="line" id="222218"><span class="nick" style="color:#80b1d3"><a href="#222218" label="[22:22:18]">&lt;vagrantc&gt;</a></span><span class="message">general irc etiquette is more than a few lines to use a pastebin...</span></div><div class="line" id="222233"><span class="nick" style="color:#80b1d3"><a href="#222233" label="[22:22:33]">&lt;vagrantc&gt;</a></span><span class="message">that said, interesting comments :)</span></div><div class="line" id="222448"><span class="nick" style="color:#6b8072"><a href="#222448" label="[22:24:48]">&lt;dddddd&gt;</a></span><span class="message">Let's say those are a few lines (of great comments, better than sparse phrases sentences). I like the content too, a lot.</span></div><div class="line" id="225547"><span class="nick" style="color:#6d2462"><a href="#225547" label="[22:55:47]">&lt;OriansJ&gt;</a></span><span class="message">janneke: also would you be open to a change in how MesCC deals with assembly generation? As you might benefit from a trick in GCC's playbook to enable faster porting and ultimately faster binaries</span></div><div class="line" id="231643"><span class="nick" style="color:#6d2462"><a href="#231643" label="[23:16:43]">&lt;OriansJ&gt;</a></span><span class="message">it also would enable a crazy idea to make a scheme compiler written in scheme become the root of Guix's trust</span></div><div class="line" id="231720"><span class="nick" style="color:#6d2462"><a href="#231720" label="[23:17:20]">&lt;OriansJ&gt;</a></span><span class="message">I got the idea while looking at <a rel="nofollow" href="http://canonical.org/~kragen/sw/urscheme/">http://canonical.org/~kragen/sw/urscheme/</a>  to be a test for mes-m2</span></div><br /></div></body></html>

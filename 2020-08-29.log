@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-08-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="125547"><span class="nick" style="color:#8dd3c7"><a href="#125547" label="[12:55:47]">&lt;dannym_&gt;</a></span><span class="message">janneke: What is build-aux/check.sh.in' LIBS for ?</span></div><div class="line" id="125604"><span class="nick" style="color:#8dd3c7"><a href="#125604" label="[12:56:04]">&lt;dannym_&gt;</a></span><span class="message">janneke: It seems that it's never exported, so it's local to that file?  What does that help?</span></div><div class="line" id="125731"><span class="nick" style="color:#8dd3c7"><a href="#125731" label="[12:57:31]">&lt;dannym_&gt;</a></span><span class="message">janneke: Instead, in build-aux/test-c.sh, there's a case analysis that sets LIBS.  But that always uses -l mescc right now.  If we want -l gcc for gcc and -l mescc for mescc, that script has to know what it's compiled by--which it doesn't right now</span></div><div class="line" id="125755"><span class="nick" style="color:#8dd3c7"><a href="#125755" label="[12:57:55]">&lt;dannym_&gt;</a></span><span class="message">janneke: Also, for gcc, we have to be explicit and link: -lc -lgcc -lc (not a typo)</span></div><div class="line" id="125835"><span class="nick" style="color:#8dd3c7"><a href="#125835" label="[12:58:35]">&lt;dannym_&gt;</a></span><span class="message">janneke: If we didn't disable gcc's automatic resolving none of this weirdness would be visible in our build scripts, and check.sh.in would not have to distinguish between the two compilers</span></div><div class="line" id="130107"><span class="nick" style="color:#8dd3c7"><a href="#130107" label="[13:01:07]">&lt;dannym_&gt;</a></span><span class="message">I guess we can't enable gcc's automatic resolving of that because we have different libc's with different names</span></div><div class="line" id="130250"><span class="nick" style="color:#8dd3c7"><a href="#130250" label="[13:02:50]">&lt;dannym_&gt;</a></span><span class="message">But then build-aux/test-c.sh needs to know whether $compiler = gcc</span></div><div class="line" id="130959"><span class="nick" style="color:#8dd3c7"><a href="#130959" label="[13:09:59]">&lt;dannym_&gt;</a></span><span class="message">janneke: The reason for the -lc -lgcc -lc is because gcc uses an external raise(), which is in libc.  The linker resolves symbol references only in the order they are seen, not globally.</span></div><div class="line" id="142805"><span class="nick" style="color:#8dd3c7"><a href="#142805" label="[14:28:05]">&lt;dannym_&gt;</a></span><span class="message">janneke: If you want, could you give me (daym) push access to git@gitlab.com:janneke/tinycc.git ?</span></div><div class="line" id="142835"><span class="nick" style="color:#8dd3c7"><a href="#142835" label="[14:28:35]">&lt;dannym_&gt;</a></span><span class="message">janneke: If not, please modify build-32.sh so that it says at the very end: libc.a -lgcc libc.a</span></div><div class="line" id="142842"><span class="nick" style="color:#8dd3c7"><a href="#142842" label="[14:28:42]">&lt;dannym_&gt;</a></span><span class="message">janneke: (i.e. add one libc.a at the end)</span></div><div class="line" id="142910"><span class="nick" style="color:#8dd3c7"><a href="#142910" label="[14:29:10]">&lt;dannym_&gt;</a></span><span class="message">janneke: Otherwise libgcc.a cannot resolve raise(), which is in libc.</span></div><div class="line" id="232055"><span class="nick" style="color:#2e2a4a"><a href="#232055" label="[23:20:55]">&lt;janneke&gt;</a></span><span class="message">dannym_: thanks, pushed -lgcc libc.a -lgcc to tinycc at gitlab</span></div><div class="line" id="232222"><span class="nick" style="color:#2e2a4a"><a href="#232222" label="[23:22:22]">&lt;janneke&gt;</a></span><span class="message">dannym_: i don't really know about LIBS in check.sh.in; we just have to revisit that</span></div><div class="line" id="232240"><span class="nick" style="color:#2e2a4a"><a href="#232240" label="[23:22:40]">&lt;janneke&gt;</a></span><span class="message">dannym_: it's either a leftover or something that's not finished</span></div><div class="line" id="232302"><span class="nick" style="color:#8dd3c7"><a href="#232302" label="[23:23:02]">&lt;dannym_&gt;</a></span><span class="message">janneke: Pushed workaround to mes wip</span></div><div class="line" id="232309"><span class="nick" style="color:#2e2a4a"><a href="#232309" label="[23:23:09]">&lt;janneke&gt;</a></span><span class="message">test-c.sh took many iterations -- in a way it's nice if the user can override CFLAGS in configure</span></div><div class="line" id="232315"><span class="nick" style="color:#8dd3c7"><a href="#232315" label="[23:23:15]">&lt;dannym_&gt;</a></span><span class="message">janneke: 0 test failures for gcc-lib, 0 test failures for mescc-lib</span></div><div class="line" id="232323"><span class="nick" style="color:#2e2a4a"><a href="#232323" label="[23:23:23]">&lt;janneke&gt;</a></span><span class="message">dannym_: \o/</span></div><div class="line" id="232345"><span class="nick" style="color:#2e2a4a"><a href="#232345" label="[23:23:45]">&lt;janneke&gt;</a></span><span class="message">...but giving the user (too much) control makes things fragile -- i dunno, it's tricky</span></div><div class="line" id="232451"><span class="nick" style="color:#2e2a4a"><a href="#232451" label="[23:24:51]">&lt;janneke&gt;</a></span><span class="message">dannym_: i've been afk most of the day, and my time at the keyboard i've been rebooting all the time working on the childhurd secrets...first draft is finally done</span></div><div class="line" id="232513"><span class="nick" style="color:#8dd3c7"><a href="#232513" label="[23:25:13]">&lt;dannym_&gt;</a></span><span class="message">janneke: I see :)</span></div><div class="line" id="232558"><span class="nick" style="color:#2e2a4a"><a href="#232558" label="[23:25:58]">&lt;janneke&gt;</a></span><span class="message">dannym_: ah that fixs looks great</span></div><div class="line" id="232615"><span class="nick" style="color:#2e2a4a"><a href="#232615" label="[23:26:15]">&lt;janneke&gt;</a></span><span class="message">thanks</span></div><div class="line" id="232650"><span class="nick" style="color:#8dd3c7"><a href="#232650" label="[23:26:50]">&lt;dannym_&gt;</a></span><span class="message">janneke: I'm improving on it even more ;)</span></div><div class="line" id="232651"><span class="nick" style="color:#2e2a4a"><a href="#232651" label="[23:26:51]">&lt;janneke&gt;</a></span><span class="message">yeah, it's terrible, i can't start a vm inside a vm, so to properly test it i must reboot</span></div><div class="line" id="232721"><span class="nick" style="color:#2e2a4a"><a href="#232721" label="[23:27:21]">&lt;janneke&gt;</a></span><span class="message">dannym_: nice, first get it working...then go from there -- i like it</span></div><div class="line" id="232748"><span class="nick" style="color:#8dd3c7"><a href="#232748" label="[23:27:48]">&lt;dannym_&gt;</a></span><span class="message">Also gcc-compiled tcc works (small tests) kinda</span></div><div class="line" id="232828"><span class="nick" style="color:#8dd3c7"><a href="#232828" label="[23:28:28]">&lt;dannym_&gt;</a></span><span class="message">janneke: Pushed better fix to mes wip as commit 17211c9c9c23fd2b6d0a5caffbc53e203571449c (Support &quot;mescc --print-libgcc-file-name&quot;), but it doesn't work for some reason.</span></div><div class="line" id="232850"><span class="nick" style="color:#8dd3c7"><a href="#232850" label="[23:28:50]">&lt;dannym_&gt;</a></span><span class="message">janneke: If you have a minute could you check what's up with it?  Kinda embarassing not to get option parsing to work, but ehhh</span></div><div class="line" id="232907"><span class="nick" style="color:#8dd3c7"><a href="#232907" label="[23:29:07]">&lt;dannym_&gt;</a></span><span class="message">(It says &quot;no such option&quot;)</span></div><div class="line" id="233334"><span class="nick" style="color:#8dd3c7"><a href="#233334" label="[23:33:34]">&lt;dannym_&gt;</a></span><span class="message">Also, small note: ./pre-inst-env of mes doesn't work outside a guix environment.  I get error:include-from-path: not found: :(nyacc/lex.scm).  That's different to guix's ./pre-inst-env which (as far as I know) provides all dependencies, too</span></div><div class="line" id="233641"><span class="nick" style="color:#2e2a4a"><a href="#233641" label="[23:36:41]">&lt;janneke&gt;</a></span><span class="message">dannym_: that would be a bug!</span></div><div class="line" id="233712"><span class="nick" style="color:#2e2a4a"><a href="#233712" label="[23:37:12]">&lt;janneke&gt;</a></span><span class="message">it could be that configure doesn't take good care of GUILE_LOAD_PATH, which should include nyacc</span></div><div class="line" id="233732"><span class="nick" style="color:#6b8072"><a href="#233732" label="[23:37:32]">*</a></span><span class="message">janneke looks</span></div><div class="line" id="233814"><span class="nick" style="color:#8dd3c7"><a href="#233814" label="[23:38:14]">&lt;dannym_&gt;</a></span><span class="message">pre-inst-env has:</span></div><div class="line" id="233815"><span class="nick" style="color:#8dd3c7"><a href="#233815" label="[23:38:15]">&lt;dannym_&gt;</a></span><span class="message">GUILE_LOAD_COMPILED_PATH=&quot;$abs_top_builddir/scripts:$abs_top_builddir/module${GUILE_LOAD_COMPILED_PATH:+:}$GUILE_LOAD_COMPILED_PATH&quot;</span></div><div class="line" id="233816"><span class="nick" style="color:#8dd3c7"><a href="#233816" label="[23:38:16]">&lt;dannym_&gt;</a></span><span class="message">GUILE_LOAD_PATH=&quot;$abs_top_srcdir/module:$abs_top_srcdir/mes:$abs_top_srcdir/guix${GUILE_LOAD_PATH:+:}$GUILE_LOAD_PATH&quot;</span></div><div class="line" id="234022"><span class="nick" style="color:#2e2a4a"><a href="#234022" label="[23:40:22]">&lt;janneke&gt;</a></span><span class="message">dannym_:  line 188:  (print-libgcc-file-name (display &quot;-lmescc\n&quot;)) probably wants a &quot;?&quot; appended and</span></div><div class="line" id="234055"><span class="nick" style="color:#2e2a4a"><a href="#234055" label="[23:40:55]">&lt;janneke&gt;</a></span><span class="message">also wants something like  (print-libgcc-file-name? (option-ref options 'print-libgcc-file-name #f))</span></div><div class="line" id="234056"><span class="nick" style="color:#2e2a4a"><a href="#234056" label="[23:40:56]">&lt;janneke&gt;</a></span><span class="message"> </span></div><div class="line" id="234058"><span class="nick" style="color:#2e2a4a"><a href="#234058" label="[23:40:58]">&lt;janneke&gt;</a></span><span class="message">just above</span></div><div class="line" id="234201"><span class="nick" style="color:#2e2a4a"><a href="#234201" label="[23:42:01]">&lt;janneke&gt;</a></span><span class="message">dannym_: hmm...that looks OK ... so what's going on; does running with -v or MES_DEBUG=2 help? (i'll have a look at this as well)</span></div><div class="line" id="234236"><span class="nick" style="color:#6b8072"><a href="#234236" label="[23:42:36]">*</a></span><span class="message">vagrantc smiles seeing work on mes</span></div><br /></div></body></html>

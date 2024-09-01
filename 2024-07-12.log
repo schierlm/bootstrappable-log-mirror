@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-07-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="205400"><span class="nick" style="color:#389600"><a href="#205400" label="[20:54:00]">&lt;aggi&gt;</a></span><span class="message">GNU buildsystem is troublesome</span></div><div class="line" id="205448"><span class="nick" style="color:#389600"><a href="#205448" label="[20:54:48]">&lt;aggi&gt;</a></span><span class="message">for example, besides bootstrapping, i verify various crosscompilation variants with gcc-4.7 involved (because this was the last no-c++ one)</span></div><div class="line" id="205556"><span class="nick" style="color:#389600"><a href="#205556" label="[20:55:56]">&lt;aggi&gt;</a></span><span class="message">for the sake of it, i replaced libtool with slibtool everywhere; all of the sudden later versions than gcc-4.7 need c++ bootstrapped, and the related components failed with LIBTOOL=slibtool, although all else including a complete userspace had passed before</span></div><div class="line" id="205824"><span class="nick" style="color:#389600"><a href="#205824" label="[20:58:24]">&lt;aggi&gt;</a></span><span class="message">anyway, so far, i can confirm various ARCH succeed with cross-compilation back and forth with each other already (amd64, x86, aarch32, aarch64), including the bootstrapping of a later gcc-version-6.5 with gcc-4.7</span></div><div class="line" id="205917"><span class="nick" style="color:#389600"><a href="#205917" label="[20:59:17]">&lt;aggi&gt;</a></span><span class="message">that's tii how, the c-only profile maintained for gentoo is practical, because i can avoid the extremely slow g++ compilation almost always</span></div><div class="line" id="210008"><span class="nick" style="color:#389600"><a href="#210008" label="[21:00:08]">&lt;aggi&gt;</a></span><span class="message">except aarch64, which requires a later gcc-6.5 (with c++ involved) for kernel and uboot</span></div><div class="line" id="210051"><span class="nick" style="color:#389600"><a href="#210051" label="[21:00:51]">&lt;aggi&gt;</a></span><span class="message">in principle this means, if #bootstrappable arrives at a gcc-4.7 bootstrapped with tcc-toolchain, then any later gcc/binutils can be bootstrapped/crosscompiled too, for any ARCH desired</span></div><div class="line" id="210225"><span class="nick" style="color:#389600"><a href="#210225" label="[21:02:25]">&lt;aggi&gt;</a></span><span class="message">soon i will re-try a complete crossdev/compilation of the entire distribution with tcc-toolchain only (no binutils/gcc)</span></div><div class="line" id="210310"><span class="nick" style="color:#389600"><a href="#210310" label="[21:03:10]">&lt;aggi&gt;</a></span><span class="message">with it verify again if tcc-toolchain suffices to bootstrap gcc/binutils (last time i tried for amd64 it did)</span></div><div class="line" id="210403"><span class="nick" style="color:#389600"><a href="#210403" label="[21:04:03]">&lt;aggi&gt;</a></span><span class="message">but i think tcc-toolchain failed with python03.8, that was required to retain gentoo/crossdev/portage for example</span></div><div class="line" id="210452"><span class="nick" style="color:#389600"><a href="#210452" label="[21:04:52]">&lt;aggi&gt;</a></span><span class="message">and perl was nasty too, because perl-5.30 failed with tcc-toolchain while it passed with perl-5.8, however perl-5.8 failed with crossdev and switching ARCH</span></div><div class="line" id="210526"><span class="nick" style="color:#389600"><a href="#210526" label="[21:05:26]">&lt;aggi&gt;</a></span><span class="message">hence, i need to swap perl-version for either tcc-toolchain and/or crossdev</span></div><div class="line" id="210604"><span class="nick" style="color:#389600"><a href="#210604" label="[21:06:04]">&lt;aggi&gt;</a></span><span class="message">i think this was the final reasons, i decided to abandon GNU buildsystem (if i can), that required automake/autoconf for example, and with it Perl</span></div><div class="line" id="210640"><span class="nick" style="color:#389600"><a href="#210640" label="[21:06:40]">&lt;aggi&gt;</a></span><span class="message">as far as Python was concerned i don't remember exactly what had failed with tcc-toolchain</span></div><div class="line" id="210913"><span class="nick" style="color:#389600"><a href="#210913" label="[21:09:13]">&lt;aggi&gt;</a></span><span class="message">otherwise, gcc is rather slow compile-time; last time i tried with tcc-toochain only, compilation times were cut in half or more</span></div><div class="line" id="211022"><span class="nick" style="color:#389600"><a href="#211022" label="[21:10:22]">&lt;aggi&gt;</a></span><span class="message">since i am residing on some low power buildhosts (cortex a53 for aarch32/64, and a hp t620 thin client for x86/32/64)</span></div><div class="line" id="211133"><span class="nick" style="color:#389600"><a href="#211133" label="[21:11:33]">&lt;aggi&gt;</a></span><span class="message">i intend to avoid GNU toolchain too, by ensuring 1) _everything_ (including linux-2.x kernel) passes with tcc-toolchain, and 2) re-confirming my system setup can cleanly bootstrap GNU-buildsystem and GNU-toolchain</span></div><div class="line" id="211212"><span class="nick" style="color:#389600"><a href="#211212" label="[21:12:12]">&lt;aggi&gt;</a></span><span class="message">which finally means this: i want to keep GNU-buildsystem and GNU-toolchain _optional_</span></div><div class="line" id="211239"><span class="nick" style="color:#389600"><a href="#211239" label="[21:12:39]">&lt;aggi&gt;</a></span><span class="message">and this is extremely difficult to accomplish (which the slibtool/libtool issue had shown again last night)</span></div><div class="line" id="214356"><span class="nick" style="color:#389600"><a href="#214356" label="[21:43:56]">&lt;aggi&gt;</a></span><span class="message">reading along inside parts.rst: seems GNU-toolchain, GNU-buildsystem, perl, and python are among the most troublesome to bootstrap - those were too problematic with crossdev compilation</span></div><div class="line" id="214530"><span class="nick" style="color:#8dd3c7"><a href="#214530" label="[21:45:30]">&lt;stikonas&gt;</a></span><span class="message">autotools is not hard once you have perl</span></div><div class="line" id="214544"><span class="nick" style="color:#8dd3c7"><a href="#214544" label="[21:45:44]">&lt;stikonas&gt;</a></span><span class="message">python, I'm not sure, fossy did that</span></div><div class="line" id="214618"><span class="nick" style="color:#8dd3c7"><a href="#214618" label="[21:46:18]">&lt;stikonas&gt;</a></span><span class="message">perl I think was average</span></div><div class="line" id="214629"><span class="nick" style="color:#8dd3c7"><a href="#214629" label="[21:46:29]">&lt;stikonas&gt;</a></span><span class="message">they might have a lot of steps there</span></div><div class="line" id="214642"><span class="nick" style="color:#8dd3c7"><a href="#214642" label="[21:46:42]">&lt;stikonas&gt;</a></span><span class="message">but if I recall correctly, steps were not too hard</span></div><div class="line" id="214650"><span class="nick" style="color:#8dd3c7"><a href="#214650" label="[21:46:50]">&lt;stikonas&gt;</a></span><span class="message">i.e. one would spend far more time on binutils and gcc</span></div><div class="line" id="214714"><span class="nick" style="color:#389600"><a href="#214714" label="[21:47:14]">&lt;aggi&gt;</a></span><span class="message">if the verification of crosscompilation was included, this significantly complicates perl and python maintenance</span></div><div class="line" id="214929"><span class="nick" style="color:#389600"><a href="#214929" label="[21:49:29]">&lt;aggi&gt;</a></span><span class="message">myself is mostly scared by the hardcore parts of M0/hex0/mesc etc.; because i am not a proficient asm hacker (not yet)</span></div><div class="line" id="215039"><span class="nick" style="color:#389600"><a href="#215039" label="[21:50:39]">&lt;aggi&gt;</a></span><span class="message">another one related to bootstrappable, is additional efforts for fiwix, which i would try to avoid, if and only if i succeed with linux-2.4 that i am planning to use _only_</span></div><div class="line" id="215136"><span class="nick" style="color:#8dd3c7"><a href="#215136" label="[21:51:36]">&lt;stikonas&gt;</a></span><span class="message">aggi: I didn't really know assembly before stage0-posix...</span></div><div class="line" id="215155"><span class="nick" style="color:#8dd3c7"><a href="#215155" label="[21:51:55]">&lt;stikonas&gt;</a></span><span class="message">if you want to learn, you can start with high level prototypes</span></div><div class="line" id="215159"><span class="nick" style="color:#8dd3c7"><a href="#215159" label="[21:51:59]">&lt;stikonas&gt;</a></span><span class="message">to see what they do</span></div><div class="line" id="215256"><span class="nick" style="color:#8dd3c7"><a href="#215256" label="[21:52:56]">&lt;stikonas&gt;</a></span><span class="message">e.g. <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/tree/master/High%20Level%20Prototypes">https://github.com/oriansj/stage0-posix/tree/master/High%20Level%20Prototypes</a> </span></div><div class="line" id="215300"><span class="nick" style="color:#8dd3c7"><a href="#215300" label="[21:53:00]">&lt;stikonas&gt;</a></span><span class="message">that's just C</span></div><div class="line" id="215511"><span class="nick" style="color:#8dd3c7"><a href="#215511" label="[21:55:11]">&lt;stikonas&gt;</a></span><span class="message">and we mostly use fairly simple assembly there</span></div><div class="line" id="215518"><span class="nick" style="color:#8dd3c7"><a href="#215518" label="[21:55:18]">&lt;stikonas&gt;</a></span><span class="message">so stage0-posix is good place to learn</span></div><div class="line" id="215535"><span class="nick" style="color:#8dd3c7"><a href="#215535" label="[21:55:35]">&lt;stikonas&gt;</a></span><span class="message">fairly restricted amount of instructions...</span></div><div class="line" id="215609"><span class="nick" style="color:#389600"><a href="#215609" label="[21:56:09]">&lt;aggi&gt;</a></span><span class="message">and stage0 is the most relevant, to arrive at tcc-toolchain that i want to use exclusively</span></div><div class="line" id="215612"><span class="nick" style="color:#8dd3c7"><a href="#215612" label="[21:56:12]">&lt;stikonas&gt;</a></span><span class="message">none of the more advanced, e.g. SSE/SIMD, etc stuff</span></div><div class="line" id="215633"><span class="nick" style="color:#8dd3c7"><a href="#215633" label="[21:56:33]">&lt;stikonas&gt;</a></span><span class="message">so learning curve is a bit easier</span></div><div class="line" id="215731"><span class="nick" style="color:#389600"><a href="#215731" label="[21:57:31]">&lt;aggi&gt;</a></span><span class="message">although, i will know soon, if there was problems with python compiled by tcc-toolchain, i may have to re-iterate over some of the bootstrappable rootfs.py stuff</span></div><div class="line" id="215753"><span class="nick" style="color:#389600"><a href="#215753" label="[21:57:53]">&lt;aggi&gt;</a></span><span class="message">too i replaced bash with oksh here, so that's the one i am scripting with</span></div><div class="line" id="215957"><span class="nick" style="color:#389600"><a href="#215957" label="[21:59:57]">&lt;aggi&gt;</a></span><span class="message">i will keep focus on tcc-toolchain/c-only-profile/linux-2.4 here, and trust bootstrappable did the preceeding parts</span></div><div class="line" id="220401"><span class="nick" style="color:#389600"><a href="#220401" label="[22:04:01]">&lt;aggi&gt;</a></span><span class="message">difference with my approach is this:</span></div><div class="line" id="220437"><span class="nick" style="color:#389600"><a href="#220437" label="[22:04:37]">&lt;aggi&gt;</a></span><span class="message">[bootstrappable stage0] -&gt; tcc-toolchain -&gt; complete system including kernel</span></div><div class="line" id="220445"><span class="nick" style="color:#389600"><a href="#220445" label="[22:04:45]">&lt;aggi&gt;</a></span><span class="message">while bootstrappable did:</span></div><div class="line" id="220513"><span class="nick" style="color:#389600"><a href="#220513" label="[22:05:13]">&lt;aggi&gt;</a></span><span class="message">stage0 -&gt; tcc-toolchain -&gt; GNU buildsystem/toolchain -&gt; complete system including kernel</span></div><div class="line" id="220640"><span class="nick" style="color:#389600"><a href="#220640" label="[22:06:40]">&lt;aggi&gt;</a></span><span class="message">and i got #gentoo attached to my workflow still (and with it python/perl/bash), to do dependency-tracking including crossdev</span></div><div class="line" id="220750"><span class="nick" style="color:#389600"><a href="#220750" label="[22:07:50]">&lt;aggi&gt;</a></span><span class="message">i am certain already, i will loose gentoo, and hence have to re-integrate the workflow completely without it</span></div><div class="line" id="220853"><span class="nick" style="color:#389600"><a href="#220853" label="[22:08:53]">&lt;aggi&gt;</a></span><span class="message">and since this is unavoidable, i doubt i wanted to invest efforts into bootstrapping python/perl/bash/gentoo</span></div><div class="line" id="221012"><span class="nick" style="color:#389600"><a href="#221012" label="[22:10:12]">&lt;aggi&gt;</a></span><span class="message">because i will have to rewrite system-integration for tcc-toolchain and/or crosscompilation without gentoo anyway</span></div><div class="line" id="221113"><span class="nick" style="color:#389600"><a href="#221113" label="[22:11:13]">&lt;aggi&gt;</a></span><span class="message">hence, i will merely keep the crossdev-setup archived, to scrape log-files of dependency tracking and package builds</span></div><br /></div></body></html>

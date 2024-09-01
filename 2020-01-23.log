@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-01-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001217"><span class="nick" style="color:#8dd3c7"><a href="#001217" label="[00:12:17]">&lt;oriansj&gt;</a></span><span class="message">greetings coldtom</span></div><div class="line" id="001830"><span class="nick" style="color:#8dd3c7"><a href="#001830" label="[00:18:30]">&lt;oriansj&gt;</a></span><span class="message">and first pass at fuzzing M2-Planet; has cleared out some obvious segfaults</span></div><div class="line" id="002001"><span class="nick" style="color:#2e2a4a"><a href="#002001" label="[00:20:01]">&lt;fossy&gt;</a></span><span class="message">what the crap.</span></div><div class="line" id="002020"><span class="nick" style="color:#2e2a4a"><a href="#002020" label="[00:20:20]">&lt;fossy&gt;</a></span><span class="message">calloc(max_string, sizeof(char)) when compiled with gcc only in kaem is segfaulting</span></div><div class="line" id="002030"><span class="nick" style="color:#2e2a4a"><a href="#002030" label="[00:20:30]">&lt;fossy&gt;</a></span><span class="message">with malloc(): corrupted top size</span></div><div class="line" id="002432"><span class="nick" style="color:#8dd3c7"><a href="#002432" label="[00:24:32]">&lt;oriansj&gt;</a></span><span class="message">fossy: that tends to happen when something prior write past the end of the allocation</span></div><div class="line" id="002445"><span class="nick" style="color:#2e2a4a"><a href="#002445" label="[00:24:45]">&lt;fossy&gt;</a></span><span class="message">prior.</span></div><div class="line" id="002447"><span class="nick" style="color:#2e2a4a"><a href="#002447" label="[00:24:47]">&lt;fossy&gt;</a></span><span class="message">hrmmmmm</span></div><div class="line" id="002647"><span class="nick" style="color:#8dd3c7"><a href="#002647" label="[00:26:47]">&lt;oriansj&gt;</a></span><span class="message">fossy: if you share the test, I might be able to help you find the cause</span></div><div class="line" id="002922"><span class="nick" style="color:#2e2a4a"><a href="#002922" label="[00:29:22]">&lt;fossy&gt;</a></span><span class="message">OH I SEE NOW</span></div><div class="line" id="002930"><span class="nick" style="color:#2e2a4a"><a href="#002930" label="[00:29:30]">&lt;fossy&gt;</a></span><span class="message">oriansj: never mind i have found the issue</span></div><div class="line" id="002936"><span class="nick" style="color:#2e2a4a"><a href="#002936" label="[00:29:36]">&lt;fossy&gt;</a></span><span class="message">buffer overflow in collect_string()</span></div><div class="line" id="003004"><span class="nick" style="color:#2e2a4a"><a href="#003004" label="[00:30:04]">&lt;fossy&gt;</a></span><span class="message">target[index] = c can overflow target when given a long enough string, as it dosent have bounds checking</span></div><div class="line" id="003033"><span class="nick" style="color:#8dd3c7"><a href="#003033" label="[00:30:33]">&lt;oriansj&gt;</a></span><span class="message">import require.c from M2-Planet's functions</span></div><div class="line" id="003111"><span class="nick" style="color:#8dd3c7"><a href="#003111" label="[00:31:11]">&lt;oriansj&gt;</a></span><span class="message">and add require(MAX_STRING &gt; index, &quot;reasonable error message\n&quot;); prior to the statement</span></div><div class="line" id="003257"><span class="nick" style="color:#2e2a4a"><a href="#003257" label="[00:32:57]">&lt;fossy&gt;</a></span><span class="message">oh, thats a nice way of doing it</span></div><div class="line" id="003304"><span class="nick" style="color:#2e2a4a"><a href="#003304" label="[00:33:04]">&lt;fossy&gt;</a></span><span class="message">before i was doing</span></div><div class="line" id="003318"><span class="nick" style="color:#2e2a4a"><a href="#003318" label="[00:33:18]">&lt;fossy&gt;</a></span><span class="message">if(MAX_STRING &gt; index)</span></div><div class="line" id="003321"><span class="nick" style="color:#2e2a4a"><a href="#003321" label="[00:33:21]">&lt;fossy&gt;</a></span><span class="message">{</span></div><div class="line" id="003329"><span class="nick" style="color:#2e2a4a"><a href="#003329" label="[00:33:29]">&lt;fossy&gt;</a></span><span class="message">file_print(&quot;error\n&quot;, stderr);</span></div><div class="line" id="003331"><span class="nick" style="color:#2e2a4a"><a href="#003331" label="[00:33:31]">&lt;fossy&gt;</a></span><span class="message">}</span></div><div class="line" id="003334"><span class="nick" style="color:#2e2a4a"><a href="#003334" label="[00:33:34]">&lt;fossy&gt;</a></span><span class="message">but require is better</span></div><div class="line" id="003420"><span class="nick" style="color:#8dd3c7"><a href="#003420" label="[00:34:20]">&lt;oriansj&gt;</a></span><span class="message">it also allows alot more catching of errors in a compact space</span></div><div class="line" id="003453"><span class="nick" style="color:#8dd3c7"><a href="#003453" label="[00:34:53]">&lt;oriansj&gt;</a></span><span class="message">(checkout mes_builtins.c to see excessive use of that)</span></div><div class="line" id="003600"><span class="nick" style="color:#2e2a4a"><a href="#003600" label="[00:36:00]">&lt;fossy&gt;</a></span><span class="message">is there a string concat function? the closest i can see is prepend_string()</span></div><div class="line" id="003708"><span class="nick" style="color:#8dd3c7"><a href="#003708" label="[00:37:08]">&lt;oriansj&gt;</a></span><span class="message">in mes-m2 yes</span></div><div class="line" id="003744"><span class="nick" style="color:#2e2a4a"><a href="#003744" label="[00:37:44]">&lt;fossy&gt;</a></span><span class="message">sorry, in M2-Planet</span></div><div class="line" id="003853"><span class="nick" style="color:#8dd3c7"><a href="#003853" label="[00:38:53]">&lt;oriansj&gt;</a></span><span class="message">I haven't needed it for M2-Planet</span></div><div class="line" id="003919"><span class="nick" style="color:#8dd3c7"><a href="#003919" label="[00:39:19]">&lt;oriansj&gt;</a></span><span class="message">but it would be trivial to make a breakout string concat</span></div><div class="line" id="004954"><span class="nick" style="color:#8dd3c7"><a href="#004954" label="[00:49:54]">&lt;oriansj&gt;</a></span><span class="message">for example: <a rel="nofollow" href="https://paste.debian.net/1127192/">https://paste.debian.net/1127192/</a> </span></div><div class="line" id="005934"><span class="nick" style="color:#2e2a4a"><a href="#005934" label="[00:59:34]">&lt;fossy&gt;</a></span><span class="message">oriansj: thanks for that</span></div><div class="line" id="005946"><span class="nick" style="color:#2e2a4a"><a href="#005946" label="[00:59:46]">&lt;fossy&gt;</a></span><span class="message">fixed that segfault... back to fuzzing for the next (if it gets any</span></div><div class="line" id="010818"><span class="nick" style="color:#8dd3c7"><a href="#010818" label="[01:08:18]">&lt;oriansj&gt;</a></span><span class="message">fossy: well I figure if you pass 8 hours of fuzzing without anything showing up, an end user is unlikely to hit a segfault and be confused</span></div><div class="line" id="010828"><span class="nick" style="color:#2e2a4a"><a href="#010828" label="[01:08:28]">&lt;fossy&gt;</a></span><span class="message">yeah</span></div><div class="line" id="011029"><span class="nick" style="color:#8dd3c7"><a href="#011029" label="[01:10:29]">&lt;oriansj&gt;</a></span><span class="message">design for least surprise and easy recovery; keeps it easier for us to make progress.</span></div><div class="line" id="011903"><span class="nick" style="color:#8dd3c7"><a href="#011903" label="[01:19:03]">&lt;oriansj&gt;</a></span><span class="message">I'll probably start looking at M1 and hex2 tomorrow (shouldn't be too many possible there)</span></div><div class="line" id="015736"><span class="nick" style="color:#6b8072"><a href="#015736" label="[01:57:36]">&lt;dddddd&gt;</a></span><span class="message">IIRC M1 prints garbage at the end if the input lacks \n before EOF</span></div><div class="line" id="020153"><span class="nick" style="color:#6b8072"><a href="#020153" label="[02:01:53]">&lt;dddddd&gt;</a></span><span class="message">I didn't try recently, so maybe that was fixed.</span></div><div class="line" id="021326"><span class="nick" style="color:#8dd3c7"><a href="#021326" label="[02:13:26]">&lt;oriansj&gt;</a></span><span class="message">dddddd: that one has been fixed (Immediately after it got reported if I remember correctly)</span></div><div class="line" id="021416"><span class="nick" style="color:#8dd3c7"><a href="#021416" label="[02:14:16]">&lt;oriansj&gt;</a></span><span class="message">but I'll hammer on it for a couple hours tomorrow</span></div><div class="line" id="124341"><span class="nick" style="color:#6b8072"><a href="#124341" label="[12:43:41]">&lt;dddddd&gt;</a></span><span class="message">hello booters</span></div><div class="line" id="181740"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="214754"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="215946"><span class="nick" style="color:#8dd3c7"><a href="#215946" label="[21:59:46]">&lt;oriansj&gt;</a></span><span class="message">looks like M1 had a couple segfaults to clear out (only did about an hour of fuzzing so much more issues possibly remain)</span></div><div class="line" id="215957"><span class="nick" style="color:#8dd3c7"><a href="#215957" label="[21:59:57]">&lt;oriansj&gt;</a></span><span class="message">patches are of course up</span></div><div class="line" id="221306"><span class="nick" style="color:#6b8072"><a href="#221306" label="[22:13:06]">&lt;dddddd&gt;</a></span><span class="message">just checked, the garbage is there yet</span></div><div class="line" id="221658"><span class="nick" style="color:#6b8072"><a href="#221658" label="[22:16:58]">&lt;dddddd&gt;</a></span><span class="message">only tested on x86, btw</span></div><div class="line" id="222619"><span class="nick" style="color:#80b1d3"><a href="#222619" label="[22:26:19]">&lt;markjenkinsznc&gt;</a></span><span class="message">Been awhile since I've said hi. Have been following chat logs and commit logs with interest. Tagged a quiet release of <a rel="nofollow" href="https://github.com/markjenkins/knightpies/">https://github.com/markjenkins/knightpies/</a>  in July without an announce post. Now close to 0.3 release. Will save a mailing list post for 0.3.5 when I implement M1.py and M1tobin.py</span></div><div class="line" id="222712"><span class="nick" style="color:#8dd3c7"><a href="#222712" label="[22:27:12]">&lt;oriansj&gt;</a></span><span class="message">markjenkinsznc: very nice</span></div><div class="line" id="222809"><span class="nick" style="color:#80b1d3"><a href="#222809" label="[22:28:09]">&lt;markjenkinsznc&gt;</a></span><span class="message">the M1 stuff is in progress as <a rel="nofollow" href="https://github.com/markjenkins/knightpies/tree/M1py-wip">https://github.com/markjenkins/knightpies/tree/M1py-wip</a> </span></div><div class="line" id="222953"><span class="nick" style="color:#8dd3c7"><a href="#222953" label="[22:29:53]">&lt;oriansj&gt;</a></span><span class="message">markjenkinsznc: looks like a good start</span></div><div class="line" id="223157"><span class="nick" style="color:#80b1d3"><a href="#223157" label="[22:31:57]">&lt;markjenkinsznc&gt;</a></span><span class="message">already served as a useful tool, I have it dumping any DEFINEs used by a file, this helped me work through which instructions were present in a stage0 assembler file and in turn figure out which implementations in python I needed to look at</span></div><div class="line" id="223227"><span class="nick" style="color:#6d2462"><a href="#223227" label="[22:32:27]">&lt;janneke&gt;</a></span><span class="message">markjenkinsznc: very nice</span></div><div class="line" id="223352"><span class="nick" style="color:#8dd3c7"><a href="#223352" label="[22:33:52]">&lt;oriansj&gt;</a></span><span class="message">markjenkinsznc: clever, probably be able to catch duplicate DEFINEs as well</span></div><div class="line" id="223442"><span class="nick" style="color:#8dd3c7"><a href="#223442" label="[22:34:42]">&lt;oriansj&gt;</a></span><span class="message">and I am guessing the M1tobin.py is to skip the hex2 step of linking and go straight to useful binaries</span></div><div class="line" id="223510"><span class="nick" style="color:#8dd3c7"><a href="#223510" label="[22:35:10]">&lt;oriansj&gt;</a></span><span class="message">(or as a wrapper around M1 and hex2 which would work too)</span></div><div class="line" id="223518"><span class="nick" style="color:#80b1d3"><a href="#223518" label="[22:35:18]">&lt;markjenkinsznc&gt;</a></span><span class="message">exactly, though the approach of staging it through files is best when writing assembler</span></div><div class="line" id="223605"><span class="nick" style="color:#80b1d3"><a href="#223605" label="[22:36:05]">&lt;markjenkinsznc&gt;</a></span><span class="message">by given this is in python, combining things together is pretty easy, especially as I'll have the relevant parts of hex2tobin.py and M1.py in separate functions for import</span></div><div class="line" id="223633"><span class="nick" style="color:#80b1d3"><a href="#223633" label="[22:36:33]">&lt;markjenkinsznc&gt;</a></span><span class="message">so thumbs up for the stage0 approach of keeping assembler code as simple as possible</span></div><div class="line" id="223725"><span class="nick" style="color:#8dd3c7"><a href="#223725" label="[22:37:25]">&lt;oriansj&gt;</a></span><span class="message">markjenkinsznc: you'll love it even more when you take a look at the cc_* family</span></div><div class="line" id="223753"><span class="nick" style="color:#8dd3c7"><a href="#223753" label="[22:37:53]">&lt;oriansj&gt;</a></span><span class="message">dddddd: you are right, I missed that one (I'll have to take a wack at it)</span></div><div class="line" id="224140"><span class="nick" style="color:#80b1d3"><a href="#224140" label="[22:41:40]">&lt;markjenkinsznc&gt;</a></span><span class="message">yep, eventually for other people's bootstrap purposes I'll have stage0_cc_x86.py which can take in multiple .c files, do the concatenating internally, interpret stage0/stage2/cc_x86.s internally as a compiler with a handle on the output, do the hex conversion and output a runnable (with exec permission) GNU_linux_ELF_binary</span></div><div class="line" id="224300"><span class="nick" style="color:#80b1d3"><a href="#224300" label="[22:43:00]">&lt;markjenkinsznc&gt;</a></span><span class="message">and I'll be able to run that on my Power Macintosh with Mac OS X something or other and python &gt;= 2.2 and produce a binary to bring over to a x86 GNU/Linux machine</span></div><div class="line" id="224338"><span class="nick" style="color:#80b1d3"><a href="#224338" label="[22:43:38]">&lt;markjenkinsznc&gt;</a></span><span class="message">though it may run too slow to be practical, will benchmark first on my Raptor Computer Systems Blackbird</span></div><div class="line" id="224424"><span class="nick" style="color:#80b1d3"><a href="#224424" label="[22:44:24]">&lt;markjenkinsznc&gt;</a></span><span class="message">multiple M2 .c files that is. :-)</span></div><div class="line" id="224433"><span class="nick" style="color:#8dd3c7"><a href="#224433" label="[22:44:33]">&lt;oriansj&gt;</a></span><span class="message">markjenkinsznc: well, if you are willing to just a hair more work; you could just do M2-Planet (which would enable you later to build the kernel for bootstrapping a $ANY_ARCH GNU/Linux machine</span></div><div class="line" id="224523"><span class="nick" style="color:#8dd3c7"><a href="#224523" label="[22:45:23]">&lt;oriansj&gt;</a></span><span class="message">ask M2-Planet is just cc_x86 with more architectures, input validation and support for multiple file inputs</span></div><div class="line" id="224535"><span class="nick" style="color:#8dd3c7"><a href="#224535" label="[22:45:35]">&lt;oriansj&gt;</a></span><span class="message">^ask^as^</span></div><div class="line" id="224625"><span class="nick" style="color:#80b1d3"><a href="#224625" label="[22:46:25]">&lt;markjenkinsznc&gt;</a></span><span class="message">was thinking that too, would use M2-Planet to compile itself to Knight and then make the assembler better commented and remove parts involving other archs, then there would be an Knight assembler version of M2-Planet that can compile M2-Planet or mes-m2 to any M2-Planet supported arch</span></div><div class="line" id="224659"><span class="nick" style="color:#8dd3c7"><a href="#224659" label="[22:46:59]">&lt;oriansj&gt;</a></span><span class="message">being a simple doubly linked list state machine, you should be able to something like 10Kloc/s in python</span></div><div class="line" id="224735"><span class="nick" style="color:#8dd3c7"><a href="#224735" label="[22:47:35]">&lt;oriansj&gt;</a></span><span class="message">or a 1 second time for a build of M2-Planet's C sources</span></div><div class="line" id="224835"><span class="nick" style="color:#80b1d3"><a href="#224835" label="[22:48:35]">&lt;markjenkinsznc&gt;</a></span><span class="message">A M2_planet_knight.s wouldn't be a full portable solution for other archs, but it would allow someone who trusts a python on any arch to just audit knight assembler and C and not need to audit x86 assembler and then have useful x86 binaries</span></div><div class="line" id="224934"><span class="nick" style="color:#80b1d3"><a href="#224934" label="[22:49:34]">&lt;markjenkinsznc&gt;</a></span><span class="message">bye for now</span></div><div class="line" id="224945"><span class="nick" style="color:#8dd3c7"><a href="#224945" label="[22:49:45]">&lt;oriansj&gt;</a></span><span class="message">keep up the good work markjenkinsznc</span></div><div class="line" id="224949"><span class="nick" style="color:#8dd3c7"><a href="#224949" label="[22:49:49]">&lt;oriansj&gt;</a></span><span class="message">^_^</span></div><div class="line" id="225743"><span class="nick" style="color:#8dd3c7"><a href="#225743" label="[22:57:43]">&lt;oriansj&gt;</a></span><span class="message">dddddd: fix should be up</span></div><div class="line" id="230244"><span class="nick" style="color:#6b8072"><a href="#230244" label="[23:02:44]">&lt;dddddd&gt;</a></span><span class="message">indeed it is oriansj, but I'm not sure what part of the diff is the relevant one. :(  Is every change related to it?</span></div><div class="line" id="230356"><span class="nick" style="color:#6b8072"><a href="#230356" label="[23:03:56]">&lt;dddddd&gt;</a></span><span class="message">I guess it is the break</span></div><div class="line" id="233347"><span class="nick" style="color:#8dd3c7"><a href="#233347" label="[23:33:47]">&lt;oriansj&gt;</a></span><span class="message">dddddd: it was the if(EOF == ch) break; the rest was just adding some error catching using require</span></div><div class="line" id="233731"><span class="nick" style="color:#6b8072"><a href="#233731" label="[23:37:31]">&lt;dddddd&gt;</a></span><span class="message">thanks. I get nervous when a commit does more than announced. I have to work on that and let it go a bit (but just a bit, because I think it's important to not mix changes).</span></div><div class="line" id="233809"><span class="nick" style="color:#8dd3c7"><a href="#233809" label="[23:38:09]">&lt;oriansj&gt;</a></span><span class="message">dddddd: understood and I definitely need to get better about doing it that way myself</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-11-01.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="022457"><span class="nick" style="color:#8dd3c7"><a href="#022457" label="[02:24:57]">&lt;OriansJ&gt;</a></span><span class="message">yt: if you look at cc_x86.S you'll see in that single case we just emit &quot;\n#continue statement\n&quot; (aka do nothing but put a comment that a continue was there in case we actually need to do continues correctly in the future)</span></div><div class="line" id="022727"><span class="nick" style="color:#8dd3c7"><a href="#022727" label="[02:27:27]">&lt;OriansJ&gt;</a></span><span class="message">snnw, deesix: the stage0 Linux Bootstrap folder is just the mescc-tools-seed git repo at a known working commit (I'm behind on updating it as I want hex2 faster and to do a mescc-tools release first)</span></div><div class="line" id="023952"><span class="nick" style="color:#8dd3c7"><a href="#023952" label="[02:39:52]">&lt;OriansJ&gt;</a></span><span class="message">as for what work people are focused on: markjenkinsznc is leading the stage0 development enhancements. janneke is leading the MesCC work. deesix is doing M2-Planet and leading the aarch64 work. fossy is laying the ground work for when mes-m2 is done (the gcc-seed work) rain1 is doing brilliant lisp work as always. xentrac has an interesting lisp compiler written in lisp. efraim, lfam, vagrantc, rekado and civodul are major guix</span></div><div class="line" id="023953"><span class="nick" style="color:#8dd3c7"><a href="#023953" label="[02:39:53]">&lt;OriansJ&gt;</a></span><span class="message">developers but we love them and their support. akkartik has a rather impressive assembler work. bauen1 is doing a minimal posix kernel. dongcarl is doing bitcoin work if I remember correctly. gio is solving the bison and other hard bootstrapping problems for us.</span></div><div class="line" id="024033"><span class="nick" style="color:#8dd3c7"><a href="#024033" label="[02:40:33]">&lt;OriansJ&gt;</a></span><span class="message">If I forgot or got wrong what anyone else is doing. please feel free to remind me how much of a moron I am for forgetting (I swear it isn't intensional)</span></div><div class="line" id="024059"><span class="nick" style="color:#8dd3c7"><a href="#024059" label="[02:40:59]">&lt;OriansJ&gt;</a></span><span class="message">Plus there are a bunch of people I have no idea what they are working on or if they just like to watch the work being done.</span></div><div class="line" id="024159"><span class="nick" style="color:#8dd3c7"><a href="#024159" label="[02:41:59]">&lt;OriansJ&gt;</a></span><span class="message">as for what I do. Mostly just make big messes for other people to shake their heads at and go &quot;here it would be much better if you just did this: $SIMPLE_THING&quot;</span></div><div class="line" id="024703"><span class="nick" style="color:#8dd3c7"><a href="#024703" label="[02:47:03]">&lt;OriansJ&gt;</a></span><span class="message">Short version: we have a big pile of people working on anything they find fun, with virtually no coordination or cooperation between projects; except when people feel like it.</span></div><div class="line" id="024738"><span class="nick" style="color:#8dd3c7"><a href="#024738" label="[02:47:38]">&lt;OriansJ&gt;</a></span><span class="message">My overly ambitious ass is late on all my projects and it is holding everyone else up.</span></div><div class="line" id="024815"><span class="nick" style="color:#2e2a4a"><a href="#024815" label="[02:48:15]">&lt;xentrac&gt;</a></span><span class="message">Sounds like free software since the 1970s</span></div><div class="line" id="024940"><span class="nick" style="color:#2e2a4a"><a href="#024940" label="[02:49:40]">&lt;xentrac&gt;</a></span><span class="message">I also wrote a sort of Forth compiler written in itself, a metacircular interpreter for Bicicleta (as well as its ordinary interpreter, in OCaml), and a parser generator producing JS written in itself</span></div><div class="line" id="024948"><span class="nick" style="color:#2e2a4a"><a href="#024948" label="[02:49:48]">&lt;xentrac&gt;</a></span><span class="message">but I haven't done anything useful in a long time</span></div><div class="line" id="025117"><span class="nick" style="color:#8dd3c7"><a href="#025117" label="[02:51:17]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: well you did provide tests for mes-m2</span></div><div class="line" id="025151"><span class="nick" style="color:#8dd3c7"><a href="#025151" label="[02:51:51]">&lt;OriansJ&gt;</a></span><span class="message">I just wish I could have gotten your lisp compiler to run on mes-m2</span></div><div class="line" id="025333"><span class="nick" style="color:#8dd3c7"><a href="#025333" label="[02:53:33]">&lt;OriansJ&gt;</a></span><span class="message">it'll probably just work, once I get all the mistakes out of mes-m2's macro support.</span></div><div class="line" id="025525"><span class="nick" style="color:#2e2a4a"><a href="#025525" label="[02:55:25]">&lt;xentrac&gt;</a></span><span class="message">yes but i wrote them long before mes-m2 :)</span></div><div class="line" id="025543"><span class="nick" style="color:#2e2a4a"><a href="#025543" label="[02:55:43]">&lt;xentrac&gt;</a></span><span class="message">ur-scheme doesn't define any macros</span></div><div class="line" id="025557"><span class="nick" style="color:#2e2a4a"><a href="#025557" label="[02:55:57]">&lt;xentrac&gt;</a></span><span class="message">I mean it doesn't use define-syntax or anything similar</span></div><div class="line" id="025618"><span class="nick" style="color:#2e2a4a"><a href="#025618" label="[02:56:18]">&lt;xentrac&gt;</a></span><span class="message">it's just ordinary functional Scheme</span></div><div class="line" id="025648"><span class="nick" style="color:#2e2a4a"><a href="#025648" label="[02:56:48]">&lt;xentrac&gt;</a></span><span class="message">that's because I didn't want to implement syntax-rules or syntax-case because I knew it would be hard</span></div><div class="line" id="025702"><span class="nick" style="color:#2e2a4a"><a href="#025702" label="[02:57:02]">&lt;xentrac&gt;</a></span><span class="message">like, several times more code than the rest of ur-scheme</span></div><div class="line" id="025715"><span class="nick" style="color:#2e2a4a"><a href="#025715" label="[02:57:15]">&lt;xentrac&gt;</a></span><span class="message">so because it doesn't provide them, it can't use them, or it wouldn't be able to compile itself</span></div><div class="line" id="025816"><span class="nick" style="color:#2e2a4a"><a href="#025816" label="[02:58:16]">&lt;xentrac&gt;</a></span><span class="message">it does implement some of the special forms it provides as macros, internally to the compiler, but it doesn't provide the code it compiles with any way to define new ones</span></div><div class="line" id="030001"><span class="nick" style="color:#6b8072"><a href="#030001" label="[03:00:01]">&lt;fossy&gt;</a></span><span class="message">also kaem in a kind-of-very-slowly way</span></div><div class="line" id="030022"><span class="nick" style="color:#2e2a4a"><a href="#030022" label="[03:00:22]">&lt;xentrac&gt;</a></span><span class="message">yay kaem!</span></div><div class="line" id="030032"><span class="nick" style="color:#2e2a4a"><a href="#030032" label="[03:00:32]">&lt;xentrac&gt;</a></span><span class="message">okay now I'm really headed bedwards</span></div><div class="line" id="030349"><span class="nick" style="color:#8dd3c7"><a href="#030349" label="[03:03:49]">&lt;OriansJ&gt;</a></span><span class="message">fossy: thank you for reminding me of the major bash compatibility enhancements you are adding to kaem (part of mescc-tools)</span></div><div class="line" id="030923"><span class="nick" style="color:#6b8072"><a href="#030923" label="[03:09:23]">&lt;fossy&gt;</a></span><span class="message">and thank you for reminding me that i need to fix it</span></div><div class="line" id="031049"><span class="nick" style="color:#8dd3c7"><a href="#031049" label="[03:10:49]">&lt;OriansJ&gt;</a></span><span class="message">fossy: we are all human here after all ^_^</span></div><div class="line" id="033345"><span class="nick" style="color:#2e2a4a"><a href="#033345" label="[03:33:45]">&lt;xentrac&gt;</a></span><span class="message">well, most of us</span></div><div class="line" id="033522"><span class="nick" style="color:#8dd3c7"><a href="#033522" label="[03:35:22]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: I don't think any dogs or rogue AIs are here but I always could be wrong.</span></div><div class="line" id="090019"><span class="nick" style="color:#80b1d3"><a href="#090019" label="[09:00:19]">&lt;rain1&gt;</a></span><span class="message">that was kind of you to say OriansJ</span></div><div class="line" id="111639"><span class="nick" style="color:#8dd3c7"><a href="#111639" label="[11:16:39]">&lt;OriansJ&gt;</a></span><span class="message">rain1: the work speaks for itself ^_^</span></div><div class="line" id="163045"><span class="nick" style="color:#6d2462"><a href="#163045" label="[16:30:45]">&lt;snnw&gt;</a></span><span class="message">OriansJ: thanks for the overview of what's going on!  As for me, I found bootstrappable through guix, which I started using recently.</span></div><div class="line" id="163231"><span class="nick" style="color:#6d2462"><a href="#163231" label="[16:32:31]">&lt;snnw&gt;</a></span><span class="message">The very early bootstrapping tools in mescc-tools-seed looked interesting and I noticed that they were missing for arm/aarch64.  I have a background in compilers for aarch64 and thought it'd be &quot;fun&quot; to translate the amd64 versions for aarch64.</span></div><div class="line" id="163507"><span class="nick" style="color:#6d2462"><a href="#163507" label="[16:35:07]">&lt;snnw&gt;</a></span><span class="message">hex0, hex1, hex2, and M0 are all done and bootstrapping from a hex0-seed, I've got a GNU as version of cc targeting aarch64 now, which just needs converting to M1</span></div><div class="line" id="163749"><span class="nick" style="color:#6d2462"><a href="#163749" label="[16:37:49]">&lt;snnw&gt;</a></span><span class="message">that should complete the bootstrap for aarch64 native to mes-m2, but I guess the step to mes-cc is still not quite complete?  I might tackle that next, but I haven't really wrapped my head around what's missing there just yet</span></div><div class="line" id="165253"><span class="nick" style="color:#8dd3c7"><a href="#165253" label="[16:52:53]">&lt;OriansJ&gt;</a></span><span class="message">snnw: nice and one iteresting thing to note; when you complete the cc_aarch64.S you will literally be the first person to ever write a C compiler in aarch64 assembly</span></div><div class="line" id="165300"><span class="nick" style="color:#80b1d3"><a href="#165300" label="[16:53:00]">&lt;rain1&gt;</a></span><span class="message">hi snnw</span></div><div class="line" id="165334"><span class="nick" style="color:#6d2462"><a href="#165334" label="[16:53:34]">&lt;snnw&gt;</a></span><span class="message">&quot;written&quot; is a strong word. mangled out of an existing one for amd64. but I'll take that :D</span></div><div class="line" id="165520"><span class="nick" style="color:#6d2462"><a href="#165520" label="[16:55:20]">&lt;snnw&gt;</a></span><span class="message">hey rain1 are you the lisp guru I need to talk to about what's missing in mes-m2?</span></div><div class="line" id="165552"><span class="nick" style="color:#8dd3c7"><a href="#165552" label="[16:55:52]">&lt;OriansJ&gt;</a></span><span class="message">snnw: well mes-m2 is more of my mess</span></div><div class="line" id="165704"><span class="nick" style="color:#8dd3c7"><a href="#165704" label="[16:57:04]">&lt;OriansJ&gt;</a></span><span class="message">essentially it is just getting lots of little things right with the C code</span></div><div class="line" id="165757"><span class="nick" style="color:#6d2462"><a href="#165757" label="[16:57:57]">&lt;snnw&gt;</a></span><span class="message">I guess I'm mainly looking for something to run/test that doesn't work yet and build up some understanding from there</span></div><div class="line" id="165930"><span class="nick" style="color:#8dd3c7"><a href="#165930" label="[16:59:30]">&lt;OriansJ&gt;</a></span><span class="message">for example the macro expansion in mes_macro.c is wrong but because it bundles together macro evaluation, it is hard to figure out the root cause.</span></div><div class="line" id="165956"><span class="nick" style="color:#8dd3c7"><a href="#165956" label="[16:59:56]">&lt;OriansJ&gt;</a></span><span class="message">there are also disabled tests in mes-m2; which do not work</span></div><div class="line" id="170127"><span class="nick" style="color:#80b1d3"><a href="#170127" label="[17:01:27]">&lt;rain1&gt;</a></span><span class="message">what is your compiler bg?</span></div><div class="line" id="170232"><span class="nick" style="color:#8dd3c7"><a href="#170232" label="[17:02:32]">&lt;OriansJ&gt;</a></span><span class="message">when working with mes-m2: export MES_CORE=0 will strip out everything but the C primitives; which when combined with cgdb makes for easier debugging</span></div><div class="line" id="170410"><span class="nick" style="color:#6d2462"><a href="#170410" label="[17:04:10]">&lt;snnw&gt;</a></span><span class="message">rain1: I work on LLVM in my day job. AArch64 performance work</span></div><div class="line" id="170439"><span class="nick" style="color:#80b1d3"><a href="#170439" label="[17:04:39]">&lt;rain1&gt;</a></span><span class="message">oh that's super cool!</span></div><div class="line" id="170507"><span class="nick" style="color:#8dd3c7"><a href="#170507" label="[17:05:07]">&lt;OriansJ&gt;</a></span><span class="message">also if anything isn't comletely obvious. Let me know as I consider it a bug</span></div><div class="line" id="170517"><span class="nick" style="color:#6d2462"><a href="#170517" label="[17:05:17]">&lt;snnw&gt;</a></span><span class="message">some of it upstream when I actually find something meaningful to do, but too much of my time is spent staring at gcc vs LLVM profiles and scratching my head about why gcc is faster :D</span></div><div class="line" id="170542"><span class="nick" style="color:#80b1d3"><a href="#170542" label="[17:05:42]">&lt;rain1&gt;</a></span><span class="message">welcome to our channel</span></div><div class="line" id="170641"><span class="nick" style="color:#6d2462"><a href="#170641" label="[17:06:41]">&lt;snnw&gt;</a></span><span class="message">OriansJ: thanks! I found the disabled tests.  looks like a good starting point</span></div><div class="line" id="170649"><span class="nick" style="color:#80b1d3"><a href="#170649" label="[17:06:49]">&lt;rain1&gt;</a></span><span class="message">that sounds like it could get pretty tricky since gcc is likely to be full of weird hacks, i remember a good article about why grep is so fast by &quot;cheating&quot;</span></div><div class="line" id="170808"><span class="nick" style="color:#8dd3c7"><a href="#170808" label="[17:08:08]">&lt;OriansJ&gt;</a></span><span class="message">I'd think cache alignment/hitrate, pipeline bubbles and a willingness to do super optimizations is a good chunk of it.</span></div><div class="line" id="170810"><span class="nick" style="color:#6d2462"><a href="#170810" label="[17:08:10]">&lt;snnw&gt;</a></span><span class="message">yeah.  codegen can be vastly different, with lots of differences that don't actually impact perf significantly. needle, haystack. I needed a break and build a C compiler in assembly instead ;)</span></div><div class="line" id="170835"><span class="nick" style="color:#6d2462"><a href="#170835" label="[17:08:35]">&lt;snnw&gt;</a></span><span class="message">and thanks for the welcome, you seem like a fun bunch</span></div><div class="line" id="170932"><span class="nick" style="color:#8dd3c7"><a href="#170932" label="[17:09:32]">&lt;OriansJ&gt;</a></span><span class="message">snnw: we also have C versions of cc_aarch64 if you would find it helpful</span></div><div class="line" id="171030"><span class="nick" style="color:#6d2462"><a href="#171030" label="[17:10:30]">&lt;snnw&gt;</a></span><span class="message">that's M2-Planet, right?  if you look through the cross compilation bits</span></div><div class="line" id="171141"><span class="nick" style="color:#8dd3c7"><a href="#171141" label="[17:11:41]">&lt;OriansJ&gt;</a></span><span class="message">snnw: even simpler than M2-Planet</span></div><div class="line" id="171215"><span class="nick" style="color:#8dd3c7"><a href="#171215" label="[17:12:15]">&lt;OriansJ&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/stage0/tree/master/stage2/High_level_prototypes/cc_aarch64">https://github.com/oriansj/stage0/tree/master/stage2/High_level_prototypes/cc_aarch64</a> </span></div><div class="line" id="171240"><span class="nick" style="color:#8dd3c7"><a href="#171240" label="[17:12:40]">&lt;OriansJ&gt;</a></span><span class="message">which reminds me; I need to review those pull requests</span></div><div class="line" id="171424"><span class="nick" style="color:#6d2462"><a href="#171424" label="[17:14:24]">&lt;snnw&gt;</a></span><span class="message">ah sweet I didn't see that.  could be quite useful to compare to if I need to chase down any bugs</span></div><div class="line" id="171833"><span class="nick" style="color:#6d2462"><a href="#171833" label="[17:18:33]">&lt;snnw&gt;</a></span><span class="message">OriansJ: I'll hopefully have some pull requests soon-ish</span></div><div class="line" id="172120"><span class="nick" style="color:#8dd3c7"><a href="#172120" label="[17:21:20]">&lt;OriansJ&gt;</a></span><span class="message">snnw: sounds awesome ^_^</span></div><div class="line" id="172937"><span class="nick" style="color:#8dd3c7"><a href="#172937" label="[17:29:37]">&lt;OriansJ&gt;</a></span><span class="message">snnw: if it isn't too much trouble; please ping me here when you need me to pull as I don't check github that often.</span></div><div class="line" id="173531"><span class="nick" style="color:#6d2462"><a href="#173531" label="[17:35:31]">&lt;snnw&gt;</a></span><span class="message">OriansJ: will do, thanks!</span></div><div class="line" id="210534"><span class="nick" style="color:#234e69"><a href="#210534" label="[21:05:34]">&lt;markjenkinsznc&gt;</a></span><span class="message">OriansJ, yesterday you wrote &quot;xentrac has an interesting lisp compiler written in lisp&quot;, this is <a rel="nofollow" href="https://github.com/kragen/urscheme">https://github.com/kragen/urscheme</a>  or something else?</span></div><div class="line" id="212127"><span class="nick" style="color:#8dd3c7"><a href="#212127" label="[21:21:27]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: yep</span></div><div class="line" id="212405"><span class="nick" style="color:#234e69"><a href="#212405" label="[21:24:05]">&lt;markjenkinsznc&gt;</a></span><span class="message">ah, so this wasn't a suggestion it is being reactivated as a work in progress, but is an interesting source of test cases?</span></div><div class="line" id="212556"><span class="nick" style="color:#8dd3c7"><a href="#212556" label="[21:25:56]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: approximately correct</span></div><div class="line" id="223637"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><br /></div></body></html>

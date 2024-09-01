@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-11-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004941"><span class="nick" style="color:#389600"><a href="#004941" label="[00:49:41]">&lt;Hagfish&gt;</a></span><span class="message">I/O and process management sound like quite tricky areas, but maybe no harder than memory management</span></div><div class="line" id="005038"><span class="nick" style="color:#389600"><a href="#005038" label="[00:50:38]">&lt;Hagfish&gt;</a></span><span class="message">i'm really impressed with what you've achieved so far, and i hope these remaining items don't involve any hard to debug issues</span></div><div class="line" id="014130"><span class="nick" style="color:#8dd3c7"><a href="#014130" label="[01:41:30]">&lt;stikonas&gt;</a></span><span class="message">it will probably be simpler now, more stuff can be reused either form bootstrap M2libc or from what I already have in M2libc</span></div><div class="line" id="014250"><span class="nick" style="color:#8dd3c7"><a href="#014250" label="[01:42:50]">&lt;stikonas&gt;</a></span><span class="message">I'm now almost done with argc and argv. They are mosty the same as in bootstrap.c but I've switched to a couple of standard functions that got added to M2libc. In particular isspace and wcstombs</span></div><div class="line" id="014552"><span class="nick" style="color:#8dd3c7"><a href="#014552" label="[01:45:52]">&lt;stikonas&gt;</a></span><span class="message">the harder stuff was actually before we have C, so hex stuff etc...</span></div><div class="line" id="014700"><span class="nick" style="color:#8dd3c7"><a href="#014700" label="[01:47:00]">&lt;stikonas&gt;</a></span><span class="message">implementing i/o and process management in kernel is probably hard</span></div><div class="line" id="014722"><span class="nick" style="color:#8dd3c7"><a href="#014722" label="[01:47:22]">&lt;stikonas&gt;</a></span><span class="message">but in the C library I just have to write wrappers to convert POSIX calls to UEFI function calls</span></div><div class="line" id="014753"><span class="nick" style="color:#8dd3c7"><a href="#014753" label="[01:47:53]">&lt;stikonas&gt;</a></span><span class="message">which is not too bad, especially in M2-Planet</span></div><div class="line" id="014819"><span class="nick" style="color:#8dd3c7"><a href="#014819" label="[01:48:19]">&lt;stikonas&gt;</a></span><span class="message">cc_amd64 is a bit more limitting, but M2-Planet supports quite a few more features that are helpful</span></div><div class="line" id="040944"><span class="nick" style="color:#2e2a4a"><a href="#040944" label="[04:09:44]">&lt;oriansj&gt;</a></span><span class="message">stikonas: smaller commits are easier to review but I can handle big commits if needed.</span></div><div class="line" id="102712"><span class="nick" style="color:#8dd3c7"><a href="#102712" label="[10:27:12]">&lt;stikonas&gt;</a></span><span class="message">oriansj: a few smaller commits to start with then <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/20">https://github.com/oriansj/M2libc/pull/20</a> </span></div><div class="line" id="102739"><span class="nick" style="color:#8dd3c7"><a href="#102739" label="[10:27:39]">&lt;stikonas&gt;</a></span><span class="message">(it can't build hex2 yet, but I can build some very small test apps)</span></div><div class="line" id="224725"><span class="nick" style="color:#6b8072"><a href="#224725" label="[22:47:25]">&lt;acrow&gt;</a></span><span class="message">Is leiningen (clojure's 'make'), bootstrappable?</span></div><div class="line" id="225426"><span class="nick" style="color:#6b8072"><a href="#225426" label="[22:54:26]">&lt;acrow&gt;</a></span><span class="message">or does operation from a virtual machine (in particular the javavm) make this a moot (meaningless) issue?</span></div><div class="line" id="230911"><span class="nick" style="color:#80b1d3"><a href="#230911" label="[23:09:11]">&lt;muurkha&gt;</a></span><span class="message">I think that's an excellent question</span></div><div class="line" id="230919"><span class="nick" style="color:#80b1d3"><a href="#230919" label="[23:09:19]">&lt;muurkha&gt;</a></span><span class="message">bauen1: you've been flapping all day</span></div><div class="line" id="232808"><span class="nick" style="color:#8dd3c7"><a href="#232808" label="[23:28:08]">&lt;stikonas&gt;</a></span><span class="message">acrow: quick look at repository readme suggests that you need lein to build it</span></div><div class="line" id="232840"><span class="nick" style="color:#8dd3c7"><a href="#232840" label="[23:28:40]">&lt;stikonas&gt;</a></span><span class="message">&quot;Download the lein script from the stable branch of this project&quot;</span></div><div class="line" id="232845"><span class="nick" style="color:#8dd3c7"><a href="#232845" label="[23:28:45]">&lt;stikonas&gt;</a></span><span class="message">so proably not bootstrappable</span></div><div class="line" id="232856"><span class="nick" style="color:#8dd3c7"><a href="#232856" label="[23:28:56]">&lt;stikonas&gt;</a></span><span class="message">acrow: and virtual machine does not change much</span></div><div class="line" id="232914"><span class="nick" style="color:#8dd3c7"><a href="#232914" label="[23:29:14]">&lt;stikonas&gt;</a></span><span class="message">you can't read non-trivial amounts of virtual machine bytecode,  can you?</span></div><div class="line" id="233002"><span class="nick" style="color:#8dd3c7"><a href="#233002" label="[23:30:02]">&lt;stikonas&gt;</a></span><span class="message">a small number of kib of machine code can be inspected manually, but anything more is too laborious</span></div><div class="line" id="233010"><span class="nick" style="color:#8dd3c7"><a href="#233010" label="[23:30:10]">&lt;stikonas&gt;</a></span><span class="message">so I guess the same would apply to bytecode</span></div><div class="line" id="233035"><span class="nick" style="color:#8dd3c7"><a href="#233035" label="[23:30:35]">&lt;stikonas&gt;</a></span><span class="message">oh actually lein is a text script</span></div><div class="line" id="233037"><span class="nick" style="color:#8dd3c7"><a href="#233037" label="[23:30:37]">&lt;stikonas&gt;</a></span><span class="message"> so mayne ot</span></div><div class="line" id="233041"><span class="nick" style="color:#8dd3c7"><a href="#233041" label="[23:30:41]">&lt;stikonas&gt;</a></span><span class="message">so maybe it's not oto bad</span></div><div class="line" id="233419"><span class="nick" style="color:#8dd3c7"><a href="#233419" label="[23:34:19]">&lt;stikonas&gt;</a></span><span class="message">acrow: I've just tried running it with ../bin/lein bootstrap</span></div><div class="line" id="233429"><span class="nick" style="color:#8dd3c7"><a href="#233429" label="[23:34:29]">&lt;stikonas&gt;</a></span><span class="message">and got</span></div><div class="line" id="233431"><span class="nick" style="color:#8dd3c7"><a href="#233431" label="[23:34:31]">&lt;stikonas&gt;</a></span><span class="message">Please run &quot;lein bootstrap&quot; in the leiningen-core/ directory</span></div><div class="line" id="233432"><span class="nick" style="color:#8dd3c7"><a href="#233432" label="[23:34:32]">&lt;stikonas&gt;</a></span><span class="message">with a stable release of Leiningen. See CONTRIBUTING.md for details.</span></div><div class="line" id="233438"><span class="nick" style="color:#8dd3c7"><a href="#233438" label="[23:34:38]">&lt;stikonas&gt;</a></span><span class="message">so I guess it's not bootstrappable in the end</span></div><div class="line" id="233518"><span class="nick" style="color:#8dd3c7"><a href="#233518" label="[23:35:18]">&lt;stikonas&gt;</a></span><span class="message">given that it's just a build system, probably not super hard to bootstrap it</span></div><div class="line" id="233526"><span class="nick" style="color:#8dd3c7"><a href="#233526" label="[23:35:26]">&lt;stikonas&gt;</a></span><span class="message">but doesn't look like upstream supports it out of the box</span></div><div class="line" id="233715"><span class="nick" style="color:#6b8072"><a href="#233715" label="[23:37:15]">&lt;acrow&gt;</a></span><span class="message">stikonas: yeah, I thought they might be better about it.</span></div><div class="line" id="233743"><span class="nick" style="color:#8dd3c7"><a href="#233743" label="[23:37:43]">&lt;stikonas&gt;</a></span><span class="message">you can try raising an issue...</span></div><div class="line" id="233759"><span class="nick" style="color:#8dd3c7"><a href="#233759" label="[23:37:59]">&lt;stikonas&gt;</a></span><span class="message">though prepare that it might be closed as wontfix</span></div><div class="line" id="233917"><span class="nick" style="color:#6b8072"><a href="#233917" label="[23:39:17]">&lt;acrow&gt;</a></span><span class="message">stikonas: since they had a CONTRIBUTING.md#bootstrapping section on the webpage I asked about it in their irc chat channel.  No response yet.</span></div><div class="line" id="234142"><span class="nick" style="color:#8dd3c7"><a href="#234142" label="[23:41:42]">&lt;stikonas&gt;</a></span><span class="message">it might be that you just need to manually installing dependencies</span></div><div class="line" id="234152"><span class="nick" style="color:#8dd3c7"><a href="#234152" label="[23:41:52]">&lt;stikonas&gt;</a></span><span class="message">though it would still be nice to have it documented in text file</span></div><div class="line" id="234740"><span class="nick" style="color:#6b8072"><a href="#234740" label="[23:47:40]">&lt;acrow&gt;</a></span><span class="message">stikonas: Is this a wider java issue?  The guix java build system (ant) appears to depend on maven and to me this seems to bypass bootstrappability also, no?  I'm not sure how tarballs of class files can be divorced from their sources and still have the products of these builds claim to be bootstrappable.  I know little about maven; yet, is it not, at its core, a binary package distributor?  I'm certainly missing something.  It's a bit</span></div><div class="line" id="234741"><span class="nick" style="color:#6b8072"><a href="#234741" label="[23:47:41]">&lt;acrow&gt;</a></span><span class="message">puzzling to me.</span></div><div class="line" id="234823"><span class="nick" style="color:#8dd3c7"><a href="#234823" label="[23:48:23]">&lt;stikonas&gt;</a></span><span class="message">I thought guix disentangled maven</span></div><div class="line" id="234835"><span class="nick" style="color:#8dd3c7"><a href="#234835" label="[23:48:35]">&lt;stikonas&gt;</a></span><span class="message">ant can definitely be built without maven</span></div><div class="line" id="234858"><span class="nick" style="color:#8dd3c7"><a href="#234858" label="[23:48:58]">&lt;stikonas&gt;</a></span><span class="message">in fact if I remember correctly, and is simple enough to run manually and then you can use that &quot;bootstrap&quot; and to rebuilt ant</span></div><div class="line" id="235006"><span class="nick" style="color:#8dd3c7"><a href="#235006" label="[23:50:06]">&lt;stikonas&gt;</a></span><span class="message">or maybe it doesn't even need ant</span></div><div class="line" id="235226"><span class="nick" style="color:#8dd3c7"><a href="#235226" label="[23:52:26]">&lt;stikonas&gt;</a></span><span class="message">anyway, I'm not that familiar with maven, you might get better info in #guix</span></div><div class="line" id="235359"><span class="nick" style="color:#6b8072"><a href="#235359" label="[23:53:59]">&lt;acrow&gt;</a></span><span class="message">stikonas: thank you.  Maybe I'll give leiningen another try later.</span></div><div class="line" id="235728"><span class="nick" style="color:#6b8072"><a href="#235728" label="[23:57:28]">&lt;acrow&gt;</a></span><span class="message">Seems like a hash of the sources needs to be associated with the descendent class file jars to maintain traceability.  Maybe it's in there (Prego style)  :)</span></div><div class="line" id="235806"><span class="nick" style="color:#6b8072"><a href="#235806" label="[23:58:06]">&lt;acrow&gt;</a></span><span class="message">And that's still not adequate...  gah.</span></div><br /></div></body></html>

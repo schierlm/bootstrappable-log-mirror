@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-11-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000244"><span class="nick" style="color:#389600"><a href="#000244" label="[00:02:44]">&lt;oriansj&gt;</a></span><span class="message">or do char[2]</span></div><div class="line" id="000306"><span class="nick" style="color:#389600"><a href="#000306" label="[00:03:06]">&lt;oriansj&gt;</a></span><span class="message">or we can finally add int16 support to M2-Planet</span></div><div class="line" id="000608"><span class="nick" style="color:#8dd3c7"><a href="#000608" label="[00:06:08]">&lt;stikonas&gt;</a></span><span class="message">I can indeed do char[2]</span></div><div class="line" id="000630"><span class="nick" style="color:#8dd3c7"><a href="#000630" label="[00:06:30]">&lt;stikonas&gt;</a></span><span class="message">adding uint16_t is probably not hard but I doubt that we care about those fields</span></div><div class="line" id="000640"><span class="nick" style="color:#8dd3c7"><a href="#000640" label="[00:06:40]">&lt;stikonas&gt;</a></span><span class="message">it's just for getting offsets of other struct elements right</span></div><div class="line" id="000742"><span class="nick" style="color:#8dd3c7"><a href="#000742" label="[00:07:42]">&lt;stikonas&gt;</a></span><span class="message">I basically need to just get file size</span></div><div class="line" id="000747"><span class="nick" style="color:#8dd3c7"><a href="#000747" label="[00:07:47]">&lt;stikonas&gt;</a></span><span class="message">which I need for lseek</span></div><div class="line" id="000809"><span class="nick" style="color:#8dd3c7"><a href="#000809" label="[00:08:09]">&lt;stikonas&gt;</a></span><span class="message">which is a requirement for stdio.c</span></div><div class="line" id="003558"><span class="nick" style="color:#389600"><a href="#003558" label="[00:35:58]">&lt;oriansj&gt;</a></span><span class="message">well if we don't care about the 16bit fields, then we can continue to ignore int16 and just use byte arrays to pad the space cheaply.</span></div><div class="line" id="013311"><span class="nick" style="color:#8dd3c7"><a href="#013311" label="[01:33:11]">&lt;stikonas&gt;</a></span><span class="message">oriansj: lseek is not supposed to update FILE structure?</span></div><div class="line" id="013345"><span class="nick" style="color:#8dd3c7"><a href="#013345" label="[01:33:45]">&lt;stikonas&gt;</a></span><span class="message">it's only fseek's responsibility</span></div><div class="line" id="013356"><span class="nick" style="color:#8dd3c7"><a href="#013356" label="[01:33:56]">&lt;stikonas&gt;</a></span><span class="message">or am I misreading docs</span></div><div class="line" id="013815"><span class="nick" style="color:#8dd3c7"><a href="#013815" label="[01:38:15]">&lt;stikonas&gt;</a></span><span class="message">I guess I'm right, at least POSIX version also doesn't touch FILE</span></div><div class="line" id="014004"><span class="nick" style="color:#8dd3c7"><a href="#014004" label="[01:40:04]">&lt;stikonas&gt;</a></span><span class="message">and my hex2 is starting to work... Though I need to implement a bit more stuff</span></div><div class="line" id="014014"><span class="nick" style="color:#8dd3c7"><a href="#014014" label="[01:40:14]">&lt;stikonas&gt;</a></span><span class="message">before I can push M2libc changes</span></div><div class="line" id="014028"><span class="nick" style="color:#8dd3c7"><a href="#014028" label="[01:40:28]">&lt;stikonas&gt;</a></span><span class="message">for some reason stdout is completely broken</span></div><div class="line" id="022518"><span class="nick" style="color:#8dd3c7"><a href="#022518" label="[02:25:18]">&lt;stikonas&gt;</a></span><span class="message">oh and stdout was just return on the wrong line</span></div><div class="line" id="022840"><span class="nick" style="color:#8dd3c7"><a href="#022840" label="[02:28:40]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/22">https://github.com/oriansj/M2libc/pull/22</a> </span></div><div class="line" id="024652"><span class="nick" style="color:#8dd3c7"><a href="#024652" label="[02:46:52]">&lt;stikonas&gt;</a></span><span class="message">hmm, there is one last problem before amd64/bin/M1.efi can be built...</span></div><div class="line" id="024815"><span class="nick" style="color:#8dd3c7"><a href="#024815" label="[02:48:15]">&lt;stikonas&gt;</a></span><span class="message">&quot;amd64/bin/M1.efi can not be opened!&quot;</span></div><div class="line" id="025210"><span class="nick" style="color:#8dd3c7"><a href="#025210" label="[02:52:10]">&lt;stikonas&gt;</a></span><span class="message">I guess on file writes we should create parent directories...</span></div><div class="line" id="025305"><span class="nick" style="color:#389600"><a href="#025305" label="[02:53:05]">&lt;oriansj&gt;</a></span><span class="message">well that would definitely be unique to UEFI</span></div><div class="line" id="025454"><span class="nick" style="color:#389600"><a href="#025454" label="[02:54:54]">&lt;oriansj&gt;</a></span><span class="message">and merged</span></div><div class="line" id="025624"><span class="nick" style="color:#8dd3c7"><a href="#025624" label="[02:56:24]">&lt;stikonas&gt;</a></span><span class="message">yes, but shouldn't be too hard to implement</span></div><div class="line" id="025640"><span class="nick" style="color:#8dd3c7"><a href="#025640" label="[02:56:40]">&lt;stikonas&gt;</a></span><span class="message">I think mkdir in UEFI is just opening file&quot;</span></div><div class="line" id="025716"><span class="nick" style="color:#8dd3c7"><a href="#025716" label="[02:57:16]">&lt;stikonas&gt;</a></span><span class="message">so jus need to loop over all parents</span></div><div class="line" id="030951"><span class="nick" style="color:#8dd3c7"><a href="#030951" label="[03:09:51]">&lt;stikonas&gt;</a></span><span class="message">indeed, creating a directory is just opening a file with EFI_FILE_DIRECTORY attribute: <a rel="nofollow" href="https://github.com/tianocore/edk2/blob/master/MdeModulePkg/Library/FileExplorerLib/FileExplorer.c#L1097">https://github.com/tianocore/edk2/blob/master/MdeModulePkg/Library/FileExplorerLib/FileExplorer.c#L1097</a> </span></div><div class="line" id="031010"><span class="nick" style="color:#8dd3c7"><a href="#031010" label="[03:10:10]">&lt;stikonas&gt;</a></span><span class="message">should be easily doable in M2libc and hidden from applications</span></div><br /></div></body></html>

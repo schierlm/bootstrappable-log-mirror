@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-11-08.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001707"><span class="nick" style="color:#8dd3c7"><a href="#001707" label="[00:17:07]">&lt;stikonas&gt;</a></span><span class="message">janneke: why is that fix necessary? Isn't toupper supposed to make those uppercase?</span></div><div class="line" id="001826"><span class="nick" style="color:#8dd3c7"><a href="#001826" label="[00:18:26]">&lt;stikonas&gt;</a></span><span class="message">although, I haven't spent too much time looking at that function, so I might be wrong</span></div><div class="line" id="044622"><span class="nick" style="color:#2e2a4a"><a href="#044622" label="[04:46:22]">&lt;oriansj&gt;</a></span><span class="message">stikonas: it is because of the loop checking to see if the character is in the set</span></div><div class="line" id="044824"><span class="nick" style="color:#2e2a4a"><a href="#044824" label="[04:48:24]">&lt;oriansj&gt;</a></span><span class="message">janneke: the correct behavior for set_reader; would be to set negative_p to TRUE and FALSE respectively as if(TRUE) will work fine</span></div><div class="line" id="044929"><span class="nick" style="color:#2e2a4a"><a href="#044929" label="[04:49:29]">&lt;oriansj&gt;</a></span><span class="message">and in_set returns TRUE and FALSE so no == required</span></div><div class="line" id="050054"><span class="nick" style="color:#2e2a4a"><a href="#050054" label="[05:00:54]">&lt;oriansj&gt;</a></span><span class="message">but thank everyone for finding and figuring out the solution to this bug</span></div><div class="line" id="050110"><span class="nick" style="color:#2e2a4a"><a href="#050110" label="[05:01:10]">&lt;oriansj&gt;</a></span><span class="message">I'll get a new commit for mescc-tools-seed up shortly</span></div><div class="line" id="050342"><span class="nick" style="color:#2e2a4a"><a href="#050342" label="[05:03:42]">&lt;oriansj&gt;</a></span><span class="message">pder: very good work by the way</span></div><div class="line" id="050446"><span class="nick" style="color:#2e2a4a"><a href="#050446" label="[05:04:46]">&lt;oriansj&gt;</a></span><span class="message">Hagfish: well we need all kinds on this sort of project. For example someone willing to write some tests or improve documentation would really help</span></div><div class="line" id="050655"><span class="nick" style="color:#2e2a4a"><a href="#050655" label="[05:06:55]">&lt;oriansj&gt;</a></span><span class="message">janneke: check out mes-m2's solution to builtin-primitives</span></div><div class="line" id="070224"><span class="nick" style="color:#6b8072"><a href="#070224" label="[07:02:24]">&lt;janneke&gt;</a></span><span class="message">oriansj: ty for the work and explanation!</span></div><div class="line" id="070300"><span class="nick" style="color:#6b8072"><a href="#070300" label="[07:03:00]">&lt;janneke&gt;</a></span><span class="message">oriansj: and there's never any need to hurry</span></div><div class="line" id="070313"><span class="nick" style="color:#80b1d3"><a href="#070313" label="[07:03:13]">*</a></span><span class="message">janneke mainly says that to themselves :)</span></div><div class="line" id="113049"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="215014"><span class="nick" style="color:#2e2a4a"><a href="#215014" label="[21:50:14]">&lt;oriansj&gt;</a></span><span class="message">well janneke there might be reasons to hurry but rushing rarely gets one to the goal faster</span></div><div class="line" id="215647"><span class="nick" style="color:#2e2a4a"><a href="#215647" label="[21:56:47]">&lt;oriansj&gt;</a></span><span class="message">also; I want mes-m2 running MesCC to be able to bootstrap TCC before Christmas (and I know I am going to need everyone's help to do it)</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-03-11.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000702"><span class="nick" style="color:#8dd3c7"><a href="#000702" label="[00:07:02]">&lt;fossy&gt;</a></span><span class="message">stikonas: I guess so</span></div><div class="line" id="003521"><span class="nick" style="color:#2e2a4a"><a href="#003521" label="[00:35:21]">&lt;stikonas&gt;</a></span><span class="message">ok, wrote Makefile</span></div><div class="line" id="003525"><span class="nick" style="color:#2e2a4a"><a href="#003525" label="[00:35:25]">&lt;stikonas&gt;</a></span><span class="message">wasn't too hard...</span></div><div class="line" id="004140"><span class="nick" style="color:#2e2a4a"><a href="#004140" label="[00:41:40]">&lt;stikonas&gt;</a></span><span class="message">slightly ugly thing with sed is that we don't have tarball...</span></div><div class="line" id="004211"><span class="nick" style="color:#2e2a4a"><a href="#004211" label="[00:42:11]">&lt;stikonas&gt;</a></span><span class="message">only dirty source checkout with object files</span></div><div class="line" id="005828"><span class="nick" style="color:#6b8072"><a href="#005828" label="[00:58:28]">&lt;Hagfish&gt;</a></span><span class="message">it's weird that a problem with sed should end up affecting things, and even weirder if the problem is due to mes</span></div><div class="line" id="005859"><span class="nick" style="color:#6b8072"><a href="#005859" label="[00:58:59]">&lt;Hagfish&gt;</a></span><span class="message">i know sed scripts can get arbitrarily complicated, but i didn't think that many features of it were actually used in the bootstrapping process</span></div><div class="line" id="020714"><span class="nick" style="color:#2e2a4a"><a href="#020714" label="[02:07:14]">&lt;stikonas&gt;</a></span><span class="message">Hagfish: it's not too weird...</span></div><div class="line" id="020738"><span class="nick" style="color:#2e2a4a"><a href="#020738" label="[02:07:38]">&lt;stikonas&gt;</a></span><span class="message">I think mes has a lot of stubs that break some things</span></div><div class="line" id="020808"><span class="nick" style="color:#2e2a4a"><a href="#020808" label="[02:08:08]">&lt;stikonas&gt;</a></span><span class="message">we didn't observe it too much when we were doing simple things like simple string substitution</span></div><div class="line" id="020826"><span class="nick" style="color:#2e2a4a"><a href="#020826" label="[02:08:26]">&lt;stikonas&gt;</a></span><span class="message">but autotools use all those other tools much more heavily</span></div><div class="line" id="020959"><span class="nick" style="color:#2e2a4a"><a href="#020959" label="[02:09:59]">&lt;stikonas&gt;</a></span><span class="message">and there are also some minor bugs</span></div><div class="line" id="021005"><span class="nick" style="color:#2e2a4a"><a href="#021005" label="[02:10:05]">&lt;stikonas&gt;</a></span><span class="message">in mes libc...</span></div><div class="line" id="021017"><span class="nick" style="color:#2e2a4a"><a href="#021017" label="[02:10:17]">&lt;stikonas&gt;</a></span><span class="message">I think pder already sent a couple of patches upstream</span></div><div class="line" id="021058"><span class="nick" style="color:#6b8072"><a href="#021058" label="[02:10:58]">&lt;Hagfish&gt;</a></span><span class="message">stikonas: that's great info, thank you</span></div><div class="line" id="021115"><span class="nick" style="color:#6b8072"><a href="#021115" label="[02:11:15]">&lt;Hagfish&gt;</a></span><span class="message">can you give an example of some deep feature of sed that autotools uses?</span></div><div class="line" id="021152"><span class="nick" style="color:#2e2a4a"><a href="#021152" label="[02:11:52]">&lt;stikonas&gt;</a></span><span class="message">well, the thing I hit was autoheader script</span></div><div class="line" id="021223"><span class="nick" style="color:#2e2a4a"><a href="#021223" label="[02:12:23]">&lt;stikonas&gt;</a></span><span class="message">let me see if I can find source</span></div><div class="line" id="021243"><span class="nick" style="color:#6b8072"><a href="#021243" label="[02:12:43]">&lt;Hagfish&gt;</a></span><span class="message">thanks</span></div><div class="line" id="021252"><span class="nick" style="color:#6b8072"><a href="#021252" label="[02:12:52]">&lt;Hagfish&gt;</a></span><span class="message">i see that LFS suggests running a sed test suite</span></div><div class="line" id="021255"><span class="nick" style="color:#6b8072"><a href="#021255" label="[02:12:55]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="http://www.linuxfromscratch.org/lfs/view/9.0/chapter05/sed.html">http://www.linuxfromscratch.org/lfs/view/9.0/chapter05/sed.html</a> </span></div><div class="line" id="021328"><span class="nick" style="color:#6b8072"><a href="#021328" label="[02:13:28]">&lt;Hagfish&gt;</a></span><span class="message">i know it's not sed's job to find problems in mes, but it would be cool if that worked</span></div><div class="line" id="021352"><span class="nick" style="color:#2e2a4a"><a href="#021352" label="[02:13:52]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/autoconf.git/tree/autoheader.in?h=autoconf-2-13-rc1#n125">https://git.savannah.gnu.org/cgit/autoconf.git/tree/autoheader.in?h=autoconf-2-13-rc1#n125</a> </span></div><div class="line" id="021356"><span class="nick" style="color:#2e2a4a"><a href="#021356" label="[02:13:56]">&lt;stikonas&gt;</a></span><span class="message">this sed script</span></div><div class="line" id="021424"><span class="nick" style="color:#6b8072"><a href="#021424" label="[02:14:24]">&lt;Hagfish&gt;</a></span><span class="message">yeah, wow, that is a little spicy</span></div><div class="line" id="052445"><span class="nick" style="color:#80b1d3"><a href="#052445" label="[05:24:45]">&lt;pabs3&gt;</a></span><span class="message">is there a way to contact rain1 when they aren't here? (want to ask about enabling the API on the bootstrappable wiki)</span></div><div class="line" id="140555"><span class="nick">***</span><span class="message notice">janneke_ is now known as janneke`</span></div><div class="line" id="140739"><span class="nick">***</span><span class="message notice">mephista is now known as spicy_icecream</span></div><div class="line" id="141441"><span class="nick">***</span><span class="message notice">janneke` is now known as janneke</span></div><div class="line" id="154627"><span class="nick">***</span><span class="message notice">adds68_ is now known as adds68</span></div><div class="line" id="170403"><span class="nick" style="color:#6d2462"><a href="#170403" label="[17:04:03]">&lt;pder&gt;</a></span><span class="message">stikonas: nice find on sed.  would you be able to push what you have as far as a new makefile?</span></div><div class="line" id="170427"><span class="nick" style="color:#2e2a4a"><a href="#170427" label="[17:04:27]">&lt;stikonas&gt;</a></span><span class="message">pder: I can probably go as far as rebuilding binutils, but might not be today...</span></div><div class="line" id="170437"><span class="nick" style="color:#2e2a4a"><a href="#170437" label="[17:04:37]">&lt;stikonas&gt;</a></span><span class="message">need to go grocery shopping this evening</span></div><div class="line" id="170452"><span class="nick" style="color:#2e2a4a"><a href="#170452" label="[17:04:52]">&lt;stikonas&gt;</a></span><span class="message">maybe I'll be able to push at least sed</span></div><div class="line" id="170502"><span class="nick" style="color:#2e2a4a"><a href="#170502" label="[17:05:02]">&lt;stikonas&gt;</a></span><span class="message">and do libtool/binutils tomorrow</span></div><div class="line" id="170517"><span class="nick" style="color:#6d2462"><a href="#170517" label="[17:05:17]">&lt;pder&gt;</a></span><span class="message">I wanted to try rebuilding or upgrading gawk</span></div><div class="line" id="170522"><span class="nick" style="color:#2e2a4a"><a href="#170522" label="[17:05:22]">&lt;stikonas&gt;</a></span><span class="message">I also have a fix for autoconf-2.13...</span></div><div class="line" id="170535"><span class="nick" style="color:#2e2a4a"><a href="#170535" label="[17:05:35]">&lt;stikonas&gt;</a></span><span class="message">ok, I'll try to push sed PR today then</span></div><div class="line" id="170545"><span class="nick" style="color:#2e2a4a"><a href="#170545" label="[17:05:45]">&lt;stikonas&gt;</a></span><span class="message">so that you are unblocked on gawk...</span></div><div class="line" id="170656"><span class="nick" style="color:#2e2a4a"><a href="#170656" label="[17:06:56]">&lt;stikonas&gt;</a></span><span class="message">pder: you'll probably need newer autoconf/automake?</span></div><div class="line" id="170704"><span class="nick" style="color:#2e2a4a"><a href="#170704" label="[17:07:04]">&lt;stikonas&gt;</a></span><span class="message">that will be a bit annoying though</span></div><div class="line" id="170731"><span class="nick" style="color:#6d2462"><a href="#170731" label="[17:07:31]">&lt;pder&gt;</a></span><span class="message">for gawk?</span></div><div class="line" id="170754"><span class="nick" style="color:#2e2a4a"><a href="#170754" label="[17:07:54]">&lt;stikonas&gt;</a></span><span class="message">yes</span></div><div class="line" id="170757"><span class="nick" style="color:#2e2a4a"><a href="#170757" label="[17:07:57]">&lt;stikonas&gt;</a></span><span class="message">at least for 3.1.7</span></div><div class="line" id="170802"><span class="nick" style="color:#2e2a4a"><a href="#170802" label="[17:08:02]">&lt;stikonas&gt;</a></span><span class="message">current gawk is fine</span></div><div class="line" id="170810"><span class="nick" style="color:#2e2a4a"><a href="#170810" label="[17:08:10]">&lt;stikonas&gt;</a></span><span class="message">although, maybe it will be fixed if you just rebuild</span></div><div class="line" id="170817"><span class="nick" style="color:#2e2a4a"><a href="#170817" label="[17:08:17]">&lt;stikonas&gt;</a></span><span class="message">especially with fixed sed...</span></div><div class="line" id="170824"><span class="nick" style="color:#6d2462"><a href="#170824" label="[17:08:24]">&lt;pder&gt;</a></span><span class="message">Ill try that first</span></div><div class="line" id="170901"><span class="nick" style="color:#6d2462"><a href="#170901" label="[17:09:01]">&lt;pder&gt;</a></span><span class="message">Also I can look at upgrading tar</span></div><div class="line" id="171038"><span class="nick" style="color:#6d2462"><a href="#171038" label="[17:10:38]">&lt;pder&gt;</a></span><span class="message">do you know if that autoheader problem has anything to do with bash, or was it just fixed with sed?</span></div><div class="line" id="171731"><span class="nick" style="color:#2e2a4a"><a href="#171731" label="[17:17:31]">&lt;stikonas&gt;</a></span><span class="message">pder: fixed with sed</span></div><div class="line" id="171740"><span class="nick" style="color:#2e2a4a"><a href="#171740" label="[17:17:40]">&lt;stikonas&gt;</a></span><span class="message">no need to rebuild bash early</span></div><div class="line" id="171824"><span class="nick" style="color:#2e2a4a"><a href="#171824" label="[17:18:24]">&lt;stikonas&gt;</a></span><span class="message">pder: if possible tar &gt; 1.14 please</span></div><div class="line" id="172017"><span class="nick" style="color:#6d2462"><a href="#172017" label="[17:20:17]">&lt;pder&gt;</a></span><span class="message">ok</span></div><div class="line" id="191836"><span class="nick" style="color:#2e2a4a"><a href="#191836" label="[19:18:36]">&lt;stikonas&gt;</a></span><span class="message">pder: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/61">https://github.com/fosslinux/live-bootstrap/pull/61</a> </span></div><div class="line" id="192602"><span class="nick" style="color:#6d2462"><a href="#192602" label="[19:26:02]">&lt;pder&gt;</a></span><span class="message">stikonas: thanks.  Currently I have the latest master commit 0d84a1c2dcdff1481dd1caf43 and it is failing with autoconf-2.13</span></div><div class="line" id="192630"><span class="nick" style="color:#6d2462"><a href="#192630" label="[19:26:30]">&lt;pder&gt;</a></span><span class="message">oh it looks like you addressed it</span></div><div class="line" id="192640"><span class="nick" style="color:#2e2a4a"><a href="#192640" label="[19:26:40]">&lt;stikonas&gt;</a></span><span class="message">pder: it's somehow failing intermittently</span></div><div class="line" id="192642"><span class="nick" style="color:#2e2a4a"><a href="#192642" label="[19:26:42]">&lt;stikonas&gt;</a></span><span class="message">not sure why</span></div><div class="line" id="192700"><span class="nick" style="color:#2e2a4a"><a href="#192700" label="[19:27:00]">&lt;stikonas&gt;</a></span><span class="message">we have been building autoconf 2.13 for some time</span></div><div class="line" id="192738"><span class="nick" style="color:#6d2462"><a href="#192738" label="[19:27:38]">&lt;pder&gt;</a></span><span class="message">this is the first time ive seen that error</span></div><div class="line" id="192756"><span class="nick" style="color:#2e2a4a"><a href="#192756" label="[19:27:56]">&lt;stikonas&gt;</a></span><span class="message">I saw it twice</span></div><div class="line" id="200606"><span class="nick">***</span><span class="message notice">warren_ is now known as warren</span></div><div class="line" id="212112"><span class="nick" style="color:#2e2a4a"><a href="#212112" label="[21:21:12]">&lt;stikonas&gt;</a></span><span class="message">pder: we can probably get rid of tcc-mes and mes libc too now</span></div><div class="line" id="212120"><span class="nick" style="color:#2e2a4a"><a href="#212120" label="[21:21:20]">&lt;stikonas&gt;</a></span><span class="message">we are not really using it...</span></div><div class="line" id="212125"><span class="nick" style="color:#2e2a4a"><a href="#212125" label="[21:21:25]">&lt;stikonas&gt;</a></span><span class="message">even though I initially left them</span></div><div class="line" id="212141"><span class="nick" style="color:#2e2a4a"><a href="#212141" label="[21:21:41]">&lt;stikonas&gt;</a></span><span class="message">at this point I don't see where it might be useful anymore</span></div><div class="line" id="213112"><span class="nick" style="color:#6d2462"><a href="#213112" label="[21:31:12]">&lt;pder&gt;</a></span><span class="message">I agree that they could be removed.  At some point it might be investigate what is broken in mes libc and fix it.</span></div><div class="line" id="213144"><span class="nick" style="color:#6d2462"><a href="#213144" label="[21:31:44]">&lt;pder&gt;</a></span><span class="message">s/investigate/good to investigate/</span></div><br /></div></body></html>

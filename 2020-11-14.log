@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-11-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005329"><span class="nick">***</span><span class="message notice">ericonr- is now known as ericonr</span></div><div class="line" id="044904"><span class="nick" style="color:#8dd3c7"><a href="#044904" label="[04:49:04]">&lt;fossy&gt;</a></span><span class="message">playing with this blynn compiler</span></div><div class="line" id="044919"><span class="nick" style="color:#8dd3c7"><a href="#044919" label="[04:49:19]">&lt;fossy&gt;</a></span><span class="message">i must say, building lonely is quite slow</span></div><div class="line" id="044958"><span class="nick" style="color:#8dd3c7"><a href="#044958" label="[04:49:58]">&lt;fossy&gt;</a></span><span class="message">the main problem i currently see with using thi is the fact that producing lonely goes via C</span></div><div class="line" id="045536"><span class="nick" style="color:#8dd3c7"><a href="#045536" label="[04:55:36]">&lt;fossy&gt;</a></span><span class="message">still not done...</span></div><div class="line" id="045542"><span class="nick" style="color:#8dd3c7"><a href="#045542" label="[04:55:42]">&lt;fossy&gt;</a></span><span class="message">siraben: how long does ./vm run effectively.hs take for you?</span></div><div class="line" id="051048"><span class="nick" style="color:#2e2a4a"><a href="#051048" label="[05:10:48]">&lt;siraben&gt;</a></span><span class="message">fossy: did you compile with -O2?</span></div><div class="line" id="051059"><span class="nick" style="color:#2e2a4a"><a href="#051059" label="[05:10:59]">&lt;siraben&gt;</a></span><span class="message">the longest step tasks 900 ms for me I think</span></div><div class="line" id="051122"><span class="nick" style="color:#2e2a4a"><a href="#051122" label="[05:11:22]">&lt;siraben&gt;</a></span><span class="message">takes*</span></div><div class="line" id="051555"><span class="nick" style="color:#2e2a4a"><a href="#051555" label="[05:15:55]">&lt;siraben&gt;</a></span><span class="message">fossy: oh it takes 1600 ms</span></div><div class="line" id="051602"><span class="nick" style="color:#2e2a4a"><a href="#051602" label="[05:16:02]">&lt;siraben&gt;</a></span><span class="message">but it's waiting for input from stdin</span></div><div class="line" id="051712"><span class="nick" style="color:#2e2a4a"><a href="#051712" label="[05:17:12]">&lt;siraben&gt;</a></span><span class="message">`(cat rts.c; ./vm run effectively.hs) &gt; lonely.c`</span></div><div class="line" id="051800"><span class="nick" style="color:#2e2a4a"><a href="#051800" label="[05:18:00]">&lt;siraben&gt;</a></span><span class="message">ah I see it's slow now</span></div><div class="line" id="051819"><span class="nick" style="color:#2e2a4a"><a href="#051819" label="[05:18:19]">&lt;siraben&gt;</a></span><span class="message">I'll run it later when my computer isn't under load from another project compiling</span></div><div class="line" id="052558"><span class="nick" style="color:#8dd3c7"><a href="#052558" label="[05:25:58]">&lt;fossy&gt;</a></span><span class="message">siraben: yeah i get 1800ms, but then it hangs i think</span></div><div class="line" id="052610"><span class="nick" style="color:#8dd3c7"><a href="#052610" label="[05:26:10]">&lt;fossy&gt;</a></span><span class="message">huh</span></div><div class="line" id="052647"><span class="nick" style="color:#8dd3c7"><a href="#052647" label="[05:26:47]">&lt;fossy&gt;</a></span><span class="message">ok then? if i do `(cat rts.c; echo &quot;&quot; | ./vm run effectively.hs) &gt; lonely.c` it produces something</span></div><div class="line" id="052953"><span class="nick" style="color:#8dd3c7"><a href="#052953" label="[05:29:53]">&lt;fossy&gt;</a></span><span class="message">OOOH, the command is wrong!</span></div><div class="line" id="052958"><span class="nick" style="color:#8dd3c7"><a href="#052958" label="[05:29:58]">&lt;fossy&gt;</a></span><span class="message">looking at the makefile, i get (cat rts.c &amp;&amp; ./vm run effectively.hs &lt; lonely.hs) &gt; lonely.c</span></div><div class="line" id="053008"><span class="nick" style="color:#8dd3c7"><a href="#053008" label="[05:30:08]">&lt;fossy&gt;</a></span><span class="message">note the &lt; lonely.hs</span></div><div class="line" id="053019"><span class="nick" style="color:#8dd3c7"><a href="#053019" label="[05:30:19]">&lt;fossy&gt;</a></span><span class="message">hence the README is wrong, i'll pr later today</span></div><div class="line" id="053301"><span class="nick" style="color:#8dd3c7"><a href="#053301" label="[05:33:01]">&lt;fossy&gt;</a></span><span class="message">how very interesting</span></div><div class="line" id="053315"><span class="nick" style="color:#8dd3c7"><a href="#053315" label="[05:33:15]">&lt;fossy&gt;</a></span><span class="message">there are many more layers of compilers *after* lonely, as i expected</span></div><div class="line" id="053438"><span class="nick" style="color:#8dd3c7"><a href="#053438" label="[05:34:38]">&lt;fossy&gt;</a></span><span class="message">as from a clean tree `make -n precisely` (the last one, afaict) shows</span></div><div class="line" id="055302"><span class="nick" style="color:#8dd3c7"><a href="#055302" label="[05:53:02]">&lt;fossy&gt;</a></span><span class="message">siraben: so, now i have a precisely binary, trying to run your r5rs-denot on it is proving difficult however, do you have any pointers? or is it just going to be hack and slash modifications of the code to get it to work under ben lynn</span></div><div class="line" id="055304"><span class="nick" style="color:#8dd3c7"><a href="#055304" label="[05:53:04]">&lt;fossy&gt;</a></span><span class="message">?</span></div><div class="line" id="055319"><span class="nick" style="color:#2e2a4a"><a href="#055319" label="[05:53:19]">&lt;siraben&gt;</a></span><span class="message">fossy: ah, my r5rs-denot project will not run on it.</span></div><div class="line" id="055326"><span class="nick" style="color:#8dd3c7"><a href="#055326" label="[05:53:26]">&lt;fossy&gt;</a></span><span class="message">oh, why is that?</span></div><div class="line" id="055329"><span class="nick" style="color:#2e2a4a"><a href="#055329" label="[05:53:29]">&lt;siraben&gt;</a></span><span class="message">Ben Lynn's Haskell compiler is for a subset of Haskell</span></div><div class="line" id="055335"><span class="nick" style="color:#2e2a4a"><a href="#055335" label="[05:53:35]">&lt;siraben&gt;</a></span><span class="message">So not modules, libraries, etc.</span></div><div class="line" id="055336"><span class="nick" style="color:#2e2a4a"><a href="#055336" label="[05:53:36]">&lt;siraben&gt;</a></span><span class="message">no*</span></div><div class="line" id="055342"><span class="nick" style="color:#8dd3c7"><a href="#055342" label="[05:53:42]">&lt;fossy&gt;</a></span><span class="message">right.</span></div><div class="line" id="055404"><span class="nick" style="color:#8dd3c7"><a href="#055404" label="[05:54:04]">&lt;fossy&gt;</a></span><span class="message">so in your plan, where were you going to go after Ben Lynn for bootstrpaping?</span></div><div class="line" id="055428"><span class="nick" style="color:#2e2a4a"><a href="#055428" label="[05:54:28]">&lt;siraben&gt;</a></span><span class="message">Ben Lynn → Lazy Scheme → Impure Scheme → Scheme with macros → R5RS</span></div><div class="line" id="055446"><span class="nick" style="color:#8dd3c7"><a href="#055446" label="[05:54:46]">&lt;fossy&gt;</a></span><span class="message">ok got it</span></div><div class="line" id="055537"><span class="nick" style="color:#2e2a4a"><a href="#055537" label="[05:55:37]">&lt;siraben&gt;</a></span><span class="message">r5rs-denot is a good reference, I'll probably use that.</span></div><div class="line" id="055606"><span class="nick" style="color:#2e2a4a"><a href="#055606" label="[05:56:06]">&lt;siraben&gt;</a></span><span class="message">Heh this will be unusual, compiling a strict language into call-by-need lambda calculus</span></div><div class="line" id="055639"><span class="nick" style="color:#8dd3c7"><a href="#055639" label="[05:56:39]">&lt;fossy&gt;</a></span><span class="message">lmao, yes</span></div><div class="line" id="055818"><span class="nick" style="color:#8dd3c7"><a href="#055818" label="[05:58:18]">&lt;fossy&gt;</a></span><span class="message">idd you have particular implementations of lazy scheme and impure scheme in mind? i've heard of the terms but i can't say i am farmilar with them</span></div><div class="line" id="055820"><span class="nick" style="color:#2e2a4a"><a href="#055820" label="[05:58:20]">&lt;siraben&gt;</a></span><span class="message">fossy: Ben Lynn benchmarked his implementation against Miranda (an older implementation of Haskell) <a rel="nofollow" href="https://crypto.stanford.edu/~blynn/compiler/miranda.html">https://crypto.stanford.edu/~blynn/compiler/miranda.html</a> </span></div><div class="line" id="055848"><span class="nick" style="color:#2e2a4a"><a href="#055848" label="[05:58:48]">&lt;siraben&gt;</a></span><span class="message">lazy scheme is just lazy lambda calculus in Scheme syntax, I think. Impure scheme would have continuations, mutable references, I/O</span></div><div class="line" id="055910"><span class="nick" style="color:#2e2a4a"><a href="#055910" label="[05:59:10]">&lt;siraben&gt;</a></span><span class="message">fossy: see <a rel="nofollow" href="https://github.com/siraben/compiler/tree/lispy/descriptions">https://github.com/siraben/compiler/tree/lispy/descriptions</a> </span></div><div class="line" id="055932"><span class="nick" style="color:#8dd3c7"><a href="#055932" label="[05:59:32]">&lt;fossy&gt;</a></span><span class="message">ooh more information!</span></div><div class="line" id="060100"><span class="nick" style="color:#8dd3c7"><a href="#060100" label="[06:01:00]">&lt;fossy&gt;</a></span><span class="message">i see the process now, i think</span></div><div class="line" id="060109"><span class="nick" style="color:#2e2a4a"><a href="#060109" label="[06:01:09]">&lt;siraben&gt;</a></span><span class="message">Yeah.</span></div><div class="line" id="060140"><span class="nick" style="color:#8dd3c7"><a href="#060140" label="[06:01:40]">&lt;fossy&gt;</a></span><span class="message">extremely interesting, i will be following this very closely -- i'll help out where possible but i won't say functional programming is my strong suit by any means, lol</span></div><div class="line" id="060210"><span class="nick" style="color:#2e2a4a"><a href="#060210" label="[06:02:10]">&lt;siraben&gt;</a></span><span class="message">Thanks. I would probably need most help on implementing hygienic macro expansion lol</span></div><div class="line" id="194608"><span class="nick" style="color:#6b8072"><a href="#194608" label="[19:46:08]">&lt;OriansJ&gt;</a></span><span class="message">lots of potential but still no license. And working with unlicensed material has derivative licensing issues as well.</span></div><div class="line" id="194700"><span class="nick" style="color:#2e2a4a"><a href="#194700" label="[19:47:00]">&lt;siraben&gt;</a></span><span class="message">I'll email him then</span></div><div class="line" id="195029"><span class="nick" style="color:#6b8072"><a href="#195029" label="[19:50:29]">&lt;OriansJ&gt;</a></span><span class="message">certainly a priority if we wish to use it or any derivative of it</span></div><div class="line" id="200230"><span class="nick" style="color:#6b8072"><a href="#200230" label="[20:02:30]">&lt;OriansJ&gt;</a></span><span class="message">and if we wish to continue this route even if he refuses to add a free license; we will have to do a strict <a rel="nofollow" href="https://en.wikipedia.org/wiki/Chinese_wall">https://en.wikipedia.org/wiki/Chinese_wall</a> </span></div><div class="line" id="200257"><span class="nick" style="color:#6b8072"><a href="#200257" label="[20:02:57]">&lt;OriansJ&gt;</a></span><span class="message">reimplementation</span></div><div class="line" id="200446"><span class="nick" style="color:#2e2a4a"><a href="#200446" label="[20:04:46]">&lt;siraben&gt;</a></span><span class="message">i.e. clean room?</span></div><div class="line" id="200505"><span class="nick" style="color:#2e2a4a"><a href="#200505" label="[20:05:05]">&lt;siraben&gt;</a></span><span class="message">i would not be able to do that then since I've extensively studied his implementation</span></div><div class="line" id="200532"><span class="nick" style="color:#6b8072"><a href="#200532" label="[20:05:32]">&lt;OriansJ&gt;</a></span><span class="message">siraben: one team reads the code and write specs and a different team that has never looked at the code writes the implementation.</span></div><div class="line" id="200545"><span class="nick" style="color:#6b8072"><a href="#200545" label="[20:05:45]">&lt;OriansJ&gt;</a></span><span class="message">from the written specs</span></div><div class="line" id="200614"><span class="nick" style="color:#6b8072"><a href="#200614" label="[20:06:14]">&lt;OriansJ&gt;</a></span><span class="message">Those that have looked at the code; can't do implementation</span></div><div class="line" id="200626"><span class="nick" style="color:#2e2a4a"><a href="#200626" label="[20:06:26]">&lt;siraben&gt;</a></span><span class="message">From his other projects he seems to use GPLv3 a lot so it's likely he'll use it again.</span></div><div class="line" id="200706"><span class="nick" style="color:#6b8072"><a href="#200706" label="[20:07:06]">&lt;OriansJ&gt;</a></span><span class="message">siraben: let us hope so, otherwise it looks like it'll be alot of work.</span></div><div class="line" id="200819"><span class="nick" style="color:#2e2a4a"><a href="#200819" label="[20:08:19]">&lt;siraben&gt;</a></span><span class="message">indeed. Also, his IOCCC version is licensed under CC BY-SA 3.0 <a rel="nofollow" href="https://www.ioccc.org/2019/lynn/hint.html">https://www.ioccc.org/2019/lynn/hint.html</a> </span></div><div class="line" id="201101"><span class="nick" style="color:#6b8072"><a href="#201101" label="[20:11:01]">&lt;OriansJ&gt;</a></span><span class="message">siraben: IOCCC code is far from easy to maintain.</span></div><div class="line" id="201110"><span class="nick" style="color:#2e2a4a"><a href="#201110" label="[20:11:10]">&lt;siraben&gt;</a></span><span class="message">haha, i guess</span></div><div class="line" id="201114"><span class="nick" style="color:#2e2a4a"><a href="#201114" label="[20:11:14]">&lt;siraben&gt;</a></span><span class="message">guessed*</span></div><div class="line" id="201128"><span class="nick" style="color:#2e2a4a"><a href="#201128" label="[20:11:28]">&lt;siraben&gt;</a></span><span class="message">I'm not terribly concerned about the licensing atm, moreso the technical aspects.</span></div><div class="line" id="201138"><span class="nick" style="color:#2e2a4a"><a href="#201138" label="[20:11:38]">&lt;siraben&gt;</a></span><span class="message">I'll let you know when I get a reply.</span></div><div class="line" id="201321"><span class="nick" style="color:#6b8072"><a href="#201321" label="[20:13:21]">&lt;OriansJ&gt;</a></span><span class="message">siraben: licensing is my top concern as the technical aspects can be fixed with effort. As otherwise Guix and other Linux Distros will never accept the work.</span></div><br /></div></body></html>

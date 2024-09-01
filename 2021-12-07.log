@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-12-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003539"><span class="nick" style="color:#8dd3c7"><a href="#003539" label="[00:35:39]">&lt;gbrlwck&gt;</a></span><span class="message">oriansj: aha!  so (i386:function-locals) just reserves that much space by increasing the stack pointer.  yeah, that makes sense.  thanks!</span></div><div class="line" id="014701"><span class="nick">***</span><span class="message notice">goldenshimmer[m] is now known as goldenshimmer</span></div><div class="line" id="175623"><span class="nick" style="color:#2e2a4a"><a href="#175623" label="[17:56:23]">&lt;river&gt;</a></span><span class="message">I thought there was a bootstrap loop with meson/ninja?</span></div><div class="line" id="175630"><span class="nick" style="color:#2e2a4a"><a href="#175630" label="[17:56:30]">&lt;river&gt;</a></span><span class="message">but there doesn't seem to be</span></div><div class="line" id="180449"><span class="nick" style="color:#6b8072"><a href="#180449" label="[18:04:49]">&lt;stikonas&gt;</a></span><span class="message">river: no, ninja can be built with cmake</span></div><div class="line" id="180523"><span class="nick" style="color:#6b8072"><a href="#180523" label="[18:05:23]">&lt;stikonas&gt;</a></span><span class="message">cmake has ninja generator but it also has make generator, so there is not loop</span></div><div class="line" id="180536"><span class="nick" style="color:#6b8072"><a href="#180536" label="[18:05:36]">&lt;stikonas&gt;</a></span><span class="message">and cmake itself has bootstrap script so it does not depend on cmake itself</span></div><div class="line" id="180641"><span class="nick" style="color:#6b8072"><a href="#180641" label="[18:06:41]">&lt;stikonas&gt;</a></span><span class="message">but I haven't looked at meson yet</span></div><div class="line" id="180655"><span class="nick" style="color:#6b8072"><a href="#180655" label="[18:06:55]">&lt;stikonas&gt;</a></span><span class="message">it's probably heavy on dependencies but nothing circular</span></div><div class="line" id="180700"><span class="nick" style="color:#6b8072"><a href="#180700" label="[18:07:00]">&lt;stikonas&gt;</a></span><span class="message">I guess we need python for that...</span></div><div class="line" id="180732"><span class="nick" style="color:#6b8072"><a href="#180732" label="[18:07:32]">&lt;stikonas&gt;</a></span><span class="message">maybe once fossy build python for live-bootstrap we can build meson there too</span></div><div class="line" id="180915"><span class="nick" style="color:#6b8072"><a href="#180915" label="[18:09:15]">&lt;stikonas&gt;</a></span><span class="message">in terms of build system loops, I guess autotools are the worst if you don't want to use pre-generated files</span></div><div class="line" id="181007"><span class="nick" style="color:#6b8072"><a href="#181007" label="[18:10:07]">&lt;stikonas&gt;</a></span><span class="message">at least if we speak of normal common systems and not language specific ones like cargo, maven, etc...</span></div><div class="line" id="181019"><span class="nick" style="color:#6b8072"><a href="#181019" label="[18:10:19]">&lt;stikonas&gt;</a></span><span class="message">those are usually worse</span></div><div class="line" id="193547"><span class="nick" style="color:#8dd3c7"><a href="#193547" label="[19:35:47]">&lt;gbrlwck&gt;</a></span><span class="message">are i386:r-negate and i386:zf-&gt;r identical? <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/mes.git/tree/module/mescc/i386/as.scm#n88">https://git.savannah.gnu.org/cgit/mes.git/tree/module/mescc/i386/as.scm#n88</a> </span></div><br /></div></body></html>

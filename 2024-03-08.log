@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-03-08.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="135436"><span class="nick" style="color:#389600"><a href="#135436" label="[13:54:36]">&lt;oriansj&gt;</a></span><span class="message">hmmm, pattern matching on types brings about an interesting question on behavior regarding immediates in a calculation.</span></div><div class="line" id="140119"><span class="nick" style="color:#389600"><a href="#140119" label="[14:01:19]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1309900/">https://paste.debian.net/1309900/</a>  on one hand it enables no internal information about architectures in the compiler</span></div><div class="line" id="140832"><span class="nick" style="color:#389600"><a href="#140832" label="[14:08:32]">&lt;oriansj&gt;</a></span><span class="message">on the other hand, the compiler becomes a simple pattern matcher which only needs you to resolve the types for (set! e (add (sub a b) (sub c d))) It is easy to figure out a-&gt;e's types; the problem is what type should the subs return as there are multiple return options available.</span></div><div class="line" id="141123"><span class="nick" style="color:#389600"><a href="#141123" label="[14:11:23]">&lt;oriansj&gt;</a></span><span class="message">if I require the user to provide the types via (set! e (add (sub :UINT_32 a b) (sub :INT_8 c d))) it looks a little ugly but it does make it trivial for the programer to reason about rounding, truncation and other behaviors that might occur. [As the sub function used would be the only one which matches the name and all of the types]</span></div><div class="line" id="143201"><span class="nick" style="color:#389600"><a href="#143201" label="[14:32:01]">&lt;oriansj&gt;</a></span><span class="message">the reader atleast is simple: <a rel="nofollow" href="https://git.sr.ht/~oriansj/bishop/tree/main/item/read.c">https://git.sr.ht/~oriansj/bishop/tree/main/item/read.c</a> </span></div><div class="line" id="143238"><span class="nick" style="color:#389600"><a href="#143238" label="[14:32:38]">&lt;oriansj&gt;</a></span><span class="message">so should doable in only 200ish lines of assembly</span></div><div class="line" id="145536"><span class="nick" style="color:#8dd3c7"><a href="#145536" label="[14:55:36]">&lt;stikonas_&gt;</a></span><span class="message">oriansj: is this to replace cc_* compilers?</span></div><div class="line" id="154344"><span class="nick" style="color:#389600"><a href="#154344" label="[15:43:44]">&lt;oriansj&gt;</a></span><span class="message">stikonas: only if the result is worth the effort.</span></div><div class="line" id="154434"><span class="nick" style="color:#389600"><a href="#154434" label="[15:44:34]">&lt;oriansj&gt;</a></span><span class="message">mostly an experiment in typed s-expression bootstrapping. What is the most powerful language we can implement with the least functionality needing to be written in assembly</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-11-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002453"><span class="nick" style="color:#389600"><a href="#002453" label="[00:24:53]">&lt;oriansj&gt;</a></span><span class="message">stikonas: thank you for fixing mescc-tools and mescc-tools-extras makefiles ^_^</span></div><div class="line" id="002503"><span class="nick" style="color:#8dd3c7"><a href="#002503" label="[00:25:03]">&lt;stikonas&gt;</a></span><span class="message">yeah, no problem :)</span></div><div class="line" id="002508"><span class="nick" style="color:#8dd3c7"><a href="#002508" label="[00:25:08]">&lt;stikonas&gt;</a></span><span class="message">those are not too hard fixes anyway</span></div><div class="line" id="002656"><span class="nick" style="color:#2e2a4a"><a href="#002656" label="[00:26:56]">&lt;vagrantc&gt;</a></span><span class="message">ACTION looks</span></div><div class="line" id="042249"><span class="nick" style="color:#6b8072"><a href="#042249" label="[04:22:49]">&lt;Googulator&gt;</a></span><span class="message">Mikaku: I'm trying to reproduce the ramdisk issue now using FiwixOS. So far, the only way I found was to use the 1.4.0-lb3 kernel built during live-bootstrap, and instead of ramdisksize=262144, specify kexec_size=262144, since ramdisksize seems to be ignored by that kernel.</span></div><div class="line" id="042302"><span class="nick" style="color:#6b8072"><a href="#042302" label="[04:23:02]">&lt;Googulator&gt;</a></span><span class="message">The included 1.5.0 kernel unfortunately ignores kexec_size.</span></div><div class="line" id="042347"><span class="nick" style="color:#6b8072"><a href="#042347" label="[04:23:47]">&lt;Googulator&gt;</a></span><span class="message">Note that in live-bootstrap, the ramdisk is created in a 3rd way, using ramdisksize + Multiboot module containing the initrd.</span></div><div class="line" id="042431"><span class="nick" style="color:#6b8072"><a href="#042431" label="[04:24:31]">&lt;Googulator&gt;</a></span><span class="message">With kexec_size instead of ramdisksize in 1.4.0-lb3, I get the exact same error as what I saw in live-bootstrap.</span></div><div class="line" id="042706"><span class="nick" style="color:#6b8072"><a href="#042706" label="[04:27:06]">&lt;Googulator&gt;</a></span><span class="message">Is kexec disabled in the 1.5.0 kernel included with FiwixOSM</span></div><div class="line" id="042711"><span class="nick" style="color:#6b8072"><a href="#042711" label="[04:27:11]">&lt;Googulator&gt;</a></span><span class="message">FiwixOS?</span></div><div class="line" id="043518"><span class="nick" style="color:#6b8072"><a href="#043518" label="[04:35:18]">&lt;Googulator&gt;</a></span><span class="message">OK, successfully reproduced in 1.4.0-lw3 using the command line &quot;ro root=/dev/hda2 ramdisksize=262144 initrd=/initrd&quot;, with a multiboot module called &quot;/initrd&quot;, similar to what live-bootstrap is doing. The same command line gives the correct error (&quot;No space left on device&quot;) in 1.5.0.</span></div><div class="line" id="043547"><span class="nick" style="color:#6b8072"><a href="#043547" label="[04:35:47]">&lt;Googulator&gt;</a></span><span class="message">So this is either fixed in 1.5.0, or else it's a bug specific to the -lw3 patches.</span></div><div class="line" id="061948"><span class="nick" style="color:#80b1d3"><a href="#061948" label="[06:19:48]">&lt;fossy&gt;</a></span><span class="message">sorry all, i have been on holidays for the past 6 days, but something in my infra rebooted and so i didn't have access to most things.. cathcing up on live-bootstrap bits and peaces now</span></div><div class="line" id="142916"><span class="nick" style="color:#6d2462"><a href="#142916" label="[14:29:16]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: congrats on the release of Fiwix 1.5.0 and FiwixOS 3.3!</span></div><div class="line" id="143009"><span class="nick" style="color:#6d2462"><a href="#143009" label="[14:30:09]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: I've resumed work on upstreaming patches on top of 1.5.0.</span></div><div class="line" id="143139"><span class="nick" style="color:#6d2462"><a href="#143139" label="[14:31:39]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: I'm very impressed with the recent work you've been doing.</span></div><div class="line" id="143306"><span class="nick" style="color:#6d2462"><a href="#143306" label="[14:33:06]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: Live-bootstrap is a large and complex system and you've managed to figure it out and solve difficult problems to improve it.</span></div><div class="line" id="143520"><span class="nick" style="color:#6d2462"><a href="#143520" label="[14:35:20]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: I'm curious about how you worked through the learning curve.</span></div><div class="line" id="143756"><span class="nick" style="color:#6d2462"><a href="#143756" label="[14:37:56]">&lt;rickmasters&gt;</a></span><span class="message">Googulator: Can you think of the areas you found particularly difficult to comprehend that could benefit from improved documentation?</span></div><div class="line" id="144037"><span class="nick" style="color:#6d2462"><a href="#144037" label="[14:40:37]">&lt;rickmasters&gt;</a></span><span class="message">Also, I'm just curious. Would you be willing to share anything about yourself or your background?</span></div><div class="line" id="145203"><span class="nick" style="color:#234e69"><a href="#145203" label="[14:52:03]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; The scripting part of live-bootstrap is not that complex... Any project inside, say even tcc is more complex (at least if we allow comparing C and bash)</span></div><div class="line" id="151853"><span class="nick" style="color:#6c3d55"><a href="#151853" label="[15:18:53]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: thanks, and I'm ready to include your patches</span></div><div class="line" id="152521"><span class="nick" style="color:#6c3d55"><a href="#152521" label="[15:25:21]">&lt;Mikaku&gt;</a></span><span class="message">Googulator: yes, CONFIG_KEXEC is disabled by default. You can check it here &lt;<a rel="nofollow" href="https://github.com/mikaku/Fiwix/blob/master/include/fiwix/config.h">https://github.com/mikaku/Fiwix/blob/master/include/fiwix/config.h</a>&gt; </span></div><div class="line" id="161905"><span class="nick" style="color:#389600"><a href="#161905" label="[16:19:05]">&lt;oriansj&gt;</a></span><span class="message">fossy: hopefully you had a great time on holiday.</span></div><div class="line" id="200520"><span class="nick" style="color:#d9d9d9"><a href="#200520" label="[20:05:20]">&lt;samplet&gt;</a></span><span class="message">I just built the ‘tcc-boot’ package in Guix with the forthcoming Mes 0.26.  The update was surprisingly painless.</span></div><div class="line" id="200627"><span class="nick" style="color:#d9d9d9"><a href="#200627" label="[20:06:27]">&lt;samplet&gt;</a></span><span class="message">Unless I made a mistake, this is running MesCC on the new module system.</span></div><div class="line" id="200744"><span class="nick" style="color:#d9d9d9"><a href="#200744" label="[20:07:44]">&lt;samplet&gt;</a></span><span class="message">There was one little problem with the Mes build scripts.  It looks like a RISC-V change that breaks the build.</span></div><div class="line" id="201022"><span class="nick" style="color:#d9d9d9"><a href="#201022" label="[20:10:22]">&lt;samplet&gt;</a></span><span class="message">It’s the “tcc-lib” stuff at the end of ‘bootstrap.sh’.</span></div><div class="line" id="201039"><span class="nick" style="color:#d9d9d9"><a href="#201039" label="[20:10:39]">&lt;samplet&gt;</a></span><span class="message">It might just be that I’m doing something wrong, though.  We’ll see.</span></div><br /></div></body></html>

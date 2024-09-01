@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-11-10.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="134720"><span class="nick" style="color:#8dd3c7"><a href="#134720" label="[13:47:20]">&lt;oriansj&gt;</a></span><span class="message">janneke: so thoughts on the new mes-m2 primitive format?</span></div><div class="line" id="151338"><span class="nick" style="color:#2e2a4a"><a href="#151338" label="[15:13:38]">&lt;dddddd&gt;</a></span><span class="message">Hello, booters!</span></div><div class="line" id="163904"><span class="nick">***</span><span class="message notice">z3ntu is now known as z3ntu_</span></div><div class="line" id="171529"><span class="nick" style="color:#6b8072"><a href="#171529" label="[17:15:29]">*</a></span><span class="message">janneke pulls mes-m2</span></div><div class="line" id="172018"><span class="nick" style="color:#80b1d3"><a href="#172018" label="[17:20:18]">&lt;janneke&gt;</a></span><span class="message">oriansj: simpler, and simpler...</span></div><div class="line" id="172359"><span class="nick" style="color:#80b1d3"><a href="#172359" label="[17:23:59]">&lt;janneke&gt;</a></span><span class="message">oriansj: i am making some (much slower) progress with m2'ifying too and i was wondering; i think iwbn to split off building of mes-m2 from the x86/kaem.run of the mescc-tools-seed (or otherwise to have a variant that enables building all mescc-tools but not any mes, which is really the next stage)?</span></div><div class="line" id="172425"><span class="nick" style="color:#80b1d3"><a href="#172425" label="[17:24:25]">&lt;janneke&gt;</a></span><span class="message">there is no hurry, i am working to make the mes srfi-9 record interface exactly as Guile</span></div><div class="line" id="172507"><span class="nick" style="color:#80b1d3"><a href="#172507" label="[17:25:07]">&lt;janneke&gt;</a></span><span class="message">and am playing with/looking into a proper guile module setup, that mes currently fakes</span></div><div class="line" id="190542"><span class="nick" style="color:#8dd3c7"><a href="#190542" label="[19:05:42]">&lt;oriansj&gt;</a></span><span class="message">janneke: sounds great</span></div><div class="line" id="190637"><span class="nick" style="color:#8dd3c7"><a href="#190637" label="[19:06:37]">&lt;oriansj&gt;</a></span><span class="message">splitting of mes-m2 from mescc-tools-seed is fine by me</span></div><div class="line" id="190729"><span class="nick" style="color:#8dd3c7"><a href="#190729" label="[19:07:29]">&lt;oriansj&gt;</a></span><span class="message">I figured by incorporating it into a single step process; it'll make it easier for other distros to pickup our bootstrap starting point</span></div><div class="line" id="190851"><span class="nick" style="color:#8dd3c7"><a href="#190851" label="[19:08:51]">&lt;oriansj&gt;</a></span><span class="message">kaem --verbose --strict -&gt; MesCC with a guile script that can run on mes-m2 to bootstrap GCC</span></div><div class="line" id="191109"><span class="nick" style="color:#8dd3c7"><a href="#191109" label="[19:11:09]">&lt;oriansj&gt;</a></span><span class="message">+ guile + guix if we so wanted</span></div><div class="line" id="191224"><span class="nick" style="color:#8dd3c7"><a href="#191224" label="[19:12:24]">&lt;oriansj&gt;</a></span><span class="message">and don't be afraid of breaking the M2-Planet build, I can always get it working again when we have proper tests</span></div><div class="line" id="191620"><span class="nick" style="color:#8dd3c7"><a href="#191620" label="[19:16:20]">&lt;oriansj&gt;</a></span><span class="message">and as you are going to redo the module system; I'll strip out the current version and use it to clean up a few things</span></div><div class="line" id="210001"><span class="nick" style="color:#80b1d3"><a href="#210001" label="[21:00:01]">&lt;janneke&gt;</a></span><span class="message">oriansj: yes, i found it very easy to use...</span></div><div class="line" id="210025"><span class="nick" style="color:#80b1d3"><a href="#210025" label="[21:00:25]">&lt;janneke&gt;</a></span><span class="message">so maybe we could keep it; but as an option</span></div><div class="line" id="210125"><span class="nick" style="color:#80b1d3"><a href="#210125" label="[21:01:25]">&lt;janneke&gt;</a></span><span class="message">kaem.run could maybe just invoke: kaem .. -f mescc-tools.kaem; kaem .. -f mes-m2.kaem;</span></div><div class="line" id="210204"><span class="nick" style="color:#80b1d3"><a href="#210204" label="[21:02:04]">&lt;janneke&gt;</a></span><span class="message">oriansj: stripping it out sounds great, i make things more powerful; you strip the cruft out :-)</span></div><div class="line" id="232237"><span class="nick" style="color:#8dd3c7"><a href="#232237" label="[23:22:37]">&lt;oriansj&gt;</a></span><span class="message">janneke: agreed; I strip and you add ^_^  I guess I get the title the bootstripper :-p</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="163224"><span class="nick" style="color:#389600"><a href="#163224" label="[16:32:24]">&lt;janus&gt;</a></span><span class="message">Googulator: what if we made MicroHs compatible with e.g. GHC 6, and then we ported MicroHs to prescheme ;)</span></div><div class="line" id="173831"><span class="nick" style="color:#8dd3c7"><a href="#173831" label="[17:38:31]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I'm running into a weird performance issue. stage0-posix-x86 actually runs faster in a qemu guest running a 2.4 kernel than it does on the host running a 5.15 kernel. It takes about 40% less time inside qemu. Even a guest running a 2.2 kernel outperforms the host (though by a smaller margin).</span></div><div class="line" id="173901"><span class="nick" style="color:#8dd3c7"><a href="#173901" label="[17:39:01]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; 2.4 guest is slackware 8.1 (bare.i kernel). 2.2 is a slackware 7.0 system</span></div><div class="line" id="173949"><span class="nick" style="color:#8dd3c7"><a href="#173949" label="[17:39:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; This is like 17s vs 30s so not a major issue, but still very strange. A guest running a 5.15 kernel has even worse performance than the host.</span></div><div class="line" id="175412"><span class="nick" style="color:#8dd3c7"><a href="#175412" label="[17:54:12]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Incidentally I also was able to build stage0-posix-x86 on a FreeBSD 15 vs using its Linux syscall emulation layer. hex2_x86.hex1 was triggering a &quot;elf_load_section: truncated ELF file&quot; error until I fixed the ph_filesz and ph_memsz lines in hex2_x86.hex1. FreeBSD was pretty slow though.</span></div><div class="line" id="175417"><span class="nick" style="color:#8dd3c7"><a href="#175417" label="[17:54:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; s/vs/vm/</span></div><div class="line" id="185527"><span class="nick" style="color:#8dd3c7"><a href="#185527" label="[18:55:27]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; cosinusoidally: oh. looks like there is already an open issue: <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-x86/issues/1">https://github.com/oriansj/stage0-posix-x86/issues/1</a> </span></div><div class="line" id="185737"><span class="nick" style="color:#8dd3c7"><a href="#185737" label="[18:57:37]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; do you want to submit PR?</span></div><br /></div></body></html>

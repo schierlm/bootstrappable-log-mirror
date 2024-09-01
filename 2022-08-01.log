@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-08-01.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000735"><span class="nick" style="color:#8dd3c7"><a href="#000735" label="[00:07:35]">&lt;oriansj&gt;</a></span><span class="message">muurkha: In general, bootstrapping usually refers to a self-starting process that is supposed to continue or grow without external input. So if we replace the word input with binary blobs, it would be an accurate description of what we do here.</span></div><div class="line" id="001138"><span class="nick" style="color:#8dd3c7"><a href="#001138" label="[00:11:38]">&lt;oriansj&gt;</a></span><span class="message">although I'd prefer it to extend to anything not written by a human with the intension of another human reading it and understanding it.</span></div><div class="line" id="001810"><span class="nick" style="color:#2e2a4a"><a href="#001810" label="[00:18:10]">&lt;theruran&gt;</a></span><span class="message">welcome jackhill</span></div><div class="line" id="010221"><span class="nick" style="color:#6b8072"><a href="#010221" label="[01:02:21]">&lt;muurkha&gt;</a></span><span class="message">oriansj: the term has its roots in the idiom of &quot;pulling oneself up by one's bootstraps&quot;, originally used of things that were obviously impossible, later extended to include actually possible forms of self-reliance</span></div><div class="line" id="010407"><span class="nick" style="color:#6b8072"><a href="#010407" label="[01:04:07]">&lt;muurkha&gt;</a></span><span class="message">so a compiler that is compiled with itself is &quot;bootstrapped&quot;, and a compiler that needs some third-party compiler to compile it (perhaps because it's not written in the language it compiles) is not</span></div><div class="line" id="010538"><span class="nick" style="color:#6b8072"><a href="#010538" label="[01:05:38]">&lt;muurkha&gt;</a></span><span class="message">so you could say that the whole &quot;bootstrappable&quot; blob including stage0, stage1, mes, mescc, etc., is bootstrapped in that sense</span></div><div class="line" id="013042"><span class="nick" style="color:#8dd3c7"><a href="#013042" label="[01:30:42]">&lt;oriansj&gt;</a></span><span class="message">well technically M2-Planet is the first bit that builds itself and MesCC doesn't build mes.c if I remember correctly currently in live-bootstrap</span></div><div class="line" id="013055"><span class="nick" style="color:#6b8072"><a href="#013055" label="[01:30:55]">&lt;muurkha&gt;</a></span><span class="message">right, but live-bootstrap builds itself</span></div><div class="line" id="013105"><span class="nick" style="color:#6b8072"><a href="#013105" label="[01:31:05]">&lt;muurkha&gt;</a></span><span class="message">considered as a whole</span></div><div class="line" id="013144"><span class="nick" style="color:#80b1d3"><a href="#013144" label="[01:31:44]">&lt;stikonas&gt;</a></span><span class="message">just pushed <a rel="nofollow" href="https://git.stikonas.eu/andrius/stage0-uefi/src/branch/main/amd64/Development/kaem-optional.S">https://git.stikonas.eu/andrius/stage0-uefi/src/branch/main/amd64/Development/kaem-optional.S</a> </span></div><div class="line" id="013226"><span class="nick" style="color:#80b1d3"><a href="#013226" label="[01:32:26]">&lt;stikonas&gt;</a></span><span class="message">took a much longer than expected today but I guess being sick is a resonable excuse</span></div><div class="line" id="013250"><span class="nick" style="color:#80b1d3"><a href="#013250" label="[01:32:50]">&lt;stikonas&gt;</a></span><span class="message">oriansj: mes.c does build itself in live-bootstrap</span></div><div class="line" id="013254"><span class="nick" style="color:#80b1d3"><a href="#013254" label="[01:32:54]">&lt;stikonas&gt;</a></span><span class="message">at some point we removed that</span></div><div class="line" id="013311"><span class="nick" style="color:#80b1d3"><a href="#013311" label="[01:33:11]">&lt;stikonas&gt;</a></span><span class="message">but I had to read that step when we migrated from mes-m2 to mes 0.24</span></div><div class="line" id="013319"><span class="nick" style="color:#80b1d3"><a href="#013319" label="[01:33:19]">&lt;stikonas&gt;</a></span><span class="message">(otherwise it was crashing)</span></div><div class="line" id="013437"><span class="nick" style="color:#8dd3c7"><a href="#013437" label="[01:34:37]">&lt;oriansj&gt;</a></span><span class="message">stikonas: if anything being sick is a great reason to get plenty of rest and self-care</span></div><div class="line" id="013443"><span class="nick" style="color:#6d2462"><a href="#013443" label="[01:34:43]">&lt;vagrantc&gt;</a></span><span class="message">muurkha: it seems odd to require self-hosting to be considered &quot;bootstrapping&quot; ... i'd say more &quot;bootstrapping&quot; is getting from a very minimal state (ideally fully auditable) to a more full-featured state</span></div><div class="line" id="013524"><span class="nick" style="color:#6b8072"><a href="#013524" label="[01:35:24]">&lt;muurkha&gt;</a></span><span class="message">vagrantc: well, &quot;self-hosting&quot; has been the meaning of &quot;bootstrapping&quot; in the context of compilers for about 50 years</span></div><div class="line" id="013534"><span class="nick" style="color:#6b8072"><a href="#013534" label="[01:35:34]">&lt;muurkha&gt;</a></span><span class="message">don't blame me man</span></div><div class="line" id="013535"><span class="nick" style="color:#6b8072"><a href="#013535" label="[01:35:35]">&lt;muurkha&gt;</a></span><span class="message">I didn't do it</span></div><div class="line" id="013601"><span class="nick" style="color:#6d2462"><a href="#013601" label="[01:36:01]">&lt;vagrantc&gt;</a></span><span class="message">sure, it is one possible bootstrapping path, but it is not exclusive to self-hosting</span></div><div class="line" id="013930"><span class="nick" style="color:#8dd3c7"><a href="#013930" label="[01:39:30]">&lt;oriansj&gt;</a></span><span class="message">muurkha: blame generally isn't useful but finding errors, mistakes and oversights certainly is.</span></div><div class="line" id="013942"><span class="nick" style="color:#6b8072"><a href="#013942" label="[01:39:42]">&lt;muurkha&gt;</a></span><span class="message">yeah, I was joking</span></div><div class="line" id="014028"><span class="nick" style="color:#6b8072"><a href="#014028" label="[01:40:28]">&lt;muurkha&gt;</a></span><span class="message">I mean I don't literally think it's bad that &quot;bootstrapping&quot; has that meaning</span></div><div class="line" id="050102"><span class="nick" style="color:#234e69"><a href="#050102" label="[05:01:02]">&lt;jackhill&gt;</a></span><span class="message">Irvise_, theruran: cool, well, I'm happy to follow along, cheerlead, and maybe learn something</span></div><div class="line" id="084138"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="152858"><span class="nick">***</span><span class="message notice">civodul` is now known as civodul</span></div><div class="line" id="234817"><span class="nick">***</span><span class="message notice">theruran_ is now known as theruran</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-12-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="054854"><span class="nick" style="color:#8dd3c7"><a href="#054854" label="[05:48:54]">&lt;siraben&gt;</a></span><span class="message">OriansJ: do you mind if I make a PR to blynn-compiler adjusting the readme to better reflect the purpose of the fork?</span></div><div class="line" id="054902"><span class="nick" style="color:#8dd3c7"><a href="#054902" label="[05:49:02]">&lt;siraben&gt;</a></span><span class="message">and build instructions etc.</span></div><div class="line" id="103000"><span class="nick" style="color:#2e2a4a"><a href="#103000" label="[10:30:00]">&lt;OriansJ&gt;</a></span><span class="message">siraben: I never mind Pull Requests; the worst that happens is I reject them if they seem wrong and try to explain my reasoning for why.</span></div><div class="line" id="103139"><span class="nick" style="color:#2e2a4a"><a href="#103139" label="[10:31:39]">&lt;OriansJ&gt;</a></span><span class="message">Otherwise I will review and merge.</span></div><div class="line" id="171856"><span class="nick" style="color:#8dd3c7"><a href="#171856" label="[17:18:56]">&lt;siraben&gt;</a></span><span class="message">OriansJ: I just realized that I was copying the wrong file to /share, it should be ./bin/raw not ./bin/vm</span></div><div class="line" id="171900"><span class="nick" style="color:#8dd3c7"><a href="#171900" label="[17:19:00]">&lt;siraben&gt;</a></span><span class="message">i'll fix that in a PR</span></div><div class="line" id="171917"><span class="nick" style="color:#8dd3c7"><a href="#171917" label="[17:19:17]">&lt;siraben&gt;</a></span><span class="message">so that explains why the hashes seemed mismatched yesterday</span></div><div class="line" id="171924"><span class="nick" style="color:#8dd3c7"><a href="#171924" label="[17:19:24]">&lt;siraben&gt;</a></span><span class="message">9732a8852bf92b4097f275da4ceba3b718138a5e16190cbef43bbd4be42a27dd  ./result/share/raw</span></div><div class="line" id="172452"><span class="nick" style="color:#8dd3c7"><a href="#172452" label="[17:24:52]">&lt;siraben&gt;</a></span><span class="message">I'll also add a test in the CI workflow to check that the hash is that</span></div><div class="line" id="190318"><span class="nick" style="color:#6b8072"><a href="#190318" label="[19:03:18]">&lt;yt&gt;</a></span><span class="message">OriansJ: I'm wondering if I could reduce the review load if I use fewer M1 macros.  hex2 is bad if you want to review all macros by hand, but cc_aarch64 is going to be a *lot* worse still</span></div><div class="line" id="190525"><span class="nick" style="color:#6b8072"><a href="#190525" label="[19:05:25]">&lt;yt&gt;</a></span><span class="message">For example, I could replace all SET_X0_FROM_X1 with FROM_X0 SET_X1 (push+pop, or move through a temporary register)</span></div><div class="line" id="190643"><span class="nick" style="color:#6b8072"><a href="#190643" label="[19:06:43]">&lt;yt&gt;</a></span><span class="message">It'll result in worse machine code, which might be harder to debug, but that wouldn't matter too much as I can do those changes incrementally and mechanically</span></div><div class="line" id="190817"><span class="nick" style="color:#6b8072"><a href="#190817" label="[19:08:17]">&lt;yt&gt;</a></span><span class="message">Thoughts?</span></div><div class="line" id="191357"><span class="nick" style="color:#80b1d3"><a href="#191357" label="[19:13:57]">&lt;deesix&gt;</a></span><span class="message">I guess those are already reviewed, if they are the same as in M2-Planet. Am I missing something?</span></div><div class="line" id="191525"><span class="nick" style="color:#6b8072"><a href="#191525" label="[19:15:25]">&lt;yt&gt;</a></span><span class="message">deesix: I think M2-Planet's set of instructions is even smaller than that, it only really uses X0, X1 and a stack machine</span></div><div class="line" id="191554"><span class="nick" style="color:#6b8072"><a href="#191554" label="[19:15:54]">&lt;yt&gt;</a></span><span class="message">I went more for ease of translation from GNU assembly to M1</span></div><div class="line" id="191626"><span class="nick" style="color:#6b8072"><a href="#191626" label="[19:16:26]">&lt;yt&gt;</a></span><span class="message">but the number of macros got out of hand a bit :)</span></div><div class="line" id="191714"><span class="nick" style="color:#6b8072"><a href="#191714" label="[19:17:14]">&lt;yt&gt;</a></span><span class="message">see <a rel="nofollow" href="https://github.com/snnw/mescc-tools-seed/blob/master/AArch64/cc_aarch64.M1">https://github.com/snnw/mescc-tools-seed/blob/master/AArch64/cc_aarch64.M1</a> </span></div><div class="line" id="191904"><span class="nick" style="color:#80b1d3"><a href="#191904" label="[19:19:04]">&lt;deesix&gt;</a></span><span class="message">OK, we'll see what OriansJ thinks. Thanks for the details.</span></div><div class="line" id="192118"><span class="nick" style="color:#6b8072"><a href="#192118" label="[19:21:18]">&lt;yt&gt;</a></span><span class="message">deesix: sounds good, thanks for taking a look</span></div><div class="line" id="195141"><span class="nick" style="color:#2e2a4a"><a href="#195141" label="[19:51:41]">&lt;OriansJ&gt;</a></span><span class="message">yt: hex2 has been merged.</span></div><div class="line" id="195343"><span class="nick" style="color:#2e2a4a"><a href="#195343" label="[19:53:43]">&lt;OriansJ&gt;</a></span><span class="message">siraben: I'll look at that Pull reguest later today; So you'll have time to do a rebase if you wish to hide that mistake.</span></div><div class="line" id="195417"><span class="nick" style="color:#8dd3c7"><a href="#195417" label="[19:54:17]">&lt;siraben&gt;</a></span><span class="message">Isn't it generally a bad idea to rewrite history on master?</span></div><div class="line" id="195429"><span class="nick" style="color:#8dd3c7"><a href="#195429" label="[19:54:29]">&lt;siraben&gt;</a></span><span class="message">But there may not be many clones around so should be fine</span></div><div class="line" id="195436"><span class="nick" style="color:#2e2a4a"><a href="#195436" label="[19:54:36]">&lt;OriansJ&gt;</a></span><span class="message">siraben: only if you have downstreams</span></div><div class="line" id="195506"><span class="nick" style="color:#2e2a4a"><a href="#195506" label="[19:55:06]">&lt;OriansJ&gt;</a></span><span class="message">otherwise you can rebase to your hearts content until it is merged upstream.</span></div><div class="line" id="195607"><span class="nick" style="color:#2e2a4a"><a href="#195607" label="[19:56:07]">&lt;OriansJ&gt;</a></span><span class="message">yt: opt for easier to debug and understand M1 code; The biggest time delay with reviews is dealing with my son.</span></div><div class="line" id="195645"><span class="nick" style="color:#2e2a4a"><a href="#195645" label="[19:56:45]">&lt;OriansJ&gt;</a></span><span class="message">I'd rather deal with 1000 DEFINEs than a block of hard to understand assembly.</span></div><div class="line" id="195840"><span class="nick" style="color:#8dd3c7"><a href="#195840" label="[19:58:40]">&lt;siraben&gt;</a></span><span class="message">OriansJ: rebased.</span></div><div class="line" id="195924"><span class="nick" style="color:#8dd3c7"><a href="#195924" label="[19:59:24]">&lt;siraben&gt;</a></span><span class="message">after finals i'll take a look at using mescc-tools-seed for bootstrapping and see if I can replicate building blynn-compiler without gcc as a dependency</span></div><div class="line" id="203005"><span class="nick" style="color:#8dd3c7"><a href="#203005" label="[20:30:05]">&lt;siraben&gt;</a></span><span class="message">OriansJ: It appears that I can remove gcc as a build-time dependency to blynn-compiler. I'll edit the PR</span></div><div class="line" id="231119"><span class="nick" style="color:#6b8072"><a href="#231119" label="[23:11:19]">&lt;yt&gt;</a></span><span class="message">OriansJ: understood! here is M0 next: <a rel="nofollow" href="https://github.com/oriansj/mescc-tools-seed/pull/16">https://github.com/oriansj/mescc-tools-seed/pull/16</a> </span></div><br /></div></body></html>

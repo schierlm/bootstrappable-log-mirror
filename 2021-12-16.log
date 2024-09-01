@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-12-16.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010033"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="010047"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="034718"><span class="nick" style="color:#8dd3c7"><a href="#034718" label="[03:47:18]">&lt;muurkha&gt;</a></span><span class="message">worth reading: <a rel="nofollow" href="https://en.wikipedia.org/wiki/Social_constructionism">https://en.wikipedia.org/wiki/Social_constructionism</a> </span></div><div class="line" id="154322"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><div class="line" id="154324"><span class="nick" style="color:#2e2a4a"><a href="#154324" label="[15:43:24]">&lt;rekado&gt;</a></span><span class="message">woah, this channel looks very different from the last time I checked in</span></div><div class="line" id="154500"><span class="nick" style="color:#2e2a4a"><a href="#154500" label="[15:45:00]">&lt;rekado&gt;</a></span><span class="message">stikonas: I finally have enough time to simplify the Java bootstrap in Guix.  I built ecj 4 and got 21 minutes into the build of icedtea 2 (skipping icedtea 1 entirely), but rmic fails to build sun.jvm.hotspot.debugger.remote.RemoteDebuggerServer</span></div><div class="line" id="154530"><span class="nick" style="color:#2e2a4a"><a href="#154530" label="[15:45:30]">&lt;rekado&gt;</a></span><span class="message">it fails with “java.lang.IllegalArgumentException: MALFORMED” in java.util.zip.ZipCoder.toString(ZipCoder.java:58)</span></div><div class="line" id="154536"><span class="nick" style="color:#2e2a4a"><a href="#154536" label="[15:45:36]">&lt;rekado&gt;</a></span><span class="message">does this sound familiar?</span></div><div class="line" id="154555"><span class="nick" style="color:#6b8072"><a href="#154555" label="[15:45:55]">&lt;stikonas&gt;</a></span><span class="message">rekado: hmm, I don't think I saw something like this. And I've been looking at openjdk bootstrap recently</span></div><div class="line" id="154557"><span class="nick" style="color:#2e2a4a"><a href="#154557" label="[15:45:57]">&lt;rekado&gt;</a></span><span class="message">I haven’t really looked much into this.  Maybe I’m just doing something silly without noticing it.</span></div><div class="line" id="154611"><span class="nick" style="color:#6b8072"><a href="#154611" label="[15:46:11]">&lt;stikonas&gt;</a></span><span class="message">(since I had to update my Gentoo ebuilds to GCC 10)</span></div><div class="line" id="154613"><span class="nick" style="color:#2e2a4a"><a href="#154613" label="[15:46:13]">&lt;rekado&gt;</a></span><span class="message">okay, guess I’ll just have to debug then :)</span></div><div class="line" id="154643"><span class="nick" style="color:#2e2a4a"><a href="#154643" label="[15:46:43]">&lt;rekado&gt;</a></span><span class="message">(I don’t even know what rmic does and I haven’t felt motivated to look it up)</span></div><div class="line" id="154653"><span class="nick" style="color:#6b8072"><a href="#154653" label="[15:46:53]">&lt;stikonas&gt;</a></span><span class="message">neither do I...</span></div><div class="line" id="154731"><span class="nick" style="color:#6b8072"><a href="#154731" label="[15:47:31]">&lt;stikonas&gt;</a></span><span class="message">looks like it is rmi compiler, but that still does not tell me anything useful</span></div><div class="line" id="154737"><span class="nick" style="color:#6b8072"><a href="#154737" label="[15:47:37]">&lt;stikonas&gt;</a></span><span class="message">probably because I don't know that much java</span></div><div class="line" id="154739"><span class="nick" style="color:#2e2a4a"><a href="#154739" label="[15:47:39]">&lt;rekado&gt;</a></span><span class="message">the code tells me that the error is merely a decoding error</span></div><div class="line" id="154803"><span class="nick" style="color:#2e2a4a"><a href="#154803" label="[15:48:03]">&lt;rekado&gt;</a></span><span class="message">javac (the wrapped ecj 4) works just fine; enough to build the whole bootstrap JDK</span></div><div class="line" id="154822"><span class="nick" style="color:#2e2a4a"><a href="#154822" label="[15:48:22]">&lt;rekado&gt;</a></span><span class="message">so perhaps it’s some inane locale / encoding problem on an input file.</span></div><div class="line" id="154840"><span class="nick" style="color:#6b8072"><a href="#154840" label="[15:48:40]">&lt;stikonas&gt;</a></span><span class="message">perhaps some patch that I'm applying workarounds that...</span></div><div class="line" id="154844"><span class="nick" style="color:#6b8072"><a href="#154844" label="[15:48:44]">&lt;stikonas&gt;</a></span><span class="message">without me realizing that</span></div><div class="line" id="154906"><span class="nick" style="color:#2e2a4a"><a href="#154906" label="[15:49:06]">&lt;rekado&gt;</a></span><span class="message">could also be that the Guix build environment is just a tad too strict</span></div><div class="line" id="154915"><span class="nick" style="color:#2e2a4a"><a href="#154915" label="[15:49:15]">&lt;rekado&gt;</a></span><span class="message">but it’s good to know that you didn’t encounter this</span></div><div class="line" id="154918"><span class="nick" style="color:#2e2a4a"><a href="#154918" label="[15:49:18]">&lt;rekado&gt;</a></span><span class="message">good sanity check</span></div><div class="line" id="154938"><span class="nick" style="color:#6b8072"><a href="#154938" label="[15:49:38]">&lt;stikonas&gt;</a></span><span class="message">I did encounter some issues with hotspot checksums</span></div><div class="line" id="154946"><span class="nick" style="color:#6b8072"><a href="#154946" label="[15:49:46]">&lt;stikonas&gt;</a></span><span class="message">but found a workaround</span></div><div class="line" id="154949"><span class="nick" style="color:#2e2a4a"><a href="#154949" label="[15:49:49]">&lt;rekado&gt;</a></span><span class="message">yeah, I saw your patches</span></div><div class="line" id="155000"><span class="nick" style="color:#2e2a4a"><a href="#155000" label="[15:50:00]">&lt;rekado&gt;</a></span><span class="message">(I’m still bad at reading ebuilds, but I’m getting better :))</span></div><div class="line" id="155013"><span class="nick" style="color:#6b8072"><a href="#155013" label="[15:50:13]">&lt;stikonas&gt;</a></span><span class="message">basically I had this issue too <a rel="nofollow" href="https://issues.guix.gnu.org/50567">https://issues.guix.gnu.org/50567</a> </span></div><div class="line" id="155025"><span class="nick" style="color:#6b8072"><a href="#155025" label="[15:50:25]">&lt;stikonas&gt;</a></span><span class="message">but workaround form Guix did not work</span></div><div class="line" id="155036"><span class="nick" style="color:#6b8072"><a href="#155036" label="[15:50:36]">&lt;stikonas&gt;</a></span><span class="message">so I had to disable that check completely</span></div><div class="line" id="155047"><span class="nick" style="color:#6b8072"><a href="#155047" label="[15:50:47]">&lt;stikonas&gt;</a></span><span class="message">maybe even newer GCC will break things in Guix too...</span></div><div class="line" id="155155"><span class="nick" style="color:#6b8072"><a href="#155155" label="[15:51:55]">&lt;stikonas&gt;</a></span><span class="message">but things don't break that much in Guix due to ability to use older versions of some tools</span></div><div class="line" id="155235"><span class="nick" style="color:#2e2a4a"><a href="#155235" label="[15:52:35]">&lt;rekado&gt;</a></span><span class="message">stikonas: we’re building with GCC 10</span></div><div class="line" id="155241"><span class="nick" style="color:#6b8072"><a href="#155241" label="[15:52:41]">&lt;stikonas&gt;</a></span><span class="message">yeah, I saw that</span></div><div class="line" id="155253"><span class="nick" style="color:#6b8072"><a href="#155253" label="[15:52:53]">&lt;stikonas&gt;</a></span><span class="message">I haven't tried 10, only GCC 11</span></div><div class="line" id="155257"><span class="nick" style="color:#2e2a4a"><a href="#155257" label="[15:52:57]">&lt;rekado&gt;</a></span><span class="message">ah</span></div><div class="line" id="155300"><span class="nick" style="color:#6b8072"><a href="#155300" label="[15:53:00]">&lt;stikonas&gt;</a></span><span class="message">so if that error comes back later in Guix</span></div><div class="line" id="155308"><span class="nick" style="color:#6b8072"><a href="#155308" label="[15:53:08]">&lt;stikonas&gt;</a></span><span class="message">the way to solve it is to completely disable checksum</span></div><div class="line" id="155334"><span class="nick" style="color:#6b8072"><a href="#155334" label="[15:53:34]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://gitlab.com/stikonas/gentoo-bootstrap/-/blob/master/dev-java/icedtea/files/icedtea7-hotspot-miscompile.patch">https://gitlab.com/stikonas/gentoo-bootstrap/-/blob/master/dev-java/icedtea/files/icedtea7-hotspot-miscompile.patch</a>  ( I had to remove exit(1))</span></div><div class="line" id="155944"><span class="nick" style="color:#2e2a4a"><a href="#155944" label="[15:59:44]">&lt;rekado&gt;</a></span><span class="message">I see</span></div><div class="line" id="163248"><span class="nick" style="color:#6b8072"><a href="#163248" label="[16:32:48]">&lt;stikonas&gt;</a></span><span class="message">rekado: btw, do you have your wip changes pushed somewhere?</span></div><div class="line" id="163256"><span class="nick" style="color:#6b8072"><a href="#163256" label="[16:32:56]">&lt;stikonas&gt;</a></span><span class="message">in case I find some time to try to reproduce it</span></div><div class="line" id="163304"><span class="nick" style="color:#6b8072"><a href="#163304" label="[16:33:04]">&lt;stikonas&gt;</a></span><span class="message">(although not today...)</span></div><div class="line" id="191457"><span class="nick" style="color:#80b1d3"><a href="#191457" label="[19:14:57]">&lt;gbrlwck&gt;</a></span><span class="message">muurkha: thanks for acknowledging wrongdoing.  your excuses seem flawed, though.  you say you're sorry about feeding the discussion off-topic, only minutes after elaborating again (!) on what you seem to believe /how i think/.  this is incredibly weird and does not make me feel invited to express myself.</span></div><div class="line" id="191457"><span class="nick" style="color:#80b1d3"><a href="#191457" label="[19:14:57]">&lt;gbrlwck&gt;</a></span><span class="message">i doubt there is actual interest in how to categorize my Weltanschauung -- so why is this even an issue?  i thought we're here to solve the bootstrapping problem and bootstrappability issues.</span></div><div class="line" id="191457"><span class="nick" style="color:#80b1d3"><a href="#191457" label="[19:14:57]">&lt;gbrlwck&gt;</a></span><span class="message">i usually enjoy discussing politics or philosophy.  i feel like you've been ignoring what i say (about my own positions and /how i think/).  you could have asked, nicely, you could have commented in a respectful manner, but all this?  this made the usual joy vanish rather quickly.</span></div><div class="line" id="191457"><span class="nick" style="color:#80b1d3"><a href="#191457" label="[19:14:57]">&lt;gbrlwck&gt;</a></span><span class="message">i suggest we all (re-)read the GNU Kind Communication Guidelines.  it's a really good read -- and i hope this clarifies further what went wrong here and how we will be able to interact in a peaceful manner in the future</span></div><div class="line" id="191507"><span class="nick" style="color:#80b1d3"><a href="#191507" label="[19:15:07]">&lt;gbrlwck&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.gnu.org/philosophy/kind-communication.html">https://www.gnu.org/philosophy/kind-communication.html</a> </span></div><div class="line" id="194243"><span class="nick" style="color:#2e2a4a"><a href="#194243" label="[19:42:43]">&lt;rekado&gt;</a></span><span class="message">if I may suggest something: long discussions of Marxism, capitalism, etc are off-topic for this channel.</span></div><div class="line" id="194257"><span class="nick" style="color:#2e2a4a"><a href="#194257" label="[19:42:57]">&lt;rekado&gt;</a></span><span class="message">also: harassing people here is not acceptable</span></div><div class="line" id="194303"><span class="nick" style="color:#2e2a4a"><a href="#194303" label="[19:43:03]">&lt;rekado&gt;</a></span><span class="message">I’m not pointing fingers at anyone</span></div><div class="line" id="194325"><span class="nick" style="color:#2e2a4a"><a href="#194325" label="[19:43:25]">&lt;rekado&gt;</a></span><span class="message">in part because my webcam is disabled.</span></div><div class="line" id="194348"><span class="nick" style="color:#2e2a4a"><a href="#194348" label="[19:43:48]">&lt;rekado&gt;</a></span><span class="message">but really: let’s please keep this channel focused on bootstrapping.  Not bootstrapping society but programs.</span></div><div class="line" id="194431"><span class="nick" style="color:#8dd3c7"><a href="#194431" label="[19:44:31]">&lt;muurkha&gt;</a></span><span class="message">rekado: I agree</span></div><div class="line" id="194449"><span class="nick" style="color:#8dd3c7"><a href="#194449" label="[19:44:49]">&lt;muurkha&gt;</a></span><span class="message">it is possible for people with very different points of view to collaborate productively</span></div><div class="line" id="194619"><span class="nick" style="color:#8dd3c7"><a href="#194619" label="[19:46:19]">&lt;muurkha&gt;</a></span><span class="message">we don't have to resolve our differing viewpoints on the nature of truth in order to write software</span></div><div class="line" id="194644"><span class="nick" style="color:#2e2a4a"><a href="#194644" label="[19:46:44]">&lt;rekado&gt;</a></span><span class="message">stikonas: I haven’t pushed any WIP yet, but I’ll do that soon after cleaning up my work some more.</span></div><div class="line" id="194814"><span class="nick" style="color:#8dd3c7"><a href="#194814" label="[19:48:14]">&lt;muurkha&gt;</a></span><span class="message">I do think that productive collaboration requires that people engage in discussion in a productive way, though, even if that isn't their thing</span></div><div class="line" id="194817"><span class="nick" style="color:#6b8072"><a href="#194817" label="[19:48:17]">&lt;stikonas&gt;</a></span><span class="message">I wasn't participating in the previous discussion, but it seems to me that everybody would benefit if we try to keep discussions slightly more on-topic.</span></div><div class="line" id="194829"><span class="nick" style="color:#6b8072"><a href="#194829" label="[19:48:29]">&lt;stikonas&gt;</a></span><span class="message">i.e. try to discuss things that are more common to everybody here</span></div><div class="line" id="194850"><span class="nick" style="color:#6b8072"><a href="#194850" label="[19:48:50]">&lt;stikonas&gt;</a></span><span class="message">oh and I see rekado already mentioned that</span></div><div class="line" id="194933"><span class="nick" style="color:#8dd3c7"><a href="#194933" label="[19:49:33]">&lt;muurkha&gt;</a></span><span class="message">and, in particular in scientific and engineering work, that they at least pretend that there is a difference between telling the truth and telling lies that goes beyond whether what they say is generally believed (&quot;established between people, within communities&quot;)</span></div><div class="line" id="195103"><span class="nick" style="color:#8dd3c7"><a href="#195103" label="[19:51:03]">&lt;muurkha&gt;</a></span><span class="message">I mean it's okay if you believe that truth doesn't exist outside a social context, or that heretics who reject Christ should be killed, as long as you don't act on that belief</span></div><div class="line" id="195215"><span class="nick" style="color:#8dd3c7"><a href="#195215" label="[19:52:15]">&lt;muurkha&gt;</a></span><span class="message">at least within the project!</span></div><div class="line" id="200002"><span class="nick" style="color:#8dd3c7"><a href="#200002" label="[20:00:02]">&lt;muurkha&gt;</a></span><span class="message">for example, if I say &quot;tinycc compiled with this new version of mescc is dumping core on risc-v,&quot; I could of course be wrong about it, or describing an incomplete picture (is my kernel buggy? perhaps my RAM?) but I want to be engaging in productive discussion about the things that objectively happen in the real world in order to understand *the* truth about what's happening, an endeavor which in</span></div><div class="line" id="200008"><span class="nick" style="color:#8dd3c7"><a href="#200008" label="[20:00:08]">&lt;muurkha&gt;</a></span><span class="message">my view presupposes that *the* truth exists</span></div><div class="line" id="200111"><span class="nick" style="color:#2e2a4a"><a href="#200111" label="[20:01:11]">&lt;rekado&gt;</a></span><span class="message">let’s please not continue this meta discussion here.</span></div><div class="line" id="200111"><span class="nick" style="color:#8dd3c7"><a href="#200111" label="[20:01:11]">&lt;muurkha&gt;</a></span><span class="message">okay.</span></div><div class="line" id="200112"><span class="nick" style="color:#2e2a4a"><a href="#200112" label="[20:01:12]">&lt;rekado&gt;</a></span><span class="message">thank you</span></div><div class="line" id="200215"><span class="nick" style="color:#8dd3c7"><a href="#200215" label="[20:02:15]">&lt;muurkha&gt;</a></span><span class="message">if anyone is interested in reading about it further, I think <a rel="nofollow" href="https://plato.stanford.edu/entries/relativism/#RelAboTruAleRel">https://plato.stanford.edu/entries/relativism/#RelAboTruAleRel</a>  does a good job of presenting all sides of the issue</span></div><br /></div></body></html>

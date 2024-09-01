@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-06-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000307"><span class="nick" style="color:#8dd3c7"><a href="#000307" label="[00:03:07]">&lt;oriansj&gt;</a></span><span class="message">which is why cc_x86 is virtually impossible to find with a standard web search but M2-Planet is rather easy to find.</span></div><div class="line" id="023628"><span class="nick" style="color:#2e2a4a"><a href="#023628" label="[02:36:28]">&lt;stikonas&gt;</a></span><span class="message">oriansj: mes problems that I saw are cause by you having slightly different version of nyacc</span></div><div class="line" id="023644"><span class="nick" style="color:#2e2a4a"><a href="#023644" label="[02:36:44]">&lt;stikonas&gt;</a></span><span class="message">even when I tried to add my own, I think embedded nyacc was used</span></div><div class="line" id="023654"><span class="nick" style="color:#2e2a4a"><a href="#023654" label="[02:36:54]">&lt;stikonas&gt;</a></span><span class="message">(due to wrong order in GUILE_LOAD_MODULES)</span></div><div class="line" id="023713"><span class="nick" style="color:#2e2a4a"><a href="#023713" label="[02:37:13]">&lt;stikonas&gt;</a></span><span class="message">I can try to check a bit more tomorrow...</span></div><div class="line" id="023724"><span class="nick" style="color:#2e2a4a"><a href="#023724" label="[02:37:24]">&lt;stikonas&gt;</a></span><span class="message">but with files replaced, qsort.c builds</span></div><div class="line" id="023934"><span class="nick" style="color:#2e2a4a"><a href="#023934" label="[02:39:34]">&lt;stikonas&gt;</a></span><span class="message">so no need to replace C++ style comment</span></div><div class="line" id="030312"><span class="nick" style="color:#8dd3c7"><a href="#030312" label="[03:03:12]">&lt;oriansj&gt;</a></span><span class="message">stikonas: thank you finding that failure in my selection. We should update mes-m2 to reflect that error and thus enable the next stage0-posix update to solve that problem.</span></div><div class="line" id="033626"><span class="nick" style="color:#6b8072"><a href="#033626" label="[03:36:26]">&lt;Melg8[m]&gt;</a></span><span class="message"> @gia i've rechecked usage of your custom memory allocator with guards (my mistake was that i didn't call make after changing source (here are changes to malloc so it doesnt complian about size of allocations <a rel="nofollow" href="https://paste.debian.net/1201031/">https://paste.debian.net/1201031/</a>)  now, i did and here is results. It ran for almost 3 days, and crashed on free. here is full log: <a rel="nofollow" href="https://paste.debian.net/1201030/">https://paste.debian.net/1201030/</a>  Questions are - any ideas, why/where it happened? second - any ideas on</span></div><div class="line" id="033626"><span class="nick" style="color:#6b8072"><a href="#033626" label="[03:36:26]">&lt;Melg8[m]&gt;</a></span><span class="message">how to make this reproducible in less than 3 days, even if i will fix it) any suggestions on further investigation directions?)</span></div><div class="line" id="035425"><span class="nick">***</span><span class="message notice">terpri is now known as robin</span></div><div class="line" id="040634"><span class="nick" style="color:#80b1d3"><a href="#040634" label="[04:06:34]">&lt;Hagfish&gt;</a></span><span class="message">that reminds me that i think some fuzzers are capable of taking a crash log and generating a minimal test case, but i suppose that isn't quite relevant here</span></div><div class="line" id="071541"><span class="nick" style="color:#6d2462"><a href="#071541" label="[07:15:41]">&lt;gio&gt;</a></span><span class="message">Melg8[m]: I don't know what's the problem off my head, I'd have to debug it.</span></div><div class="line" id="071644"><span class="nick" style="color:#6d2462"><a href="#071644" label="[07:16:44]">&lt;gio&gt;</a></span><span class="message">That happened using USE_CHECKED_MALLOC?</span></div><div class="line" id="071938"><span class="nick" style="color:#6d2462"><a href="#071938" label="[07:19:38]">&lt;gio&gt;</a></span><span class="message">Ah wait, with those changes there is little doubt you're running into problems. Those assertions were there for a reason.</span></div><div class="line" id="072003"><span class="nick" style="color:#6d2462"><a href="#072003" label="[07:20:03]">&lt;gio&gt;</a></span><span class="message">Especially the &quot;too many allocations&quot; one.</span></div><div class="line" id="083328"><span class="nick" style="color:#6b8072"><a href="#083328" label="[08:33:28]">&lt;Melg8[m]&gt;</a></span><span class="message">@gio okay, why?)</span></div><div class="line" id="083349"><span class="nick" style="color:#6b8072"><a href="#083349" label="[08:33:49]">&lt;Melg8[m]&gt;</a></span><span class="message">why too many, is too many)?</span></div><div class="line" id="083544"><span class="nick" style="color:#6b8072"><a href="#083544" label="[08:35:44]">&lt;Melg8[m]&gt;</a></span><span class="message">and how i could correctly expand this to handle more allocations</span></div><div class="line" id="095133"><span class="nick" style="color:#6d2462"><a href="#095133" label="[09:51:33]">&lt;gio&gt;</a></span><span class="message">Melg8[m]: That allocator initializes at the beginning (in _malloc_init) a static table in which every allocation is recorded forever (i.e., it is not removed once that area is freed). So once its rows are all full, nothing can be allocated anymore.</span></div><div class="line" id="095146"><span class="nick" style="color:#6d2462"><a href="#095146" label="[09:51:46]">&lt;gio&gt;</a></span><span class="message">This is regulated by the constant MALLOC_MAX_NUM.</span></div><div class="line" id="095310"><span class="nick" style="color:#6d2462"><a href="#095310" label="[09:53:10]">&lt;gio&gt;</a></span><span class="message">In line of theory you can raise that limit, but eventually you risk to exhaust the memory available to your machine. And the allocator is not able to check that, I think, random wrong things will just start to happen.</span></div><div class="line" id="095416"><span class="nick" style="color:#6d2462"><a href="#095416" label="[09:54:16]">&lt;gio&gt;</a></span><span class="message">Given that it is also extremely slow, I don't think it is a very useful tool at this point. It is only useful in the early stages of G bootstrapping.</span></div><div class="line" id="113545"><span class="nick" style="color:#6b8072"><a href="#113545" label="[11:35:45]">&lt;Melg8[m]&gt;</a></span><span class="message">@gio i increased +const MALLOC_MAX_NUM 10000000 - so that would be functioning in right way?</span></div><div class="line" id="113614"><span class="nick" style="color:#6d2462"><a href="#113614" label="[11:36:14]">&lt;gio&gt;</a></span><span class="message">I don't know what is the right number. I'm not even sure there is a right number.</span></div><div class="line" id="113629"><span class="nick" style="color:#6d2462"><a href="#113629" label="[11:36:29]">&lt;gio&gt;</a></span><span class="message">You might run out of memory before the number is large enough to work until the end.</span></div><div class="line" id="135500"><span class="nick" style="color:#2e2a4a"><a href="#135500" label="[13:55:00]">&lt;stikonas&gt;</a></span><span class="message">oriansj: hmm, even with correct nyacc there are some problems. So qsort.c works fine now. even tcc.c compiles fine but then linking fails (when running mes-m2 --no-auto-compile -e main /after/bin/mescc.scm -- -o mes-tcc -L /after/lib tcc.s -l c+tcc)</span></div><div class="line" id="135514"><span class="nick" style="color:#2e2a4a"><a href="#135514" label="[13:55:14]">&lt;stikonas&gt;</a></span><span class="message">so there must be some other difference...</span></div><div class="line" id="151523"><span class="nick" style="color:#8dd3c7"><a href="#151523" label="[15:15:23]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well that is frustrating.</span></div><div class="line" id="154325"><span class="nick" style="color:#2e2a4a"><a href="#154325" label="[15:43:25]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I do have a working version of mes (the one currently used in live-bootstrap, so it's not super frustrating</span></div><div class="line" id="154330"><span class="nick" style="color:#2e2a4a"><a href="#154330" label="[15:43:30]">&lt;stikonas&gt;</a></span><span class="message">would be worse if nothing worked</span></div><div class="line" id="155402"><span class="nick" style="color:#80b1d3"><a href="#155402" label="[15:54:02]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://utcc.utoronto.ca/~cks/space/blog/programming/Rust1BackwardIncompatibility">https://utcc.utoronto.ca/~cks/space/blog/programming/Rust1BackwardIncompatibility</a> </span></div><div class="line" id="155418"><span class="nick" style="color:#80b1d3"><a href="#155418" label="[15:54:18]">&lt;Hagfish&gt;</a></span><span class="message">&quot;I'm sure that Rust people have a whole series of good explanations for why all of this was necessary and why it's a good thing that I can no longer build older versions of Firefox&quot;</span></div><div class="line" id="155832"><span class="nick" style="color:#80b1d3"><a href="#155832" label="[15:58:32]">&lt;Hagfish&gt;</a></span><span class="message">actually, according to the HN discussion, the problem might be the hacky way Firefox is developed, not Rust itself</span></div><div class="line" id="155834"><span class="nick" style="color:#80b1d3"><a href="#155834" label="[15:58:34]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://news.ycombinator.com/item?id=27491512">https://news.ycombinator.com/item?id=27491512</a> </span></div><div class="line" id="155917"><span class="nick" style="color:#2e2a4a"><a href="#155917" label="[15:59:17]">&lt;stikonas&gt;</a></span><span class="message">well, rust is incompatible. You have to compile every intermediate version of rust in order to boostrap it</span></div><div class="line" id="155919"><span class="nick" style="color:#2e2a4a"><a href="#155919" label="[15:59:19]">&lt;stikonas&gt;</a></span><span class="message">you can't skip anything</span></div><div class="line" id="155952"><span class="nick" style="color:#2e2a4a"><a href="#155952" label="[15:59:52]">&lt;stikonas&gt;</a></span><span class="message">so if Firefox is developed in a hacky way, so is Rust</span></div><div class="line" id="160407"><span class="nick" style="color:#80b1d3"><a href="#160407" label="[16:04:07]">&lt;Hagfish&gt;</a></span><span class="message">apparently there is a special mode of the Rust compiler for skipping some checks, so that Rust can bootstrap itself, but Firefox abuses that</span></div><div class="line" id="160415"><span class="nick" style="color:#80b1d3"><a href="#160415" label="[16:04:15]">&lt;Hagfish&gt;</a></span><span class="message">i guess you could say that makes them both hacky, yes</span></div><div class="line" id="161916"><span class="nick" style="color:#2e2a4a"><a href="#161916" label="[16:19:16]">&lt;stikonas&gt;</a></span><span class="message">yes, but it can still only bootstrap version n from version n-1</span></div><div class="line" id="161933"><span class="nick" style="color:#2e2a4a"><a href="#161933" label="[16:19:33]">&lt;stikonas&gt;</a></span><span class="message">version n can't be built with n-2</span></div><div class="line" id="204134"><span class="nick" style="color:#234e69"><a href="#204134" label="[20:41:34]">&lt;NieDzejkob&gt;</a></span><span class="message">My pet theory is that most of it is the fact that they remove the feature() annotations immediately after they stabilize a feature</span></div><div class="line" id="224601"><span class="nick" style="color:#8dd3c7"><a href="#224601" label="[22:46:01]">&lt;oriansj&gt;</a></span><span class="message">NieDzejkob: my pet theory is that software compatibility is a choice that developers sometimes say no to. Sometimes for justified reasons and sometimes because they honestly didn't give a crap about the people who depended on their software.</span></div><div class="line" id="224754"><span class="nick" style="color:#8dd3c7"><a href="#224754" label="[22:47:54]">&lt;oriansj&gt;</a></span><span class="message">which perhaps is the greatest strength of NixOS and Guix; they can handle those cases smoothly.</span></div><div class="line" id="231448"><span class="nick">***</span><span class="message notice">dongcarl6 is now known as dongcarl</span></div><br /></div></body></html>

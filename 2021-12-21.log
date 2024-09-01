@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-12-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010305"><span class="nick" style="color:#8dd3c7"><a href="#010305" label="[01:03:05]">&lt;oriansj&gt;</a></span><span class="message">mala: not directly but it is a valid root seed for bootstrapping</span></div><div class="line" id="010439"><span class="nick" style="color:#8dd3c7"><a href="#010439" label="[01:04:39]">&lt;oriansj&gt;</a></span><span class="message">So if someone put in the effort to use it to build a chain to GCC or MesCC or even hex0; it would be fair game.</span></div><div class="line" id="010603"><span class="nick" style="color:#8dd3c7"><a href="#010603" label="[01:06:03]">&lt;oriansj&gt;</a></span><span class="message">Basically if someone used it to implement hex0 and used it to check a hex0 root seed, it would be *very* bootstrap related.</span></div><div class="line" id="104108"><span class="nick" style="color:#2e2a4a"><a href="#104108" label="[10:41:08]">&lt;siraben&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/JeffBezanson/femtolisp">https://github.com/JeffBezanson/femtolisp</a> </span></div><div class="line" id="150648"><span class="nick" style="color:#6b8072"><a href="#150648" label="[15:06:48]">&lt;gbrlwck&gt;</a></span><span class="message">not sure who is on bug-mes mailing list, so i'll cross post my most recent email here: <a rel="nofollow" href="https://lists.gnu.org/archive/html/bug-mes/2021-12/msg00008.html">https://lists.gnu.org/archive/html/bug-mes/2021-12/msg00008.html</a> </span></div><div class="line" id="150717"><span class="nick" style="color:#6b8072"><a href="#150717" label="[15:07:17]">&lt;gbrlwck&gt;</a></span><span class="message">maybe fossy or stikonas have stumbled over the same issue (weird stuff happening when invoking mescc with -- options) ?</span></div><div class="line" id="150851"><span class="nick" style="color:#80b1d3"><a href="#150851" label="[15:08:51]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: you might need to specify architecture flag...</span></div><div class="line" id="151023"><span class="nick" style="color:#6b8072"><a href="#151023" label="[15:10:23]">&lt;gbrlwck&gt;</a></span><span class="message">i do --arch=riscv64</span></div><div class="line" id="151122"><span class="nick" style="color:#6b8072"><a href="#151122" label="[15:11:22]">&lt;gbrlwck&gt;</a></span><span class="message">and it doesn't improve if i also set ARCH=riscv64</span></div><div class="line" id="151238"><span class="nick" style="color:#80b1d3"><a href="#151238" label="[15:12:38]">&lt;stikonas&gt;</a></span><span class="message">hmm, yeah, --arch=riscv64 sounds good</span></div><div class="line" id="151445"><span class="nick" style="color:#80b1d3"><a href="#151445" label="[15:14:45]">&lt;stikonas&gt;</a></span><span class="message">not sure what's going on there...</span></div><div class="line" id="151456"><span class="nick" style="color:#80b1d3"><a href="#151456" label="[15:14:56]">&lt;stikonas&gt;</a></span><span class="message">I can try it later if you push your code somewhere</span></div><div class="line" id="151838"><span class="nick" style="color:#6b8072"><a href="#151838" label="[15:18:38]">&lt;gbrlwck&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/gbrlwck/mes-m2/tree/rv64-cleanup">https://github.com/gbrlwck/mes-m2/tree/rv64-cleanup</a>  this includes my most current work (though nothing is supposed to actually work yet)</span></div><div class="line" id="152227"><span class="nick" style="color:#80b1d3"><a href="#152227" label="[15:22:27]">&lt;stikonas&gt;</a></span><span class="message">I'll try to test, just not right now</span></div><div class="line" id="154301"><span class="nick" style="color:#6b8072"><a href="#154301" label="[15:43:01]">&lt;gbrlwck&gt;</a></span><span class="message">no problem :) maybe i'll get some useful indicators through the mailing list</span></div><br /></div></body></html>

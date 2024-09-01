@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-10-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000412"><span class="nick" style="color:#389600"><a href="#000412" label="[00:04:12]">&lt;oriansj&gt;</a></span><span class="message">well that is certainly the hope. But if not we will just have to address it when we reach that bridge.</span></div><div class="line" id="000632"><span class="nick" style="color:#389600"><a href="#000632" label="[00:06:32]">&lt;oriansj&gt;</a></span><span class="message">stikonas: it looks like github just refused to show the file which had the defined. But a git fetch and git checkout 740da2816ac1aa7c46c64c574f0a4e69427b7e91 showed it immediately.</span></div><div class="line" id="000832"><span class="nick" style="color:#8dd3c7"><a href="#000832" label="[00:08:32]">&lt;stikonas&gt;</a></span><span class="message">so I had to add the same thing to #else to make ti work</span></div><div class="line" id="001753"><span class="nick" style="color:#389600"><a href="#001753" label="[00:17:53]">&lt;oriansj&gt;</a></span><span class="message">I guess I have a bug to fix</span></div><div class="line" id="042006"><span class="nick" style="color:#389600"><a href="#042006" label="[04:20:06]">&lt;oriansj&gt;</a></span><span class="message">ok, I have figured out the problem and have created a solution. rather simple all things considered</span></div><div class="line" id="042107"><span class="nick" style="color:#389600"><a href="#042107" label="[04:21:07]">&lt;oriansj&gt;</a></span><span class="message">essentially want was happening was all defines where being added to the macro_env; not just the ones that were supposed to be conditionally included.</span></div><div class="line" id="042212"><span class="nick" style="color:#389600"><a href="#042212" label="[04:22:12]">&lt;oriansj&gt;</a></span><span class="message">So I fixed that by simply having it look to see if it is in a non-included block and not updating macro_env with such #define statements</span></div><div class="line" id="042344"><span class="nick" style="color:#389600"><a href="#042344" label="[04:23:44]">&lt;oriansj&gt;</a></span><span class="message">and patches are up</span></div><div class="line" id="200845"><span class="nick" style="color:#8dd3c7"><a href="#200845" label="[20:08:45]">&lt;stikonas&gt;</a></span><span class="message">ok, I now have mes-m2 port to risc-v <a rel="nofollow" href="https://github.com/stikonas/mes-m2/tree/riscv64">https://github.com/stikonas/mes-m2/tree/riscv64</a>  that does not break x86</span></div><div class="line" id="200857"><span class="nick" style="color:#8dd3c7"><a href="#200857" label="[20:08:57]">&lt;stikonas&gt;</a></span><span class="message">although mes-m2 for risc-v still crashes half of the time</span></div><div class="line" id="200910"><span class="nick" style="color:#8dd3c7"><a href="#200910" label="[20:09:10]">&lt;stikonas&gt;</a></span><span class="message">no idea why...</span></div><div class="line" id="215433"><span class="nick" style="color:#8dd3c7"><a href="#215433" label="[21:54:33]">&lt;stikonas&gt;</a></span><span class="message">hmm, I think it's worth implementing proper ! support in M2-Planet</span></div><div class="line" id="215438"><span class="nick" style="color:#8dd3c7"><a href="#215438" label="[21:54:38]">&lt;stikonas&gt;</a></span><span class="message">maybe I'll look into it</span></div><div class="line" id="215500"><span class="nick" style="color:#8dd3c7"><a href="#215500" label="[21:55:00]">&lt;stikonas&gt;</a></span><span class="message">now it only works for 0 (false) and 1 (true) values</span></div><div class="line" id="215550"><span class="nick" style="color:#8dd3c7"><a href="#215550" label="[21:55:50]">&lt;stikonas&gt;</a></span><span class="message">mes does use it quite a bit</span></div><div class="line" id="215610"><span class="nick" style="color:#8dd3c7"><a href="#215610" label="[21:56:10]">&lt;stikonas&gt;</a></span><span class="message">so might reduce diff required for mes to work with M2-Planet</span></div><div class="line" id="224930"><span class="nick">***</span><span class="message notice">robin_ is now known as robin</span></div><br /></div></body></html>

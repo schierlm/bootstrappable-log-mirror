@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-01-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="025637"><span class="nick" style="color:#8dd3c7"><a href="#025637" label="[02:56:37]">&lt;fossy&gt;</a></span><span class="message">yo oriansj i just tried updating all the submodules in mescc-tools-seed and now blood-elf segfaults on M2.M1</span></div><div class="line" id="030523"><span class="nick" style="color:#8dd3c7"><a href="#030523" label="[03:05:23]">&lt;fossy&gt;</a></span><span class="message">&quot;Replace NOP with NULL because that is what is really ment by it&quot; in M2-Planet broke the compiling of hex2 (Phase 7 of mescc-tools-seed)</span></div><div class="line" id="030619"><span class="nick" style="color:#2e2a4a"><a href="#030619" label="[03:06:19]">&lt;oriansj&gt;</a></span><span class="message">fossy: probably need to hae cc_x86 and cc_amd64 export a NULL instead of a NOP</span></div><div class="line" id="030701"><span class="nick" style="color:#2e2a4a"><a href="#030701" label="[03:07:01]">&lt;oriansj&gt;</a></span><span class="message">as cc_x86 and cc_amd64 have not been updated yet</span></div><div class="line" id="030718"><span class="nick" style="color:#2e2a4a"><a href="#030718" label="[03:07:18]">&lt;oriansj&gt;</a></span><span class="message">trivial to fix, just change the strings</span></div><div class="line" id="030721"><span class="nick" style="color:#8dd3c7"><a href="#030721" label="[03:07:21]">&lt;fossy&gt;</a></span><span class="message">ah.</span></div><div class="line" id="030737"><span class="nick" style="color:#2e2a4a"><a href="#030737" label="[03:07:37]">&lt;oriansj&gt;</a></span><span class="message">(probably want to fix the NASM versions as well)</span></div><div class="line" id="031018"><span class="nick" style="color:#2e2a4a"><a href="#031018" label="[03:10:18]">&lt;oriansj&gt;</a></span><span class="message">also update the x86_defs.M1 and amd64_defs.M1</span></div><div class="line" id="031423"><span class="nick" style="color:#2e2a4a"><a href="#031423" label="[03:14:23]">&lt;oriansj&gt;</a></span><span class="message">actually it looks like cc_* don't need to support the exporting of NOP to NULL but the *.defs do need to be updated with NULL instead of NOP</span></div><div class="line" id="031800"><span class="nick" style="color:#2e2a4a"><a href="#031800" label="[03:18:00]">&lt;oriansj&gt;</a></span><span class="message">also Target label FUNCTION_in_set is not valid is the error I get; which indicates it did not add in_set.c to it's source dependencies</span></div><div class="line" id="032122"><span class="nick" style="color:#2e2a4a"><a href="#032122" label="[03:21:22]">&lt;oriansj&gt;</a></span><span class="message">I'll have the fix up shortly</span></div><div class="line" id="032432"><span class="nick" style="color:#8dd3c7"><a href="#032432" label="[03:24:32]">&lt;fossy&gt;</a></span><span class="message">i think i fixed tat</span></div><div class="line" id="032435"><span class="nick" style="color:#8dd3c7"><a href="#032435" label="[03:24:35]">&lt;fossy&gt;</a></span><span class="message">in my fork</span></div><div class="line" id="032440"><span class="nick" style="color:#8dd3c7"><a href="#032440" label="[03:24:40]">&lt;fossy&gt;</a></span><span class="message">but my fork is un-ready</span></div><div class="line" id="032632"><span class="nick" style="color:#2e2a4a"><a href="#032632" label="[03:26:32]">&lt;oriansj&gt;</a></span><span class="message">no worries, I'll fix things up a bit and have the patch up shortly</span></div><div class="line" id="032651"><span class="nick" style="color:#8dd3c7"><a href="#032651" label="[03:26:51]">&lt;fossy&gt;</a></span><span class="message">FUNCTION_builtin_keywordp</span></div><div class="line" id="032654"><span class="nick" style="color:#8dd3c7"><a href="#032654" label="[03:26:54]">&lt;fossy&gt;</a></span><span class="message">^ what'd that be?</span></div><div class="line" id="032758"><span class="nick" style="color:#2e2a4a"><a href="#032758" label="[03:27:58]">&lt;oriansj&gt;</a></span><span class="message">fossy: it would be a FUNCTION named builtin_keywordp</span></div><div class="line" id="032824"><span class="nick" style="color:#8dd3c7"><a href="#032824" label="[03:28:24]">&lt;fossy&gt;</a></span><span class="message">yeah, ofc. but would you know what might define that</span></div><div class="line" id="033056"><span class="nick" style="color:#2e2a4a"><a href="#033056" label="[03:30:56]">&lt;oriansj&gt;</a></span><span class="message">fossy: it would be defined in a C source file, in that case specifically in mes_keyword.c</span></div><div class="line" id="033104"><span class="nick" style="color:#8dd3c7"><a href="#033104" label="[03:31:04]">&lt;fossy&gt;</a></span><span class="message">ah.</span></div><div class="line" id="033106"><span class="nick" style="color:#2e2a4a"><a href="#033106" label="[03:31:06]">&lt;oriansj&gt;</a></span><span class="message">in mes-m2</span></div><div class="line" id="033106"><span class="nick" style="color:#8dd3c7"><a href="#033106" label="[03:31:06]">&lt;fossy&gt;</a></span><span class="message">danke</span></div><div class="line" id="033108"><span class="nick" style="color:#8dd3c7"><a href="#033108" label="[03:31:08]">&lt;fossy&gt;</a></span><span class="message">yep</span></div><div class="line" id="033128"><span class="nick" style="color:#2e2a4a"><a href="#033128" label="[03:31:28]">&lt;oriansj&gt;</a></span><span class="message">grep -R builtin_keywordp was the fastest way to find it</span></div><div class="line" id="033135"><span class="nick" style="color:#2e2a4a"><a href="#033135" label="[03:31:35]">&lt;oriansj&gt;</a></span><span class="message">(after a git clean of course)</span></div><div class="line" id="033147"><span class="nick" style="color:#8dd3c7"><a href="#033147" label="[03:31:47]">&lt;fossy&gt;</a></span><span class="message">ah</span></div><div class="line" id="033232"><span class="nick" style="color:#2e2a4a"><a href="#033232" label="[03:32:32]">&lt;oriansj&gt;</a></span><span class="message">fastest way to lookup a function in the set is simply grep -R name and look for the one without a ;</span></div><div class="line" id="033344"><span class="nick" style="color:#8dd3c7"><a href="#033344" label="[03:33:44]">&lt;fossy&gt;</a></span><span class="message">yep</span></div><div class="line" id="033730"><span class="nick" style="color:#2e2a4a"><a href="#033730" label="[03:37:30]">&lt;oriansj&gt;</a></span><span class="message">also if you run M2-Planet without arguments it throws you into a REPL which evaluates when you ctrl-d</span></div><div class="line" id="033817"><span class="nick" style="color:#2e2a4a"><a href="#033817" label="[03:38:17]">&lt;oriansj&gt;</a></span><span class="message">for example just type: int bar = 12; and then ctrl-d</span></div><div class="line" id="033851"><span class="nick" style="color:#2e2a4a"><a href="#033851" label="[03:38:51]">&lt;oriansj&gt;</a></span><span class="message">(if you use --architecture, it'll customize the output to fix the architecture of your choosing)</span></div><div class="line" id="033851"><span class="nick" style="color:#8dd3c7"><a href="#033851" label="[03:38:51]">&lt;fossy&gt;</a></span><span class="message">ah; nice</span></div><div class="line" id="034015"><span class="nick" style="color:#2e2a4a"><a href="#034015" label="[03:40:15]">&lt;oriansj&gt;</a></span><span class="message">it is collectively designed to be used as a tool for learning; to not only bootstrap our infrastructure but also people's understanding of how it all works</span></div><div class="line" id="035805"><span class="nick" style="color:#2e2a4a"><a href="#035805" label="[03:58:05]">&lt;oriansj&gt;</a></span><span class="message">fossy: patch is up, hopefully it solves the problem you had with updating the submodules</span></div><div class="line" id="035822"><span class="nick" style="color:#8dd3c7"><a href="#035822" label="[03:58:22]">&lt;fossy&gt;</a></span><span class="message">:) thanks</span></div><div class="line" id="075513"><span class="nick" style="color:#8dd3c7"><a href="#075513" label="[07:55:13]">&lt;fossy&gt;</a></span><span class="message">I hate trying to make things work on a wide variety of system</span></div><div class="line" id="120935"><span class="nick" style="color:#2e2a4a"><a href="#120935" label="[12:09:35]">&lt;oriansj&gt;</a></span><span class="message">fossy: understandably, that is why M2-Planet and mescc-tools are designed to have consistent behavior across different architectures. So you only need your work to function on a single system and getting to work on other systems becomes a trivial job for anyone who wants to do the porting work.</span></div><div class="line" id="162338"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="170151"><span class="nick" style="color:#6b8072"><a href="#170151" label="[17:01:51]">&lt;dddddd&gt;</a></span><span class="message">hi</span></div><div class="line" id="182642"><span class="nick" style="color:#6b8072"><a href="#182642" label="[18:26:42]">&lt;dddddd&gt;</a></span><span class="message">oh! Hi dzho (:</span></div><div class="line" id="182918"><span class="nick" style="color:#80b1d3"><a href="#182918" label="[18:29:18]">&lt;dzho&gt;</a></span><span class="message">lol, hi!</span></div><div class="line" id="183151"><span class="nick" style="color:#6b8072"><a href="#183151" label="[18:31:51]">&lt;dddddd&gt;</a></span><span class="message">you'll find very(!) nice people here. Don't hesitate to ask or share whatever is on your mind.</span></div><div class="line" id="183212"><span class="nick" style="color:#6b8072"><a href="#183212" label="[18:32:12]">&lt;dddddd&gt;</a></span><span class="message">welcome!</span></div><div class="line" id="184951"><span class="nick" style="color:#80b1d3"><a href="#184951" label="[18:49:51]">&lt;dzho&gt;</a></span><span class="message">dddddd: ok, thanks!</span></div><div class="line" id="185012"><span class="nick" style="color:#80b1d3"><a href="#185012" label="[18:50:12]">&lt;dzho&gt;</a></span><span class="message">I mostly idle but hopefully will remember to save this to my baseline set of channels I load up</span></div><div class="line" id="234143"><span class="nick" style="color:#2e2a4a"><a href="#234143" label="[23:41:43]">&lt;oriansj&gt;</a></span><span class="message">mes-m2 now passes 8hours of fuzzing without a single segfault or hang</span></div><div class="line" id="234400"><span class="nick" style="color:#2e2a4a"><a href="#234400" label="[23:44:00]">&lt;oriansj&gt;</a></span><span class="message">and tomorrow, I'll start fuzzing M2-Planet</span></div><div class="line" id="235858"><span class="nick" style="color:#8dd3c7"><a href="#235858" label="[23:58:58]">&lt;fossy&gt;</a></span><span class="message">Im currently fuzzing kaem</span></div><div class="line" id="235958"><span class="nick" style="color:#8dd3c7"><a href="#235958" label="[23:59:58]">&lt;fossy&gt;</a></span><span class="message">Been going for 30 minutes and 0/0</span></div><br /></div></body></html>

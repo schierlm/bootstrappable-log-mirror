@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-10-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003526"><span class="nick" style="color:#389600"><a href="#003526" label="[00:35:26]">&lt;fossy&gt;</a></span><span class="message">OriansJ: I would be too concerned about performance rn it is sufficiently fast in 99% of cases</span></div><div class="line" id="011228"><span class="nick" style="color:#2e2a4a"><a href="#011228" label="[01:12:28]">&lt;OriansJ&gt;</a></span><span class="message">fossy: fair</span></div><div class="line" id="022257"><span class="nick" style="color:#2e2a4a"><a href="#022257" label="[02:22:57]">&lt;OriansJ&gt;</a></span><span class="message">I figured out an O(1) solution for the application of macros; the downside is that it is 8times slower</span></div><div class="line" id="025732"><span class="nick" style="color:#2e2a4a"><a href="#025732" label="[02:57:32]">&lt;OriansJ&gt;</a></span><span class="message">well shit</span></div><div class="line" id="025748"><span class="nick" style="color:#2e2a4a"><a href="#025748" label="[02:57:48]">&lt;OriansJ&gt;</a></span><span class="message">who knew hashing really cut down the processing time</span></div><div class="line" id="031552"><span class="nick" style="color:#6b8072"><a href="#031552" label="[03:15:52]">&lt;xentrac&gt;</a></span><span class="message">haha</span></div><div class="line" id="031820"><span class="nick" style="color:#2e2a4a"><a href="#031820" label="[03:18:20]">&lt;OriansJ&gt;</a></span><span class="message">it went from 8times slower to 10times faster</span></div><div class="line" id="031849"><span class="nick" style="color:#2e2a4a"><a href="#031849" label="[03:18:49]">&lt;OriansJ&gt;</a></span><span class="message">(possibly more as 1 second is down to .1 second)</span></div><div class="line" id="031903"><span class="nick" style="color:#6b8072"><a href="#031903" label="[03:19:03]">&lt;xentrac&gt;</a></span><span class="message">awesome!</span></div><div class="line" id="031912"><span class="nick" style="color:#6b8072"><a href="#031912" label="[03:19:12]">&lt;xentrac&gt;</a></span><span class="message">replacing a sequential search?</span></div><div class="line" id="031950"><span class="nick" style="color:#2e2a4a"><a href="#031950" label="[03:19:50]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: yep</span></div><div class="line" id="032343"><span class="nick" style="color:#2e2a4a"><a href="#032343" label="[03:23:43]">&lt;OriansJ&gt;</a></span><span class="message">with probably the worst hash possible</span></div><div class="line" id="032437"><span class="nick" style="color:#2e2a4a"><a href="#032437" label="[03:24:37]">&lt;OriansJ&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1167637/">https://paste.debian.net/1167637/</a> </span></div><div class="line" id="032720"><span class="nick" style="color:#2e2a4a"><a href="#032720" label="[03:27:20]">&lt;OriansJ&gt;</a></span><span class="message">with a 65536 entry table for 13K distinct symbols</span></div><div class="line" id="032755"><span class="nick" style="color:#2e2a4a"><a href="#032755" label="[03:27:55]">&lt;OriansJ&gt;</a></span><span class="message">So it could probably be even faster if I can get the collision rate down</span></div><div class="line" id="032848"><span class="nick" style="color:#6b8072"><a href="#032848" label="[03:28:48]">&lt;xentrac&gt;</a></span><span class="message">heh, my paper address book uses the first and third letter of people's name as the hash</span></div><div class="line" id="032919"><span class="nick" style="color:#6b8072"><a href="#032919" label="[03:29:19]">&lt;xentrac&gt;</a></span><span class="message">lumped into categories: ab, cd, ef, gh, ij, etc., to fit the hash table on the page</span></div><div class="line" id="033052"><span class="nick" style="color:#2e2a4a"><a href="#033052" label="[03:30:52]">&lt;OriansJ&gt;</a></span><span class="message">i = (i &lt;&lt; 5)+ i + s[0]; would probably give a better spread</span></div><div class="line" id="033109"><span class="nick" style="color:#6b8072"><a href="#033109" label="[03:31:09]">&lt;xentrac&gt;</a></span><span class="message">yeah but it's harder to do in my head</span></div><div class="line" id="033143"><span class="nick" style="color:#2e2a4a"><a href="#033143" label="[03:31:43]">&lt;OriansJ&gt;</a></span><span class="message">fair</span></div><div class="line" id="033334"><span class="nick" style="color:#2e2a4a"><a href="#033334" label="[03:33:34]">&lt;OriansJ&gt;</a></span><span class="message">I think some people however go a little too far: <a rel="nofollow" href="http://burtleburtle.net/bob/c/lookup3.c">http://burtleburtle.net/bob/c/lookup3.c</a> </span></div><div class="line" id="033446"><span class="nick" style="color:#6b8072"><a href="#033446" label="[03:34:46]">&lt;xentrac&gt;</a></span><span class="message">you can always count on bob to go too far</span></div><div class="line" id="033634"><span class="nick" style="color:#2e2a4a"><a href="#033634" label="[03:36:34]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: did you have your meeting with the Bobs yet? ;-p</span></div><div class="line" id="034030"><span class="nick" style="color:#2e2a4a"><a href="#034030" label="[03:40:30]">&lt;OriansJ&gt;</a></span><span class="message">for added fun converting @9 to 0009 is now done only exactly once (instead of as many times as @9 appears)</span></div><div class="line" id="034351"><span class="nick" style="color:#2e2a4a"><a href="#034351" label="[03:43:51]">&lt;OriansJ&gt;</a></span><span class="message">and when it is built via GCC it is so fast, it doesn't even show up in htop when running the M2-Planet tests</span></div><div class="line" id="034506"><span class="nick" style="color:#6b8072"><a href="#034506" label="[03:45:06]">&lt;xentrac&gt;</a></span><span class="message">haha, niice</span></div><div class="line" id="035350"><span class="nick" style="color:#2e2a4a"><a href="#035350" label="[03:53:50]">&lt;OriansJ&gt;</a></span><span class="message">now I just need to speed up hex2</span></div><div class="line" id="035613"><span class="nick" style="color:#2e2a4a"><a href="#035613" label="[03:56:13]">&lt;OriansJ&gt;</a></span><span class="message">and commit is up for review (I admit it is probably  ugly)</span></div><div class="line" id="035816"><span class="nick" style="color:#2e2a4a"><a href="#035816" label="[03:58:16]">&lt;OriansJ&gt;</a></span><span class="message">I'll profile hex2 tomorrow and figure out what is slow there but first sleep</span></div><div class="line" id="035847"><span class="nick" style="color:#2e2a4a"><a href="#035847" label="[03:58:47]">&lt;OriansJ&gt;</a></span><span class="message">I spent way too much sleeptime on programming today. Good night</span></div><div class="line" id="035920"><span class="nick" style="color:#6b8072"><a href="#035920" label="[03:59:20]">&lt;xentrac&gt;</a></span><span class="message">nigh</span></div><div class="line" id="035921"><span class="nick" style="color:#6b8072"><a href="#035921" label="[03:59:21]">&lt;xentrac&gt;</a></span><span class="message">t</span></div><div class="line" id="035927"><span class="nick" style="color:#6b8072"><a href="#035927" label="[03:59:27]">&lt;xentrac&gt;</a></span><span class="message">good job!</span></div><div class="line" id="180112"><span class="nick" style="color:#2e2a4a"><a href="#180112" label="[18:01:12]">&lt;OriansJ&gt;</a></span><span class="message">hopefully with a speed upgrade in hex2 and a release of mescc-tools; janneke will be able to cut his bootstrap time by half</span></div><div class="line" id="182822"><span class="nick" style="color:#2e2a4a"><a href="#182822" label="[18:28:22]">&lt;OriansJ&gt;</a></span><span class="message">oh thank god; finally after a week. guix pull and guix package -i emacs finally worked</span></div><div class="line" id="182854"><span class="nick" style="color:#2e2a4a"><a href="#182854" label="[18:28:54]">&lt;OriansJ&gt;</a></span><span class="message">(yes I was forced to use mg to do development this week)</span></div><div class="line" id="182954"><span class="nick" style="color:#2e2a4a"><a href="#182954" label="[18:29:54]">&lt;OriansJ&gt;</a></span><span class="message">oh tree-undo mode, org-mode and magit how I missed you</span></div><div class="line" id="183034"><span class="nick" style="color:#80b1d3"><a href="#183034" label="[18:30:34]">&lt;vagrantc&gt;</a></span><span class="message">couldn't you have just used an old generation?</span></div><div class="line" id="183147"><span class="nick" style="color:#2e2a4a"><a href="#183147" label="[18:31:47]">&lt;OriansJ&gt;</a></span><span class="message">vagrantc: not on a fresh install</span></div><div class="line" id="183351"><span class="nick" style="color:#2e2a4a"><a href="#183351" label="[18:33:51]">&lt;OriansJ&gt;</a></span><span class="message">hence my frustrations going from a fresh tarball to successfully doing a single guix pull</span></div><div class="line" id="183915"><span class="nick" style="color:#2e2a4a"><a href="#183915" label="[18:39:15]">&lt;OriansJ&gt;</a></span><span class="message">if it wasn't for efraim's help and his missing tarballs collection; I'd still be stuck at the unable to successfully guix pull</span></div><div class="line" id="183954"><span class="nick" style="color:#6d2462"><a href="#183954" label="[18:39:54]">&lt;efraim&gt;</a></span><span class="message">I gathered a couple while trying to revive the mips64el port for Guix, but the 1GB of ram on the board wasn't enough</span></div><div class="line" id="184008"><span class="nick" style="color:#6d2462"><a href="#184008" label="[18:40:08]">&lt;efraim&gt;</a></span><span class="message">most of them I grabbed from bayfront</span></div><div class="line" id="184214"><span class="nick" style="color:#80b1d3"><a href="#184214" label="[18:42:14]">&lt;vagrantc&gt;</a></span><span class="message">ah.</span></div><div class="line" id="184237"><span class="nick" style="color:#2e2a4a"><a href="#184237" label="[18:42:37]">&lt;OriansJ&gt;</a></span><span class="message">sadly 4GB might be too small for builds soon. (ghc really can't tolerate that little)</span></div><div class="line" id="184333"><span class="nick" style="color:#2e2a4a"><a href="#184333" label="[18:43:33]">&lt;OriansJ&gt;</a></span><span class="message">It is weird, I remember when 8MB was alot of RAM</span></div><div class="line" id="184418"><span class="nick" style="color:#6d2462"><a href="#184418" label="[18:44:18]">&lt;efraim&gt;</a></span><span class="message">the mips board has 1GB and I gave it 4GB of swap, all on an SSD. I forget if it exhausted itself compiling guix or guile, but I only made it as far as about 0.15</span></div><div class="line" id="184558"><span class="nick" style="color:#2e2a4a"><a href="#184558" label="[18:45:58]">&lt;OriansJ&gt;</a></span><span class="message">efraim: I'd say guile probably as it really doesn't like less than 2GB of RAM for some reason</span></div><div class="line" id="184939"><span class="nick" style="color:#2e2a4a"><a href="#184939" label="[18:49:39]">&lt;OriansJ&gt;</a></span><span class="message">possibly due to how it handles garbage collecion; resulting in rather bad page thrashing even with an SSD</span></div><div class="line" id="185622"><span class="nick" style="color:#2e2a4a"><a href="#185622" label="[18:56:22]">&lt;OriansJ&gt;</a></span><span class="message">builds in general have gotten way less [computer resource] efficient for questionable improvments in developer efficiency</span></div><div class="line" id="191340"><span class="nick" style="color:#6b8072"><a href="#191340" label="[19:13:40]">&lt;xentrac&gt;</a></span><span class="message">congratulations!</span></div><div class="line" id="191710"><span class="nick" style="color:#234e69"><a href="#191710" label="[19:17:10]">&lt;rain1&gt;</a></span><span class="message">ive been looking into SSDs</span></div><div class="line" id="195212"><span class="nick" style="color:#2e2a4a"><a href="#195212" label="[19:52:12]">&lt;OriansJ&gt;</a></span><span class="message">rain1: they have gotten alot cheaper over the last few years but they still have a price premium over spinning disks; ironically all of the biggests disks are SSD only (100TB+ Drives) and spinning disks are now just a fraction of the size of SSDs (&lt;20TB)</span></div><div class="line" id="195427"><span class="nick" style="color:#6b8072"><a href="#195427" label="[19:54:27]">&lt;xentrac&gt;</a></span><span class="message">rain1 has left :(</span></div><div class="line" id="195449"><span class="nick" style="color:#6b8072"><a href="#195449" label="[19:54:49]">&lt;xentrac&gt;</a></span><span class="message">hopefully they will reincarnate soon</span></div><div class="line" id="220938"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><br /></div></body></html>

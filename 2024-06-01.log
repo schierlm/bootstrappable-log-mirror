@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-01.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003626"><span class="nick" style="color:#389600"><a href="#003626" label="[00:36:26]">&lt;mihi&gt;</a></span><span class="message">new month, new logs :)</span></div><div class="line" id="220431"><span class="nick" style="color:#8dd3c7"><a href="#220431" label="[22:04:31]">&lt;Googulator&gt;</a></span><span class="message">Probably my weirdest ever commit to any repository: <a rel="nofollow" href="https://github.com/Googulator/guix/commit/19c6f111f6c11e5f62922139321d55fd7b60f93f">https://github.com/Googulator/guix/commit/19c6f111f6c11e5f62922139321d55fd7b60f93f</a> </span></div><div class="line" id="220509"><span class="nick" style="color:#8dd3c7"><a href="#220509" label="[22:05:09]">&lt;Googulator&gt;</a></span><span class="message">A variable that's somehow null unless I print it beforehand.</span></div><div class="line" id="220659"><span class="nick" style="color:#2e2a4a"><a href="#220659" label="[22:06:59]">&lt;stikonas&gt;</a></span><span class="message">heizenbug...</span></div><div class="line" id="220748"><span class="nick" style="color:#2e2a4a"><a href="#220748" label="[22:07:48]">&lt;stikonas&gt;</a></span><span class="message">in the meantime, I've sent putenv stub to janneke for mes inclusion</span></div><div class="line" id="220756"><span class="nick" style="color:#2e2a4a"><a href="#220756" label="[22:07:56]">&lt;stikonas&gt;</a></span><span class="message">that might help with building make 3.82</span></div><div class="line" id="221755"><span class="nick" style="color:#2e2a4a"><a href="#221755" label="[22:17:55]">&lt;stikonas&gt;</a></span><span class="message"> (<a rel="nofollow" href="https://lists.gnu.org/archive/html/bug-mes/2024-06/msg00002.html">https://lists.gnu.org/archive/html/bug-mes/2024-06/msg00002.html</a>) </span></div><div class="line" id="232313"><span class="nick" style="color:#389600"><a href="#232313" label="[23:23:13]">&lt;mihi&gt;</a></span><span class="message">Googulator, I doubt that (it is the weirdest commit you will ever make)</span></div><div class="line" id="232443"><span class="nick" style="color:#389600"><a href="#232443" label="[23:24:43]">&lt;mihi&gt;</a></span><span class="message">and to be pedantic, that commit does not print any *variable* only the result of two function invocations (which, under normal circumstances, should be pure - i.e. without side effect and idempotent - though).</span></div><div class="line" id="232626"><span class="nick" style="color:#389600"><a href="#232626" label="[23:26:26]">&lt;mihi&gt;</a></span><span class="message">let me guess, it is (getcwd) which is null? Although I have no idea how (newline) or (display) or any other code inside the let* should affect that...</span></div><div class="line" id="233338"><span class="nick" style="color:#389600"><a href="#233338" label="[23:33:38]">&lt;mihi&gt;</a></span><span class="message">in case you want to track that down, my first idea would be to do the printing in an extra argument of &quot;(let*&quot;, i.e. &quot;(let* ((debugging (begin (display ...) (newline))) (headers ...&quot;. Not sure about guile, but I've heard of Schemes that compile lambdas that solely consist of a let differently.</span></div><div class="line" id="233356"><span class="nick" style="color:#389600"><a href="#233356" label="[23:33:56]">&lt;mihi&gt;</a></span><span class="message">(would still be a bug of guile or that particular guile binary that runs the bootstrap, though)</span></div><br /></div></body></html>

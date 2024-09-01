@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-11-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000351"><span class="nick" style="color:#389600"><a href="#000351" label="[00:03:51]">&lt;oriansj&gt;</a></span><span class="message">oh now I remember &quot;\r&quot; broke MesCC</span></div><div class="line" id="000427"><span class="nick" style="color:#389600"><a href="#000427" label="[00:04:27]">&lt;oriansj&gt;</a></span><span class="message">as nyacc couldn't support it</span></div><div class="line" id="000624"><span class="nick" style="color:#8dd3c7"><a href="#000624" label="[00:06:24]">&lt;stikonas&gt;</a></span><span class="message">oh ok</span></div><div class="line" id="001644"><span class="nick" style="color:#8dd3c7"><a href="#001644" label="[00:16:44]">&lt;stikonas&gt;</a></span><span class="message">oriansj: hmm, maybe let's revert that last PR...</span></div><div class="line" id="001734"><span class="nick" style="color:#8dd3c7"><a href="#001734" label="[00:17:34]">&lt;stikonas&gt;</a></span><span class="message">it's behaviour is just too confusing right now</span></div><div class="line" id="001904"><span class="nick" style="color:#8dd3c7"><a href="#001904" label="[00:19:04]">&lt;stikonas&gt;</a></span><span class="message">and can catch us unaware...</span></div><div class="line" id="002004"><span class="nick" style="color:#8dd3c7"><a href="#002004" label="[00:20:04]">&lt;stikonas&gt;</a></span><span class="message">at least with the assignments it either works or compilation error but here it's silently different behaviour</span></div><div class="line" id="023008"><span class="nick" style="color:#8dd3c7"><a href="#023008" label="[02:30:08]">&lt;stikonas&gt;</a></span><span class="message">the more I look at this, the more it looks like ++/-- are not easily implementable...</span></div><div class="line" id="023016"><span class="nick" style="color:#8dd3c7"><a href="#023016" label="[02:30:16]">&lt;stikonas&gt;</a></span><span class="message">and probably needs AST</span></div><div class="line" id="023029"><span class="nick" style="color:#8dd3c7"><a href="#023029" label="[02:30:29]">&lt;stikonas&gt;</a></span><span class="message">so I guess not for M2-Planet...</span></div><div class="line" id="023212"><span class="nick" style="color:#389600"><a href="#023212" label="[02:32:12]">&lt;oriansj&gt;</a></span><span class="message">stikonas: its ok, M2-Planet is a very thrown together sort of solution.</span></div><div class="line" id="023240"><span class="nick" style="color:#389600"><a href="#023240" label="[02:32:40]">&lt;oriansj&gt;</a></span><span class="message">a sort of rough prototype for cc_x86 which grew out of control</span></div><div class="line" id="023247"><span class="nick" style="color:#8dd3c7"><a href="#023247" label="[02:32:47]">&lt;stikonas&gt;</a></span><span class="message">yeah, I know...</span></div><div class="line" id="023254"><span class="nick" style="color:#8dd3c7"><a href="#023254" label="[02:32:54]">&lt;stikonas&gt;</a></span><span class="message">it does follow cc_* very closely</span></div><div class="line" id="023321"><span class="nick" style="color:#8dd3c7"><a href="#023321" label="[02:33:21]">&lt;stikonas&gt;</a></span><span class="message">I guess without AST it's hard to know what is lvalue and what is rvalue</span></div><div class="line" id="023328"><span class="nick" style="color:#389600"><a href="#023328" label="[02:33:28]">&lt;oriansj&gt;</a></span><span class="message">and It wasn't designed to be a proper C, despite how much one might want it to be</span></div><div class="line" id="023340"><span class="nick" style="color:#8dd3c7"><a href="#023340" label="[02:33:40]">&lt;stikonas&gt;</a></span><span class="message">as that is not immediately visible from type of expressions</span></div><div class="line" id="023421"><span class="nick" style="color:#8dd3c7"><a href="#023421" label="[02:34:21]">&lt;stikonas&gt;</a></span><span class="message">so my suggestion is to revert that last commit. I can still look at fixing up assignments</span></div><div class="line" id="023513"><span class="nick" style="color:#389600"><a href="#023513" label="[02:35:13]">&lt;oriansj&gt;</a></span><span class="message">yeah, its kinda embarassing how ad-hoc M2-Planet is. The Multi-arch support could have been so much cleaner</span></div><div class="line" id="023535"><span class="nick" style="color:#8dd3c7"><a href="#023535" label="[02:35:35]">&lt;stikonas&gt;</a></span><span class="message">oh I wouldn't be embarrased if I were you</span></div><div class="line" id="023542"><span class="nick" style="color:#8dd3c7"><a href="#023542" label="[02:35:42]">&lt;stikonas&gt;</a></span><span class="message">M2-Planet is quite amazing for its size</span></div><div class="line" id="023643"><span class="nick" style="color:#389600"><a href="#023643" label="[02:36:43]">&lt;oriansj&gt;</a></span><span class="message">it is hard to maintain and update or expand or port</span></div><div class="line" id="023701"><span class="nick" style="color:#389600"><a href="#023701" label="[02:37:01]">&lt;oriansj&gt;</a></span><span class="message">but it kinda holds together just well enough</span></div><div class="line" id="023751"><span class="nick" style="color:#8dd3c7"><a href="#023751" label="[02:37:51]">&lt;stikonas&gt;</a></span><span class="message">well, adding new arches is quite easy</span></div><div class="line" id="023802"><span class="nick" style="color:#8dd3c7"><a href="#023802" label="[02:38:02]">&lt;stikonas&gt;</a></span><span class="message">adding new features... It depends</span></div><div class="line" id="023811"><span class="nick" style="color:#8dd3c7"><a href="#023811" label="[02:38:11]">&lt;stikonas&gt;</a></span><span class="message">some of the stuff was quite easy</span></div><div class="line" id="023857"><span class="nick" style="color:#389600"><a href="#023857" label="[02:38:57]">&lt;oriansj&gt;</a></span><span class="message">perhaps a fresh perspective helps</span></div><div class="line" id="122321"><span class="nick" style="color:#8dd3c7"><a href="#122321" label="[12:23:21]">&lt;stikonas&gt;</a></span><span class="message">ok, somewhat good news is that I've gotten += to work properly on AMD64</span></div><div class="line" id="122353"><span class="nick" style="color:#8dd3c7"><a href="#122353" label="[12:23:53]">&lt;stikonas&gt;</a></span><span class="message">or at least better than before, so things like *b += 2; now work</span></div><div class="line" id="122404"><span class="nick" style="color:#8dd3c7"><a href="#122404" label="[12:24:04]">&lt;stikonas&gt;</a></span><span class="message">just need to extend this to other arches and other assignments</span></div><div class="line" id="122416"><span class="nick" style="color:#8dd3c7"><a href="#122416" label="[12:24:16]">&lt;stikonas&gt;</a></span><span class="message">and if possible, simplify emitted code a bit</span></div><div class="line" id="122538"><span class="nick" style="color:#8dd3c7"><a href="#122538" label="[12:25:38]">&lt;stikonas&gt;</a></span><span class="message">but all of that should be doable</span></div><div class="line" id="122937"><span class="nick" style="color:#6b8072"><a href="#122937" label="[12:29:37]">&lt;Hagfish&gt;</a></span><span class="message">nice</span></div><div class="line" id="123009"><span class="nick" style="color:#6b8072"><a href="#123009" label="[12:30:09]">&lt;Hagfish&gt;</a></span><span class="message">a pity about ++/--, but i get what you mean about needing an AST</span></div><div class="line" id="123026"><span class="nick" style="color:#8dd3c7"><a href="#123026" label="[12:30:26]">&lt;stikonas&gt;</a></span><span class="message">Hagfish: haven't thought about it since yesterday</span></div><div class="line" id="123049"><span class="nick" style="color:#8dd3c7"><a href="#123049" label="[12:30:49]">&lt;stikonas&gt;</a></span><span class="message">first, I'll finish all compounds assignment operators</span></div><div class="line" id="123123"><span class="nick" style="color:#8dd3c7"><a href="#123123" label="[12:31:23]">&lt;stikonas&gt;</a></span><span class="message">but it's not the end of the world if we can't support ++/--</span></div><div class="line" id="123207"><span class="nick" style="color:#8dd3c7"><a href="#123207" label="[12:32:07]">&lt;stikonas&gt;</a></span><span class="message">we might still be able to improve m2-planet to the point where required mes simplifications can be merged upstream</span></div><div class="line" id="123229"><span class="nick" style="color:#8dd3c7"><a href="#123229" label="[12:32:29]">&lt;stikonas&gt;</a></span><span class="message">especially since we have a preprocessor support for #ifdef __M2__</span></div><div class="line" id="123604"><span class="nick" style="color:#8dd3c7"><a href="#123604" label="[12:36:04]">&lt;stikonas&gt;</a></span><span class="message">in any case ++ / -- are less useful if we don't have pointer arithmetic working</span></div><div class="line" id="123619"><span class="nick" style="color:#8dd3c7"><a href="#123619" label="[12:36:19]">&lt;stikonas&gt;</a></span><span class="message">as they would increment pointer address by 1 instead of by register size</span></div><div class="line" id="131007"><span class="nick" style="color:#389600"><a href="#131007" label="[13:10:07]">&lt;oriansj&gt;</a></span><span class="message">object size not register size. as if foo is a struct; foo++ increments it by the sizeof(struct)</span></div><div class="line" id="131545"><span class="nick" style="color:#8dd3c7"><a href="#131545" label="[13:15:45]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I also need LOAD_INTEGER_rbx define. I'm not too familiar with x86 hex encoding, how do I get it?</span></div><div class="line" id="131554"><span class="nick" style="color:#8dd3c7"><a href="#131554" label="[13:15:54]">&lt;stikonas&gt;</a></span><span class="message">s/x86/amd64/</span></div><div class="line" id="131602"><span class="nick" style="color:#8dd3c7"><a href="#131602" label="[13:16:02]">&lt;stikonas&gt;</a></span><span class="message">x86 actually has LOAD_INTEGER_ebx</span></div><div class="line" id="131717"><span class="nick" style="color:#8dd3c7"><a href="#131717" label="[13:17:17]">&lt;stikonas&gt;</a></span><span class="message">something like PUSH_ebx\nLOAD_INTEGER_ebx\nADD_ebx_to_eax\nPOP_ebx\nSTORE_INTEGER\n in expression function does work with += reasonably well</span></div><div class="line" id="131752"><span class="nick" style="color:#8dd3c7"><a href="#131752" label="[13:17:52]">&lt;stikonas&gt;</a></span><span class="message">definitelty better than what I did in preprocessor</span></div><div class="line" id="131827"><span class="nick" style="color:#389600"><a href="#131827" label="[13:18:27]">&lt;oriansj&gt;</a></span><span class="message">here is what I would do to look up the encoding:  rasm2 -a x86 -b 64 &quot;mov rbx, 0x1234567&quot;</span></div><div class="line" id="131901"><span class="nick" style="color:#8dd3c7"><a href="#131901" label="[13:19:01]">&lt;stikonas&gt;</a></span><span class="message">maybe I should learn AMD assembly better :D</span></div><div class="line" id="131935"><span class="nick" style="color:#389600"><a href="#131935" label="[13:19:35]">&lt;oriansj&gt;</a></span><span class="message">which will return: 48c7c367452301 then remove the 67452301</span></div><div class="line" id="131959"><span class="nick" style="color:#389600"><a href="#131959" label="[13:19:59]">&lt;oriansj&gt;</a></span><span class="message">to get the 48c7c3 needed by M1</span></div><div class="line" id="132028"><span class="nick" style="color:#8dd3c7"><a href="#132028" label="[13:20:28]">&lt;stikonas&gt;</a></span><span class="message">ok, let me install rasm2...</span></div><div class="line" id="132139"><span class="nick" style="color:#389600"><a href="#132139" label="[13:21:39]">&lt;oriansj&gt;</a></span><span class="message">it also can help sanity check your hex: rasm2 -a x86 -b 64 -d &quot;48c7c3 00000000&quot;</span></div><div class="line" id="132158"><span class="nick" style="color:#389600"><a href="#132158" label="[13:21:58]">&lt;oriansj&gt;</a></span><span class="message">which will display: mov rbx, 0</span></div><div class="line" id="133116"><span class="nick" style="color:#8dd3c7"><a href="#133116" label="[13:31:16]">&lt;stikonas&gt;</a></span><span class="message">ok, got that define</span></div><div class="line" id="190136"><span class="nick" style="color:#6b8072"><a href="#190136" label="[19:01:36]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://news.ycombinator.com/item?id=29209270">https://news.ycombinator.com/item?id=29209270</a>  a nice mention of guix and bootstrappability (although no direct link to the work being discussed here)</span></div><div class="line" id="235006"><span class="nick" style="color:#8dd3c7"><a href="#235006" label="[23:50:06]">&lt;stikonas&gt;</a></span><span class="message">oriansj: &quot;get_machine --override&quot; crashes</span></div><div class="line" id="235029"><span class="nick" style="color:#8dd3c7"><a href="#235029" label="[23:50:29]">&lt;stikonas&gt;</a></span><span class="message">well, we are supposed to provide what to override with, but we should not crash in any case</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-02-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="160607"><span class="nick" style="color:#389600"><a href="#160607" label="[16:06:07]">&lt;webczat&gt;</a></span><span class="message">trying to compile uclibc-ng, try #123456789. or not really because haven't tried since two days ago. :)</span></div><div class="line" id="161120"><span class="nick" style="color:#389600"><a href="#161120" label="[16:11:20]">&lt;webczat&gt;</a></span><span class="message">and hello btw.</span></div><div class="line" id="182128"><span class="nick" style="color:#389600"><a href="#182128" label="[18:21:28]">&lt;webczat&gt;</a></span><span class="message">what do you do before first compiling musl after tcc to grab linux headers? I mean I did something and have them but that required commenting out usage of some scripts. which means i am not yet sure if they work</span></div><div class="line" id="182139"><span class="nick" style="color:#389600"><a href="#182139" label="[18:21:39]">&lt;webczat&gt;</a></span><span class="message">mainly unifdef</span></div><div class="line" id="182504"><span class="nick" style="color:#389600"><a href="#182504" label="[18:25:04]">&lt;webczat&gt;</a></span><span class="message">and gave up, will really do musl. uclibc maybe could be compiled if I could create a config file manually, othervise i doubt it.</span></div><div class="line" id="182522"><span class="nick" style="color:#389600"><a href="#182522" label="[18:25:22]">&lt;webczat&gt;</a></span><span class="message">because &quot;make config&quot; requires things like regex...</span></div><div class="line" id="183449"><span class="nick" style="color:#8dd3c7"><a href="#183449" label="[18:34:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; webczat: we don't grab Linux headers</span></div><div class="line" id="183500"><span class="nick" style="color:#389600"><a href="#183500" label="[18:35:00]">&lt;webczat&gt;</a></span><span class="message">stikonas: musl can be compiled without?</span></div><div class="line" id="183521"><span class="nick" style="color:#8dd3c7"><a href="#183521" label="[18:35:21]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yes, though obviously not all software later will build</span></div><div class="line" id="183535"><span class="nick" style="color:#8dd3c7"><a href="#183535" label="[18:35:35]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But we defer linux-headers till after gcc</span></div><div class="line" id="183536"><span class="nick" style="color:#389600"><a href="#183536" label="[18:35:36]">&lt;webczat&gt;</a></span><span class="message">neither uclibc and glibc can, and I thought musl also can't. maybe I've even tried...</span></div><div class="line" id="183607"><span class="nick" style="color:#389600"><a href="#183607" label="[18:36:07]">&lt;webczat&gt;</a></span><span class="message">stikonas: okay. in general it seems you can do them after tcc-musl.</span></div><div class="line" id="183624"><span class="nick" style="color:#389600"><a href="#183624" label="[18:36:24]">&lt;webczat&gt;</a></span><span class="message">safely</span></div><div class="line" id="183633"><span class="nick" style="color:#389600"><a href="#183633" label="[18:36:33]">&lt;webczat&gt;</a></span><span class="message">there are no compiler problems. there are mes libc problems.</span></div><div class="line" id="183638"><span class="nick" style="color:#389600"><a href="#183638" label="[18:36:38]">&lt;webczat&gt;</a></span><span class="message">when trying to install them</span></div><div class="line" id="220056"><span class="nick" style="color:#389600"><a href="#220056" label="[22:00:56]">&lt;webczat&gt;</a></span><span class="message">after I build musl I get general protection fault on any program I build. unsure why. i removed code that failed in tcc asm, but i doubt it's being used.</span></div><div class="line" id="220211"><span class="nick" style="color:#389600"><a href="#220211" label="[22:02:11]">&lt;webczat&gt;</a></span><span class="message">something related to breaking thread local storage?</span></div><div class="line" id="223029"><span class="nick" style="color:#2e2a4a"><a href="#223029" label="[22:30:29]">&lt;stikonas&gt;</a></span><span class="message">hmm, there is a patch in live-bootstrap to disable thread local storage for musl</span></div><div class="line" id="223042"><span class="nick" style="color:#2e2a4a"><a href="#223042" label="[22:30:42]">&lt;stikonas&gt;</a></span><span class="message">so that it can run on Fiwix</span></div><div class="line" id="223046"><span class="nick" style="color:#2e2a4a"><a href="#223046" label="[22:30:46]">&lt;stikonas&gt;</a></span><span class="message">but it still works on Linux here</span></div><div class="line" id="224417"><span class="nick" style="color:#389600"><a href="#224417" label="[22:44:17]">&lt;webczat&gt;</a></span><span class="message">stikonas: the interesting thing: the programs I built with tcc against this musl segfault on the bootstrap kernel I have. however, not on the working kernel of my laptop os. i mean i can literally transport the binary out of that bootstrap system without recompiling and run it</span></div><div class="line" id="224629"><span class="nick" style="color:#389600"><a href="#224629" label="[22:46:29]">&lt;webczat&gt;</a></span><span class="message">thought it's the tls because I changed the syscall asm from call *%%gs:16 to int $128, the former was not working under tcc. but if the binary runs on other computer, not sure what is going on</span></div><div class="line" id="224631"><span class="nick" style="color:#2e2a4a"><a href="#224631" label="[22:46:31]">&lt;stikonas&gt;</a></span><span class="message">what is your bootstrap kernel?</span></div><div class="line" id="224650"><span class="nick" style="color:#389600"><a href="#224650" label="[22:46:50]">&lt;webczat&gt;</a></span><span class="message">stikonas: my bootstrap kernel is manually configured linux 6.7 which might possibly have something important disabled</span></div><div class="line" id="224651"><span class="nick" style="color:#2e2a4a"><a href="#224651" label="[22:46:51]">&lt;stikonas&gt;</a></span><span class="message">is it linux?</span></div><div class="line" id="224715"><span class="nick" style="color:#2e2a4a"><a href="#224715" label="[22:47:15]">&lt;stikonas&gt;</a></span><span class="message">we haven't tested disabled tls with linux 6.7</span></div><div class="line" id="224724"><span class="nick" style="color:#2e2a4a"><a href="#224724" label="[22:47:24]">&lt;stikonas&gt;</a></span><span class="message">at leats I'm not aware of anybody doing that</span></div><div class="line" id="224742"><span class="nick" style="color:#2e2a4a"><a href="#224742" label="[22:47:42]">&lt;stikonas&gt;</a></span><span class="message">but if it works with an older one, I don't see why it wouldn't work with 6.7</span></div><div class="line" id="224743"><span class="nick" style="color:#2e2a4a"><a href="#224743" label="[22:47:43]">&lt;stikonas&gt;</a></span><span class="message">hmm</span></div><div class="line" id="224756"><span class="nick" style="color:#2e2a4a"><a href="#224756" label="[22:47:56]">&lt;stikonas&gt;</a></span><span class="message">actually we do run userspace bootstrap too</span></div><div class="line" id="224757"><span class="nick" style="color:#389600"><a href="#224757" label="[22:47:57]">&lt;webczat&gt;</a></span><span class="message">stikonas: i haven't really tried to disable it at first. but had to change the syscall invocation because of tcc.</span></div><div class="line" id="224758"><span class="nick" style="color:#2e2a4a"><a href="#224758" label="[22:47:58]">&lt;stikonas&gt;</a></span><span class="message">and it works</span></div><div class="line" id="224821"><span class="nick" style="color:#389600"><a href="#224821" label="[22:48:21]">&lt;webczat&gt;</a></span><span class="message">my laptop one is also 6.7</span></div><div class="line" id="224838"><span class="nick" style="color:#389600"><a href="#224838" label="[22:48:38]">&lt;webczat&gt;</a></span><span class="message">also manually configured but i haven't tried to make it skinny</span></div><div class="line" id="224851"><span class="nick" style="color:#2e2a4a"><a href="#224851" label="[22:48:51]">&lt;stikonas&gt;</a></span><span class="message">hmm, perhaps something crucial is indeed disabled...</span></div><div class="line" id="224910"><span class="nick" style="color:#389600"><a href="#224910" label="[22:49:10]">&lt;webczat&gt;</a></span><span class="message">weird stuff!</span></div><div class="line" id="224955"><span class="nick" style="color:#389600"><a href="#224955" label="[22:49:55]">&lt;webczat&gt;</a></span><span class="message">i probably need to transport my artifacts out and recompile the kernel.</span></div><div class="line" id="232501"><span class="nick" style="color:#389600"><a href="#232501" label="[23:25:01]">&lt;webczat&gt;</a></span><span class="message">stikonas: i had disabled i386 vsyscall table. but it's only a guess that it's the reason for the problems I had</span></div><div class="line" id="232517"><span class="nick" style="color:#389600"><a href="#232517" label="[23:25:17]">&lt;webczat&gt;</a></span><span class="message">still unsure and have to run this first</span></div><div class="line" id="234528"><span class="nick" style="color:#389600"><a href="#234528" label="[23:45:28]">&lt;webczat&gt;</a></span><span class="message">nope... ehh</span></div><div class="line" id="101230"><span class="nick" style="color:#389600"><a href="#101230" label="[10:12:30]">&lt;webczat&gt;</a></span><span class="message">just discovered that if you want your 32 bit musl to work on a linux kernel, you must never even think about disabling modify_ldt syscall when configuring that kernel, othervise your musl will segfault with a general protection fault and you'll be left wondering what you've done to it so that it miscompiled.</span></div><div class="line" id="101313"><span class="nick" style="color:#389600"><a href="#101313" label="[10:13:13]">&lt;webczat&gt;</a></span><span class="message">when in fact it just executed a specific crash logic using a hlt instruction which is illegal in userspace</span></div><div class="line" id="101502"><span class="nick" style="color:#389600"><a href="#101502" label="[10:15:02]">&lt;webczat&gt;</a></span><span class="message">it's because of the tls logic. so in theory disabling tls would also help if done correctly.</span></div><div class="line" id="102247"><span class="nick" style="color:#389600"><a href="#102247" label="[10:22:47]">&lt;webczat&gt;</a></span><span class="message">unless I am not quite correct, but...</span></div><div class="line" id="102604"><span class="nick" style="color:#389600"><a href="#102604" label="[10:26:04]">&lt;webczat&gt;</a></span><span class="message">no i am not wrong except that it tries to use set_thread_area and fails which is weird by itself.</span></div><div class="line" id="103512"><span class="nick" style="color:#389600"><a href="#103512" label="[10:35:12]">&lt;webczat&gt;</a></span><span class="message">if anyone is compiling the 32 bit musl with tcc on linux I'd be happy to get them to strace a binary with empty main function. to confirm this also happens for you. either tcc bug or musl bug or a consequence of asm changes needed for it to compile.</span></div><div class="line" id="103553"><span class="nick" style="color:#389600"><a href="#103553" label="[10:35:53]">&lt;webczat&gt;</a></span><span class="message">and when I get to it I'll recompile musl with gcc.</span></div><div class="line" id="111644"><span class="nick" style="color:#8dd3c7"><a href="#111644" label="[11:16:44]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; rickmasters is probably the person who knows most about set_thread_area</span></div><div class="line" id="111855"><span class="nick" style="color:#389600"><a href="#111855" label="[11:18:55]">&lt;webczat&gt;</a></span><span class="message">well i generally started poking around #musl channel too. might be that this is actually a tcc bug, because it tries to call set_thread_area, then fails miserably because the passed structure is wrong</span></div><div class="line" id="111921"><span class="nick" style="color:#389600"><a href="#111921" label="[11:19:21]">&lt;webczat&gt;</a></span><span class="message">and then tries modify_ldt which shouldn't be used in the first place :) but happily succeeds.</span></div><div class="line" id="112023"><span class="nick" style="color:#389600"><a href="#112023" label="[11:20:23]">&lt;webczat&gt;</a></span><span class="message">unless you compile it out, then it's a fatal error and causes an intentional crash logic</span></div><div class="line" id="112330"><span class="nick" style="color:#389600"><a href="#112330" label="[11:23:30]">&lt;webczat&gt;</a></span><span class="message">the passed structure has an entry field which should be set to -1 but is set to some other value which is close but not quite... didn't look at it's bit representation</span></div><div class="line" id="113457"><span class="nick" style="color:#389600"><a href="#113457" label="[11:34:57]">&lt;webczat&gt;</a></span><span class="message">hmm it seems like it loads wrong value.</span></div><div class="line" id="120817"><span class="nick" style="color:#389600"><a href="#120817" label="[12:08:17]">&lt;webczat&gt;</a></span><span class="message">suspected tcc/assembler bug <a rel="nofollow" href="https://transfer.sh/U1DmirmRcC/__set_thread_area.o">https://transfer.sh/U1DmirmRcC/__set_thread_area.o</a>  people tell me local label references are wrong.</span></div><div class="line" id="135004"><span class="nick" style="color:#6b8072"><a href="#135004" label="[13:50:04]">&lt;oriansj&gt;</a></span><span class="message">webczat: well local label references being wrong woud either be a linking error or a serious miscompile</span></div><div class="line" id="135013"><span class="nick" style="color:#6b8072"><a href="#135013" label="[13:50:13]">&lt;oriansj&gt;</a></span><span class="message">(aka a bug in the compiler)</span></div><div class="line" id="135056"><span class="nick" style="color:#80b1d3"><a href="#135056" label="[13:50:56]">&lt;Googulator&gt;</a></span><span class="message">New month, channel log glitching again.</span></div><br /></div></body></html>

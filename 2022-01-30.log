@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-01-30.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000032"><span class="nick" style="color:#389600"><a href="#000032" label="[00:00:32]">&lt;stikonas&gt;</a></span><span class="message">but if we start running out of RAM, I think the simplest solution might be to trim down kernel config</span></div><div class="line" id="002532"><span class="nick" style="color:#2e2a4a"><a href="#002532" label="[00:25:32]">&lt;oriansj&gt;</a></span><span class="message">alMalsamo: I use libreboot but yeah, you will want the grub payload and luks version 1 for your /boot and then you can do anything you want for your / partition. However if you do a single partition, you'll be stuck with luks version 1 until grub improves its support for luks version 2</span></div><div class="line" id="003005"><span class="nick" style="color:#6b8072"><a href="#003005" label="[00:30:05]">&lt;alMalsamo&gt;</a></span><span class="message">oriansj: Cool I had Libreboot on an X200 but I lost that machine :(</span></div><div class="line" id="003038"><span class="nick" style="color:#6b8072"><a href="#003038" label="[00:30:38]">&lt;alMalsamo&gt;</a></span><span class="message">BUt with the ONLY payload of GNU GRUB does that provide a boot menu to choose between multiple internal SSDs, USB drive, optical drive?</span></div><div class="line" id="003212"><span class="nick" style="color:#6b8072"><a href="#003212" label="[00:32:12]">&lt;alMalsamo&gt;</a></span><span class="message">And does this mean *no* GRUB on SSDs but GRUB only exists in NOR Flash?</span></div><div class="line" id="003229"><span class="nick" style="color:#6b8072"><a href="#003229" label="[00:32:29]">&lt;alMalsamo&gt;</a></span><span class="message">And does this also mean I don't need a stupid EFI partition?</span></div><div class="line" id="003337"><span class="nick" style="color:#80b1d3"><a href="#003337" label="[00:33:37]">&lt;plasma41&gt;</a></span><span class="message">oriansj: Just a heads up, I got sick this week so I haven't gotten as far with the x86 stage0 work as I'd like. I think I'm past the worst of my symptoms and I'm looking forward to having a clear enough head to continue my work.</span></div><div class="line" id="003432"><span class="nick" style="color:#2e2a4a"><a href="#003432" label="[00:34:32]">&lt;oriansj&gt;</a></span><span class="message">alMalsamo: you don't need EFI partition with a grub payload. I suggest also having grub installed on the SSDs to enable chainloading.</span></div><div class="line" id="003502"><span class="nick" style="color:#2e2a4a"><a href="#003502" label="[00:35:02]">&lt;oriansj&gt;</a></span><span class="message">plasma41: get better first. The work can wait, your health comes first.</span></div><div class="line" id="003540"><span class="nick" style="color:#80b1d3"><a href="#003540" label="[00:35:40]">&lt;plasma41&gt;</a></span><span class="message">oriansj: thanks</span></div><div class="line" id="004100"><span class="nick" style="color:#6b8072"><a href="#004100" label="[00:41:00]">&lt;alMalsamo&gt;</a></span><span class="message">oriansj: Hmm okay but what about boot menu to switch between hardware devices?  I know SeaBIOS supports this but does GRUB payload provide this?</span></div><div class="line" id="004109"><span class="nick" style="color:#6b8072"><a href="#004109" label="[00:41:09]">&lt;alMalsamo&gt;</a></span><span class="message">And what does chainloading provide?</span></div><div class="line" id="010511"><span class="nick" style="color:#6b8072"><a href="#010511" label="[01:05:11]">&lt;alMalsamo&gt;</a></span><span class="message">oriansj: Oops I got disconnected, did you happen to answer my questions?</span></div><div class="line" id="012443"><span class="nick" style="color:#389600"><a href="#012443" label="[01:24:43]">&lt;stikonas&gt;</a></span><span class="message">alMalsamo: there were no further answers</span></div><div class="line" id="042701"><span class="nick" style="color:#2e2a4a"><a href="#042701" label="[04:27:01]">&lt;oriansj&gt;</a></span><span class="message">alMalsamo: if you prefer SeaBIOS, coreboot does support SeaBIOS so feel free to use that.</span></div><div class="line" id="045239"><span class="nick" style="color:#6b8072"><a href="#045239" label="[04:52:39]">&lt;alMalsamo&gt;</a></span><span class="message">oriansj: Okay but does pure-GRUB payload offer boot menu to choose between physical boot devices?  (eg 2 internal SSDs, USB drive, optical drive)</span></div><div class="line" id="045254"><span class="nick" style="color:#6b8072"><a href="#045254" label="[04:52:54]">&lt;alMalsamo&gt;</a></span><span class="message">also what is the benefit of chainloading 2 GRUB installs, 1 in NOR flash and one on SSD?</span></div><div class="line" id="054633"><span class="nick" style="color:#6d2462"><a href="#054633" label="[05:46:33]">&lt;fossy&gt;</a></span><span class="message">stikonas, sorry, i have had to deal with irl this last few days</span></div><div class="line" id="054751"><span class="nick" style="color:#6d2462"><a href="#054751" label="[05:47:51]">&lt;fossy&gt;</a></span><span class="message">oriansj, stikonas: i don't really have an opinion either way on strict vs non-strict as a default. set -e does exist too but non-strict is the default on bash so i think that's why i haven't changed it in the past</span></div><div class="line" id="054845"><span class="nick" style="color:#6d2462"><a href="#054845" label="[05:48:45]">&lt;fossy&gt;</a></span><span class="message">re: openssl 3, there was a dependencies reason, but i cannot explicitly recall the exact reason for it</span></div><div class="line" id="054916"><span class="nick" style="color:#6d2462"><a href="#054916" label="[05:49:16]">&lt;fossy&gt;</a></span><span class="message">QEMU mode does seem to be fine, thankfully, the tarballs are less than a few hundred MB. i noticed that kexec error in my tests and that should be fixed in the next push</span></div><div class="line" id="160018"><span class="nick" style="color:#2e2a4a"><a href="#160018" label="[16:00:18]">&lt;oriansj&gt;</a></span><span class="message">alMalsamo: well the advantage of chainloading grub is the firmware can be flashed and locked in read-only mode to prevent future tampering. (not everyone wants that but just FYI) and grub easily supports multiple boot options (it even has a prompt which can be used to manually override anything at boot time)</span></div><div class="line" id="201633"><span class="nick" style="color:#234e69"><a href="#201633" label="[20:16:33]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: OK, no problem. Openssl 1.1.1 would work.</span></div><div class="line" id="201711"><span class="nick" style="color:#234e69"><a href="#201711" label="[20:17:11]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: also, is it really better to put checksum variable into build script?</span></div><div class="line" id="201719"><span class="nick" style="color:#234e69"><a href="#201719" label="[20:17:19]">&lt;stikonas[m]&gt;</a></span><span class="message">Separate file might be easier to deal with...</span></div><div class="line" id="201721"><span class="nick" style="color:#234e69"><a href="#201721" label="[20:17:21]">&lt;stikonas[m]&gt;</a></span><span class="message">Not too sure about this yet, but it might be good to have a mode where checksum's are not checked but computed, so you run bootstrap and it created checksum file</span></div><div class="line" id="201736"><span class="nick" style="color:#234e69"><a href="#201736" label="[20:17:36]">&lt;stikonas[m]&gt;</a></span><span class="message">But that's probably easier if all checksum are in one file</span></div><div class="line" id="201736"><span class="nick" style="color:#234e69"><a href="#201736" label="[20:17:36]">&lt;stikonas[m]&gt;</a></span><span class="message">Then we wouldn't have to build one by one until the next error</span></div><div class="line" id="201736"><span class="nick" style="color:#234e69"><a href="#201736" label="[20:17:36]">&lt;stikonas[m]&gt;</a></span><span class="message">Also I don't like inline checksum variable for another reason:</span></div><div class="line" id="201744"><span class="nick" style="color:#234e69"><a href="#201744" label="[20:17:44]">&lt;stikonas[m]&gt;</a></span><span class="message">If we eventually have more arches</span></div><div class="line" id="201750"><span class="nick" style="color:#234e69"><a href="#201750" label="[20:17:50]">&lt;stikonas[m]&gt;</a></span><span class="message">That becomes trickier</span></div><div class="line" id="201808"><span class="nick" style="color:#234e69"><a href="#201808" label="[20:18:08]">&lt;stikonas[m]&gt;</a></span><span class="message">qemu-system without KVM is slow</span></div><div class="line" id="201808"><span class="nick" style="color:#234e69"><a href="#201808" label="[20:18:08]">&lt;stikonas[m]&gt;</a></span><span class="message">Although the whole checksumming on arches that you don't have might be tricky :(</span></div><br /></div></body></html>

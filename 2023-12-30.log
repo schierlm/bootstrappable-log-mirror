@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-12-30.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005225"><span class="nick" style="color:#389600"><a href="#005225" label="[00:52:25]">&lt;vagrantc&gt;</a></span><span class="message">hrm. having troubles building mes on 32-bit arm systems</span></div><div class="line" id="005319"><span class="nick" style="color:#389600"><a href="#005319" label="[00:53:19]">&lt;vagrantc&gt;</a></span><span class="message">segfaults ... both with mes 0.24.2 and 0.26</span></div><div class="line" id="005401"><span class="nick" style="color:#389600"><a href="#005401" label="[00:54:01]">&lt;vagrantc&gt;</a></span><span class="message">er, 0.25 ... 0.24.2 seemed to build fine</span></div><div class="line" id="010026"><span class="nick" style="color:#389600"><a href="#010026" label="[01:00:26]">&lt;vagrantc&gt;</a></span><span class="message">this is building using an existing gcc, rather than starting from m2-planet or whatnot</span></div><div class="line" id="024654"><span class="nick" style="color:#8dd3c7"><a href="#024654" label="[02:46:54]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; vagrantc: I think janneke is away, maybe report later</span></div><div class="line" id="024722"><span class="nick" style="color:#389600"><a href="#024722" label="[02:47:22]">&lt;vagrantc&gt;</a></span><span class="message">i'll send to the list ...</span></div><div class="line" id="181833"><span class="nick" style="color:#2e2a4a"><a href="#181833" label="[18:18:33]">&lt;stikonas&gt;</a></span><span class="message">something stupind is happening when I'm trying to implement execve... Though not sure where the bug might be</span></div><div class="line" id="181942"><span class="nick" style="color:#2e2a4a"><a href="#181942" label="[18:19:42]">&lt;stikonas&gt;</a></span><span class="message">I seem to be passing non-zero pointer to return comment in fopen function. However, on the caller side I seem to be getting back 0 in QEMU and 4 my baremetal machine...</span></div><div class="line" id="181954"><span class="nick" style="color:#2e2a4a"><a href="#181954" label="[18:19:54]">&lt;stikonas&gt;</a></span><span class="message">s/4 my/4 on my/</span></div><div class="line" id="183425"><span class="nick" style="color:#2e2a4a"><a href="#183425" label="[18:34:25]">&lt;stikonas&gt;</a></span><span class="message">hmm, must be some M2-Planet bug...</span></div><div class="line" id="183501"><span class="nick" style="color:#2e2a4a"><a href="#183501" label="[18:35:01]">&lt;stikonas&gt;</a></span><span class="message">FILE* file_in = fopen(file_name, &quot;r&quot;);</span></div><div class="line" id="183502"><span class="nick" style="color:#2e2a4a"><a href="#183502" label="[18:35:02]">&lt;stikonas&gt;</a></span><span class="message">doesn't work but the following seems to work</span></div><div class="line" id="183504"><span class="nick" style="color:#2e2a4a"><a href="#183504" label="[18:35:04]">&lt;stikonas&gt;</a></span><span class="message">FILE* file_in;</span></div><div class="line" id="183506"><span class="nick" style="color:#2e2a4a"><a href="#183506" label="[18:35:06]">&lt;stikonas&gt;</a></span><span class="message">file_in = fopen(file_name, &quot;r&quot;);</span></div><div class="line" id="202510"><span class="nick" style="color:#6b8072"><a href="#202510" label="[20:25:10]">&lt;Googulator&gt;</a></span><span class="message">I'd be surprised if mes's arm32 code worked on anything modern</span></div><div class="line" id="202515"><span class="nick" style="color:#6b8072"><a href="#202515" label="[20:25:15]">&lt;Googulator&gt;</a></span><span class="message">it targets armv4</span></div><div class="line" id="202549"><span class="nick" style="color:#6b8072"><a href="#202549" label="[20:25:49]">&lt;Googulator&gt;</a></span><span class="message">which IIRC is not a subset of armv7/8/9</span></div><div class="line" id="202553"><span class="nick" style="color:#6b8072"><a href="#202553" label="[20:25:53]">&lt;Googulator&gt;</a></span><span class="message">v5 is</span></div><div class="line" id="205254"><span class="nick" style="color:#80b1d3"><a href="#205254" label="[20:52:54]">&lt;muurkha&gt;</a></span><span class="message">I think it's pretty easy to write armv4 code that works fine on armv7/8/9</span></div><div class="line" id="205819"><span class="nick" style="color:#80b1d3"><a href="#205819" label="[20:58:19]">&lt;muurkha&gt;</a></span><span class="message">as I understand it, armv4 already (optionally) supported unaligned loads in the modern way and (optionally) a full 32-bit memory space (and the consequent segregation of flags into a separate register from the pc)</span></div><div class="line" id="205855"><span class="nick" style="color:#80b1d3"><a href="#205855" label="[20:58:55]">&lt;muurkha&gt;</a></span><span class="message">those are the main incompatibilities that come to mind for user code (as opposed to operating system context switching and interrupt handling)</span></div><div class="line" id="210152"><span class="nick" style="color:#80b1d3"><a href="#210152" label="[21:01:52]">&lt;muurkha&gt;</a></span><span class="message">Cortex-M* won't be able to run armv4 code because Cortex-M* only supports Thumb instructions, but lots of &quot;anything modern&quot; (like Cortex-A*) does support the uncompressed (32-bit-wide) ARM instruction set</span></div><div class="line" id="210532"><span class="nick" style="color:#80b1d3"><a href="#210532" label="[21:05:32]">&lt;muurkha&gt;</a></span><span class="message">ARM7TDMI was ARMv4, and I think a lot of current chips are still actually ARM7TDMI</span></div><div class="line" id="210607"><span class="nick" style="color:#80b1d3"><a href="#210607" label="[21:06:07]">&lt;muurkha&gt;</a></span><span class="message">somewhere around here I have a tube of LPC2100 chips</span></div><div class="line" id="210713"><span class="nick" style="color:#80b1d3"><a href="#210713" label="[21:07:13]">&lt;muurkha&gt;</a></span><span class="message">and there are a lot of people who still play games on a Game Boy Advance</span></div><div class="line" id="211225"><span class="nick" style="color:#80b1d3"><a href="#211225" label="[21:12:25]">&lt;muurkha&gt;</a></span><span class="message">what kinds of incompatibilities are you thinking of, Googulator?</span></div><div class="line" id="211316"><span class="nick" style="color:#6b8072"><a href="#211316" label="[21:13:16]">&lt;Googulator&gt;</a></span><span class="message">I guess I misremembered then</span></div><div class="line" id="211348"><span class="nick" style="color:#6b8072"><a href="#211348" label="[21:13:48]">&lt;Googulator&gt;</a></span><span class="message">was it actually v4 that had a completely redesigned instruction encoding?</span></div><div class="line" id="211447"><span class="nick" style="color:#80b1d3"><a href="#211447" label="[21:14:47]">&lt;muurkha&gt;</a></span><span class="message">well, ARMv4T introduced Thumb, which is a completely redesigned instruction encoding, but continued to support the old encoding</span></div><div class="line" id="211538"><span class="nick" style="color:#80b1d3"><a href="#211538" label="[21:15:38]">&lt;muurkha&gt;</a></span><span class="message">and ARMv8 introduced a completely different 64-bit instruction set with 32 registers instead of 16, but I think all current ARMv8 chips also continue to support the arm32 instruction set</span></div><div class="line" id="211721"><span class="nick" style="color:#80b1d3"><a href="#211721" label="[21:17:21]">&lt;muurkha&gt;</a></span><span class="message">you can switch between Thumb and the uncompressed instruction set on an almost instruction-by-instruction basis (you need one extra instruction to switch modes) which can introduce some compatibility problems</span></div><div class="line" id="211753"><span class="nick" style="color:#80b1d3"><a href="#211753" label="[21:17:53]">&lt;muurkha&gt;</a></span><span class="message">this is so-called &quot;interworking&quot;, where Thumb code can call uncompressed code and vice versa</span></div><div class="line" id="211805"><span class="nick" style="color:#6b8072"><a href="#211805" label="[21:18:05]">&lt;Googulator&gt;</a></span><span class="message">I wasn't thinking of Thumb</span></div><div class="line" id="211901"><span class="nick" style="color:#6b8072"><a href="#211901" label="[21:19:01]">&lt;Googulator&gt;</a></span><span class="message">but IIRC early ARM CPUs had a completely different (32-bit) instruction encoding than the classic 32-bit ARM we have todaxy</span></div><div class="line" id="211901"><span class="nick" style="color:#80b1d3"><a href="#211901" label="[21:19:01]">&lt;muurkha&gt;</a></span><span class="message">there does exist uncompressed ARM code that is compiled without support for interworking, so that if you return from it into Thumb code, it doesn't restore the T bit properly</span></div><div class="line" id="211905"><span class="nick" style="color:#80b1d3"><a href="#211905" label="[21:19:05]">&lt;muurkha&gt;</a></span><span class="message">I think</span></div><div class="line" id="211934"><span class="nick" style="color:#80b1d3"><a href="#211934" label="[21:19:34]">&lt;muurkha&gt;</a></span><span class="message">no, early ARM CPUs have the same bit fields in their 32-bit instruction encoding as 32-bit ARM CPUs today</span></div><div class="line" id="212010"><span class="nick" style="color:#80b1d3"><a href="#212010" label="[21:20:10]">&lt;muurkha&gt;</a></span><span class="message">you can in many cases run ARMv2 code on a current ARMv8 chip.  in theory you could do that with ARMv1 code if you could find some</span></div><div class="line" id="212207"><span class="nick" style="color:#80b1d3"><a href="#212207" label="[21:22:07]">&lt;muurkha&gt;</a></span><span class="message">the CPSR separation, 26-bit PC, and different interrupt model are the incompatibilities I know about, and most code doesn't care about them</span></div><div class="line" id="212249"><span class="nick" style="color:#80b1d3"><a href="#212249" label="[21:22:49]">&lt;muurkha&gt;</a></span><span class="message">there were a variety of really hairy things you could do in early ARM chips before the publication of the Architecture Reference Manual though</span></div><div class="line" id="212310"><span class="nick" style="color:#80b1d3"><a href="#212310" label="[21:23:10]">&lt;muurkha&gt;</a></span><span class="message">which might have different results today because they do things that have now been declared illegal</span></div><div class="line" id="212348"><span class="nick" style="color:#80b1d3"><a href="#212348" label="[21:23:48]">&lt;muurkha&gt;</a></span><span class="message">like, what happens if you ldmfd r3!, {r0-r7}</span></div><div class="line" id="212443"><span class="nick" style="color:#80b1d3"><a href="#212443" label="[21:24:43]">&lt;muurkha&gt;</a></span><span class="message">that overwrites r3 twice, once with the value fetched from memory and once with an incremented version of its old value.  what happens?  but most code doesn't do things like that</span></div><div class="line" id="212546"><span class="nick" style="color:#6b8072"><a href="#212546" label="[21:25:46]">&lt;Googulator&gt;</a></span><span class="message">but wasn't there a version of ARM that was a complete clean break, reshuffling all instruction opcodes to break away from Berkeley RISC heritage for IP reasons?</span></div><div class="line" id="212753"><span class="nick" style="color:#6b8072"><a href="#212753" label="[21:27:53]">&lt;Googulator&gt;</a></span><span class="message">I do remember reading about that</span></div><div class="line" id="212825"><span class="nick" style="color:#80b1d3"><a href="#212825" label="[21:28:25]">&lt;muurkha&gt;</a></span><span class="message">no.  the difference from v1 to v2 was that they added a multiply instruction.  v3 was the same as v2 but fabricated in a smaller process</span></div><div class="line" id="212840"><span class="nick" style="color:#80b1d3"><a href="#212840" label="[21:28:40]">&lt;muurkha&gt;</a></span><span class="message">iirc?</span></div><div class="line" id="212949"><span class="nick" style="color:#80b1d3"><a href="#212949" label="[21:29:49]">&lt;muurkha&gt;</a></span><span class="message">oh, no, v3 was actually when they added the 32-bit mode.  I was confusing ARM3 (which was ARMv2) with ARMv3</span></div><div class="line" id="213142"><span class="nick" style="color:#6b8072"><a href="#213142" label="[21:31:42]">&lt;Googulator&gt;</a></span><span class="message">hmm, so ARMv1 was already not binary compatible with Berkeley RISC?</span></div><div class="line" id="213142"><span class="nick" style="color:#80b1d3"><a href="#213142" label="[21:31:42]">&lt;muurkha&gt;</a></span><span class="message">the complete clean break was ARMv8, but that was announced in 02011, long after any Berkeley RISC patents had expired.  the reason for it was to break the 32-bit memory addressing barrier</span></div><div class="line" id="213158"><span class="nick" style="color:#80b1d3"><a href="#213158" label="[21:31:58]">&lt;muurkha&gt;</a></span><span class="message">ARMv1 was not binary compatible with Berkeley RISC, no, not even close</span></div><div class="line" id="213357"><span class="nick" style="color:#6b8072"><a href="#213357" label="[21:33:57]">&lt;Googulator&gt;</a></span><span class="message">well, now I have absolutely no idea...</span></div><div class="line" id="213359"><span class="nick" style="color:#80b1d3"><a href="#213359" label="[21:33:59]">&lt;muurkha&gt;</a></span><span class="message">it used a lot of RISC ideas but also already had significant non-RISC features like ldm/stm, a small register set and the pc as a GPR, and (arguably) pervasive predication and the barrel shifter</span></div><div class="line" id="213544"><span class="nick" style="color:#80b1d3"><a href="#213544" label="[21:35:44]">&lt;muurkha&gt;</a></span><span class="message">also it has base-offset and pre/postincrement addressing modes that are heretical deviations from RISC dogma</span></div><br /></div></body></html>

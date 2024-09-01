@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-08-05.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="073646"><span class="nick" style="color:#389600"><a href="#073646" label="[07:36:46]">&lt;aggi&gt;</a></span><span class="message">good morning</span></div><div class="line" id="073745"><span class="nick" style="color:#389600"><a href="#073745" label="[07:37:45]">&lt;aggi&gt;</a></span><span class="message">for mentioned reasons i am forced to move the c-only/no-c++ profile to static linking, which i keep tracking with gentoo-portage tooling currently</span></div><div class="line" id="073904"><span class="nick" style="color:#389600"><a href="#073904" label="[07:39:04]">&lt;aggi&gt;</a></span><span class="message">a principle issue with static-linking seems, there is no reliable option to _force_ static linking, with various tooling involved: autoconf/automake/(s)libtool and various other plain Makefiles</span></div><div class="line" id="074001"><span class="nick" style="color:#389600"><a href="#074001" label="[07:40:01]">&lt;aggi&gt;</a></span><span class="message">export (AM_)LDFLAGS=-static and similar do cover several hundred ebuilds emitting static libs/binaries, some ebuilds ignore -static, and ~100 ebuilds break when passing -static flag</span></div><div class="line" id="074054"><span class="nick" style="color:#389600"><a href="#074054" label="[07:40:54]">&lt;aggi&gt;</a></span><span class="message">and some ebuilds are problematic to cope with, such as util-linux</span></div><div class="line" id="074131"><span class="nick" style="color:#389600"><a href="#074131" label="[07:41:31]">&lt;aggi&gt;</a></span><span class="message">anyway, was there any and if, what's the best approach to enforce static linking with autootools/automake/slibtool?</span></div><div class="line" id="074229"><span class="nick" style="color:#389600"><a href="#074229" label="[07:42:29]">&lt;aggi&gt;</a></span><span class="message">there is rather many configure.ac/makefile.am/libtool stuff which are driving me mad</span></div><div class="line" id="074332"><span class="nick" style="color:#389600"><a href="#074332" label="[07:43:32]">&lt;aggi&gt;</a></span><span class="message">although i am willing to repair the entire portage tree overlay (~400ebuilds already), to verify static-linking works</span></div><div class="line" id="111953"><span class="nick" style="color:#8dd3c7"><a href="#111953" label="[11:19:53]">&lt;mid-kid&gt;</a></span><span class="message">So I recently upgraded from a linux-msft-wsl-6.1.y kernel to linux-msft-wsl-6.6.y</span></div><div class="line" id="112019"><span class="nick" style="color:#8dd3c7"><a href="#112019" label="[11:20:19]">&lt;mid-kid&gt;</a></span><span class="message">With the previous kernel the chroot bootstrap broke on some &quot;mv something/*/*/*.thing&quot;</span></div><div class="line" id="112028"><span class="nick" style="color:#8dd3c7"><a href="#112028" label="[11:20:28]">&lt;mid-kid&gt;</a></span><span class="message">I assume because of the asterisks</span></div><div class="line" id="112033"><span class="nick" style="color:#8dd3c7"><a href="#112033" label="[11:20:33]">&lt;mid-kid&gt;</a></span><span class="message">said file not found</span></div><div class="line" id="112041"><span class="nick" style="color:#8dd3c7"><a href="#112041" label="[11:20:41]">&lt;mid-kid&gt;</a></span><span class="message">Now it seems to be proceeding without issue</span></div><div class="line" id="112120"><span class="nick" style="color:#8dd3c7"><a href="#112120" label="[11:21:20]">&lt;mid-kid&gt;</a></span><span class="message">I wonder: This issue has persisted since last winter</span></div><div class="line" id="112142"><span class="nick" style="color:#8dd3c7"><a href="#112142" label="[11:21:42]">&lt;mid-kid&gt;</a></span><span class="message">Has anyone else encountered issues doing the early chroot bootstrap on older kernels, or would this more likely be a WSL bug?</span></div><div class="line" id="113025"><span class="nick" style="color:#2e2a4a"><a href="#113025" label="[11:30:25]">&lt;lanodan&gt;</a></span><span class="message">This works fine on a 6.1.53 musl+linux machine I have around (yeah I should update it): mkdir -p foo/bar/baz/ ; touch foo/bar/baz/hello.thing ; mv foo/*/*/*.thing thingy</span></div><div class="line" id="114506"><span class="nick" style="color:#6b8072"><a href="#114506" label="[11:45:06]">&lt;Googulator&gt;</a></span><span class="message">Known issue: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/379">https://github.com/fosslinux/live-bootstrap/issues/379</a> </span></div><div class="line" id="114526"><span class="nick" style="color:#6b8072"><a href="#114526" label="[11:45:26]">&lt;Googulator&gt;</a></span><span class="message">It's a bug in the early Bash build, and it has to do with the handwritten makefile</span></div><div class="line" id="121755"><span class="nick" style="color:#8dd3c7"><a href="#121755" label="[12:17:55]">&lt;mid-kid&gt;</a></span><span class="message">I see</span></div><div class="line" id="121805"><span class="nick" style="color:#8dd3c7"><a href="#121805" label="[12:18:05]">&lt;mid-kid&gt;</a></span><span class="message">Yeah I was wondering if this issue was visible in mainline linux kernels as well</span></div><div class="line" id="121808"><span class="nick" style="color:#8dd3c7"><a href="#121808" label="[12:18:08]">&lt;mid-kid&gt;</a></span><span class="message">or if it was just wsl</span></div><div class="line" id="121859"><span class="nick" style="color:#8dd3c7"><a href="#121859" label="[12:18:59]">&lt;mid-kid&gt;</a></span><span class="message">lanodan: this issue only happens with some of the tools in live-bootstrap, not in general.</span></div><div class="line" id="121909"><span class="nick" style="color:#8dd3c7"><a href="#121909" label="[12:19:09]">&lt;mid-kid&gt;</a></span><span class="message">wildcards in bash were solved aeons ago lol</span></div><div class="line" id="121944"><span class="nick" style="color:#8dd3c7"><a href="#121944" label="[12:19:44]">&lt;mid-kid&gt;</a></span><span class="message">I might go and debug this soonish</span></div><div class="line" id="122006"><span class="nick" style="color:#8dd3c7"><a href="#122006" label="[12:20:06]">&lt;mid-kid&gt;</a></span><span class="message">though it's less of an issue now you can simply use a newer kernel</span></div><div class="line" id="122804"><span class="nick" style="color:#6b8072"><a href="#122804" label="[12:28:04]">&lt;Googulator&gt;</a></span><span class="message">mid-kid: it's a bit weird - the wrong behavior can be elicited from the buggy Bash on any linux kernel if you run it outside a chroot</span></div><div class="line" id="122825"><span class="nick" style="color:#6b8072"><a href="#122825" label="[12:28:25]">&lt;Googulator&gt;</a></span><span class="message">but somehow inside a chroot, it behaves well - except in WSL, and apparently in a few obscure distros</span></div><div class="line" id="122839"><span class="nick" style="color:#6b8072"><a href="#122839" label="[12:28:39]">&lt;Googulator&gt;</a></span><span class="message">My theory is that it depends on some Kconfig option</span></div><div class="line" id="132442"><span class="nick" style="color:#8dd3c7"><a href="#132442" label="[13:24:42]">&lt;mid-kid&gt;</a></span><span class="message">oh!</span></div><div class="line" id="132452"><span class="nick" style="color:#8dd3c7"><a href="#132452" label="[13:24:52]">&lt;mid-kid&gt;</a></span><span class="message">that's interesting info actually</span></div><div class="line" id="132507"><span class="nick" style="color:#8dd3c7"><a href="#132507" label="[13:25:07]">&lt;mid-kid&gt;</a></span><span class="message">I'd compare the config.h between a makefile build and an autoconf build</span></div><div class="line" id="132529"><span class="nick" style="color:#8dd3c7"><a href="#132529" label="[13:25:29]">&lt;mid-kid&gt;</a></span><span class="message">or idk how the makefile build sets the compiler defines</span></div><div class="line" id="132556"><span class="nick" style="color:#8dd3c7"><a href="#132556" label="[13:25:56]">&lt;mid-kid&gt;</a></span><span class="message">It could also very well be about a difference in /dev layout</span></div><div class="line" id="132735"><span class="nick" style="color:#8dd3c7"><a href="#132735" label="[13:27:35]">&lt;mid-kid&gt;</a></span><span class="message">ah yeah it's the COMMON_CFLAGS</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-04-30.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003053"><span class="nick" style="color:#8dd3c7"><a href="#003053" label="[00:30:53]">&lt;stikonas[m]&gt;</a></span><span class="message">bauen1: I guess best option would be to resolve them</span></div><div class="line" id="003138"><span class="nick" style="color:#8dd3c7"><a href="#003138" label="[00:31:38]">&lt;stikonas[m]&gt;</a></span><span class="message">Avoid using unversioned binaries in some packages, e.g. automake</span></div><div class="line" id="003203"><span class="nick" style="color:#8dd3c7"><a href="#003203" label="[00:32:03]">&lt;stikonas[m]&gt;</a></span><span class="message">Or uninstall previous packages e.g. on GCC upgrade</span></div><div class="line" id="003540"><span class="nick" style="color:#2e2a4a"><a href="#003540" label="[00:35:40]">&lt;bauen1&gt;</a></span><span class="message">yes, that's what was my first idea too, just don't install unversioned automake, since that is probably asking for trouble anyways</span></div><div class="line" id="003831"><span class="nick" style="color:#8dd3c7"><a href="#003831" label="[00:38:31]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, but for package upgrades we need to be able to uninstall stuff</span></div><div class="line" id="003937"><span class="nick" style="color:#8dd3c7"><a href="#003937" label="[00:39:37]">&lt;stikonas[m]&gt;</a></span><span class="message">Probably trivial with xbps but not yet implemented for our binary .tar.bz2 packages</span></div><div class="line" id="004116"><span class="nick" style="color:#8dd3c7"><a href="#004116" label="[00:41:16]">&lt;stikonas[m]&gt;</a></span><span class="message">And there is some pre-package stuff from early kaem scripts but hopefully not too much</span></div><div class="line" id="140502"><span class="nick" style="color:#6b8072"><a href="#140502" label="[14:05:02]">&lt;oriansj&gt;</a></span><span class="message">theruran: if you look at stage3/inital_library.fs (in stage0)</span></div><div class="line" id="140616"><span class="nick" style="color:#6b8072"><a href="#140616" label="[14:06:16]">&lt;oriansj&gt;</a></span><span class="message">you will see all that is required to run the stage0 FORTH and how to extend it immediately in FORTH</span></div><div class="line" id="141026"><span class="nick" style="color:#6b8072"><a href="#141026" label="[14:10:26]">&lt;oriansj&gt;</a></span><span class="message">I understand the appeal of interpreted languages as a user of said languages, however I know the pain of actually debugging them while trying to create them and try to avoid the experience as much as possible these days.</span></div><div class="line" id="150513"><span class="nick" style="color:#2e2a4a"><a href="#150513" label="[15:05:13]">&lt;bauen1&gt;</a></span><span class="message">actually i think `sysa/autoconf-2.53/stage1.sh` is using automake-1.6 when it should be using automake-1.4-p6 which was only masked because tar didn't really handle the hardlinks properly leading it to use automake-1.4-p6 anyway</span></div><div class="line" id="150555"><span class="nick" style="color:#2e2a4a"><a href="#150555" label="[15:05:55]">&lt;bauen1&gt;</a></span><span class="message">or at least it still fails when not doing unlink-first and removing the hardlinks, leading to correct automake-1.4 and automake-1.6 binaries</span></div><div class="line" id="204222"><span class="nick" style="color:#2e2a4a"><a href="#204222" label="[20:42:22]">&lt;bauen1&gt;</a></span><span class="message">same problem with /usr/bin/aclocal</span></div><div class="line" id="205327"><span class="nick">***</span><span class="message notice">genr8eofl__ is now known as genr8eofl</span></div><div class="line" id="210352"><span class="nick">***</span><span class="message notice">genr8eofl_ is now known as genr8eofl</span></div><div class="line" id="213307"><span class="nick" style="color:#80b1d3"><a href="#213307" label="[21:33:07]">&lt;janneke&gt;</a></span><span class="message">hmm m2-planet 1.8.0 identifies as 1.7.0</span></div><div class="line" id="222420"><span class="nick">***</span><span class="message notice">genr8eofl_ is now known as genr8eofl</span></div><div class="line" id="225344"><span class="nick" style="color:#2e2a4a"><a href="#225344" label="[22:53:44]">&lt;bauen1&gt;</a></span><span class="message">i feel like complaining about long compile times is a bit ironic, given how nice it is that live-bootstrap is compiling so much (useful) things already ...</span></div><div class="line" id="230329"><span class="nick" style="color:#6d2462"><a href="#230329" label="[23:03:29]">&lt;theruran&gt;</a></span><span class="message">oriansj: got it, thanks!</span></div><div class="line" id="231755"><span class="nick" style="color:#2e2a4a"><a href="#231755" label="[23:17:55]">&lt;bauen1&gt;</a></span><span class="message">i've changed <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/152">https://github.com/fosslinux/live-bootstrap/pull/152</a>  to instead of using --unlink-first just not install the conflicting /usr/bin/automake, /usr/bin/aclocal ; still testing this with my local setup</span></div><br /></div></body></html>

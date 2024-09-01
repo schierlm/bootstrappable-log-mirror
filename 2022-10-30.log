@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-10-30.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="021417"><span class="nick" style="color:#8dd3c7"><a href="#021417" label="[02:14:17]">&lt;stikonas&gt;</a></span><span class="message">oriansj: can you pull in <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/18">https://github.com/oriansj/M2libc/pull/18</a>  Forgot to do it last time...</span></div><div class="line" id="021511"><span class="nick" style="color:#8dd3c7"><a href="#021511" label="[02:15:11]">&lt;stikonas&gt;</a></span><span class="message">just cleanup up on exit()...</span></div><div class="line" id="022542"><span class="nick">***</span><span class="message notice">lukedashjr is now known as luke-jr</span></div><div class="line" id="053244"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="065813"><span class="nick" style="color:#2e2a4a"><a href="#065813" label="[06:58:13]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged</span></div><div class="line" id="202424"><span class="nick" style="color:#2e2a4a"><a href="#202424" label="[20:24:24]">&lt;oriansj&gt;</a></span><span class="message">fossy: would a git-lfs repo simplify live-bootstrap's tarball download situation?</span></div><div class="line" id="205518"><span class="nick" style="color:#6b8072"><a href="#205518" label="[20:55:18]">&lt;stikonas[m]&gt;</a></span><span class="message">I would say http server might simplify more</span></div><div class="line" id="205546"><span class="nick" style="color:#6b8072"><a href="#205546" label="[20:55:46]">&lt;stikonas[m]&gt;</a></span><span class="message">As it can be accessed directly from sysc</span></div><div class="line" id="205611"><span class="nick" style="color:#6b8072"><a href="#205611" label="[20:56:11]">&lt;stikonas[m]&gt;</a></span><span class="message">(https a bit later in sysc)</span></div><div class="line" id="205724"><span class="nick" style="color:#80b1d3"><a href="#205724" label="[20:57:24]">&lt;muurkha&gt;</a></span><span class="message">another homebrew CPU done in discrete logic and then in CPLDs: <a rel="nofollow" href="https://news.ycombinator.com/reply?id=33395880">https://news.ycombinator.com/reply?id=33395880</a> </span></div><div class="line" id="205745"><span class="nick" style="color:#80b1d3"><a href="#205745" label="[20:57:45]">&lt;muurkha&gt;</a></span><span class="message">4 PCBs of SSI 74HCxxx chips</span></div><div class="line" id="205831"><span class="nick" style="color:#2e2a4a"><a href="#205831" label="[20:58:31]">&lt;oriansj&gt;</a></span><span class="message">well I have a server but I also know that it wouldn't  be ideal for allowing multiple independent hosts of the tarballs in an easy to update fashion like a git repo would be (but perhaps there is something even better for ensuring the files are available)</span></div><div class="line" id="205924"><span class="nick" style="color:#2e2a4a"><a href="#205924" label="[20:59:24]">&lt;oriansj&gt;</a></span><span class="message">(I've been reading: <a rel="nofollow" href="https://martin.kleppmann.com/papers/local-first.pdf">https://martin.kleppmann.com/papers/local-first.pdf</a>  and thinking about ensuring the functionality of live-bootstrap in a network free environment)</span></div><div class="line" id="210315"><span class="nick" style="color:#2e2a4a"><a href="#210315" label="[21:03:15]">&lt;oriansj&gt;</a></span><span class="message">muurkha: would certainly be interesting, but unfortunately I don't see any technical details which could be used to independently replicate the design.</span></div><div class="line" id="210325"><span class="nick" style="color:#80b1d3"><a href="#210325" label="[21:03:25]">&lt;muurkha&gt;</a></span><span class="message">yeah, I'm asking</span></div><div class="line" id="210439"><span class="nick" style="color:#80b1d3"><a href="#210439" label="[21:04:39]">&lt;muurkha&gt;</a></span><span class="message">asked</span></div><div class="line" id="232012"><span class="nick">***</span><span class="message notice">kori1 is now known as kori</span></div><br /></div></body></html>

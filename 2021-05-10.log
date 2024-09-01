@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-05-10.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013215"><span class="nick" style="color:#8dd3c7"><a href="#013215" label="[01:32:15]">&lt;OriansJ&gt;</a></span><span class="message">gforce_d11977: as a father, mothers day clearly is a day of a great deal of work. Extremely little of it is project related but by god is there a lot of work to do.</span></div><div class="line" id="022457"><span class="nick" style="color:#2e2a4a"><a href="#022457" label="[02:24:57]">&lt;melg8&gt;</a></span><span class="message">does files directory handle subdirectories? when creating sysa from &quot;packets&quot;</span></div><div class="line" id="024640"><span class="nick" style="color:#8dd3c7"><a href="#024640" label="[02:46:40]">&lt;OriansJ&gt;</a></span><span class="message">melg8: the syscall sys_mkdir is needed for making directories if I remember correctly</span></div><div class="line" id="025028"><span class="nick" style="color:#2e2a4a"><a href="#025028" label="[02:50:28]">&lt;melg8&gt;</a></span><span class="message">maybe we are talking about different things, inside live-bootstrap - thee is a packets, for example like bison-3.4.1, which contains sometimes subfoler (files) - which is copied inside of folder in sysa. what i'm asking - if i will not just add files into this folders, but another folder with files like (lib + files inside) - would sysa copy hole</span></div><div class="line" id="025029"><span class="nick" style="color:#2e2a4a"><a href="#025029" label="[02:50:29]">&lt;melg8&gt;</a></span><span class="message">thing correctly? or it adapted only to files</span></div><div class="line" id="144330"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="144333"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><div class="line" id="161742"><span class="nick" style="color:#6b8072"><a href="#161742" label="[16:17:42]">&lt;bauen1&gt;</a></span><span class="message">btw i'm seeing <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/112#">https://github.com/fosslinux/live-bootstrap/issues/112#</a>  happen very frequently (above 5% at least) happen in my runs</span></div><div class="line" id="161804"><span class="nick" style="color:#6b8072"><a href="#161804" label="[16:18:04]">&lt;bauen1&gt;</a></span><span class="message">or at least 3 of the last 10 runs i'd guess</span></div><div class="line" id="171939"><span class="nick" style="color:#80b1d3"><a href="#171939" label="[17:19:39]">&lt;stikonas&gt;</a></span><span class="message">bauen1: well, #112 seems like a pregenerated file issue, maybe removing autotools files before ./bootstrap would help</span></div><div class="line" id="202327"><span class="nick" style="color:#2e2a4a"><a href="#202327" label="[20:23:27]">&lt;melg8&gt;</a></span><span class="message">Hi, i'm now will start implementing logic about optional reproducibility flag, suggestions were to add file and inside it add a flag, source it inside of our run2.sh and use inside of system. So, any suggestions how to name this file with configuration variables? (currently suggested bootstrap.cfg). And in general any suggestions about</span></div><div class="line" id="202327"><span class="nick" style="color:#2e2a4a"><a href="#202327" label="[20:23:27]">&lt;melg8&gt;</a></span><span class="message">implementation of that part?</span></div><div class="line" id="202440"><span class="nick" style="color:#2e2a4a"><a href="#202440" label="[20:24:40]">&lt;melg8&gt;</a></span><span class="message">For context - original discussion (<a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/115#discussion_r628554601">https://github.com/fosslinux/live-bootstrap/pull/115#discussion_r628554601</a>) </span></div><div class="line" id="203734"><span class="nick" style="color:#2e2a4a"><a href="#203734" label="[20:37:34]">&lt;melg8&gt;</a></span><span class="message">another question would be - should i add small options like FiX_TIMESTAMPS REMOVE_NON_REPRODUCIBLE_LOGS, FIX_FOLDER_NAMES etc. or just add single ENFORCE_DETERMINISM - which would trigger all actions needed to ensure that final image contains only deterministic results?</span></div><div class="line" id="205639"><span class="nick" style="color:#6b8072"><a href="#205639" label="[20:56:39]">&lt;bauen1&gt;</a></span><span class="message">melg8: i like the more specific flags more</span></div><div class="line" id="205703"><span class="nick" style="color:#6b8072"><a href="#205703" label="[20:57:03]">&lt;bauen1&gt;</a></span><span class="message">simply because things like e.g. REMOVE_NON_REPRODUCIBLE_LOGS can start to be moved into the &quot;package&quot; scripts</span></div><div class="line" id="220042"><span class="nick" style="color:#6b8072"><a href="#220042" label="[22:00:42]">&lt;bauen1&gt;</a></span><span class="message">actually that was confusing</span></div><div class="line" id="220100"><span class="nick" style="color:#6b8072"><a href="#220100" label="[22:01:00]">&lt;bauen1&gt;</a></span><span class="message">i meant having finer grained controls allows one to work on fixing one of them without the noise of everything else</span></div><br /></div></body></html>

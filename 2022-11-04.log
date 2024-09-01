@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-11-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002829"><span class="nick" style="color:#389600"><a href="#002829" label="[00:28:29]">&lt;stikonas&gt;</a></span><span class="message">hmm, even freelist implementation of malloc is not completely trivial in M2-Planet... Need to think of some tricks</span></div><div class="line" id="002927"><span class="nick" style="color:#389600"><a href="#002927" label="[00:29:27]">&lt;stikonas&gt;</a></span><span class="message">implementations seem to put some struct data into global structs before we have malloc but I don't think M2-Planet supports that</span></div><div class="line" id="002948"><span class="nick" style="color:#389600"><a href="#002948" label="[00:29:48]">&lt;stikonas&gt;</a></span><span class="message">or maybe they do, maybe only local structs are not supported..</span></div><div class="line" id="003152"><span class="nick" style="color:#389600"><a href="#003152" label="[00:31:52]">&lt;stikonas&gt;</a></span><span class="message">hmm, no... M2-Planet just allocates NULL on (so register sized are for it) which is not enough for struct...</span></div><div class="line" id="003214"><span class="nick" style="color:#389600"><a href="#003214" label="[00:32:14]">&lt;stikonas&gt;</a></span><span class="message">maybe we need to fix that first</span></div><div class="line" id="004251"><span class="nick" style="color:#8dd3c7"><a href="#004251" label="[00:42:51]">&lt;muurkha&gt;</a></span><span class="message">it implements zeroing global structs, no?</span></div><div class="line" id="004325"><span class="nick" style="color:#8dd3c7"><a href="#004325" label="[00:43:25]">&lt;muurkha&gt;</a></span><span class="message">you can check to see if the global structs are zeroed when you are going to use them</span></div><div class="line" id="004336"><span class="nick" style="color:#8dd3c7"><a href="#004336" label="[00:43:36]">&lt;muurkha&gt;</a></span><span class="message">or design the freelist so that, for example, a null pointer means an empty freelist</span></div><div class="line" id="004428"><span class="nick" style="color:#8dd3c7"><a href="#004428" label="[00:44:28]">&lt;muurkha&gt;</a></span><span class="message">or call an initialization function at the top of main(), similar to how many crt0 entry points do initialization before calling main()</span></div><div class="line" id="004513"><span class="nick" style="color:#389600"><a href="#004513" label="[00:45:13]">&lt;stikonas&gt;</a></span><span class="message">muurkha: well, it just stores some data in global struct (linked list)</span></div><div class="line" id="004513"><span class="nick" style="color:#8dd3c7"><a href="#004513" label="[00:45:13]">&lt;muurkha&gt;</a></span><span class="message">on AVR8 for example crt0 needs to copy all the initialized global variables from Flash (where the binary is written) to RAM (which is zeroed on startup IIRC)</span></div><div class="line" id="004549"><span class="nick" style="color:#389600"><a href="#004549" label="[00:45:49]">&lt;stikonas&gt;</a></span><span class="message">and I've already tried to use initialization function on top of main()</span></div><div class="line" id="004559"><span class="nick" style="color:#389600"><a href="#004559" label="[00:45:59]">&lt;stikonas&gt;</a></span><span class="message">but we simply can't put any structs as global variables</span></div><div class="line" id="004614"><span class="nick" style="color:#389600"><a href="#004614" label="[00:46:14]">&lt;stikonas&gt;</a></span><span class="message">only pointers to structs work in M2</span></div><div class="line" id="004626"><span class="nick" style="color:#389600"><a href="#004626" label="[00:46:26]">&lt;stikonas&gt;</a></span><span class="message">and structs themselves right now are all in calloc'ed memory</span></div><div class="line" id="004640"><span class="nick" style="color:#8dd3c7"><a href="#004640" label="[00:46:40]">&lt;muurkha&gt;</a></span><span class="message">oh, well, a global pointer to a struct sounds workable</span></div><div class="line" id="004728"><span class="nick" style="color:#389600"><a href="#004728" label="[00:47:28]">&lt;stikonas&gt;</a></span><span class="message">I think I'll first fix M2-Planet to allocate correct amount of space in global variable list</span></div><div class="line" id="004756"><span class="nick" style="color:#389600"><a href="#004756" label="[00:47:56]">&lt;stikonas&gt;</a></span><span class="message">ritght now it emits one NULL macro (which is 64 or 32-bits of zeroes)</span></div><div class="line" id="004846"><span class="nick" style="color:#389600"><a href="#004846" label="[00:48:46]">&lt;stikonas&gt;</a></span><span class="message">I think if we emit sizeof(struct) number of zeroes, global structs might just work</span></div><div class="line" id="004906"><span class="nick" style="color:#8dd3c7"><a href="#004906" label="[00:49:06]">&lt;muurkha&gt;</a></span><span class="message">that sounds worthwhile</span></div><div class="line" id="005104"><span class="nick" style="color:#389600"><a href="#005104" label="[00:51:04]">&lt;stikonas&gt;</a></span><span class="message">yes, it might be a fairly cheap change</span></div><div class="line" id="011938"><span class="nick" style="color:#389600"><a href="#011938" label="[01:19:38]">&lt;stikonas&gt;</a></span><span class="message">hmm, got it partially to work though it overallocates amount of space for indirect global structs, i.e. struct a** b; might allocate too much space rather than just 1 register.</span></div><div class="line" id="011949"><span class="nick" style="color:#389600"><a href="#011949" label="[01:19:49]">&lt;stikonas&gt;</a></span><span class="message">oriansj: what do you think?</span></div><div class="line" id="012047"><span class="nick" style="color:#389600"><a href="#012047" label="[01:20:47]">&lt;stikonas&gt;</a></span><span class="message"> (<a rel="nofollow" href="https://paste.debian.net/1259467/">https://paste.debian.net/1259467/</a>  for the diff itself)</span></div><div class="line" id="012127"><span class="nick" style="color:#389600"><a href="#012127" label="[01:21:27]">&lt;stikonas&gt;</a></span><span class="message">(i = 1 should go away but that doesn't affect anything)</span></div><div class="line" id="012251"><span class="nick" style="color:#389600"><a href="#012251" label="[01:22:51]">&lt;stikonas&gt;</a></span><span class="message">(and comment might need further tweaking)</span></div><div class="line" id="014717"><span class="nick" style="color:#389600"><a href="#014717" label="[01:47:17]">&lt;stikonas&gt;</a></span><span class="message">hmm, I also need to implement . operator for global structs...</span></div><div class="line" id="014727"><span class="nick" style="color:#389600"><a href="#014727" label="[01:47:27]">&lt;stikonas&gt;</a></span><span class="message">just having enough zeroed space is not sufficient</span></div><div class="line" id="015102"><span class="nick" style="color:#8dd3c7"><a href="#015102" label="[01:51:02]">&lt;muurkha&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://www.youtube.com/watch?v=EF3-U9Lb12k">https://www.youtube.com/watch?v=EF3-U9Lb12k</a>  is a 12-MHz 8-bit microcontroller with 4K of RAM and 32K of program</span></div><div class="line" id="053147"><span class="nick" style="color:#2e2a4a"><a href="#053147" label="[05:31:47]">&lt;oriansj&gt;</a></span><span class="message">stikonas: the logic could just be i = (type_size-&gt;size / register_size) + 1; (as a little extra padding space will be fine)</span></div><div class="line" id="053319"><span class="nick" style="color:#2e2a4a"><a href="#053319" label="[05:33:19]">&lt;oriansj&gt;</a></span><span class="message">but yeah that will work and adding . operator support in general can just be cribbed off -&gt; operator minus a single indirection.</span></div><div class="line" id="053352"><span class="nick" style="color:#2e2a4a"><a href="#053352" label="[05:33:52]">&lt;oriansj&gt;</a></span><span class="message">(just can only use . operator outside of the core program as cc_* doesn't support it)</span></div><div class="line" id="053553"><span class="nick" style="color:#2e2a4a"><a href="#053553" label="[05:35:53]">&lt;oriansj&gt;</a></span><span class="message">(no need to special case pointers at all)</span></div><div class="line" id="053747"><span class="nick" style="color:#2e2a4a"><a href="#053747" label="[05:37:47]">&lt;oriansj&gt;</a></span><span class="message">just be sure to add a require which will bomb out if in BOOTSTRAP_MODE and using . (that way test1000 will properly warn about cc_* bootstrapping problems)</span></div><div class="line" id="132823"><span class="nick" style="color:#6b8072"><a href="#132823" label="[13:28:23]">&lt;drakonis&gt;</a></span><span class="message"> <a rel="nofollow" href="https://ziglang.org/download/0.10.0/release-notes.html">https://ziglang.org/download/0.10.0/release-notes.html</a>  this is neat, it has a self-hosted compiler now</span></div><div class="line" id="132833"><span class="nick" style="color:#6b8072"><a href="#132833" label="[13:28:33]">&lt;drakonis&gt;</a></span><span class="message">and the bootstrap path is simple</span></div><div class="line" id="135619"><span class="nick" style="color:#80b1d3"><a href="#135619" label="[13:56:19]">&lt;clemens3&gt;</a></span><span class="message">that's quite laudable and unusual attitude.. go-lang is similar with their 1.4 support, rustc has the worst attitude</span></div><div class="line" id="135900"><span class="nick" style="color:#6b8072"><a href="#135900" label="[13:59:00]">&lt;drakonis&gt;</a></span><span class="message">it also doubles as a linker and c/c++ compiler</span></div><div class="line" id="140102"><span class="nick" style="color:#6b8072"><a href="#140102" label="[14:01:02]">&lt;drakonis&gt;</a></span><span class="message">its interesting.</span></div><div class="line" id="160621"><span class="nick" style="color:#2e2a4a"><a href="#160621" label="[16:06:21]">&lt;oriansj&gt;</a></span><span class="message">drakonis: as long as guix maintains a proper bootstrap chain for zig we should be good</span></div><div class="line" id="160726"><span class="nick" style="color:#6b8072"><a href="#160726" label="[16:07:26]">&lt;drakonis&gt;</a></span><span class="message">aye.</span></div><div class="line" id="162454"><span class="nick" style="color:#6b8072"><a href="#162454" label="[16:24:54]">&lt;drakonis&gt;</a></span><span class="message">as long as llvm builds, the chain for building the self hosted compiler should remain achievable</span></div><div class="line" id="162612"><span class="nick" style="color:#6b8072"><a href="#162612" label="[16:26:12]">&lt;drakonis&gt;</a></span><span class="message">at least until the pure C bootstrap that has no llvm dependencies comes around</span></div><div class="line" id="180827"><span class="nick" style="color:#2e2a4a"><a href="#180827" label="[18:08:27]">&lt;oriansj&gt;</a></span><span class="message">well llvm is just an available standardized IR langugage; which if you think about it if just got a few more meta-programming constructs would have enabled a high level interoperability between all languages that leverages that shared IR backend</span></div><div class="line" id="180846"><span class="nick" style="color:#2e2a4a"><a href="#180846" label="[18:08:46]">&lt;oriansj&gt;</a></span><span class="message">would have been the default</span></div><div class="line" id="181007"><span class="nick" style="color:#2e2a4a"><a href="#181007" label="[18:10:07]">&lt;oriansj&gt;</a></span><span class="message">much like how you can blend (via the C api) all languages that have a C api (and all JVM languages can blend together if you are careful)</span></div><div class="line" id="190505"><span class="nick" style="color:#6b8072"><a href="#190505" label="[19:05:05]">&lt;drakonis&gt;</a></span><span class="message">hmm, i see.</span></div><div class="line" id="190519"><span class="nick" style="color:#6b8072"><a href="#190519" label="[19:05:19]">&lt;drakonis&gt;</a></span><span class="message">by the way, guix seems to be missing llvm 15, which is required to build zig 0.10.0</span></div><div class="line" id="190817"><span class="nick" style="color:#6d2462"><a href="#190817" label="[19:08:17]">&lt;lagash&gt;</a></span><span class="message">Wait, really? That's unfortunate! It's am even bigger chore now..</span></div><div class="line" id="191024"><span class="nick" style="color:#6b8072"><a href="#191024" label="[19:10:24]">&lt;drakonis&gt;</a></span><span class="message">it is currently at 14 though</span></div><div class="line" id="191056"><span class="nick" style="color:#6b8072"><a href="#191056" label="[19:10:56]">&lt;drakonis&gt;</a></span><span class="message">its required to build the llvm backend though</span></div><div class="line" id="191114"><span class="nick" style="color:#6b8072"><a href="#191114" label="[19:11:14]">&lt;drakonis&gt;</a></span><span class="message">there's a C backend</span></div><div class="line" id="191130"><span class="nick" style="color:#6b8072"><a href="#191130" label="[19:11:30]">&lt;drakonis&gt;</a></span><span class="message">but that's set for 0.11.0 right now</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-08-31.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004723"><span class="nick" style="color:#8dd3c7"><a href="#004723" label="[00:47:23]">&lt;oriansj&gt;</a></span><span class="message">bootOS is certainly a very impressive program that could be of considerable bootstrapping potential. I've been thinking about the filesystem problem in bootstrapping and unfortunately a piece of paper is looking like the best option until one is able to provide a minimal kernel.</span></div><div class="line" id="004852"><span class="nick" style="color:#8dd3c7"><a href="#004852" label="[00:48:52]">&lt;oriansj&gt;</a></span><span class="message">I've got an idea for a minimal filesystem for bootstrapping that might be either a really good idea or really bad idea and I need input on it.</span></div><div class="line" id="005122"><span class="nick" style="color:#2e2a4a"><a href="#005122" label="[00:51:22]">&lt;vagrantc&gt;</a></span><span class="message">but definitely not a mediocre idea? :)</span></div><div class="line" id="011136"><span class="nick" style="color:#8dd3c7"><a href="#011136" label="[01:11:36]">&lt;oriansj&gt;</a></span><span class="message">vagrantc: well it is pushing the bounds of simple minimal filesystem. So either I am pushing in the wrong direction and wasting time or I'm not.</span></div><div class="line" id="015833"><span class="nick" style="color:#8dd3c7"><a href="#015833" label="[01:58:33]">&lt;oriansj&gt;</a></span><span class="message">here is a cleaned up version of the current idea <a rel="nofollow" href="https://paste.debian.net/1209715/">https://paste.debian.net/1209715/</a> </span></div><div class="line" id="020202"><span class="nick" style="color:#8dd3c7"><a href="#020202" label="[02:02:02]">&lt;oriansj&gt;</a></span><span class="message">So it currently lacks things like file permissions, execute bits, etc but it is designed for becoming a merkle tree later if one wants to detect bit corruption.</span></div><div class="line" id="020617"><span class="nick" style="color:#8dd3c7"><a href="#020617" label="[02:06:17]">&lt;oriansj&gt;</a></span><span class="message">I was thinking of adding a detail like all allocations should go from higest available block address down towards 2 (as 0 is MBR and 1 is the block containing the block address of the superblock.</span></div><div class="line" id="022524"><span class="nick" style="color:#8dd3c7"><a href="#022524" label="[02:25:24]">&lt;oriansj&gt;</a></span><span class="message">also i need to figure out a name for my proposed filesystem. Chess related names preferred.</span></div><div class="line" id="022856"><span class="nick" style="color:#6b8072"><a href="#022856" label="[02:28:56]">&lt;Hagfish&gt;</a></span><span class="message">hmm, a pun that combines terminology from chess and filesystems</span></div><div class="line" id="022900"><span class="nick" style="color:#6b8072"><a href="#022900" label="[02:29:00]">&lt;Hagfish&gt;</a></span><span class="message">that's an interesting challenge...</span></div><div class="line" id="022904"><span class="nick" style="color:#6b8072"><a href="#022904" label="[02:29:04]">&lt;Hagfish&gt;</a></span><span class="message">i'll think about it :)</span></div><div class="line" id="022923"><span class="nick" style="color:#6b8072"><a href="#022923" label="[02:29:23]">&lt;Hagfish&gt;</a></span><span class="message">well, there's &quot;filesystem check&quot;, of course</span></div><div class="line" id="023423"><span class="nick" style="color:#6b8072"><a href="#023423" label="[02:34:23]">&lt;Hagfish&gt;</a></span><span class="message">oh, and of course a &quot;file&quot; is a column on the chessboard</span></div><div class="line" id="023510"><span class="nick" style="color:#6b8072"><a href="#023510" label="[02:35:10]">&lt;Hagfish&gt;</a></span><span class="message">you could call it &quot;openfile&quot; as in &quot;a chess column with no pieces on&quot; and also &quot;a libre filesystem&quot;</span></div><div class="line" id="023553"><span class="nick" style="color:#8dd3c7"><a href="#023553" label="[02:35:53]">&lt;oriansj&gt;</a></span><span class="message">ooh interesting</span></div><div class="line" id="024039"><span class="nick" style="color:#2e2a4a"><a href="#024039" label="[02:40:39]">&lt;vagrantc&gt;</a></span><span class="message">seems a little dangerously close to &quot;who's on first&quot; style confusions</span></div><div class="line" id="024756"><span class="nick" style="color:#8dd3c7"><a href="#024756" label="[02:47:56]">&lt;oriansj&gt;</a></span><span class="message">and completely impossible to find in a web search engine</span></div><div class="line" id="024856"><span class="nick" style="color:#2e2a4a"><a href="#024856" label="[02:48:56]">&lt;vagrantc&gt;</a></span><span class="message">and that maybe almost more important</span></div><div class="line" id="024858"><span class="nick" style="color:#8dd3c7"><a href="#024858" label="[02:48:58]">&lt;oriansj&gt;</a></span><span class="message">a minor historical note, the Knight architecture's first filesystem was named Pawn</span></div><div class="line" id="032805"><span class="nick" style="color:#6b8072"><a href="#032805" label="[03:28:05]">&lt;Hagfish&gt;</a></span><span class="message">then perhaps promote it to a Queen filesystem?</span></div><div class="line" id="033014"><span class="nick" style="color:#6b8072"><a href="#033014" label="[03:30:14]">&lt;Hagfish&gt;</a></span><span class="message">or just &quot;B-file&quot; where the B stands for bootstrap?</span></div><div class="line" id="034811"><span class="nick" style="color:#8dd3c7"><a href="#034811" label="[03:48:11]">&lt;oriansj&gt;</a></span><span class="message">B1 or B8? for the pawn promotion to queen?</span></div><div class="line" id="035450"><span class="nick" style="color:#80b1d3"><a href="#035450" label="[03:54:50]">&lt;xentrac&gt;</a></span><span class="message">oriansj: ha!</span></div><div class="line" id="035628"><span class="nick" style="color:#80b1d3"><a href="#035628" label="[03:56:28]">&lt;xentrac&gt;</a></span><span class="message">oriansj: on modern computers you could probably get by with a filesystem in RAM until pretty far into the bootstrap</span></div><div class="line" id="035825"><span class="nick" style="color:#80b1d3"><a href="#035825" label="[03:58:25]">&lt;xentrac&gt;</a></span><span class="message">your previous list of stage0-posix requirements up to M2-Planet+mescc-tools is open, close, read, write, execve, lseek, and chmod, plus non-filesystem stuff</span></div><div class="line" id="035906"><span class="nick" style="color:#8dd3c7"><a href="#035906" label="[03:59:06]">&lt;oriansj&gt;</a></span><span class="message">xentrac: true but 16bit mode has some serious memory limitations and I'd like to be able to bootstrap that POSIX kernel ontop of a real filesystem if possible.</span></div><div class="line" id="040023"><span class="nick" style="color:#80b1d3"><a href="#040023" label="[04:00:23]">&lt;xentrac&gt;</a></span><span class="message">you can support those system calls fully without checksums, or indirect blocks</span></div><div class="line" id="040041"><span class="nick" style="color:#80b1d3"><a href="#040041" label="[04:00:41]">&lt;xentrac&gt;</a></span><span class="message">16-bit mode?  is this for CP/M?</span></div><div class="line" id="040145"><span class="nick" style="color:#80b1d3"><a href="#040145" label="[04:01:45]">&lt;xentrac&gt;</a></span><span class="message">if you only have 64KiB you'd probably have to put the firesystem on disk.  data blocks at least</span></div><div class="line" id="040223"><span class="nick" style="color:#80b1d3"><a href="#040223" label="[04:02:23]">&lt;xentrac&gt;</a></span><span class="message">if you could get rid of lseek you could probably simplify things even more</span></div><div class="line" id="040228"><span class="nick" style="color:#8dd3c7"><a href="#040228" label="[04:02:28]">&lt;oriansj&gt;</a></span><span class="message">xentrac: true, just thinking through the filesystem.</span></div><div class="line" id="040256"><span class="nick" style="color:#8dd3c7"><a href="#040256" label="[04:02:56]">&lt;oriansj&gt;</a></span><span class="message">but yes it will be for something like a POSIXy CPM from a BootOS seed</span></div><div class="line" id="040316"><span class="nick" style="color:#8dd3c7"><a href="#040316" label="[04:03:16]">&lt;oriansj&gt;</a></span><span class="message">hence the need to be able to handwrite the filesystem.</span></div><div class="line" id="040547"><span class="nick" style="color:#80b1d3"><a href="#040547" label="[04:05:47]">&lt;xentrac&gt;</a></span><span class="message">what's the biggest file you need for M2-Planet+mescc-tools?</span></div><div class="line" id="040709"><span class="nick" style="color:#80b1d3"><a href="#040709" label="[04:07:09]">&lt;xentrac&gt;</a></span><span class="message">I wonder if you could just allocate a fixed-size buffer for each file, say 64KiB-512KiB, so you didn't ever have to allocate new blocks to a file, or indirect through a block table, or have logic for a read or write that crosses block boundaries</span></div><div class="line" id="040717"><span class="nick" style="color:#8dd3c7"><a href="#040717" label="[04:07:17]">&lt;oriansj&gt;</a></span><span class="message">that would be the tarballs as after we have TCC or a Linux install image at the end.</span></div><div class="line" id="040737"><span class="nick" style="color:#80b1d3"><a href="#040737" label="[04:07:37]">&lt;xentrac&gt;</a></span><span class="message">how big are they?</span></div><div class="line" id="040847"><span class="nick" style="color:#8dd3c7"><a href="#040847" label="[04:08:47]">&lt;oriansj&gt;</a></span><span class="message">well the biggest tar archive is: 82,935,453bytes sources/gcc-4.7.4.tar.bz2 which grows a good bit when unpacked.</span></div><div class="line" id="040906"><span class="nick" style="color:#80b1d3"><a href="#040906" label="[04:09:06]">&lt;xentrac&gt;</a></span><span class="message">that's probably too big to make it practical to allocate the same amount of space for every file</span></div><div class="line" id="040929"><span class="nick" style="color:#80b1d3"><a href="#040929" label="[04:09:29]">&lt;xentrac&gt;</a></span><span class="message">I remember once when I was a kid I printed out a big 10x20 grid and mapped out the sector assignments of every file on a disk</span></div><div class="line" id="040935"><span class="nick" style="color:#80b1d3"><a href="#040935" label="[04:09:35]">&lt;xentrac&gt;</a></span><span class="message">it had 200 sectors, see, in 20 tracks</span></div><div class="line" id="040959"><span class="nick" style="color:#80b1d3"><a href="#040959" label="[04:09:59]">&lt;xentrac&gt;</a></span><span class="message">so I wrote each grid square which file was using that sector, or if it was empty</span></div><div class="line" id="041012"><span class="nick" style="color:#8dd3c7"><a href="#041012" label="[04:10:12]">&lt;oriansj&gt;</a></span><span class="message">hence filesystem after we get past what we can track in a page of text</span></div><div class="line" id="041021"><span class="nick" style="color:#80b1d3"><a href="#041021" label="[04:10:21]">&lt;xentrac&gt;</a></span><span class="message">the funny thing is that I wasn't even using Forth, HDOS tracked that stuff for me</span></div><div class="line" id="041126"><span class="nick" style="color:#80b1d3"><a href="#041126" label="[04:11:26]">&lt;xentrac&gt;</a></span><span class="message">so this was just a form of entertainment, not a tool for productivity</span></div><div class="line" id="041233"><span class="nick" style="color:#8dd3c7"><a href="#041233" label="[04:12:33]">&lt;oriansj&gt;</a></span><span class="message">xentrac: well it is just my fun hobby that just happens to deal with the trust trust attack.</span></div><div class="line" id="041256"><span class="nick" style="color:#80b1d3"><a href="#041256" label="[04:12:56]">&lt;xentrac&gt;</a></span><span class="message">I was watching Marcin Jakubowicz's recorded conference call with the WAAM grinder planing guy today and at one point Marcin got kind of impatient</span></div><div class="line" id="041358"><span class="nick" style="color:#80b1d3"><a href="#041358" label="[04:13:58]">&lt;xentrac&gt;</a></span><span class="message">he said, you have to think about what knd of design you're going for: industrial productivity or hobby productivity?  because opensourceecology is going for industrial productivity, not hobbyist productivity, because the objective is industrial productivity in a small space, not entertainment</span></div><div class="line" id="041514"><span class="nick" style="color:#80b1d3"><a href="#041514" label="[04:15:14]">&lt;xentrac&gt;</a></span><span class="message">I thought that was pretty interesting and goes to the core of a lot of stuff.  funny thing though, somehow our little hobby became the basis of the world economy</span></div><div class="line" id="041606"><span class="nick" style="color:#80b1d3"><a href="#041606" label="[04:16:06]">&lt;xentrac&gt;</a></span><span class="message">turns out people fiddling around with stuff they're entertained by is kind of the non-automatable core of industrial productivity</span></div><div class="line" id="041612"><span class="nick" style="color:#8dd3c7"><a href="#041612" label="[04:16:12]">&lt;oriansj&gt;</a></span><span class="message">well, one has to realize my hobby work has been extended by people and become something much more than my hobby could have ever achieved by me alone.</span></div><div class="line" id="041622"><span class="nick" style="color:#80b1d3"><a href="#041622" label="[04:16:22]">&lt;xentrac&gt;</a></span><span class="message">yeah, that's how science works</span></div><div class="line" id="041714"><span class="nick" style="color:#80b1d3"><a href="#041714" label="[04:17:14]">&lt;xentrac&gt;</a></span><span class="message">ideas multiply in just the way Queen Christina's clocks don't</span></div><div class="line" id="041906"><span class="nick" style="color:#80b1d3"><a href="#041906" label="[04:19:06]">&lt;xentrac&gt;</a></span><span class="message">machines still don't, though.  I recently found a YouTube channel of short 10' documentaries on various factories around Sialkot</span></div><div class="line" id="041959"><span class="nick" style="color:#80b1d3"><a href="#041959" label="[04:19:59]">&lt;xentrac&gt;</a></span><span class="message">the productivity difference between the artisans in those factories and hobbyist machinist YouTube is just astounding</span></div><div class="line" id="042026"><span class="nick" style="color:#80b1d3"><a href="#042026" label="[04:20:26]">&lt;xentrac&gt;</a></span><span class="message">(though to be fair sometimes the footage is sped up a bit)</span></div><div class="line" id="042058"><span class="nick" style="color:#8dd3c7"><a href="#042058" label="[04:20:58]">&lt;oriansj&gt;</a></span><span class="message">well physical reality tends to be much harder to control than bits in an abstraction.</span></div><div class="line" id="042216"><span class="nick" style="color:#80b1d3"><a href="#042216" label="[04:22:16]">&lt;xentrac&gt;</a></span><span class="message">it's not that it's harder, it's that it's different in nature</span></div><div class="line" id="042329"><span class="nick" style="color:#80b1d3"><a href="#042329" label="[04:23:29]">&lt;xentrac&gt;</a></span><span class="message">I mean VLC on my phone stopped working.  why?  no clue</span></div><div class="line" id="042424"><span class="nick" style="color:#8dd3c7"><a href="#042424" label="[04:24:24]">&lt;oriansj&gt;</a></span><span class="message">well what changed? (did you guix apply to the phone?)</span></div><div class="line" id="042435"><span class="nick" style="color:#80b1d3"><a href="#042435" label="[04:24:35]">&lt;xentrac&gt;</a></span><span class="message">I wish!  it's running stock Android</span></div><div class="line" id="042444"><span class="nick" style="color:#80b1d3"><a href="#042444" label="[04:24:44]">&lt;xentrac&gt;</a></span><span class="message">no way to tell what changed</span></div><div class="line" id="042528"><span class="nick" style="color:#8dd3c7"><a href="#042528" label="[04:25:28]">&lt;oriansj&gt;</a></span><span class="message">I'm playing with pinephone until something better comes along with an FSF certification.</span></div><div class="line" id="042545"><span class="nick" style="color:#80b1d3"><a href="#042545" label="[04:25:45]">&lt;xentrac&gt;</a></span><span class="message">pinephone looks great</span></div><div class="line" id="042641"><span class="nick" style="color:#8dd3c7"><a href="#042641" label="[04:26:41]">&lt;oriansj&gt;</a></span><span class="message">it has some bugs that need work but if one has minimal expectations, it is ok. the Mute button not working during calls however is a bit of a problem.</span></div><div class="line" id="042726"><span class="nick" style="color:#80b1d3"><a href="#042726" label="[04:27:26]">&lt;xentrac&gt;</a></span><span class="message">I can imagine</span></div><div class="line" id="043550"><span class="nick" style="color:#8dd3c7"><a href="#043550" label="[04:35:50]">&lt;oriansj&gt;</a></span><span class="message">but progress is much better than demanding a perfect solution.</span></div><div class="line" id="043727"><span class="nick" style="color:#80b1d3"><a href="#043727" label="[04:37:27]">&lt;xentrac&gt;</a></span><span class="message">why not both?</span></div><div class="line" id="043803"><span class="nick" style="color:#80b1d3"><a href="#043803" label="[04:38:03]">&lt;xentrac&gt;</a></span><span class="message">maybe &quot;striving for&quot; rather than &quot;demanding&quot; tho</span></div><div class="line" id="043917"><span class="nick" style="color:#8dd3c7"><a href="#043917" label="[04:39:17]">&lt;oriansj&gt;</a></span><span class="message">striving for is certainly much more fun than demanding.</span></div><div class="line" id="090447"><span class="nick" style="color:#6d2462"><a href="#090447" label="[09:04:47]">&lt;stikonas[m]&gt;</a></span><span class="message">GCC 4.7.4 does not have to be shipped that early before we have fs</span></div><div class="line" id="133558"><span class="nick" style="color:#8dd3c7"><a href="#133558" label="[13:35:58]">&lt;oriansj&gt;</a></span><span class="message">stikonas: perhaps but I was thinking in terms of what is needed for us to bootstrap a more proper kernel to complete the bootstrap. Now if  TCC is up for the job good but if not what small additions are needed to enable we don't end up needing to do a great deal of work.</span></div><br /></div></body></html>

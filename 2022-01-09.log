@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-01-09.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="030616"><span class="nick" style="color:#8dd3c7"><a href="#030616" label="[03:06:16]">&lt;Hagfish&gt;</a></span><span class="message">reproducible installer images is a fantastic goal, it's great to hear that's being worked on</span></div><div class="line" id="030811"><span class="nick" style="color:#8dd3c7"><a href="#030811" label="[03:08:11]">&lt;Hagfish&gt;</a></span><span class="message">i hope that the OS images used by the official debian buildds (and the reproducibility-checking jenkins instances) can one day have their reproducibility confirmed</span></div><div class="line" id="030914"><span class="nick" style="color:#2e2a4a"><a href="#030914" label="[03:09:14]">&lt;pabs3&gt;</a></span><span class="message">Hagfish: <a rel="nofollow" href="https://wiki.debian.org/ReproducibleInstalls">https://wiki.debian.org/ReproducibleInstalls</a>  <a rel="nofollow" href="https://wiki.debian.org/ReproducibleInstalls/LiveImages">https://wiki.debian.org/ReproducibleInstalls/LiveImages</a> </span></div><div class="line" id="031041"><span class="nick" style="color:#2e2a4a"><a href="#031041" label="[03:10:41]">&lt;pabs3&gt;</a></span><span class="message">Debian buildds don't use images though, just installs with debootstrap</span></div><div class="line" id="031050"><span class="nick" style="color:#2e2a4a"><a href="#031050" label="[03:10:50]">&lt;pabs3&gt;</a></span><span class="message">I guess similar for the jenkins instances</span></div><div class="line" id="031635"><span class="nick" style="color:#6b8072"><a href="#031635" label="[03:16:35]">&lt;vagrantc&gt;</a></span><span class="message">at some point we might have switched the reproducible builds infrastructure over to mmdebstrap, which can in some circumstances produce bit-for-bit identical tarballs</span></div><div class="line" id="032142"><span class="nick" style="color:#2e2a4a"><a href="#032142" label="[03:21:42]">&lt;pabs3&gt;</a></span><span class="message">(related to the second link; unfortunately it seems like Debian will stop having official live images at all soon, unless someone wants to do the work to fix them)</span></div><div class="line" id="052612"><span class="nick" style="color:#8dd3c7"><a href="#052612" label="[05:26:12]">&lt;Hagfish&gt;</a></span><span class="message">thanks for the details</span></div><div class="line" id="140258"><span class="nick" style="color:#80b1d3"><a href="#140258" label="[14:02:58]">&lt;bauen1&gt;</a></span><span class="message">Hagfish: pabs3: i'm talking about the ISO produced by debian-cd, there's a few small issues (gzip embedding names/timestamps, random serial number in mkfs.fat) and a few timestamps included, but some tools e.g. the debian-installer package don't use it (or don't use all of it)</span></div><div class="line" id="141248"><span class="nick" style="color:#2e2a4a"><a href="#141248" label="[14:12:48]">&lt;pabs3&gt;</a></span><span class="message">those fixes sound like they would get accepted</span></div><div class="line" id="141330"><span class="nick" style="color:#2e2a4a"><a href="#141330" label="[14:13:30]">&lt;pabs3&gt;</a></span><span class="message">I'm curious about the serial number, is that a similar to a UUID or? is deriving it from the SOURCE_DATE_EPOCH the way to go?</span></div><div class="line" id="141415"><span class="nick" style="color:#80b1d3"><a href="#141415" label="[14:14:15]">&lt;bauen1&gt;</a></span><span class="message">pabs3: see man mkfs.fat =&gt; --invariant</span></div><div class="line" id="141444"><span class="nick" style="color:#80b1d3"><a href="#141444" label="[14:14:44]">&lt;bauen1&gt;</a></span><span class="message">pabs3: well, i'm using simple-cdd as a wrapper around debian-cd, so i'm not 100% sure which of the issues i'm seeing are triggered because of that \o/</span></div><div class="line" id="141544"><span class="nick" style="color:#2e2a4a"><a href="#141544" label="[14:15:44]">&lt;pabs3&gt;</a></span><span class="message">ah. hmm, the creation time doesn't have an option to set it</span></div><div class="line" id="141606"><span class="nick" style="color:#6d2462"><a href="#141606" label="[14:16:06]">*</a></span><span class="message">pabs3 wonders which timestamp gets fed to SDE</span></div><div class="line" id="141842"><span class="nick" style="color:#80b1d3"><a href="#141842" label="[14:18:42]">&lt;bauen1&gt;</a></span><span class="message">pabs3: and then i still had to insert a few &quot;clamp_mtimes&quot; calls inside the wrapper of simple-cdd ; because some isolinux files get a new timestamp that is not based on SOURCE_DATE_EPOCH ; but i'm not sure where that is comming from</span></div><div class="line" id="141907"><span class="nick" style="color:#80b1d3"><a href="#141907" label="[14:19:07]">&lt;bauen1&gt;</a></span><span class="message">i'll make a MR with my changes and see where that goes</span></div><div class="line" id="143638"><span class="nick" style="color:#2e2a4a"><a href="#143638" label="[14:36:38]">&lt;pabs3&gt;</a></span><span class="message">cool</span></div><div class="line" id="145324"><span class="nick" style="color:#80b1d3"><a href="#145324" label="[14:53:24]">&lt;bauen1&gt;</a></span><span class="message">pabs3: <a rel="nofollow" href="https://salsa.debian.org/images-team/debian-cd/-/merge_requests/22">https://salsa.debian.org/images-team/debian-cd/-/merge_requests/22</a>  if you want to take a look</span></div><div class="line" id="145352"><span class="nick" style="color:#2e2a4a"><a href="#145352" label="[14:53:52]">&lt;pabs3&gt;</a></span><span class="message">thanks</span></div><div class="line" id="145354"><span class="nick" style="color:#80b1d3"><a href="#145354" label="[14:53:54]">&lt;bauen1&gt;</a></span><span class="message">but that's only the easiest problems to fix, there will still be modified timestamps in the final image, just no more modified files</span></div><div class="line" id="212026"><span class="nick">***</span><span class="message notice">roptat is now known as Guest2835</span></div><br /></div></body></html>

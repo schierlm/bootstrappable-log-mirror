@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-04-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010507"><span class="nick" style="color:#8dd3c7"><a href="#010507" label="[01:05:07]">&lt;stikonas&gt;</a></span><span class="message">fossy: so I've now got chroot mode working with significantly smaller rootfs.py script. But for some reason I'm hitting issues with qemu mode (out of space)</span></div><div class="line" id="013806"><span class="nick">***</span><span class="message notice">Noisytoot_ is now known as Noisytoot</span></div><div class="line" id="034747"><span class="nick" style="color:#2e2a4a"><a href="#034747" label="[03:47:47]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: thank you for that work it is looking good</span></div><div class="line" id="034755"><span class="nick" style="color:#2e2a4a"><a href="#034755" label="[03:47:55]">&lt;fossy&gt;</a></span><span class="message">i have just caught up on what is going on</span></div><div class="line" id="034802"><span class="nick" style="color:#2e2a4a"><a href="#034802" label="[03:48:02]">&lt;fossy&gt;</a></span><span class="message">a lot of chatter round here!</span></div><div class="line" id="034905"><span class="nick" style="color:#2e2a4a"><a href="#034905" label="[03:49:05]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: where does it hit out of space in qemu? what bit are you doing now to make rootfs.py smaller?</span></div><div class="line" id="034927"><span class="nick" style="color:#2e2a4a"><a href="#034927" label="[03:49:27]">&lt;fossy&gt;</a></span><span class="message">i have almost finished merging src/ directories into the one sources/ directory</span></div><div class="line" id="035307"><span class="nick" style="color:#2e2a4a"><a href="#035307" label="[03:53:07]">&lt;fossy&gt;</a></span><span class="message">mid-kid: quick rationale behind 4.9 kernel, GCC/binutils/make combo cannot build anything newer than that. You can hypothetically modify the build to use the current kernel, but I would strongly discourage you from doing so unless you need a newer feature</span></div><div class="line" id="035448"><span class="nick" style="color:#2e2a4a"><a href="#035448" label="[03:54:48]">&lt;fossy&gt;</a></span><span class="message">i can't really think of any mainstream newer features, apart from maybe architecture support? but that's pretty irrelevant right now (only x86 supported). 4.9 is still an LTS kernel but newer 4.9.xs don't work (i never found the exact version just settled on .10 because that worked and like .50 didn't and i didn't care to bisect)</span></div><div class="line" id="075444"><span class="nick" style="color:#6b8072"><a href="#075444" label="[07:54:44]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: kernel unpacking fails</span></div><div class="line" id="075530"><span class="nick" style="color:#6b8072"><a href="#075530" label="[07:55:30]">&lt;stikonas[m]&gt;</a></span><span class="message">I'll try to save some space by using bz2 instead of gzip for your packages</span></div><div class="line" id="133704"><span class="nick" style="color:#80b1d3"><a href="#133704" label="[13:37:04]">&lt;mid-kid&gt;</a></span><span class="message">fossy: I have at least one laptop that won't boot with anything older than 5.0</span></div><div class="line" id="133710"><span class="nick" style="color:#80b1d3"><a href="#133710" label="[13:37:10]">&lt;mid-kid&gt;</a></span><span class="message">Though I get the rationale</span></div><div class="line" id="133735"><span class="nick" style="color:#80b1d3"><a href="#133735" label="[13:37:35]">&lt;mid-kid&gt;</a></span><span class="message">And I wouldn't have done it very differently</span></div><div class="line" id="133846"><span class="nick" style="color:#80b1d3"><a href="#133846" label="[13:38:46]">&lt;mid-kid&gt;</a></span><span class="message">It's to bootstrap from a hypothetical minimal kernel into a proper linux kernel for a certain machine.</span></div><div class="line" id="134015"><span class="nick" style="color:#80b1d3"><a href="#134015" label="[13:40:15]">&lt;mid-kid&gt;</a></span><span class="message">However, I was already using a newer kernel to get the initramfs to boot at all, so my pondering was mostly as to how to just keep running the same kernel instead of having to essentially downgrade to a kernel config of which idk if it'd even work.</span></div><div class="line" id="172332"><span class="nick" style="color:#6d2462"><a href="#172332" label="[17:23:32]">&lt;dongcarl&gt;</a></span><span class="message">oriansj: Wait what? People sent you death threats?</span></div><div class="line" id="173335"><span class="nick" style="color:#6d2462"><a href="#173335" label="[17:33:35]">&lt;dongcarl&gt;</a></span><span class="message">I'm sorry to hear that. My intention was only to bring attention to this important work. I hope you're alright.</span></div><div class="line" id="204327"><span class="nick" style="color:#8dd3c7"><a href="#204327" label="[20:43:27]">&lt;stikonas&gt;</a></span><span class="message">mid-kid: and what happens if you try to boot older kernel?</span></div><div class="line" id="204441"><span class="nick" style="color:#8dd3c7"><a href="#204441" label="[20:44:41]">&lt;stikonas&gt;</a></span><span class="message">but in any case we don't have many options, it's either backporting hw support to older kernel, switching to different hardware or try to upgrade early toolchain in live-bootstrap</span></div><div class="line" id="211356"><span class="nick">***</span><span class="message notice">robin_ is now known as robin</span></div><br /></div></body></html>

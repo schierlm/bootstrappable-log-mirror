@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-08-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="032530"><span class="nick" style="color:#8dd3c7"><a href="#032530" label="[03:25:30]">&lt;OriansJ&gt;</a></span><span class="message">may I present to everyone the diff between AMD64_bootstrap/cc_x86.M1 AMD64_bootstrap/cc_amd64.M1   <a rel="nofollow" href="https://paste.debian.net/1096036/">https://paste.debian.net/1096036/</a>  (and yes patches are up)</span></div><div class="line" id="032632"><span class="nick" style="color:#8dd3c7"><a href="#032632" label="[03:26:32]">&lt;OriansJ&gt;</a></span><span class="message">The extra fun part is realizing that 74% of the changes are updates to the comments</span></div><div class="line" id="033043"><span class="nick" style="color:#8dd3c7"><a href="#033043" label="[03:30:43]">&lt;OriansJ&gt;</a></span><span class="message">Assuming I didn't make any obvious mistakes, the updated mescc-tools-seed will be up tomorrow and the slow march to mes-m2 completion will begin (hopefully dddddd finishes the aarch64 port soon as code changes to M2-Planet may be required to support additional functionality) and janneke I am probably going to break the shceme for a little while while I harmonize its test behavior with that of guile</span></div><div class="line" id="042505"><span class="nick" style="color:#2e2a4a"><a href="#042505" label="[04:25:05]">&lt;xentrac&gt;</a></span><span class="message">congratulations!</span></div><div class="line" id="053936"><span class="nick" style="color:#6b8072"><a href="#053936" label="[05:39:36]">&lt;Hagfish&gt;</a></span><span class="message">delicious</span></div><div class="line" id="085935"><span class="nick" style="color:#80b1d3"><a href="#085935" label="[08:59:35]">&lt;janneke&gt;</a></span><span class="message">OriansJ: sure, no problem</span></div><div class="line" id="112320"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><div class="line" id="133610"><span class="nick" style="color:#6d2462"><a href="#133610" label="[13:36:10]">&lt;dddddd&gt;</a></span><span class="message">OriansJ, can you elaborate a bit about what changes are you planning to make? I have to rewrite part of the port, so one possibility is for me to do it over the new codebase.</span></div><div class="line" id="160045"><span class="nick" style="color:#8dd3c7"><a href="#160045" label="[16:00:45]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: no plans yet, I however is hoping to merge in your port and do a release prior to any potentially changes that might break compatability with cc_*</span></div><div class="line" id="160144"><span class="nick" style="color:#8dd3c7"><a href="#160144" label="[16:01:44]">&lt;OriansJ&gt;</a></span><span class="message">as any breaking change must become a new major version number</span></div><div class="line" id="160633"><span class="nick" style="color:#6d2462"><a href="#160633" label="[16:06:33]">&lt;dddddd&gt;</a></span><span class="message">I just don't want to slow down your progress. I can make some basic clean-up and release a crude version but I'd prefer not to.</span></div><div class="line" id="161631"><span class="nick" style="color:#6d2462"><a href="#161631" label="[16:16:31]">&lt;dddddd&gt;</a></span><span class="message">My idea, now that even test100 looks like is going to pass, to go back to the beginning and redo everything in a cleaner way. For example, using sign-extend from the start, use NULL instead of NOP, etc... Commits and comments needs some clean-up too.</span></div><div class="line" id="161829"><span class="nick" style="color:#6d2462"><a href="#161829" label="[16:18:29]">&lt;dddddd&gt;</a></span><span class="message">But this will take some weekends...</span></div><div class="line" id="162043"><span class="nick" style="color:#6d2462"><a href="#162043" label="[16:20:43]">&lt;dddddd&gt;</a></span><span class="message">If you need the &quot;final&quot; port to work the next iteration of M2-Planet, it's way too much time, I think.</span></div><div class="line" id="162052"><span class="nick" style="color:#6d2462"><a href="#162052" label="[16:20:52]">&lt;dddddd&gt;</a></span><span class="message">*work on</span></div><div class="line" id="162701"><span class="nick" style="color:#6d2462"><a href="#162701" label="[16:27:01]">&lt;dddddd&gt;</a></span><span class="message">Another point of view: if you merge the port, then we need to update it with the new funcionalities as they are added (like the rest of the ports) but you're not familiar with the aarch64 port (which is going to be under-documented in that moment), so again is slower.</span></div><div class="line" id="163351"><span class="nick" style="color:#6d2462"><a href="#163351" label="[16:33:51]">&lt;dddddd&gt;</a></span><span class="message">Were you waiting for me all this time?</span></div><div class="line" id="164823"><span class="nick" style="color:#8dd3c7"><a href="#164823" label="[16:48:23]">&lt;OriansJ&gt;</a></span><span class="message">I can wait for you to clean it up but I still need time to review your changes before I merge them in. So mes-m2's release will be delayed but it gives me more time to make its behavior more standard.</span></div><div class="line" id="165359"><span class="nick" style="color:#6d2462"><a href="#165359" label="[16:53:59]">&lt;dddddd&gt;</a></span><span class="message">OK, let's see how this works: I release a very crude (even squashed and non-documented) proof of concept (today I guess), not for merge. Then, I start to make smaller commits/branches... per test. Again, not well documented nor for merge, but more review-able. We can see the pace I can manage and feedback starts to flow. With that, I think you can decide if you still want to wait for a mergeable port to start the big M2-Planet changes. Makes</span></div><div class="line" id="165359"><span class="nick" style="color:#6d2462"><a href="#165359" label="[16:53:59]">&lt;dddddd&gt;</a></span><span class="message">sense? Any suggestions?</span></div><div class="line" id="165634"><span class="nick" style="color:#8dd3c7"><a href="#165634" label="[16:56:34]">&lt;OriansJ&gt;</a></span><span class="message">clear communication is our first goal with all code; avoid clever</span></div><div class="line" id="165759"><span class="nick" style="color:#6d2462"><a href="#165759" label="[16:57:59]">&lt;dddddd&gt;</a></span><span class="message">oh, this code is far from &quot;clever&quot; (both the compiler code and, specially, the generated code).</span></div><div class="line" id="165956"><span class="nick" style="color:#6d2462"><a href="#165956" label="[16:59:56]">&lt;dddddd&gt;</a></span><span class="message">I'm wasting stack space to avoid aligment problems. I'm generating silly constructs to avoid the weird imm in the ops...</span></div><div class="line" id="170036"><span class="nick" style="color:#8dd3c7"><a href="#170036" label="[17:00:36]">&lt;OriansJ&gt;</a></span><span class="message">So long as they are easy to understand and explained clearly</span></div><div class="line" id="170134"><span class="nick" style="color:#6d2462"><a href="#170134" label="[17:01:34]">&lt;dddddd&gt;</a></span><span class="message">Sure, that's why I don't want to throw a patch to the wall, but make a clear history of explained commits.</span></div><div class="line" id="170223"><span class="nick" style="color:#6d2462"><a href="#170223" label="[17:02:23]">&lt;dddddd&gt;</a></span><span class="message">I was even thinking on a blog series, but that's very much undecided.</span></div><div class="line" id="170442"><span class="nick" style="color:#8dd3c7"><a href="#170442" label="[17:04:42]">&lt;OriansJ&gt;</a></span><span class="message">well if you wanted to do a blog series, it would probably work best with a 1:1 match with commits; probably aligning the commits with individual tests with a final build up to full understanding that a simple state machine is a cheap way to make a compiler</span></div><div class="line" id="170600"><span class="nick" style="color:#8dd3c7"><a href="#170600" label="[17:06:00]">&lt;OriansJ&gt;</a></span><span class="message">write the blog first to ensure it flows into a coherent narrative and share the links with us so we can all follow along with your story</span></div><div class="line" id="170626"><span class="nick" style="color:#6d2462"><a href="#170626" label="[17:06:26]">&lt;dddddd&gt;</a></span><span class="message">I'm wondering if the changes to come will change the shape of the compiler.</span></div><div class="line" id="170711"><span class="nick" style="color:#6d2462"><a href="#170711" label="[17:07:11]">&lt;dddddd&gt;</a></span><span class="message">... to the point that it will use different tactics...</span></div><div class="line" id="170741"><span class="nick" style="color:#8dd3c7"><a href="#170741" label="[17:07:41]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: there will be major changes that get incorporated over time. Hence why I prioritized porting over new features with the current release series</span></div><div class="line" id="170831"><span class="nick" style="color:#6d2462"><a href="#170831" label="[17:08:31]">&lt;dddddd&gt;</a></span><span class="message">So the supposed blog series will be &quot;obsolete&quot; right away...</span></div><div class="line" id="170842"><span class="nick" style="color:#8dd3c7"><a href="#170842" label="[17:08:42]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: no</span></div><div class="line" id="170905"><span class="nick" style="color:#8dd3c7"><a href="#170905" label="[17:09:05]">&lt;OriansJ&gt;</a></span><span class="message">It will simply map to the work all ports must begin with</span></div><div class="line" id="170945"><span class="nick" style="color:#8dd3c7"><a href="#170945" label="[17:09:45]">&lt;OriansJ&gt;</a></span><span class="message">M2-Planet is designed to never need anything not supported by the previous major release</span></div><div class="line" id="171019"><span class="nick" style="color:#8dd3c7"><a href="#171019" label="[17:10:19]">&lt;OriansJ&gt;</a></span><span class="message">So M2-Planet v1.0 is a very important foundation that all ports will need to know about to do a complete from zero bootstrap</span></div><div class="line" id="171254"><span class="nick" style="color:#6d2462"><a href="#171254" label="[17:12:54]">&lt;dddddd&gt;</a></span><span class="message">Oh, true... so, from that point of view one version doesn't &quot;die&quot; with the release of another (even it can recieve more ports in the future)</span></div><div class="line" id="171324"><span class="nick" style="color:#6d2462"><a href="#171324" label="[17:13:24]">&lt;dddddd&gt;</a></span><span class="message">and I guess the aarch64 can be one of those.</span></div><div class="line" id="171348"><span class="nick" style="color:#8dd3c7"><a href="#171348" label="[17:13:48]">&lt;OriansJ&gt;</a></span><span class="message">M2-Planet v1.x will effectively become immortal and only really grow in regards to more ports</span></div><div class="line" id="171508"><span class="nick" style="color:#8dd3c7"><a href="#171508" label="[17:15:08]">&lt;OriansJ&gt;</a></span><span class="message">The second we hit a feature cc_* can't support but M2-Planet v1.0 can; we can't use it until v2.0</span></div><div class="line" id="171539"><span class="nick" style="color:#6d2462"><a href="#171539" label="[17:15:39]">&lt;dddddd&gt;</a></span><span class="message">So we can think of aarch64 of one of those future ports (even if it's closer).</span></div><div class="line" id="171549"><span class="nick" style="color:#8dd3c7"><a href="#171549" label="[17:15:49]">&lt;OriansJ&gt;</a></span><span class="message">correct</span></div><div class="line" id="171617"><span class="nick" style="color:#8dd3c7"><a href="#171617" label="[17:16:17]">&lt;OriansJ&gt;</a></span><span class="message">and we can even add lots of new features to M2-Planet v1.0 but we can't use them unless cc_* supports them</span></div><div class="line" id="171807"><span class="nick" style="color:#6d2462"><a href="#171807" label="[17:18:07]">&lt;dddddd&gt;</a></span><span class="message">What do you mean by cc_*? (now that you use both that and M2-Planet as different things I'm a bit lost)</span></div><div class="line" id="171851"><span class="nick" style="color:#6d2462"><a href="#171851" label="[17:18:51]">&lt;dddddd&gt;</a></span><span class="message">(note that M2-Planet are mostly cc_* files)</span></div><div class="line" id="171921"><span class="nick" style="color:#8dd3c7"><a href="#171921" label="[17:19:21]">&lt;OriansJ&gt;</a></span><span class="message">cc_x86 and cc_amd64 are hand written assembly programs cc_armv7l with be the same as well as a future cc_aarch64</span></div><div class="line" id="171943"><span class="nick" style="color:#8dd3c7"><a href="#171943" label="[17:19:43]">&lt;OriansJ&gt;</a></span><span class="message">Which only support the minimal subset required to bootstrap M2-Planet v1.0</span></div><div class="line" id="172033"><span class="nick" style="color:#8dd3c7"><a href="#172033" label="[17:20:33]">&lt;OriansJ&gt;</a></span><span class="message">as in cc_x86 has been written and I am not going to be backporting features by hand into assembly</span></div><div class="line" id="172115"><span class="nick" style="color:#8dd3c7"><a href="#172115" label="[17:21:15]">&lt;OriansJ&gt;</a></span><span class="message">So the feature set of M2-Planet v1.0 might grow but it must grow in the hard limitations provided by the minimal subset of cc_x86</span></div><div class="line" id="172405"><span class="nick" style="color:#8dd3c7"><a href="#172405" label="[17:24:05]">&lt;OriansJ&gt;</a></span><span class="message">as in the entire M2-Planet v1.x series must be buildable by cc_x86.M1; one can not skip the rule of no use a feature until the next major release</span></div><div class="line" id="172530"><span class="nick" style="color:#8dd3c7"><a href="#172530" label="[17:25:30]">&lt;OriansJ&gt;</a></span><span class="message">Sorry for any confusion as when I speak of cc_* I am referring to the cc_x86.M1, cc_amd64.M1 and similiar series</span></div><div class="line" id="172845"><span class="nick" style="color:#6d2462"><a href="#172845" label="[17:28:45]">&lt;dddddd&gt;</a></span><span class="message">no worries!</span></div><div class="line" id="172942"><span class="nick" style="color:#6d2462"><a href="#172942" label="[17:29:42]">&lt;dddddd&gt;</a></span><span class="message">So, you want to wait just to see if I'm changing something fundamental in the compiler (incompatible with 1.x series)?</span></div><div class="line" id="173033"><span class="nick" style="color:#6d2462"><a href="#173033" label="[17:30:33]">&lt;dddddd&gt;</a></span><span class="message">Because, otherwise, I don't see a reason to not start with 2.x (because my port is just for 1.x)</span></div><div class="line" id="173059"><span class="nick" style="color:#8dd3c7"><a href="#173059" label="[17:30:59]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: you can independently verify that yourself rather easily (does cc_x86 produce identical output as M2-Planet --architecture x86 given your changes)</span></div><div class="line" id="173328"><span class="nick" style="color:#6d2462"><a href="#173328" label="[17:33:28]">&lt;dddddd&gt;</a></span><span class="message">I think so... I don't touch any non-aarch64 output. Also, doing something like test100 produces the same proof.</span></div><div class="line" id="173423"><span class="nick" style="color:#8dd3c7"><a href="#173423" label="[17:34:23]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: it isn't just output, cc_x86 lacks some constructs that M2-Planet supports</span></div><div class="line" id="173452"><span class="nick" style="color:#8dd3c7"><a href="#173452" label="[17:34:52]">&lt;OriansJ&gt;</a></span><span class="message">such as initialized globals or sizeof() CONSTANTs</span></div><div class="line" id="173955"><span class="nick" style="color:#6d2462"><a href="#173955" label="[17:39:55]">&lt;dddddd&gt;</a></span><span class="message">OK, let me squash and so... then send you the crude patch so you can see what I did, generally. That'd clear some doubts up, I guess.</span></div><div class="line" id="174301"><span class="nick" style="color:#6d2462"><a href="#174301" label="[17:43:01]">&lt;dddddd&gt;</a></span><span class="message">Fun fact: ^ operator is not used by any test (It's not even implemented in the port, yet)</span></div><div class="line" id="174710"><span class="nick" style="color:#8dd3c7"><a href="#174710" label="[17:47:10]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: to be honest, I was overly minimal in regards to tests for M2-Planet (very little code coverage) as a side effect of constantly being short on time</span></div><div class="line" id="174858"><span class="nick" style="color:#6d2462"><a href="#174858" label="[17:48:58]">&lt;dddddd&gt;</a></span><span class="message">Well, they cover what it's needed for itself. No ^ to test, that's fine.</span></div><div class="line" id="175033"><span class="nick" style="color:#8dd3c7"><a href="#175033" label="[17:50:33]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: it also covers the entire mescc-tools set as well</span></div><div class="line" id="175127"><span class="nick" style="color:#8dd3c7"><a href="#175127" label="[17:51:27]">&lt;OriansJ&gt;</a></span><span class="message">That is why mescc-tools-seed builds M2-Planet before it even builds blood-elf</span></div><div class="line" id="175307"><span class="nick" style="color:#6d2462"><a href="#175307" label="[17:53:07]">&lt;dddddd&gt;</a></span><span class="message">more to the &quot;fun&quot; part I was trying (sorry) to explain, indeed. ^ is not _used_ (:</span></div><div class="line" id="175703"><span class="nick" style="color:#8dd3c7"><a href="#175703" label="[17:57:03]">&lt;OriansJ&gt;</a></span><span class="message">well that has more to do with outside of crypto; one generally gets quite far with just simple bit masking and bit shifting (see ceil_log2 in cc_core.c)</span></div><div class="line" id="184728"><span class="nick" style="color:#6d2462"><a href="#184728" label="[18:47:28]">&lt;dddddd&gt;</a></span><span class="message">test22 is passing even with an empty chmod() library function, by the way.</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-04-08.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="084310"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="084313"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><div class="line" id="095212"><span class="nick" style="color:#8dd3c7"><a href="#095212" label="[09:52:12]">&lt;fossy&gt;</a></span><span class="message">hey janneke does guix currently bootstrap bison?</span></div><div class="line" id="095409"><span class="nick" style="color:#2e2a4a"><a href="#095409" label="[09:54:09]">&lt;janneke&gt;</a></span><span class="message">fossy: &quot;currently?&quot;</span></div><div class="line" id="112849"><span class="nick" style="color:#8dd3c7"><a href="#112849" label="[11:28:49]">&lt;fossy&gt;</a></span><span class="message">janneke: yes, because I recall a bootstrap path for bison someone made hete</span></div><div class="line" id="112852"><span class="nick" style="color:#8dd3c7"><a href="#112852" label="[11:28:52]">&lt;fossy&gt;</a></span><span class="message">here</span></div><div class="line" id="112906"><span class="nick" style="color:#8dd3c7"><a href="#112906" label="[11:29:06]">&lt;fossy&gt;</a></span><span class="message">so does guix bootstrap bison?</span></div><div class="line" id="113434"><span class="nick" style="color:#2e2a4a"><a href="#113434" label="[11:34:34]">&lt;janneke&gt;</a></span><span class="message">fossy: ah, i'm confusing myself</span></div><div class="line" id="113529"><span class="nick" style="color:#2e2a4a"><a href="#113529" label="[11:35:29]">&lt;janneke&gt;</a></span><span class="message">fossy: yes, guix bootstraps bison</span></div><div class="line" id="113544"><span class="nick" style="color:#8dd3c7"><a href="#113544" label="[11:35:44]">&lt;fossy&gt;</a></span><span class="message">janneke: good.</span></div><div class="line" id="113758"><span class="nick" style="color:#6b8072"><a href="#113758" label="[11:37:58]">&lt;gio&gt;</a></span><span class="message">janneke: How does bison bootstrap work? How is bison's own grammar compiled before having bison on guix?</span></div><div class="line" id="114413"><span class="nick" style="color:#80b1d3"><a href="#114413" label="[11:44:13]">&lt;civodul&gt;</a></span><span class="message">janneke: does it? :-)</span></div><div class="line" id="135447"><span class="nick" style="color:#6d2462"><a href="#135447" label="[13:54:47]">&lt;OriansJ&gt;</a></span><span class="message">actually I think guix just does the traditional gcc build of bison using the generated input file; which would mean that bison isn't properly bootstrapped.</span></div><div class="line" id="144350"><span class="nick" style="color:#234e69"><a href="#144350" label="[14:43:50]">&lt;markjenkinsznc&gt;</a></span><span class="message">Bison is also partially written in bison eh? We can fault them for not having a bootstrap, but I guess people would also fault them if they didn't eat their own pemmican</span></div><div class="line" id="151755"><span class="nick" style="color:#2e2a4a"><a href="#151755" label="[15:17:55]">&lt;janneke&gt;</a></span><span class="message">fossy: oh wait, bison actually contains &quot;generated code&quot; aka an ascii bootstrap seed?</span></div><div class="line" id="151839"><span class="nick" style="color:#2e2a4a"><a href="#151839" label="[15:18:39]">&lt;janneke&gt;</a></span><span class="message">i wasn't really thinking beyond: nope, no bison bootstrap binary in guix</span></div><div class="line" id="152547"><span class="nick" style="color:#234e69"><a href="#152547" label="[15:25:47]">&lt;markjenkinsznc&gt;</a></span><span class="message">Okay, I jumped to the wrong idea too fast, having taken a look I don't see evidence any parts of bison are written with bison. I guess OriansJ may have been referring to use of autoconf/automake outputs</span></div><div class="line" id="152622"><span class="nick" style="color:#234e69"><a href="#152622" label="[15:26:22]">&lt;markjenkinsznc&gt;</a></span><span class="message">Bison source does have files ./bootstrap and bootstrap.conf so that's a good sign</span></div><div class="line" id="153426"><span class="nick" style="color:#6c3d55"><a href="#153426" label="[15:34:26]">&lt;dddddd&gt;</a></span><span class="message">I guess this is what triggered the questions but, for those who missed it, gio recently linked to <a rel="nofollow" href="https://gitlab.com/giomasce/bison-bootstrap">https://gitlab.com/giomasce/bison-bootstrap</a> </span></div><div class="line" id="154510"><span class="nick" style="color:#6b8072"><a href="#154510" label="[15:45:10]">&lt;gio&gt;</a></span><span class="message">markjenkinsznc: File parse-gram.y is written in Bison. The distributed tarball ship its compiled form parse-gram.{ch}, but that's not &quot;source code&quot;, at least according to my definition of &quot;source code&quot;.</span></div><div class="line" id="154604"><span class="nick" style="color:#6b8072"><a href="#154604" label="[15:46:04]">&lt;gio&gt;</a></span><span class="message">File boostrap and boostrap.conf have nothing to do with source code bootstrapping.</span></div><div class="line" id="154848"><span class="nick" style="color:#234e69"><a href="#154848" label="[15:48:48]">&lt;markjenkinsznc&gt;</a></span><span class="message">Ahh thanks, <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/bison.git/tree/src/parse-gram.y">https://git.savannah.gnu.org/cgit/bison.git/tree/src/parse-gram.y</a>  , Bison does eat it's own pemmican. Watch out for zombie cannibal buffalo with preserved meat/berry packs.</span></div><div class="line" id="154858"><span class="nick" style="color:#234e69"><a href="#154858" label="[15:48:58]">&lt;markjenkinsznc&gt;</a></span><span class="message">During a pandemic.</span></div><div class="line" id="155049"><span class="nick" style="color:#6b8072"><a href="#155049" label="[15:50:49]">&lt;gio&gt;</a></span><span class="message">As dddddd just mentioned, however, I worked out a path around this, so guix can pick it up if they want.</span></div><div class="line" id="155143"><span class="nick" style="color:#6b8072"><a href="#155143" label="[15:51:43]">&lt;gio&gt;</a></span><span class="message">And if someone wants to independently check it, that would be wonderful.</span></div><div class="line" id="155334"><span class="nick" style="color:#6b8072"><a href="#155334" label="[15:53:34]">&lt;gio&gt;</a></span><span class="message">BTW, flex has the same problem. I also have a boostrapping path for flex, although that's less nice.</span></div><div class="line" id="165541"><span class="nick">***</span><span class="message notice">lfam_ is now known as lfam</span></div><div class="line" id="203428"><span class="nick" style="color:#6d2462"><a href="#203428" label="[20:34:28]">&lt;OriansJ&gt;</a></span><span class="message">gio: certainly appreciate the work on flex and bison bootstraps</span></div><div class="line" id="214233"><span class="nick">***</span><span class="message notice">deesix_ is now known as deesix</span></div><div class="line" id="214301"><span class="nick">***</span><span class="message notice">dddddd_ is now known as dddddd</span></div><div class="line" id="224713"><span class="nick" style="color:#8dd3c7"><a href="#224713" label="[22:47:13]">&lt;fossy&gt;</a></span><span class="message">gio: I have done the bison bootstrap, it works.</span></div><div class="line" id="224722"><span class="nick" style="color:#8dd3c7"><a href="#224722" label="[22:47:22]">&lt;fossy&gt;</a></span><span class="message">I would love to see the flex bootstrap :)</span></div><br /></div></body></html>

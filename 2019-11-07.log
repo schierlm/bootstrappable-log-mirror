@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-11-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001447"><span class="nick" style="color:#389600"><a href="#001447" label="[00:14:47]">&lt;Hagfish&gt;</a></span><span class="message">lol, that &quot;proprietary ...&quot; rant is good enough for a stand-up comedy routine</span></div><div class="line" id="002802"><span class="nick" style="color:#2e2a4a"><a href="#002802" label="[00:28:02]">&lt;oriansj&gt;</a></span><span class="message">Hagfish: thank you; all real examples from Fortune 50 companies</span></div><div class="line" id="022159"><span class="nick" style="color:#2e2a4a"><a href="#022159" label="[02:21:59]">&lt;oriansj&gt;</a></span><span class="message">janneke: what is weird is how everything passes until define in test008 with this little diff: <a rel="nofollow" href="https://paste.debian.net/1114886/">https://paste.debian.net/1114886/</a> </span></div><div class="line" id="022858"><span class="nick" style="color:#2e2a4a"><a href="#022858" label="[02:28:58]">&lt;oriansj&gt;</a></span><span class="message">I am starting to wonder if I should just hijack guile's test suite and simply start getting the tests to pass one by one</span></div><div class="line" id="023547"><span class="nick" style="color:#2e2a4a"><a href="#023547" label="[02:35:47]">&lt;oriansj&gt;</a></span><span class="message">well it doesn't look like they have any tests that work in total isolation</span></div><div class="line" id="070015"><span class="nick" style="color:#6b8072"><a href="#070015" label="[07:00:15]">&lt;janneke&gt;</a></span><span class="message">oriansj: hehe, yes that diff makes symbols no longer unique</span></div><div class="line" id="070029"><span class="nick" style="color:#6b8072"><a href="#070029" label="[07:00:29]">&lt;janneke&gt;</a></span><span class="message">that is probably what's going on</span></div><div class="line" id="070200"><span class="nick" style="color:#6b8072"><a href="#070200" label="[07:02:00]">&lt;janneke&gt;</a></span><span class="message">oriansj: yeah, running parts of guile's test suite would be great but that's still quite a big step</span></div><div class="line" id="123123"><span class="nick" style="color:#2e2a4a"><a href="#123123" label="[12:31:23]">&lt;oriansj&gt;</a></span><span class="message">janneke: we will need to make tests for every primitive in mes-m2; otherwise I'll just end up breaking more and more things as I go along trying to make mes-m2 pretty</span></div><div class="line" id="163322"><span class="nick" style="color:#6b8072"><a href="#163322" label="[16:33:22]">&lt;janneke&gt;</a></span><span class="message">oriansj: yes, the stage of testing C primitives is non-existent; that's not helping</span></div><div class="line" id="163431"><span class="nick" style="color:#6b8072"><a href="#163431" label="[16:34:31]">&lt;janneke&gt;</a></span><span class="message">for the number cells-&gt;pointer cells transition in the mes-m2 merge, i wrote some gc inspection code -- not good enough for a real test but it helped me to find bugs</span></div><div class="line" id="163636"><span class="nick" style="color:#6b8072"><a href="#163636" label="[16:36:36]">&lt;janneke&gt;</a></span><span class="message">oriansj: i found a bug in the mescc-tools-seed build of M1 (and it seems only one); have it isolated, now bisecting the c input further</span></div><div class="line" id="163702"><span class="nick" style="color:#6b8072"><a href="#163702" label="[16:37:02]">&lt;janneke&gt;</a></span><span class="message">these ascii intermediate stages are so friendly, really great</span></div><div class="line" id="163720"><span class="nick" style="color:#80b1d3"><a href="#163720" label="[16:37:20]">&lt;xentrac&gt;</a></span><span class="message">:)</span></div><div class="line" id="164044"><span class="nick" style="color:#80b1d3"><a href="#164044" label="[16:40:44]">&lt;xentrac&gt;</a></span><span class="message">I think the &quot;internal data is readable&quot; aspect of both Unix and Lisp is a real productivity enhancer</span></div><div class="line" id="164120"><span class="nick" style="color:#80b1d3"><a href="#164120" label="[16:41:20]">&lt;xentrac&gt;</a></span><span class="message">I mean the equivalent of cat /etc/passwd on VMS is a giant hairball</span></div><div class="line" id="164320"><span class="nick" style="color:#80b1d3"><a href="#164320" label="[16:43:20]">&lt;xentrac&gt;</a></span><span class="message">(and also VMS++ of course)</span></div><div class="line" id="165044"><span class="nick" style="color:#6b8072"><a href="#165044" label="[16:50:44]">&lt;janneke&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://paste.debian.net/1115054/">https://paste.debian.net/1115054/</a> </span></div><div class="line" id="170157"><span class="nick" style="color:#6b8072"><a href="#170157" label="[17:01:57]">&lt;janneke&gt;</a></span><span class="message">oriansj: actually, the bug report can be much smaller, inlined here:</span></div><div class="line" id="170218"><span class="nick" style="color:#6b8072"><a href="#170218" label="[17:02:18]">&lt;janneke&gt;</a></span><span class="message">DEFINE LOAD_IMMEDIATE_eax B8</span></div><div class="line" id="170218"><span class="nick" style="color:#6b8072"><a href="#170218" label="[17:02:18]">&lt;janneke&gt;</a></span><span class="message">LOAD_IMMEDIATE_eax %0x2d</span></div><div class="line" id="170218"><span class="nick" style="color:#6b8072"><a href="#170218" label="[17:02:18]">&lt;janneke&gt;</a></span><span class="message">LOAD_IMMEDIATE_eax %0x11223344</span></div><div class="line" id="170305"><span class="nick" style="color:#6b8072"><a href="#170305" label="[17:03:05]">&lt;janneke&gt;</a></span><span class="message">the M1 from mescc-tools-seed: /gnu/store/c48hji88xgi99p0yjf7b0nmnn5zbwz61-m2-planet-boot0-1.4.0-0.1fc2aea/bin/M1 --architecture x86 -f bug.M1 gives:</span></div><div class="line" id="170314"><span class="nick" style="color:#6b8072"><a href="#170314" label="[17:03:14]">&lt;janneke&gt;</a></span><span class="message">B8 00000000</span></div><div class="line" id="170315"><span class="nick" style="color:#6b8072"><a href="#170315" label="[17:03:15]">&lt;janneke&gt;</a></span><span class="message">B8 11223344</span></div><div class="line" id="170355"><span class="nick" style="color:#6b8072"><a href="#170355" label="[17:03:55]">&lt;janneke&gt;</a></span><span class="message">the first instruction should be `B8 0000002D' i.e. the 2d is dropped</span></div><div class="line" id="170505"><span class="nick" style="color:#80b1d3"><a href="#170505" label="[17:05:05]">&lt;xentrac&gt;</a></span><span class="message">\o/</span></div><div class="line" id="193625"><span class="nick" style="color:#6d2462"><a href="#193625" label="[19:36:25]">&lt;pder&gt;</a></span><span class="message">janneke: it appears that if you change the that line to LOAD_IMMEDIATE_eax %0x2D (note the upper case D), M1 returns the correct results</span></div><div class="line" id="202151"><span class="nick" style="color:#6d2462"><a href="#202151" label="[20:21:51]">&lt;pder&gt;</a></span><span class="message">The difference in behavior with the bootstrapped M1 and the gcc compiled version is also due to the fact that they both use functions/numerate_number.c but the version of that file in mescc-tools is different from the one in M2-Planet</span></div><div class="line" id="210238"><span class="nick" style="color:#389600"><a href="#210238" label="[21:02:38]">&lt;Hagfish&gt;</a></span><span class="message">great deduction work!  these puzzles are beyond me, but i love reading the discovery of their solutions</span></div><div class="line" id="234232"><span class="nick" style="color:#6b8072"><a href="#234232" label="[23:42:32]">&lt;janneke&gt;</a></span><span class="message">yeah, and a fix is up @ <a rel="nofollow" href="https://gitlab.com/janneke/m2-planet">https://gitlab.com/janneke/m2-planet</a> </span></div><br /></div></body></html>

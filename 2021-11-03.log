@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-11-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000649"><span class="nick" style="color:#8dd3c7"><a href="#000649" label="[00:06:49]">&lt;stikonas&gt;</a></span><span class="message">and stage0-posix updated to pull in new functionality <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/pull/64">https://github.com/oriansj/stage0-posix/pull/64</a> </span></div><div class="line" id="000709"><span class="nick" style="color:#8dd3c7"><a href="#000709" label="[00:07:09]">&lt;stikonas&gt;</a></span><span class="message">and also mes-m2 fix <a rel="nofollow" href="https://github.com/oriansj/mes-m2/pull/15">https://github.com/oriansj/mes-m2/pull/15</a> </span></div><div class="line" id="000737"><span class="nick" style="color:#2e2a4a"><a href="#000737" label="[00:07:37]">&lt;oriansj&gt;</a></span><span class="message">the reason has to do with <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/blob/master/x86/M0_x86.hex2#L597">https://github.com/oriansj/stage0-posix/blob/master/x86/M0_x86.hex2#L597</a> </span></div><div class="line" id="000810"><span class="nick" style="color:#2e2a4a"><a href="#000810" label="[00:08:10]">&lt;oriansj&gt;</a></span><span class="message">specifically %0xabcd just results in 00000000 while %0xABCD works just fine</span></div><div class="line" id="001555"><span class="nick" style="color:#2e2a4a"><a href="#001555" label="[00:15:55]">&lt;oriansj&gt;</a></span><span class="message">and merged</span></div><div class="line" id="001628"><span class="nick" style="color:#8dd3c7"><a href="#001628" label="[00:16:28]">&lt;stikonas&gt;</a></span><span class="message">oh yes, M0 did not support lowercase alphanumerics...</span></div><div class="line" id="001750"><span class="nick" style="color:#2e2a4a"><a href="#001750" label="[00:17:50]">&lt;oriansj&gt;</a></span><span class="message">and MesCC had a bug where it didn't support uppercase alphanumerics</span></div><div class="line" id="001815"><span class="nick" style="color:#2e2a4a"><a href="#001815" label="[00:18:15]">&lt;oriansj&gt;</a></span><span class="message">So I punted and used lowercase for MesCC and did that ugly hack for stage0-posix</span></div><div class="line" id="001908"><span class="nick" style="color:#2e2a4a"><a href="#001908" label="[00:19:08]">&lt;oriansj&gt;</a></span><span class="message">it also made pull requests where people were not strict about uppercase didn't break the bootstrap</span></div><div class="line" id="005244"><span class="nick">***</span><span class="message notice">robin_ is now known as robin</span></div><div class="line" id="060958"><span class="nick" style="color:#6b8072"><a href="#060958" label="[06:09:58]">*</a></span><span class="message">pabs3 hmm at &quot;Adding package information to ELF objects&quot; <a rel="nofollow" href="https://lwn.net/SubscriberLink/874642/da8951a8b8a695ac/">https://lwn.net/SubscriberLink/874642/da8951a8b8a695ac/</a> </span></div><div class="line" id="062121"><span class="nick" style="color:#80b1d3"><a href="#062121" label="[06:21:21]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.micahlerner.com/2021/10/31/rudra-finding-memory-safety-bugs-in-rust-at-the-ecosystem-scale.html">https://www.micahlerner.com/2021/10/31/rudra-finding-memory-safety-bugs-in-rust-at-the-ecosystem-scale.html</a> </span></div><div class="line" id="062133"><span class="nick" style="color:#80b1d3"><a href="#062133" label="[06:21:33]">&lt;Hagfish&gt;</a></span><span class="message">&quot; at the time of the paper’s publication, the system had identified 76 CVEs and ~52% of the memory safety bugs in the official Rust security advisory database&quot;</span></div><div class="line" id="062415"><span class="nick" style="color:#80b1d3"><a href="#062415" label="[06:24:15]">&lt;Hagfish&gt;</a></span><span class="message">&quot;To make the point about how tricky (and novel) some of these problems were to detect before Rudra found them, the paper notes that several of the issues were in the Rust standard library (which is reviewed by Rust experts).&quot;</span></div><div class="line" id="062416"><span class="nick" style="color:#80b1d3"><a href="#062416" label="[06:24:16]">&lt;Hagfish&gt;</a></span><span class="message">oof</span></div><div class="line" id="101343"><span class="nick">***</span><span class="message notice">nckx is now known as Thunderbi</span></div><div class="line" id="101650"><span class="nick">***</span><span class="message notice">Thunderbi is now known as guix-znc-test</span></div><div class="line" id="101654"><span class="nick">***</span><span class="message notice">guix-znc-test is now known as guix</span></div><div class="line" id="102149"><span class="nick">***</span><span class="message notice">guix is now known as nckx</span></div><div class="line" id="120852"><span class="nick" style="color:#6d2462"><a href="#120852" label="[12:08:52]">&lt;gbrlwck&gt;</a></span><span class="message">pabs3: Is Lennart Poettering an enemy of reproducible builds?</span></div><div class="line" id="123706"><span class="nick" style="color:#2e2a4a"><a href="#123706" label="[12:37:06]">&lt;oriansj&gt;</a></span><span class="message">gbrlwck: No, he just values other things more than reproducible builds and he does merge reproducibility patchs.</span></div><div class="line" id="123923"><span class="nick" style="color:#2e2a4a"><a href="#123923" label="[12:39:23]">&lt;oriansj&gt;</a></span><span class="message">Hagfish: I like to think of it as a healthy reminder of how easy it is for humans to trick ourselves that everything correct. We can always do better and together it gets easier.</span></div><div class="line" id="124108"><span class="nick" style="color:#2e2a4a"><a href="#124108" label="[12:41:08]">&lt;oriansj&gt;</a></span><span class="message">pabs3: well if one really wanted package information in ELF objects, one could rather easily put a gz or xz blob in .source.${filename}</span></div><div class="line" id="124628"><span class="nick" style="color:#2e2a4a"><a href="#124628" label="[12:46:28]">&lt;oriansj&gt;</a></span><span class="message">toss in .build.blob containing the build command and you have everything you need to rebuild the binary from source.</span></div><div class="line" id="125215"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="130507"><span class="nick" style="color:#8dd3c7"><a href="#130507" label="[13:05:07]">&lt;stikonas&gt;</a></span><span class="message">and if some container creators strip package db metadata from images (to minimize space) why wouldn't they remove this additional package information from ELF objects, it will be just like another debug symbol stripping...</span></div><div class="line" id="141627"><span class="nick" style="color:#80b1d3"><a href="#141627" label="[14:16:27]">&lt;Hagfish&gt;</a></span><span class="message">good points, thank you both</span></div><div class="line" id="233135"><span class="nick">***</span><span class="message notice">DiffieHellman_ is now known as DiffieHellman</span></div><br /></div></body></html>

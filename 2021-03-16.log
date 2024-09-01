@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-03-16.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001417"><span class="nick">***</span><span class="message notice">scs is now known as Guest20543</span></div><div class="line" id="004100"><span class="nick" style="color:#8dd3c7"><a href="#004100" label="[00:41:00]">&lt;stikonas&gt;</a></span><span class="message">ok, got automake 1.6.3 working</span></div><div class="line" id="004426"><span class="nick" style="color:#8dd3c7"><a href="#004426" label="[00:44:26]">&lt;stikonas&gt;</a></span><span class="message">pder: by the way, maybe early sed 4.0.7 can be dropped in favour of 4.0.9?</span></div><div class="line" id="004430"><span class="nick" style="color:#8dd3c7"><a href="#004430" label="[00:44:30]">&lt;stikonas&gt;</a></span><span class="message">or is it too different?</span></div><div class="line" id="004540"><span class="nick" style="color:#2e2a4a"><a href="#004540" label="[00:45:40]">&lt;Hagfish&gt;</a></span><span class="message">i'm glad my connection came back in time for me to read about automake.  great news!</span></div><div class="line" id="004854"><span class="nick" style="color:#8dd3c7"><a href="#004854" label="[00:48:54]">&lt;stikonas&gt;</a></span><span class="message">well, building autotools is not particularly exciting</span></div><div class="line" id="004906"><span class="nick" style="color:#8dd3c7"><a href="#004906" label="[00:49:06]">&lt;stikonas&gt;</a></span><span class="message">they are just fairly simple script...</span></div><div class="line" id="005204"><span class="nick" style="color:#8dd3c7"><a href="#005204" label="[00:52:04]">&lt;stikonas&gt;</a></span><span class="message">but it means that we are getting closer to gcc</span></div><div class="line" id="005215"><span class="nick" style="color:#8dd3c7"><a href="#005215" label="[00:52:15]">&lt;stikonas&gt;</a></span><span class="message">that will be quite a bit more work...</span></div><div class="line" id="005218"><span class="nick" style="color:#8dd3c7"><a href="#005218" label="[00:52:18]">&lt;stikonas&gt;</a></span><span class="message">to build...</span></div><div class="line" id="013222"><span class="nick" style="color:#2e2a4a"><a href="#013222" label="[01:32:22]">&lt;Hagfish&gt;</a></span><span class="message">i can't imagine what twists and turns gcc is going to add to the journey (other than noting that it's stubbornly not reproducible, as distros have found)</span></div><div class="line" id="013302"><span class="nick" style="color:#2e2a4a"><a href="#013302" label="[01:33:02]">&lt;Hagfish&gt;</a></span><span class="message">so yeah, getting gcc built as part of the bootstrap sequence is going to be a much more exciting milestone</span></div><div class="line" id="013422"><span class="nick" style="color:#8dd3c7"><a href="#013422" label="[01:34:22]">&lt;stikonas&gt;</a></span><span class="message">well, we'll see whether we can keep reproducibility...</span></div><div class="line" id="013449"><span class="nick" style="color:#8dd3c7"><a href="#013449" label="[01:34:49]">&lt;stikonas&gt;</a></span><span class="message">if not, we can still finish bootstrap without reproducible builds</span></div><div class="line" id="013453"><span class="nick" style="color:#2e2a4a"><a href="#013453" label="[01:34:53]">&lt;Hagfish&gt;</a></span><span class="message">yeah, there might be some interesting discoveries (or at least hacks) to be found in the process</span></div><div class="line" id="013455"><span class="nick" style="color:#2e2a4a"><a href="#013455" label="[01:34:55]">&lt;Hagfish&gt;</a></span><span class="message">right</span></div><div class="line" id="013535"><span class="nick" style="color:#8dd3c7"><a href="#013535" label="[01:35:35]">&lt;stikonas&gt;</a></span><span class="message">but I thought guix can build gcc reproducibly</span></div><div class="line" id="013721"><span class="nick" style="color:#2e2a4a"><a href="#013721" label="[01:37:21]">&lt;Hagfish&gt;</a></span><span class="message">i was thinking of Debian and <a rel="nofollow" href="https://r13y.com/">https://r13y.com/</a> </span></div><div class="line" id="013731"><span class="nick" style="color:#2e2a4a"><a href="#013731" label="[01:37:31]">&lt;Hagfish&gt;</a></span><span class="message">(NixOS)</span></div><div class="line" id="013808"><span class="nick" style="color:#2e2a4a"><a href="#013808" label="[01:38:08]">&lt;Hagfish&gt;</a></span><span class="message">it might be that the environment for doing the bootstrap is sufficiently constrained that the unreproducibility won't be a practical problem</span></div><div class="line" id="013859"><span class="nick" style="color:#6b8072"><a href="#013859" label="[01:38:59]">&lt;fossy&gt;</a></span><span class="message">The one package that reproducibility is probably not a feasible goal for is gcc</span></div><div class="line" id="013939"><span class="nick" style="color:#8dd3c7"><a href="#013939" label="[01:39:39]">&lt;stikonas&gt;</a></span><span class="message">well, there are two things, gcc itself and packages built with gcc...</span></div><div class="line" id="013953"><span class="nick" style="color:#8dd3c7"><a href="#013953" label="[01:39:53]">&lt;stikonas&gt;</a></span><span class="message">but we'll see when time comes...</span></div><div class="line" id="013958"><span class="nick" style="color:#2e2a4a"><a href="#013958" label="[01:39:58]">&lt;Hagfish&gt;</a></span><span class="message">yeah, good point</span></div><div class="line" id="014005"><span class="nick" style="color:#8dd3c7"><a href="#014005" label="[01:40:05]">&lt;stikonas&gt;</a></span><span class="message">I think we need to get to autocont 2.59 first</span></div><div class="line" id="014017"><span class="nick" style="color:#2e2a4a"><a href="#014017" label="[01:40:17]">&lt;Hagfish&gt;</a></span><span class="message">how modern is 2.59?</span></div><div class="line" id="014047"><span class="nick" style="color:#8dd3c7"><a href="#014047" label="[01:40:47]">&lt;stikonas&gt;</a></span><span class="message">2003</span></div><div class="line" id="014052"><span class="nick" style="color:#2e2a4a"><a href="#014052" label="[01:40:52]">&lt;Hagfish&gt;</a></span><span class="message">wow, okay</span></div><div class="line" id="014058"><span class="nick" style="color:#8dd3c7"><a href="#014058" label="[01:40:58]">&lt;stikonas&gt;</a></span><span class="message">we have 2.52 from 2001</span></div><div class="line" id="014105"><span class="nick" style="color:#8dd3c7"><a href="#014105" label="[01:41:05]">&lt;stikonas&gt;</a></span><span class="message">I don't expect much difficulty with those...</span></div><div class="line" id="014113"><span class="nick" style="color:#8dd3c7"><a href="#014113" label="[01:41:13]">&lt;stikonas&gt;</a></span><span class="message">maybe some minor patching for 2.53</span></div><div class="line" id="014129"><span class="nick" style="color:#2e2a4a"><a href="#014129" label="[01:41:29]">&lt;Hagfish&gt;</a></span><span class="message">does that mean we'll need much more recent versions later on?  (for more modern gcc?)</span></div><div class="line" id="014131"><span class="nick" style="color:#8dd3c7"><a href="#014131" label="[01:41:31]">&lt;stikonas&gt;</a></span><span class="message">but then possibly just build each newer one with the previous version</span></div><div class="line" id="014139"><span class="nick" style="color:#2e2a4a"><a href="#014139" label="[01:41:39]">&lt;Hagfish&gt;</a></span><span class="message">yeah, hopefully</span></div><div class="line" id="014147"><span class="nick" style="color:#8dd3c7"><a href="#014147" label="[01:41:47]">&lt;stikonas&gt;</a></span><span class="message">hmm, we might build newer onces anyway</span></div><div class="line" id="014158"><span class="nick" style="color:#8dd3c7"><a href="#014158" label="[01:41:58]">&lt;stikonas&gt;</a></span><span class="message">it only goes to 2.71</span></div><div class="line" id="014221"><span class="nick" style="color:#8dd3c7"><a href="#014221" label="[01:42:21]">&lt;stikonas&gt;</a></span><span class="message">and i think autotools became more compatible later</span></div><div class="line" id="014243"><span class="nick" style="color:#2e2a4a"><a href="#014243" label="[01:42:43]">&lt;Hagfish&gt;</a></span><span class="message">cool</span></div><div class="line" id="014246"><span class="nick" style="color:#8dd3c7"><a href="#014246" label="[01:42:46]">&lt;stikonas&gt;</a></span><span class="message">it's that period around 20001 where there were many incompatibilities</span></div><div class="line" id="014303"><span class="nick" style="color:#8dd3c7"><a href="#014303" label="[01:43:03]">&lt;stikonas&gt;</a></span><span class="message">*2001</span></div><div class="line" id="014329"><span class="nick" style="color:#2e2a4a"><a href="#014329" label="[01:43:29]">&lt;Hagfish&gt;</a></span><span class="message">it would be nice if it was just a phase that free software development went through, before learning their lesson, but i think new languages/ecosystems are still making bootstrapping mistakes</span></div><div class="line" id="014342"><span class="nick" style="color:#8dd3c7"><a href="#014342" label="[01:43:42]">&lt;stikonas&gt;</a></span><span class="message">we probably just neeed a few versions in total 2.12, 2.13, 2.52 and maybe one new version</span></div><div class="line" id="014359"><span class="nick" style="color:#8dd3c7"><a href="#014359" label="[01:43:59]">&lt;stikonas&gt;</a></span><span class="message">it's probably just a matter of autoconfs maturing</span></div><div class="line" id="014405"><span class="nick" style="color:#8dd3c7"><a href="#014405" label="[01:44:05]">&lt;stikonas&gt;</a></span><span class="message">so fewer breaking changes</span></div><div class="line" id="014416"><span class="nick" style="color:#2e2a4a"><a href="#014416" label="[01:44:16]">&lt;Hagfish&gt;</a></span><span class="message">nice</span></div><div class="line" id="014527"><span class="nick" style="color:#8dd3c7"><a href="#014527" label="[01:45:27]">&lt;stikonas&gt;</a></span><span class="message">I saw this  little bit of history yesterday <a rel="nofollow" href="https://www.gnu.org/software/automake/history/automake-history.html">https://www.gnu.org/software/automake/history/automake-history.html</a> </span></div><div class="line" id="014603"><span class="nick" style="color:#2e2a4a"><a href="#014603" label="[01:46:03]">&lt;Hagfish&gt;</a></span><span class="message">&quot;Copyright © 1995 ...&quot;</span></div><div class="line" id="014607"><span class="nick" style="color:#2e2a4a"><a href="#014607" label="[01:46:07]">&lt;Hagfish&gt;</a></span><span class="message">quite a dusty tome</span></div><div class="line" id="014758"><span class="nick" style="color:#8dd3c7"><a href="#014758" label="[01:47:58]">&lt;stikonas&gt;</a></span><span class="message">well, gnu project itself is older...</span></div><div class="line" id="014809"><span class="nick" style="color:#2e2a4a"><a href="#014809" label="[01:48:09]">&lt;Hagfish&gt;</a></span><span class="message">1998-04-05 Automake 1.3</span></div><div class="line" id="014810"><span class="nick" style="color:#2e2a4a"><a href="#014810" label="[01:48:10]">&lt;Hagfish&gt;</a></span><span class="message">    This is a small advance compared to 1.2. It adds support for assembly, and preliminary support for Java.</span></div><div class="line" id="014812"><span class="nick" style="color:#2e2a4a"><a href="#014812" label="[01:48:12]">&lt;Hagfish&gt;</a></span><span class="message">    Perl 5.004_04 is out, but fixes to support Perl 4 are still regularly submitted whenever Automake breaks it.</span></div><div class="line" id="014821"><span class="nick" style="color:#2e2a4a"><a href="#014821" label="[01:48:21]">&lt;Hagfish&gt;</a></span><span class="message">it's like a time capsule</span></div><div class="line" id="014826"><span class="nick" style="color:#8dd3c7"><a href="#014826" label="[01:48:26]">&lt;stikonas&gt;</a></span><span class="message">live-bootstrap only has 1.4-p6</span></div><div class="line" id="014853"><span class="nick" style="color:#8dd3c7"><a href="#014853" label="[01:48:53]">&lt;stikonas&gt;</a></span><span class="message">which already incorporates APIVERSIONing</span></div><div class="line" id="014900"><span class="nick" style="color:#2e2a4a"><a href="#014900" label="[01:49:00]">&lt;Hagfish&gt;</a></span><span class="message">&quot;These two releases, Automake 1.4 and Autoconf 2.13 make a duo that will be used together for years.&quot;</span></div><div class="line" id="014901"><span class="nick" style="color:#8dd3c7"><a href="#014901" label="[01:49:01]">&lt;stikonas&gt;</a></span><span class="message">(automake-1.4 instead of automake)</span></div><div class="line" id="021239"><span class="nick">***</span><span class="message notice">xwvvvvwx- is now known as xwvvvvwx</span></div><div class="line" id="021619"><span class="nick" style="color:#6b8072"><a href="#021619" label="[02:16:19]">&lt;fossy&gt;</a></span><span class="message">&lt;stikonas&gt; well, there are two things, gcc itself and packages built with gcc...</span></div><div class="line" id="021631"><span class="nick" style="color:#6b8072"><a href="#021631" label="[02:16:31]">&lt;fossy&gt;</a></span><span class="message">packages built with GCC shouldn't be too hard...</span></div><div class="line" id="021946"><span class="nick">***</span><span class="message notice">scs is now known as Guest17776</span></div><div class="line" id="024655"><span class="nick">***</span><span class="message notice">remexre_ is now known as remexre</span></div><div class="line" id="042515"><span class="nick">***</span><span class="message notice">scs is now known as Guest61540</span></div><div class="line" id="063045"><span class="nick">***</span><span class="message notice">scs is now known as Guest67472</span></div><div class="line" id="083615"><span class="nick">***</span><span class="message notice">scs is now known as Guest59056</span></div><div class="line" id="093546"><span class="nick">***</span><span class="message notice">pgreco_ is now known as pgreco</span></div><div class="line" id="095456"><span class="nick">***</span><span class="message notice">jelly1 is now known as jelle</span></div><div class="line" id="104148"><span class="nick">***</span><span class="message notice">scs is now known as Guest16313</span></div><div class="line" id="113034"><span class="nick" style="color:#8dd3c7"><a href="#113034" label="[11:30:34]">&lt;stikonas&gt;</a></span><span class="message">fossy: automake stuff needs some reworking, I'll hopefully do it this evening</span></div><div class="line" id="113111"><span class="nick" style="color:#8dd3c7"><a href="#113111" label="[11:31:11]">&lt;stikonas&gt;</a></span><span class="message">that aclocal.m4 file was actually used in stage 1 (both automake 1.4 and 1.6)</span></div><div class="line" id="113122"><span class="nick" style="color:#8dd3c7"><a href="#113122" label="[11:31:22]">&lt;stikonas&gt;</a></span><span class="message">need to manually bootstrap aclocal first (with sed)</span></div><div class="line" id="124716"><span class="nick">***</span><span class="message notice">scs is now known as Guest63903</span></div><div class="line" id="134911"><span class="nick" style="color:#80b1d3"><a href="#134911" label="[13:49:11]">&lt;pder&gt;</a></span><span class="message">stikonas: I will see if sed 4.0.9 can be built early on</span></div><div class="line" id="141150"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="144353"><span class="nick">***</span><span class="message notice">vup is now known as __vupbot</span></div><div class="line" id="144405"><span class="nick">***</span><span class="message notice">__vupbot is now known as vup</span></div><div class="line" id="145248"><span class="nick">***</span><span class="message notice">scs is now known as Guest93585</span></div><div class="line" id="165816"><span class="nick">***</span><span class="message notice">scs is now known as Guest99582</span></div><div class="line" id="190345"><span class="nick">***</span><span class="message notice">scs is now known as Guest99737</span></div><div class="line" id="210914"><span class="nick">***</span><span class="message notice">scs is now known as Guest31785</span></div><div class="line" id="211924"><span class="nick" style="color:#6b8072"><a href="#211924" label="[21:19:24]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: wat, really?</span></div><div class="line" id="211941"><span class="nick" style="color:#6b8072"><a href="#211941" label="[21:19:41]">&lt;fossy&gt;</a></span><span class="message">I was almost 100% sure that it isnt</span></div><div class="line" id="211948"><span class="nick" style="color:#6b8072"><a href="#211948" label="[21:19:48]">&lt;fossy&gt;</a></span><span class="message">cause in stage1 we only use configure</span></div><div class="line" id="212002"><span class="nick" style="color:#6b8072"><a href="#212002" label="[21:20:02]">&lt;fossy&gt;</a></span><span class="message">and aclocal.m4 is regened when we RM it afaict?</span></div><div class="line" id="212028"><span class="nick" style="color:#6b8072"><a href="#212028" label="[21:20:28]">&lt;fossy&gt;</a></span><span class="message">unless im wrong... I did start going down the bootstrap aclocal path but I didnt think it was nessecary</span></div><div class="line" id="212051"><span class="nick" style="color:#8dd3c7"><a href="#212051" label="[21:20:51]">&lt;stikonas&gt;</a></span><span class="message">fossy: configure needs autoconf</span></div><div class="line" id="212059"><span class="nick" style="color:#8dd3c7"><a href="#212059" label="[21:20:59]">&lt;stikonas&gt;</a></span><span class="message">and autoconf depends on aclocal.m4...</span></div><div class="line" id="212108"><span class="nick" style="color:#8dd3c7"><a href="#212108" label="[21:21:08]">&lt;stikonas&gt;</a></span><span class="message">like I said yesterday, aclocal is always before configure</span></div><div class="line" id="212126"><span class="nick" style="color:#8dd3c7"><a href="#212126" label="[21:21:26]">&lt;stikonas&gt;</a></span><span class="message">I'll fix it later today...</span></div><div class="line" id="212152"><span class="nick" style="color:#8dd3c7"><a href="#212152" label="[21:21:52]">&lt;stikonas&gt;</a></span><span class="message">it shouldn't be too hard to create aclocal.in-&gt;aclocal with sed</span></div><div class="line" id="212205"><span class="nick" style="color:#8dd3c7"><a href="#212205" label="[21:22:05]">&lt;stikonas&gt;</a></span><span class="message">it's just setting some instalation paths, etc...</span></div><div class="line" id="212231"><span class="nick" style="color:#8dd3c7"><a href="#212231" label="[21:22:31]">&lt;stikonas&gt;</a></span><span class="message">fossy: so I'm thinking of moving automake 1.6 much earlier (before 1.4)</span></div><div class="line" id="212243"><span class="nick" style="color:#8dd3c7"><a href="#212243" label="[21:22:43]">&lt;stikonas&gt;</a></span><span class="message">and then try to do 1.4 using it</span></div><div class="line" id="212252"><span class="nick" style="color:#8dd3c7"><a href="#212252" label="[21:22:52]">&lt;stikonas&gt;</a></span><span class="message">to avoid bootsrapping aclocal twice</span></div><div class="line" id="212556"><span class="nick" style="color:#2e2a4a"><a href="#212556" label="[21:25:56]">&lt;Hagfish&gt;</a></span><span class="message">smart</span></div><div class="line" id="220348"><span class="nick" style="color:#6b8072"><a href="#220348" label="[22:03:48]">&lt;fossy&gt;</a></span><span class="message">s</span></div><div class="line" id="220350"><span class="nick" style="color:#6b8072"><a href="#220350" label="[22:03:50]">&lt;fossy&gt;</a></span><span class="message">oops</span></div><div class="line" id="220400"><span class="nick" style="color:#6b8072"><a href="#220400" label="[22:04:00]">&lt;fossy&gt;</a></span><span class="message">stikonas: how does stage1 even work then</span></div><div class="line" id="220427"><span class="nick" style="color:#6b8072"><a href="#220427" label="[22:04:27]">&lt;fossy&gt;</a></span><span class="message">owh</span></div><div class="line" id="220438"><span class="nick" style="color:#6b8072"><a href="#220438" label="[22:04:38]">&lt;fossy&gt;</a></span><span class="message">I realised why I didnt run into my ci error</span></div><div class="line" id="220447"><span class="nick" style="color:#6b8072"><a href="#220447" label="[22:04:47]">&lt;fossy&gt;</a></span><span class="message">I think I was on the wrong branch oops</span></div><div class="line" id="220521"><span class="nick" style="color:#6d2462"><a href="#220521" label="[22:05:21]">&lt;stikonas[m]&gt;</a></span><span class="message">stage1 I was running configure but not make...</span></div><div class="line" id="220554"><span class="nick" style="color:#6d2462"><a href="#220554" label="[22:05:54]">&lt;stikonas[m]&gt;</a></span><span class="message">But I only yesterday realised that aclocal is used there</span></div><div class="line" id="220619"><span class="nick" style="color:#6d2462"><a href="#220619" label="[22:06:19]">&lt;stikonas[m]&gt;</a></span><span class="message">At the moment we don't delete aclocal.m4</span></div><div class="line" id="220638"><span class="nick" style="color:#6d2462"><a href="#220638" label="[22:06:38]">&lt;stikonas[m]&gt;</a></span><span class="message">Hence, deleting it broke CI</span></div><div class="line" id="224635"><span class="nick" style="color:#6b8072"><a href="#224635" label="[22:46:35]">&lt;fossy&gt;</a></span><span class="message">yes I see</span></div><div class="line" id="231445"><span class="nick">***</span><span class="message notice">scs is now known as Guest97525</span></div><br /></div></body></html>

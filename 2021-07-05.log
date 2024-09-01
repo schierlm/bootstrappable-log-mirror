@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-05.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002655"><span class="nick" style="color:#389600"><a href="#002655" label="[00:26:55]">&lt;fossy&gt;</a></span><span class="message">&lt;stikonas[m]&gt; I mean he bootstrapped it once (I guess first autogen didn't have those circular deps)</span></div><div class="line" id="002704"><span class="nick" style="color:#389600"><a href="#002704" label="[00:27:04]">&lt;fossy&gt;</a></span><span class="message">yeah ofc</span></div><div class="line" id="002711"><span class="nick" style="color:#389600"><a href="#002711" label="[00:27:11]">&lt;fossy&gt;</a></span><span class="message">&lt;@oriansj&gt; stikonas: the reason usually for why those circular dependencies are inserted secretly is usually shame in regards to how they were implemented and the aurthor not wanting that sort of mess to be associated with them. So they destroy the transistion code needed and we end up having to pull another bison bootstrap.</span></div><div class="line" id="002727"><span class="nick" style="color:#389600"><a href="#002727" label="[00:27:27]">&lt;fossy&gt;</a></span><span class="message">I do not think thats always the case.. sometimes its the easiest option</span></div><div class="line" id="002741"><span class="nick" style="color:#389600"><a href="#002741" label="[00:27:41]">&lt;fossy&gt;</a></span><span class="message">easiest is not a good thing sometimes, however</span></div><div class="line" id="002748"><span class="nick" style="color:#8dd3c7"><a href="#002748" label="[00:27:48]">&lt;stikonas&gt;</a></span><span class="message">fossy: I suspect the easiest option is actually</span></div><div class="line" id="002759"><span class="nick" style="color:#8dd3c7"><a href="#002759" label="[00:27:59]">&lt;stikonas&gt;</a></span><span class="message">forget top level makefile and build g++ anyway</span></div><div class="line" id="002842"><span class="nick" style="color:#389600"><a href="#002842" label="[00:28:42]">&lt;fossy&gt;</a></span><span class="message">I tend to agree with you after looking into autogen</span></div><div class="line" id="002853"><span class="nick" style="color:#389600"><a href="#002853" label="[00:28:53]">&lt;fossy&gt;</a></span><span class="message">clang would be a massive pita</span></div><div class="line" id="002858"><span class="nick" style="color:#389600"><a href="#002858" label="[00:28:58]">&lt;fossy&gt;</a></span><span class="message">for linux kernel particularly</span></div><div class="line" id="002859"><span class="nick" style="color:#8dd3c7"><a href="#002859" label="[00:28:59]">&lt;stikonas&gt;</a></span><span class="message">so I played with it a tiny bit</span></div><div class="line" id="002921"><span class="nick" style="color:#8dd3c7"><a href="#002921" label="[00:29:21]">&lt;stikonas&gt;</a></span><span class="message">g++ is actually very easy to build, it's just --enable-languages=c,c++. What will be harder is libstdc++</span></div><div class="line" id="002928"><span class="nick" style="color:#8dd3c7"><a href="#002928" label="[00:29:28]">&lt;stikonas&gt;</a></span><span class="message">some musl problems</span></div><div class="line" id="002945"><span class="nick" style="color:#8dd3c7"><a href="#002945" label="[00:29:45]">&lt;stikonas&gt;</a></span><span class="message">but maybe it's finally time to build glibc</span></div><div class="line" id="003011"><span class="nick" style="color:#389600"><a href="#003011" label="[00:30:11]">&lt;fossy&gt;</a></span><span class="message">glibc is logical next step. should we do glibc before or after g++?</span></div><div class="line" id="003043"><span class="nick" style="color:#8dd3c7"><a href="#003043" label="[00:30:43]">&lt;stikonas&gt;</a></span><span class="message">probably before</span></div><div class="line" id="003055"><span class="nick" style="color:#8dd3c7"><a href="#003055" label="[00:30:55]">&lt;stikonas&gt;</a></span><span class="message">glibc gets a bit grumpy if we have g++ without libstdc++</span></div><div class="line" id="003112"><span class="nick" style="color:#8dd3c7"><a href="#003112" label="[00:31:12]">&lt;stikonas&gt;</a></span><span class="message">and regarding autogen we can still email author...</span></div><div class="line" id="003120"><span class="nick" style="color:#8dd3c7"><a href="#003120" label="[00:31:20]">&lt;stikonas&gt;</a></span><span class="message">and ask, there is no harm in that...</span></div><div class="line" id="003125"><span class="nick" style="color:#389600"><a href="#003125" label="[00:31:25]">&lt;fossy&gt;</a></span><span class="message">well yeah theyre kinda codependent (g++/libstdc++)</span></div><div class="line" id="003130"><span class="nick" style="color:#389600"><a href="#003130" label="[00:31:30]">&lt;fossy&gt;</a></span><span class="message">ofc, I did that with tinycc</span></div><div class="line" id="003231"><span class="nick" style="color:#8dd3c7"><a href="#003231" label="[00:32:31]">&lt;stikonas&gt;</a></span><span class="message">did what with tinycc?</span></div><div class="line" id="003259"><span class="nick" style="color:#8dd3c7"><a href="#003259" label="[00:32:59]">&lt;stikonas&gt;</a></span><span class="message">so I'm not sure what to do with guile then...</span></div><div class="line" id="003316"><span class="nick" style="color:#8dd3c7"><a href="#003316" label="[00:33:16]">&lt;stikonas&gt;</a></span><span class="message">it's not harmful but it's not immediately useful</span></div><div class="line" id="003325"><span class="nick" style="color:#8dd3c7"><a href="#003325" label="[00:33:25]">&lt;stikonas&gt;</a></span><span class="message">unless some other project wants to use it (e.g. guix)</span></div><div class="line" id="003401"><span class="nick" style="color:#389600"><a href="#003401" label="[00:34:01]">&lt;fossy&gt;</a></span><span class="message">asked fabrice bellard about the history of tinycc and its selfhosting nature (when did it originally become selfhosting) in the pre-mes-m2 working era</span></div><div class="line" id="003410"><span class="nick" style="color:#8dd3c7"><a href="#003410" label="[00:34:10]">&lt;stikonas&gt;</a></span><span class="message">oh I see...</span></div><div class="line" id="003425"><span class="nick" style="color:#8dd3c7"><a href="#003425" label="[00:34:25]">&lt;stikonas&gt;</a></span><span class="message">well, I guess initially gcc was used to build it</span></div><div class="line" id="003453"><span class="nick" style="color:#8dd3c7"><a href="#003453" label="[00:34:53]">&lt;stikonas&gt;</a></span><span class="message">also what should we do with CI?</span></div><div class="line" id="003509"><span class="nick" style="color:#8dd3c7"><a href="#003509" label="[00:35:09]">&lt;stikonas&gt;</a></span><span class="message">CI run step on public CI executors is probably too long by now</span></div><div class="line" id="003522"><span class="nick" style="color:#8dd3c7"><a href="#003522" label="[00:35:22]">&lt;stikonas&gt;</a></span><span class="message">with all these GCC versions it's already way longer than anybody would allow</span></div><div class="line" id="003529"><span class="nick" style="color:#8dd3c7"><a href="#003529" label="[00:35:29]">&lt;stikonas&gt;</a></span><span class="message">should we just disable it and leave only linters?</span></div><div class="line" id="003541"><span class="nick" style="color:#389600"><a href="#003541" label="[00:35:41]">&lt;fossy&gt;</a></span><span class="message">yes, for now at least</span></div><div class="line" id="003626"><span class="nick" style="color:#389600"><a href="#003626" label="[00:36:26]">&lt;fossy&gt;</a></span><span class="message">I am thinking of running an asychronous CI bot on my personal computer (which is not on 24/7) which posts results to github using a bot</span></div><div class="line" id="003636"><span class="nick" style="color:#389600"><a href="#003636" label="[00:36:36]">&lt;fossy&gt;</a></span><span class="message">but I am not sure if software exists to accomplish this</span></div><div class="line" id="003726"><span class="nick" style="color:#8dd3c7"><a href="#003726" label="[00:37:26]">&lt;stikonas&gt;</a></span><span class="message">there is definitely software for this</span></div><div class="line" id="003742"><span class="nick" style="color:#8dd3c7"><a href="#003742" label="[00:37:42]">&lt;stikonas&gt;</a></span><span class="message">but not sure if there is something that is not overkill</span></div><div class="line" id="003758"><span class="nick" style="color:#8dd3c7"><a href="#003758" label="[00:37:58]">&lt;stikonas&gt;</a></span><span class="message">I know that Jenkins can definitely update github CI status</span></div><div class="line" id="003758"><span class="nick" style="color:#389600"><a href="#003758" label="[00:37:58]">&lt;fossy&gt;</a></span><span class="message">I think Jenkins has that but Jenkins is a bit over the top</span></div><div class="line" id="003803"><span class="nick" style="color:#8dd3c7"><a href="#003803" label="[00:38:03]">&lt;stikonas&gt;</a></span><span class="message">indeed</span></div><div class="line" id="003805"><span class="nick" style="color:#389600"><a href="#003805" label="[00:38:05]">&lt;fossy&gt;</a></span><span class="message">lol</span></div><div class="line" id="003824"><span class="nick" style="color:#389600"><a href="#003824" label="[00:38:24]">&lt;fossy&gt;</a></span><span class="message">it dosent even have to have the green check mark on CI. Could just be a github comment</span></div><div class="line" id="003830"><span class="nick" style="color:#8dd3c7"><a href="#003830" label="[00:38:30]">&lt;stikonas&gt;</a></span><span class="message">well, github api for that is probably not even that complicated</span></div><div class="line" id="003942"><span class="nick" style="color:#389600"><a href="#003942" label="[00:39:42]">&lt;fossy&gt;</a></span><span class="message">no, probably not. github has sane apis</span></div><div class="line" id="004059"><span class="nick" style="color:#8dd3c7"><a href="#004059" label="[00:40:59]">&lt;stikonas&gt;</a></span><span class="message">should we pull in GCC 4.7.4 though?</span></div><div class="line" id="004105"><span class="nick" style="color:#8dd3c7"><a href="#004105" label="[00:41:05]">&lt;stikonas&gt;</a></span><span class="message">into live-bootstrap</span></div><div class="line" id="004118"><span class="nick" style="color:#8dd3c7"><a href="#004118" label="[00:41:18]">&lt;stikonas&gt;</a></span><span class="message">I think that's still useful</span></div><div class="line" id="004124"><span class="nick" style="color:#8dd3c7"><a href="#004124" label="[00:41:24]">&lt;stikonas&gt;</a></span><span class="message">it's the last GCC that does not need C++</span></div><div class="line" id="004218"><span class="nick" style="color:#389600"><a href="#004218" label="[00:42:18]">&lt;fossy&gt;</a></span><span class="message">yes, keep gcc 4.7.4</span></div><div class="line" id="004306"><span class="nick" style="color:#389600"><a href="#004306" label="[00:43:06]">&lt;fossy&gt;</a></span><span class="message">we could add guile or push it back to later, up to you, I dont really mind either way (even if it isnt strictly relevant rn)</span></div><div class="line" id="004316"><span class="nick" style="color:#389600"><a href="#004316" label="[00:43:16]">&lt;fossy&gt;</a></span><span class="message">we will probably need it in the foreseeable future though</span></div><div class="line" id="004319"><span class="nick" style="color:#8dd3c7"><a href="#004319" label="[00:43:19]">&lt;stikonas&gt;</a></span><span class="message">hmm, guile works but it is really slow to build</span></div><div class="line" id="004344"><span class="nick" style="color:#389600"><a href="#004344" label="[00:43:44]">&lt;fossy&gt;</a></span><span class="message">yeah cause of the *.go files right?</span></div><div class="line" id="004345"><span class="nick" style="color:#8dd3c7"><a href="#004345" label="[00:43:45]">&lt;stikonas&gt;</a></span><span class="message">well, maybe let's keep it in the branch...</span></div><div class="line" id="004357"><span class="nick" style="color:#8dd3c7"><a href="#004357" label="[00:43:57]">&lt;stikonas&gt;</a></span><span class="message">yeah, those *.go take almost an hour</span></div><div class="line" id="004403"><span class="nick" style="color:#389600"><a href="#004403" label="[00:44:03]">&lt;fossy&gt;</a></span><span class="message">Holy crap</span></div><div class="line" id="004417"><span class="nick" style="color:#8dd3c7"><a href="#004417" label="[00:44:17]">&lt;stikonas&gt;</a></span><span class="message">it doubles build time</span></div><div class="line" id="004428"><span class="nick" style="color:#389600"><a href="#004428" label="[00:44:28]">&lt;fossy&gt;</a></span><span class="message">they only took like 15 mins when I compiled locally outside of live bootstrap</span></div><div class="line" id="004536"><span class="nick" style="color:#8dd3c7"><a href="#004536" label="[00:45:36]">&lt;stikonas&gt;</a></span><span class="message">well, maybe -j$(nproc) outside live-bootstrap</span></div><div class="line" id="004550"><span class="nick" style="color:#8dd3c7"><a href="#004550" label="[00:45:50]">&lt;stikonas&gt;</a></span><span class="message">potentially we should start parallelizing build...</span></div><div class="line" id="005812"><span class="nick" style="color:#8dd3c7"><a href="#005812" label="[00:58:12]">&lt;stikonas&gt;</a></span><span class="message">fossy: btw, this is the error from libstdc++ <a rel="nofollow" href="https://paste.debian.net/1203412/">https://paste.debian.net/1203412/</a> </span></div><div class="line" id="021250"><span class="nick" style="color:#389600"><a href="#021250" label="[02:12:50]">&lt;fossy&gt;</a></span><span class="message">how odd</span></div><div class="line" id="021254"><span class="nick" style="color:#389600"><a href="#021254" label="[02:12:54]">&lt;fossy&gt;</a></span><span class="message">I cannot make sense of that</span></div><div class="line" id="032529"><span class="nick" style="color:#6b8072"><a href="#032529" label="[03:25:29]">&lt;oriansj&gt;</a></span><span class="message">well it looks like /after/gcc-4.7.4/build/gcc-4.7.4/build/libstdc++v3/include/bits/os_defines.h on line 45 was mangled by libtool</span></div><div class="line" id="035259"><span class="nick" style="color:#80b1d3"><a href="#035259" label="[03:52:59]">&lt;Hagfish&gt;</a></span><span class="message">libtroll</span></div><div class="line" id="071117"><span class="nick">***</span><span class="message notice">cadmium.libera.chat sets mode: +o ChanServ</span></div><div class="line" id="204026"><span class="nick">***</span><span class="message notice">cadmium.libera.chat sets mode: +ooo ChanServ oriansj janneke</span></div><div class="line" id="232227"><span class="nick" style="color:#8dd3c7"><a href="#232227" label="[23:22:27]">&lt;stikonas&gt;</a></span><span class="message">fossy: would you mind if I only changed tripplet from 4.7.4 onwards?</span></div><div class="line" id="232243"><span class="nick" style="color:#8dd3c7"><a href="#232243" label="[23:22:43]">&lt;stikonas&gt;</a></span><span class="message">and keep older ones i386-unknown-linux-gnu for now</span></div><div class="line" id="232259"><span class="nick" style="color:#8dd3c7"><a href="#232259" label="[23:22:59]">&lt;stikonas&gt;</a></span><span class="message">I mean from GCC 4.7.4</span></div><br /></div></body></html>

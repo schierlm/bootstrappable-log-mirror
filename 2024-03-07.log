@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-03-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="145030"><span class="nick" style="color:#389600"><a href="#145030" label="[14:50:30]">&lt;oriansj&gt;</a></span><span class="message">wow, I must say the temptation to do a full AST when creating a new language bootstrap is surprisingly strong.</span></div><div class="line" id="145555"><span class="nick" style="color:#8dd3c7"><a href="#145555" label="[14:55:55]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">oriansj: What programming language are you bootstrapping?</span></div><div class="line" id="145720"><span class="nick" style="color:#389600"><a href="#145720" label="[14:57:20]">&lt;oriansj&gt;</a></span><span class="message">AwesomeAdam54321: well I am attempting to do a typed s-expression language with features equal to M2-Planet in M0 assembly.</span></div><div class="line" id="151815"><span class="nick" style="color:#389600"><a href="#151815" label="[15:18:15]">&lt;oriansj&gt;</a></span><span class="message">and then I'll have the fun of redoing mescc-tools and mes.c in that s-expression language. Which will definitely provide another bootstrap path, which some people might prefer over our currently C heavy one.</span></div><div class="line" id="152019"><span class="nick" style="color:#389600"><a href="#152019" label="[15:20:19]">&lt;oriansj&gt;</a></span><span class="message">and I figure it'll be good fun to do another compiler for a different language in assembly.</span></div><div class="line" id="152936"><span class="nick" style="color:#389600"><a href="#152936" label="[15:29:36]">&lt;oriansj&gt;</a></span><span class="message">although it appears doing s-expressions doesn't save much complexity relative to C tokenization.</span></div><div class="line" id="155531"><span class="nick" style="color:#389600"><a href="#155531" label="[15:55:31]">&lt;oriansj&gt;</a></span><span class="message">figure do a proper 2 stack language (arguments and return stacks) and am still pondering if supporting variable return in the registers in worth the trouble.</span></div><div class="line" id="160016"><span class="nick" style="color:#389600"><a href="#160016" label="[16:00:16]">&lt;oriansj&gt;</a></span><span class="message">it isn't that hard to add in the assembly but it is hard to make a consistent syntax for the language itself.</span></div><div class="line" id="165230"><span class="nick" style="color:#389600"><a href="#165230" label="[16:52:30]">&lt;oriansj&gt;</a></span><span class="message">but if one wants to deal with the upwards funarg problem in a new language seems like byting off too much.</span></div><div class="line" id="170047"><span class="nick" style="color:#389600"><a href="#170047" label="[17:00:47]">&lt;oriansj&gt;</a></span><span class="message">but I figure it'll be good and weird with effectively zero builtin types or functions and only a half-dozen keywords</span></div><div class="line" id="174150"><span class="nick" style="color:#389600"><a href="#174150" label="[17:41:50]">&lt;oriansj&gt;</a></span><span class="message">with pattern matching for functions so that one can do (DEFINE foo (LAMBDA :UINT_32 (a :UINT_32) ...) and (DEFINE foo (LAMBDA :UINT_8 (a :UINT_8) ...) and it will just work</span></div><div class="line" id="204811"><span class="nick" style="color:#389600"><a href="#204811" label="[20:48:11]">&lt;oriansj&gt;</a></span><span class="message">well; no one ever said it was easy to create a language and by god; the temptation to tweak forever is hard to escape</span></div><div class="line" id="205314"><span class="nick" style="color:#389600"><a href="#205314" label="[20:53:14]">&lt;oriansj&gt;</a></span><span class="message">thank god emacs is really good at refactoring a bunch of code in arbitrary languages one creates...</span></div><br /></div></body></html>

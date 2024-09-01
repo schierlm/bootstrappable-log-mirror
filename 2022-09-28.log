@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-09-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010316"><span class="nick" style="color:#8dd3c7"><a href="#010316" label="[01:03:16]">&lt;stikonas&gt;</a></span><span class="message">fossy, mihi: MAN_PAGE_DATE somehow is not working in live-bootstrap, though I'm completely lost why is that</span></div><div class="line" id="010341"><span class="nick" style="color:#8dd3c7"><a href="#010341" label="[01:03:41]">&lt;stikonas&gt;</a></span><span class="message">it does seems to work if I run make command manually with MAN_PAGE_DATE set</span></div><div class="line" id="010404"><span class="nick" style="color:#8dd3c7"><a href="#010404" label="[01:04:04]">&lt;stikonas&gt;</a></span><span class="message">so maybe some strange interaction with helpers.sh?</span></div><div class="line" id="012523"><span class="nick" style="color:#8dd3c7"><a href="#012523" label="[01:25:23]">&lt;stikonas&gt;</a></span><span class="message">argh, figured it out... manpages were recreated during make install phase when I did not have MAN_PAGE_DATE set</span></div><div class="line" id="165310"><span class="nick" style="color:#2e2a4a"><a href="#165310" label="[16:53:10]">&lt;pabs3&gt;</a></span><span class="message"> <a rel="nofollow" href="https://niconiconi.neocities.org/posts/ken-thompson-really-did-launch-his-trusting-trust-trojan-attack-in-real-life/">https://niconiconi.neocities.org/posts/ken-thompson-really-did-launch-his-trusting-trust-trojan-attack-in-real-life/</a>  <a rel="nofollow" href="https://news.ycombinator.com/item?id=33008519">https://news.ycombinator.com/item?id=33008519</a> </span></div><div class="line" id="171430"><span class="nick" style="color:#6b8072"><a href="#171430" label="[17:14:30]">&lt;muurkha&gt;</a></span><span class="message">thanks!  I had misremembered some aspects</span></div><div class="line" id="231025"><span class="nick" style="color:#80b1d3"><a href="#231025" label="[23:10:25]">&lt;lanodan&gt;</a></span><span class="message">Looked a bit among distros and ports, is Guix the only one that actually bootstraps rust?</span></div><div class="line" id="231057"><span class="nick" style="color:#6d2462"><a href="#231057" label="[23:10:57]">&lt;sam_&gt;</a></span><span class="message">(I wish we as in Gentoo did it, but no time yet. :()</span></div><div class="line" id="231110"><span class="nick" style="color:#6d2462"><a href="#231110" label="[23:11:10]">&lt;sam_&gt;</a></span><span class="message">(same for openjdk, although stikonas has an overlay for that)</span></div><div class="line" id="231132"><span class="nick" style="color:#80b1d3"><a href="#231132" label="[23:11:32]">&lt;lanodan&gt;</a></span><span class="message">Well I'm trying to bootstrap it on gentoo and it's pain</span></div><div class="line" id="231134"><span class="nick" style="color:#8dd3c7"><a href="#231134" label="[23:11:34]">&lt;stikonas&gt;</a></span><span class="message">well, my overlay has mrustc bootstrap too</span></div><div class="line" id="231147"><span class="nick" style="color:#8dd3c7"><a href="#231147" label="[23:11:47]">&lt;stikonas&gt;</a></span><span class="message">though it might be currently a bit broken due to gcc bug</span></div><div class="line" id="231204"><span class="nick" style="color:#8dd3c7"><a href="#231204" label="[23:12:04]">&lt;stikonas&gt;</a></span><span class="message">(probably fixed in 12.2.0 though)</span></div><div class="line" id="232602"><span class="nick" style="color:#8dd3c7"><a href="#232602" label="[23:26:02]">&lt;stikonas&gt;</a></span><span class="message">lanodan: have you tried my overlay?</span></div><div class="line" id="232639"><span class="nick" style="color:#8dd3c7"><a href="#232639" label="[23:26:39]">&lt;stikonas&gt;</a></span><span class="message">also rust ships with some pre-built binaries</span></div><div class="line" id="232648"><span class="nick" style="color:#80b1d3"><a href="#232648" label="[23:26:48]">&lt;lanodan&gt;</a></span><span class="message">Yeah, I'm looking into it, updating the recipe to 1.54.0 (mrustc-0.10) so I end up compiling less versions</span></div><div class="line" id="232654"><span class="nick" style="color:#8dd3c7"><a href="#232654" label="[23:26:54]">&lt;stikonas&gt;</a></span><span class="message">that neither Guix builds, not I had time to remove</span></div><div class="line" id="232721"><span class="nick" style="color:#80b1d3"><a href="#232721" label="[23:27:21]">&lt;lanodan&gt;</a></span><span class="message">I have a tool to remove all binaries: <a rel="nofollow" href="https://hacktivis.me/projects/deblob">https://hacktivis.me/projects/deblob</a> </span></div><div class="line" id="232740"><span class="nick" style="color:#8dd3c7"><a href="#232740" label="[23:27:40]">&lt;stikonas&gt;</a></span><span class="message">lanodan: yeah, I tried that at some point earlier but hit  <a rel="nofollow" href="https://github.com/thepowersgang/mrustc/issues/266">https://github.com/thepowersgang/mrustc/issues/266</a> </span></div><div class="line" id="232859"><span class="nick" style="color:#6d2462"><a href="#232859" label="[23:28:59]">&lt;sam_&gt;</a></span><span class="message">my gut is that a better bet is to do a huge rustc chain</span></div><div class="line" id="232904"><span class="nick" style="color:#6d2462"><a href="#232904" label="[23:29:04]">&lt;sam_&gt;</a></span><span class="message">mrustc seems too new for now</span></div><div class="line" id="232905"><span class="nick" style="color:#6d2462"><a href="#232905" label="[23:29:05]">&lt;sam_&gt;</a></span><span class="message">idk</span></div><div class="line" id="232943"><span class="nick" style="color:#80b1d3"><a href="#232943" label="[23:29:43]">&lt;lanodan&gt;</a></span><span class="message">Well should take less time to try a new one than to compile 10+ versions ^^</span></div><div class="line" id="233005"><span class="nick" style="color:#6d2462"><a href="#233005" label="[23:30:05]">&lt;sam_&gt;</a></span><span class="message">yeah, fair point</span></div><div class="line" id="233024"><span class="nick" style="color:#8dd3c7"><a href="#233024" label="[23:30:24]">&lt;stikonas&gt;</a></span><span class="message">sam_: huge rustc chain?</span></div><div class="line" id="233035"><span class="nick" style="color:#8dd3c7"><a href="#233035" label="[23:30:35]">&lt;stikonas&gt;</a></span><span class="message">you mean from the very first versions not written in rust?</span></div><div class="line" id="233037"><span class="nick" style="color:#6d2462"><a href="#233037" label="[23:30:37]">&lt;sam_&gt;</a></span><span class="message">yes</span></div><div class="line" id="233039"><span class="nick" style="color:#8dd3c7"><a href="#233039" label="[23:30:39]">&lt;stikonas&gt;</a></span><span class="message">that chain is even worse</span></div><div class="line" id="233048"><span class="nick" style="color:#8dd3c7"><a href="#233048" label="[23:30:48]">&lt;stikonas&gt;</a></span><span class="message">you would have to bootstrap ocaml too</span></div><div class="line" id="233056"><span class="nick" style="color:#8dd3c7"><a href="#233056" label="[23:30:56]">&lt;stikonas&gt;</a></span><span class="message">which I think was done for one version (so might be doable)</span></div><div class="line" id="233113"><span class="nick" style="color:#8dd3c7"><a href="#233113" label="[23:31:13]">&lt;stikonas&gt;</a></span><span class="message">but it takes ages to run</span></div><div class="line" id="233114"><span class="nick" style="color:#6d2462"><a href="#233114" label="[23:31:14]">&lt;sam_&gt;</a></span><span class="message">oh, ocaml contains binaries?</span></div><div class="line" id="233117"><span class="nick" style="color:#6d2462"><a href="#233117" label="[23:31:17]">&lt;sam_&gt;</a></span><span class="message">i didn't think it did</span></div><div class="line" id="233130"><span class="nick" style="color:#8dd3c7"><a href="#233130" label="[23:31:30]">&lt;stikonas&gt;</a></span><span class="message">it might be byte code</span></div><div class="line" id="233135"><span class="nick" style="color:#8dd3c7"><a href="#233135" label="[23:31:35]">&lt;stikonas&gt;</a></span><span class="message">I don't remember exactly</span></div><div class="line" id="233149"><span class="nick" style="color:#6d2462"><a href="#233149" label="[23:31:49]">&lt;sam_&gt;</a></span><span class="message">understood anyway, I'll keep this possible issue in mind</span></div><div class="line" id="233150"><span class="nick" style="color:#8dd3c7"><a href="#233150" label="[23:31:50]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/Ekdohibs/camlboot">https://github.com/Ekdohibs/camlboot</a> </span></div><div class="line" id="233153"><span class="nick" style="color:#6d2462"><a href="#233153" label="[23:31:53]">&lt;sam_&gt;</a></span><span class="message">you know far better than I on this matter</span></div><div class="line" id="233215"><span class="nick" style="color:#8dd3c7"><a href="#233215" label="[23:32:15]">&lt;stikonas&gt;</a></span><span class="message">I haven't really looked much into ocaml</span></div><div class="line" id="233228"><span class="nick" style="color:#8dd3c7"><a href="#233228" label="[23:32:28]">&lt;stikonas&gt;</a></span><span class="message">also on Gentoo building old rustc versions is really painful</span></div><div class="line" id="233236"><span class="nick" style="color:#8dd3c7"><a href="#233236" label="[23:32:36]">&lt;stikonas&gt;</a></span><span class="message">as you don't have old dependencies anymore</span></div><div class="line" id="233250"><span class="nick" style="color:#8dd3c7"><a href="#233250" label="[23:32:50]">&lt;stikonas&gt;</a></span><span class="message">(e.g. old versions of openssl)</span></div><div class="line" id="233303"><span class="nick" style="color:#6d2462"><a href="#233303" label="[23:33:03]">&lt;sam_&gt;</a></span><span class="message">we could handle stuff like that if needed</span></div><div class="line" id="233325"><span class="nick" style="color:#6d2462"><a href="#233325" label="[23:33:25]">&lt;sam_&gt;</a></span><span class="message">although ideally would be able to slot openssl properly</span></div><div class="line" id="233325"><span class="nick" style="color:#8dd3c7"><a href="#233325" label="[23:33:25]">&lt;stikonas&gt;</a></span><span class="message">yeah, in principle this is solvable</span></div><div class="line" id="233339"><span class="nick" style="color:#8dd3c7"><a href="#233339" label="[23:33:39]">&lt;stikonas&gt;</a></span><span class="message">but right now downgrading openssl would break everything</span></div><div class="line" id="233349"><span class="nick" style="color:#6d2462"><a href="#233349" label="[23:33:49]">&lt;sam_&gt;</a></span><span class="message">(i guess we could really in theory slot it just enough to give a hint to rust, no need to make it workable with everything on system)</span></div><div class="line" id="233745"><span class="nick" style="color:#8dd3c7"><a href="#233745" label="[23:37:45]">&lt;stikonas&gt;</a></span><span class="message">oh, and prebuilt files in rustc can be removed with this snipped <a rel="nofollow" href="https://git.stikonas.eu/andrius/gentoo-bootstrap/issues/2">https://git.stikonas.eu/andrius/gentoo-bootstrap/issues/2</a> </span></div><div class="line" id="233750"><span class="nick" style="color:#8dd3c7"><a href="#233750" label="[23:37:50]">&lt;stikonas&gt;</a></span><span class="message">though I still need to test it</span></div><div class="line" id="233757"><span class="nick" style="color:#80b1d3"><a href="#233757" label="[23:37:57]">&lt;lanodan&gt;</a></span><span class="message">Would need to make an openssl-compat with the headers, AFAIK that's not in the current ones and might be a bit broken if it doesn't properly uses pkg-config</span></div><div class="line" id="233828"><span class="nick" style="color:#8dd3c7"><a href="#233828" label="[23:38:28]">&lt;stikonas&gt;</a></span><span class="message">and early versions of rust had to rebuild more frequently than once per release</span></div><div class="line" id="233839"><span class="nick" style="color:#8dd3c7"><a href="#233839" label="[23:38:39]">&lt;stikonas&gt;</a></span><span class="message">you coulnd't build rust n+1 with rust n in early stages</span></div><div class="line" id="233858"><span class="nick" style="color:#8dd3c7"><a href="#233858" label="[23:38:58]">&lt;stikonas&gt;</a></span><span class="message">lanodan: anyway, if you get 1.54 working, merge requests would be appreciated...</span></div><div class="line" id="234025"><span class="nick" style="color:#6d2462"><a href="#234025" label="[23:40:25]">&lt;sam_&gt;</a></span><span class="message">lanodan: we could make it work as long as we had some way for Rust to find the headers/libraries</span></div><div class="line" id="234025"><span class="nick" style="color:#6d2462"><a href="#234025" label="[23:40:25]">&lt;sam_&gt;</a></span><span class="message">lanodan: the nice thing is that we don't have to make sure everything works</span></div><div class="line" id="234026"><span class="nick" style="color:#6d2462"><a href="#234026" label="[23:40:26]">&lt;sam_&gt;</a></span><span class="message">just Rust and maybe a handful of other things</span></div><div class="line" id="234030"><span class="nick" style="color:#6d2462"><a href="#234030" label="[23:40:30]">&lt;sam_&gt;</a></span><span class="message">but yeah, pkg-config would be the way ofc</span></div><div class="line" id="234034"><span class="nick" style="color:#8dd3c7"><a href="#234034" label="[23:40:34]">&lt;stikonas&gt;</a></span><span class="message">and possibly at some point gcc will also have rust frontend</span></div><div class="line" id="234042"><span class="nick" style="color:#8dd3c7"><a href="#234042" label="[23:40:42]">&lt;stikonas&gt;</a></span><span class="message">so that might also be useful for building rustc</span></div><div class="line" id="234052"><span class="nick" style="color:#6d2462"><a href="#234052" label="[23:40:52]">&lt;sam_&gt;</a></span><span class="message">I had a request from someone to poke at testing libgccjit with hppa but not had time yet</span></div><div class="line" id="234058"><span class="nick" style="color:#6d2462"><a href="#234058" label="[23:40:58]">&lt;sam_&gt;</a></span><span class="message">it is a winter job as the machine is hot</span></div><div class="line" id="234058"><span class="nick" style="color:#8dd3c7"><a href="#234058" label="[23:40:58]">&lt;stikonas&gt;</a></span><span class="message">though I'm not sure if they are targetting bootstrapping (it might still depend on cargo)</span></div><div class="line" id="234112"><span class="nick" style="color:#6d2462"><a href="#234112" label="[23:41:12]">&lt;sam_&gt;</a></span><span class="message">i believe they are</span></div><br /></div></body></html>

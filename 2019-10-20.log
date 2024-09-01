@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-10-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="031241"><span class="nick" style="color:#8dd3c7"><a href="#031241" label="[03:12:41]">&lt;OriansJ&gt;</a></span><span class="message">janneke: I am unfortunately breaking a few primitives in mes_posix.c to just get things into a happy state (But they should be an easy fix and are labeled as TODOs)</span></div><div class="line" id="034247"><span class="nick" style="color:#8dd3c7"><a href="#034247" label="[03:42:47]">&lt;OriansJ&gt;</a></span><span class="message">isatty isn't exactly a simple thing to express huh...</span></div><div class="line" id="045317"><span class="nick" style="color:#8dd3c7"><a href="#045317" label="[04:53:17]">&lt;OriansJ&gt;</a></span><span class="message">janneke: why init_time?</span></div><div class="line" id="051217"><span class="nick" style="color:#8dd3c7"><a href="#051217" label="[05:12:17]">&lt;OriansJ&gt;</a></span><span class="message">what possible purpose could we have for needing support for time in mes-m2?</span></div><div class="line" id="090358"><span class="nick" style="color:#2e2a4a"><a href="#090358" label="[09:03:58]">&lt;janneke&gt;</a></span><span class="message">OriansJ: yeah, isatty has been buggy until 0.19 even</span></div><div class="line" id="090527"><span class="nick" style="color:#2e2a4a"><a href="#090527" label="[09:05:27]">&lt;janneke&gt;</a></span><span class="message">m2-planet should be a able to copmile lib/posix/isatty.c?</span></div><div class="line" id="090734"><span class="nick" style="color:#2e2a4a"><a href="#090734" label="[09:07:34]">&lt;janneke&gt;</a></span><span class="message">but m2-planet may need to support the ioctl syscall for that</span></div><div class="line" id="090816"><span class="nick" style="color:#2e2a4a"><a href="#090816" label="[09:08:16]">&lt;janneke&gt;</a></span><span class="message">maybe we should postpone that and use --no-tty or something</span></div><div class="line" id="090902"><span class="nick" style="color:#2e2a4a"><a href="#090902" label="[09:09:02]">&lt;janneke&gt;</a></span><span class="message">OriansJ: the idea of supporting time was to measure performance</span></div><div class="line" id="090954"><span class="nick" style="color:#2e2a4a"><a href="#090954" label="[09:09:54]">&lt;janneke&gt;</a></span><span class="message">so i'm happy with a stub; m2-planet can use or add one to lib/stub/*.c</span></div><div class="line" id="094304"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="095059"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="130118"><span class="nick" style="color:#8dd3c7"><a href="#130118" label="[13:01:18]">&lt;OriansJ&gt;</a></span><span class="message">janneke: so no harm in stripping time out of mes-m2 completely?</span></div><div class="line" id="130129"><span class="nick" style="color:#8dd3c7"><a href="#130129" label="[13:01:29]">&lt;OriansJ&gt;</a></span><span class="message">also looking at slow_lisp, why do you need isatty?</span></div><div class="line" id="131127"><span class="nick" style="color:#2e2a4a"><a href="#131127" label="[13:11:27]">&lt;janneke&gt;</a></span><span class="message">OriansJ: we can always bring it back when the need arises</span></div><div class="line" id="131310"><span class="nick" style="color:#2e2a4a"><a href="#131310" label="[13:13:10]">&lt;janneke&gt;</a></span><span class="message">OriansJ: you can also drop isatty -- because i need it anyway for the mes c lib, simply decided to use it for mes to create guile-like behaviour</span></div><div class="line" id="131321"><span class="nick" style="color:#2e2a4a"><a href="#131321" label="[13:13:21]">&lt;janneke&gt;</a></span><span class="message">decide wether to block on stdin, or startup the repl</span></div><div class="line" id="132021"><span class="nick" style="color:#8dd3c7"><a href="#132021" label="[13:20:21]">&lt;OriansJ&gt;</a></span><span class="message">or we could simply just simplify read to simply deal only with a single S-expression and then use a loop to keep it feed</span></div><div class="line" id="132214"><span class="nick" style="color:#8dd3c7"><a href="#132214" label="[13:22:14]">&lt;OriansJ&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/Slow_Lisp/blob/master/lisp.c#L40">https://github.com/oriansj/Slow_Lisp/blob/master/lisp.c#L40</a> </span></div><div class="line" id="132503"><span class="nick" style="color:#8dd3c7"><a href="#132503" label="[13:25:03]">&lt;OriansJ&gt;</a></span><span class="message">that way there is no difference between REPL or reading a file</span></div><div class="line" id="134158"><span class="nick" style="color:#2e2a4a"><a href="#134158" label="[13:41:58]">&lt;janneke&gt;</a></span><span class="message">that's an interesting idea!</span></div><div class="line" id="134350"><span class="nick" style="color:#8dd3c7"><a href="#134350" label="[13:43:50]">&lt;OriansJ&gt;</a></span><span class="message">It also makes debugging the eval_apply alot easier too</span></div><div class="line" id="175856"><span class="nick" style="color:#6b8072"><a href="#175856" label="[17:58:56]">&lt;dddddd&gt;</a></span><span class="message">Hi, booters!</span></div><div class="line" id="180955"><span class="nick" style="color:#6b8072"><a href="#180955" label="[18:09:55]">&lt;dddddd&gt;</a></span><span class="message">OriansJ, wrt the M2-Planet Aarch64 port, you wondered... &quot;&quot;&quot;shouldn't the default a-&gt;depth be 32 not 16 as there should be 8 64bit pointers?&quot;&quot;&quot; Care to explain a bit, please? Do you mean for collect_local(), collect_arguments(), both? Which 8 pointers?</span></div><div class="line" id="182428"><span class="nick" style="color:#8dd3c7"><a href="#182428" label="[18:24:28]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: in collect_local() the a-&gt;depth is the number of pointers times the size of pointers. For example x86 in main has 5 pointers by default and each is 4bytes and thus -20; but armv7l has 4 pointers by default and each is 4bytes and thus 16; if one has 4 pointers of 8bytes each, the total value should be 32 not 16</span></div><div class="line" id="182612"><span class="nick" style="color:#8dd3c7"><a href="#182612" label="[18:26:12]">&lt;OriansJ&gt;</a></span><span class="message">for a call in M2-Planet on x86 there are 2 pointers and thus -8 but AMD64 also has 2 pointers but they are 64bits and thus -16</span></div><div class="line" id="182703"><span class="nick" style="color:#8dd3c7"><a href="#182703" label="[18:27:03]">&lt;OriansJ&gt;</a></span><span class="message">the relationship is relative to the direct which the stack grows; for example: if(X86 == Architecture) a-&gt;depth = function-&gt;locals-&gt;depth - register_size;</span></div><div class="line" id="182728"><span class="nick" style="color:#8dd3c7"><a href="#182728" label="[18:27:28]">&lt;OriansJ&gt;</a></span><span class="message">verse if(KNIGHT_NATIVE == Architecture) a-&gt;depth = function-&gt;locals-&gt;depth + register_size;</span></div><div class="line" id="182740"><span class="nick" style="color:#6b8072"><a href="#182740" label="[18:27:40]">&lt;dddddd&gt;</a></span><span class="message">I count in 128 bits pushes, converted to bytes, to get offset from the BP.</span></div><div class="line" id="182807"><span class="nick" style="color:#6b8072"><a href="#182807" label="[18:28:07]">&lt;dddddd&gt;</a></span><span class="message">yes, I'm still using 128b pushes</span></div><div class="line" id="182808"><span class="nick" style="color:#8dd3c7"><a href="#182808" label="[18:28:08]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: aarch64 should be 64bit pointers</span></div><div class="line" id="182906"><span class="nick" style="color:#6b8072"><a href="#182906" label="[18:29:06]">&lt;dddddd&gt;</a></span><span class="message">Anyway, from BP to the first local is only one push, so my default depth is 16.</span></div><div class="line" id="183013"><span class="nick" style="color:#8dd3c7"><a href="#183013" label="[18:30:13]">&lt;OriansJ&gt;</a></span><span class="message">as long as foo1(foo2(foo3(foo4,7), 6), 5) keeps working</span></div><div class="line" id="183014"><span class="nick" style="color:#6b8072"><a href="#183014" label="[18:30:14]">&lt;dddddd&gt;</a></span><span class="message">I don't see how 32 is the right default, even with 64b pushes</span></div><div class="line" id="183126"><span class="nick" style="color:#8dd3c7"><a href="#183126" label="[18:31:26]">&lt;OriansJ&gt;</a></span><span class="message">well there are the a-&gt;depth for main (which depends upon your libc) and the a-&gt;depth for the standard function call</span></div><div class="line" id="183127"><span class="nick" style="color:#80b1d3"><a href="#183127" label="[18:31:27]">*</a></span><span class="message">xentrac is the right default</span></div><div class="line" id="183150"><span class="nick" style="color:#8dd3c7"><a href="#183150" label="[18:31:50]">&lt;OriansJ&gt;</a></span><span class="message">so if you look at void function_call(char* s, int bool)</span></div><div class="line" id="183218"><span class="nick" style="color:#6b8072"><a href="#183218" label="[18:32:18]">&lt;dddddd&gt;</a></span><span class="message">Yes, main has a special case in the code.</span></div><div class="line" id="183238"><span class="nick" style="color:#8dd3c7"><a href="#183238" label="[18:32:38]">&lt;OriansJ&gt;</a></span><span class="message">You do 2 pushes, then collect arguments</span></div><div class="line" id="183252"><span class="nick" style="color:#8dd3c7"><a href="#183252" label="[18:32:52]">&lt;OriansJ&gt;</a></span><span class="message">then you do a call that pushes the return upon the stack</span></div><div class="line" id="183302"><span class="nick" style="color:#8dd3c7"><a href="#183302" label="[18:33:02]">&lt;OriansJ&gt;</a></span><span class="message">then you have the locals</span></div><div class="line" id="183325"><span class="nick" style="color:#6b8072"><a href="#183325" label="[18:33:25]">&lt;dddddd&gt;</a></span><span class="message">... but in the special case I'm not defaulting to 16 (the situation that triggered the question)</span></div><div class="line" id="183418"><span class="nick" style="color:#8dd3c7"><a href="#183418" label="[18:34:18]">&lt;OriansJ&gt;</a></span><span class="message">So the first address one could put a local is the 4 push location</span></div><div class="line" id="183550"><span class="nick" style="color:#6b8072"><a href="#183550" label="[18:35:50]">&lt;dddddd&gt;</a></span><span class="message">+               else if(AARCH64 == Architecture) a-&gt;depth = /* argc, argv, envp */ (16*3) + /* the local */ 16;</span></div><div class="line" id="183626"><span class="nick" style="color:#8dd3c7"><a href="#183626" label="[18:36:26]">&lt;OriansJ&gt;</a></span><span class="message">argc, argv, envp, return to _start, then locals</span></div><div class="line" id="183650"><span class="nick" style="color:#6b8072"><a href="#183650" label="[18:36:50]">&lt;dddddd&gt;</a></span><span class="message">hmm, maybe the code between the comments caused confusion?</span></div><div class="line" id="183810"><span class="nick" style="color:#8dd3c7"><a href="#183810" label="[18:38:10]">&lt;OriansJ&gt;</a></span><span class="message">if you look at test/common_amd64/libc-core.M1</span></div><div class="line" id="183911"><span class="nick" style="color:#8dd3c7"><a href="#183911" label="[18:39:11]">&lt;OriansJ&gt;</a></span><span class="message">you see saving of rsp, putting argv in the stack, putting envp on the stack and then calling FUNCTION_main</span></div><div class="line" id="183943"><span class="nick" style="color:#8dd3c7"><a href="#183943" label="[18:39:43]">&lt;OriansJ&gt;</a></span><span class="message">then dealling with a program returning from main to _start (aka calling sys_exit)</span></div><div class="line" id="184306"><span class="nick" style="color:#8dd3c7"><a href="#184306" label="[18:43:06]">&lt;OriansJ&gt;</a></span><span class="message">and armv7l doesn't push the return upon the stack but rather puts it into the Link Register; which later has to be preserved and restored</span></div><div class="line" id="184420"><span class="nick" style="color:#8dd3c7"><a href="#184420" label="[18:44:20]">&lt;OriansJ&gt;</a></span><span class="message">hence the emit_out(&quot;{LR} PUSH_ALWAYS\t# Protect the old link register\n&quot;); in function_call</span></div><div class="line" id="184441"><span class="nick" style="color:#8dd3c7"><a href="#184441" label="[18:44:41]">&lt;OriansJ&gt;</a></span><span class="message">and emit_out(&quot;{LR} POP_ALWAYS\t# Prevent overwrite\n&quot;); after the call returned</span></div><div class="line" id="184553"><span class="nick" style="color:#8dd3c7"><a href="#184553" label="[18:45:53]">&lt;OriansJ&gt;</a></span><span class="message">hence the 2 register displacement between arguments and the first local variable</span></div><div class="line" id="184634"><span class="nick" style="color:#8dd3c7"><a href="#184634" label="[18:46:34]">&lt;OriansJ&gt;</a></span><span class="message">despite the fact that the call doesn't do a push but we were manually prior to the call itself</span></div><div class="line" id="184636"><span class="nick" style="color:#6b8072"><a href="#184636" label="[18:46:36]">&lt;dddddd&gt;</a></span><span class="message">I avoid one of those by protecting LR earlier</span></div><div class="line" id="184701"><span class="nick" style="color:#6b8072"><a href="#184701" label="[18:47:01]">&lt;dddddd&gt;</a></span><span class="message">The call to _start is similar in my libc-core.M1</span></div><div class="line" id="184708"><span class="nick" style="color:#6b8072"><a href="#184708" label="[18:47:08]">&lt;dddddd&gt;</a></span><span class="message">... using BLR.</span></div><div class="line" id="184838"><span class="nick" style="color:#8dd3c7"><a href="#184838" label="[18:48:38]">&lt;OriansJ&gt;</a></span><span class="message">there is no avoiding it, the LR to return to _start needs to be saved prior to any calls to any other functions</span></div><div class="line" id="184959"><span class="nick" style="color:#6b8072"><a href="#184959" label="[18:49:59]">&lt;dddddd&gt;</a></span><span class="message">I mean, avoinding the extra offset, because I protect LR before get the BP-to-be (from SP)</span></div><div class="line" id="185045"><span class="nick" style="color:#6b8072"><a href="#185045" label="[18:50:45]">&lt;dddddd&gt;</a></span><span class="message">So LR is not stored in the stack between args and locals.</span></div><div class="line" id="185138"><span class="nick" style="color:#8dd3c7"><a href="#185138" label="[18:51:38]">&lt;OriansJ&gt;</a></span><span class="message">so it is just in the stack before args but because you didn't copy the new BP prior to setting it, it is &quot;hidden&quot; in terms of displacement</span></div><div class="line" id="185205"><span class="nick" style="color:#8dd3c7"><a href="#185205" label="[18:52:05]">&lt;OriansJ&gt;</a></span><span class="message">completely fair choice</span></div><div class="line" id="190944"><span class="nick" style="color:#6b8072"><a href="#190944" label="[19:09:44]">&lt;dddddd&gt;</a></span><span class="message">I'll document the behaviour/layout and review my libc-core.M1 for unwanted asymmetry. Thanks!</span></div><div class="line" id="191133"><span class="nick" style="color:#8dd3c7"><a href="#191133" label="[19:11:33]">&lt;OriansJ&gt;</a></span><span class="message">keep up the good work dddddd ^_^</span></div><br /></div></body></html>

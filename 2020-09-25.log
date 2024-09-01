@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-09-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013851"><span class="nick" style="color:#8dd3c7"><a href="#013851" label="[01:38:51]">&lt;OriansJ`&gt;</a></span><span class="message">xentrac: actually it would be easier if I didn't try to minimize the number of opcodes used</span></div><div class="line" id="013927"><span class="nick" style="color:#8dd3c7"><a href="#013927" label="[01:39:27]">&lt;OriansJ`&gt;</a></span><span class="message">fossy: nice</span></div><div class="line" id="014650"><span class="nick" style="color:#2e2a4a"><a href="#014650" label="[01:46:50]">&lt;xentrac&gt;</a></span><span class="message">really?  I always have the problem that my immediates bloat from 4 bytes to 8 bytes, although I admit I don't know enough about amd64 to know if that's just because I'm not using it properly</span></div><div class="line" id="014725"><span class="nick" style="color:#8dd3c7"><a href="#014725" label="[01:47:25]">&lt;OriansJ`&gt;</a></span><span class="message">I am starting to believe the quality of an instruction set is relative to the number of assemblers written in assembly for it. MIPS -&gt; 1, 6502 -&gt; 4 (possibly more) 680x0 -&gt; 2, x86 -&gt; 5 (possibly more), arm -&gt; 0 and powerpc -&gt; 0</span></div><div class="line" id="014816"><span class="nick" style="color:#2e2a4a"><a href="#014816" label="[01:48:16]">&lt;xentrac&gt;</a></span><span class="message">sounds very plausible</span></div><div class="line" id="014847"><span class="nick" style="color:#8dd3c7"><a href="#014847" label="[01:48:47]">&lt;OriansJ`&gt;</a></span><span class="message">xentrac: well depending on the immediate, you could load 32bits and sign extend or zero extend</span></div><div class="line" id="014921"><span class="nick" style="color:#8dd3c7"><a href="#014921" label="[01:49:21]">&lt;OriansJ`&gt;</a></span><span class="message">or load it as an 8bit immediate if it'll fit</span></div><div class="line" id="015050"><span class="nick" style="color:#2e2a4a"><a href="#015050" label="[01:50:50]">&lt;xentrac&gt;</a></span><span class="message">it's mostly 64-bit immediate offsets for base-offset and base-index-offset addressing modes</span></div><div class="line" id="015109"><span class="nick" style="color:#2e2a4a"><a href="#015109" label="[01:51:09]">&lt;xentrac&gt;</a></span><span class="message">rather than actual immediate operands</span></div><div class="line" id="015124"><span class="nick" style="color:#8dd3c7"><a href="#015124" label="[01:51:24]">&lt;OriansJ`&gt;</a></span><span class="message">plus with 16 registers, you cam skip load/stores and drop the immdiates needed there</span></div><div class="line" id="015142"><span class="nick" style="color:#2e2a4a"><a href="#015142" label="[01:51:42]">&lt;xentrac&gt;</a></span><span class="message">but you could still compute the effective address explicitly, as you say</span></div><div class="line" id="015202"><span class="nick" style="color:#2e2a4a"><a href="#015202" label="[01:52:02]">&lt;xentrac&gt;</a></span><span class="message">yeah, although those other 8 registers aren't free in the instruction encoding either</span></div><div class="line" id="015231"><span class="nick" style="color:#8dd3c7"><a href="#015231" label="[01:52:31]">&lt;OriansJ`&gt;</a></span><span class="message">also 16bit immediate offsets cache better performance-wise</span></div><div class="line" id="015345"><span class="nick" style="color:#8dd3c7"><a href="#015345" label="[01:53:45]">&lt;OriansJ`&gt;</a></span><span class="message">L1 cache to be specific</span></div><div class="line" id="031251"><span class="nick" style="color:#8dd3c7"><a href="#031251" label="[03:12:51]">&lt;OriansJ`&gt;</a></span><span class="message">and I just accidentially deleted 30minutes of work. thank god for (setq backup-directory-alist `((&quot;.&quot; . &quot;~/.saves&quot;)))</span></div><div class="line" id="031319"><span class="nick" style="color:#8dd3c7"><a href="#031319" label="[03:13:19]">&lt;OriansJ`&gt;</a></span><span class="message">otherwise, it would have been alot more</span></div><div class="line" id="041048"><span class="nick" style="color:#8dd3c7"><a href="#041048" label="[04:10:48]">&lt;OriansJ`&gt;</a></span><span class="message">Soon kaem-minimal.hex0 will be done for AMD64 and then I'll get to work on kaem-minimal.M1 for armv7l</span></div><div class="line" id="041255"><span class="nick" style="color:#8dd3c7"><a href="#041255" label="[04:12:55]">&lt;OriansJ`&gt;</a></span><span class="message">and patches are up</span></div><div class="line" id="041519"><span class="nick" style="color:#8dd3c7"><a href="#041519" label="[04:15:19]">&lt;OriansJ`&gt;</a></span><span class="message">I should probably update the bootstrap-seeds to leverage the new kaem-minimal.hex0 for AMD64</span></div><div class="line" id="043212"><span class="nick">***</span><span class="message notice">clever_ is now known as clever</span></div><div class="line" id="050247"><span class="nick" style="color:#8dd3c7"><a href="#050247" label="[05:02:47]">&lt;OriansJ`&gt;</a></span><span class="message">ugh arm requires such ugly code to map to M0</span></div><div class="line" id="050423"><span class="nick" style="color:#8dd3c7"><a href="#050423" label="[05:04:23]">&lt;OriansJ`&gt;</a></span><span class="message">in a sane architecture, you'd do load R2 &amp;label or load R2 %label and be done but no... that would be too simple</span></div><div class="line" id="051108"><span class="nick" style="color:#8dd3c7"><a href="#051108" label="[05:11:08]">&lt;OriansJ`&gt;</a></span><span class="message">instead of PUSH R2, we get !4 R2 NOSHIFT POSTINC R13 ALWAYS MEMORY ; because arm doesn't actually have push or pop instructions but rather uses those words to mean load/store many with post action increment or decrements.</span></div><div class="line" id="051206"><span class="nick" style="color:#8dd3c7"><a href="#051206" label="[05:12:06]">&lt;OriansJ`&gt;</a></span><span class="message">oh and the documentation slows the bytes of the instruction in little endian order; aka ass f**king backwards</span></div><div class="line" id="051447"><span class="nick" style="color:#8dd3c7"><a href="#051447" label="[05:14:47]">&lt;OriansJ`&gt;</a></span><span class="message">and the reason for the instructions having to be word aligned is because isntead of just reading the first byte and knowing the size of the instruction, the decode logic has to read 4bytes and guess if the 2nd or 4th byte is the one that is executed next.</span></div><div class="line" id="052152"><span class="nick" style="color:#8dd3c7"><a href="#052152" label="[05:21:52]">&lt;OriansJ`&gt;</a></span><span class="message">oh and done bx to an address not 4 byte aligned. Because you are instantly in thumb2 mode and now no opcode means the same thing anymore and f**k mean if I accidentially do bxj instead of bx when working in hex. Because then now only Java ByteCode are valid instructions and you can't leave that mode without exiting to kernel (or getting kernel permissions and directly turn off the Java Bytecode mode)</span></div><div class="line" id="052212"><span class="nick" style="color:#8dd3c7"><a href="#052212" label="[05:22:12]">&lt;OriansJ`&gt;</a></span><span class="message">s/done/don't/</span></div><div class="line" id="052250"><span class="nick" style="color:#8dd3c7"><a href="#052250" label="[05:22:50]">&lt;OriansJ`&gt;</a></span><span class="message">s/mean/me and/</span></div><div class="line" id="055827"><span class="nick" style="color:#2e2a4a"><a href="#055827" label="[05:58:27]">&lt;xentrac&gt;</a></span><span class="message">heh</span></div><div class="line" id="163919"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="163921"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><br /></div></body></html>

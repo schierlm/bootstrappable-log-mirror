@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-02-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="085927"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="091106"><span class="nick" style="color:#8dd3c7"><a href="#091106" label="[09:11:06]">&lt;oriansj&gt;</a></span><span class="message">fossy: looks like sys_pipe is just the ticket you want; it would really help if you had a test (like how getcwd syscall returned something different than expected)</span></div><div class="line" id="091323"><span class="nick" style="color:#8dd3c7"><a href="#091323" label="[09:13:23]">&lt;oriansj&gt;</a></span><span class="message">markjenkinsznc: well the reason for the aproach I took with mes-m2 is the result of 9months of work; resulting in still a very fragile and hard to debug program. Unwinding mes.c's C macros was a major project for me and increased mes.c's size by a factor of 4.</span></div><div class="line" id="092238"><span class="nick" style="color:#8dd3c7"><a href="#092238" label="[09:22:38]">&lt;oriansj&gt;</a></span><span class="message">Lisps at their core are like a crystal; extremely useful and robust of aligned carefully or fragile as hell. Fixing a broken lisp where only 1 or 2 things is wrong is an easy task; fixing it when major fundamental pieces have to change: can't be done.</span></div><div class="line" id="092359"><span class="nick" style="color:#8dd3c7"><a href="#092359" label="[09:23:59]">&lt;oriansj&gt;</a></span><span class="message">see mes.c made such heavy use of C macros; that I literally had to take 2months of my life to get gcc to be able to build mes.c (a bad first sign)</span></div><div class="line" id="092659"><span class="nick" style="color:#8dd3c7"><a href="#092659" label="[09:26:59]">&lt;oriansj&gt;</a></span><span class="message">Second mes.c made very heavy uses of arrays that leveraged a C property that M2-Planet; clearing out all of the features that M2-Planet didn't support took 9months and the end result was a lisp that would segfault if you looked at it funny. (not my proudest moment)</span></div><div class="line" id="093519"><span class="nick" style="color:#8dd3c7"><a href="#093519" label="[09:35:19]">&lt;oriansj&gt;</a></span><span class="message">I realized: why am I trying to make a lisp like a lisp programmer in C? I previously wrote a lisp that contained everything in the original lisp paper (Slow_lisp which I wrote in assembly in stage2: lisp.s) and have been porting features from mes.c to mes-m2 (as fast as I can figure out proper tests). Now I am far closer to the goal of bootstrapping MesCC (literally just some missing functionality) from M2-Planet than I ever was.</span></div><div class="line" id="093637"><span class="nick" style="color:#8dd3c7"><a href="#093637" label="[09:36:37]">&lt;oriansj&gt;</a></span><span class="message">and a REMINDER: <a rel="nofollow" href="https://fosdem.org/2020/schedule/event/gnumes/">https://fosdem.org/2020/schedule/event/gnumes/</a> </span></div><div class="line" id="093959"><span class="nick" style="color:#8dd3c7"><a href="#093959" label="[09:39:59]">&lt;oriansj&gt;</a></span><span class="message">although I am interested what: <a rel="nofollow" href="https://fosdem.org/2020/schedule/event/forth_new_synthesis/">https://fosdem.org/2020/schedule/event/forth_new_synthesis/</a>  is going to include</span></div><div class="line" id="095929"><span class="nick" style="color:#2e2a4a"><a href="#095929" label="[09:59:29]">&lt;fossy&gt;</a></span><span class="message">on thats in like 2 hrs</span></div><div class="line" id="095934"><span class="nick" style="color:#2e2a4a"><a href="#095934" label="[09:59:34]">&lt;fossy&gt;</a></span><span class="message">oh*</span></div><div class="line" id="100225"><span class="nick" style="color:#8dd3c7"><a href="#100225" label="[10:02:25]">&lt;oriansj&gt;</a></span><span class="message">yep;</span></div><div class="line" id="100249"><span class="nick" style="color:#8dd3c7"><a href="#100249" label="[10:02:49]">&lt;oriansj&gt;</a></span><span class="message">I am up insanely early today (it is 4am here)</span></div><div class="line" id="100523"><span class="nick" style="color:#2e2a4a"><a href="#100523" label="[10:05:23]">&lt;fossy&gt;</a></span><span class="message">lol</span></div><div class="line" id="101103"><span class="nick" style="color:#8dd3c7"><a href="#101103" label="[10:11:03]">&lt;oriansj&gt;</a></span><span class="message">morning nonlinear</span></div><div class="line" id="101252"><span class="nick" style="color:#8dd3c7"><a href="#101252" label="[10:12:52]">&lt;oriansj&gt;</a></span><span class="message">morning nckx</span></div><div class="line" id="101930"><span class="nick" style="color:#2e2a4a"><a href="#101930" label="[10:19:30]">&lt;fossy&gt;</a></span><span class="message">hey nonlinear!</span></div><div class="line" id="102013"><span class="nick" style="color:#2e2a4a"><a href="#102013" label="[10:20:13]">&lt;fossy&gt;</a></span><span class="message">nice to see you've found here :)</span></div><div class="line" id="121058"><span class="nick" style="color:#8dd3c7"><a href="#121058" label="[12:10:58]">&lt;oriansj&gt;</a></span><span class="message">well janneke missed the stage0 hardware work entirely</span></div><div class="line" id="122218"><span class="nick" style="color:#6b8072"><a href="#122218" label="[12:22:18]">&lt;joostvb&gt;</a></span><span class="message">there's always room for improvement :)</span></div><div class="line" id="122328"><span class="nick" style="color:#8dd3c7"><a href="#122328" label="[12:23:28]">&lt;oriansj&gt;</a></span><span class="message">true</span></div><div class="line" id="123152"><span class="nick" style="color:#8dd3c7"><a href="#123152" label="[12:31:52]">&lt;oriansj&gt;</a></span><span class="message">I guess rushed was the pacing; probably because of the setup issues</span></div><div class="line" id="124024"><span class="nick" style="color:#80b1d3"><a href="#124024" label="[12:40:24]">&lt;Harzilein&gt;</a></span><span class="message">hi</span></div><div class="line" id="124136"><span class="nick" style="color:#80b1d3"><a href="#124136" label="[12:41:36]">&lt;Harzilein&gt;</a></span><span class="message">the website contains no mention of objc, is that the actual state of things, or is just nobody working on it _specifically_?</span></div><div class="line" id="124939"><span class="nick" style="color:#8dd3c7"><a href="#124939" label="[12:49:39]">&lt;oriansj&gt;</a></span><span class="message">Harzilein: well gcc-objc does cover it as far as I am aware</span></div><div class="line" id="125031"><span class="nick" style="color:#8dd3c7"><a href="#125031" label="[12:50:31]">&lt;oriansj&gt;</a></span><span class="message">and as long as gcc can be bootstrapped, it should be a non-issue</span></div><div class="line" id="140423"><span class="nick" style="color:#6d2462"><a href="#140423" label="[14:04:23]">&lt;CORDIC&gt;</a></span><span class="message">Good morning GNUMES ;) .</span></div><div class="line" id="141036"><span class="nick" style="color:#8dd3c7"><a href="#141036" label="[14:10:36]">&lt;oriansj&gt;</a></span><span class="message">hello CORDIC</span></div><div class="line" id="145021"><span class="nick" style="color:#8dd3c7"><a href="#145021" label="[14:50:21]">&lt;oriansj&gt;</a></span><span class="message">I am thinking of breaking the bootstrap seeds to its own repo broken up by triplet</span></div><div class="line" id="152435"><span class="nick" style="color:#8dd3c7"><a href="#152435" label="[15:24:35]">&lt;oriansj&gt;</a></span><span class="message">hmmm I have an idea to make cc_* easier to understand</span></div><div class="line" id="154015"><span class="nick" style="color:#8dd3c7"><a href="#154015" label="[15:40:15]">&lt;oriansj&gt;</a></span><span class="message">and cc_aarch64.s is done.</span></div><div class="line" id="154018"><span class="nick" style="color:#8dd3c7"><a href="#154018" label="[15:40:18]">&lt;oriansj&gt;</a></span><span class="message">patches are up</span></div><div class="line" id="154628"><span class="nick" style="color:#8dd3c7"><a href="#154628" label="[15:46:28]">&lt;oriansj&gt;</a></span><span class="message">I'll be pulling the binaries out of mescc-tools-seed shortly</span></div><div class="line" id="160833"><span class="nick" style="color:#8dd3c7"><a href="#160833" label="[16:08:33]">&lt;oriansj&gt;</a></span><span class="message">done; please make sure to clone: <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds">https://github.com/oriansj/bootstrap-seeds</a> </span></div><div class="line" id="160955"><span class="nick" style="color:#234e69"><a href="#160955" label="[16:09:55]">&lt;NieDzejkob&gt;</a></span><span class="message">requesting clone at the software heritage</span></div><div class="line" id="161827"><span class="nick" style="color:#8dd3c7"><a href="#161827" label="[16:18:27]">&lt;oriansj&gt;</a></span><span class="message">and I am preparing for a new release of mescc-tools-seed to incorporate AArch64 support</span></div><div class="line" id="162436"><span class="nick" style="color:#8dd3c7"><a href="#162436" label="[16:24:36]">&lt;oriansj&gt;</a></span><span class="message">it is 579lines of hex0 (corresponding to 1038bytes total); and 17,284bytes of binaries</span></div><div class="line" id="163326"><span class="nick" style="color:#8dd3c7"><a href="#163326" label="[16:33:26]">&lt;oriansj&gt;</a></span><span class="message">and I am removing the need for gcc to build hex.c to build the stage0 bootstrap binaries.</span></div><div class="line" id="165137"><span class="nick" style="color:#8dd3c7"><a href="#165137" label="[16:51:37]">&lt;oriansj&gt;</a></span><span class="message">and pulling the floppy images out of stage0 as they are each 1.44MB in size and are not going to be of any future value</span></div><div class="line" id="165211"><span class="nick" style="color:#8dd3c7"><a href="#165211" label="[16:52:11]">&lt;oriansj&gt;</a></span><span class="message">(I'll move the root one into bootstrap-seeds)</span></div><div class="line" id="175232"><span class="nick" style="color:#8dd3c7"><a href="#175232" label="[17:52:32]">&lt;oriansj&gt;</a></span><span class="message">markjenkinsznc: what do you think of the idea of ripping the vm and Knight.py/User_Interface.py out of stage0 and repurposing <a rel="nofollow" href="https://github.com/oriansj/knight-vm">https://github.com/oriansj/knight-vm</a>  to deal with the stage0 vm and the web-ide</span></div><div class="line" id="180900"><span class="nick" style="color:#6c3d55"><a href="#180900" label="[18:09:00]">&lt;nonlinear&gt;</a></span><span class="message">Hi orians, fossy, and all</span></div><div class="line" id="181101"><span class="nick" style="color:#8dd3c7"><a href="#181101" label="[18:11:01]">&lt;oriansj&gt;</a></span><span class="message">how goes nonlinear?</span></div><div class="line" id="194734"><span class="nick" style="color:#d9d9d9"><a href="#194734" label="[19:47:34]">&lt;janneke&gt;</a></span><span class="message">oriansj: sorry, i wanted to keep it very short and very simple</span></div><div class="line" id="194839"><span class="nick" style="color:#d9d9d9"><a href="#194839" label="[19:48:39]">&lt;janneke&gt;</a></span><span class="message">i didn't tell anything about all the work i did in guix, or all the work of porting mes c lib to the hurd</span></div><div class="line" id="195528"><span class="nick" style="color:#8dd3c7"><a href="#195528" label="[19:55:28]">&lt;oriansj&gt;</a></span><span class="message">janneke: now that would have been fun to see</span></div><div class="line" id="212144"><span class="nick" style="color:#d9d9d9"><a href="#212144" label="[21:21:44]">&lt;janneke&gt;</a></span><span class="message">oriansj: yeah, figured it would be better to leave out as much technical stuff as possbile</span></div><div class="line" id="212202"><span class="nick" style="color:#d9d9d9"><a href="#212202" label="[21:22:02]">&lt;janneke&gt;</a></span><span class="message">this might be going to be big -- as you have been saying all along ;-)</span></div><div class="line" id="212213"><span class="nick" style="color:#bc80bd"><a href="#212213" label="[21:22:13]">*</a></span><span class="message">janneke -&gt; zZzz</span></div><div class="line" id="213208"><span class="nick" style="color:#2e2a4a"><a href="#213208" label="[21:32:08]">&lt;fossy&gt;</a></span><span class="message">nigjt</span></div><div class="line" id="213210"><span class="nick" style="color:#2e2a4a"><a href="#213210" label="[21:32:10]">&lt;fossy&gt;</a></span><span class="message">night</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-01-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="015523"><span class="nick" style="color:#8dd3c7"><a href="#015523" label="[01:55:23]">&lt;oriansj&gt;</a></span><span class="message">Hagfish: well I would probably guess keyspace enthropy would be a reasonable approximation; however if the attacker has a reasonable guess about the contents of a message, all ciphers save for the one-time pad are vulnerable</span></div><div class="line" id="024226"><span class="nick" style="color:#8dd3c7"><a href="#024226" label="[02:42:26]">&lt;oriansj&gt;</a></span><span class="message">The half-finished M1 in scheme is up if anyone wants to run with it (as it is the last piece to finish if one wanted an entirely scheme bootstrap for guix)</span></div><div class="line" id="024531"><span class="nick" style="color:#8dd3c7"><a href="#024531" label="[02:45:31]">&lt;oriansj&gt;</a></span><span class="message">now it is harder than ever to segfault mes-m2 (I've started fuzzing)</span></div><div class="line" id="025022"><span class="nick" style="color:#8dd3c7"><a href="#025022" label="[02:50:22]">&lt;oriansj&gt;</a></span><span class="message">not that malicious inputs are a concern for mes-m2 but rather so that users never see hangs or segfaults</span></div><div class="line" id="025429"><span class="nick" style="color:#8dd3c7"><a href="#025429" label="[02:54:29]">&lt;oriansj&gt;</a></span><span class="message">are (and ...) expressions in scheme supposed to short circuit?</span></div><div class="line" id="025924"><span class="nick" style="color:#8dd3c7"><a href="#025924" label="[02:59:24]">&lt;oriansj&gt;</a></span><span class="message">because I am trying to understand why guile has no issue with EOF and string-index in slow-utils/M1.scm but mes-m2 instantly throws an error on it</span></div><div class="line" id="030106"><span class="nick" style="color:#8dd3c7"><a href="#030106" label="[03:01:06]">&lt;oriansj&gt;</a></span><span class="message">export MES_PREFIX=../mes-m2; ../mes-m2/bin/mes-m2 -e main -s M1.scm -f foo</span></div><div class="line" id="031615"><span class="nick" style="color:#2e2a4a"><a href="#031615" label="[03:16:15]">&lt;Hagfish&gt;</a></span><span class="message">fuzzing?  that's so cool</span></div><div class="line" id="031825"><span class="nick" style="color:#8dd3c7"><a href="#031825" label="[03:18:25]">&lt;oriansj&gt;</a></span><span class="message">Hagfish: essentially I found a half-dozen ways to sefault mes-m2 and fixed them all; the aim is by the weekend to get all ways a user can crash or hang mes-m2 fixed</span></div><div class="line" id="031914"><span class="nick" style="color:#8dd3c7"><a href="#031914" label="[03:19:14]">&lt;oriansj&gt;</a></span><span class="message">I can use MES_MAX_TOKEN and MES_MAX_STRING to really reduce the search space a good bit</span></div><div class="line" id="031948"><span class="nick" style="color:#2e2a4a"><a href="#031948" label="[03:19:48]">&lt;Hagfish&gt;</a></span><span class="message">yeah, smart</span></div><div class="line" id="032022"><span class="nick" style="color:#2e2a4a"><a href="#032022" label="[03:20:22]">&lt;Hagfish&gt;</a></span><span class="message">i'm wondering when/if the work you (and others) have been doing would count as evidence towards something like this:</span></div><div class="line" id="032024"><span class="nick" style="color:#2e2a4a"><a href="#032024" label="[03:20:24]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://awards.acm.org/acm-prize/nominations">https://awards.acm.org/acm-prize/nominations</a> </span></div><div class="line" id="032042"><span class="nick" style="color:#2e2a4a"><a href="#032042" label="[03:20:42]">&lt;Hagfish&gt;</a></span><span class="message">it looks like we missed the 2020 deadline, but there's always next year ;)</span></div><div class="line" id="032154"><span class="nick" style="color:#8dd3c7"><a href="#032154" label="[03:21:54]">&lt;oriansj&gt;</a></span><span class="message">well, yes actually Hagfish</span></div><div class="line" id="032336"><span class="nick" style="color:#2e2a4a"><a href="#032336" label="[03:23:36]">&lt;Hagfish&gt;</a></span><span class="message">i hope that at least some academic institutions pick up quickly on how fundamental your work is, and offer to co-author papers with you, or invite you to give talks, or maybe even write a syllabus around it</span></div><div class="line" id="032344"><span class="nick" style="color:#8dd3c7"><a href="#032344" label="[03:23:44]">&lt;oriansj&gt;</a></span><span class="message">we even would qualify for: <a rel="nofollow" href="https://amturing.acm.org/">https://amturing.acm.org/</a>  but it is unlikely for us to win</span></div><div class="line" id="032543"><span class="nick" style="color:#2e2a4a"><a href="#032543" label="[03:25:43]">&lt;Hagfish&gt;</a></span><span class="message">yeah, i think that's the other award i was thinking of</span></div><div class="line" id="032730"><span class="nick" style="color:#8dd3c7"><a href="#032730" label="[03:27:30]">&lt;oriansj&gt;</a></span><span class="message">Honestly, the results when we finally succeed are all I need.</span></div><div class="line" id="032952"><span class="nick" style="color:#8dd3c7"><a href="#032952" label="[03:29:52]">&lt;oriansj&gt;</a></span><span class="message">I've already picked up the distinction of being the second person to ever write a C compiler in assembly; which is also the first C compiler written in assembly that works on a POSIX (BDS-C only works on CPM)</span></div><div class="line" id="033215"><span class="nick" style="color:#8dd3c7"><a href="#033215" label="[03:32:15]">&lt;oriansj&gt;</a></span><span class="message">I'm also the only person to have written a C compiler which runs on bare metal</span></div><div class="line" id="033339"><span class="nick" style="color:#2e2a4a"><a href="#033339" label="[03:33:39]">&lt;Hagfish&gt;</a></span><span class="message">those are huge achievements, but each additional achievement in this space has a multiplicative effect, and the whole is then more than the product of its parts</span></div><div class="line" id="033544"><span class="nick" style="color:#8dd3c7"><a href="#033544" label="[03:35:44]">&lt;oriansj&gt;</a></span><span class="message">Hagfish: very true; when combined with janneke's work in MesCC and Gash, Matt's nyacc and the guix work. We will collectively change the world of trust in software forever</span></div><div class="line" id="033657"><span class="nick" style="color:#2e2a4a"><a href="#033657" label="[03:36:57]">&lt;Hagfish&gt;</a></span><span class="message">it's almost maddening that so many key pieces of technology have been left unwritten all this time, but on the other hand i suppose that the scale of the problem has been too daunting for others to attempt</span></div><div class="line" id="033733"><span class="nick" style="color:#8dd3c7"><a href="#033733" label="[03:37:33]">&lt;oriansj&gt;</a></span><span class="message">but janneke and I just said fuckit and we are nearly done</span></div><div class="line" id="033759"><span class="nick" style="color:#2e2a4a"><a href="#033759" label="[03:37:59]">&lt;Hagfish&gt;</a></span><span class="message">that's nothing as motivating as someone saying that something is impossible :)</span></div><div class="line" id="033827"><span class="nick" style="color:#2e2a4a"><a href="#033827" label="[03:38:27]">&lt;Hagfish&gt;</a></span><span class="message">*there's</span></div><div class="line" id="033854"><span class="nick" style="color:#8dd3c7"><a href="#033854" label="[03:38:54]">&lt;oriansj&gt;</a></span><span class="message">or finding someone else on the same path; that you can share the journey with</span></div><div class="line" id="033914"><span class="nick" style="color:#2e2a4a"><a href="#033914" label="[03:39:14]">&lt;Hagfish&gt;</a></span><span class="message">yeah, having this community grow has been really encouraging</span></div><div class="line" id="033922"><span class="nick" style="color:#2e2a4a"><a href="#033922" label="[03:39:22]">&lt;Hagfish&gt;</a></span><span class="message">i'm glad i got in as early as i did</span></div><div class="line" id="034028"><span class="nick" style="color:#8dd3c7"><a href="#034028" label="[03:40:28]">&lt;oriansj&gt;</a></span><span class="message">well some have come and left; we only hope those that stay find some joy in our creations</span></div><div class="line" id="034233"><span class="nick" style="color:#2e2a4a"><a href="#034233" label="[03:42:33]">&lt;Hagfish&gt;</a></span><span class="message">the freedom to leave is the ultimate test of how good the community (and exciting the goal) is</span></div><div class="line" id="034409"><span class="nick" style="color:#8dd3c7"><a href="#034409" label="[03:44:09]">&lt;oriansj&gt;</a></span><span class="message">exactly</span></div><div class="line" id="035800"><span class="nick" style="color:#6b8072"><a href="#035800" label="[03:58:00]">&lt;fossy&gt;</a></span><span class="message">and im sad i didnt find out earier</span></div><div class="line" id="035813"><span class="nick" style="color:#6b8072"><a href="#035813" label="[03:58:13]">&lt;fossy&gt;</a></span><span class="message">but at least I can still make contributions!!</span></div><div class="line" id="053316"><span class="nick">***</span><span class="message notice">CORDIC is now known as DKordic</span></div><div class="line" id="064444"><span class="nick" style="color:#80b1d3"><a href="#064444" label="[06:44:44]">&lt;janneke&gt;</a></span><span class="message">oriansj: hehe, that sums it up pretty well</span></div><div class="line" id="064503"><span class="nick" style="color:#80b1d3"><a href="#064503" label="[06:45:03]">&lt;janneke&gt;</a></span><span class="message">although now that we're nearly done, it all just starts...</span></div><div class="line" id="115315"><span class="nick" style="color:#8dd3c7"><a href="#115315" label="[11:53:15]">&lt;oriansj&gt;</a></span><span class="message">fossy: you are here now and that is all that matters</span></div><div class="line" id="115831"><span class="nick" style="color:#8dd3c7"><a href="#115831" label="[11:58:31]">&lt;oriansj&gt;</a></span><span class="message">janneke: the next cycle of the wheel of reincarnation; for we are but only nearing the end of the scheme only bootstrap of Guix. Then we have to complete mes-m2 and alot of work to finish the hex0-&gt;everything bootstrap; then we have the bootstrap a posix from nothing and then bootstrap hardware itself from nothing.</span></div><div class="line" id="120019"><span class="nick" style="color:#6d2462"><a href="#120019" label="[12:00:19]">&lt;dddddd&gt;</a></span><span class="message">Hi, booters</span></div><div class="line" id="120025"><span class="nick" style="color:#8dd3c7"><a href="#120025" label="[12:00:25]">&lt;oriansj&gt;</a></span><span class="message">It would be fun to see 500nm glass lithography used to implement a 486 and/or knight;</span></div><div class="line" id="120029"><span class="nick" style="color:#8dd3c7"><a href="#120029" label="[12:00:29]">&lt;oriansj&gt;</a></span><span class="message">morning dddddd</span></div><div class="line" id="120125"><span class="nick" style="color:#8dd3c7"><a href="#120125" label="[12:01:25]">&lt;oriansj&gt;</a></span><span class="message">although it would probably be easier to get a RISC-V chip on glass lithography</span></div><div class="line" id="172128"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="200811"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="221006"><span class="nick" style="color:#8dd3c7"><a href="#221006" label="[22:10:06]">&lt;oriansj&gt;</a></span><span class="message">well; that is officially the dumbest mistake I ever made in mes-m2</span></div><div class="line" id="221720"><span class="nick" style="color:#8dd3c7"><a href="#221720" label="[22:17:20]">&lt;oriansj&gt;</a></span><span class="message">I mistook i = i + i; for i = i + 1;</span></div><div class="line" id="221739"><span class="nick" style="color:#8dd3c7"><a href="#221739" label="[22:17:39]">&lt;oriansj&gt;</a></span><span class="message">perhaps I need a better emacs font or perhaps bigger characters</span></div><div class="line" id="223914"><span class="nick" style="color:#8dd3c7"><a href="#223914" label="[22:39:14]">&lt;oriansj&gt;</a></span><span class="message">hmmm, I feel that something is happening to passed file pointers in mes-m2</span></div><div class="line" id="230614"><span class="nick" style="color:#8dd3c7"><a href="#230614" label="[23:06:14]">&lt;oriansj&gt;</a></span><span class="message">hey dongcarl</span></div><div class="line" id="230655"><span class="nick" style="color:#8dd3c7"><a href="#230655" label="[23:06:55]">&lt;oriansj&gt;</a></span><span class="message">how goes the bitcoin guix build conversion?</span></div><br /></div></body></html>

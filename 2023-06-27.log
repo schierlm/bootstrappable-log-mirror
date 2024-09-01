@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-06-27.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003853"><span class="nick" style="color:#389600"><a href="#003853" label="[00:38:53]">&lt;oriansj&gt;</a></span><span class="message">pabs3: Microsoft's .net-core has binaries the last time I checked but I believe one can use Mono to bootstrap those binaries; so it is quite likely Mono will be needed for C# bootstrapping for the ongoing future</span></div><div class="line" id="022044"><span class="nick" style="color:#8dd3c7"><a href="#022044" label="[02:20:44]">&lt;pabs3&gt;</a></span><span class="message">I see, interesting</span></div><div class="line" id="102712"><span class="nick" style="color:#2e2a4a"><a href="#102712" label="[10:27:12]">&lt;fossy&gt;</a></span><span class="message">pabs3: it's mostly a manual review process. often generated code has a manual &quot;don't change&quot; header or something like that, so i usually look through &quot;grep generated&quot;. another sign is huge diffs for that file in git history (i usually only do this if it's reasonably easy to do). big files are also often pregenerated too</span></div><div class="line" id="102813"><span class="nick" style="color:#8dd3c7"><a href="#102813" label="[10:28:13]">&lt;pabs3&gt;</a></span><span class="message">good tips, thanks</span></div><div class="line" id="115117"><span class="nick" style="color:#6b8072"><a href="#115117" label="[11:51:17]">&lt;janneke&gt;</a></span><span class="message">oriansj, pabs3: mono was removed from Guix because it cannot be bootstrapped <a rel="nofollow" href="https://issues.guix.gnu.org/55026">https://issues.guix.gnu.org/55026</a> </span></div><div class="line" id="131531"><span class="nick" style="color:#389600"><a href="#131531" label="[13:15:31]">&lt;oriansj&gt;</a></span><span class="message">janneke: yeah, everyday C# is slipping farther and farther away from having a proper bootstrap. It seems like it needs a parent with a firm hand on it to keep it from running into traffic.</span></div><div class="line" id="134651"><span class="nick" style="color:#389600"><a href="#134651" label="[13:46:51]">&lt;oriansj&gt;</a></span><span class="message">muurkha: to your previous question about the inkplate: Chip is ESP32-D0WDQ6 (revision 1) with 4MB flash; so definitely 2 Xtensa 32bit cores</span></div><div class="line" id="134835"><span class="nick" style="color:#80b1d3"><a href="#134835" label="[13:48:35]">&lt;Christoph[m]&gt;</a></span><span class="message">What is the problem with generated files?</span></div><div class="line" id="135955"><span class="nick" style="color:#80b1d3"><a href="#135955" label="[13:59:55]">&lt;Christoph[m]&gt;</a></span><span class="message">There are languages with so much boilerplate that IDEs try to help generate that. Would that be admissible?</span></div><div class="line" id="140015"><span class="nick" style="color:#389600"><a href="#140015" label="[14:00:15]">&lt;oriansj&gt;</a></span><span class="message">Christoph[m]: well for 0) it is not source code</span></div><div class="line" id="140156"><span class="nick" style="color:#389600"><a href="#140156" label="[14:01:56]">&lt;oriansj&gt;</a></span><span class="message">boilerplate and libraries that you optionally include are still written by people and not generated blobs (sometimes megabytes in size that completely change on every release)</span></div><div class="line" id="143359"><span class="nick" style="color:#6d2462"><a href="#143359" label="[14:33:59]">&lt;stikonas[m]&gt;</a></span><span class="message">Though there are some cases where it's harder to tell</span></div><div class="line" id="143410"><span class="nick" style="color:#6d2462"><a href="#143410" label="[14:34:10]">&lt;stikonas[m]&gt;</a></span><span class="message">E.g. originally file was auto generated</span></div><div class="line" id="143428"><span class="nick" style="color:#6d2462"><a href="#143428" label="[14:34:28]">&lt;stikonas[m]&gt;</a></span><span class="message">Then cleaned up a bit and switched to being handwritten</span></div><div class="line" id="144108"><span class="nick" style="color:#234e69"><a href="#144108" label="[14:41:08]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">Can programs written in Squeak Smalltalk be bootstrapped? I'm not sure how they can actually be compiled into VM images from source</span></div><div class="line" id="144726"><span class="nick" style="color:#6d2462"><a href="#144726" label="[14:47:26]">&lt;stikonas[m]&gt;</a></span><span class="message">Everything can be bootstrapped</span></div><div class="line" id="144742"><span class="nick" style="color:#6d2462"><a href="#144742" label="[14:47:42]">&lt;stikonas[m]&gt;</a></span><span class="message">How else would we even have it then</span></div><div class="line" id="144753"><span class="nick" style="color:#6d2462"><a href="#144753" label="[14:47:53]">&lt;stikonas[m]&gt;</a></span><span class="message">Somebody must have done it at least once</span></div><div class="line" id="144806"><span class="nick" style="color:#234e69"><a href="#144806" label="[14:48:06]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">You're right</span></div><div class="line" id="144845"><span class="nick" style="color:#6d2462"><a href="#144845" label="[14:48:45]">&lt;stikonas[m]&gt;</a></span><span class="message">Though it might have been bootstrapped with non free software</span></div><div class="line" id="144940"><span class="nick" style="color:#6d2462"><a href="#144940" label="[14:49:40]">&lt;stikonas[m]&gt;</a></span><span class="message">Though I'm not familiar with squeel Smalltalk myself...</span></div><div class="line" id="160843"><span class="nick" style="color:#80b1d3"><a href="#160843" label="[16:08:43]">&lt;Christoph[m]&gt;</a></span><span class="message">I was not aware of the size of the problem! Megabytes of changing code in a repository, that's not the optimal use of git! And it's certainly not reviewable!</span></div><div class="line" id="194843"><span class="nick" style="color:#6d2462"><a href="#194843" label="[19:48:43]">&lt;stikonas[m]&gt;</a></span><span class="message">Christoph: not always in git</span></div><div class="line" id="194844"><span class="nick" style="color:#6d2462"><a href="#194844" label="[19:48:44]">&lt;stikonas[m]&gt;</a></span><span class="message">More often in tarballs</span></div><div class="line" id="195035"><span class="nick" style="color:#6d2462"><a href="#195035" label="[19:50:35]">&lt;stikonas[m]&gt;</a></span><span class="message">E.g. configure script</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-11-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="020619"><span class="nick" style="color:#8dd3c7"><a href="#020619" label="[02:06:19]">&lt;oriansj&gt;</a></span><span class="message">janneke: check out the latest commit on the slow_lisp branch</span></div><div class="line" id="045548"><span class="nick" style="color:#8dd3c7"><a href="#045548" label="[04:55:48]">&lt;oriansj&gt;</a></span><span class="message">janneke: how important is #; to MesCC?</span></div><div class="line" id="060255"><span class="nick" style="color:#2e2a4a"><a href="#060255" label="[06:02:55]">&lt;fosslinux&gt;</a></span><span class="message">speaking of void linux, this makes me very happy</span></div><div class="line" id="060257"><span class="nick" style="color:#2e2a4a"><a href="#060257" label="[06:02:57]">&lt;fosslinux&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/void-linux/void-packages/pull/16458">https://github.com/void-linux/void-packages/pull/16458</a> </span></div><div class="line" id="072911"><span class="nick" style="color:#6b8072"><a href="#072911" label="[07:29:11]">&lt;janneke&gt;</a></span><span class="message">fosslinux: &quot;Newly, it is bootstrapped with openjdk7-bootstrap, so it does not need to download binaries.&quot;</span></div><div class="line" id="072945"><span class="nick" style="color:#6b8072"><a href="#072945" label="[07:29:45]">&lt;janneke&gt;</a></span><span class="message">do you know how openjdk7-bootstrap is created?</span></div><div class="line" id="073111"><span class="nick" style="color:#6b8072"><a href="#073111" label="[07:31:11]">&lt;janneke&gt;</a></span><span class="message">oriansj: that's just wicked -- i like it!</span></div><div class="line" id="073556"><span class="nick" style="color:#6b8072"><a href="#073556" label="[07:35:56]">&lt;janneke&gt;</a></span><span class="message">oriansj: #; is very convenient.  you won't see it much in guile because paredit does not support it?  matt wette is a fan of it and uses it in nyacc.  why not support all comment styles?  otoh, like with most things: any feature can be dropped and if it's really important, it will come back ;)</span></div><div class="line" id="073646"><span class="nick" style="color:#6b8072"><a href="#073646" label="[07:36:46]">&lt;janneke&gt;</a></span><span class="message">ah, and you moved quasiquote to C; great</span></div><div class="line" id="085123"><span class="nick" style="color:#2e2a4a"><a href="#085123" label="[08:51:23]">&lt;fosslinux&gt;</a></span><span class="message">janneke: yes; using GCC 6's GCJ</span></div><div class="line" id="085127"><span class="nick" style="color:#2e2a4a"><a href="#085127" label="[08:51:27]">&lt;fosslinux&gt;</a></span><span class="message">&gt; This is a new toolchain used to bootstrap OpenJDK 8. It is itself bootstrapped using gcj-6 (#16415), which lets us compile the whole chain from source without fetching foreign binaries.</span></div><div class="line" id="085133"><span class="nick" style="color:#2e2a4a"><a href="#085133" label="[08:51:33]">&lt;fosslinux&gt;</a></span><span class="message"> (<a rel="nofollow" href="https://github.com/void-linux/void-packages/pull/16429">https://github.com/void-linux/void-packages/pull/16429</a>) </span></div><div class="line" id="085239"><span class="nick" style="color:#2e2a4a"><a href="#085239" label="[08:52:39]">&lt;fosslinux&gt;</a></span><span class="message">i'm wondering; is there a reason guix dosent do it this way? it seems to be a far more straightforward path to use gcj-6 from gcc</span></div><div class="line" id="085244"><span class="nick" style="color:#2e2a4a"><a href="#085244" label="[08:52:44]">&lt;fosslinux&gt;</a></span><span class="message">from gcc 6*</span></div><div class="line" id="120148"><span class="nick" style="color:#8dd3c7"><a href="#120148" label="[12:01:48]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: that is always an option; if the process can be vetted to not include binaries</span></div><div class="line" id="120705"><span class="nick" style="color:#8dd3c7"><a href="#120705" label="[12:07:05]">&lt;oriansj&gt;</a></span><span class="message">janneke: I'll be adding (define (newline) (display #\newline)) to test101 and soon it'll run directly on mes-m2</span></div><div class="line" id="120842"><span class="nick" style="color:#80b1d3"><a href="#120842" label="[12:08:42]">&lt;stikonas&gt;</a></span><span class="message">fosslinux: doesn't void linux suffer from the same problem as gentoo ecj binary is still there?</span></div><div class="line" id="120901"><span class="nick" style="color:#80b1d3"><a href="#120901" label="[12:09:01]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/void-linux/void-packages/pull/16415/commits/6a97613c758cf87d5f6c19d9f2777547f92823fd#diff-10efb14866d5fb95ccff31c116979ba8R20">https://github.com/void-linux/void-packages/pull/16415/commits/6a97613c758cf87d5f6c19d9f2777547f92823fd#diff-10efb14866d5fb95ccff31c116979ba8R20</a> </span></div><div class="line" id="121117"><span class="nick" style="color:#80b1d3"><a href="#121117" label="[12:11:17]">&lt;stikonas&gt;</a></span><span class="message">guix has quite a bit longer bootstrap path to solve that</span></div><div class="line" id="121154"><span class="nick" style="color:#80b1d3"><a href="#121154" label="[12:11:54]">&lt;stikonas&gt;</a></span><span class="message">so I don't think you can easily shorten openjdk bootstrap path...</span></div><div class="line" id="121317"><span class="nick" style="color:#8dd3c7"><a href="#121317" label="[12:13:17]">&lt;oriansj&gt;</a></span><span class="message">thank you stikonas</span></div><div class="line" id="121528"><span class="nick" style="color:#80b1d3"><a href="#121528" label="[12:15:28]">&lt;stikonas&gt;</a></span><span class="message">ghc is still using binaries on guix, am I right?</span></div><div class="line" id="122226"><span class="nick" style="color:#8dd3c7"><a href="#122226" label="[12:22:26]">&lt;oriansj&gt;</a></span><span class="message">as far as I am aware</span></div><div class="line" id="122302"><span class="nick" style="color:#8dd3c7"><a href="#122302" label="[12:23:02]">&lt;oriansj&gt;</a></span><span class="message">I honestly don't know anyone working on it right now</span></div><div class="line" id="140407"><span class="nick" style="color:#6d2462"><a href="#140407" label="[14:04:07]">&lt;civodul&gt;</a></span><span class="message">this is the last attempt by rekado_: <a rel="nofollow" href="https://elephly.net/posts/2017-01-09-bootstrapping-haskell-part-1.html">https://elephly.net/posts/2017-01-09-bootstrapping-haskell-part-1.html</a> </span></div><div class="line" id="183306"><span class="nick" style="color:#8dd3c7"><a href="#183306" label="[18:33:06]">&lt;oriansj&gt;</a></span><span class="message">janneke: would the minor restriction of #; that there is no space after the ; before the thing being commented out a reasonable compromise?</span></div><div class="line" id="183432"><span class="nick" style="color:#8dd3c7"><a href="#183432" label="[18:34:32]">&lt;oriansj&gt;</a></span><span class="message">Then I can write a simpler solution to the #; problem in the reader (basically as far as the tokenizer is concerned, that block never happened</span></div><div class="line" id="183500"><span class="nick" style="color:#8dd3c7"><a href="#183500" label="[18:35:00]">&lt;oriansj&gt;</a></span><span class="message">much like the #|, #! and ; comments are dealt with now</span></div><div class="line" id="183626"><span class="nick" style="color:#8dd3c7"><a href="#183626" label="[18:36:26]">&lt;oriansj&gt;</a></span><span class="message">aka #;foo and #;( foo .....)) is fine but #; foo is not and #; (foo ..) is not</span></div><div class="line" id="184324"><span class="nick" style="color:#8dd3c7"><a href="#184324" label="[18:43:24]">&lt;oriansj&gt;</a></span><span class="message">days like this make me wish C had a proper loop command so I don't have to do while(TRUE)</span></div><div class="line" id="184820"><span class="nick" style="color:#6b8072"><a href="#184820" label="[18:48:20]">&lt;janneke&gt;</a></span><span class="message">oriansj: i think the compromise is reasonable...i do wonder why it's hard to read one sexp and then drop it</span></div><div class="line" id="184828"><span class="nick" style="color:#6b8072"><a href="#184828" label="[18:48:28]">&lt;janneke&gt;</a></span><span class="message">i must be missing something</span></div><div class="line" id="190231"><span class="nick" style="color:#8dd3c7"><a href="#190231" label="[19:02:31]">&lt;oriansj&gt;</a></span><span class="message">janneke: because the read and tokenization are entirely seperate</span></div><div class="line" id="190342"><span class="nick" style="color:#8dd3c7"><a href="#190342" label="[19:03:42]">&lt;oriansj&gt;</a></span><span class="message">read just knowns chars and returns a single string; tokenization only gets a single string and converts it into an S-expression</span></div><div class="line" id="190425"><span class="nick" style="color:#8dd3c7"><a href="#190425" label="[19:04:25]">&lt;oriansj&gt;</a></span><span class="message">thus no ungetc, no need for peek</span></div><div class="line" id="190725"><span class="nick" style="color:#6b8072"><a href="#190725" label="[19:07:25]">&lt;janneke&gt;</a></span><span class="message">ah, right</span></div><div class="line" id="192029"><span class="nick" style="color:#8dd3c7"><a href="#192029" label="[19:20:29]">&lt;oriansj&gt;</a></span><span class="message">ironically the dumb_lisp approach is only 2,184 lines of C code (thus far); while mes.c was 5,407 lines of C code; so by shoving more into C our lisp is smaller?</span></div><div class="line" id="192438"><span class="nick" style="color:#6b8072"><a href="#192438" label="[19:24:38]">&lt;janneke&gt;</a></span><span class="message">that's impossible! ;)</span></div><div class="line" id="194036"><span class="nick" style="color:#8dd3c7"><a href="#194036" label="[19:40:36]">&lt;oriansj&gt;</a></span><span class="message">but I must say janneke your error handling is far nicer than dumb_lisp's</span></div><div class="line" id="194928"><span class="nick" style="color:#6b8072"><a href="#194928" label="[19:49:28]">&lt;janneke&gt;</a></span><span class="message">oriansj: i resurrected stack traces while i was getting stuck trying to debug the guile module booting; that's really awesome :-)</span></div><div class="line" id="195000"><span class="nick" style="color:#6b8072"><a href="#195000" label="[19:50:00]">&lt;janneke&gt;</a></span><span class="message">made me almost want to add real source-properties with source locations...</span></div><div class="line" id="195224"><span class="nick" style="color:#8dd3c7"><a href="#195224" label="[19:52:24]">&lt;oriansj&gt;</a></span><span class="message">actually that is something rather simple to add to the dumb_lisp reader</span></div><div class="line" id="195249"><span class="nick" style="color:#8dd3c7"><a href="#195249" label="[19:52:49]">&lt;oriansj&gt;</a></span><span class="message">(literally just add a line counter and a hook in tokenize)</span></div><div class="line" id="200558"><span class="nick">***</span><span class="message notice">zigzag is now known as zig</span></div><div class="line" id="201908"><span class="nick" style="color:#8dd3c7"><a href="#201908" label="[20:19:08]">&lt;oriansj&gt;</a></span><span class="message">hmm Ironically test101 gives alternate results</span></div><div class="line" id="202421"><span class="nick" style="color:#2e2a4a"><a href="#202421" label="[20:24:21]">&lt;fosslinux&gt;</a></span><span class="message">oriansj: oh, I see now the ecj jar included on the gcc6 package</span></div><div class="line" id="202426"><span class="nick" style="color:#2e2a4a"><a href="#202426" label="[20:24:26]">&lt;fosslinux&gt;</a></span><span class="message">so it's not funny non binary</span></div><div class="line" id="202434"><span class="nick" style="color:#2e2a4a"><a href="#202434" label="[20:24:34]">&lt;fosslinux&gt;</a></span><span class="message">fully*</span></div><div class="line" id="203811"><span class="nick" style="color:#8dd3c7"><a href="#203811" label="[20:38:11]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: we love great news, simpler solutions and the rest but we also have to be careful to make sure no binaries slip in &quot;accidentially&quot;</span></div><div class="line" id="203842"><span class="nick" style="color:#2e2a4a"><a href="#203842" label="[20:38:42]">&lt;fosslinux&gt;</a></span><span class="message">yeah of course</span></div><div class="line" id="203929"><span class="nick" style="color:#2e2a4a"><a href="#203929" label="[20:39:29]">&lt;fosslinux&gt;</a></span><span class="message">i thought later, well guix has been doing this for a long time... im pretty sure that there's going to be a good reason that they haven't done it this way</span></div><div class="line" id="204141"><span class="nick" style="color:#8dd3c7"><a href="#204141" label="[20:41:41]">&lt;oriansj&gt;</a></span><span class="message">well sometimes it is because we are so buried in our work we miss beautiful things done around us (like 2 different bash alternatives in scheme)</span></div><div class="line" id="204402"><span class="nick" style="color:#8dd3c7"><a href="#204402" label="[20:44:02]">&lt;oriansj&gt;</a></span><span class="message">janneke: checkout the latest slow_lisp commit (test101 is working again, no extras required)</span></div><div class="line" id="205031"><span class="nick" style="color:#2e2a4a"><a href="#205031" label="[20:50:31]">&lt;fosslinux&gt;</a></span><span class="message">if i was to attempt to bootstrap eg rust, is it best to start packaging stuff for a distribution at the bottom of the chain (mrustc) or the top (increasingly older versions of rust)?</span></div><div class="line" id="205258"><span class="nick" style="color:#8dd3c7"><a href="#205258" label="[20:52:58]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: depends on your style; working from newest to oldest provides immediate results. working from bottom up means you know what you have to work with at every step of the journey</span></div><div class="line" id="205440"><span class="nick" style="color:#8dd3c7"><a href="#205440" label="[20:54:40]">&lt;oriansj&gt;</a></span><span class="message">now that guix has a chain for bootstrapping rust; you gain the advantage of knowing the solution when working from newest to oldest and get double benefits</span></div><div class="line" id="205543"><span class="nick" style="color:#8dd3c7"><a href="#205543" label="[20:55:43]">&lt;oriansj&gt;</a></span><span class="message">results know and predictable success as you walk back in the chain</span></div><div class="line" id="205554"><span class="nick" style="color:#8dd3c7"><a href="#205554" label="[20:55:54]">&lt;oriansj&gt;</a></span><span class="message">^know^now^</span></div><div class="line" id="205646"><span class="nick" style="color:#8dd3c7"><a href="#205646" label="[20:56:46]">&lt;oriansj&gt;</a></span><span class="message">Me, I like knowing what I have to work with going forward; it keeps things simple</span></div><div class="line" id="205809"><span class="nick" style="color:#8dd3c7"><a href="#205809" label="[20:58:09]">&lt;oriansj&gt;</a></span><span class="message">for example; I know if MesCC v1.0 can build NASM, then I know MesCC v2.0 can leverage NASM to simplify the binary generation process and benefit from all the work being done by the NASM team.</span></div><div class="line" id="205920"><span class="nick" style="color:#8dd3c7"><a href="#205920" label="[20:59:20]">&lt;oriansj&gt;</a></span><span class="message">or like janneke learned when he switched from writing direct binaries to M1 macro output instead; that I could catch problems and make his job easier going forward.</span></div><div class="line" id="210637"><span class="nick" style="color:#6b8072"><a href="#210637" label="[21:06:37]">&lt;janneke&gt;</a></span><span class="message">yes!</span></div><div class="line" id="212114"><span class="nick" style="color:#8dd3c7"><a href="#212114" label="[21:21:14]">&lt;oriansj&gt;</a></span><span class="message">janneke: hopefully you don't mind that the slow_lisp has let as a primitive (that behaves just like let*)</span></div><div class="line" id="212235"><span class="nick" style="color:#8dd3c7"><a href="#212235" label="[21:22:35]">&lt;oriansj&gt;</a></span><span class="message">and is there any macro functionality you require beyound define-macro ?</span></div><div class="line" id="212426"><span class="nick" style="color:#80b1d3"><a href="#212426" label="[21:24:26]">&lt;stikonas&gt;</a></span><span class="message">fosslinux: regarding mrust, I thought new versions of mrust can bootstrap newer rust</span></div><div class="line" id="212434"><span class="nick" style="color:#80b1d3"><a href="#212434" label="[21:24:34]">&lt;stikonas&gt;</a></span><span class="message">i.e. you don't need ot start with 1.17 or so</span></div><div class="line" id="212748"><span class="nick" style="color:#8dd3c7"><a href="#212748" label="[21:27:48]">&lt;oriansj&gt;</a></span><span class="message">(currently my list of features required to be added to slow_lisp is: define-module use-modules load and define-record-type)</span></div><div class="line" id="214230"><span class="nick" style="color:#6b8072"><a href="#214230" label="[21:42:30]">&lt;janneke&gt;</a></span><span class="message">oriansj: wow, you are going fast</span></div><div class="line" id="214257"><span class="nick" style="color:#6b8072"><a href="#214257" label="[21:42:57]">&lt;janneke&gt;</a></span><span class="message">oriansj: it was on my wish list to have letrec as a primitive</span></div><div class="line" id="214315"><span class="nick" style="color:#6b8072"><a href="#214315" label="[21:43:15]">&lt;janneke&gt;</a></span><span class="message">that's what guile used to do until 2.0 i think, now it has letrec*</span></div><div class="line" id="214409"><span class="nick" style="color:#6b8072"><a href="#214409" label="[21:44:09]">&lt;janneke&gt;</a></span><span class="message">but i'm exploring the path of booting psyntax some time, recent guile versions need at least one of those</span></div><div class="line" id="214424"><span class="nick" style="color:#6b8072"><a href="#214424" label="[21:44:24]">&lt;janneke&gt;</a></span><span class="message">having let is already a great start!</span></div><div class="line" id="214632"><span class="nick" style="color:#8dd3c7"><a href="#214632" label="[21:46:32]">&lt;oriansj&gt;</a></span><span class="message">janneke: well that is the thing, once I have some good tests, reasoning about implementation is rather straight forward</span></div><div class="line" id="214723"><span class="nick" style="color:#8dd3c7"><a href="#214723" label="[21:47:23]">&lt;oriansj&gt;</a></span><span class="message">If I need to add letrec and letrec* to get us there; write the tests and I'll get it done</span></div><div class="line" id="214748"><span class="nick" style="color:#8dd3c7"><a href="#214748" label="[21:47:48]">&lt;oriansj&gt;</a></span><span class="message">Slowly but surely, the more eyes spotting my flaws the better</span></div><div class="line" id="222244"><span class="nick" style="color:#2e2a4a"><a href="#222244" label="[22:22:44]">&lt;fosslinux&gt;</a></span><span class="message">stikonas: yeah, still have to start with 1.29</span></div><div class="line" id="222246"><span class="nick" style="color:#2e2a4a"><a href="#222246" label="[22:22:46]">&lt;fosslinux&gt;</a></span><span class="message">rustc bootstrap tested and validated (1.19.0 validated once, 1.29.0 is repeatable)</span></div><div class="line" id="222253"><span class="nick" style="color:#2e2a4a"><a href="#222253" label="[22:22:53]">&lt;fosslinux&gt;</a></span><span class="message">haven't tried anything later atm</span></div><div class="line" id="222258"><span class="nick" style="color:#2e2a4a"><a href="#222258" label="[22:22:58]">&lt;fosslinux&gt;</a></span><span class="message">will later though</span></div><div class="line" id="222314"><span class="nick" style="color:#2e2a4a"><a href="#222314" label="[22:23:14]">&lt;fosslinux&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/thepowersgang/mrustc/blob/master/README.md#progress">https://github.com/thepowersgang/mrustc/blob/master/README.md#progress</a> </span></div><div class="line" id="223811"><span class="nick" style="color:#234e69"><a href="#223811" label="[22:38:11]">&lt;xentrac&gt;</a></span><span class="message">letrec* was sort of implicit in Scheme's semantics for nested defines already</span></div><div class="line" id="223856"><span class="nick" style="color:#234e69"><a href="#223856" label="[22:38:56]">&lt;xentrac&gt;</a></span><span class="message">I feel like most of the time you could just use letrec* instead of letrec, let, or let*</span></div><div class="line" id="223922"><span class="nick" style="color:#234e69"><a href="#223922" label="[22:39:22]">&lt;xentrac&gt;</a></span><span class="message">probably always with a little bit of beta-renaming to prevent name collisions</span></div><div class="line" id="223937"><span class="nick" style="color:#234e69"><a href="#223937" label="[22:39:37]">&lt;xentrac&gt;</a></span><span class="message">but beta-renaming is beyond the power of syntax-rules</span></div><br /></div></body></html>

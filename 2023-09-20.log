@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-09-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="031030"><span class="nick" style="color:#389600"><a href="#031030" label="[03:10:30]">&lt;oriansj&gt;</a></span><span class="message">it appears the RAM is 4224bytes in size per plane and each plane is a different chip; which is what allows them to be operated upon in parallel.</span></div><div class="line" id="031627"><span class="nick" style="color:#389600"><a href="#031627" label="[03:16:27]">&lt;oriansj&gt;</a></span><span class="message">and the page has to be erased between partial updates; so you'll have to write the whole page on every go</span></div><div class="line" id="031901"><span class="nick" style="color:#389600"><a href="#031901" label="[03:19:01]">&lt;oriansj&gt;</a></span><span class="message">so you can't randomly set a byte in a page but you can partially populate the data in a page up to the number of bytes you want to write into them</span></div><div class="line" id="032538"><span class="nick" style="color:#389600"><a href="#032538" label="[03:25:38]">&lt;oriansj&gt;</a></span><span class="message">unless they are using the address pins to indicate the address inside of the page inside of an 85h period</span></div><div class="line" id="032655"><span class="nick" style="color:#389600"><a href="#032655" label="[03:26:55]">&lt;oriansj&gt;</a></span><span class="message">in which case one can't use a vanilla address bus and a controller with timing logic would be needed to get those 2-5cycles spot on.</span></div><div class="line" id="040439"><span class="nick" style="color:#8dd3c7"><a href="#040439" label="[04:04:39]">&lt;muurkha&gt;</a></span><span class="message">I think you mean &quot;Flash&quot;, not &quot;RAM&quot;</span></div><div class="line" id="040459"><span class="nick" style="color:#8dd3c7"><a href="#040459" label="[04:04:59]">&lt;muurkha&gt;</a></span><span class="message">those are all standard attributes of Flash, except that some chips use a 2K sector size (plus ECC bits) rather than 4K</span></div><div class="line" id="040549"><span class="nick" style="color:#8dd3c7"><a href="#040549" label="[04:05:49]">&lt;muurkha&gt;</a></span><span class="message">sometimes you *can* write the same page more than once, getting the AND of all the times you wrote it, but it isn't reliable</span></div><div class="line" id="040636"><span class="nick" style="color:#8dd3c7"><a href="#040636" label="[04:06:36]">&lt;muurkha&gt;</a></span><span class="message">I don't think that package contains two separate chips; I think it's just one chip</span></div><div class="line" id="041706"><span class="nick" style="color:#389600"><a href="#041706" label="[04:17:06]">&lt;oriansj&gt;</a></span><span class="message">muurkha: I don't think the data registers are Flash but SRAM</span></div><div class="line" id="041825"><span class="nick" style="color:#389600"><a href="#041825" label="[04:18:25]">&lt;oriansj&gt;</a></span><span class="message">as they are updated on every read/write</span></div><div class="line" id="042115"><span class="nick" style="color:#389600"><a href="#042115" label="[04:21:15]">&lt;oriansj&gt;</a></span><span class="message">and they lose their state if power is lost</span></div><div class="line" id="081535"><span class="nick" style="color:#8dd3c7"><a href="#081535" label="[08:15:35]">&lt;muurkha&gt;</a></span><span class="message">oriansj: yes, the data registers are updated on every read/write.  but you don't have to erase them between partial updates</span></div><div class="line" id="081558"><span class="nick" style="color:#8dd3c7"><a href="#081558" label="[08:15:58]">&lt;muurkha&gt;</a></span><span class="message">I should see if it's possible to write data to that SRAM and read it back ;)</span></div><div class="line" id="081610"><span class="nick" style="color:#8dd3c7"><a href="#081610" label="[08:16:10]">&lt;muurkha&gt;</a></span><span class="message">without writing it to the Flash</span></div><div class="line" id="081641"><span class="nick" style="color:#8dd3c7"><a href="#081641" label="[08:16:41]">&lt;muurkha&gt;</a></span><span class="message">it's possible I misunderstood what you were saying though</span></div><br /></div></body></html>

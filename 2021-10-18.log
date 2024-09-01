@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-10-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000758"><span class="nick" style="color:#8dd3c7"><a href="#000758" label="[00:07:58]">&lt;Hagfish&gt;</a></span><span class="message">that looks neat</span></div><div class="line" id="031207"><span class="nick" style="color:#2e2a4a"><a href="#031207" label="[03:12:07]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged</span></div><div class="line" id="131342"><span class="nick" style="color:#6b8072"><a href="#131342" label="[13:13:42]">&lt;gbrlwck&gt;</a></span><span class="message">stikonas[m]: what is `output_index = output_index = 1;` in kaem.c on lines 454 and 466?</span></div><div class="line" id="131355"><span class="nick" style="color:#6b8072"><a href="#131355" label="[13:13:55]">&lt;gbrlwck&gt;</a></span><span class="message">why not just `output_index = 1;`?</span></div><div class="line" id="140535"><span class="nick" style="color:#8dd3c7"><a href="#140535" label="[14:05:35]">&lt;Hagfish&gt;</a></span><span class="message">huh, yeah, that's weird</span></div><div class="line" id="140641"><span class="nick" style="color:#8dd3c7"><a href="#140641" label="[14:06:41]">&lt;Hagfish&gt;</a></span><span class="message">it would almost make sense if the second &quot;=&quot; was &quot;==&quot;, but that would still be a little weird :)</span></div><div class="line" id="145141"><span class="nick" style="color:#6b8072"><a href="#145141" label="[14:51:41]">&lt;gbrlwck&gt;</a></span><span class="message">to bootstrap mescc-tools-extra i need to use the M2-Planet c compiler and need to write a kaem-script (instead of using make)?</span></div><div class="line" id="164339"><span class="nick" style="color:#6b8072"><a href="#164339" label="[16:43:39]">&lt;gbrlwck&gt;</a></span><span class="message">nvm my last question. as i know now mescc-tools-extra gets bootstrappen in stage0-posix</span></div><div class="line" id="184729"><span class="nick" style="color:#2e2a4a"><a href="#184729" label="[18:47:29]">&lt;oriansj&gt;</a></span><span class="message">gbrlwck: no worries, everyone is learning. Just different things</span></div><div class="line" id="184900"><span class="nick" style="color:#2e2a4a"><a href="#184900" label="[18:49:00]">&lt;oriansj&gt;</a></span><span class="message">a = a = 1; in M2-Planet is just a typo for a = a + 1 (as = and + are the same key) as M2-Planet doesn't support ++</span></div><div class="line" id="214024"><span class="nick" style="color:#80b1d3"><a href="#214024" label="[21:40:24]">&lt;xentrac&gt;</a></span><span class="message">fotis: you should fix your Quassel hosting</span></div><div class="line" id="214103"><span class="nick" style="color:#80b1d3"><a href="#214103" label="[21:41:03]">&lt;xentrac&gt;</a></span><span class="message">because the majority of traffic on this channel consists of you pinging out and rejoining :)</span></div><div class="line" id="224357"><span class="nick" style="color:#6d2462"><a href="#224357" label="[22:43:57]">&lt;stikonas[m]&gt;</a></span><span class="message">gbrlwck: yes, typo, it was already fixed in mescc-tools, but we need to update submodule in stage0-posix</span></div><div class="line" id="232149"><span class="nick" style="color:#234e69"><a href="#232149" label="[23:21:49]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/pull/61">https://github.com/oriansj/stage0-posix/pull/61</a> </span></div><br /></div></body></html>

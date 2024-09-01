@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-08-08.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="222224"><span class="nick" style="color:#389600"><a href="#222224" label="[22:22:24]">&lt;samplet&gt;</a></span><span class="message">Wow.  Mes is passing 17 out of 24 sed tests.  (And one failure is because it prints the usage message with an extra newline.)</span></div><div class="line" id="222320"><span class="nick" style="color:#389600"><a href="#222320" label="[22:23:20]">&lt;samplet&gt;</a></span><span class="message">Oops.  It’s a little worse than that (there are a few tests erroring out, too).  But still promising.</span></div><div class="line" id="222810"><span class="nick" style="color:#389600"><a href="#222810" label="[22:28:10]">&lt;samplet&gt;</a></span><span class="message">It was surprisingly easy to get regex going.  However, the regex library I’m using doesn’t distinguish between basic and extended syntax, so I might have to write a parser.</span></div><div class="line" id="223453"><span class="nick" style="color:#8dd3c7"><a href="#223453" label="[22:34:53]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; samplet: do you mean sed via gash?</span></div><div class="line" id="223504"><span class="nick" style="color:#389600"><a href="#223504" label="[22:35:04]">&lt;samplet&gt;</a></span><span class="message">Yes.</span></div><div class="line" id="223619"><span class="nick" style="color:#8dd3c7"><a href="#223619" label="[22:36:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Though I guess I'm mostly interested in gash itself</span></div><div class="line" id="223709"><span class="nick" style="color:#8dd3c7"><a href="#223709" label="[22:37:09]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; The other tools (sed, patch, etc) are not too hard to build with custom makefile</span></div><div class="line" id="223724"><span class="nick" style="color:#389600"><a href="#223724" label="[22:37:24]">&lt;samplet&gt;</a></span><span class="message">The shell is running pretty well, and most core utilities are working.  I even have tar working now.  The last two tricky parts are sed and awk.  Sed looks promising.  I don’t know about awk yet.  It’s a big program, but Mes has improved a lot, too.</span></div><div class="line" id="223725"><span class="nick" style="color:#8dd3c7"><a href="#223725" label="[22:37:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Still nice to have an alternative</span></div><div class="line" id="223735"><span class="nick" style="color:#389600"><a href="#223735" label="[22:37:35]">&lt;samplet&gt;</a></span><span class="message">I might punt on awk.</span></div><div class="line" id="223755"><span class="nick" style="color:#389600"><a href="#223755" label="[22:37:55]">&lt;samplet&gt;</a></span><span class="message">It’s still not quite good enough on Guile to build modern tools.</span></div><div class="line" id="223818"><span class="nick" style="color:#389600"><a href="#223818" label="[22:38:18]">&lt;samplet&gt;</a></span><span class="message">We still use old GNU awk.</span></div><div class="line" id="223859"><span class="nick" style="color:#389600"><a href="#223859" label="[22:38:59]">&lt;samplet&gt;</a></span><span class="message">OTOH, it’s worth a try.  It’s nice to have options.</span></div><div class="line" id="223932"><span class="nick" style="color:#8dd3c7"><a href="#223932" label="[22:39:32]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yeah, options are good</span></div><div class="line" id="223948"><span class="nick" style="color:#8dd3c7"><a href="#223948" label="[22:39:48]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But if it's too hard then no worries...</span></div><div class="line" id="224020"><span class="nick" style="color:#8dd3c7"><a href="#224020" label="[22:40:20]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But bash itself ships with bison files, so gash really would help with bootstap here</span></div><div class="line" id="224133"><span class="nick" style="color:#389600"><a href="#224133" label="[22:41:33]">&lt;samplet&gt;</a></span><span class="message">Well it’s mostly lined up at this point.  There’s a fair bit of release engineering to do, though.</span></div><div class="line" id="224321"><span class="nick" style="color:#2e2a4a"><a href="#224321" label="[22:43:21]">&lt;stikonas&gt;</a></span><span class="message">well, I think janneke wants everything in mes 0.26</span></div><div class="line" id="224325"><span class="nick" style="color:#2e2a4a"><a href="#224325" label="[22:43:25]">&lt;stikonas&gt;</a></span><span class="message">but even mes 0.25 is not out yet</span></div><div class="line" id="224729"><span class="nick" style="color:#389600"><a href="#224729" label="[22:47:29]">&lt;samplet&gt;</a></span><span class="message">I can’t remember the plan exactly.  I will say that the modules branch is becoming pretty usable as a Scheme.</span></div><div class="line" id="224753"><span class="nick" style="color:#389600"><a href="#224753" label="[22:47:53]">&lt;samplet&gt;</a></span><span class="message">There are some deeply annoying macro issues, though.</span></div><div class="line" id="224805"><span class="nick" style="color:#2e2a4a"><a href="#224805" label="[22:48:05]">&lt;stikonas&gt;</a></span><span class="message">yeah, that's good, maybe modules will help fossy a bit with <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/306">https://github.com/fosslinux/live-bootstrap/issues/306</a> </span></div><div class="line" id="224832"><span class="nick" style="color:#2e2a4a"><a href="#224832" label="[22:48:32]">&lt;stikonas&gt;</a></span><span class="message">though it's bootstrapping ppsyntax that is probably more complicated...</span></div><div class="line" id="224847"><span class="nick" style="color:#2e2a4a"><a href="#224847" label="[22:48:47]">&lt;stikonas&gt;</a></span><span class="message">samplet: I think we are targetting risc-v support for 0.25</span></div><div class="line" id="224908"><span class="nick" style="color:#2e2a4a"><a href="#224908" label="[22:49:08]">&lt;stikonas&gt;</a></span><span class="message">(and also some improvements to amd64, but that will probably be lagging behind riscv64)</span></div><div class="line" id="224959"><span class="nick" style="color:#2e2a4a"><a href="#224959" label="[22:49:59]">&lt;stikonas&gt;</a></span><span class="message">ekaitz and I managed to build maybe 3/4 of mes libc with bootstrapped tcc now, but there are still probably a few riscv64 bugs in mescc...</span></div><div class="line" id="225024"><span class="nick" style="color:#2e2a4a"><a href="#225024" label="[22:50:24]">&lt;stikonas&gt;</a></span><span class="message">once those are resolved, I think we can declare riscv64 support in mes working</span></div><div class="line" id="225201"><span class="nick" style="color:#389600"><a href="#225201" label="[22:52:01]">&lt;samplet&gt;</a></span><span class="message">That’s fantastic!  I will have to rebase on top of that at some point.  I’ve added a few system calls and exposed many to Scheme.</span></div><div class="line" id="225215"><span class="nick" style="color:#2e2a4a"><a href="#225215" label="[22:52:15]">&lt;stikonas&gt;</a></span><span class="message">samplet: it's not merged yet, still in wip branches...</span></div><div class="line" id="225226"><span class="nick" style="color:#2e2a4a"><a href="#225226" label="[22:52:26]">&lt;stikonas&gt;</a></span><span class="message">but probably mostly self-contained and won't touch your code</span></div><div class="line" id="225305"><span class="nick" style="color:#389600"><a href="#225305" label="[22:53:05]">&lt;samplet&gt;</a></span><span class="message">Other than a couple syscall numbers for RISC-V, no.  It should be fine.</span></div><div class="line" id="225309"><span class="nick" style="color:#2e2a4a"><a href="#225309" label="[22:53:09]">&lt;stikonas&gt;</a></span><span class="message">i.e. mostly changes are in module/mescc/</span></div><div class="line" id="225318"><span class="nick" style="color:#2e2a4a"><a href="#225318" label="[22:53:18]">&lt;stikonas&gt;</a></span><span class="message">well, mescc code generation too</span></div><div class="line" id="225449"><span class="nick" style="color:#389600"><a href="#225449" label="[22:54:49]">&lt;samplet&gt;</a></span><span class="message">Yes, but I haven’t touched the compiler.  I might speed it up eventually by replacing its “emulation of bytevectors with (linked) lists” with proper bytevectors.</span></div><div class="line" id="225508"><span class="nick" style="color:#389600"><a href="#225508" label="[22:55:08]">&lt;samplet&gt;</a></span><span class="message">I added them to support tar.</span></div><div class="line" id="225552"><span class="nick" style="color:#389600"><a href="#225552" label="[22:55:52]">&lt;samplet&gt;</a></span><span class="message">Also, regarding ppsyntax, I’m working on a ‘syntax-case’-capable expander designed for bootstrapping.</span></div><div class="line" id="230036"><span class="nick" style="color:#2e2a4a"><a href="#230036" label="[23:00:36]">&lt;stikonas&gt;</a></span><span class="message">oh, any speeding up of mes/mescc is always good</span></div><div class="line" id="230100"><span class="nick" style="color:#2e2a4a"><a href="#230100" label="[23:01:00]">&lt;stikonas&gt;</a></span><span class="message">last time I tried riscv64 bootstrap, it took me 4 days</span></div><div class="line" id="230140"><span class="nick" style="color:#389600"><a href="#230140" label="[23:01:40]">&lt;samplet&gt;</a></span><span class="message">Although that might be beside the point for that issue (#306).  I’m not super familiar with NYACC, but Mes does not use ‘syntax-case’ for it at the moment.  It hopefully doesn’t need it to generate those files.</span></div><div class="line" id="230144"><span class="nick" style="color:#2e2a4a"><a href="#230144" label="[23:01:44]">&lt;stikonas&gt;</a></span><span class="message">probably both because mes is slow and also because stage0-posix-riscv64 / mescc generates very inefficient riscv64 machine code</span></div><div class="line" id="230210"><span class="nick" style="color:#2e2a4a"><a href="#230210" label="[23:02:10]">&lt;stikonas&gt;</a></span><span class="message">samplet: it was not mes itself, but the scripts that nyacc uses to generate some files</span></div><div class="line" id="230218"><span class="nick" style="color:#2e2a4a"><a href="#230218" label="[23:02:18]">&lt;stikonas&gt;</a></span><span class="message">they are pregenerated in nyacc tarball</span></div><div class="line" id="230236"><span class="nick" style="color:#2e2a4a"><a href="#230236" label="[23:02:36]">&lt;stikonas&gt;</a></span><span class="message">but if you want strict bootstrapping, then you need to regenerate those too</span></div><div class="line" id="230323"><span class="nick" style="color:#2e2a4a"><a href="#230323" label="[23:03:23]">&lt;stikonas&gt;</a></span><span class="message">samplet: eg. stuff like this <a rel="nofollow" href="https://git.savannah.nongnu.org/cgit/nyacc.git/tree/module/nyacc/lang/c99/mach.d/c99x-tab.scm?h=main">https://git.savannah.nongnu.org/cgit/nyacc.git/tree/module/nyacc/lang/c99/mach.d/c99x-tab.scm?h=main</a> </span></div><div class="line" id="230335"><span class="nick" style="color:#2e2a4a"><a href="#230335" label="[23:03:35]">&lt;stikonas&gt;</a></span><span class="message">this is not really a human readable source</span></div><div class="line" id="230515"><span class="nick" style="color:#389600"><a href="#230515" label="[23:05:15]">&lt;samplet&gt;</a></span><span class="message">I don’t disagree.  I’m saying that ‘syntax-case’ is not strictly necessary, and that Mes could probably run the scripts that generate those files with only minor fixes.</span></div><div class="line" id="230700"><span class="nick" style="color:#389600"><a href="#230700" label="[23:07:00]">&lt;samplet&gt;</a></span><span class="message">The LALR part of NYACC uses syntax case in one instance, but there’s a well-known hack to emulate the ‘identifier=?’ check using ‘syntax-rules’.</span></div><div class="line" id="230721"><span class="nick" style="color:#389600"><a href="#230721" label="[23:07:21]">&lt;samplet&gt;</a></span><span class="message">Although Mes’ ‘syntax-rules’ is not exactly the bees knees, if you know what I mean....</span></div><div class="line" id="230836"><span class="nick" style="color:#2e2a4a"><a href="#230836" label="[23:08:36]">&lt;stikonas&gt;</a></span><span class="message">well, you probably know it much better...</span></div><div class="line" id="230842"><span class="nick" style="color:#2e2a4a"><a href="#230842" label="[23:08:42]">&lt;stikonas&gt;</a></span><span class="message">I'm not very good with scheme...</span></div><div class="line" id="230858"><span class="nick" style="color:#2e2a4a"><a href="#230858" label="[23:08:58]">&lt;stikonas&gt;</a></span><span class="message">I could do basic editting of mescc compiler to fix riscv64 but that's it...</span></div><div class="line" id="230930"><span class="nick" style="color:#389600"><a href="#230930" label="[23:09:30]">&lt;samplet&gt;</a></span><span class="message">I’ll mark down that issue and give it a good look when I get a chance.</span></div><div class="line" id="231937"><span class="nick" style="color:#6b8072"><a href="#231937" label="[23:19:37]">&lt;janneke&gt;</a></span><span class="message">samplet: &quot;&lt;samplet&gt; Wow.  Mes is passing 17 out of 24 sed tests.  (And one failure is&quot;</span></div><div class="line" id="231940"><span class="nick" style="color:#6b8072"><a href="#231940" label="[23:19:40]">&lt;janneke&gt;</a></span><span class="message">very nice!</span></div><div class="line" id="232157"><span class="nick" style="color:#80b1d3"><a href="#232157" label="[23:21:57]">&lt;mihi&gt;</a></span><span class="message">samplet, about that syntax-case rule, I was thinking about taking the two (_ &lt;e1&gt; &lt;e2&gt; ...) cases and merging them to invoke a (define-macro (parse-rhs-atom &lt;e1&gt; . &lt;e2...&gt;) (code here)). The other psyntax stuff in that file is proably easy enough for mes. Yet, having define-macro available should allow to rewrite any parts that do not work. Unfortunately I don't have much time right now and no working test setup,</span></div><div class="line" id="232158"><span class="nick" style="color:#80b1d3"><a href="#232158" label="[23:21:58]">&lt;mihi&gt;</a></span><span class="message">so don't count on me doing anything right now...</span></div><div class="line" id="232927"><span class="nick" style="color:#389600"><a href="#232927" label="[23:29:27]">&lt;samplet&gt;</a></span><span class="message">mihi: Good idea.  I’ve done that to work around ‘syntax-rules’ hygiene issues in ‘match’.  It would work perfectly in NYACC.  Cf. <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/mes.git/commit/?h=wip-gash&amp;id=352370cb6f1f02db5b4b3a4835bfc75a10cb76e6">https://git.savannah.gnu.org/cgit/mes.git/commit/?h=wip-gash&amp;id=352370cb6f1f02db5b4b3a4835bfc75a10cb76e6</a> </span></div><div class="line" id="233037"><span class="nick" style="color:#389600"><a href="#233037" label="[23:30:37]">&lt;samplet&gt;</a></span><span class="message">janneke: Thanks!  It’s 20/29 after fixing ‘define-immutable-record-type’ and accounting for errors.  :)</span></div><div class="line" id="233253"><span class="nick" style="color:#6b8072"><a href="#233253" label="[23:32:53]">&lt;janneke&gt;</a></span><span class="message">oh!</span></div><div class="line" id="233315"><span class="nick" style="color:#6b8072"><a href="#233315" label="[23:33:15]">&lt;janneke&gt;</a></span><span class="message">how did the 24 increase to 29?</span></div><div class="line" id="233638"><span class="nick" style="color:#389600"><a href="#233638" label="[23:36:38]">&lt;samplet&gt;</a></span><span class="message">I misread it before!  It was 17 successes, 7 failures, *and* 5 test failures.  :p</span></div><br /></div></body></html>

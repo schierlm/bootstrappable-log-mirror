@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="012526"><span class="nick" style="color:#389600"><a href="#012526" label="[01:25:26]">&lt;oriansj&gt;</a></span><span class="message">aggi: thank you for a greater understanding of the tccboot situation.</span></div><div class="line" id="012540"><span class="nick" style="color:#8dd3c7"><a href="#012540" label="[01:25:40]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Just been experimenting with running stage0-posix-x86 on slackware 8.1 (and my tcc_bootstrap_alt). I think I'm hitting <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-x86/issues/1">https://github.com/oriansj/stage0-posix-x86/issues/1</a>  as I'm getting crashes in hex2-0. I think sys_brk on the 2.4.18 kernel is not rounding up to the next page.</span></div><div class="line" id="012735"><span class="nick" style="color:#389600"><a href="#012735" label="[01:27:35]">&lt;oriansj&gt;</a></span><span class="message">cosinusoidally: yeah depending upon that behavior probably wasn't wise to begin with.</span></div><div class="line" id="013037"><span class="nick" style="color:#8dd3c7"><a href="#013037" label="[01:30:37]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; iirc it works fine on a 2.6 kernel</span></div><div class="line" id="013105"><span class="nick" style="color:#8dd3c7"><a href="#013105" label="[01:31:05]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Though Linux doesn't use semver so I'm not sure how early of a 2.6 kernel it works on</span></div><div class="line" id="020131"><span class="nick" style="color:#8dd3c7"><a href="#020131" label="[02:01:31]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; cosinusoidally: well, you can try to fix that</span></div><div class="line" id="020142"><span class="nick" style="color:#8dd3c7"><a href="#020142" label="[02:01:42]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; we have a few versions that don't depend on that behaviour</span></div><div class="line" id="020152"><span class="nick" style="color:#8dd3c7"><a href="#020152" label="[02:01:52]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; stage0-uefi definitely doesn't</span></div><div class="line" id="020226"><span class="nick" style="color:#8dd3c7"><a href="#020226" label="[02:02:26]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I don't remember for sure but stage0-riscv64  might be better behaving too</span></div><div class="line" id="022621"><span class="nick" style="color:#8dd3c7"><a href="#022621" label="[02:26:21]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I might give that a go some point. Is there an easy way of generating hex2_x86.hex1 from hex2_x86.M1 ?</span></div><div class="line" id="025521"><span class="nick" style="color:#389600"><a href="#025521" label="[02:55:21]">&lt;oriansj&gt;</a></span><span class="message">cosinusoidally: unfortunately not as they were hand written. But the fix is just replacing 3-4 hex chars in the elf-header</span></div><div class="line" id="042649"><span class="nick" style="color:#2e2a4a"><a href="#042649" label="[04:26:49]">&lt;pabs3&gt;</a></span><span class="message">from #debian-ports &lt;hephaistor&gt; huh, apparently, gccrs now needs cargo to bootstrap, hahahaha… there goes another way to bootstrap stuff</span></div><div class="line" id="043617"><span class="nick" style="color:#389600"><a href="#043617" label="[04:36:17]">&lt;oriansj&gt;</a></span><span class="message">well that fits. GCC's C compiler needs a C++ compiler and GCC's Ada compiler requires an Ada Compiler</span></div><div class="line" id="044114"><span class="nick" style="color:#6b8072"><a href="#044114" label="[04:41:14]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">pabs3: :(</span></div><div class="line" id="044131"><span class="nick" style="color:#6b8072"><a href="#044131" label="[04:41:31]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">oh well</span></div><div class="line" id="044247"><span class="nick" style="color:#389600"><a href="#044247" label="[04:42:47]">&lt;oriansj&gt;</a></span><span class="message">Good thing we already have a bootstrap path for Rust and Cargo</span></div><div class="line" id="044258"><span class="nick" style="color:#389600"><a href="#044258" label="[04:42:58]">&lt;oriansj&gt;</a></span><span class="message">using mrustc</span></div><div class="line" id="092702"><span class="nick" style="color:#80b1d3"><a href="#092702" label="[09:27:02]">&lt;lanodan&gt;</a></span><span class="message">Hopefully mrustc directly to gccrs still works, compiling something like ~20 versions of rustc isn't fun, specially as LLVM is involved</span></div><div class="line" id="105808"><span class="nick" style="color:#8dd3c7"><a href="#105808" label="[10:58:08]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; yeah, I was a bit sceptical before about gccrs, I never saw any attempt to bootstrap cargo there unlike mrustc's minicargo. So I guess now it is official</span></div><div class="line" id="151757"><span class="nick" style="color:#8dd3c7"><a href="#151757" label="[15:17:57]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; oriansj: ah thanks I didn't think of just bumping ph_memsz in hex2_x86.hex1 . I set it to FF FF 00 00 (but probably could have just been 4KB) and that seemed to fix it on a 2.4 kernel. Unfortunately kaem-minimal.hex0 also seems to be broken, though I might be on an older version. I was able to temp hack around that by using sh.</span></div><div class="line" id="152220"><span class="nick" style="color:#389600"><a href="#152220" label="[15:22:20]">&lt;oriansj&gt;</a></span><span class="message">cosinusoidally: what sort of broken behavior do you see?</span></div><div class="line" id="152234"><span class="nick" style="color:#389600"><a href="#152234" label="[15:22:34]">&lt;oriansj&gt;</a></span><span class="message">segfaults or hangs or something else?</span></div><div class="line" id="172649"><span class="nick" style="color:#8dd3c7"><a href="#172649" label="[17:26:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; segfault, but I haven't dug into it that much</span></div><div class="line" id="193159"><span class="nick" style="color:#8dd3c7"><a href="#193159" label="[19:31:59]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; oriansj: turned out to be some issue with either sed or xxd on Slackware 8.1. I was generating the seeds with &quot;sed 's/[;#].*$//g' x86/kaem-minimal.hex0 | xxd -r -p &gt; x86/artifact/kaem-optional-seed&quot; but the output file was about 12 bytes shorter than it should have been. A kaem-optional-seed generated by my Ubuntu 22.04 host did work when transferred to the slackware vm</span></div><div class="line" id="194620"><span class="nick" style="color:#389600"><a href="#194620" label="[19:46:20]">&lt;oriansj&gt;</a></span><span class="message">what the 12 byte difference is would certainly be interesting to see and to figure out the why.</span></div><div class="line" id="194713"><span class="nick" style="color:#389600"><a href="#194713" label="[19:47:13]">&lt;oriansj&gt;</a></span><span class="message">perhaps the sed is producing different inputs or xxd is behaving differently (either would certainly be quite unexpected)</span></div><div class="line" id="194811"><span class="nick" style="color:#8dd3c7"><a href="#194811" label="[19:48:11]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; it's xxd</span></div><div class="line" id="200419"><span class="nick" style="color:#8dd3c7"><a href="#200419" label="[20:04:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Looks like there is some character in kaem-minimal.hex0 that this 22 year old version of xxd doesn't like. From the manpage &quot;xxd -r never generates parse errors. Garbage is silently skipped.&quot;</span></div><div class="line" id="200450"><span class="nick" style="color:#8dd3c7"><a href="#200450" label="[20:04:50]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I deleted some comments/whitespace and xxd was then able to parse</span></div><div class="line" id="201626"><span class="nick" style="color:#6d2462"><a href="#201626" label="[20:16:26]">&lt;stikonas&gt;</a></span><span class="message">any reason why you didn't use bootstrap seeds repo?</span></div><div class="line" id="201811"><span class="nick" style="color:#8dd3c7"><a href="#201811" label="[20:18:11]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I was actually trying to run my tcc_bootstrap_alt and I do not rely on the bootstrap seeds repo.</span></div><div class="line" id="202107"><span class="nick" style="color:#8dd3c7"><a href="#202107" label="[20:21:07]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; even when I run stage0-posix-x86 I tend to generate the seeds myself rather than depend on the binary bootstrap seeds</span></div><div class="line" id="203935"><span class="nick" style="color:#389600"><a href="#203935" label="[20:39:35]">&lt;oriansj&gt;</a></span><span class="message">cosinusoidally: now that is interesting because sed should have removed all of the comments prior to xxd running</span></div><div class="line" id="204022"><span class="nick" style="color:#389600"><a href="#204022" label="[20:40:22]">&lt;oriansj&gt;</a></span><span class="message">and the only characters that xxd should be seeing are A-F, 0-9, ' ', '\n' and '\t'</span></div><div class="line" id="215115"><span class="nick" style="color:#6d2462"><a href="#215115" label="[21:51:15]">&lt;stikonas&gt;</a></span><span class="message">well, binaries of sed and xxd are far far larger than hex0</span></div><div class="line" id="215119"><span class="nick" style="color:#6d2462"><a href="#215119" label="[21:51:19]">&lt;stikonas&gt;</a></span><span class="message">which is just 256 bytes...</span></div><div class="line" id="215134"><span class="nick" style="color:#6d2462"><a href="#215134" label="[21:51:34]">&lt;stikonas&gt;</a></span><span class="message">even the hexeditor is far larger if you type if yourself</span></div><div class="line" id="215159"><span class="nick" style="color:#389600"><a href="#215159" label="[21:51:59]">&lt;oriansj&gt;</a></span><span class="message">and we do have hex0.c which you can build which is quite small as well</span></div><br /></div></body></html>

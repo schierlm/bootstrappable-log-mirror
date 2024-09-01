@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-11-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="014924"><span class="nick" style="color:#8dd3c7"><a href="#014924" label="[01:49:24]">&lt;oriansj&gt;</a></span><span class="message">xentrac: valid; however the C language family has more matching behaviors across implementations. For example given (define (foo a b) (if a b)) when given (foo #f (exit 42)) why do many schemes exit?</span></div><div class="line" id="015121"><span class="nick" style="color:#8dd3c7"><a href="#015121" label="[01:51:21]">&lt;oriansj&gt;</a></span><span class="message">The  correct behavior should be expand (foo #f (exit 42)) into (if #f (exit 42)); which when passed to most schemes doesn't result with an exit at all...</span></div><div class="line" id="015449"><span class="nick" style="color:#8dd3c7"><a href="#015449" label="[01:54:49]">&lt;oriansj&gt;</a></span><span class="message">perhaps the correct recommendation is to use any mature language which can be bootstrapped from GCC or has a bootstrap chain that exists back to a languge that GCC can bootstrap.</span></div><div class="line" id="040018"><span class="nick" style="color:#2e2a4a"><a href="#040018" label="[04:00:18]">&lt;xentrac&gt;</a></span><span class="message">because Scheme is in general an eager language, not a lazy language</span></div><div class="line" id="040041"><span class="nick" style="color:#2e2a4a"><a href="#040041" label="[04:00:41]">&lt;xentrac&gt;</a></span><span class="message">I mean I've never seen an implicitly lazy Scheme and I'm not sure it would comply with any of the RnRS</span></div><div class="line" id="040209"><span class="nick" style="color:#2e2a4a"><a href="#040209" label="[04:02:09]">&lt;xentrac&gt;</a></span><span class="message">you're saying that the correct behavior is to be implicitly lazy, and that's a plausible point of view, but making an implicitly lazy language usable requires restricting side effects somehow, which Scheme doesn't</span></div><div class="line" id="040341"><span class="nick" style="color:#2e2a4a"><a href="#040341" label="[04:03:41]">&lt;xentrac&gt;</a></span><span class="message">Miranda and Haskell are of course the best-known implicitly lazy (&quot;purely applicative&quot;) languages.  Bicicleta is also purely applicative, but so far it does a great job of illustrating Perlis's epigram, &quot;Purely applicative languages are poorly applicable.&quot;</span></div><div class="line" id="040445"><span class="nick" style="color:#2e2a4a"><a href="#040445" label="[04:04:45]">&lt;xentrac&gt;</a></span><span class="message">C also is eager; foo(0, exit(42)) will exit in any implementation of C if foo is an ordinary function rather than a preprocessor macro or a compile error or something</span></div><div class="line" id="040935"><span class="nick" style="color:#2e2a4a"><a href="#040935" label="[04:09:35]">&lt;xentrac&gt;</a></span><span class="message">(in Scheme a &quot;function&quot; is called a &quot;procedure&quot;, which is what the `define` form above creates)</span></div><div class="line" id="042211"><span class="nick" style="color:#8dd3c7"><a href="#042211" label="[04:22:11]">&lt;oriansj&gt;</a></span><span class="message">xentrac: well actually no</span></div><div class="line" id="042947"><span class="nick" style="color:#8dd3c7"><a href="#042947" label="[04:29:47]">&lt;oriansj&gt;</a></span><span class="message">in fact foo(0, exit(42)); will be straight &quot;invalid use of void expression&quot;</span></div><div class="line" id="043218"><span class="nick" style="color:#8dd3c7"><a href="#043218" label="[04:32:18]">&lt;oriansj&gt;</a></span><span class="message">but you are correct in that C is an eager language (most are because it is easy to do)</span></div><div class="line" id="043409"><span class="nick" style="color:#8dd3c7"><a href="#043409" label="[04:34:09]">&lt;oriansj&gt;</a></span><span class="message">although a common optimization for C compilers actually moves the work inside of the called function; resulting in lazy behavior inside of an eager language.</span></div><div class="line" id="065924"><span class="nick" style="color:#2e2a4a"><a href="#065924" label="[06:59:24]">&lt;xentrac&gt;</a></span><span class="message">oh, that's a good point; C didn't use to have void</span></div><div class="line" id="070033"><span class="nick" style="color:#2e2a4a"><a href="#070033" label="[07:00:33]">&lt;xentrac&gt;</a></span><span class="message">most compilers will still let you get away with it if you don't #include anything that declares exit's return type.  in general in C it's valid to call undeclared functions but I think their return type needs to be int for it to be actually valid C</span></div><div class="line" id="070419"><span class="nick" style="color:#2e2a4a"><a href="#070419" label="[07:04:19]">&lt;xentrac&gt;</a></span><span class="message">it happens that modern GCC and clang don't let you get away with it, but you won't have to go back very far in their history to get them to accept it</span></div><div class="line" id="075618"><span class="nick" style="color:#6b8072"><a href="#075618" label="[07:56:18]">&lt;gio&gt;</a></span><span class="message">You can hae that with modern compilers, you just have to ask them to interpret an old C standard, like C89.</span></div><div class="line" id="075623"><span class="nick" style="color:#6b8072"><a href="#075623" label="[07:56:23]">&lt;gio&gt;</a></span><span class="message">*have</span></div><div class="line" id="080156"><span class="nick" style="color:#6b8072"><a href="#080156" label="[08:01:56]">&lt;gio&gt;</a></span><span class="message">That's not very important, though. If your problem is matching types, it is enough to wrap the exit() call in another function returning int.</span></div><div class="line" id="084013"><span class="nick" style="color:#80b1d3"><a href="#084013" label="[08:40:13]">&lt;janneke&gt;</a></span><span class="message">oriansj: just reading about your father, my condolences</span></div><div class="line" id="084336"><span class="nick" style="color:#80b1d3"><a href="#084336" label="[08:43:36]">&lt;janneke&gt;</a></span><span class="message">oriansj: macro substitution should be a separate phase; in my first prototypes i tried to do it like that and in scheme, not in c</span></div><div class="line" id="084425"><span class="nick" style="color:#80b1d3"><a href="#084425" label="[08:44:25]">&lt;janneke&gt;</a></span><span class="message">oriansj: i think rain1 once suggested a very similar thing, to run a scheme function after the reader to do macro expansion and possibly other optimizations</span></div><div class="line" id="084500"><span class="nick" style="color:#80b1d3"><a href="#084500" label="[08:45:00]">&lt;janneke&gt;</a></span><span class="message">oriansj: that would really clean things up, another thing that i have been postponing</span></div><div class="line" id="084620"><span class="nick" style="color:#80b1d3"><a href="#084620" label="[08:46:20]">&lt;janneke&gt;</a></span><span class="message">oriansj: on the good news front: i just ran a slightly modified ice/boot-9.scm: modules with hierarchical name spaces and am now looking into integrating that</span></div><div class="line" id="084637"><span class="nick" style="color:#80b1d3"><a href="#084637" label="[08:46:37]">&lt;janneke&gt;</a></span><span class="message">oriansj: i have also split-up x86/kaem.run in my mescc-tools-seed @ gitlab</span></div><div class="line" id="084758"><span class="nick" style="color:#80b1d3"><a href="#084758" label="[08:47:58]">&lt;janneke&gt;</a></span><span class="message">xentrac: i have a working gzip, pulled from industria/weinholt in gash and translated from r6rs into plain guile</span></div><div class="line" id="084931"><span class="nick" style="color:#80b1d3"><a href="#084931" label="[08:49:31]">&lt;janneke&gt;</a></span><span class="message">it makes heavy use of syntax-case, that's ok for but probably won't run on mes atm</span></div><div class="line" id="123311"><span class="nick" style="color:#8dd3c7"><a href="#123311" label="[12:33:11]">&lt;oriansj&gt;</a></span><span class="message">janneke: I'll keep at it</span></div><div class="line" id="133803"><span class="nick" style="color:#2e2a4a"><a href="#133803" label="[13:38:03]">&lt;xentrac&gt;</a></span><span class="message">gio: indeed</span></div><div class="line" id="133843"><span class="nick" style="color:#2e2a4a"><a href="#133843" label="[13:38:43]">&lt;xentrac&gt;</a></span><span class="message">janneke: oh awesome</span></div><div class="line" id="210522"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="211921"><span class="nick" style="color:#6d2462"><a href="#211921" label="[21:19:21]">&lt;vagrantc&gt;</a></span><span class="message"> <a rel="nofollow" href="https://ftp-master.debian.org/new/mes_0.20-1.html">https://ftp-master.debian.org/new/mes_0.20-1.html</a>  ... although it just got queued so it's still 404</span></div><div class="line" id="213015"><span class="nick" style="color:#80b1d3"><a href="#213015" label="[21:30:15]">&lt;janneke&gt;</a></span><span class="message">vagrantc: \o/</span></div><div class="line" id="213117"><span class="nick" style="color:#6d2462"><a href="#213117" label="[21:31:17]">&lt;vagrantc&gt;</a></span><span class="message">and now it's live :)</span></div><div class="line" id="213131"><span class="nick" style="color:#6d2462"><a href="#213131" label="[21:31:31]">&lt;vagrantc&gt;</a></span><span class="message">which means, we wait an indefinite amount of time and hope someone processes it :)</span></div><div class="line" id="213138"><span class="nick" style="color:#80b1d3"><a href="#213138" label="[21:31:38]">&lt;janneke&gt;</a></span><span class="message">oh, it still says GuixSD in its description...and so does the GNU Mes homepage...oh well</span></div><div class="line" id="213144"><span class="nick" style="color:#80b1d3"><a href="#213144" label="[21:31:44]">&lt;janneke&gt;</a></span><span class="message">hehe</span></div><div class="line" id="213407"><span class="nick" style="color:#6d2462"><a href="#213407" label="[21:34:07]">&lt;vagrantc&gt;</a></span><span class="message">the description could use a little elaborating ... hopefully it doesn't get rejected over that</span></div><div class="line" id="213632"><span class="nick" style="color:#6d2462"><a href="#213632" label="[21:36:32]">&lt;vagrantc&gt;</a></span><span class="message">so once that's in debian is it feasible to try to reproducibly cross-disto builds of tcc or something? :)</span></div><div class="line" id="213828"><span class="nick" style="color:#6d2462"><a href="#213828" label="[21:38:28]">&lt;vagrantc&gt;</a></span><span class="message">maybe i need to start working on mescc-tools-seed or something too</span></div><div class="line" id="214632"><span class="nick" style="color:#6d2462"><a href="#214632" label="[21:46:32]">&lt;vagrantc&gt;</a></span><span class="message">janneke: woudl be nice to fix:</span></div><div class="line" id="214633"><span class="nick" style="color:#6d2462"><a href="#214633" label="[21:46:33]">&lt;vagrantc&gt;</a></span><span class="message">W: mes: manpage-has-useless-whatis-entry usr/share/man/man1/mes.1.gz</span></div><div class="line" id="214634"><span class="nick" style="color:#6d2462"><a href="#214634" label="[21:46:34]">&lt;vagrantc&gt;</a></span><span class="message">W: mes: manpage-has-useless-whatis-entry usr/share/man/man1/mescc.1.gz</span></div><div class="line" id="214721"><span class="nick" style="color:#6d2462"><a href="#214721" label="[21:47:21]">&lt;vagrantc&gt;</a></span><span class="message"> <a rel="nofollow" href="https://lintian.debian.org/tags/manpage-has-bad-whatis-entry.html">https://lintian.debian.org/tags/manpage-has-bad-whatis-entry.html</a> </span></div><div class="line" id="214927"><span class="nick" style="color:#6d2462"><a href="#214927" label="[21:49:27]">&lt;vagrantc&gt;</a></span><span class="message">think also affected by: <a rel="nofollow" href="https://lintian.debian.org/tags/manpage-has-useless-whatis-entry.html">https://lintian.debian.org/tags/manpage-has-useless-whatis-entry.html</a> </span></div><div class="line" id="214951"><span class="nick" style="color:#6d2462"><a href="#214951" label="[21:49:51]">&lt;vagrantc&gt;</a></span><span class="message">oops, only the latter</span></div><div class="line" id="215043"><span class="nick" style="color:#6d2462"><a href="#215043" label="[21:50:43]">&lt;vagrantc&gt;</a></span><span class="message">how soon is mes 0.21 likely to land?</span></div><div class="line" id="215241"><span class="nick" style="color:#80b1d3"><a href="#215241" label="[21:52:41]">&lt;janneke&gt;</a></span><span class="message">vagrantc: ah, yes that title is a bit silly</span></div><div class="line" id="215249"><span class="nick" style="color:#234e69"><a href="#215249" label="[21:52:49]">&lt;civodul&gt;</a></span><span class="message">lintian is stricter than guix lint :-)</span></div><div class="line" id="215340"><span class="nick" style="color:#6d2462"><a href="#215340" label="[21:53:40]">&lt;vagrantc&gt;</a></span><span class="message">civodul: guix also has a bunch of identical and similar manpage issues lintian complains about :)</span></div><div class="line" id="215341"><span class="nick" style="color:#80b1d3"><a href="#215341" label="[21:53:41]">&lt;janneke&gt;</a></span><span class="message">i don't have a plan/date for 0.21 yet</span></div><div class="line" id="215428"><span class="nick" style="color:#6d2462"><a href="#215428" label="[21:54:28]">&lt;vagrantc&gt;</a></span><span class="message">janneke: i grabbed two of the patches from mes/wip-0.20 ... if they could end up somewhere more permanent that woudl be nice :)</span></div><div class="line" id="215443"><span class="nick" style="color:#80b1d3"><a href="#215443" label="[21:54:43]">&lt;janneke&gt;</a></span><span class="message">vagrantc: or actually, i don't have decided on a target/theme for 0.21; i have been working on several things in parallel and none of them are finished</span></div><div class="line" id="215539"><span class="nick" style="color:#6d2462"><a href="#215539" label="[21:55:39]">&lt;vagrantc&gt;</a></span><span class="message">janneke: also, added a patch to install in /usr/share/doc/mes rather than /usr/share/doc/mes-0.20: <a rel="nofollow" href="https://salsa.debian.org/vagrant/mes/blob/debian/master/debian/patches/docdir-unversioned">https://salsa.debian.org/vagrant/mes/blob/debian/master/debian/patches/docdir-unversioned</a> </span></div><div class="line" id="215550"><span class="nick" style="color:#6d2462"><a href="#215550" label="[21:55:50]">&lt;vagrantc&gt;</a></span><span class="message">janneke: not sure if it's worth adding a configure flag for that or something else</span></div><div class="line" id="215618"><span class="nick" style="color:#80b1d3"><a href="#215618" label="[21:56:18]">&lt;janneke&gt;</a></span><span class="message">vagrantc: ah, yes; well the configure --includedir is a fix that will certainly be in 0.21, the x86_64 XFAIL is trickier -- as i said i cannot reprocuce the failure; i would like to get some grip on it</span></div><div class="line" id="215636"><span class="nick" style="color:#6d2462"><a href="#215636" label="[21:56:36]">&lt;vagrantc&gt;</a></span><span class="message">and a few hacks in the dh_install target: <a rel="nofollow" href="https://salsa.debian.org/vagrant/mes/blob/debian/master/debian/rules">https://salsa.debian.org/vagrant/mes/blob/debian/master/debian/rules</a> </span></div><div class="line" id="215723"><span class="nick" style="color:#6d2462"><a href="#215723" label="[21:57:23]">&lt;vagrantc&gt;</a></span><span class="message">not sure if anything leaps out as something you could fix or enable workarounds for upstream</span></div><div class="line" id="215727"><span class="nick" style="color:#80b1d3"><a href="#215727" label="[21:57:27]">&lt;janneke&gt;</a></span><span class="message">vagrantc: yes, thanks -- i have seen that and was wondering if i am doing something irregular that should be fixed but had no time today</span></div><div class="line" id="215813"><span class="nick" style="color:#6d2462"><a href="#215813" label="[21:58:13]">&lt;vagrantc&gt;</a></span><span class="message">no urgency, this will likely sit at least a few weeks or months before i do anything different</span></div><div class="line" id="215841"><span class="nick" style="color:#6d2462"><a href="#215841" label="[21:58:41]">&lt;vagrantc&gt;</a></span><span class="message">just figured i'd mention the packaging workarounds and hacks to make it a proper debian package</span></div><div class="line" id="215902"><span class="nick" style="color:#80b1d3"><a href="#215902" label="[21:59:02]">&lt;janneke&gt;</a></span><span class="message">yes, i will try to minimize the diff you need for debian, as that will probably help not only you/debian but others as well</span></div><div class="line" id="215921"><span class="nick" style="color:#80b1d3"><a href="#215921" label="[21:59:21]">&lt;janneke&gt;</a></span><span class="message">vagrantc: yes, thanks!</span></div><div class="line" id="220004"><span class="nick" style="color:#6d2462"><a href="#220004" label="[22:00:04]">&lt;vagrantc&gt;</a></span><span class="message">yeah, all those other distros with more FHS like structure, probably :)</span></div><div class="line" id="220024"><span class="nick" style="color:#80b1d3"><a href="#220024" label="[22:00:24]">&lt;janneke&gt;</a></span><span class="message">:)</span></div><div class="line" id="220047"><span class="nick" style="color:#6d2462"><a href="#220047" label="[22:00:47]">&lt;vagrantc&gt;</a></span><span class="message">anyways, it was pretty nice to finally have something to upload ... i forget when i started on this, but it was a while ago</span></div><div class="line" id="220055"><span class="nick" style="color:#80b1d3"><a href="#220055" label="[22:00:55]">&lt;janneke&gt;</a></span><span class="message">yes!</span></div><div class="line" id="220152"><span class="nick" style="color:#6d2462"><a href="#220152" label="[22:01:52]">&lt;vagrantc&gt;</a></span><span class="message">i guess july 2018, if the RFP bug report is to be believed</span></div><div class="line" id="220233"><span class="nick" style="color:#80b1d3"><a href="#220233" label="[22:02:33]">&lt;janneke&gt;</a></span><span class="message">i have a `wip-auto' branch with autotools setup that is bitrotting and i have been pondering on resurrecting that; mes also needs a bootstrap build...i don't want to duplicate too much but mimicking autotools is also a bit silly and error prone</span></div><div class="line" id="220656"><span class="nick" style="color:#80b1d3"><a href="#220656" label="[22:06:56]">&lt;janneke&gt;</a></span><span class="message">vagrantc: do you know if a debian package can be built without the `build-essential' dependency?  build-essential includes gcc, which is not really what we want when attempting an alternative bootstrap</span></div><div class="line" id="220755"><span class="nick" style="color:#6d2462"><a href="#220755" label="[22:07:55]">&lt;vagrantc&gt;</a></span><span class="message">janneke: gcc will always be there</span></div><div class="line" id="220823"><span class="nick" style="color:#6d2462"><a href="#220823" label="[22:08:23]">&lt;vagrantc&gt;</a></span><span class="message">though i wonder if you have build-conflicts if it would remove them</span></div><div class="line" id="220901"><span class="nick" style="color:#6d2462"><a href="#220901" label="[22:09:01]">&lt;vagrantc&gt;</a></span><span class="message">something to experiment with</span></div><div class="line" id="220909"><span class="nick" style="color:#80b1d3"><a href="#220909" label="[22:09:09]">&lt;janneke&gt;</a></span><span class="message">hmm</span></div><div class="line" id="220933"><span class="nick" style="color:#6c3d55"><a href="#220933" label="[22:09:33]">*</a></span><span class="message">vagrantc has long thought the build-essential set on debian should be much smaller</span></div><div class="line" id="220947"><span class="nick" style="color:#80b1d3"><a href="#220947" label="[22:09:47]">&lt;janneke&gt;</a></span><span class="message">yes, i would really want to be sure that gcc was not used, when creating a gcc-less bootstrap :-)</span></div><div class="line" id="220950"><span class="nick" style="color:#6d2462"><a href="#220950" label="[22:09:50]">&lt;vagrantc&gt;</a></span><span class="message">implicit dependencies are just annoying</span></div><div class="line" id="221037"><span class="nick" style="color:#80b1d3"><a href="#221037" label="[22:10:37]">&lt;janneke&gt;</a></span><span class="message">that goes without saying</span></div><div class="line" id="221056"><span class="nick" style="color:#80b1d3"><a href="#221056" label="[22:10:56]">&lt;janneke&gt;</a></span><span class="message">(implicit statements can also be annoying ;)</span></div><div class="line" id="221146"><span class="nick" style="color:#d9d9d9"><a href="#221146" label="[22:11:46]">&lt;Hagfish&gt;</a></span><span class="message">can you tell debuild to run in a custom chroot that doesn't have access to gcc?</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-02-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010804"><span class="nick" style="color:#389600"><a href="#010804" label="[01:08:04]">&lt;stikonas_&gt;</a></span><span class="message">next4th: should be fairly easy to just try. At least if you don't try kernel bootstrapping we have automated everything. live-bootstrap needs about 3 hours on oldish hardware to go from hex0 to GCC 10</span></div><div class="line" id="042331"><span class="nick" style="color:#8dd3c7"><a href="#042331" label="[04:23:31]">&lt;oriansj&gt;</a></span><span class="message">lilyp: I have concerns about: d3c5b3b5c66786fada91d9058667ac15a567060b it appears you just generated the C code from the .vala sources instead of actually bootstrapping the language.</span></div><div class="line" id="045204"><span class="nick" style="color:#8dd3c7"><a href="#045204" label="[04:52:04]">&lt;oriansj&gt;</a></span><span class="message">next4th: it appears to the logical continuation of collapseOS by the exact same author. The best FORTH bootstrapping work around; tragic that he effectively does it all on his own.</span></div><div class="line" id="045602"><span class="nick" style="color:#2e2a4a"><a href="#045602" label="[04:56:02]">&lt;stikonas[m]&gt;</a></span><span class="message">oriansj: which language is that?</span></div><div class="line" id="045801"><span class="nick" style="color:#2e2a4a"><a href="#045801" label="[04:58:01]">&lt;stikonas[m]&gt;</a></span><span class="message">Oh I see it in the logs, it's vala itself</span></div><div class="line" id="050103"><span class="nick" style="color:#2e2a4a"><a href="#050103" label="[05:01:03]">&lt;stikonas[m]&gt;</a></span><span class="message">Yeah, it does look like pregenerated c files from valac, even comment says so</span></div><div class="line" id="054322"><span class="nick" style="color:#6b8072"><a href="#054322" label="[05:43:22]">&lt;muurkha&gt;</a></span><span class="message">duskos is the logical continuation of collapseos?</span></div><div class="line" id="054434"><span class="nick" style="color:#8dd3c7"><a href="#054434" label="[05:44:34]">&lt;oriansj&gt;</a></span><span class="message">it appears so</span></div><div class="line" id="060928"><span class="nick" style="color:#80b1d3"><a href="#060928" label="[06:09:28]">&lt;lilyp&gt;</a></span><span class="message">oriansj: that's why I said &quot;partly bootstrapped&quot; – I'm rewriting the generated code to be more readable while being guided by the test suite and the guix.scm that builds vala from it</span></div><div class="line" id="061110"><span class="nick" style="color:#80b1d3"><a href="#061110" label="[06:11:10]">&lt;lilyp&gt;</a></span><span class="message">look at the c files in gee/ to see what I mean: the rewritten sources should be easy enought to understand if you know C</span></div><div class="line" id="061216"><span class="nick" style="color:#80b1d3"><a href="#061216" label="[06:12:16]">&lt;lilyp&gt;</a></span><span class="message">there's also some other generated files that I haven't yet been able to throw out</span></div><div class="line" id="061258"><span class="nick" style="color:#80b1d3"><a href="#061258" label="[06:12:58]">&lt;lilyp&gt;</a></span><span class="message">I think I'll probably throw them out once the core's been translated</span></div><div class="line" id="062617"><span class="nick" style="color:#80b1d3"><a href="#062617" label="[06:26:17]">&lt;lilyp&gt;</a></span><span class="message">that said, many source files are still the pregenerated c from vala itself – thus I wouldn't insert it in the bootstrap chain just yet</span></div><div class="line" id="081252"><span class="nick" style="color:#6d2462"><a href="#081252" label="[08:12:52]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: i remember why we don't build a binary package for linux.. it uses too much storage space.. anyways i'm trying to see if we can make it work, otherwise might have to wait until builder-hex0 and non-intramfs in sysa</span></div><div class="line" id="081313"><span class="nick" style="color:#234e69"><a href="#081313" label="[08:13:13]">&lt;stikonas&gt;</a></span><span class="message">fossy: oh ok, makes sense...</span></div><div class="line" id="081323"><span class="nick" style="color:#234e69"><a href="#081323" label="[08:13:23]">&lt;stikonas&gt;</a></span><span class="message">though it is a bit strange</span></div><div class="line" id="081329"><span class="nick" style="color:#234e69"><a href="#081329" label="[08:13:29]">&lt;stikonas&gt;</a></span><span class="message">how big is kernel image</span></div><div class="line" id="081333"><span class="nick" style="color:#234e69"><a href="#081333" label="[08:13:33]">&lt;stikonas&gt;</a></span><span class="message">isn't it just a few MiB</span></div><div class="line" id="081524"><span class="nick" style="color:#234e69"><a href="#081524" label="[08:15:24]">&lt;stikonas&gt;</a></span><span class="message">fossy: and I've sorted out peparatory work for binutils upgrade now (those packaging issues with get_files, moving autotools, etc)</span></div><div class="line" id="081533"><span class="nick" style="color:#234e69"><a href="#081533" label="[08:15:33]">&lt;stikonas&gt;</a></span><span class="message">haven't tried upgrading binutils but that's next</span></div><div class="line" id="081628"><span class="nick" style="color:#234e69"><a href="#081628" label="[08:16:28]">&lt;stikonas&gt;</a></span><span class="message">(and then there might be some cleanup work, i.e. removing unused autotools)</span></div><div class="line" id="081648"><span class="nick" style="color:#234e69"><a href="#081648" label="[08:16:48]">&lt;stikonas&gt;</a></span><span class="message">so it might end up quite a big PR but should be quite simple to review</span></div><div class="line" id="085214"><span class="nick" style="color:#234e69"><a href="#085214" label="[08:52:14]">&lt;stikonas&gt;</a></span><span class="message">fossy: actually last one (automake-1.15) fails to work</span></div><div class="line" id="085244"><span class="nick" style="color:#234e69"><a href="#085244" label="[08:52:44]">&lt;stikonas&gt;</a></span><span class="message">fossy: do you think it's worth rebuilding bash first?</span></div><div class="line" id="085250"><span class="nick" style="color:#234e69"><a href="#085250" label="[08:52:50]">&lt;stikonas&gt;</a></span><span class="message">or just target older binutils</span></div><div class="line" id="090609"><span class="nick" style="color:#234e69"><a href="#090609" label="[09:06:09]">&lt;stikonas&gt;</a></span><span class="message">hmm, maybe I should target slightly older binutils</span></div><div class="line" id="090620"><span class="nick" style="color:#234e69"><a href="#090620" label="[09:06:20]">&lt;stikonas&gt;</a></span><span class="message">tcc might struggle to build new ones anyway</span></div><br /></div></body></html>

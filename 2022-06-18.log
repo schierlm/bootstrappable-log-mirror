@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-06-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000822"><span class="nick" style="color:#8dd3c7"><a href="#000822" label="[00:08:22]">&lt;oriansj&gt;</a></span><span class="message">nimaje: ok, let me address them one at a time. ${D} is written in ${B} therefor the shell running ${D} would be ${B} and the value would also be ${B}. ${C} is run inside of ${D} and are passed the value ${B} and would thus display the commands for shell ${B} instead of shell ${A}. If the user likes ${A} better than ${B} why would ${D} be written in ${B}?</span></div><div class="line" id="000856"><span class="nick" style="color:#2e2a4a"><a href="#000856" label="[00:08:56]">&lt;muurkha&gt;</a></span><span class="message">maybe someone else wrote the program</span></div><div class="line" id="001057"><span class="nick" style="color:#8dd3c7"><a href="#001057" label="[00:10:57]">&lt;oriansj&gt;</a></span><span class="message">and assuming they have the source code, they just add the following: ${A} ${C} to replace the ${C} command</span></div><div class="line" id="001248"><span class="nick" style="color:#8dd3c7"><a href="#001248" label="[00:12:48]">&lt;oriansj&gt;</a></span><span class="message">or assuming the creator of the script cared about their users getting a proper user experience would look at that variable and adjust accordingly</span></div><div class="line" id="001452"><span class="nick" style="color:#2e2a4a"><a href="#001452" label="[00:14:52]">&lt;muurkha&gt;</a></span><span class="message">yeah, it's better to run things with an interpreter for the language they were written in :)</span></div><div class="line" id="002144"><span class="nick" style="color:#8dd3c7"><a href="#002144" label="[00:21:44]">&lt;oriansj&gt;</a></span><span class="message">now assume the following counter example: inexperienced user uses system which ${B} is the default and manually changes to shell ${A} because they like it better. runs ${D}, ${W} or even ${C}; bad commands are output.</span></div><div class="line" id="003939"><span class="nick" style="color:#8dd3c7"><a href="#003939" label="[00:39:39]">&lt;oriansj&gt;</a></span><span class="message">so instead of getting a correct result when running ${C} which we would have if shell ${A} accurately informed program ${C} that it was running in environment ${A} instead of preserving the outer value ${B}</span></div><div class="line" id="004240"><span class="nick" style="color:#8dd3c7"><a href="#004240" label="[00:42:40]">&lt;oriansj&gt;</a></span><span class="message">now perhaps creating a second variable like $PARENT_SHELL should be created by the shell to allow software down the call chain to figure out what to pass. say in the n:n-1:n-2:...:2:1:0 fashion to allow easy walking</span></div><div class="line" id="005319"><span class="nick" style="color:#8dd3c7"><a href="#005319" label="[00:53:19]">&lt;oriansj&gt;</a></span><span class="message">but that is just me trying to engineer better behavior</span></div><div class="line" id="010553"><span class="nick">***</span><span class="message notice">fosslinux is now known as fossy</span></div><div class="line" id="145917"><span class="nick" style="color:#8dd3c7"><a href="#145917" label="[14:59:17]">&lt;oriansj&gt;</a></span><span class="message">nimaje: but if one assumes the user is competent and the default shell if the user's preferred, then yes you are absolutely right on the behavior</span></div><div class="line" id="150927"><span class="nick" style="color:#8dd3c7"><a href="#150927" label="[15:09:27]">&lt;oriansj&gt;</a></span><span class="message">but we can't assume login to exists, so what would the correct to assume value of SHELL be in that case? (as /etc/passwd might not even exist yet either)</span></div><div class="line" id="175425"><span class="nick">***</span><span class="message notice">chexum_ is now known as chexum</span></div><div class="line" id="223919"><span class="nick">***</span><span class="message notice">dongcarl9 is now known as dongcarl</span></div><div class="line" id="233711"><span class="nick" style="color:#8dd3c7"><a href="#233711" label="[23:37:11]">&lt;oriansj&gt;</a></span><span class="message">I have a proposal for bootstrappable wiki, so that these sort of deletion messages never show up again</span></div><div class="line" id="234339"><span class="nick" style="color:#8dd3c7"><a href="#234339" label="[23:43:39]">&lt;oriansj&gt;</a></span><span class="message">we create a git repository for the content, everyone who asks gets commit access to it and I have a script that pulls the content on an hourly basis and publish to a server we control (I'll pay for it)</span></div><div class="line" id="234521"><span class="nick" style="color:#8dd3c7"><a href="#234521" label="[23:45:21]">&lt;oriansj&gt;</a></span><span class="message">Thoughts?</span></div><div class="line" id="235946"><span class="nick" style="color:#6b8072"><a href="#235946" label="[23:59:46]">&lt;plasma41&gt;</a></span><span class="message">oriansj: Sounds good from over here in the peanut gallery</span></div><br /></div></body></html>

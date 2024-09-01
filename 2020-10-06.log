@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-10-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="120920"><span class="nick" style="color:#8dd3c7"><a href="#120920" label="[12:09:20]">&lt;OriansJ&gt;</a></span><span class="message">openprogger: as I understand it, the development is currently taking place on guile with the goal of later sorting out the differences between guile and mes-m2 when it is done. Thus enabling a scheme only bootstrap for guix</span></div><div class="line" id="121052"><span class="nick" style="color:#8dd3c7"><a href="#121052" label="[12:10:52]">&lt;OriansJ&gt;</a></span><span class="message">as right now mes-m2 can be bootstrapped from nothing (<a rel="nofollow" href="https://github.com/oriansj/mescc-tools-seed">https://github.com/oriansj/mescc-tools-seed</a>  and <a rel="nofollow" href="https://github.com/oriansj/mes-m2">https://github.com/oriansj/mes-m2</a>) </span></div><div class="line" id="121421"><span class="nick" style="color:#8dd3c7"><a href="#121421" label="[12:14:21]">&lt;OriansJ&gt;</a></span><span class="message">since the development work can now be done in a subset of C; it is mostly just a matter of effort to get mes-m2 to support a scheme subset capable of running all of the pieces required.</span></div><div class="line" id="121743"><span class="nick" style="color:#2e2a4a"><a href="#121743" label="[12:17:43]">&lt;fossy&gt;</a></span><span class="message">i believe the largest missing piece is modules?</span></div><div class="line" id="121919"><span class="nick" style="color:#8dd3c7"><a href="#121919" label="[12:19:19]">&lt;OriansJ&gt;</a></span><span class="message">fossy: actually no, one could add module support in scheme if one just extendeds load-file to support prefixes</span></div><div class="line" id="122045"><span class="nick" style="color:#8dd3c7"><a href="#122045" label="[12:20:45]">&lt;OriansJ&gt;</a></span><span class="message">as loading of modules is the exact same thing as load-file otherwise</span></div><div class="line" id="122205"><span class="nick" style="color:#8dd3c7"><a href="#122205" label="[12:22:05]">&lt;OriansJ&gt;</a></span><span class="message">the big problem place right now is mes_macro.c</span></div><div class="line" id="122306"><span class="nick" style="color:#8dd3c7"><a href="#122306" label="[12:23:06]">&lt;OriansJ&gt;</a></span><span class="message">as I am an idiot and can't get macros quite right</span></div><div class="line" id="122714"><span class="nick" style="color:#8dd3c7"><a href="#122714" label="[12:27:14]">&lt;OriansJ&gt;</a></span><span class="message">as macros seem quite hard to do right; not to mention I need someone to point out how I am doing the existing scheme primitives wrong.</span></div><div class="line" id="122858"><span class="nick" style="color:#6b8072"><a href="#122858" label="[12:28:58]">&lt;xentrac&gt;</a></span><span class="message">the way scheme standardized macros is hard to do right</span></div><div class="line" id="123004"><span class="nick" style="color:#8dd3c7"><a href="#123004" label="[12:30:04]">&lt;OriansJ&gt;</a></span><span class="message">and I am just one man, who likes things to work so I don't have to keep fixing something forever</span></div><div class="line" id="123104"><span class="nick" style="color:#8dd3c7"><a href="#123104" label="[12:31:04]">&lt;OriansJ&gt;</a></span><span class="message">and the more I work on mes-m2; the more I fear that I'll be tweaking its brokeness forever.</span></div><div class="line" id="123127"><span class="nick" style="color:#8dd3c7"><a href="#123127" label="[12:31:27]">&lt;OriansJ&gt;</a></span><span class="message">like fixing one part will break other working parts</span></div><div class="line" id="123155"><span class="nick" style="color:#8dd3c7"><a href="#123155" label="[12:31:55]">&lt;OriansJ&gt;</a></span><span class="message">perhaps the most frustrating parts about interpreters</span></div><div class="line" id="123213"><span class="nick" style="color:#6b8072"><a href="#123213" label="[12:32:13]">&lt;xentrac&gt;</a></span><span class="message">programming is hard</span></div><div class="line" id="123239"><span class="nick" style="color:#6b8072"><a href="#123239" label="[12:32:39]">&lt;xentrac&gt;</a></span><span class="message">but not impossible</span></div><div class="line" id="123803"><span class="nick" style="color:#8dd3c7"><a href="#123803" label="[12:38:03]">&lt;OriansJ&gt;</a></span><span class="message">programming compilers is alot easier and much less work than interpreters</span></div><div class="line" id="123848"><span class="nick" style="color:#6b8072"><a href="#123848" label="[12:38:48]">&lt;xentrac&gt;</a></span><span class="message">you've said; I don't understand how that can be, but I accept that that is your experience :)</span></div><div class="line" id="131210"><span class="nick" style="color:#8dd3c7"><a href="#131210" label="[13:12:10]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: compiler -&gt; a = a + 4; push_address a, load_immediate 4, load a, add r0 r1, pop, store r0 r1 and done. A compiler is just a string state machine</span></div><div class="line" id="131250"><span class="nick" style="color:#8dd3c7"><a href="#131250" label="[13:12:50]">&lt;OriansJ&gt;</a></span><span class="message">An interpreter has to do a shitload more to do the same work</span></div><div class="line" id="131437"><span class="nick" style="color:#8dd3c7"><a href="#131437" label="[13:14:37]">&lt;OriansJ&gt;</a></span><span class="message">like actually implement all of the desired primitives and in scheme's case garbage collection</span></div><div class="line" id="132304"><span class="nick" style="color:#8dd3c7"><a href="#132304" label="[13:23:04]">&lt;OriansJ&gt;</a></span><span class="message">and mind you I have done a FORTH interpreter, lisp interpreter and C compiler in assembly</span></div><div class="line" id="132343"><span class="nick" style="color:#8dd3c7"><a href="#132343" label="[13:23:43]">&lt;OriansJ&gt;</a></span><span class="message">and a scheme interpreter and C compiler in C</span></div><div class="line" id="132433"><span class="nick" style="color:#8dd3c7"><a href="#132433" label="[13:24:33]">&lt;OriansJ&gt;</a></span><span class="message">So in those languages I must say compilers are simpler and easier</span></div><div class="line" id="132515"><span class="nick" style="color:#8dd3c7"><a href="#132515" label="[13:25:15]">&lt;OriansJ&gt;</a></span><span class="message">Now that might not be true in all languages but that is my direct experiences</span></div><div class="line" id="132724"><span class="nick" style="color:#8dd3c7"><a href="#132724" label="[13:27:24]">&lt;OriansJ&gt;</a></span><span class="message">perhaps interpreters are easier in interpreted languages were the language you are working in pays most of that complexity for you</span></div><div class="line" id="133559"><span class="nick" style="color:#8dd3c7"><a href="#133559" label="[13:35:59]">&lt;OriansJ&gt;</a></span><span class="message">or put in a more numerical form: a Cross-platform C compiler -&gt; 2,332 lines of code; mes-m2 -&gt; 6,582 lines of C code and 1,269 lines of Lisp code and we can't even run a program able to Compile mes-m2 (which M2-Planet certainly can)</span></div><div class="line" id="135640"><span class="nick" style="color:#8dd3c7"><a href="#135640" label="[13:56:40]">&lt;OriansJ&gt;</a></span><span class="message">perhaps even my experience is only accurate for minimal interpreters and compilers</span></div><div class="line" id="135740"><span class="nick" style="color:#8dd3c7"><a href="#135740" label="[13:57:40]">&lt;OriansJ&gt;</a></span><span class="message">perhaps the initial overhead of interpretation reduces costs later in the implementation cycle relative to adding more features to a Compiler but I just haven't seen it yet.</span></div><div class="line" id="135849"><span class="nick" style="color:#8dd3c7"><a href="#135849" label="[13:58:49]">&lt;OriansJ&gt;</a></span><span class="message">but I know assemblers and linkers really take alot of complexity out of the compiler and reduce it to just a string generating state machine.</span></div><div class="line" id="210018"><span class="nick" style="color:#80b1d3"><a href="#210018" label="[21:00:18]">&lt;mid-kid&gt;</a></span><span class="message">Has anyone had any issues getting a bzip2 built with TCC+mes-libc to accept data from stdin?</span></div><div class="line" id="210106"><span class="nick" style="color:#80b1d3"><a href="#210106" label="[21:01:06]">&lt;mid-kid&gt;</a></span><span class="message">Specifically, bzip2 1.0.8 with tcc 0.9.27 and mes 0.22</span></div><div class="line" id="210149"><span class="nick" style="color:#80b1d3"><a href="#210149" label="[21:01:49]">&lt;mid-kid&gt;</a></span><span class="message">Running something like &quot;cat file.bz2 | bzip2 -d&quot; gives me a &quot;PANIC -- internal consistency error: decompress:unexpected error&quot;.</span></div><div class="line" id="210226"><span class="nick" style="color:#80b1d3"><a href="#210226" label="[21:02:26]">&lt;mid-kid&gt;</a></span><span class="message">And I just want to know if this is a known thing or because of however I built this toolchain.</span></div><div class="line" id="211550"><span class="nick" style="color:#80b1d3"><a href="#211550" label="[21:15:50]">&lt;mid-kid&gt;</a></span><span class="message">stdin seems to be a null pointer???</span></div><div class="line" id="211613"><span class="nick" style="color:#80b1d3"><a href="#211613" label="[21:16:13]">&lt;mid-kid&gt;</a></span><span class="message">As in, the global &quot;stdin&quot; variable.</span></div><div class="line" id="212130"><span class="nick" style="color:#80b1d3"><a href="#212130" label="[21:21:30]">&lt;mid-kid&gt;</a></span><span class="message">Yeah, removing the &quot;if (f == NULL&quot; (setting it to &quot;if (0&quot;) in BZ2_bzReadOpen, causes everything to work correctly. I guess bzip2 never expects the value of &quot;stdin&quot; to be 0.</span></div><div class="line" id="212145"><span class="nick" style="color:#80b1d3"><a href="#212145" label="[21:21:45]">&lt;mid-kid&gt;</a></span><span class="message">Just checked it against glibc and &quot;stdin&quot; isn't 0 there either.</span></div><div class="line" id="212203"><span class="nick" style="color:#80b1d3"><a href="#212203" label="[21:22:03]">&lt;mid-kid&gt;</a></span><span class="message">But I guess mes-libc sets it to 0 for internal reasons.</span></div><div class="line" id="212207"><span class="nick" style="color:#6d2462"><a href="#212207" label="[21:22:07]">&lt;janneke&gt;</a></span><span class="message">that would be &quot;bzip2-mesboot&quot; in guix</span></div><div class="line" id="212212"><span class="nick" style="color:#80b1d3"><a href="#212212" label="[21:22:12]">&lt;mid-kid&gt;</a></span><span class="message">yeah</span></div><div class="line" id="212336"><span class="nick" style="color:#80b1d3"><a href="#212336" label="[21:23:36]">&lt;mid-kid&gt;</a></span><span class="message">In mes-0.22: include/stdio.h:#define stdin (FILE*)0</span></div><div class="line" id="212509"><span class="nick" style="color:#6d2462"><a href="#212509" label="[21:25:09]">&lt;janneke&gt;</a></span><span class="message">mid-kid: yes, i see that too bzip2/bunzip2 do not decompress to stdout</span></div><div class="line" id="212531"><span class="nick" style="color:#80b1d3"><a href="#212531" label="[21:25:31]">&lt;mid-kid&gt;</a></span><span class="message">You mean _from_ stdin?</span></div><div class="line" id="212532"><span class="nick" style="color:#6d2462"><a href="#212532" label="[21:25:32]">&lt;janneke&gt;</a></span><span class="message">mid-kid: yeah, the mes c library works that way</span></div><div class="line" id="212549"><span class="nick" style="color:#6d2462"><a href="#212549" label="[21:25:49]">&lt;janneke&gt;</a></span><span class="message">ah, /me looks again</span></div><div class="line" id="212630"><span class="nick" style="color:#6d2462"><a href="#212630" label="[21:26:30]">&lt;janneke&gt;</a></span><span class="message">yeah, that too</span></div><div class="line" id="212638"><span class="nick" style="color:#80b1d3"><a href="#212638" label="[21:26:38]">&lt;mid-kid&gt;</a></span><span class="message">hmm</span></div><div class="line" id="212700"><span class="nick" style="color:#80b1d3"><a href="#212700" label="[21:27:00]">&lt;mid-kid&gt;</a></span><span class="message">decompressing to stdout through &quot;bzip2 -cd file.tar.bz2 | tar x&quot; works fine.</span></div><div class="line" id="212725"><span class="nick" style="color:#6d2462"><a href="#212725" label="[21:27:25]">&lt;janneke&gt;</a></span><span class="message">mid-kid: there is no FILE* abstraction; stdin (and others) are just file handles</span></div><div class="line" id="212733"><span class="nick" style="color:#80b1d3"><a href="#212733" label="[21:27:33]">&lt;mid-kid&gt;</a></span><span class="message">I see.</span></div><div class="line" id="212804"><span class="nick" style="color:#6d2462"><a href="#212804" label="[21:28:04]">&lt;janneke&gt;</a></span><span class="message">that seemed neat and minimalist, would be nice to clean that up some time ;-)</span></div><div class="line" id="212827"><span class="nick" style="color:#80b1d3"><a href="#212827" label="[21:28:27]">&lt;mid-kid&gt;</a></span><span class="message">Hehe, well, anything works as long as they're not null pointers :P</span></div><div class="line" id="212936"><span class="nick" style="color:#6d2462"><a href="#212936" label="[21:29:36]">&lt;janneke&gt;</a></span><span class="message">yeah; note that all other tooling up to the first gcc-core works well with mes lib c</span></div><div class="line" id="213039"><span class="nick" style="color:#80b1d3"><a href="#213039" label="[21:30:39]">&lt;mid-kid&gt;</a></span><span class="message">Yeah I've noticed, it's just that &quot;tar jxf&quot; didn't work without rebuilding bzip2 so I wanted to check it out.</span></div><div class="line" id="213058"><span class="nick" style="color:#6d2462"><a href="#213058" label="[21:30:58]">&lt;janneke&gt;</a></span><span class="message">note that this give you bzip2 with guix:</span></div><div class="line" id="213100"><span class="nick" style="color:#6d2462"><a href="#213100" label="[21:31:00]">&lt;janneke&gt;</a></span><span class="message">$(guix build -e '(@@ (gnu packages commencement) bzip2-mesboot)')/bin/bzip2</span></div><div class="line" id="213121"><span class="nick" style="color:#6d2462"><a href="#213121" label="[21:31:21]">&lt;janneke&gt;</a></span><span class="message">it would be nice if it worked, i agree</span></div><br /></div></body></html>

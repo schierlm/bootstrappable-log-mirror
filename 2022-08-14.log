@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-08-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000240"><span class="nick" style="color:#389600"><a href="#000240" label="[00:02:40]">&lt;stikonas&gt;</a></span><span class="message">also some minor typo fixes <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-aarch64/pull/4">https://github.com/oriansj/stage0-posix-aarch64/pull/4</a> </span></div><div class="line" id="000414"><span class="nick" style="color:#389600"><a href="#000414" label="[00:04:14]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-armv7l/pull/1">https://github.com/oriansj/stage0-posix-armv7l/pull/1</a> </span></div><div class="line" id="005802"><span class="nick" style="color:#2e2a4a"><a href="#005802" label="[00:58:02]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged</span></div><div class="line" id="005949"><span class="nick" style="color:#389600"><a href="#005949" label="[00:59:49]">&lt;stikonas&gt;</a></span><span class="message">thanks</span></div><div class="line" id="012417"><span class="nick" style="color:#389600"><a href="#012417" label="[01:24:17]">&lt;stikonas&gt;</a></span><span class="message">catm will force me to improve option parsing a bit</span></div><div class="line" id="012453"><span class="nick" style="color:#389600"><a href="#012453" label="[01:24:53]">&lt;stikonas&gt;</a></span><span class="message">before that option parsing was very simple and assumed that user will supply exactly 2 arguments...</span></div><div class="line" id="032835"><span class="nick" style="color:#2e2a4a"><a href="#032835" label="[03:28:35]">&lt;oriansj&gt;</a></span><span class="message">stikonas: depends, if UEFI provides an array, it should be able to stay the same; if it is a list it'll be a little more complicated and if it is crazy it'll be a lot more complicated.</span></div><div class="line" id="055922"><span class="nick" style="color:#6b8072"><a href="#055922" label="[05:59:22]">&lt;aggi&gt;</a></span><span class="message">the final fun musl-libc typedef unsigned wchar_t; tcc/stddef.h unsigned; gnu typdef int wchar_t</span></div><div class="line" id="060003"><span class="nick" style="color:#6b8072"><a href="#060003" label="[06:00:03]">&lt;aggi&gt;</a></span><span class="message">next, see configure tests do things, include conflicting headers, exclude headers...</span></div><div class="line" id="060056"><span class="nick" style="color:#6b8072"><a href="#060056" label="[06:00:56]">&lt;aggi&gt;</a></span><span class="message">besides, gcc and tcc digest such typdef conflicts different... didn't fully expand the variant matrix of this</span></div><div class="line" id="060155"><span class="nick" style="color:#6b8072"><a href="#060155" label="[06:01:55]">&lt;aggi&gt;</a></span><span class="message">again, it is particularly GNU and related builds... i'll try to remove this coreutils, tar and a dozen others which can be replaced with toybox or something else</span></div><div class="line" id="060235"><span class="nick" style="color:#6b8072"><a href="#060235" label="[06:02:35]">&lt;aggi&gt;</a></span><span class="message">sorry, had been digging for a while, again, because of, gnu</span></div><div class="line" id="060956"><span class="nick" style="color:#6b8072"><a href="#060956" label="[06:09:56]">&lt;aggi&gt;</a></span><span class="message">what's funny, about this, due to the wchar_t typdef mismatch, results in HAVE_C99_STDINT_H=0 by configure tests...</span></div><div class="line" id="061134"><span class="nick" style="color:#6b8072"><a href="#061134" label="[06:11:34]">&lt;aggi&gt;</a></span><span class="message">ok, GNU configure.ac may test for wchar_t variances, yet i fail to recognize the wisdom to break with sideffects against C99 integer types</span></div><div class="line" id="061155"><span class="nick" style="color:#6b8072"><a href="#061155" label="[06:11:55]">&lt;aggi&gt;</a></span><span class="message">yet, this seems what GNU thinks is appropriate to do</span></div><div class="line" id="061333"><span class="nick" style="color:#6b8072"><a href="#061333" label="[06:13:33]">&lt;aggi&gt;</a></span><span class="message">i'll remove this, hopefully won't need GNU tar nor coreutils nore any of this anymore</span></div><div class="line" id="061545"><span class="nick" style="color:#6b8072"><a href="#061545" label="[06:15:45]">&lt;aggi&gt;</a></span><span class="message">those GNU headers, not only do those cascade many #ifdef; not enough, those headers are generated from templates</span></div><div class="line" id="061809"><span class="nick" style="color:#6b8072"><a href="#061809" label="[06:18:09]">&lt;aggi&gt;</a></span><span class="message">it's not that i wanted to remove GNU, this must be removed</span></div><div class="line" id="122145"><span class="nick" style="color:#389600"><a href="#122145" label="[12:21:45]">&lt;stikonas&gt;</a></span><span class="message">oriansj: UEFI doesn't provide an array. We get a string of data. That's it. It's up to us how to use it but the way I was using it was to interpret spaces as argument separators</span></div><div class="line" id="122152"><span class="nick" style="color:#389600"><a href="#122152" label="[12:21:52]">&lt;stikonas&gt;</a></span><span class="message">(and also I kept it UTF-16 string for compatibility with UEFI shell)</span></div><div class="line" id="122159"><span class="nick" style="color:#389600"><a href="#122159" label="[12:21:59]">&lt;stikonas&gt;</a></span><span class="message"> and that's also needed if we want to set arguments in UEFI boot manager (i.e. to bootstrapping without kaem-optional)</span></div><div class="line" id="122229"><span class="nick" style="color:#80b1d3"><a href="#122229" label="[12:22:29]">&lt;stikonas[m]&gt;</a></span><span class="message">well, there is string itself and length of string</span></div><div class="line" id="122557"><span class="nick" style="color:#389600"><a href="#122557" label="[12:25:57]">&lt;stikonas&gt;</a></span><span class="message">so it's a bit lower level than POSIX arguments</span></div><div class="line" id="125413"><span class="nick" style="color:#389600"><a href="#125413" label="[12:54:13]">&lt;stikonas&gt;</a></span><span class="message">hmm, unfortunately I think I've made a bug in kaem-optional where string length is not set correctly...</span></div><div class="line" id="125420"><span class="nick" style="color:#389600"><a href="#125420" label="[12:54:20]">&lt;stikonas&gt;</a></span><span class="message">so I might need to fix that first</span></div><div class="line" id="133546"><span class="nick" style="color:#389600"><a href="#133546" label="[13:35:46]">&lt;stikonas&gt;</a></span><span class="message">oriansj:  an you pull in <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds/pull/30">https://github.com/oriansj/bootstrap-seeds/pull/30</a>  when you are free</span></div><div class="line" id="140008"><span class="nick" style="color:#389600"><a href="#140008" label="[14:00:08]">&lt;stikonas&gt;</a></span><span class="message">anyway, with this I can take the string of arguments, split it and push everything onto stack</span></div><div class="line" id="145026"><span class="nick" style="color:#2e2a4a"><a href="#145026" label="[14:50:26]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged</span></div><div class="line" id="151647"><span class="nick" style="color:#389600"><a href="#151647" label="[15:16:47]">&lt;stikonas&gt;</a></span><span class="message">so the new argument parser now looks like <a rel="nofollow" href="https://paste.debian.net/1250411/">https://paste.debian.net/1250411/</a> </span></div><div class="line" id="151711"><span class="nick" style="color:#389600"><a href="#151711" label="[15:17:11]">&lt;stikonas&gt;</a></span><span class="message">we'll probably needs something similar in M2libc...</span></div><div class="line" id="151756"><span class="nick" style="color:#389600"><a href="#151756" label="[15:17:56]">&lt;stikonas&gt;</a></span><span class="message">though this one does not set any argc...</span></div><div class="line" id="153042"><span class="nick" style="color:#2e2a4a"><a href="#153042" label="[15:30:42]">&lt;oriansj&gt;</a></span><span class="message">well we could store the ++options rather easily and then we would have both argc and argv set correctly</span></div><div class="line" id="155023"><span class="nick" style="color:#389600"><a href="#155023" label="[15:50:23]">&lt;stikonas&gt;</a></span><span class="message">yes, in M2libc that could work</span></div><div class="line" id="155032"><span class="nick" style="color:#389600"><a href="#155032" label="[15:50:32]">&lt;stikonas&gt;</a></span><span class="message">I don't need argc itself for catm...</span></div><div class="line" id="155133"><span class="nick" style="color:#389600"><a href="#155133" label="[15:51:33]">&lt;stikonas&gt;</a></span><span class="message">I'll see if it makes sense to backport this to some of the earlier programs that are already done</span></div><div class="line" id="155147"><span class="nick" style="color:#389600"><a href="#155147" label="[15:51:47]">&lt;stikonas&gt;</a></span><span class="message">maybe hex2 can have this improved parser</span></div><div class="line" id="155210"><span class="nick" style="color:#389600"><a href="#155210" label="[15:52:10]">&lt;stikonas&gt;</a></span><span class="message">the other ones are pain to update for little benefit</span></div><div class="line" id="165120"><span class="nick" style="color:#2e2a4a"><a href="#165120" label="[16:51:20]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well minimal is best for the early steps; M2libc can do much more advanced things as we can even do C code for it</span></div><div class="line" id="165147"><span class="nick" style="color:#389600"><a href="#165147" label="[16:51:47]">&lt;stikonas&gt;</a></span><span class="message">yes, hence I'm doing almost no error checking</span></div><div class="line" id="165206"><span class="nick" style="color:#389600"><a href="#165206" label="[16:52:06]">&lt;stikonas&gt;</a></span><span class="message">though I still free memory pools and close file handles (which we don't to in POSIX)</span></div><div class="line" id="165622"><span class="nick" style="color:#2e2a4a"><a href="#165622" label="[16:56:22]">&lt;oriansj&gt;</a></span><span class="message">well we do close file handles in M2libc but you are right about us not freeing of memory pools as of yet</span></div><div class="line" id="165641"><span class="nick" style="color:#2e2a4a"><a href="#165641" label="[16:56:41]">&lt;oriansj&gt;</a></span><span class="message">I guess I probably should give M2libc a proper malloc</span></div><div class="line" id="182649"><span class="nick" style="color:#389600"><a href="#182649" label="[18:26:49]">&lt;stikonas&gt;</a></span><span class="message">ok, catm.S is now working <a rel="nofollow" href="https://git.stikonas.eu/andrius/stage0-uefi/src/branch/main/amd64/Development/catm.S">https://git.stikonas.eu/andrius/stage0-uefi/src/branch/main/amd64/Development/catm.S</a> </span></div><div class="line" id="193257"><span class="nick" style="color:#6b8072"><a href="#193257" label="[19:32:57]">&lt;aggi&gt;</a></span><span class="message">so, system can be bootstrapped _without_ GNU gettext/intltool now, some cleanup and testing remaining</span></div><div class="line" id="193451"><span class="nick" style="color:#6b8072"><a href="#193451" label="[19:34:51]">&lt;aggi&gt;</a></span><span class="message">and i already tested replacing binutils with elfutils, two dozen of builds still block against binutils-ar</span></div><div class="line" id="193525"><span class="nick" style="color:#6b8072"><a href="#193525" label="[19:35:25]">&lt;aggi&gt;</a></span><span class="message">i'll try with tcc-ar next, which too was broken last time i tried</span></div><div class="line" id="193806"><span class="nick" style="color:#6b8072"><a href="#193806" label="[19:38:06]">&lt;aggi&gt;</a></span><span class="message">another test-run will be a tcc-only toolchain (CC,LD,AR,AS), to see how many builds require additional utilities from binutils</span></div><div class="line" id="193900"><span class="nick" style="color:#6b8072"><a href="#193900" label="[19:39:00]">&lt;aggi&gt;</a></span><span class="message">ideally, the entire _userspace_ of ~600 builds i got currently can be compiled/linked with a tcc-toolchain only (without gcc/binutils/elfutils)</span></div><div class="line" id="194159"><span class="nick" style="color:#6b8072"><a href="#194159" label="[19:41:59]">&lt;aggi&gt;</a></span><span class="message">btw. replacing libtool with slibtool(gentoo) passed with 100% of all builds, although gentoo tooling itself still requires libtoolize with their ebuild-system</span></div><div class="line" id="194252"><span class="nick" style="color:#6b8072"><a href="#194252" label="[19:42:52]">&lt;aggi&gt;</a></span><span class="message">with libtool i reject /bin/bash and bashism in general; can't test/re-implement various parts of the build-system without fully removing gentoo tooling</span></div><div class="line" id="233203"><span class="nick" style="color:#389600"><a href="#233203" label="[23:32:03]">&lt;stikonas&gt;</a></span><span class="message">just finished catm.hex2 <a rel="nofollow" href="https://git.stikonas.eu/andrius/stage0-uefi">https://git.stikonas.eu/andrius/stage0-uefi</a> </span></div><div class="line" id="233457"><span class="nick" style="color:#389600"><a href="#233457" label="[23:34:57]">&lt;stikonas&gt;</a></span><span class="message">though there seems to be some bug somewhere (maybe kaem)</span></div><div class="line" id="233508"><span class="nick" style="color:#389600"><a href="#233508" label="[23:35:08]">&lt;stikonas&gt;</a></span><span class="message">occasionally the whole process gets stuck</span></div><br /></div></body></html>

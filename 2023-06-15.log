@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-06-15.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000111"><span class="nick" style="color:#389600"><a href="#000111" label="[00:01:11]">&lt;ccx&gt;</a></span><span class="message">Noted. Thanks again. :−)</span></div><div class="line" id="022808"><span class="nick" style="color:#8dd3c7"><a href="#022808" label="[02:28:08]">&lt;stikonas&gt;</a></span><span class="message">hmm, riscv64 assembler in tcc is very primitive...</span></div><div class="line" id="022827"><span class="nick" style="color:#8dd3c7"><a href="#022827" label="[02:28:27]">&lt;stikonas&gt;</a></span><span class="message">it doesn't even know about jal instruction</span></div><div class="line" id="023144"><span class="nick" style="color:#2e2a4a"><a href="#023144" label="[02:31:44]">&lt;muurkha&gt;</a></span><span class="message">hmm, does that mean you don't have subroutines?</span></div><div class="line" id="023228"><span class="nick" style="color:#8dd3c7"><a href="#023228" label="[02:32:28]">&lt;stikonas&gt;</a></span><span class="message">no, that's assembler</span></div><div class="line" id="023242"><span class="nick" style="color:#8dd3c7"><a href="#023242" label="[02:32:42]">&lt;stikonas&gt;</a></span><span class="message">compiler emits jumps directly using binary opcodes</span></div><div class="line" id="023306"><span class="nick" style="color:#8dd3c7"><a href="#023306" label="[02:33:06]">&lt;stikonas&gt;</a></span><span class="message">e.g. <a rel="nofollow" href="https://github.com/TinyCC/tinycc/blob/mob/riscv64-gen.c#L422">https://github.com/TinyCC/tinycc/blob/mob/riscv64-gen.c#L422</a> </span></div><div class="line" id="023311"><span class="nick" style="color:#8dd3c7"><a href="#023311" label="[02:33:11]">&lt;stikonas&gt;</a></span><span class="message">that's really ugly design...</span></div><div class="line" id="023418"><span class="nick" style="color:#8dd3c7"><a href="#023418" label="[02:34:18]">&lt;stikonas&gt;</a></span><span class="message">even cc_*, M2, mescc compilers have clear separation between compiling and assembling</span></div><div class="line" id="023518"><span class="nick" style="color:#8dd3c7"><a href="#023518" label="[02:35:18]">&lt;stikonas&gt;</a></span><span class="message">and of course tcc riscv64 assembler has syntax that is incompatible with gcc</span></div><div class="line" id="023538"><span class="nick" style="color:#8dd3c7"><a href="#023538" label="[02:35:38]">&lt;stikonas&gt;</a></span><span class="message">I guess that's no different from our early M1 based compilers</span></div><div class="line" id="023552"><span class="nick" style="color:#8dd3c7"><a href="#023552" label="[02:35:52]">&lt;stikonas&gt;</a></span><span class="message">but it will make it hard to build any C library</span></div><div class="line" id="023724"><span class="nick" style="color:#2e2a4a"><a href="#023724" label="[02:37:24]">&lt;muurkha&gt;</a></span><span class="message">oh, I see</span></div><div class="line" id="023758"><span class="nick" style="color:#2e2a4a"><a href="#023758" label="[02:37:58]">&lt;muurkha&gt;</a></span><span class="message">I think it's pretty common to write compilers that emit machine code directly instead of textual assembly, just not on Unix</span></div><div class="line" id="031306"><span class="nick" style="color:#6b8072"><a href="#031306" label="[03:13:06]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well it is much easier to write compilers that emit text than compilers that have to deal with the ugly low level bit encoding details.</span></div><div class="line" id="031402"><span class="nick" style="color:#6b8072"><a href="#031402" label="[03:14:02]">&lt;oriansj&gt;</a></span><span class="message">It just happens to have the added benefit of being easier to debug and reason about</span></div><div class="line" id="032350"><span class="nick" style="color:#2e2a4a"><a href="#032350" label="[03:23:50]">&lt;muurkha&gt;</a></span><span class="message">hmm, I've done both, but maybe not enough to have an informed opinion</span></div><div class="line" id="032504"><span class="nick" style="color:#2e2a4a"><a href="#032504" label="[03:25:04]">&lt;muurkha&gt;</a></span><span class="message">I feel like maybe which is easier might depend on how fast the compiler has to go</span></div><div class="line" id="032524"><span class="nick" style="color:#2e2a4a"><a href="#032524" label="[03:25:24]">&lt;muurkha&gt;</a></span><span class="message">and maybe also how much diversity of instruction formats you have</span></div><div class="line" id="033313"><span class="nick" style="color:#6b8072"><a href="#033313" label="[03:33:13]">&lt;oriansj&gt;</a></span><span class="message">well that is entirely valid, if one doesn't need to do optimizations (like M2-Planet) doing 1MLoC/second isn't a hard target on modern hardware.</span></div><div class="line" id="033419"><span class="nick" style="color:#6b8072"><a href="#033419" label="[03:34:19]">&lt;oriansj&gt;</a></span><span class="message">and supporting dozens of architectures really quickly explodes the number of bits your compiler has to know and embed.</span></div><div class="line" id="050742"><span class="nick" style="color:#2e2a4a"><a href="#050742" label="[05:07:42]">&lt;muurkha&gt;</a></span><span class="message">the particular thing I'm procrastinating on right now is a very simple compiler and bytecode interpreter with some tricky parts, pretty similar to Smalltalk-80 in some ways</span></div><div class="line" id="093035"><span class="nick" style="color:#80b1d3"><a href="#093035" label="[09:30:35]">&lt;kerravon&gt;</a></span><span class="message">hello. i saw a bootstrappable wiki where the author says he prefers to enter the boot sector in using switches. i wasn't aware that there were computers still sold that have switches.</span></div><div class="line" id="093054"><span class="nick" style="color:#80b1d3"><a href="#093054" label="[09:30:54]">&lt;kerravon&gt;</a></span><span class="message">i know there was in the 1980s</span></div><div class="line" id="093227"><span class="nick" style="color:#80b1d3"><a href="#093227" label="[09:32:27]">&lt;kerravon&gt;</a></span><span class="message"> <a rel="nofollow" href="https://bootstrapping.miraheze.org/wiki/Stage0">https://bootstrapping.miraheze.org/wiki/Stage0</a> </span></div><div class="line" id="093253"><span class="nick" style="color:#80b1d3"><a href="#093253" label="[09:32:53]">&lt;kerravon&gt;</a></span><span class="message">Stage0 starts with only 1 thing:</span></div><div class="line" id="093253"><span class="nick" style="color:#80b1d3"><a href="#093253" label="[09:32:53]">&lt;kerravon&gt;</a></span><span class="message">1) A sub 500 byte hex monitor [How you create it is up to you; I like toggling it in manually myself]</span></div><div class="line" id="100602"><span class="nick" style="color:#6d2462"><a href="#100602" label="[10:06:02]">&lt;stikonas[m]&gt;</a></span><span class="message">kerravon: no there are no computers made with switches, you would have to make one yourself</span></div><div class="line" id="100637"><span class="nick" style="color:#234e69"><a href="#100637" label="[10:06:37]">&lt;pabs3&gt;</a></span><span class="message">they left before your answer stikonas[m]</span></div><div class="line" id="100711"><span class="nick" style="color:#6d2462"><a href="#100711" label="[10:07:11]">&lt;stikonas[m]&gt;</a></span><span class="message">Oh indeed</span></div><div class="line" id="182957"><span class="nick" style="color:#6b8072"><a href="#182957" label="[18:29:57]">&lt;oriansj&gt;</a></span><span class="message">but perhaps kerravon will look at the logs and realize not everyone lives in the same timezone</span></div><br /></div></body></html>

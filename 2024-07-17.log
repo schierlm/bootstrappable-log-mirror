@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-07-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="074152"><span class="nick" style="color:#389600"><a href="#074152" label="[07:41:52]">&lt;pabs3&gt;</a></span><span class="message">ACTION posted the interview on HN (no comments yet) <a rel="nofollow" href="https://news.ycombinator.com/item?id=40982859">https://news.ycombinator.com/item?id=40982859</a> </span></div><div class="line" id="074227"><span class="nick" style="color:#389600"><a href="#074227" label="[07:42:27]">&lt;pabs3&gt;</a></span><span class="message">here is a summary of the NGI situation civodul/ekaitz mentioned <a rel="nofollow" href="https://www.ow2.org/view/Events/The_European_Union_must_keep_funding_free_software_open_letter">https://www.ow2.org/view/Events/The_European_Union_must_keep_funding_free_software_open_letter</a> </span></div><div class="line" id="135513"><span class="nick" style="color:#8dd3c7"><a href="#135513" label="[13:55:13]">&lt;oriansj&gt;</a></span><span class="message">yeah, NLnet really did seem to be funding interesting and worthwhile projects. And at 27M/year seems like they were getting a great return on that investment. Their RISC-V bootstrapping efforts were comparible (but superior) to $6B worth of projects done by the DoD</span></div><div class="line" id="152944"><span class="nick" style="color:#2e2a4a"><a href="#152944" label="[15:29:44]">&lt;aggi&gt;</a></span><span class="message">minor notice: i am almost finished with verifying cross-compilation with gcc-4.7/binutils/musl, that I consider an additional acceptance criteria for bootstrapping</span></div><div class="line" id="153029"><span class="nick" style="color:#2e2a4a"><a href="#153029" label="[15:30:29]">&lt;aggi&gt;</a></span><span class="message">there's a notable amount of additional hacks and patching required with gentoo crossdev for this, and i am close to finalizing this</span></div><div class="line" id="153139"><span class="nick" style="color:#2e2a4a"><a href="#153139" label="[15:31:39]">&lt;aggi&gt;</a></span><span class="message">as a consequence, given bootstrappable.org implemented a complete system-integration for x86 arriving at gcc-4.7, with it cross-compilation and/or toolchain-updates towards any supported ARCH are possible then</span></div><div class="line" id="153243"><span class="nick" style="color:#2e2a4a"><a href="#153243" label="[15:32:43]">&lt;aggi&gt;</a></span><span class="message">i covered the following cross-compilation test-cases so far: amd64 -&gt; aarch32/64; aarch32/64 -&gt; x86; x86 -&gt; aarch32/64</span></div><div class="line" id="153328"><span class="nick" style="color:#2e2a4a"><a href="#153328" label="[15:33:28]">&lt;aggi&gt;</a></span><span class="message">i could avoid qemu-user/binfmt for this, and the emitted bootable ISO and/or aarch firmware.img remain fully selfhosting</span></div><div class="line" id="153459"><span class="nick" style="color:#2e2a4a"><a href="#153459" label="[15:34:59]">&lt;aggi&gt;</a></span><span class="message">next, i'll replace GNU-toolchain with tcc-toolchain again, reiterating what had failed with python and perl for example (to retain gentoo tooling and GNU automake/autoconf)</span></div><div class="line" id="153555"><span class="nick" style="color:#2e2a4a"><a href="#153555" label="[15:35:55]">&lt;aggi&gt;</a></span><span class="message">in this context i consider tcc-toolchain a cross-compilation variant, hence i wanted to confirm cross-compilation with gcc-4.7/binutils were sufficiently stable</span></div><div class="line" id="153648"><span class="nick" style="color:#2e2a4a"><a href="#153648" label="[15:36:48]">&lt;aggi&gt;</a></span><span class="message">and of cause, this required the c-only profile to completely avoid direct and transitive dependencies towards c++; and this profile seems sufficiently stabilized too</span></div><div class="line" id="153944"><span class="nick" style="color:#2e2a4a"><a href="#153944" label="[15:39:44]">&lt;aggi&gt;</a></span><span class="message">another thought related to gcc-4.7 (the last one without c++ internally): it's considered deprecated and unmaintained, hence i want to keep this archived in a known-good working state</span></div><br /></div></body></html>

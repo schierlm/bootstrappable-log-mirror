@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-10-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000002"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><div class="line" id="011750"><span class="nick" style="color:#8dd3c7"><a href="#011750" label="[01:17:50]">&lt;stikonas&gt;</a></span><span class="message">oriansj: any preference on how we select linux vs UEFI in M2-Planet?</span></div><div class="line" id="011813"><span class="nick" style="color:#8dd3c7"><a href="#011813" label="[01:18:13]">&lt;stikonas&gt;</a></span><span class="message">define that we need to pass via command line?</span></div><div class="line" id="011840"><span class="nick" style="color:#8dd3c7"><a href="#011840" label="[01:18:40]">&lt;stikonas&gt;</a></span><span class="message">actually not in M2-Planet but we'll need to do it in M2-Mesoplanet</span></div><div class="line" id="011849"><span class="nick" style="color:#8dd3c7"><a href="#011849" label="[01:18:49]">&lt;stikonas&gt;</a></span><span class="message">hmm, maybe that question can wait then</span></div><div class="line" id="012713"><span class="nick" style="color:#2e2a4a"><a href="#012713" label="[01:27:13]">&lt;oriansj&gt;</a></span><span class="message">stikonas: how does --host posix vs --host UEFI vs --host bare-metal sound?</span></div><div class="line" id="012757"><span class="nick" style="color:#2e2a4a"><a href="#012757" label="[01:27:57]">&lt;oriansj&gt;</a></span><span class="message">or maybe --operating-system posix vs --operating-system UEFI vs  --operating-system none</span></div><div class="line" id="012929"><span class="nick" style="color:#2e2a4a"><a href="#012929" label="[01:29:29]">&lt;oriansj&gt;</a></span><span class="message">possibly --operating-system linux so that we have different folders for the *BSDs and the rest</span></div><div class="line" id="012945"><span class="nick" style="color:#8dd3c7"><a href="#012945" label="[01:29:45]">&lt;stikonas&gt;</a></span><span class="message">and defaults to --host posix?</span></div><div class="line" id="012956"><span class="nick" style="color:#8dd3c7"><a href="#012956" label="[01:29:56]">&lt;stikonas&gt;</a></span><span class="message">or --operating-system posix</span></div><div class="line" id="013001"><span class="nick" style="color:#8dd3c7"><a href="#013001" label="[01:30:01]">&lt;stikonas&gt;</a></span><span class="message">hmm, maybe should actually be linux</span></div><div class="line" id="013010"><span class="nick" style="color:#8dd3c7"><a href="#013010" label="[01:30:10]">&lt;stikonas&gt;</a></span><span class="message">since those includes are linux specific</span></div><div class="line" id="013022"><span class="nick" style="color:#8dd3c7"><a href="#013022" label="[01:30:22]">&lt;stikonas&gt;</a></span><span class="message">or do other posixes follow linux syscall numbers</span></div><div class="line" id="013054"><span class="nick" style="color:#2e2a4a"><a href="#013054" label="[01:30:54]">&lt;oriansj&gt;</a></span><span class="message">no, they do not (even have radicially different calling conventions)</span></div><div class="line" id="013142"><span class="nick" style="color:#8dd3c7"><a href="#013142" label="[01:31:42]">&lt;stikonas&gt;</a></span><span class="message">ok, so maybe --operating-system linux</span></div><div class="line" id="013145"><span class="nick" style="color:#8dd3c7"><a href="#013145" label="[01:31:45]">&lt;stikonas&gt;</a></span><span class="message">which can be default</span></div><div class="line" id="013150"><span class="nick" style="color:#8dd3c7"><a href="#013150" label="[01:31:50]">&lt;stikonas&gt;</a></span><span class="message">or --operating-system UEFI</span></div><div class="line" id="013155"><span class="nick" style="color:#2e2a4a"><a href="#013155" label="[01:31:55]">&lt;oriansj&gt;</a></span><span class="message">possibly default to the host?</span></div><div class="line" id="013209"><span class="nick" style="color:#8dd3c7"><a href="#013209" label="[01:32:09]">&lt;stikonas&gt;</a></span><span class="message">hmm, good question, maybe</span></div><div class="line" id="013216"><span class="nick" style="color:#6b8072"><a href="#013216" label="[01:32:16]">&lt;muurkha&gt;</a></span><span class="message">stikonas: a lot of other OSes support running Linux binaries now, for which purpose they support the Linux syscall numbers and calling conventions</span></div><div class="line" id="013217"><span class="nick" style="color:#2e2a4a"><a href="#013217" label="[01:32:17]">&lt;oriansj&gt;</a></span><span class="message">as we can set that with -D when we build M2-Mesoplanet</span></div><div class="line" id="013222"><span class="nick" style="color:#8dd3c7"><a href="#013222" label="[01:32:22]">&lt;stikonas&gt;</a></span><span class="message">I think M2-mesoplanet does default to host arch already</span></div><div class="line" id="013312"><span class="nick" style="color:#2e2a4a"><a href="#013312" label="[01:33:12]">&lt;oriansj&gt;</a></span><span class="message">so that would match</span></div><div class="line" id="013340"><span class="nick" style="color:#8dd3c7"><a href="#013340" label="[01:33:40]">&lt;stikonas&gt;</a></span><span class="message">anyway, that is still some time away</span></div><div class="line" id="013350"><span class="nick" style="color:#8dd3c7"><a href="#013350" label="[01:33:50]">&lt;stikonas&gt;</a></span><span class="message">I've barely started looking and porting M2libc</span></div><div class="line" id="013507"><span class="nick" style="color:#2e2a4a"><a href="#013507" label="[01:35:07]">&lt;oriansj&gt;</a></span><span class="message">but it is something to think carefully about as changing it in the future might be more complex</span></div><div class="line" id="013528"><span class="nick" style="color:#8dd3c7"><a href="#013528" label="[01:35:28]">&lt;stikonas&gt;</a></span><span class="message">hmm, why do we have mknod so early, just because it was easy to add?</span></div><div class="line" id="013537"><span class="nick" style="color:#2e2a4a"><a href="#013537" label="[01:35:37]">&lt;oriansj&gt;</a></span><span class="message">yep</span></div><div class="line" id="013552"><span class="nick" style="color:#8dd3c7"><a href="#013552" label="[01:35:52]">&lt;stikonas&gt;</a></span><span class="message">I guess that's return -1 in UEFI...</span></div><div class="line" id="013558"><span class="nick" style="color:#2e2a4a"><a href="#013558" label="[01:35:58]">&lt;oriansj&gt;</a></span><span class="message">and for setting up /dev/null if I remember correctly</span></div><div class="line" id="013951"><span class="nick" style="color:#2e2a4a"><a href="#013951" label="[01:39:51]">&lt;oriansj&gt;</a></span><span class="message">and we can sort it out later if we choose to build anything more advanced than M2-Mesoplanet on UEFI</span></div><div class="line" id="014059"><span class="nick" style="color:#8dd3c7"><a href="#014059" label="[01:40:59]">&lt;stikonas&gt;</a></span><span class="message">oriansj: hmm, what do you think I should do with void* malloc(unsigned size) function</span></div><div class="line" id="014106"><span class="nick" style="color:#8dd3c7"><a href="#014106" label="[01:41:06]">&lt;stikonas&gt;</a></span><span class="message">right now it is in top level stdlib.c</span></div><div class="line" id="014115"><span class="nick" style="color:#8dd3c7"><a href="#014115" label="[01:41:15]">&lt;stikonas&gt;</a></span><span class="message">but I need a different implementation that does not use brk</span></div><div class="line" id="014154"><span class="nick" style="color:#8dd3c7"><a href="#014154" label="[01:41:54]">&lt;stikonas&gt;</a></span><span class="message">so I guess I should move it to linux dir...</span></div><div class="line" id="014226"><span class="nick" style="color:#8dd3c7"><a href="#014226" label="[01:42:26]">&lt;stikonas&gt;</a></span><span class="message">oh, maybe I can just use defines in the file</span></div><div class="line" id="014242"><span class="nick" style="color:#2e2a4a"><a href="#014242" label="[01:42:42]">&lt;oriansj&gt;</a></span><span class="message">or just make the brk function in UEFI</span></div><div class="line" id="014314"><span class="nick" style="color:#2e2a4a"><a href="#014314" label="[01:43:14]">&lt;oriansj&gt;</a></span><span class="message">and just return 4MB pages</span></div><div class="line" id="014321"><span class="nick" style="color:#8dd3c7"><a href="#014321" label="[01:43:21]">&lt;stikonas&gt;</a></span><span class="message">hmm... might need to rething how I allocate memory</span></div><div class="line" id="014326"><span class="nick" style="color:#8dd3c7"><a href="#014326" label="[01:43:26]">&lt;stikonas&gt;</a></span><span class="message">I though of using 4 MB pages</span></div><div class="line" id="014336"><span class="nick" style="color:#8dd3c7"><a href="#014336" label="[01:43:36]">&lt;stikonas&gt;</a></span><span class="message">but one page might be disconnected from the other</span></div><div class="line" id="014411"><span class="nick" style="color:#2e2a4a"><a href="#014411" label="[01:44:11]">&lt;oriansj&gt;</a></span><span class="message">hmmm</span></div><div class="line" id="014428"><span class="nick" style="color:#8dd3c7"><a href="#014428" label="[01:44:28]">&lt;stikonas&gt;</a></span><span class="message">well, maybe I can hide it somehow in brk implementation</span></div><div class="line" id="014446"><span class="nick" style="color:#8dd3c7"><a href="#014446" label="[01:44:46]">&lt;stikonas&gt;</a></span><span class="message">add some layer that maps address</span></div><div class="line" id="014528"><span class="nick" style="color:#2e2a4a"><a href="#014528" label="[01:45:28]">&lt;oriansj&gt;</a></span><span class="message">we could do a slab allocator</span></div><div class="line" id="014557"><span class="nick" style="color:#8dd3c7"><a href="#014557" label="[01:45:57]">&lt;stikonas&gt;</a></span><span class="message">maybe, that would still work in linux...</span></div><div class="line" id="014633"><span class="nick" style="color:#8dd3c7"><a href="#014633" label="[01:46:33]">&lt;stikonas&gt;</a></span><span class="message">so maybe we just improve that malloc in top-level stdlib.c</span></div><div class="line" id="014920"><span class="nick" style="color:#2e2a4a"><a href="#014920" label="[01:49:20]">&lt;oriansj&gt;</a></span><span class="message">well it definitely would work on linux and enable us to have proper free() as well</span></div><div class="line" id="015114"><span class="nick" style="color:#2e2a4a"><a href="#015114" label="[01:51:14]">&lt;oriansj&gt;</a></span><span class="message">it just involves us adding a bit of complexity but nothing too serious</span></div><div class="line" id="015306"><span class="nick" style="color:#2e2a4a"><a href="#015306" label="[01:53:06]">&lt;oriansj&gt;</a></span><span class="message">assuming we allocate 4MB blocks</span></div><div class="line" id="015403"><span class="nick" style="color:#2e2a4a"><a href="#015403" label="[01:54:03]">&lt;oriansj&gt;</a></span><span class="message">the first block would be enough to track 4GB of RAM</span></div><div class="line" id="015436"><span class="nick" style="color:#8dd3c7"><a href="#015436" label="[01:54:36]">&lt;stikonas&gt;</a></span><span class="message">I'll have to read up a bit more on slab allocators...</span></div><div class="line" id="015529"><span class="nick" style="color:#8dd3c7"><a href="#015529" label="[01:55:29]">&lt;stikonas&gt;</a></span><span class="message">so 1st block will store some kind of map?</span></div><div class="line" id="015533"><span class="nick" style="color:#8dd3c7"><a href="#015533" label="[01:55:33]">&lt;stikonas&gt;</a></span><span class="message">where the memory is located</span></div><div class="line" id="015651"><span class="nick" style="color:#2e2a4a"><a href="#015651" label="[01:56:51]">&lt;oriansj&gt;</a></span><span class="message">basically we can only cut a block in half 4MB, 2MB, 1MB, 512KB, 256KB, 128KB, 64KB, 32KB, 16KB, 8KB, 4KB, 2KB, 1024, 512, 256, 128, 64, 32, 16, 8, 4bytes</span></div><div class="line" id="015726"><span class="nick" style="color:#2e2a4a"><a href="#015726" label="[01:57:26]">&lt;oriansj&gt;</a></span><span class="message">and we allocate the first block that is big enough</span></div><div class="line" id="020045"><span class="nick" style="color:#8dd3c7"><a href="#020045" label="[02:00:45]">&lt;stikonas&gt;</a></span><span class="message">ok, makes sense</span></div><div class="line" id="020457"><span class="nick" style="color:#2e2a4a"><a href="#020457" label="[02:04:57]">&lt;oriansj&gt;</a></span><span class="message">although that might make a problem if we need to allocate more than a single block for a single object</span></div><div class="line" id="021216"><span class="nick" style="color:#80b1d3"><a href="#021216" label="[02:12:16]">&lt;stikonas[m]&gt;</a></span><span class="message">So more than 4MiB?</span></div><div class="line" id="021257"><span class="nick" style="color:#80b1d3"><a href="#021257" label="[02:12:57]">&lt;stikonas[m]&gt;</a></span><span class="message">Yeah, we can't guarantee that blocks are next to each other...</span></div><div class="line" id="021326"><span class="nick" style="color:#2e2a4a"><a href="#021326" label="[02:13:26]">&lt;oriansj&gt;</a></span><span class="message">but I guess we could add logic for merging of blocks but then we would need more tracking logic</span></div><div class="line" id="021331"><span class="nick" style="color:#80b1d3"><a href="#021331" label="[02:13:31]">&lt;stikonas[m]&gt;</a></span><span class="message">But I guess we rarely have allocations if more than 4MiB in calloc</span></div><div class="line" id="021451"><span class="nick" style="color:#80b1d3"><a href="#021451" label="[02:14:51]">&lt;stikonas[m]&gt;</a></span><span class="message">Or just use bigger than 4Mib blocks...</span></div><div class="line" id="021517"><span class="nick" style="color:#2e2a4a"><a href="#021517" label="[02:15:17]">&lt;oriansj&gt;</a></span><span class="message">say use an integer to store the 2^n size</span></div><div class="line" id="021612"><span class="nick" style="color:#2e2a4a"><a href="#021612" label="[02:16:12]">&lt;oriansj&gt;</a></span><span class="message">then we have a pointer to the base address</span></div><div class="line" id="021656"><span class="nick" style="color:#80b1d3"><a href="#021656" label="[02:16:56]">&lt;stikonas[m]&gt;</a></span><span class="message">But calloc expects continuous memory, doesn't it?</span></div><div class="line" id="021727"><span class="nick" style="color:#2e2a4a"><a href="#021727" label="[02:17:27]">&lt;oriansj&gt;</a></span><span class="message">so the first block is just an array of structs {int size; void* base;};</span></div><div class="line" id="021743"><span class="nick" style="color:#80b1d3"><a href="#021743" label="[02:17:43]">&lt;stikonas[m]&gt;</a></span><span class="message">On uefi we can't guarantee that blocks are next to each other....</span></div><div class="line" id="021813"><span class="nick" style="color:#80b1d3"><a href="#021813" label="[02:18:13]">&lt;stikonas[m]&gt;</a></span><span class="message">Though we can request bigger block...</span></div><div class="line" id="021826"><span class="nick" style="color:#80b1d3"><a href="#021826" label="[02:18:26]">&lt;stikonas[m]&gt;</a></span><span class="message">If we get huge calloc request</span></div><div class="line" id="022008"><span class="nick" style="color:#80b1d3"><a href="#022008" label="[02:20:08]">&lt;stikonas[m]&gt;</a></span><span class="message">And where do we store which segments are used?</span></div><div class="line" id="022245"><span class="nick" style="color:#80b1d3"><a href="#022245" label="[02:22:45]">&lt;stikonas[m]&gt;</a></span><span class="message">OK, found some docs <a rel="nofollow" href="https://www.kernel.org/doc/gorman/html/understand/understand011.html">https://www.kernel.org/doc/gorman/html/understand/understand011.html</a> </span></div><br /></div></body></html>

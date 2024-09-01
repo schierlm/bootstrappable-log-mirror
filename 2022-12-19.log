@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-12-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000007"><span class="nick" style="color:#389600"><a href="#000007" label="[00:00:07]">&lt;rickmasters&gt;</a></span><span class="message">Before the autoconf problem I worked on a memory corruption problem. At some point when Fiwix switched to the idle task, it rebooted.</span></div><div class="line" id="000019"><span class="nick" style="color:#8dd3c7"><a href="#000019" label="[00:00:19]">&lt;stikonas&gt;</a></span><span class="message">oh, that is hard to track...</span></div><div class="line" id="000026"><span class="nick" style="color:#8dd3c7"><a href="#000026" label="[00:00:26]">&lt;stikonas&gt;</a></span><span class="message">reboots wipe most of the state</span></div><div class="line" id="000054"><span class="nick" style="color:#8dd3c7"><a href="#000054" label="[00:00:54]">&lt;stikonas&gt;</a></span><span class="message">but yes, I've found that in UEFI memory coruption can often cause a reboot too</span></div><div class="line" id="000146"><span class="nick" style="color:#389600"><a href="#000146" label="[00:01:46]">&lt;rickmasters&gt;</a></span><span class="message">Just finding the trigger was a long slog and then I looked closely at the stack it was restoring and before reboot the contents had been corrupted.</span></div><div class="line" id="000322"><span class="nick" style="color:#389600"><a href="#000322" label="[00:03:22]">&lt;rickmasters&gt;</a></span><span class="message">So I just checked that piece of memory everywhere, all the time, ala if (*0xC000FF6C != 0x00000082) then printk(&quot;corrupted here: 22!&quot;)</span></div><div class="line" id="000347"><span class="nick" style="color:#8dd3c7"><a href="#000347" label="[00:03:47]">&lt;stikonas&gt;</a></span><span class="message">oh, my sizes might be wrong because M2 might be treating + and * as same priority in arithmetic operations</span></div><div class="line" id="000352"><span class="nick" style="color:#8dd3c7"><a href="#000352" label="[00:03:52]">&lt;stikonas&gt;</a></span><span class="message">so I need to add more brackets</span></div><div class="line" id="000417"><span class="nick" style="color:#389600"><a href="#000417" label="[00:04:17]">&lt;rickmasters&gt;</a></span><span class="message">Ultimately found that the kernel stack memory had not been reserved and was allocated to an application...</span></div><div class="line" id="000453"><span class="nick" style="color:#389600"><a href="#000453" label="[00:04:53]">&lt;rickmasters&gt;</a></span><span class="message">It's too bad M2 isn't a clean subset of C</span></div><div class="line" id="000612"><span class="nick" style="color:#8dd3c7"><a href="#000612" label="[00:06:12]">&lt;stikonas&gt;</a></span><span class="message">yeah, a bit annoying...</span></div><div class="line" id="000626"><span class="nick" style="color:#8dd3c7"><a href="#000626" label="[00:06:26]">&lt;stikonas&gt;</a></span><span class="message">though it might not be the only problem that is causing infinite loop for me</span></div><div class="line" id="000718"><span class="nick" style="color:#2e2a4a"><a href="#000718" label="[00:07:18]">&lt;muurkha&gt;</a></span><span class="message">what was the benefit of building your own qemu?</span></div><div class="line" id="001202"><span class="nick" style="color:#6b8072"><a href="#001202" label="[00:12:02]">&lt;oriansj&gt;</a></span><span class="message">stikonas: we can also make blood-elf create symbols for globals</span></div><div class="line" id="001207"><span class="nick" style="color:#389600"><a href="#001207" label="[00:12:07]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: I couldn't boot Fiwix - just a blank screen.</span></div><div class="line" id="001225"><span class="nick" style="color:#8dd3c7"><a href="#001225" label="[00:12:25]">&lt;stikonas&gt;</a></span><span class="message">oriansj: well, that wouldn't help with my current UEFI problems, though that might be useful in general</span></div><div class="line" id="001254"><span class="nick" style="color:#6b8072"><a href="#001254" label="[00:12:54]">&lt;oriansj&gt;</a></span><span class="message">it is the locals which are a bit harder to create; and honestly not quite sure how to do that.</span></div><div class="line" id="001342"><span class="nick" style="color:#389600"><a href="#001342" label="[00:13:42]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: So Fiwix can output to the qemu debug port so I wanted to see if qemu was reading anything</span></div><div class="line" id="001435"><span class="nick" style="color:#8dd3c7"><a href="#001435" label="[00:14:35]">&lt;stikonas&gt;</a></span><span class="message">in principle we could also make * and / have higher priority than + - in M2-Planet</span></div><div class="line" id="001442"><span class="nick" style="color:#8dd3c7"><a href="#001442" label="[00:14:42]">&lt;stikonas&gt;</a></span><span class="message">that is not hard</span></div><div class="line" id="001450"><span class="nick" style="color:#389600"><a href="#001450" label="[00:14:50]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: In certain scenarios Fiwix would boot but the keyboard didn't work.</span></div><div class="line" id="001500"><span class="nick" style="color:#2e2a4a"><a href="#001500" label="[00:15:00]">&lt;muurkha&gt;</a></span><span class="message">rickmasters: the standard qemu build didn't have a debug port?</span></div><div class="line" id="001523"><span class="nick" style="color:#8dd3c7"><a href="#001523" label="[00:15:23]">&lt;stikonas&gt;</a></span><span class="message">just need to split additive_expr_stub into a few differents functions</span></div><div class="line" id="001615"><span class="nick" style="color:#8dd3c7"><a href="#001615" label="[00:16:15]">&lt;stikonas&gt;</a></span><span class="message">anyway, I'll have to continue debugging it some other day...</span></div><div class="line" id="001711"><span class="nick" style="color:#389600"><a href="#001711" label="[00:17:11]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: Maybe (don't remember well), but I don't think so - you need ./configure -enable-debug</span></div><div class="line" id="001805"><span class="nick" style="color:#389600"><a href="#001805" label="[00:18:05]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: Also, later I was using a large ramdrive and wanted to see where qemu was placing it in memory</span></div><div class="line" id="001843"><span class="nick" style="color:#389600"><a href="#001843" label="[00:18:43]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: and I wanted to see if qemu was finding the multiboot header in the Fiwix binary</span></div><div class="line" id="001904"><span class="nick" style="color:#2e2a4a"><a href="#001904" label="[00:19:04]">&lt;muurkha&gt;</a></span><span class="message">rickmasters: aha, I see</span></div><div class="line" id="001916"><span class="nick" style="color:#2e2a4a"><a href="#001916" label="[00:19:16]">&lt;muurkha&gt;</a></span><span class="message">so above all for debugging the boot process</span></div><div class="line" id="002304"><span class="nick" style="color:#389600"><a href="#002304" label="[00:23:04]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: yes, but ultimately my issues were more on the Fiwix side</span></div><div class="line" id="002513"><span class="nick" style="color:#2e2a4a"><a href="#002513" label="[00:25:13]">&lt;muurkha&gt;</a></span><span class="message">debugging silent boot failures sucks</span></div><div class="line" id="002645"><span class="nick" style="color:#389600"><a href="#002645" label="[00:26:45]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: I spent an enormous amount of time figuring out that Fiwix requires compiling with -fno-pie because my distro's gcc turns on PIE which breaks Fiwix</span></div><div class="line" id="002819"><span class="nick" style="color:#389600"><a href="#002819" label="[00:28:19]">&lt;rickmasters&gt;</a></span><span class="message">I submitted a PR for that so others with non standard gcc don't fall into that pit.</span></div><div class="line" id="003129"><span class="nick" style="color:#389600"><a href="#003129" label="[00:31:29]">&lt;rickmasters&gt;</a></span><span class="message">BTW, I defined CONFIG_QEMU_DEBUGCON in Fiwix to get debug output but it didn't work - it was #undef'd in include/fiwix/config.h which was unfortunate and took me too long to find that</span></div><div class="line" id="003146"><span class="nick" style="color:#2e2a4a"><a href="#003146" label="[00:31:46]">&lt;muurkha&gt;</a></span><span class="message">rickmasters: that sounds super annoying</span></div><div class="line" id="003620"><span class="nick" style="color:#2e2a4a"><a href="#003620" label="[00:36:20]">&lt;muurkha&gt;</a></span><span class="message">why does PIE break Fiwix?</span></div><div class="line" id="003912"><span class="nick" style="color:#389600"><a href="#003912" label="[00:39:12]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: its a long story but briefly: gcc creates several ELF sections that Fiwix's linker script doesn't expect, PIE code uses ebx which some Fiwix assembly routines would trash,</span></div><div class="line" id="004033"><span class="nick" style="color:#2e2a4a"><a href="#004033" label="[00:40:33]">&lt;muurkha&gt;</a></span><span class="message">oh, I should have realized this was i386 PIE</span></div><div class="line" id="004044"><span class="nick" style="color:#389600"><a href="#004044" label="[00:40:44]">&lt;rickmasters&gt;</a></span><span class="message">also, Fiwix copies the init_trampoline code into a user segment and jumps to it to exec init, but PIE code is compiled with relative offsets to data structures which get lost</span></div><div class="line" id="004046"><span class="nick" style="color:#2e2a4a"><a href="#004046" label="[00:40:46]">&lt;muurkha&gt;</a></span><span class="message">it needs ebx as a globals pointer?</span></div><div class="line" id="004228"><span class="nick" style="color:#389600"><a href="#004228" label="[00:42:28]">&lt;rickmasters&gt;</a></span><span class="message">gcc PIE uses thunk call that moves the return address to ebx in order to locate the instruction pointer and then it finds data structures relative to that</span></div><div class="line" id="004345"><span class="nick" style="color:#2e2a4a"><a href="#004345" label="[00:43:45]">&lt;muurkha&gt;</a></span><span class="message">ugh, I didn't realize that</span></div><div class="line" id="004347"><span class="nick" style="color:#2e2a4a"><a href="#004347" label="[00:43:47]">&lt;muurkha&gt;</a></span><span class="message">that's worse than I thought</span></div><div class="line" id="004407"><span class="nick" style="color:#389600"><a href="#004407" label="[00:44:07]">&lt;rickmasters&gt;</a></span><span class="message">it took me quite a while to figure out what it was doing because it seemed so convoluted</span></div><div class="line" id="004526"><span class="nick" style="color:#389600"><a href="#004526" label="[00:45:26]">&lt;rickmasters&gt;</a></span><span class="message">then I had to figure out that it was using ebx for that and ebx was getting trashed, but I guess -fno-pie seems to avoid using ebx and so Fiwix assembly that trashed ebx didn't have problems</span></div><div class="line" id="004622"><span class="nick" style="color:#2e2a4a"><a href="#004622" label="[00:46:22]">&lt;muurkha&gt;</a></span><span class="message">I'm guessing it still assumes ebx is callee-saved though</span></div><div class="line" id="005001"><span class="nick" style="color:#389600"><a href="#005001" label="[00:50:01]">&lt;rickmasters&gt;</a></span><span class="message">with -fpie every single function relies on ebx right away to locate global data, and then many assembly functions would trash it so it caused havoc</span></div><div class="line" id="005046"><span class="nick" style="color:#389600"><a href="#005046" label="[00:50:46]">&lt;rickmasters&gt;</a></span><span class="message">I'm surprised there weren't problems with -fno-pie also, because ebx is used, but not as much. But I haven't noticed any problems so far.</span></div><div class="line" id="005207"><span class="nick" style="color:#389600"><a href="#005207" label="[00:52:07]">&lt;rickmasters&gt;</a></span><span class="message">I went through all his assembly in kernel/core386.S and preserved ebx and I have that available but I haven't had to use it yet...</span></div><div class="line" id="005225"><span class="nick" style="color:#2e2a4a"><a href="#005225" label="[00:52:25]">&lt;muurkha&gt;</a></span><span class="message">if you're going to call assembly functions from C, you might save and restore ebx in them unless you can persuade GCC to invoke them with some other calling convention that doesn't require that</span></div><div class="line" id="005236"><span class="nick" style="color:#2e2a4a"><a href="#005236" label="[00:52:36]">&lt;muurkha&gt;</a></span><span class="message">but hey, you've got it working, I haven't ;)</span></div><div class="line" id="005348"><span class="nick" style="color:#389600"><a href="#005348" label="[00:53:48]">&lt;rickmasters&gt;</a></span><span class="message">Yes, I did the work to preserve ebx and will submit a PR for that at some point but its working without it (suprisingly)</span></div><div class="line" id="005651"><span class="nick" style="color:#389600"><a href="#005651" label="[00:56:51]">&lt;rickmasters&gt;</a></span><span class="message">muurkha: i did that in hopes that I could make it work with -fno-pie but then I figured out he was copying code and gave up and finally figured out the compiler option I needed.</span></div><div class="line" id="005937"><span class="nick" style="color:#389600"><a href="#005937" label="[00:59:37]">&lt;rickmasters&gt;</a></span><span class="message">For some reason the compiler option that broke everything eluded me for way too long but it's pretty obscure and gcc has like a thousand options</span></div><div class="line" id="010003"><span class="nick" style="color:#2e2a4a"><a href="#010003" label="[01:00:03]">&lt;muurkha&gt;</a></span><span class="message">maybe two thousand</span></div><div class="line" id="010255"><span class="nick" style="color:#389600"><a href="#010255" label="[01:02:55]">&lt;rickmasters&gt;</a></span><span class="message">Luckily I had an old CentOS machine that compiled Fiwix correctly. I chalked it up to newer gcc doing things differently but it was Ubuntu compiling it with a different default.</span></div><div class="line" id="010338"><span class="nick" style="color:#389600"><a href="#010338" label="[01:03:38]">&lt;rickmasters&gt;</a></span><span class="message"> <a rel="nofollow" href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=103398">https://gcc.gnu.org/bugzilla/show_bug.cgi?id=103398</a> </span></div><div class="line" id="013316"><span class="nick" style="color:#389600"><a href="#013316" label="[01:33:16]">&lt;rickmasters&gt;</a></span><span class="message">Fun fact: I used the &quot;die-loop&quot; to debug the Fiwix boot code before it could print.</span></div><div class="line" id="013349"><span class="nick" style="color:#2e2a4a"><a href="#013349" label="[01:33:49]">&lt;muurkha&gt;</a></span><span class="message">die-loop?</span></div><div class="line" id="013354"><span class="nick" style="color:#389600"><a href="#013354" label="[01:33:54]">&lt;rickmasters&gt;</a></span><span class="message">I also used that extensively in builder-hex0, along with &quot;hlt&quot; as an alternative.</span></div><div class="line" id="013451"><span class="nick" style="color:#389600"><a href="#013451" label="[01:34:51]">&lt;rickmasters&gt;</a></span><span class="message">Though I was clever, but later I read an account from Linus about using the same technique: search &quot;die-loop&quot; here: <a rel="nofollow" href="https://www.cs.cmu.edu/~awb/linux.history.html">https://www.cs.cmu.edu/~awb/linux.history.html</a> </span></div><div class="line" id="013642"><span class="nick" style="color:#389600"><a href="#013642" label="[01:36:42]">&lt;rickmasters&gt;</a></span><span class="message">Just code in a die-loop and if qemu went to 100% it hit your code. Or if it was already going to 100%, code a halt and see if qemu goes idle</span></div><div class="line" id="013718"><span class="nick" style="color:#2e2a4a"><a href="#013718" label="[01:37:18]">&lt;muurkha&gt;</a></span><span class="message">oh nice, so you get one bit of output</span></div><div class="line" id="013745"><span class="nick" style="color:#2e2a4a"><a href="#013745" label="[01:37:45]">&lt;muurkha&gt;</a></span><span class="message">does that work on modern bare metal too?  or is power management dependent on successful booting?</span></div><div class="line" id="013929"><span class="nick" style="color:#389600"><a href="#013929" label="[01:39:29]">&lt;rickmasters&gt;</a></span><span class="message">You can code in a reboot as well - so that works on bare metal</span></div><div class="line" id="013947"><span class="nick" style="color:#2e2a4a"><a href="#013947" label="[01:39:47]">&lt;muurkha&gt;</a></span><span class="message">aha, reboot vs. hang</span></div><div class="line" id="014109"><span class="nick" style="color:#389600"><a href="#014109" label="[01:41:09]">&lt;rickmasters&gt;</a></span><span class="message">reboot, loop, or halt</span></div><div class="line" id="014144"><span class="nick" style="color:#389600"><a href="#014144" label="[01:41:44]">&lt;rickmasters&gt;</a></span><span class="message">depending on the circumstances</span></div><div class="line" id="014219"><span class="nick" style="color:#2e2a4a"><a href="#014219" label="[01:42:19]">&lt;muurkha&gt;</a></span><span class="message">on bare metal without power management looping and halting might look the same</span></div><div class="line" id="014600"><span class="nick" style="color:#389600"><a href="#014600" label="[01:46:00]">&lt;rickmasters&gt;</a></span><span class="message">I was getting that &quot;bit&quot; from Fiwix fairly early so I knew it was getting loaded so that helped a lot with motivation. But its a low bandwidth signal for debugging :)</span></div><div class="line" id="014757"><span class="nick" style="color:#2e2a4a"><a href="#014757" label="[01:47:57]">&lt;muurkha&gt;</a></span><span class="message">yeah, low-bandwidth debugging takes a lot of careful experiment planning and execution</span></div><div class="line" id="015935"><span class="nick" style="color:#389600"><a href="#015935" label="[01:59:35]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: hows the memory problem going?</span></div><div class="line" id="083531"><span class="nick" style="color:#80b1d3"><a href="#083531" label="[08:35:31]">&lt;stikonas[m]&gt;</a></span><span class="message">rickmasters: stopped looking  and went to bed, maybe I will look this evening</span></div><div class="line" id="103135"><span class="nick" style="color:#6d2462"><a href="#103135" label="[10:31:35]">&lt;fossy&gt;</a></span><span class="message">rickmasters: i am constantly impressed with your debugging abilities. that's a crazy debugging story</span></div><div class="line" id="104025"><span class="nick" style="color:#80b1d3"><a href="#104025" label="[10:40:25]">&lt;stikonas[m]&gt;</a></span><span class="message">Yeah, using halt vs loop to get 1 bit</span></div><div class="line" id="104054"><span class="nick" style="color:#80b1d3"><a href="#104054" label="[10:40:54]">&lt;stikonas[m]&gt;</a></span><span class="message">On uefi I was able to get 32 bits by exiting with return code</span></div><div class="line" id="225302"><span class="nick" style="color:#234e69"><a href="#225302" label="[22:53:02]">&lt;rillian&gt;</a></span><span class="message">is the knight isa in the stage0 repo something orians designed for the project, or does it come from somewhere else?</span></div><div class="line" id="232224"><span class="nick" style="color:#2e2a4a"><a href="#232224" label="[23:22:24]">&lt;muurkha&gt;</a></span><span class="message">apparently it's a bankrupt computer company called &quot;Knight&quot; from the 01970s</span></div><div class="line" id="232310"><span class="nick" style="color:#2e2a4a"><a href="#232310" label="[23:23:10]">&lt;muurkha&gt;</a></span><span class="message">oriansj claims he didn't make it up</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-06-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="032413"><span class="nick" style="color:#8dd3c7"><a href="#032413" label="[03:24:13]">&lt;oriansj&gt;</a></span><span class="message">Melg8[m]: I always encourage people to find and report bugs in all the tools used in bootstrapping as they must be robust and reliable.</span></div><div class="line" id="032703"><span class="nick" style="color:#8dd3c7"><a href="#032703" label="[03:27:03]">&lt;oriansj&gt;</a></span><span class="message">So fuzz M2-Planet to your heart's content. However I must warn you that I have already fuzzed it for more than 24hours straight with AFL without finding anything. So anything you find will be of great interest to me.</span></div><div class="line" id="033126"><span class="nick" style="color:#8dd3c7"><a href="#033126" label="[03:31:26]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well it probably is possible to incorporate cd support into kaem-optional without adding too many bytes but there is one additional option which might work for live-bootstrap better.</span></div><div class="line" id="033258"><span class="nick" style="color:#8dd3c7"><a href="#033258" label="[03:32:58]">&lt;oriansj&gt;</a></span><span class="message">I could make a hard-coded stub binary in only a handful of bytes that just cd into a known directory (say /stage0-posix) and then execs kaem-optional-seed with no options.</span></div><div class="line" id="033543"><span class="nick" style="color:#8dd3c7"><a href="#033543" label="[03:35:43]">&lt;oriansj&gt;</a></span><span class="message">(or a specific .kaem file or with some environment if one wanted)</span></div><div class="line" id="034802"><span class="nick" style="color:#8dd3c7"><a href="#034802" label="[03:48:02]">&lt;oriansj&gt;</a></span><span class="message">xentrac: yeah stikonas is correct the use of SYS_ioctl is in lib/m2/isatty.c which could possibly be removed if we never wish to run MesCC in interactive mode while bootstrapping.</span></div><div class="line" id="040119"><span class="nick" style="color:#2e2a4a"><a href="#040119" label="[04:01:19]">&lt;xentrac&gt;</a></span><span class="message">cool, thanks :)</span></div><div class="line" id="040146"><span class="nick" style="color:#2e2a4a"><a href="#040146" label="[04:01:46]">&lt;xentrac&gt;</a></span><span class="message">I think interactive use is important</span></div><div class="line" id="041034"><span class="nick" style="color:#6b8072"><a href="#041034" label="[04:10:34]">&lt;siraben&gt;</a></span><span class="message">oriansj: ping on whether to rebase/merge blynn compiler</span></div><div class="line" id="041051"><span class="nick" style="color:#6b8072"><a href="#041051" label="[04:10:51]">&lt;siraben&gt;</a></span><span class="message">The module stuff is quite valuable to have for future progress</span></div><div class="line" id="070212"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="070642"><span class="nick" style="color:#2e2a4a"><a href="#070642" label="[07:06:42]">&lt;xentrac&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.crowdsupply.com/sutajio-kosagi/precursor">https://www.crowdsupply.com/sutajio-kosagi/precursor</a>  is the thing bunnie is working on now.  the post-novena</span></div><div class="line" id="095111"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="125408"><span class="nick" style="color:#80b1d3"><a href="#125408" label="[12:54:08]">&lt;Melg8[m]&gt;</a></span><span class="message">oriansj:  i've opened issues <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/issues/17">https://github.com/oriansj/M2-Planet/issues/17</a>  - <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/issues/21">https://github.com/oriansj/M2-Planet/issues/21</a>  , i've manually reduced inputs so they don't contain irrelevant elements.</span></div><div class="line" id="130926"><span class="nick" style="color:#8dd3c7"><a href="#130926" label="[13:09:26]">&lt;oriansj&gt;</a></span><span class="message">siraben: rebase might be cleaner code-wise and that will be fine.</span></div><div class="line" id="140625"><span class="nick" style="color:#8dd3c7"><a href="#140625" label="[14:06:25]">&lt;oriansj&gt;</a></span><span class="message">Melg8[m]: thank you for the bug reports. I think I have working commits that fix the first 2.</span></div><div class="line" id="180520"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="232323"><span class="nick" style="color:#6d2462"><a href="#232323" label="[23:23:23]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/features/issues">https://github.com/features/issues</a> </span></div><div class="line" id="232335"><span class="nick" style="color:#6d2462"><a href="#232335" label="[23:23:35]">&lt;Hagfish&gt;</a></span><span class="message">looks like JIRA needs to lower their prices</span></div><div class="line" id="232440"><span class="nick" style="color:#6d2462"><a href="#232440" label="[23:24:40]">&lt;Hagfish&gt;</a></span><span class="message">i don't know whether this new feature lets you manage tasks across multiple different repos</span></div><div class="line" id="232514"><span class="nick" style="color:#6d2462"><a href="#232514" label="[23:25:14]">&lt;Hagfish&gt;</a></span><span class="message">i guess you can always make an issue include a link to the other repo</span></div><div class="line" id="232632"><span class="nick" style="color:#6d2462"><a href="#232632" label="[23:26:32]">&lt;Hagfish&gt;</a></span><span class="message">if people here thought that a more structured collaboration process would be worth the overhead in terms of time spent, it's something to consider</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-01-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013154"><span class="nick" style="color:#389600"><a href="#013154" label="[01:31:54]">&lt;fossy&gt;</a></span><span class="message">gah, that was a nasty one</span></div><div class="line" id="013247"><span class="nick" style="color:#389600"><a href="#013247" label="[01:32:47]">&lt;fossy&gt;</a></span><span class="message">a couple of files in gcc 10.4 have to be compiled with a particular long double length using mlong-double-XX but gcc 4.7 doesn't support a long double length of 80</span></div><div class="line" id="013311"><span class="nick" style="color:#389600"><a href="#013311" label="[01:33:11]">&lt;fossy&gt;</a></span><span class="message">(which is what is required, the code doesn't compile properly without it)</span></div><div class="line" id="013317"><span class="nick" style="color:#389600"><a href="#013317" label="[01:33:17]">&lt;fossy&gt;</a></span><span class="message">luckily the backport wasn't too painful</span></div><div class="line" id="020341"><span class="nick" style="color:#8dd3c7"><a href="#020341" label="[02:03:41]">&lt;muurkha&gt;</a></span><span class="message">huh, I thought long double on i386 had been 80 since... the 8087</span></div><div class="line" id="020345"><span class="nick" style="color:#8dd3c7"><a href="#020345" label="[02:03:45]">&lt;muurkha&gt;</a></span><span class="message">80 its</span></div><div class="line" id="020347"><span class="nick" style="color:#8dd3c7"><a href="#020347" label="[02:03:47]">&lt;muurkha&gt;</a></span><span class="message">*bits</span></div><div class="line" id="022143"><span class="nick" style="color:#389600"><a href="#022143" label="[02:21:43]">&lt;fossy&gt;</a></span><span class="message">i thought the same, apparently that's the most common, but not standardized</span></div><div class="line" id="022146"><span class="nick" style="color:#389600"><a href="#022146" label="[02:21:46]">&lt;fossy&gt;</a></span><span class="message">On x86, the &quot;long double&quot; type is platforma specific, which may be the</span></div><div class="line" id="022148"><span class="nick" style="color:#389600"><a href="#022148" label="[02:21:48]">&lt;fossy&gt;</a></span><span class="message">same as double or __float128.</span></div><div class="line" id="022156"><span class="nick" style="color:#389600"><a href="#022156" label="[02:21:56]">&lt;fossy&gt;</a></span><span class="message">according to the commit message introducing the use of mlong-double-80</span></div><div class="line" id="022343"><span class="nick" style="color:#8dd3c7"><a href="#022343" label="[02:23:43]">&lt;muurkha&gt;</a></span><span class="message">I mean, the floating-point registers on the 8087, the 80387, and the integrated FPU in the 80486DX, the 80487SX, the Pentium, and the PPro were all 80 bits long.  Only.</span></div><div class="line" id="022415"><span class="nick" style="color:#389600"><a href="#022415" label="[02:24:15]">&lt;fossy&gt;</a></span><span class="message">i'm not sure this makes any sense now that i think about it again</span></div><div class="line" id="022422"><span class="nick" style="color:#8dd3c7"><a href="#022422" label="[02:24:22]">&lt;muurkha&gt;</a></span><span class="message">I think the Pentium II was the first hardware in the line to support a non-80-bit floating-point format?</span></div><div class="line" id="022522"><span class="nick" style="color:#8dd3c7"><a href="#022522" label="[02:25:22]">&lt;muurkha&gt;</a></span><span class="message">And nowadays the vector instructions from the PII or PIII are the normal way to do floating point.</span></div><div class="line" id="022552"><span class="nick" style="color:#2e2a4a"><a href="#022552" label="[02:25:52]">&lt;nektro&gt;</a></span><span class="message">.longdouble entries here <a rel="nofollow" href="https://github.com/ziglang/zig/blob/master/src/type.zig#L6710">https://github.com/ziglang/zig/blob/master/src/type.zig#L6710</a> </span></div><div class="line" id="022557"><span class="nick" style="color:#389600"><a href="#022557" label="[02:25:57]">&lt;fossy&gt;</a></span><span class="message">actually, this offending invocation of mlong-double is platform independent, which explains the explicit 80</span></div><div class="line" id="022610"><span class="nick" style="color:#389600"><a href="#022610" label="[02:26:10]">&lt;fossy&gt;</a></span><span class="message">(architecture-independent also)</span></div><div class="line" id="022654"><span class="nick" style="color:#389600"><a href="#022654" label="[02:26:54]">&lt;fossy&gt;</a></span><span class="message">doesn't explain the build failure though, probably some strange gcc internals</span></div><div class="line" id="022659"><span class="nick" style="color:#2e2a4a"><a href="#022659" label="[02:26:59]">&lt;nektro&gt;</a></span><span class="message">linux switch here <a rel="nofollow" href="https://github.com/ziglang/zig/blob/master/src/type.zig#L6787">https://github.com/ziglang/zig/blob/master/src/type.zig#L6787</a> </span></div><div class="line" id="022729"><span class="nick" style="color:#8dd3c7"><a href="#022729" label="[02:27:29]">&lt;muurkha&gt;</a></span><span class="message">I feel like you *could* add floating-point support for the i386 without having an in-memory data type for the processor's floating point register size, but it seems like it would be a bad thing to do</span></div><div class="line" id="030935"><span class="nick" style="color:#6b8072"><a href="#030935" label="[03:09:35]">&lt;stikonas&gt;</a></span><span class="message">fossy: so the trick to run python from random directory was to fix symlink</span></div><div class="line" id="031052"><span class="nick" style="color:#6b8072"><a href="#031052" label="[03:10:52]">&lt;stikonas&gt;</a></span><span class="message">there is an absolute symlink in /usr/lib/python3.11/lib-dynload -&gt; /usr/lib/musl/python3.11/lib-dynload</span></div><div class="line" id="031339"><span class="nick" style="color:#6b8072"><a href="#031339" label="[03:13:39]">&lt;stikonas&gt;</a></span><span class="message">that can actually be done even in src_install()</span></div><div class="line" id="032903"><span class="nick" style="color:#6b8072"><a href="#032903" label="[03:29:03]">&lt;stikonas&gt;</a></span><span class="message">fossy: if you have build failure with GCC 10, maybe we should go with earlier versions, e.g. GCC 4 -&gt; GCC 9 -&gt; GCC 12</span></div><div class="line" id="050413"><span class="nick" style="color:#389600"><a href="#050413" label="[05:04:13]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: yes, i will if i reach something too painful to be fixed</span></div><div class="line" id="050419"><span class="nick" style="color:#389600"><a href="#050419" label="[05:04:19]">&lt;fossy&gt;</a></span><span class="message">ah, interesting</span></div><div class="line" id="111218"><span class="nick" style="color:#389600"><a href="#111218" label="[11:12:18]">&lt;fossy&gt;</a></span><span class="message">fixing up all these little GCC things is actually rather fun now that i'm out of build system land</span></div><div class="line" id="111236"><span class="nick" style="color:#389600"><a href="#111236" label="[11:12:36]">&lt;fossy&gt;</a></span><span class="message">i wish gcc 10.x was still accepting patches... all of these are upstreamable</span></div><div class="line" id="111318"><span class="nick" style="color:#389600"><a href="#111318" label="[11:13:18]">&lt;fossy&gt;</a></span><span class="message">(since most of them are backports from 12.x)</span></div><div class="line" id="111334"><span class="nick" style="color:#389600"><a href="#111334" label="[11:13:34]">&lt;fossy&gt;</a></span><span class="message">(and a few are compatibility fixes)</span></div><div class="line" id="115852"><span class="nick" style="color:#6b8072"><a href="#115852" label="[11:58:52]">&lt;stikonas&gt;</a></span><span class="message">well, they only accept regressions for GCC 10</span></div><div class="line" id="122042"><span class="nick" style="color:#389600"><a href="#122042" label="[12:20:42]">&lt;fossy&gt;</a></span><span class="message">do they even that now that 10.4 is released? i thought .4 was end of cycle</span></div><div class="line" id="122135"><span class="nick" style="color:#389600"><a href="#122135" label="[12:21:35]">&lt;fossy&gt;</a></span><span class="message">stikonas: hrm, i just realised since musl 1.2.3 we require explicit LDFLAGS=&quot;-static&quot;, which isn't too problematic, so far...</span></div><div class="line" id="122138"><span class="nick" style="color:#389600"><a href="#122138" label="[12:21:38]">&lt;fossy&gt;</a></span><span class="message">but need to keep it in mind</span></div><div class="line" id="122154"><span class="nick" style="color:#6b8072"><a href="#122154" label="[12:21:54]">&lt;stikonas&gt;</a></span><span class="message">yes, I know that</span></div><div class="line" id="122205"><span class="nick" style="color:#6b8072"><a href="#122205" label="[12:22:05]">&lt;stikonas&gt;</a></span><span class="message">that's why I later moved musl after autogen</span></div><div class="line" id="122302"><span class="nick" style="color:#6b8072"><a href="#122302" label="[12:23:02]">&lt;stikonas&gt;</a></span><span class="message">for some time it was the last package buitt</span></div><div class="line" id="122311"><span class="nick" style="color:#6b8072"><a href="#122311" label="[12:23:11]">&lt;stikonas&gt;</a></span><span class="message">fossy: are you building static gcc then?</span></div><div class="line" id="122321"><span class="nick" style="color:#389600"><a href="#122321" label="[12:23:21]">&lt;fossy&gt;</a></span><span class="message">stikonas: yes, that is the plan</span></div><div class="line" id="122947"><span class="nick" style="color:#6b8072"><a href="#122947" label="[12:29:47]">&lt;stikonas&gt;</a></span><span class="message">I think some stuff have problems with LDFLAGS=&quot;-static&quot;, possibly autogen but hopefully newer software that we build now would be fine</span></div><div class="line" id="123135"><span class="nick" style="color:#389600"><a href="#123135" label="[12:31:35]">&lt;fossy&gt;</a></span><span class="message">i should hope so, static linking is not all that incredibly uncommon, especially in the embedded world</span></div><div class="line" id="132427"><span class="nick" style="color:#80b1d3"><a href="#132427" label="[13:24:27]">&lt;oriansj&gt;</a></span><span class="message">mihi: well there are sanity checks in M1 from when bugs have occurred in the past; sometimes when the code changes and fixes the problem in other ways, the old checks remain. So there are certainly clean up and optimizations that can be done</span></div><div class="line" id="133424"><span class="nick" style="color:#6b8072"><a href="#133424" label="[13:34:24]">&lt;stikonas&gt;</a></span><span class="message">fossy: one thing that I missed in python review</span></div><div class="line" id="133449"><span class="nick" style="color:#6b8072"><a href="#133449" label="[13:34:49]">&lt;stikonas&gt;</a></span><span class="message">(that I only thought of now)</span></div><div class="line" id="133511"><span class="nick" style="color:#6b8072"><a href="#133511" label="[13:35:11]">&lt;stikonas&gt;</a></span><span class="message">when doing ln -s in src_install, it's worth adding --relative</span></div><div class="line" id="133540"><span class="nick" style="color:#6b8072"><a href="#133540" label="[13:35:40]">&lt;stikonas&gt;</a></span><span class="message">(also as a general note, we should probably be using more long options in scripting)</span></div><div class="line" id="170649"><span class="nick" style="color:#6d2462"><a href="#170649" label="[17:06:49]">&lt;rickmasters&gt;</a></span><span class="message">I have a follow up from my update yesterday on the kernel bootstrapping.</span></div><div class="line" id="170709"><span class="nick" style="color:#6d2462"><a href="#170709" label="[17:07:09]">&lt;rickmasters&gt;</a></span><span class="message">I've resolved a couple problems, one with creating the ext2 ram drive and the other with booting Fiwix.</span></div><div class="line" id="170723"><span class="nick" style="color:#6d2462"><a href="#170723" label="[17:07:23]">&lt;rickmasters&gt;</a></span><span class="message">Unfortunately, I had to add this qemu option to boot Fiwix: -machine kernel-irqchip=split</span></div><div class="line" id="170735"><span class="nick" style="color:#6d2462"><a href="#170735" label="[17:07:35]">&lt;rickmasters&gt;</a></span><span class="message">Apparently there is some problem with the irq chip emulation when kvm is enabled.</span></div><div class="line" id="170748"><span class="nick" style="color:#6d2462"><a href="#170748" label="[17:07:48]">&lt;rickmasters&gt;</a></span><span class="message">I don't like adding workarounds that I don't understand and shouldn't need, but for now I'm able to move on with that option.</span></div><div class="line" id="170759"><span class="nick" style="color:#6d2462"><a href="#170759" label="[17:07:59]">&lt;rickmasters&gt;</a></span><span class="message">Fiwix can now boot with kvm enabled and it can run programs off the ext2 ram drive.</span></div><div class="line" id="170821"><span class="nick" style="color:#6d2462"><a href="#170821" label="[17:08:21]">&lt;rickmasters&gt;</a></span><span class="message">Next I need to populate the ext2 for a Linux build and after that implement kexec of Linux from Fiwix.</span></div><div class="line" id="170835"><span class="nick" style="color:#6d2462"><a href="#170835" label="[17:08:35]">&lt;rickmasters&gt;</a></span><span class="message">And I'll probably get started on live-bootstrap integration soon as that may require some exploration.</span></div><div class="line" id="182642"><span class="nick" style="color:#234e69"><a href="#182642" label="[18:26:42]">&lt;doras&gt;</a></span><span class="message">Regarding the Python leftovers, we have the following cleanup code in fd-sdk: <a rel="nofollow" href="https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/blob/master/elements/components/python3.bst#L38-58">https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/blob/master/elements/components/python3.bst#L38-58</a> </span></div><div class="line" id="182709"><span class="nick" style="color:#234e69"><a href="#182709" label="[18:27:09]">&lt;doras&gt;</a></span><span class="message">It removes the installed tests and a bunch of other files that should have never been installed</span></div><div class="line" id="182759"><span class="nick" style="color:#234e69"><a href="#182759" label="[18:27:59]">&lt;doras&gt;</a></span><span class="message">It seems that Python is not implementing a sane &quot;make install&quot; and one has to clean up after it.</span></div><div class="line" id="192145"><span class="nick" style="color:#6b8072"><a href="#192145" label="[19:21:45]">&lt;stikonas&gt;</a></span><span class="message">doras: do you want to upstream it?</span></div><div class="line" id="192200"><span class="nick" style="color:#6b8072"><a href="#192200" label="[19:22:00]">&lt;stikonas&gt;</a></span><span class="message">(to live-bootstrap, not to python)</span></div><div class="line" id="194849"><span class="nick" style="color:#234e69"><a href="#194849" label="[19:48:49]">&lt;doras&gt;</a></span><span class="message">stikonas @stikonas:libera.chat: this is actually from our runtime, so not specifically related to live-bootstrap and our seed repo. Though I assume something similar could work for live-bootstrap.</span></div><div class="line" id="194947"><span class="nick" style="color:#234e69"><a href="#194947" label="[19:49:47]">&lt;doras&gt;</a></span><span class="message">I can test to see if it's enough, though I expect we may need different logic for different Python versions.</span></div><div class="line" id="195034"><span class="nick" style="color:#6b8072"><a href="#195034" label="[19:50:34]">&lt;stikonas&gt;</a></span><span class="message">well, we can start with the last one</span></div><div class="line" id="195054"><span class="nick" style="color:#6b8072"><a href="#195054" label="[19:50:54]">&lt;stikonas&gt;</a></span><span class="message">cleanup of the earlier ones might be better done by implementing package upgrade that removes the old package</span></div><br /></div></body></html>

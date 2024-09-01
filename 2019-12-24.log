@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-12-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="020056"><span class="nick" style="color:#8dd3c7"><a href="#020056" label="[02:00:56]">&lt;xentrac&gt;</a></span><span class="message">oriansj: ah, I see</span></div><div class="line" id="125654"><span class="nick" style="color:#2e2a4a"><a href="#125654" label="[12:56:54]">&lt;oriansj&gt;</a></span><span class="message">xentrac: I've started to ponder the following behavior in the survival of instruction sets; why do 8/16bit instruction sets still survive but 32/64bit instruction sets die.</span></div><div class="line" id="133022"><span class="nick" style="color:#2e2a4a"><a href="#133022" label="[13:30:22]">&lt;oriansj&gt;</a></span><span class="message">note all of the instruction sets of the 8/16bit era that survived all had 16bits or more of address space and an assembly language that is easily loadable into one's working memory and still allow enough remaining cognative load to allow for the generation of effective programs to be generated.</span></div><div class="line" id="133140"><span class="nick" style="color:#2e2a4a"><a href="#133140" label="[13:31:40]">&lt;oriansj&gt;</a></span><span class="message">where as the 32/64bit instruction sets that died, lack that same property.</span></div><div class="line" id="200346"><span class="nick" style="color:#8dd3c7"><a href="#200346" label="[20:03:46]">&lt;xentrac&gt;</a></span><span class="message">well, my thinking is that being limited to an 8-bit or 4-bit address space is too limiting, so almost nobody makes their address buses that small</span></div><div class="line" id="200434"><span class="nick" style="color:#8dd3c7"><a href="#200434" label="[20:04:34]">&lt;xentrac&gt;</a></span><span class="message">even 12-bit addresses like on the PDP-8 are pretty limiting</span></div><div class="line" id="200453"><span class="nick" style="color:#8dd3c7"><a href="#200453" label="[20:04:53]">&lt;xentrac&gt;</a></span><span class="message">so even if the ALU is too small to operate on 16 bits at a time, you make your addresses 16 bits</span></div><div class="line" id="200541"><span class="nick" style="color:#8dd3c7"><a href="#200541" label="[20:05:41]">&lt;xentrac&gt;</a></span><span class="message">in a 16-bit address space you can have a multitasking operating system, compilers, even a GUI</span></div><div class="line" id="200905"><span class="nick" style="color:#8dd3c7"><a href="#200905" label="[20:09:05]">&lt;xentrac&gt;</a></span><span class="message">although you probably want a different memory mapping for each process in 16 or even 32 bits</span></div><div class="line" id="201310"><span class="nick" style="color:#8dd3c7"><a href="#201310" label="[20:13:10]">&lt;xentrac&gt;</a></span><span class="message">but 16-bit and especially 32-bit address spaces are much less confining; you aren't constantly struggling with the address space for dear life the way you would be with an 8-bit address space</span></div><div class="line" id="201519"><span class="nick" style="color:#8dd3c7"><a href="#201519" label="[20:15:19]">&lt;xentrac&gt;</a></span><span class="message">with 16-bit registers but a 20-bit or 32-bit address space, like the 8086, you do struggle some with the address space; you have to decide which things ought to be fast and which ought to have more than 64K of capacity instead</span></div><div class="line" id="201949"><span class="nick" style="color:#8dd3c7"><a href="#201949" label="[20:19:49]">&lt;xentrac&gt;</a></span><span class="message">depending on your chosen language and available facilities, changing your mind about that might be more or less expensive</span></div><div class="line" id="202116"><span class="nick" style="color:#8dd3c7"><a href="#202116" label="[20:21:16]">&lt;xentrac&gt;</a></span><span class="message">an 8-bit ALU and registers make a very small CPU like the 6502 possible, and this has real advantages in some circumstances</span></div><div class="line" id="202210"><span class="nick" style="color:#8dd3c7"><a href="#202210" label="[20:22:10]">&lt;xentrac&gt;</a></span><span class="message">but to make them a real computer you need to pair them with a larger address space, at least 14 bits (and so you might as wel use 16)</span></div><div class="line" id="202331"><span class="nick" style="color:#8dd3c7"><a href="#202331" label="[20:23:31]">&lt;xentrac&gt;</a></span><span class="message">no such desperate measures are needed for 32-bit CPUs, and indeed the hypothetical 48-bit-addressing capabilities of the 386 family were never used as far as I can tell</span></div><div class="line" id="225941"><span class="nick" style="color:#2e2a4a"><a href="#225941" label="[22:59:41]">&lt;oriansj&gt;</a></span><span class="message">xentrac: well the PAE extension which provided for 48bit addressing was mandatory for Ubuntu and multiple Linux distros (before those distros abandoned 32bit generally)</span></div><div class="line" id="230354"><span class="nick" style="color:#2e2a4a"><a href="#230354" label="[23:03:54]">&lt;oriansj&gt;</a></span><span class="message">and I certainly agree, there is no point in having a less than 16bit address space but I argue the cost savings from going from a 16bit alu to an 8bit alu stopped mattering approximately the time around the release of the Pentium Pro. as cost sensitive designs could have been internal single bit ALUs internally but 64bit externally. But being cost sensitive ment than efficient assembly generation by hand had to be readily available</span></div><div class="line" id="230354"><span class="nick" style="color:#2e2a4a"><a href="#230354" label="[23:03:54]">&lt;oriansj&gt;</a></span><span class="message">(either because they previously learned the architecture or because it is simple to learn)</span></div><div class="line" id="231442"><span class="nick" style="color:#2e2a4a"><a href="#231442" label="[23:14:42]">&lt;oriansj&gt;</a></span><span class="message">although I'd argue 8086 survived largely by luck and the fact one can ignore a great deal of its flaws (largely the result of the 2week rush job they did with it)</span></div><br /></div></body></html>

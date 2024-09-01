@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-11-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000551"><span class="nick" style="color:#8dd3c7"><a href="#000551" label="[00:05:51]">&lt;stikonas&gt;</a></span><span class="message">128 KB would need quite a few tweaks for cc_*</span></div><div class="line" id="000601"><span class="nick" style="color:#2e2a4a"><a href="#000601" label="[00:06:01]">&lt;oriansj&gt;</a></span><span class="message">muurkha: very true but the programmers of that era were able to create things like GEOS and the average size of hello world in this era is 50MB</span></div><div class="line" id="000603"><span class="nick" style="color:#8dd3c7"><a href="#000603" label="[00:06:03]">&lt;stikonas&gt;</a></span><span class="message">we use way more stack space right now</span></div><div class="line" id="000651"><span class="nick" style="color:#2e2a4a"><a href="#000651" label="[00:06:51]">&lt;oriansj&gt;</a></span><span class="message">stikonas: only because we used recursion instead of iteration for outputting the final text</span></div><div class="line" id="000754"><span class="nick" style="color:#8dd3c7"><a href="#000754" label="[00:07:54]">&lt;stikonas&gt;</a></span><span class="message">but we still need to read quite a lot of source code</span></div><div class="line" id="000805"><span class="nick" style="color:#8dd3c7"><a href="#000805" label="[00:08:05]">&lt;stikonas&gt;</a></span><span class="message">M2-0.C is already 128 KiB</span></div><div class="line" id="001324"><span class="nick" style="color:#2e2a4a"><a href="#001324" label="[00:13:24]">&lt;oriansj&gt;</a></span><span class="message">stikonas: you can drop buffering and only keep 3 tokens in memory at a time</span></div><div class="line" id="001353"><span class="nick" style="color:#8dd3c7"><a href="#001353" label="[00:13:53]">&lt;stikonas&gt;</a></span><span class="message">well, yes, that would work</span></div><div class="line" id="001555"><span class="nick" style="color:#2e2a4a"><a href="#001555" label="[00:15:55]">&lt;oriansj&gt;</a></span><span class="message">and that isn't even counting the dirty hacks to cut memory usage that is certainly possible</span></div><div class="line" id="001621"><span class="nick" style="color:#6b8072"><a href="#001621" label="[00:16:21]">&lt;muurkha&gt;</a></span><span class="message">oriansj: that's just a matter of what you spend effort on.  and there's probably more people today writing 8-bit assembly code than ever before, and a lot of it is for processors with well under a kilobyte</span></div><div class="line" id="002551"><span class="nick" style="color:#2e2a4a"><a href="#002551" label="[00:25:51]">&lt;oriansj&gt;</a></span><span class="message">muurkha: I used to buy that class of argument; but I don't think enough people have kept those skills sharp enough to make a GEOS today. The closest we have is contiki which uses 10KB for the core and an extra 30KB just to have GUI (and 30KB of ROM)</span></div><div class="line" id="002920"><span class="nick" style="color:#2e2a4a"><a href="#002920" label="[00:29:20]">&lt;oriansj&gt;</a></span><span class="message">vs GEOS which was 20K ROM of which 7 KB Kernal and the rest of the 64KB was used for the application running</span></div><div class="line" id="003925"><span class="nick" style="color:#6b8072"><a href="#003925" label="[00:39:25]">&lt;muurkha&gt;</a></span><span class="message">I think that's mostly because Contiki is written in C by one guy</span></div><div class="line" id="003940"><span class="nick" style="color:#6b8072"><a href="#003940" label="[00:39:40]">&lt;muurkha&gt;</a></span><span class="message">part time</span></div><div class="line" id="003948"><span class="nick" style="color:#6b8072"><a href="#003948" label="[00:39:48]">&lt;muurkha&gt;</a></span><span class="message">while GEOS was written in assembly by like five people full time</span></div><div class="line" id="004016"><span class="nick" style="color:#6b8072"><a href="#004016" label="[00:40:16]">&lt;muurkha&gt;</a></span><span class="message">it takes longer to get stuff running in assembly but it takes up less space</span></div><div class="line" id="004037"><span class="nick" style="color:#2e2a4a"><a href="#004037" label="[00:40:37]">&lt;oriansj&gt;</a></span><span class="message">Contiki has been in development for 19 years</span></div><div class="line" id="004104"><span class="nick" style="color:#2e2a4a"><a href="#004104" label="[00:41:04]">&lt;oriansj&gt;</a></span><span class="message">vs GEOS which from start to finish was 3 months</span></div><div class="line" id="004115"><span class="nick" style="color:#6b8072"><a href="#004115" label="[00:41:15]">&lt;muurkha&gt;</a></span><span class="message">no, GEOS was developed for many years</span></div><div class="line" id="004125"><span class="nick" style="color:#6b8072"><a href="#004125" label="[00:41:25]">&lt;muurkha&gt;</a></span><span class="message">it was runnable after 3 months</span></div><div class="line" id="004139"><span class="nick" style="color:#6b8072"><a href="#004139" label="[00:41:39]">&lt;muurkha&gt;</a></span><span class="message">also I don't see 40K as so dramatically different from 27K</span></div><div class="line" id="004203"><span class="nick" style="color:#6b8072"><a href="#004203" label="[00:42:03]">&lt;muurkha&gt;</a></span><span class="message">though admittedly if you have 48K there is a major practical difference</span></div><div class="line" id="004340"><span class="nick" style="color:#6b8072"><a href="#004340" label="[00:43:40]">&lt;muurkha&gt;</a></span><span class="message">but I mean it's not like Dunkels's compiled C is taking up twice or three times as much memory</span></div><div class="line" id="004344"><span class="nick" style="color:#2e2a4a"><a href="#004344" label="[00:43:44]">&lt;oriansj&gt;</a></span><span class="message">well 64KB was all one had on a C64 running GEOS</span></div><div class="line" id="004415"><span class="nick" style="color:#6b8072"><a href="#004415" label="[00:44:15]">&lt;muurkha&gt;</a></span><span class="message">you could make it a lot smaller if you could afford to keep most of it in the form of a compact bytecode</span></div><div class="line" id="004433"><span class="nick" style="color:#6b8072"><a href="#004433" label="[00:44:33]">&lt;muurkha&gt;</a></span><span class="message">on the C64 that would have made it run too slow</span></div><div class="line" id="004509"><span class="nick" style="color:#2e2a4a"><a href="#004509" label="[00:45:09]">&lt;oriansj&gt;</a></span><span class="message">atleast it ran</span></div><div class="line" id="004512"><span class="nick" style="color:#6b8072"><a href="#004512" label="[00:45:12]">&lt;muurkha&gt;</a></span><span class="message">have you seen <a rel="nofollow" href="https://rossumblog.com/?">https://rossumblog.com/?</a> </span></div><div class="line" id="004523"><span class="nick" style="color:#2e2a4a"><a href="#004523" label="[00:45:23]">&lt;oriansj&gt;</a></span><span class="message">not yet</span></div><div class="line" id="004913"><span class="nick" style="color:#2e2a4a"><a href="#004913" label="[00:49:13]">&lt;oriansj&gt;</a></span><span class="message">but the ESP32 hacks seem neat</span></div><div class="line" id="004942"><span class="nick" style="color:#6b8072"><a href="#004942" label="[00:49:42]">&lt;muurkha&gt;</a></span><span class="message">the neater stuff to me is what he did on much more limited hardware than the ESP32</span></div><div class="line" id="005101"><span class="nick" style="color:#6b8072"><a href="#005101" label="[00:51:01]">&lt;muurkha&gt;</a></span><span class="message">like, I was pretty sure that synthesizing the NTSC color subcarrier on an ATMega328 was impossible: <a rel="nofollow" href="https://github.com/rossumur/Arduinocade">https://github.com/rossumur/Arduinocade</a> </span></div><div class="line" id="005202"><span class="nick" style="color:#6b8072"><a href="#005202" label="[00:52:02]">&lt;muurkha&gt;</a></span><span class="message">he didn't just write the cycle-accurate color waveform synthesis code on an overclocked ATMega though</span></div><div class="line" id="005219"><span class="nick" style="color:#6b8072"><a href="#005219" label="[00:52:19]">&lt;muurkha&gt;</a></span><span class="message">he also wrote four games</span></div><div class="line" id="005322"><span class="nick" style="color:#2e2a4a"><a href="#005322" label="[00:53:22]">&lt;oriansj&gt;</a></span><span class="message">definitely neat</span></div><div class="line" id="005651"><span class="nick" style="color:#2e2a4a"><a href="#005651" label="[00:56:51]">&lt;oriansj&gt;</a></span><span class="message">although I'd say I am partial to: <a rel="nofollow" href="https://nanochess.org/index.html">https://nanochess.org/index.html</a> </span></div><div class="line" id="005927"><span class="nick" style="color:#2e2a4a"><a href="#005927" label="[00:59:27]">&lt;oriansj&gt;</a></span><span class="message">as BootOS is probably the most compact OS I know of</span></div><div class="line" id="010459"><span class="nick" style="color:#2e2a4a"><a href="#010459" label="[01:04:59]">&lt;oriansj&gt;</a></span><span class="message">but that is more of the exception that kind of proves the rule. (exceptionally few people have the chance to grow up in a family with such programming talent)</span></div><div class="line" id="011606"><span class="nick" style="color:#2e2a4a"><a href="#011606" label="[01:16:06]">&lt;oriansj&gt;</a></span><span class="message">but perhaps it is an ecosystem argument. Where if a given class of problem is solved enough, that the skilled needed to push that domain farther decays over time. (aka Unity existing has reduced the number of people who work on Game engines by an order of magnitude and as people age out (or die) the skills needed disappear)</span></div><div class="line" id="014452"><span class="nick" style="color:#80b1d3"><a href="#014452" label="[01:44:52]">&lt;pabs3&gt;</a></span><span class="message">that comment reminds me of <a rel="nofollow" href="https://berthub.eu/articles/posts/how-tech-loses-out/">https://berthub.eu/articles/posts/how-tech-loses-out/</a> </span></div><div class="line" id="023917"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="025917"><span class="nick" style="color:#2e2a4a"><a href="#025917" label="[02:59:17]">&lt;oriansj&gt;</a></span><span class="message">pabs3: good link and the pdf reference inside is a great find as well</span></div><div class="line" id="113219"><span class="nick">***</span><span class="message notice">civodul` is now known as civodul</span></div><br /></div></body></html>

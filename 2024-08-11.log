@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-08-11.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="143710"><span class="nick" style="color:#389600"><a href="#143710" label="[14:37:10]">&lt;mid-kid&gt;</a></span><span class="message">So today I'm messing with the kernel+disk.img bootstrap</span></div><div class="line" id="143722"><span class="nick" style="color:#389600"><a href="#143722" label="[14:37:22]">&lt;mid-kid&gt;</a></span><span class="message">I ran `./rootfs.py -b --external-sources -qk bzImage`</span></div><div class="line" id="143731"><span class="nick" style="color:#389600"><a href="#143731" label="[14:37:31]">&lt;mid-kid&gt;</a></span><span class="message">And flashed the resulting disk.img to a drive</span></div><div class="line" id="143817"><span class="nick" style="color:#389600"><a href="#143817" label="[14:38:17]">&lt;mid-kid&gt;</a></span><span class="message">Then stuck GRUB and the kernel onto a flash drive, and ran `linux /bzImage root=/dev/nvme0n1p1 init=/init`</span></div><div class="line" id="143939"><span class="nick" style="color:#389600"><a href="#143939" label="[14:39:39]">&lt;mid-kid&gt;</a></span><span class="message">But it seems to crash with an &quot;Attempted to kill init!&quot; message right after the first line of the kaem.x86 file.</span></div><div class="line" id="143958"><span class="nick" style="color:#389600"><a href="#143958" label="[14:39:58]">&lt;mid-kid&gt;</a></span><span class="message">(right when the kaem-optional-seed process exits)</span></div><div class="line" id="144109"><span class="nick" style="color:#389600"><a href="#144109" label="[14:41:09]">&lt;mid-kid&gt;</a></span><span class="message">I'm not sure this makes a whole lot of sense to me?</span></div><div class="line" id="155110"><span class="nick" style="color:#389600"><a href="#155110" label="[15:51:10]">&lt;mid-kid&gt;</a></span><span class="message">right, kexecing from a 64-bit UEFI kernel into a 32-bit kernel isn't gonna work anyway</span></div><div class="line" id="155119"><span class="nick" style="color:#389600"><a href="#155119" label="[15:51:19]">&lt;mid-kid&gt;</a></span><span class="message">abandoning this idea again I guess</span></div><div class="line" id="155233"><span class="nick" style="color:#8dd3c7"><a href="#155233" label="[15:52:33]">&lt;Rutherther&gt;</a></span><span class="message">why does it have to be 32bit? and sorry for probably question with an obvious answer, I am new here and don't know anything about the toolings for bootstrappable kernel</span></div><div class="line" id="155510"><span class="nick" style="color:#389600"><a href="#155510" label="[15:55:10]">&lt;mid-kid&gt;</a></span><span class="message">the entire live-bootstrap chain is 32-bit right now</span></div><div class="line" id="155616"><span class="nick" style="color:#389600"><a href="#155616" label="[15:56:16]">&lt;mid-kid&gt;</a></span><span class="message">I was trying to avoid doing the chroot method from a livecd by using a custom-built kernel to paper over the fact that kiwix can't support my hardware</span></div><div class="line" id="155647"><span class="nick" style="color:#389600"><a href="#155647" label="[15:56:47]">&lt;mid-kid&gt;</a></span><span class="message">without realizing that a new kernel is built and booted partway during the bootstrap</span></div><div class="line" id="155736"><span class="nick" style="color:#389600"><a href="#155736" label="[15:57:36]">&lt;mid-kid&gt;</a></span><span class="message">other than that part, everything else is the same anyway if you're bootstrapping using a linux kernel :T</span></div><div class="line" id="155743"><span class="nick" style="color:#389600"><a href="#155743" label="[15:57:43]">&lt;mid-kid&gt;</a></span><span class="message">so I might as well stay with the chroot bootstrap</span></div><div class="line" id="160228"><span class="nick" style="color:#8dd3c7"><a href="#160228" label="[16:02:28]">&lt;Rutherther&gt;</a></span><span class="message">ah, I see</span></div><div class="line" id="165414"><span class="nick" style="color:#2e2a4a"><a href="#165414" label="[16:54:14]">&lt;andydude&gt;</a></span><span class="message">mid-kid: isn't there a way to exit 64 mode?</span></div><div class="line" id="171606"><span class="nick" style="color:#389600"><a href="#171606" label="[17:16:06]">&lt;mid-kid&gt;</a></span><span class="message">unlike protected mode and real mode you can't switch back from long mode to anything else</span></div><div class="line" id="171621"><span class="nick" style="color:#2e2a4a"><a href="#171621" label="[17:16:21]">&lt;andydude&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/tianocore/edk2/blob/edk2-stable202405/MdePkg/Include/Library/BaseLib.h#L7747">https://github.com/tianocore/edk2/blob/edk2-stable202405/MdePkg/Include/Library/BaseLib.h#L7747</a> </span></div><div class="line" id="171711"><span class="nick" style="color:#389600"><a href="#171711" label="[17:17:11]">&lt;mid-kid&gt;</a></span><span class="message">UEFI can run in protected (32bit) mode</span></div><div class="line" id="171718"><span class="nick" style="color:#389600"><a href="#171718" label="[17:17:18]">&lt;mid-kid&gt;</a></span><span class="message">so I assume this function is for that</span></div><div class="line" id="171731"><span class="nick" style="color:#389600"><a href="#171731" label="[17:17:31]">&lt;mid-kid&gt;</a></span><span class="message">efi32 is very uncommon tho</span></div><div class="line" id="171816"><span class="nick" style="color:#389600"><a href="#171816" label="[17:18:16]">&lt;mid-kid&gt;</a></span><span class="message">that or it's used for some kind of virtualization</span></div><div class="line" id="174454"><span class="nick" style="color:#6b8072"><a href="#174454" label="[17:44:54]">&lt;oriansj&gt;</a></span><span class="message">well AMD64 has been out since 2002 and is superior to 32bit x86 in many ways (such as PC relative addressing, double the integer registers, etc) So there is probably a desire to abandon as much legacy as possible</span></div><div class="line" id="174638"><span class="nick" style="color:#6b8072"><a href="#174638" label="[17:46:38]">&lt;oriansj&gt;</a></span><span class="message">so expanding live-bootstrap to also support 64bit (and more architectures) seems like a good long term plan/investment</span></div><div class="line" id="191812"><span class="nick" style="color:#80b1d3"><a href="#191812" label="[19:18:12]">&lt;mihi&gt;</a></span><span class="message">mid-kid, 64-bit grub-efi is able to load 32-bit Linux kernels (using the &quot;internal&quot; handover protocol, i.e. *not* via &quot;linuxefi&quot;) and I've done it several times. To be honest, while I tried it on machines with CSM disabled, I never tried it on a machine that does not have a CSM at all, so maybe it is not working everywhere.</span></div><div class="line" id="192345"><span class="nick" style="color:#8dd3c7"><a href="#192345" label="[19:23:45]">&lt;Rutherther&gt;</a></span><span class="message">why are you people into bootstrappability? is it security, possibility to compile on systems without anything else, or is there something else I am missing?</span></div><div class="line" id="193825"><span class="nick" style="color:#2e2a4a"><a href="#193825" label="[19:38:25]">&lt;andydude&gt;</a></span><span class="message">Rutherther: I'm fascinated by the journey</span></div><div class="line" id="194022"><span class="nick" style="color:#2e2a4a"><a href="#194022" label="[19:40:22]">&lt;andydude&gt;</a></span><span class="message">I personally think the goal of bootstrapping is similar to the original goal of Paul Graham's Arc</span></div><div class="line" id="194025"><span class="nick" style="color:#2e2a4a"><a href="#194025" label="[19:40:25]">&lt;andydude&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paulgraham.com/arcchallenge.html">https://paulgraham.com/arcchallenge.html</a> </span></div><div class="line" id="194042"><span class="nick" style="color:#2e2a4a"><a href="#194042" label="[19:40:42]">&lt;andydude&gt;</a></span><span class="message">&quot;There must be some optimal path all the way up to a complete language&quot;</span></div><div class="line" id="194059"><span class="nick" style="color:#2e2a4a"><a href="#194059" label="[19:40:59]">&lt;andydude&gt;</a></span><span class="message">Here, the language is GCC, and we have to figure out how to bootstrap it :P</span></div><div class="line" id="194534"><span class="nick" style="color:#2e2a4a"><a href="#194534" label="[19:45:34]">&lt;andydude&gt;</a></span><span class="message">I had a crazy idea at lunch today, something like a C compiler that compiles to sh/kaem and translates arith to &quot;bc&quot; calls, logic to &quot;test&quot; calls, data storage to environment variables, etc.</span></div><div class="line" id="194945"><span class="nick" style="color:#6d2462"><a href="#194945" label="[19:49:45]">&lt;Googulator&gt;</a></span><span class="message">andydude: sounds like <a rel="nofollow" href="https://hackaday.com/2024/07/25/pnut-a-self-compiling-c-transpiler-targeting-human-readable-posix-shell/">https://hackaday.com/2024/07/25/pnut-a-self-compiling-c-transpiler-targeting-human-readable-posix-shell/</a> </span></div><div class="line" id="195335"><span class="nick" style="color:#2e2a4a"><a href="#195335" label="[19:53:35]">&lt;andydude&gt;</a></span><span class="message">damn, someone beat me to it</span></div><div class="line" id="213012"><span class="nick" style="color:#234e69"><a href="#213012" label="[21:30:12]">&lt;nimaje&gt;</a></span><span class="message">could you at least use/build a not-terrible shell language for that?</span></div><div class="line" id="220616"><span class="nick" style="color:#80b1d3"><a href="#220616" label="[22:06:16]">&lt;mihi&gt;</a></span><span class="message">Rutherther, I came to bootstrappability via Digital Preservation / Software Heritage. If everything except source code was lost, we'd need to bootstrap everything again. Also, trust issues (Trusting Trust Attack), identifying dependency cycles (generally making the work of sysadmins harder), and the debacle whether GNAT is actually free software when the there was only one piece of software that was able to</span></div><div class="line" id="220616"><span class="nick" style="color:#80b1d3"><a href="#220616" label="[22:06:16]">&lt;mihi&gt;</a></span><span class="message">initially compile it, which was closed source.</span></div><div class="line" id="220625"><span class="nick" style="color:#80b1d3"><a href="#220625" label="[22:06:25]">&lt;mihi&gt;</a></span><span class="message">Plus, I think it is a fascinating hobby.</span></div><br /></div></body></html>

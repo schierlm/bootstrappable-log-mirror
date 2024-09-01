@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-11-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005548"><span class="nick" style="color:#8dd3c7"><a href="#005548" label="[00:55:48]">&lt;oriansj&gt;</a></span><span class="message">vagrantc: looks like I need to do a minor release for mescc-tools as commit 1a9c5358385247e75cafe1f451496a1fd13675bc fixed the regression for ARMv7l; which will result in passing tests on that architecture (or your could do a debian ~1 sort of thing)</span></div><div class="line" id="005707"><span class="nick" style="color:#8dd3c7"><a href="#005707" label="[00:57:07]">&lt;oriansj&gt;</a></span><span class="message">janneke: Don't think of Gnu MES on Debian as a bootstrap point but rather as another Scheme Interpreter and MesCC as just another C compiler on  Debian.</span></div><div class="line" id="005804"><span class="nick" style="color:#8dd3c7"><a href="#005804" label="[00:58:04]">&lt;oriansj&gt;</a></span><span class="message">janneke: also, I am experimenting with something crazy to substancially simplify the task of maintaing Mes.c long term</span></div><div class="line" id="005848"><span class="nick" style="color:#2e2a4a"><a href="#005848" label="[00:58:48]">&lt;vagrantc&gt;</a></span><span class="message">oriansj: sure</span></div><div class="line" id="064850"><span class="nick" style="color:#6b8072"><a href="#064850" label="[06:48:50]">&lt;janneke&gt;</a></span><span class="message">oriansj: nice perspective, and great!</span></div><div class="line" id="215255"><span class="nick" style="color:#80b1d3"><a href="#215255" label="[21:52:55]">&lt;amz3&gt;</a></span><span class="message">hello, people!</span></div><div class="line" id="215334"><span class="nick" style="color:#80b1d3"><a href="#215334" label="[21:53:34]">&lt;amz3&gt;</a></span><span class="message">as usual, I midly offtopic, but that is the only (friendly) channel I know where I know there are people that know about hardware things.</span></div><div class="line" id="215411"><span class="nick" style="color:#80b1d3"><a href="#215411" label="[21:54:11]">&lt;amz3&gt;</a></span><span class="message">there was this big mega press release about web assembly being the &quot;Next-Big-Thing&quot;</span></div><div class="line" id="215446"><span class="nick" style="color:#80b1d3"><a href="#215446" label="[21:54:46]">&lt;amz3&gt;</a></span><span class="message">It is called &quot;bytecode alliance&quot;.</span></div><div class="line" id="215622"><span class="nick" style="color:#80b1d3"><a href="#215622" label="[21:56:22]">&lt;amz3&gt;</a></span><span class="message">my question is: would it be possible for hardware manufacturer, to standardize a bytecode (as the name bytecode alliance) imply, so that hardware can be programmed in this so called web assembly (wasm) or it is just a dream of mine?</span></div><div class="line" id="215855"><span class="nick" style="color:#80b1d3"><a href="#215855" label="[21:58:55]">&lt;amz3&gt;</a></span><span class="message">it is probably a multi-year project, even a decade away, but still the idea to target wasm instead of C, and create a bootstrap path that would do machine native assembly -&gt; wasm -&gt; scheme and native assembly -&gt; wasm -&gt; C / C++</span></div><div class="line" id="220217"><span class="nick" style="color:#80b1d3"><a href="#220217" label="[22:02:17]">&lt;amz3&gt;</a></span><span class="message">beware if you look for the actual article press release, it is full of web buzz words.</span></div><div class="line" id="220221"><span class="nick" style="color:#8dd3c7"><a href="#220221" label="[22:02:21]">&lt;oriansj&gt;</a></span><span class="message">janneke: I just realized I pushed a broken commit to mes-m2 (forgetting to add the definition of TPRIMITIVE) and just pushed that now</span></div><div class="line" id="220355"><span class="nick" style="color:#6d2462"><a href="#220355" label="[22:03:55]">&lt;gio&gt;</a></span><span class="message">amz3: What is the difference with RISC-V?</span></div><div class="line" id="221051"><span class="nick" style="color:#8dd3c7"><a href="#221051" label="[22:10:51]">&lt;oriansj&gt;</a></span><span class="message">amz3: well the first hardware problem I can imagine is that essentially a file system has to become an object stored entirely in memory and hard storage was to be transparently backed by hardware.</span></div><div class="line" id="221545"><span class="nick" style="color:#8dd3c7"><a href="#221545" label="[22:15:45]">&lt;oriansj&gt;</a></span><span class="message">Now that has been done before <a rel="nofollow" href="https://en.wikipedia.org/wiki/IBM_System/38">https://en.wikipedia.org/wiki/IBM_System/38</a>  and honestly although it has some nice properties; you instantly have to throw 30-50% of the hardware's performance out of the window.</span></div><div class="line" id="221710"><span class="nick" style="color:#80b1d3"><a href="#221710" label="[22:17:10]">&lt;amz3&gt;</a></span><span class="message">gio: tx for the reply. That is the kind of reply I was looking for ie. a open ISA. Based on the RISC-V wikipedia. WASM is very tiny, it is higher level. It was developed in the context of web browser to allow to support multiple programming languages in browsers. The only immediate alternative usecases, I can see, is &quot;high level&quot; expert system (like databases), that can be configured or manipulated.</span></div><div class="line" id="221713"><span class="nick" style="color:#80b1d3"><a href="#221713" label="[22:17:13]">&lt;amz3&gt;</a></span><span class="message">For instance posgresql, could expose a wasm bytecode interpreter or jit compiler, and allow clients to write queries in any language that can target wasm. Otherwise, said, it it sill fuzzy to me what would be the purpose of wasm as the frontend of a processor.</span></div><div class="line" id="221820"><span class="nick" style="color:#8dd3c7"><a href="#221820" label="[22:18:20]">&lt;oriansj&gt;</a></span><span class="message">that being said amz3, gio brings up a very important point. Much like the Java CPUs of old; <a rel="nofollow" href="https://en.wikipedia.org/wiki/PicoJava">https://en.wikipedia.org/wiki/PicoJava</a>  such designs are doomed to be more expensive and lower performance than a general purpose processor with a sufficiently large customer base..</span></div><div class="line" id="221910"><span class="nick" style="color:#80b1d3"><a href="#221910" label="[22:19:10]">&lt;amz3&gt;</a></span><span class="message">wasm ought to be the target of many or any programming language.</span></div><div class="line" id="221939"><span class="nick" style="color:#80b1d3"><a href="#221939" label="[22:19:39]">&lt;amz3&gt;</a></span><span class="message">I am looking for the perfect design, not widespread adoption.</span></div><div class="line" id="222011"><span class="nick" style="color:#8dd3c7"><a href="#222011" label="[22:20:11]">&lt;oriansj&gt;</a></span><span class="message">amz3: There is no such thing as perfect design outside of DSPs</span></div><div class="line" id="222059"><span class="nick" style="color:#8dd3c7"><a href="#222059" label="[22:20:59]">&lt;oriansj&gt;</a></span><span class="message">one could argue Knight is perfect for bootstrapping and AMD64 is perfect for general software support</span></div><div class="line" id="222118"><span class="nick" style="color:#8dd3c7"><a href="#222118" label="[22:21:18]">&lt;oriansj&gt;</a></span><span class="message">perfect requires context and requirements</span></div><div class="line" id="222222"><span class="nick" style="color:#8dd3c7"><a href="#222222" label="[22:22:22]">&lt;oriansj&gt;</a></span><span class="message">MOnSter 6502 could be perfect if you want hardware you can audit</span></div><div class="line" id="222252"><span class="nick" style="color:#6d2462"><a href="#222252" label="[22:22:52]">&lt;gio&gt;</a></span><span class="message">It would be difficult to argue that AMD64 is perfect for anything at all.</span></div><div class="line" id="222300"><span class="nick" style="color:#6d2462"><a href="#222300" label="[22:23:00]">&lt;gio&gt;</a></span><span class="message">It's just the one we happen to have.</span></div><div class="line" id="222334"><span class="nick" style="color:#8dd3c7"><a href="#222334" label="[22:23:34]">&lt;oriansj&gt;</a></span><span class="message">or the galaksija is perfect for easy to make computer</span></div><div class="line" id="222415"><span class="nick" style="color:#8dd3c7"><a href="#222415" label="[22:24:15]">&lt;oriansj&gt;</a></span><span class="message">gio: I'm with Linus on that x86 is pretty amazing if you ignore the ugly bits you don't have to use.</span></div><div class="line" id="222542"><span class="nick" style="color:#8dd3c7"><a href="#222542" label="[22:25:42]">&lt;oriansj&gt;</a></span><span class="message">AMD64 stripped out a bunch of bad instructions from x86 and upgraded to 16 registers; allowed SSE3 instead of x87</span></div><div class="line" id="222604"><span class="nick" style="color:#80b1d3"><a href="#222604" label="[22:26:04]">&lt;amz3&gt;</a></span><span class="message">perfection in the sense of the following quote: &quot;Personal Mastery: If a system is to serve the creative spirit, it must be entirely comprehensible to a single individual.&quot; <a rel="nofollow" href="https://www.cs.virginia.edu/~evans/cs655/readings/smalltalk.html">https://www.cs.virginia.edu/~evans/cs655/readings/smalltalk.html</a> </span></div><div class="line" id="222624"><span class="nick" style="color:#6d2462"><a href="#222624" label="[22:26:24]">&lt;gio&gt;</a></span><span class="message">Torvalds is for sure more experienced than me in those things, but I can't feel it pretty amazing.</span></div><div class="line" id="222736"><span class="nick" style="color:#6d2462"><a href="#222736" label="[22:27:36]">&lt;gio&gt;</a></span><span class="message">To me it seems to be a big mess where everything depends on everything else, decoding is complicated, there are a lot of special cases and exceptions.</span></div><div class="line" id="222815"><span class="nick" style="color:#8dd3c7"><a href="#222815" label="[22:28:15]">&lt;oriansj&gt;</a></span><span class="message">amz3: Clearly Lilith <a rel="nofollow" href="https://en.wikipedia.org/wiki/Lilith_">https://en.wikipedia.org/wiki/Lilith_</a>(computer) </span></div><div class="line" id="222907"><span class="nick" style="color:#8dd3c7"><a href="#222907" label="[22:29:07]">&lt;oriansj&gt;</a></span><span class="message">gio: what do you mean everything depends on everything else?</span></div><div class="line" id="223015"><span class="nick" style="color:#6d2462"><a href="#223015" label="[22:30:15]">&lt;gio&gt;</a></span><span class="message">Also, you only consider the programmer's task. But there are also the CPU implementor, the KVM implementor, the reverse engineer, ...</span></div><div class="line" id="223303"><span class="nick" style="color:#8dd3c7"><a href="#223303" label="[22:33:03]">&lt;oriansj&gt;</a></span><span class="message">gio: I said General Software Support perspective; The CPU implementation, KVM implementation and programming efforts are traded to gain that advantage</span></div><div class="line" id="230304"><span class="nick" style="color:#6d2462"><a href="#230304" label="[23:03:04]">&lt;gio&gt;</a></span><span class="message">oriansj: amd64 has a lot of possible flags and modes, and many opcodes change what they do depending on the current mode, flags, prefix, whether the system is in a VM and possibly other things. I find so many dependencies confusing.</span></div><div class="line" id="230358"><span class="nick" style="color:#6d2462"><a href="#230358" label="[23:03:58]">&lt;gio&gt;</a></span><span class="message">Also interrupts, tasks, gates and whatever have a lot of little (or big) variations depending on many bits of system state.</span></div><div class="line" id="230500"><span class="nick" style="color:#6d2462"><a href="#230500" label="[23:05:00]">&lt;gio&gt;</a></span><span class="message">Now, with the emergence of new microarchitectural bugs, you also need to be aware of more and more things you have to avoid.</span></div><div class="line" id="230508"><span class="nick" style="color:#6d2462"><a href="#230508" label="[23:05:08]">&lt;gio&gt;</a></span><span class="message">I find it complicated.</span></div><div class="line" id="230605"><span class="nick" style="color:#6d2462"><a href="#230605" label="[23:06:05]">&lt;gio&gt;</a></span><span class="message">Manuals are thousands of pages long and, in my humble and probably inexperienced opinion, have plenty of room for clarity improvement.</span></div><div class="line" id="232341"><span class="nick" style="color:#8dd3c7"><a href="#232341" label="[23:23:41]">&lt;oriansj&gt;</a></span><span class="message">gio: well the good news is one can operate in a single mode (long mode); avoid all flags and only have to deal with a single prefix (0x48); reduce down to a single interrupt, ignore tasks and gates entirely. Throw out the VM bit entirely and it is easier to implement x86 without the hardware optimizations that introduced those vulnerabilities</span></div><div class="line" id="232439"><span class="nick" style="color:#8dd3c7"><a href="#232439" label="[23:24:39]">&lt;oriansj&gt;</a></span><span class="message">As for the manuals; the length is the not the point of issue for me but rather the accuracy of the contents</span></div><div class="line" id="233235"><span class="nick" style="color:#6d2462"><a href="#233235" label="[23:32:35]">&lt;gio&gt;</a></span><span class="message">oriansj: Ok if you like so, but I don't call something &quot;pretty amazing&quot; if to make it operate reasonably you have to throw away 80% of its features.</span></div><div class="line" id="233823"><span class="nick" style="color:#8dd3c7"><a href="#233823" label="[23:38:23]">&lt;oriansj&gt;</a></span><span class="message">gio: I'd rather ignore the 80% of features I dont use; rather than complain about the 1% of features that I need and the hardware doesn't provide...</span></div><div class="line" id="233959"><span class="nick" style="color:#8dd3c7"><a href="#233959" label="[23:39:59]">&lt;oriansj&gt;</a></span><span class="message">in the end, hardware will accrete features that no one uses because pulling features means you just broke people's working programs</span></div><div class="line" id="234127"><span class="nick" style="color:#8dd3c7"><a href="#234127" label="[23:41:27]">&lt;oriansj&gt;</a></span><span class="message">Much like the Linux ABI; yeah it has a bunch of stupid things and it is complex but if you need your program to work for 40 years, there isn't a debate about what the world at a whole cares about</span></div><div class="line" id="234227"><span class="nick" style="color:#8dd3c7"><a href="#234227" label="[23:42:27]">&lt;oriansj&gt;</a></span><span class="message">Despite all the flaws, I don't see many people using a BSD instead of Linux</span></div><div class="line" id="234358"><span class="nick" style="color:#8dd3c7"><a href="#234358" label="[23:43:58]">&lt;oriansj&gt;</a></span><span class="message">Nor that many people using a beautiful CPU architecture like Knight; when ARM and x86 despite being ugly monsters dominate the market</span></div><div class="line" id="234553"><span class="nick" style="color:#8dd3c7"><a href="#234553" label="[23:45:53]">&lt;oriansj&gt;</a></span><span class="message">Why doesn't ARM have integer divide instructions? why did I have to literally roll my own integer division routine for a modern OoO processor when integer division hardware is so cheap</span></div><div class="line" id="234914"><span class="nick" style="color:#8dd3c7"><a href="#234914" label="[23:49:14]">&lt;oriansj&gt;</a></span><span class="message">Why does AMD64 require idiv ebx; when R0 &lt;- R1 idiv R2 would be a better solution? Short answer legacy mistakes always accrete.</span></div><div class="line" id="235047"><span class="nick" style="color:#8dd3c7"><a href="#235047" label="[23:50:47]">&lt;oriansj&gt;</a></span><span class="message">Having a crufty architecture that is 41 years old and actively used by hundreds of Milliions of people is an amazing achievement</span></div><div class="line" id="235149"><span class="nick" style="color:#8dd3c7"><a href="#235149" label="[23:51:49]">&lt;oriansj&gt;</a></span><span class="message">yeah, as a compiler writer I ignore most of the features it provides. So do the Operating system Developers. But those programs you depend upon keep working for decades</span></div><div class="line" id="235510"><span class="nick" style="color:#6d2462"><a href="#235510" label="[23:55:10]">&lt;gio&gt;</a></span><span class="message">I totally understand why amd64 has so much cruft. I do not think Intel engineers are bad at designing ISAs. Still, I don't call the outcome perfect.</span></div><div class="line" id="235544"><span class="nick" style="color:#8dd3c7"><a href="#235544" label="[23:55:44]">&lt;oriansj&gt;</a></span><span class="message">gio: which metric of perfection do you wish to use?</span></div><div class="line" id="235850"><span class="nick" style="color:#6d2462"><a href="#235850" label="[23:58:50]">&lt;gio&gt;</a></span><span class="message">My personal feeling is that whatever you choose, amd64 won't fit. However, it is midnight here, so my personal take on perfection now coincides with bed. Have fun!</span></div><br /></div></body></html>

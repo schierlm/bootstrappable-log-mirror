@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-04-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011207"><span class="nick" style="color:#389600"><a href="#011207" label="[01:12:07]">&lt;stikonas&gt;</a></span><span class="message">Googulator, fossy: by the way have you seen that gnulib switched from bash import script to pyton...</span></div><div class="line" id="011227"><span class="nick" style="color:#389600"><a href="#011227" label="[01:12:27]">&lt;stikonas&gt;</a></span><span class="message">if we want to keep regenerating gnulib.mk that will put a bound on new version...</span></div><div class="line" id="011305"><span class="nick" style="color:#389600"><a href="#011305" label="[01:13:05]">&lt;stikonas&gt;</a></span><span class="message">(or if we switch to VCS snapshots)</span></div><div class="line" id="011342"><span class="nick" style="color:#389600"><a href="#011342" label="[01:13:42]">&lt;stikonas&gt;</a></span><span class="message">oh, maybe they are not removing the old script (at least not yet)</span></div><div class="line" id="011349"><span class="nick" style="color:#389600"><a href="#011349" label="[01:13:49]">&lt;stikonas&gt;</a></span><span class="message">in which case it's not too bad</span></div><div class="line" id="021941"><span class="nick" style="color:#389600"><a href="#021941" label="[02:19:41]">&lt;stikonas&gt;</a></span><span class="message">AwesomeAdam54321: you missed some replies while you were away. Probably worth checking the logs</span></div><div class="line" id="161830"><span class="nick" style="color:#8dd3c7"><a href="#161830" label="[16:18:30]">&lt;janneke&gt;</a></span><span class="message">stikonas: <a rel="nofollow" href="https://lists.gnu.org/archive/html/bug-gnulib/2024-04/msg00350.html">https://lists.gnu.org/archive/html/bug-gnulib/2024-04/msg00350.html</a> </span></div><div class="line" id="161859"><span class="nick" style="color:#389600"><a href="#161859" label="[16:18:59]">&lt;stikonas&gt;</a></span><span class="message">oh I see, you already raised this</span></div><div class="line" id="161901"><span class="nick" style="color:#8dd3c7"><a href="#161901" label="[16:19:01]">&lt;janneke&gt;</a></span><span class="message">nobody cares</span></div><div class="line" id="161929"><span class="nick" style="color:#389600"><a href="#161929" label="[16:19:29]">&lt;stikonas&gt;</a></span><span class="message">well, that's not surprising though...</span></div><div class="line" id="161937"><span class="nick" style="color:#389600"><a href="#161937" label="[16:19:37]">&lt;stikonas&gt;</a></span><span class="message">we often get this as an answer...</span></div><div class="line" id="161955"><span class="nick" style="color:#8dd3c7"><a href="#161955" label="[16:19:55]">&lt;janneke&gt;</a></span><span class="message">sure, i didn't expect anything else</span></div><div class="line" id="162149"><span class="nick" style="color:#389600"><a href="#162149" label="[16:21:49]">&lt;stikonas&gt;</a></span><span class="message">&quot;Do you use musl libc as a first stage, and only build glibc once a python built with musl exists?&quot; Well, that seems to be likely the case for riscv bootstrap anyway</span></div><div class="line" id="162247"><span class="nick" style="color:#389600"><a href="#162247" label="[16:22:47]">&lt;stikonas&gt;</a></span><span class="message">ekaitz and I at the moment are targeting musl 1.1.24 -&gt; binutils 2.30 -&gt; gcc 4.6.4 (ekaitz's fork) and then from there you can go back to glibc...</span></div><div class="line" id="162304"><span class="nick" style="color:#389600"><a href="#162304" label="[16:23:04]">&lt;stikonas&gt;</a></span><span class="message">binutils 2.30 is just not buildable with meslibc right now...</span></div><div class="line" id="162331"><span class="nick" style="color:#8dd3c7"><a href="#162331" label="[16:23:31]">&lt;janneke&gt;</a></span><span class="message">makes sense</span></div><div class="line" id="162349"><span class="nick" style="color:#8dd3c7"><a href="#162349" label="[16:23:49]">&lt;janneke&gt;</a></span><span class="message">until mes libc got its act up, anyway</span></div><div class="line" id="174522"><span class="nick" style="color:#389600"><a href="#174522" label="[17:45:22]">&lt;stikonas&gt;</a></span><span class="message">speaking of mes libc, we need to add some kind of realpath support... At least as a stub that returns original string</span></div><div class="line" id="174557"><span class="nick" style="color:#389600"><a href="#174557" label="[17:45:57]">&lt;stikonas&gt;</a></span><span class="message">next version of tcc uses realpath... It can be patched out but it's a bit awkward as we generally build patch with tcc</span></div><div class="line" id="211705"><span class="nick" style="color:#2e2a4a"><a href="#211705" label="[21:17:05]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; iirc tcc mob's use of realpath is for a half baked pragma once implementation that's probably not much use anyway.</span></div><div class="line" id="211836"><span class="nick" style="color:#2e2a4a"><a href="#211836" label="[21:18:36]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; actually sorry that's probably not a very polite way of putting it.</span></div><div class="line" id="211925"><span class="nick" style="color:#2e2a4a"><a href="#211925" label="[21:19:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; an implementation of pragma once that has not yet been proven useful via benchmarking on real world code.</span></div><div class="line" id="214219"><span class="nick" style="color:#6b8072"><a href="#214219" label="[21:42:19]">&lt;oriansj&gt;</a></span><span class="message">janneke: well, we knew the hard part wasn't going to bootstrap GCC but rather maintaining that bootstrap going forward.</span></div><div class="line" id="214437"><span class="nick" style="color:#6b8072"><a href="#214437" label="[21:44:37]">&lt;oriansj&gt;</a></span><span class="message">and the whole build process keeps getting more complex for no good reason; like the whole world is addicted to complexity and ooh shiny rather than simple and easy to maintain.</span></div><div class="line" id="214838"><span class="nick" style="color:#389600"><a href="#214838" label="[21:48:38]">&lt;stikonas&gt;</a></span><span class="message">languages are getting more complex too</span></div><div class="line" id="215005"><span class="nick" style="color:#80b1d3"><a href="#215005" label="[21:50:05]">&lt;Googulator&gt;</a></span><span class="message">Do we have anything currently in LB that's buildable with gcc 4.7.4 but not ekaitz's 4.6 fork?</span></div><div class="line" id="215050"><span class="nick" style="color:#6b8072"><a href="#215050" label="[21:50:50]">&lt;oriansj&gt;</a></span><span class="message">stikonas: I am not so sure about that; at their core all languages are simple state tracking.</span></div><div class="line" id="215120"><span class="nick" style="color:#389600"><a href="#215120" label="[21:51:20]">&lt;stikonas&gt;</a></span><span class="message">well, but something like C++26 has far more features than C++98</span></div><div class="line" id="215146"><span class="nick" style="color:#389600"><a href="#215146" label="[21:51:46]">&lt;stikonas&gt;</a></span><span class="message">Googulator: I don't think we know</span></div><div class="line" id="215150"><span class="nick" style="color:#389600"><a href="#215150" label="[21:51:50]">&lt;stikonas&gt;</a></span><span class="message">but unlikely</span></div><div class="line" id="215205"><span class="nick" style="color:#389600"><a href="#215205" label="[21:52:05]">&lt;stikonas&gt;</a></span><span class="message">I know linux kernel (even if we update it) supports 4.6</span></div><div class="line" id="215219"><span class="nick" style="color:#6b8072"><a href="#215219" label="[21:52:19]">&lt;oriansj&gt;</a></span><span class="message">stikonas: completely agree; standards only grow in length but one would hope that a compiler doesn't use *EVERY* feature of the language it implements.</span></div><div class="line" id="215221"><span class="nick" style="color:#389600"><a href="#215221" label="[21:52:21]">&lt;stikonas&gt;</a></span><span class="message">until it jumps to something newer like GCC 4.8 or 4.9</span></div><div class="line" id="215319"><span class="nick" style="color:#80b1d3"><a href="#215319" label="[21:53:19]">&lt;Googulator&gt;</a></span><span class="message">oriansj: [rust] Hold my beer...</span></div><div class="line" id="215337"><span class="nick" style="color:#389600"><a href="#215337" label="[21:53:37]">&lt;stikonas&gt;</a></span><span class="message">Googulator: and if GCC 10 fails to build with 4.6, we can alwyas downgrade intermediate GCC a bit (which is GCC10 now)</span></div><div class="line" id="215349"><span class="nick" style="color:#6b8072"><a href="#215349" label="[21:53:49]">&lt;oriansj&gt;</a></span><span class="message">Googulator: fair and Bison and GHC for a few versions</span></div><div class="line" id="215357"><span class="nick" style="color:#389600"><a href="#215357" label="[21:53:57]">&lt;stikonas&gt;</a></span><span class="message">oh yeah, rust somehow manages to use new feature in each version</span></div><div class="line" id="215425"><span class="nick" style="color:#389600"><a href="#215425" label="[21:54:25]">&lt;stikonas&gt;</a></span><span class="message">but at least mrustc is keeping up</span></div><div class="line" id="215437"><span class="nick" style="color:#80b1d3"><a href="#215437" label="[21:54:37]">&lt;Googulator&gt;</a></span><span class="message">Bison was the one that depended on a new feature in the very same commit that introduced that feature, right?</span></div><div class="line" id="215513"><span class="nick" style="color:#389600"><a href="#215513" label="[21:55:13]">&lt;stikonas&gt;</a></span><span class="message">unlike GCC 4.7 which is the last version written in C</span></div><div class="line" id="215513"><span class="nick" style="color:#389600"><a href="#215513" label="[21:55:13]">&lt;stikonas&gt;</a></span><span class="message">Googulator: yes</span></div><div class="line" id="215513"><span class="nick" style="color:#6b8072"><a href="#215513" label="[21:55:13]">&lt;oriansj&gt;</a></span><span class="message">I hate that shit; like please for the love of God put a couple releases between implementing a feature and requiring it to build.</span></div><div class="line" id="215530"><span class="nick" style="color:#389600"><a href="#215530" label="[21:55:30]">&lt;stikonas&gt;</a></span><span class="message">Googulator: while you are here <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/465">https://github.com/fosslinux/live-bootstrap/pull/465</a> </span></div><div class="line" id="215547"><span class="nick" style="color:#6b8072"><a href="#215547" label="[21:55:47]">&lt;oriansj&gt;</a></span><span class="message">Googulator: literally proved that virtually no one was forcing building from source in Gnu packages and they still are not.</span></div><div class="line" id="215606"><span class="nick" style="color:#80b1d3"><a href="#215606" label="[21:56:06]">&lt;Googulator&gt;</a></span><span class="message">IMO the oldest still supported (LTS) version should always be able to build the current dev code for any self-hosted compiler</span></div><div class="line" id="215710"><span class="nick" style="color:#389600"><a href="#215710" label="[21:57:10]">&lt;stikonas&gt;</a></span><span class="message">well, but only C/C++ kind of keep that</span></div><div class="line" id="215717"><span class="nick" style="color:#389600"><a href="#215717" label="[21:57:17]">&lt;stikonas&gt;</a></span><span class="message">well, maybe Go</span></div><div class="line" id="215722"><span class="nick" style="color:#389600"><a href="#215722" label="[21:57:22]">&lt;stikonas&gt;</a></span><span class="message">even openjdk can't go LTS to LTS</span></div><div class="line" id="215726"><span class="nick" style="color:#6b8072"><a href="#215726" label="[21:57:26]">&lt;oriansj&gt;</a></span><span class="message">is there a Compiler out there (besides M2-Planet) that has a LTS version?</span></div><div class="line" id="215734"><span class="nick" style="color:#389600"><a href="#215734" label="[21:57:34]">&lt;stikonas&gt;</a></span><span class="message">openjdk has LTS versions...</span></div><div class="line" id="215846"><span class="nick" style="color:#6b8072"><a href="#215846" label="[21:58:46]">&lt;oriansj&gt;</a></span><span class="message">that don't expand to include the features needed by the next LTS version; kinda breaking the chain of support</span></div><div class="line" id="220044"><span class="nick" style="color:#80b1d3"><a href="#220044" label="[22:00:44]">&lt;Googulator&gt;</a></span><span class="message">If no explicit LTS, then the oldest version still receiving 1st party maintenance.</span></div><div class="line" id="220113"><span class="nick" style="color:#6b8072"><a href="#220113" label="[22:01:13]">&lt;oriansj&gt;</a></span><span class="message">which reminds me, anyone else play with: the redo build system</span></div><div class="line" id="220233"><span class="nick" style="color:#6b8072"><a href="#220233" label="[22:02:33]">&lt;oriansj&gt;</a></span><span class="message">it is pretty reasonable for any environment where the compiler supports functionality similar to: gcc -MD -MF</span></div><div class="line" id="220629"><span class="nick" style="color:#6b8072"><a href="#220629" label="[22:06:29]">&lt;oriansj&gt;</a></span><span class="message">(which would be pretty easy to add to M2-Planet or mocked up)</span></div><br /></div></body></html>

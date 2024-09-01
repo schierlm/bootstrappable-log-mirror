@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-05-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000049"><span class="nick" style="color:#389600"><a href="#000049" label="[00:00:49]">&lt;Googulator&gt;</a></span><span class="message">oh, and somehow it would only happen in chroot mode, not with kernel bootstrap</span></div><div class="line" id="000137"><span class="nick" style="color:#389600"><a href="#000137" label="[00:01:37]">&lt;Googulator&gt;</a></span><span class="message">src_get is missing from the unset list :)</span></div><div class="line" id="000257"><span class="nick" style="color:#389600"><a href="#000257" label="[00:02:57]">&lt;Googulator&gt;</a></span><span class="message">which means, if a build script overrides it, that override persists until either another script overrides src_get, or we move to a new bash process (by switching to a new kernel or a new build of bash)</span></div><div class="line" id="000334"><span class="nick" style="color:#389600"><a href="#000334" label="[00:03:34]">&lt;Googulator&gt;</a></span><span class="message">the only scripts that actually override src_get are kexec-linux, and musl-1.2.4 pass1</span></div><div class="line" id="000342"><span class="nick" style="color:#389600"><a href="#000342" label="[00:03:42]">&lt;Googulator&gt;</a></span><span class="message">which pass2 symlinks to</span></div><div class="line" id="000436"><span class="nick" style="color:#389600"><a href="#000436" label="[00:04:36]">&lt;Googulator&gt;</a></span><span class="message">so from kexec-linux to musl pass2, src_get is effectively disabled</span></div><div class="line" id="000557"><span class="nick" style="color:#389600"><a href="#000557" label="[00:05:57]">&lt;Googulator&gt;</a></span><span class="message">then musl pass2 (identical to pass1 except for the patches used) resets src_get to a functional version, so when we get to bash-5.2.15 (the first package to be downloaded over the network), we can src_get again</span></div><div class="line" id="000610"><span class="nick" style="color:#389600"><a href="#000610" label="[00:06:10]">&lt;Googulator&gt;</a></span><span class="message">(and then we switch bash, so the override is cleared)</span></div><div class="line" id="000714"><span class="nick" style="color:#389600"><a href="#000714" label="[00:07:14]">&lt;Googulator&gt;</a></span><span class="message">but to make the pass2 musl dynamic, I changed the symlink to point to pass3 instead, which doesn't override src_get, so kexec-linux's override stayed in effect for bash-5.2.15 in chroot mode</span></div><div class="line" id="000730"><span class="nick" style="color:#8dd3c7"><a href="#000730" label="[00:07:30]">&lt;stikonas&gt;</a></span><span class="message">hmm, using subshells would be better...</span></div><div class="line" id="000742"><span class="nick" style="color:#8dd3c7"><a href="#000742" label="[00:07:42]">&lt;stikonas&gt;</a></span><span class="message">but at some point there was an issue with some traps...</span></div><div class="line" id="000800"><span class="nick" style="color:#389600"><a href="#000800" label="[00:08:00]">&lt;Googulator&gt;</a></span><span class="message">outside chroot, the override is cleared by an intervening kexec step, so it didn't happen in qemu or bare metal mode</span></div><div class="line" id="000854"><span class="nick" style="color:#389600"><a href="#000854" label="[00:08:54]">&lt;Googulator&gt;</a></span><span class="message">but the funny thing is, the entire src_get override in musl-1.2.4 pass1 is obsolete, since the preservation of source tarballs needed between Linux build and network buildup is now handled elsewhere</span></div><div class="line" id="000912"><span class="nick" style="color:#389600"><a href="#000912" label="[00:09:12]">&lt;Googulator&gt;</a></span><span class="message">except, deleting it would have triggered this bug without me monkeying around with the pass2 symlink</span></div><div class="line" id="000933"><span class="nick" style="color:#8dd3c7"><a href="#000933" label="[00:09:33]">&lt;stikonas&gt;</a></span><span class="message">well, good spot</span></div><div class="line" id="031656"><span class="nick" style="color:#2e2a4a"><a href="#031656" label="[03:16:56]">&lt;pabs3&gt;</a></span><span class="message">Googulator: IIRC Arch merges bin/ sbin/ and Fedora/Debian are thinking about it too</span></div><div class="line" id="031724"><span class="nick" style="color:#2e2a4a"><a href="#031724" label="[03:17:24]">&lt;pabs3&gt;</a></span><span class="message">I expect like usrmerge, it will become the standard for distros</span></div><div class="line" id="032140"><span class="nick" style="color:#6b8072"><a href="#032140" label="[03:21:40]">&lt;Zopolis4&gt;</a></span><span class="message">last time I checked debian usrmerge faq (<a rel="nofollow" href="https://wiki.debian.org/UsrMerge">https://wiki.debian.org/UsrMerge</a>)  it said there weren't any plans to merge the two</span></div><div class="line" id="032142"><span class="nick" style="color:#6b8072"><a href="#032142" label="[03:21:42]">&lt;Zopolis4&gt;</a></span><span class="message">although that page may be out of date</span></div><div class="line" id="052357"><span class="nick" style="color:#2e2a4a"><a href="#052357" label="[05:23:57]">&lt;pabs3&gt;</a></span><span class="message">yeah, there were some discussions in the last few months</span></div><div class="line" id="180655"><span class="nick" style="color:#389600"><a href="#180655" label="[18:06:55]">&lt;Googulator&gt;</a></span><span class="message">MILESTONE: &quot;make -j8&quot; running for Guix on top of live-bootstrap as we speak! See <a rel="nofollow" href="https://gist.github.com/Googulator/338cce370b2e2a65f23e4f6a5b5c3881">https://gist.github.com/Googulator/338cce370b2e2a65f23e4f6a5b5c3881</a> </span></div><div class="line" id="180826"><span class="nick" style="color:#389600"><a href="#180826" label="[18:08:26]">&lt;Googulator&gt;</a></span><span class="message">(although I tried to regenerate build systems, I can't vouch for pregens in this - in particular, I'm pretty sure Guix's make process at some point downloaded / will download a binary bootstrap-guile...)</span></div><div class="line" id="180956"><span class="nick" style="color:#389600"><a href="#180956" label="[18:09:56]">&lt;Googulator&gt;</a></span><span class="message">and of course, it's still building as we speak, so no guarantee it will even finish :)</span></div><div class="line" id="194108"><span class="nick" style="color:#8dd3c7"><a href="#194108" label="[19:41:08]">&lt;stikonas&gt;</a></span><span class="message">Googulator: yeah, it will be using all the Guix bootstrap seeds</span></div><div class="line" id="194132"><span class="nick" style="color:#8dd3c7"><a href="#194132" label="[19:41:32]">&lt;stikonas&gt;</a></span><span class="message">so bootstrap guile, bash, xz and a few others if I remember correctly</span></div><div class="line" id="194318"><span class="nick" style="color:#8dd3c7"><a href="#194318" label="[19:43:18]">&lt;stikonas&gt;</a></span><span class="message">mkdir and tar too (<a rel="nofollow" href="https://git.savannah.gnu.org/cgit/guix.git/tree/gnu/packages/bootstrap.scm#n110">https://git.savannah.gnu.org/cgit/guix.git/tree/gnu/packages/bootstrap.scm#n110</a>) </span></div><div class="line" id="194345"><span class="nick" style="color:#8dd3c7"><a href="#194345" label="[19:43:45]">&lt;stikonas&gt;</a></span><span class="message">if you want to bootstrap those properly it is a much harder process</span></div><div class="line" id="194400"><span class="nick" style="color:#389600"><a href="#194400" label="[19:44:00]">&lt;Googulator&gt;</a></span><span class="message">yeah - that's gonna be another task to replace those with new ones</span></div><div class="line" id="194403"><span class="nick" style="color:#8dd3c7"><a href="#194403" label="[19:44:03]">&lt;stikonas&gt;</a></span><span class="message">I think luke-jr has done it</span></div><div class="line" id="194449"><span class="nick" style="color:#8dd3c7"><a href="#194449" label="[19:44:49]">&lt;stikonas&gt;</a></span><span class="message">I think you need to replace them with your binaries. (that will cause all guix output hashes to be different) and then you ask guix to builds those guix bootstrap binaries</span></div><div class="line" id="194521"><span class="nick" style="color:#8dd3c7"><a href="#194521" label="[19:45:21]">&lt;stikonas&gt;</a></span><span class="message">not as easy as Gentoo to bootstrap without binaries...</span></div><div class="line" id="194537"><span class="nick" style="color:#389600"><a href="#194537" label="[19:45:37]">&lt;Googulator&gt;</a></span><span class="message">the eventual goal with this is a reproducible Guix install ISO image not derived from any outside binary (except for builder-hex0-x86-stage-1 of course)</span></div><div class="line" id="194550"><span class="nick" style="color:#389600"><a href="#194550" label="[19:45:50]">&lt;Googulator&gt;</a></span><span class="message">I wonder if the &quot;graft&quot; feature can help us here</span></div><div class="line" id="194629"><span class="nick" style="color:#389600"><a href="#194629" label="[19:46:29]">&lt;Googulator&gt;</a></span><span class="message">if I understand it correctly, it basically allows a package to be replaced with a newer version without changing the hash of dependent packages</span></div><div class="line" id="194644"><span class="nick" style="color:#389600"><a href="#194644" label="[19:46:44]">&lt;Googulator&gt;</a></span><span class="message">originally intended for security updates</span></div><div class="line" id="194819"><span class="nick" style="color:#8dd3c7"><a href="#194819" label="[19:48:19]">&lt;stikonas&gt;</a></span><span class="message">hmm, perhaps you can graft bootstrap-seeds then</span></div><div class="line" id="194826"><span class="nick" style="color:#8dd3c7"><a href="#194826" label="[19:48:26]">&lt;stikonas&gt;</a></span><span class="message">but I'm not familiar with grafting there</span></div><div class="line" id="194902"><span class="nick" style="color:#389600"><a href="#194902" label="[19:49:02]">&lt;Googulator&gt;</a></span><span class="message">bootstrap-seeds is not the problem package IIRC</span></div><div class="line" id="194931"><span class="nick" style="color:#8dd3c7"><a href="#194931" label="[19:49:31]">&lt;stikonas&gt;</a></span><span class="message">well, I meant those seeds from bootstrap.scm...</span></div><div class="line" id="195006"><span class="nick" style="color:#8dd3c7"><a href="#195006" label="[19:50:06]">&lt;stikonas&gt;</a></span><span class="message">but yeah, hashes in guix work very differently from the ones in live-bootstrap</span></div><div class="line" id="195014"><span class="nick" style="color:#8dd3c7"><a href="#195014" label="[19:50:14]">&lt;stikonas&gt;</a></span><span class="message">in live-bootstrap it's hash of output binaries</span></div><div class="line" id="195019"><span class="nick" style="color:#389600"><a href="#195019" label="[19:50:19]">&lt;Googulator&gt;</a></span><span class="message">guile-bootstrap is the evil one</span></div><div class="line" id="195036"><span class="nick" style="color:#389600"><a href="#195036" label="[19:50:36]">&lt;Googulator&gt;</a></span><span class="message">bootstrap-seeds is just the stage0 seed, &quot;blessed as source&quot;</span></div><div class="line" id="195231"><span class="nick" style="color:#389600"><a href="#195231" label="[19:52:31]">&lt;Googulator&gt;</a></span><span class="message">it seems the other binaries aren't considered packages by Guix</span></div><div class="line" id="200430"><span class="nick" style="color:#8dd3c7"><a href="#200430" label="[20:04:30]">&lt;stikonas&gt;</a></span><span class="message">yeah, so you won't be able to graft them</span></div><div class="line" id="200621"><span class="nick" style="color:#389600"><a href="#200621" label="[20:06:21]">&lt;Googulator&gt;</a></span><span class="message"> <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/guix.git/commit/gnu/packages/bootstrap/i686-linux?id=4c0d38bee3a4b264490f33adf45bb226c110716c">https://git.savannah.gnu.org/cgit/guix.git/commit/gnu/packages/bootstrap/i686-linux?id=4c0d38bee3a4b264490f33adf45bb226c110716c</a>  is where the binaries come from</span></div><div class="line" id="200911"><span class="nick" style="color:#389600"><a href="#200911" label="[20:09:11]">&lt;Googulator&gt;</a></span><span class="message">(unfortunately not much info provided on how they were built...)</span></div><div class="line" id="213314"><span class="nick" style="color:#389600"><a href="#213314" label="[21:33:14]">&lt;Googulator&gt;</a></span><span class="message">Got as far as actually building and installing Guix itself, but then &quot;guix build&quot;s would all fail due to bwrap's &quot;fake root&quot; user - retrying on bare metal with real user management :)</span></div><div class="line" id="213924"><span class="nick" style="color:#389600"><a href="#213924" label="[21:39:24]">&lt;Googulator&gt;</a></span><span class="message">for reference, the script for reproducing this is <a rel="nofollow" href="https://gist.github.com/Googulator/338cce370b2e2a65f23e4f6a5b5c3881">https://gist.github.com/Googulator/338cce370b2e2a65f23e4f6a5b5c3881</a>  and it requires <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/469">https://github.com/fosslinux/live-bootstrap/pull/469</a> </span></div><div class="line" id="214349"><span class="nick" style="color:#8dd3c7"><a href="#214349" label="[21:43:49]">&lt;stikonas&gt;</a></span><span class="message">Googulator: there is a package bootstrap-binaries</span></div><div class="line" id="214351"><span class="nick" style="color:#8dd3c7"><a href="#214351" label="[21:43:51]">&lt;stikonas&gt;</a></span><span class="message">I think it's that one</span></div><div class="line" id="214403"><span class="nick" style="color:#8dd3c7"><a href="#214403" label="[21:44:03]">&lt;stikonas&gt;</a></span><span class="message">but you might need to use specific guix commit to build it</span></div><div class="line" id="214420"><span class="nick" style="color:#389600"><a href="#214420" label="[21:44:20]">&lt;Googulator&gt;</a></span><span class="message">nope, that one is a lie</span></div><div class="line" id="214431"><span class="nick" style="color:#8dd3c7"><a href="#214431" label="[21:44:31]">&lt;stikonas&gt;</a></span><span class="message">ask on #guix then...</span></div><div class="line" id="214439"><span class="nick" style="color:#389600"><a href="#214439" label="[21:44:39]">&lt;Googulator&gt;</a></span><span class="message">it's part of the old bootstrap chain, before full source</span></div><div class="line" id="214517"><span class="nick" style="color:#389600"><a href="#214517" label="[21:45:17]">&lt;Googulator&gt;</a></span><span class="message">I mean, the actual binaries used were apparently built in 2013</span></div><div class="line" id="214526"><span class="nick" style="color:#389600"><a href="#214526" label="[21:45:26]">&lt;Googulator&gt;</a></span><span class="message">and then uploaded to their present location in 2015</span></div><div class="line" id="214609"><span class="nick" style="color:#389600"><a href="#214609" label="[21:46:09]">&lt;Googulator&gt;</a></span><span class="message">for now, I'd like to see a successful &quot;guix build&quot; or &quot;guix install&quot; regardless of bootstrap binaries involved, before moving further</span></div><br /></div></body></html>

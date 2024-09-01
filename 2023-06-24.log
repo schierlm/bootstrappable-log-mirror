@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-06-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="040544"><span class="nick" style="color:#389600"><a href="#040544" label="[04:05:44]">&lt;pabs3&gt;</a></span><span class="message">fossy: stikonas suggested I ask you about these: how are you detecting pregenerated files in git? are you using any tools other than grep? do you have a list of greps you use?</span></div><div class="line" id="040602"><span class="nick" style="color:#389600"><a href="#040602" label="[04:06:02]">&lt;pabs3&gt;</a></span><span class="message">same question for anyone else doing pregenerated file detection</span></div><div class="line" id="052742"><span class="nick" style="color:#8dd3c7"><a href="#052742" label="[05:27:42]">&lt;sam_&gt;</a></span><span class="message">pabs3: from lanodan, <a rel="nofollow" href="https://git.sr.ht/~lanodan/deblob">https://git.sr.ht/~lanodan/deblob</a> </span></div><div class="line" id="054535"><span class="nick" style="color:#389600"><a href="#054535" label="[05:45:35]">&lt;pabs3&gt;</a></span><span class="message">nice, thanks.</span></div><div class="line" id="054752"><span class="nick" style="color:#389600"><a href="#054752" label="[05:47:52]">&lt;pabs3&gt;</a></span><span class="message">I'm wondering if there is anything for tricky stuff, like generated C code</span></div><div class="line" id="055233"><span class="nick" style="color:#389600"><a href="#055233" label="[05:52:33]">&lt;pabs3&gt;</a></span><span class="message">other stuff I'm aware of: Debian licensecheck, Debian suspicious-source (from devscripts), grepping images for gimp/inkscape/Synfig/POV-Ray/gnuplot, grepping html/svg for base64</span></div><div class="line" id="085223"><span class="nick" style="color:#2e2a4a"><a href="#085223" label="[08:52:23]">&lt;lanodan&gt;</a></span><span class="message"> <a rel="nofollow" href="https://salsa.debian.org/debian/devscripts/-/blob/master/scripts/suspicious-source">https://salsa.debian.org/debian/devscripts/-/blob/master/scripts/suspicious-source</a>  interesting, I wonder how slow it is, one of my reasons for deblob was to get something fast enough to be used all the time, this one seems more appropriate for manual audits</span></div><div class="line" id="090708"><span class="nick" style="color:#389600"><a href="#090708" label="[09:07:08]">&lt;pabs3&gt;</a></span><span class="message">lanodan: on my 2012-era desktop, it takes 1m13s to check the u-boot git repo.</span></div><div class="line" id="095237"><span class="nick" style="color:#2e2a4a"><a href="#095237" label="[09:52:37]">&lt;lanodan&gt;</a></span><span class="message">That's pretty decent</span></div><div class="line" id="095538"><span class="nick" style="color:#2e2a4a"><a href="#095538" label="[09:55:38]">&lt;lanodan&gt;</a></span><span class="message">For u-boot, suspicious clocks at &quot;0m10.93s real     0m10.26s user     0m00.54s system&quot;; deblob at &quot;0m00.46s real     0m00.15s user     0m00.31s system&quot;</span></div><div class="line" id="100630"><span class="nick" style="color:#389600"><a href="#100630" label="[10:06:30]">&lt;pabs3&gt;</a></span><span class="message">so deblob is way faster</span></div><div class="line" id="100635"><span class="nick" style="color:#2e2a4a"><a href="#100635" label="[10:06:35]">&lt;lanodan&gt;</a></span><span class="message">I guess for pregenerated you could modify the magic file, this way you don't have to read everything twice</span></div><div class="line" id="100816"><span class="nick" style="color:#2e2a4a"><a href="#100816" label="[10:08:16]">&lt;lanodan&gt;</a></span><span class="message">Yeah, way faster but not the same goals at all, deblob catches known binaries where only reading 4096 bytes of each file is enough, suspicious lists non-source which is doomed to be slower (whole file + huge database)</span></div><div class="line" id="133453"><span class="nick" style="color:#6b8072"><a href="#133453" label="[13:34:53]">&lt;oriansj&gt;</a></span><span class="message">notgulll: well the creation of a floppy disk manually is in theory possible (given steady enough hands and a magnetized needle) but in practical terms historically directly writing to memory is much easier to do (unless your system lacks a ROM or hardware which makes it possible)</span></div><div class="line" id="134054"><span class="nick" style="color:#6b8072"><a href="#134054" label="[13:40:54]">&lt;oriansj&gt;</a></span><span class="message">lanodan: well all of the time wouldn't fit most downstream source models; which changes would only be pulled every so often but yes a check running on  every pull would catch a good bit</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-10-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000029"><span class="nick" style="color:#389600"><a href="#000029" label="[00:00:29]">&lt;stikonas&gt;</a></span><span class="message">if we start adding everything and kitchen sink to the seed, it will be a huge mess</span></div><div class="line" id="000426"><span class="nick" style="color:#8dd3c7"><a href="#000426" label="[00:04:26]">&lt;muurkha&gt;</a></span><span class="message">right</span></div><div class="line" id="034404"><span class="nick" style="color:#2e2a4a"><a href="#034404" label="[03:44:04]">&lt;oriansj&gt;</a></span><span class="message">pabs3: well as a general rule, any software not actively improving its bootstrap is actively regressing to the point of unbootstrappability</span></div><div class="line" id="042236"><span class="nick" style="color:#6b8072"><a href="#042236" label="[04:22:36]">&lt;pabs3&gt;</a></span><span class="message">muurkha: Debian doesn't yet even support building the full archive from just build-essential, too many build dep cycles without a build profile to break them</span></div><div class="line" id="043747"><span class="nick" style="color:#8dd3c7"><a href="#043747" label="[04:37:47]">&lt;muurkha&gt;</a></span><span class="message">pabs3: ugh, I didn't realize</span></div><div class="line" id="081607"><span class="nick" style="color:#80b1d3"><a href="#081607" label="[08:16:07]">&lt;nektro&gt;</a></span><span class="message">as another thought, i wonder if debian would change its mind about zig's blob if it was able to build debian's base and act as a new root</span></div><div class="line" id="081651"><span class="nick" style="color:#80b1d3"><a href="#081651" label="[08:16:51]">&lt;nektro&gt;</a></span><span class="message">*zig and zig-built tools</span></div><div class="line" id="081752"><span class="nick" style="color:#80b1d3"><a href="#081752" label="[08:17:52]">&lt;nektro&gt;</a></span><span class="message">the current blob is 2.46 MB</span></div><div class="line" id="081859"><span class="nick" style="color:#80b1d3"><a href="#081859" label="[08:18:59]">&lt;nektro&gt;</a></span><span class="message">obviously the ideal is if there was also a zig impl path from stage0, just thinking out loud</span></div><div class="line" id="085449"><span class="nick" style="color:#6d2462"><a href="#085449" label="[08:54:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Christoph&gt; Why is it easier for zig developers with a blob? How did they get the blob in the first place?</span></div><div class="line" id="091122"><span class="nick" style="color:#234e69"><a href="#091122" label="[09:11:22]">&lt;nimaje&gt;</a></span><span class="message">not having to maintain a core language compliler in another language and probably by compiling their compiler written in zig to wasm</span></div><div class="line" id="092115"><span class="nick" style="color:#80b1d3"><a href="#092115" label="[09:21:15]">&lt;nektro&gt;</a></span><span class="message">yes previously there was both a c++ and zig implementation in the tree, now there is only the zig one</span></div><div class="line" id="100004"><span class="nick" style="color:#6c3d55"><a href="#100004" label="[10:00:04]">&lt;h01ger&gt;</a></span><span class="message">ACTION has never heard of zig and only can share his *opinion* (&amp; talk is cheap and all that), but i'd be happy if debian would not accept new languages which can only be bootstrapped with a blob. i dont think this is very controversial here :)</span></div><div class="line" id="100817"><span class="nick" style="color:#6b8072"><a href="#100817" label="[10:08:17]">&lt;pabs3&gt;</a></span><span class="message">ACTION guesses that several already-accepted languages are in that state :)</span></div><div class="line" id="101417"><span class="nick" style="color:#6c3d55"><a href="#101417" label="[10:14:17]">&lt;h01ger&gt;</a></span><span class="message">well</span></div><div class="line" id="101429"><span class="nick" style="color:#6c3d55"><a href="#101429" label="[10:14:29]">&lt;h01ger&gt;</a></span><span class="message">lets not use mistakes of the past to justify mistakes in the future</span></div><div class="line" id="101538"><span class="nick" style="color:#6b8072"><a href="#101538" label="[10:15:38]">&lt;pabs3&gt;</a></span><span class="message">sure. still waiting on ftp-masters to discard maintainer-built .debs from NEW :(</span></div><div class="line" id="101611"><span class="nick" style="color:#6c3d55"><a href="#101611" label="[10:16:11]">&lt;h01ger&gt;</a></span><span class="message">its a config option they just need to enable</span></div><div class="line" id="101630"><span class="nick" style="color:#6c3d55"><a href="#101630" label="[10:16:30]">&lt;h01ger&gt;</a></span><span class="message">if asked like 3 times in the last year. maybe you could ask that as well?</span></div><div class="line" id="101634"><span class="nick" style="color:#6c3d55"><a href="#101634" label="[10:16:34]">&lt;h01ger&gt;</a></span><span class="message">s#if#i#</span></div><div class="line" id="101638"><span class="nick" style="color:#6b8072"><a href="#101638" label="[10:16:38]">&lt;pabs3&gt;</a></span><span class="message">I've asked too</span></div><div class="line" id="101640"><span class="nick" style="color:#6c3d55"><a href="#101640" label="[10:16:40]">&lt;h01ger&gt;</a></span><span class="message">s#if#i've# even</span></div><div class="line" id="101651"><span class="nick" style="color:#6c3d55"><a href="#101651" label="[10:16:51]">&lt;h01ger&gt;</a></span><span class="message">hmpf</span></div><div class="line" id="101700"><span class="nick" style="color:#80b1d3"><a href="#101700" label="[10:17:00]">&lt;nektro&gt;</a></span><span class="message">h01ger, its ziglang.org if u were curious</span></div><div class="line" id="154108"><span class="nick" style="color:#2e2a4a"><a href="#154108" label="[15:41:08]">&lt;oriansj&gt;</a></span><span class="message">ah, the old but it was &quot;ok&quot; in the past defense; always found it odd that people use the argument for their behavior as the same argument for slavery, rape and murder. As if we didn't as a collective society already figure out those are bad things and stop accepting things we know are wrong. And you know, actively work to fix past wrongs where possible.</span></div><div class="line" id="160052"><span class="nick" style="color:#6c3d55"><a href="#160052" label="[16:00:52]">&lt;h01ger&gt;</a></span><span class="message">are you comparing not bootstraping against crimes against humanity???</span></div><div class="line" id="160125"><span class="nick" style="color:#6c3d55"><a href="#160125" label="[16:01:25]">&lt;h01ger&gt;</a></span><span class="message">or was this a case of 'wrong window'?</span></div><div class="line" id="160504"><span class="nick" style="color:#6d2462"><a href="#160504" label="[16:05:04]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Christoph&gt; oriansj: It's called originalism now, the US supreme court is a fan!</span></div><br /></div></body></html>

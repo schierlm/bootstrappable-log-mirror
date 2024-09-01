@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-07-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004030"><span class="nick">***</span><span class="message notice">muurkha_ is now known as muurkha</span></div><div class="line" id="014137"><span class="nick" style="color:#8dd3c7"><a href="#014137" label="[01:41:37]">&lt;oriansj&gt;</a></span><span class="message">stikonas: nice work</span></div><div class="line" id="014155"><span class="nick" style="color:#2e2a4a"><a href="#014155" label="[01:41:55]">&lt;stikonas&gt;</a></span><span class="message">still need to do similar changes for amd64</span></div><div class="line" id="014215"><span class="nick" style="color:#2e2a4a"><a href="#014215" label="[01:42:15]">&lt;stikonas&gt;</a></span><span class="message">especially those rax -&gt; al bits should make even more of a difference on amd64</span></div><div class="line" id="014242"><span class="nick" style="color:#8dd3c7"><a href="#014242" label="[01:42:42]">&lt;oriansj&gt;</a></span><span class="message">probably could get the AMD64 smaller than x86 in terms of code</span></div><div class="line" id="014255"><span class="nick" style="color:#8dd3c7"><a href="#014255" label="[01:42:55]">&lt;oriansj&gt;</a></span><span class="message">only the bigger elf-header would work against you</span></div><div class="line" id="014257"><span class="nick" style="color:#2e2a4a"><a href="#014257" label="[01:42:57]">&lt;stikonas&gt;</a></span><span class="message">oriansj: maybe merge <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-amd64/pull/2">https://github.com/oriansj/stage0-posix-amd64/pull/2</a>   too ?</span></div><div class="line" id="014302"><span class="nick" style="color:#2e2a4a"><a href="#014302" label="[01:43:02]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I don't think so...</span></div><div class="line" id="014309"><span class="nick" style="color:#2e2a4a"><a href="#014309" label="[01:43:09]">&lt;stikonas&gt;</a></span><span class="message">but we'll see</span></div><div class="line" id="014324"><span class="nick" style="color:#2e2a4a"><a href="#014324" label="[01:43:24]">&lt;stikonas&gt;</a></span><span class="message">with x86 now we don't need any global variables</span></div><div class="line" id="014332"><span class="nick" style="color:#2e2a4a"><a href="#014332" label="[01:43:32]">&lt;stikonas&gt;</a></span><span class="message">so a lot of overhead is gone</span></div><div class="line" id="014357"><span class="nick" style="color:#8dd3c7"><a href="#014357" label="[01:43:57]">&lt;oriansj&gt;</a></span><span class="message">and a few less addresses to manually calculate</span></div><div class="line" id="014407"><span class="nick" style="color:#2e2a4a"><a href="#014407" label="[01:44:07]">&lt;stikonas&gt;</a></span><span class="message">indeed</span></div><div class="line" id="014413"><span class="nick" style="color:#2e2a4a"><a href="#014413" label="[01:44:13]">&lt;stikonas&gt;</a></span><span class="message">well, we'll see, maybe you'll be right</span></div><div class="line" id="014419"><span class="nick" style="color:#2e2a4a"><a href="#014419" label="[01:44:19]">&lt;stikonas&gt;</a></span><span class="message">that amd64 code size will be smaller</span></div><div class="line" id="014437"><span class="nick" style="color:#2e2a4a"><a href="#014437" label="[01:44:37]">&lt;stikonas&gt;</a></span><span class="message">we'll see some other day</span></div><div class="line" id="014452"><span class="nick" style="color:#8dd3c7"><a href="#014452" label="[01:44:52]">&lt;oriansj&gt;</a></span><span class="message">well extra registers and all the same x86 instructions</span></div><div class="line" id="014513"><span class="nick" style="color:#2e2a4a"><a href="#014513" label="[01:45:13]">&lt;stikonas&gt;</a></span><span class="message">some opcodes are longer...</span></div><div class="line" id="014513"><span class="nick" style="color:#8dd3c7"><a href="#014513" label="[01:45:13]">&lt;oriansj&gt;</a></span><span class="message">the ELF header will be bigger but hard to avoid that</span></div><div class="line" id="014530"><span class="nick" style="color:#8dd3c7"><a href="#014530" label="[01:45:30]">&lt;oriansj&gt;</a></span><span class="message">stikonas: only those that talk to R8-R15</span></div><div class="line" id="014557"><span class="nick" style="color:#2e2a4a"><a href="#014557" label="[01:45:57]">&lt;stikonas&gt;</a></span><span class="message">hmm, yes and it's probably still more efficient than pushing/poping</span></div><div class="line" id="014603"><span class="nick" style="color:#2e2a4a"><a href="#014603" label="[01:46:03]">&lt;stikonas&gt;</a></span><span class="message">like I had to do with output file descriptor</span></div><div class="line" id="014639"><span class="nick" style="color:#2e2a4a"><a href="#014639" label="[01:46:39]">&lt;stikonas&gt;</a></span><span class="message">maybe I'll write to mailing list about a new hex0 seed</span></div><div class="line" id="014701"><span class="nick" style="color:#2e2a4a"><a href="#014701" label="[01:47:01]">&lt;stikonas&gt;</a></span><span class="message">since that 357 byte number got well known by now</span></div><div class="line" id="014716"><span class="nick" style="color:#8dd3c7"><a href="#014716" label="[01:47:16]">&lt;oriansj&gt;</a></span><span class="message">sounds fair as you did the work and should get some praise for your progress</span></div><div class="line" id="014819"><span class="nick" style="color:#6b8072"><a href="#014819" label="[01:48:19]">&lt;muurkha&gt;</a></span><span class="message">awesome!</span></div><div class="line" id="015301"><span class="nick" style="color:#8dd3c7"><a href="#015301" label="[01:53:01]">&lt;oriansj&gt;</a></span><span class="message">be sure to express the 256 bytes as 0x100 bytes to nerd snipe those who skip prefixes</span></div><div class="line" id="015440"><span class="nick" style="color:#2e2a4a"><a href="#015440" label="[01:54:40]">&lt;stikonas&gt;</a></span><span class="message">oh, that's too late, I've sent just a brief message</span></div><div class="line" id="015444"><span class="nick" style="color:#2e2a4a"><a href="#015444" label="[01:54:44]">&lt;stikonas&gt;</a></span><span class="message">feel free to reply...</span></div><div class="line" id="015555"><span class="nick" style="color:#8dd3c7"><a href="#015555" label="[01:55:55]">&lt;oriansj&gt;</a></span><span class="message">no worries ^_^</span></div><div class="line" id="020201"><span class="nick" style="color:#2e2a4a"><a href="#020201" label="[02:02:01]">&lt;stikonas&gt;</a></span><span class="message">so kaem + hex0 is now 993 bytes on x86, we are now sub 1K (not counting kernel)</span></div><div class="line" id="020448"><span class="nick" style="color:#2e2a4a"><a href="#020448" label="[02:04:48]">&lt;stikonas&gt;</a></span><span class="message">kaem can probably be compressed quite a bit too</span></div><div class="line" id="020527"><span class="nick" style="color:#2e2a4a"><a href="#020527" label="[02:05:27]">&lt;stikonas&gt;</a></span><span class="message">oriansj: maybe stupid idea, but in kaem we have a lot of global variables at the end of the binary</span></div><div class="line" id="020541"><span class="nick" style="color:#2e2a4a"><a href="#020541" label="[02:05:41]">&lt;stikonas&gt;</a></span><span class="message">quite a few of them are just placeholders (zeroes)</span></div><div class="line" id="020559"><span class="nick" style="color:#2e2a4a"><a href="#020559" label="[02:05:59]">&lt;stikonas&gt;</a></span><span class="message">what if we put them in ELF header?</span></div><div class="line" id="020609"><span class="nick" style="color:#2e2a4a"><a href="#020609" label="[02:06:09]">&lt;stikonas&gt;</a></span><span class="message">that's probably not used after loading</span></div><div class="line" id="020656"><span class="nick" style="color:#2e2a4a"><a href="#020656" label="[02:06:56]">&lt;stikonas&gt;</a></span><span class="message">or is that too extreme...</span></div><div class="line" id="020709"><span class="nick" style="color:#2e2a4a"><a href="#020709" label="[02:07:09]">&lt;stikonas&gt;</a></span><span class="message">anyway, it will be a while till I get to kaem</span></div><div class="line" id="023741"><span class="nick" style="color:#8dd3c7"><a href="#023741" label="[02:37:41]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well the ELF header isn't actually loaded into memory</span></div><div class="line" id="023911"><span class="nick" style="color:#8dd3c7"><a href="#023911" label="[02:39:11]">&lt;oriansj&gt;</a></span><span class="message">The problem is if the memory addresses prior to the :_start address might not be mapped into a writable page and will result in a page fault</span></div><div class="line" id="024050"><span class="nick" style="color:#8dd3c7"><a href="#024050" label="[02:40:50]">&lt;oriansj&gt;</a></span><span class="message">So it can be done, it just violates the standard if we use that memory without doing an allocation</span></div><div class="line" id="024257"><span class="nick" style="color:#8dd3c7"><a href="#024257" label="[02:42:57]">&lt;oriansj&gt;</a></span><span class="message">and the binary can break on Linux with ZERO warning (as has occurred with the linux 4.17 regression where we violated the ELF spec by doing overlapping ELF segments with mismatched permissions)</span></div><div class="line" id="024643"><span class="nick" style="color:#8dd3c7"><a href="#024643" label="[02:46:43]">&lt;oriansj&gt;</a></span><span class="message">and despite the Linux kernel's legendary reputation for binary compatibility, they will tell us to suck it up and stop violating the spec.</span></div><div class="line" id="032949"><span class="nick" style="color:#6b8072"><a href="#032949" label="[03:29:49]">&lt;muurkha&gt;</a></span><span class="message">typically the ELF header is in the same 4096-byte page as the beginning of your code, so Linux does map it into your program's memory space</span></div><div class="line" id="033003"><span class="nick" style="color:#6b8072"><a href="#033003" label="[03:30:03]">&lt;muurkha&gt;</a></span><span class="message">but as you say, taht can change</span></div><div class="line" id="033005"><span class="nick" style="color:#6b8072"><a href="#033005" label="[03:30:05]">&lt;muurkha&gt;</a></span><span class="message">*that</span></div><div class="line" id="094322"><span class="nick">***</span><span class="message notice">xerox__ is now known as xerox</span></div><div class="line" id="115307"><span class="nick">***</span><span class="message notice">furrymcg1e is now known as furrymcgee</span></div><div class="line" id="123934"><span class="nick" style="color:#8dd3c7"><a href="#123934" label="[12:39:34]">&lt;oriansj&gt;</a></span><span class="message">muurkha: that wouldn't make any sense if your _start address is on a 4096 page boundary; now if you expressed that Linux will load the first block of disk into RAM which contains the ELF header and potentially part of your code into a single page of RAM. That would be an accurate statement and in the special case that the _start addresses is exactly the size of the ELF header it would be more efficient not to copy that code into a new</span></div><div class="line" id="123934"><span class="nick" style="color:#8dd3c7"><a href="#123934" label="[12:39:34]">&lt;oriansj&gt;</a></span><span class="message">page, I'd also agree. Did that clarify my perspective or should I add additional details?</span></div><div class="line" id="124657"><span class="nick" style="color:#80b1d3"><a href="#124657" label="[12:46:57]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, it sounds like we shouldn't touch elf header...</span></div><div class="line" id="124829"><span class="nick" style="color:#80b1d3"><a href="#124829" label="[12:48:29]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, I saw this before: <a rel="nofollow" href="https://www.muppetlabs.com/~breadbox/software/tiny/teensy.html">https://www.muppetlabs.com/~breadbox/software/tiny/teensy.html</a> </span></div><div class="line" id="124845"><span class="nick" style="color:#80b1d3"><a href="#124845" label="[12:48:45]">&lt;stikonas[m]&gt;</a></span><span class="message">But I guess it's not guaranteed not to break</span></div><div class="line" id="170238"><span class="nick" style="color:#6b8072"><a href="#170238" label="[17:02:38]">&lt;muurkha&gt;</a></span><span class="message">oriansj: agreed, if the beginning of your code segment (which doesn't have to be the _start symbol) is at the beginning of a page, I don't think Linux will map the ELF header</span></div><div class="line" id="170340"><span class="nick" style="color:#6b8072"><a href="#170340" label="[17:03:40]">&lt;muurkha&gt;</a></span><span class="message">OTOH if you're trying to reduce the number of bytes in your binary you probably won't want to pad your code segment start address up to 4096 bytes, though new versions of binutils do this by default unless you ask them not to</span></div><div class="line" id="170449"><span class="nick" style="color:#6b8072"><a href="#170449" label="[17:04:49]">&lt;muurkha&gt;</a></span><span class="message">also it would be perfectly reasonable, and arguably a security improvement, for Linux to use a special mapping type that zeroes the ELF header</span></div><div class="line" id="200631"><span class="nick" style="color:#6d2462"><a href="#200631" label="[20:06:31]">&lt;theruran&gt;</a></span><span class="message">stikonas[m]: well done on the 256-byte hex0-seed!</span></div><div class="line" id="230452"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="231228"><span class="nick" style="color:#2e2a4a"><a href="#231228" label="[23:12:28]">&lt;stikonas&gt;</a></span><span class="message">so I've now got hex0 amd64 seed down to 294 bytes</span></div><div class="line" id="231319"><span class="nick" style="color:#2e2a4a"><a href="#231319" label="[23:13:19]">&lt;stikonas&gt;</a></span><span class="message">so .text section is smaller by 10 bytes compared to x86 (but elf header is larger by 48 bytes)</span></div><div class="line" id="233821"><span class="nick">***</span><span class="message notice">ChanServ sets mode: -o janneke</span></div><br /></div></body></html>

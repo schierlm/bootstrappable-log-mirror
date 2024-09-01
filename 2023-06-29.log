@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-06-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004953"><span class="nick" style="color:#389600"><a href="#004953" label="[00:49:53]">&lt;kerravon&gt;</a></span><span class="message">stikonas - it's not just hex0 i want - i want all of PDOS preserved on some suitable media, that can potentially be used in 1000 years after we recover from a nuclear war or meteor impact or whatever</span></div><div class="line" id="012457"><span class="nick" style="color:#8dd3c7"><a href="#012457" label="[01:24:57]">&lt;oriansj&gt;</a></span><span class="message">kerravon: well there appears to be a few punch card standards such as 12x24 (36bytes) 10x80 (100bytes) 12x72 (108bytes) 8x40 (40bytes), etc. Punched card printing plates seem rather robust and can be used to make as many copies of a punched card as you want.</span></div><div class="line" id="012838"><span class="nick" style="color:#8dd3c7"><a href="#012838" label="[01:28:38]">&lt;oriansj&gt;</a></span><span class="message">although if I remember correctly: shuffled punched cards are impossible to put in the right order unless you have explicit markings on the cards to make it possible.</span></div><div class="line" id="031043"><span class="nick" style="color:#8dd3c7"><a href="#031043" label="[03:10:43]">&lt;oriansj&gt;</a></span><span class="message">although it is possible to make a sorting machine which would use a known binary to sort the cards against.</span></div><div class="line" id="050626"><span class="nick" style="color:#389600"><a href="#050626" label="[05:06:26]">&lt;kerravon&gt;</a></span><span class="message">oriansj - here is what i'm interested in:</span></div><div class="line" id="050629"><span class="nick" style="color:#389600"><a href="#050629" label="[05:06:29]">&lt;kerravon&gt;</a></span><span class="message"> <a rel="nofollow" href="https://en.wikipedia.org/wiki/Punched_card">https://en.wikipedia.org/wiki/Punched_card</a> </span></div><div class="line" id="050643"><span class="nick" style="color:#389600"><a href="#050643" label="[05:06:43]">&lt;kerravon&gt;</a></span><span class="message">there is a photo at the top - ie an IBM punched card</span></div><div class="line" id="050705"><span class="nick" style="color:#389600"><a href="#050705" label="[05:07:05]">&lt;kerravon&gt;</a></span><span class="message">it is 12 * 80 - but that means 80 bytes, not 12*80 bytes or whatever you are calculating</span></div><div class="line" id="050808"><span class="nick" style="color:#389600"><a href="#050808" label="[05:08:08]">&lt;kerravon&gt;</a></span><span class="message">the line number (actually, sequence number), is normally punched in columns 73-80, ie 8 characters, so you have 72 bytes of actual data</span></div><div class="line" id="050843"><span class="nick" style="color:#389600"><a href="#050843" label="[05:08:43]">&lt;kerravon&gt;</a></span><span class="message">for assembler programs, column 72 is normally used as a continuation character, usually &quot;+&quot;</span></div><div class="line" id="050906"><span class="nick" style="color:#389600"><a href="#050906" label="[05:09:06]">&lt;kerravon&gt;</a></span><span class="message">but i'm not interested in that, i'm interested in binary data, so the full 72 characters will be used</span></div><div class="line" id="050926"><span class="nick" style="color:#389600"><a href="#050926" label="[05:09:26]">&lt;kerravon&gt;</a></span><span class="message">i could actually use 80 characters, but i do indeed want a sequence number</span></div><div class="line" id="051026"><span class="nick" style="color:#389600"><a href="#051026" label="[05:10:26]">&lt;kerravon&gt;</a></span><span class="message">and i was planning on having 2 lots of 4 characters. the first 4 characters would be a CRC-16 in hex, and the second 4 characters would be a sequence number, PDOS only needs about 5000 cards to IPL</span></div><div class="line" id="051150"><span class="nick" style="color:#389600"><a href="#051150" label="[05:11:50]">&lt;kerravon&gt;</a></span><span class="message">also i'm not sure what you're referring to with printing plates - you can punch arbitrary data, you don't need to make a special plate</span></div><div class="line" id="131858"><span class="nick" style="color:#8dd3c7"><a href="#131858" label="[13:18:58]">&lt;oriansj&gt;</a></span><span class="message">kerravon: I was using row count times column count to get the number of possible bits encoded and then dividing by 8 to get the max number of bytes that can be encoded in the card. and the plates being made of metal will likely survive much longer than paper</span></div><div class="line" id="142051"><span class="nick" style="color:#389600"><a href="#142051" label="[14:20:51]">&lt;kerravon&gt;</a></span><span class="message">oriansj - you can't treat cards as if every hole can be punched - they will lose their structural integrity</span></div><div class="line" id="142201"><span class="nick" style="color:#389600"><a href="#142201" label="[14:22:01]">&lt;kerravon&gt;</a></span><span class="message">i'm not sure you are using the word &quot;plates&quot; correctly. i don't think cards - even potentially metal cards - ie media - are considered to be &quot;plates&quot;. but i may be wrong.</span></div><div class="line" id="142215"><span class="nick" style="color:#389600"><a href="#142215" label="[14:22:15]">&lt;kerravon&gt;</a></span><span class="message">i thought that media was normally stamped by a plate</span></div><div class="line" id="142223"><span class="nick" style="color:#389600"><a href="#142223" label="[14:22:23]">&lt;kerravon&gt;</a></span><span class="message">which is what i thought was odd</span></div><div class="line" id="142246"><span class="nick" style="color:#389600"><a href="#142246" label="[14:22:46]">&lt;kerravon&gt;</a></span><span class="message">i don't need a particular card printed millions of times that would justify fabricating a plate</span></div><br /></div></body></html>

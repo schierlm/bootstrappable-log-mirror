@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-05-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000915"><span class="nick" style="color:#389600"><a href="#000915" label="[00:09:15]">&lt;fossy&gt;</a></span><span class="message">afternoon slang in australia</span></div><div class="line" id="000927"><span class="nick" style="color:#389600"><a href="#000927" label="[00:09:27]">&lt;fossy&gt;</a></span><span class="message">I habitually type it and then I remember most ppl arent Australian</span></div><div class="line" id="002020"><span class="nick" style="color:#2e2a4a"><a href="#002020" label="[00:20:20]">&lt;OriansJ&gt;</a></span><span class="message">fossy: well most people don't write in proper english either. So as long as everyone is willing to clarify to aid in understanding, I'm sure it'll be fine.</span></div><div class="line" id="005506"><span class="nick" style="color:#6b8072"><a href="#005506" label="[00:55:06]">&lt;xentrac&gt;</a></span><span class="message">oh interesting, I had no idea.  there's a crazy antidemocratic network protocol called arvo too</span></div><div class="line" id="010909"><span class="nick" style="color:#2e2a4a"><a href="#010909" label="[01:09:09]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: there are even rule34 entries for avro as well but that honestly isn't even surprising at this point.</span></div><div class="line" id="012751"><span class="nick" style="color:#80b1d3"><a href="#012751" label="[01:27:51]">&lt;melg8&gt;</a></span><span class="message">Thanks, @fossy i've been watching SN15 test.</span></div><div class="line" id="013138"><span class="nick" style="color:#80b1d3"><a href="#013138" label="[01:31:38]">&lt;melg8&gt;</a></span><span class="message">@fossy you can link it with my nick on message - i'll check out logs after i'm back.</span></div><div class="line" id="034811"><span class="nick">***</span><span class="message notice">edef_ is now known as edef</span></div><div class="line" id="132057"><span class="nick" style="color:#6d2462"><a href="#132057" label="[13:20:57]">&lt;bauen1&gt;</a></span><span class="message">annoying, tar tries to use the tar archies uid/gid when extracting as root, since at least version 1.34</span></div><div class="line" id="132106"><span class="nick" style="color:#6d2462"><a href="#132106" label="[13:21:06]">&lt;bauen1&gt;</a></span><span class="message">and that breaks inside user namespaces for obvious reasons</span></div><div class="line" id="132120"><span class="nick" style="color:#6d2462"><a href="#132120" label="[13:21:20]">&lt;bauen1&gt;</a></span><span class="message">the option to disable this behavior is however not recognized by the earlier tar we're using ...</span></div><div class="line" id="132605"><span class="nick" style="color:#234e69"><a href="#132605" label="[13:26:05]">&lt;Hagfish&gt;</a></span><span class="message">oof. does it need a chown afterwards?</span></div><div class="line" id="133614"><span class="nick" style="color:#6d2462"><a href="#133614" label="[13:36:14]">&lt;bauen1&gt;</a></span><span class="message">well, if you're actually running live-bootstrap as root it's not a problem (except having some uid 1006 files laying around after unpacking gmp)</span></div><div class="line" id="133636"><span class="nick" style="color:#6d2462"><a href="#133636" label="[13:36:36]">&lt;bauen1&gt;</a></span><span class="message">but if the chown fails tar will exit with != 0, breaking my user namespace build after we've build tar 1.34</span></div><div class="line" id="151023"><span class="nick" style="color:#80b1d3"><a href="#151023" label="[15:10:23]">&lt;melg8&gt;</a></span><span class="message">Hi, i've was thinking yesterday, it it possible, and is it even viable approach - to combine something like stage0 bootstrapping with homomorphic encryption, splitting data provider and data executor,so host system executing computation even if it has some kind of compromise  behavior would not be able to detect that it should subvert results of</span></div><div class="line" id="151023"><span class="nick" style="color:#80b1d3"><a href="#151023" label="[15:10:23]">&lt;melg8&gt;</a></span><span class="message">computation?</span></div><div class="line" id="153517"><span class="nick" style="color:#6d2462"><a href="#153517" label="[15:35:17]">&lt;bauen1&gt;</a></span><span class="message">melg8: you should take a look at the logs, i've already made a few brain dumps into this channel about how you can improve the security of the bootstrap</span></div><div class="line" id="153621"><span class="nick" style="color:#80b1d3"><a href="#153621" label="[15:36:21]">&lt;melg8&gt;</a></span><span class="message">thanks, i will!</span></div><div class="line" id="153641"><span class="nick" style="color:#6c3d55"><a href="#153641" label="[15:36:41]">&lt;stikonas&gt;</a></span><span class="message">although, you have to trust your host at some point</span></div><div class="line" id="153647"><span class="nick" style="color:#6c3d55"><a href="#153647" label="[15:36:47]">&lt;stikonas&gt;</a></span><span class="message">it's the hardware on which you run things</span></div><div class="line" id="153656"><span class="nick" style="color:#6d2462"><a href="#153656" label="[15:36:56]">&lt;bauen1&gt;</a></span><span class="message">i'd have to take another look at how cross compiling can be used to prevent trusting trust attacks</span></div><div class="line" id="153727"><span class="nick" style="color:#6c3d55"><a href="#153727" label="[15:37:27]">&lt;stikonas&gt;</a></span><span class="message">if it's backdoored, you are in big trouble even if the rest of bootstrap is trustworthy</span></div><div class="line" id="153817"><span class="nick" style="color:#6d2462"><a href="#153817" label="[15:38:17]">&lt;bauen1&gt;</a></span><span class="message">you can &quot;outsource&quot; many tasks, but you need some form of computer that is trusted at least (doesn't have to be fast)</span></div><div class="line" id="154028"><span class="nick" style="color:#6d2462"><a href="#154028" label="[15:40:28]">&lt;bauen1&gt;</a></span><span class="message">it's kind of like SAT solving (or something like that) where the programs used to compute a proof can be untrusted and you only need to trust a very small very simple and verified program that verifies the proof</span></div><div class="line" id="154038"><span class="nick" style="color:#80b1d3"><a href="#154038" label="[15:40:38]">&lt;melg8&gt;</a></span><span class="message">another thing i've been thinking -is that if system is turing complete - it can implement some form of bootstrap in it. So like - game of live running stage0.</span></div><div class="line" id="214432"><span class="nick" style="color:#d9d9d9"><a href="#214432" label="[21:44:32]">&lt;gforce_de1977&gt;</a></span><span class="message"> <a rel="nofollow" href="http://ironcurtain.svelch.com/wp-content/uploads/sites/4/2018/12/obr041-1024x703.jpg">http://ironcurtain.svelch.com/wp-content/uploads/sites/4/2018/12/obr041-1024x703.jpg</a> </span></div><div class="line" id="214504"><span class="nick" style="color:#d9d9d9"><a href="#214504" label="[21:45:04]">&lt;gforce_de1977&gt;</a></span><span class="message">she knows, how to bootstrap</span></div><div class="line" id="214919"><span class="nick" style="color:#6c3d55"><a href="#214919" label="[21:49:19]">&lt;stikonas&gt;</a></span><span class="message">well, in the early days of computing there was no gender misbalance, so probably it was quite usual sight</span></div><div class="line" id="215141"><span class="nick" style="color:#bc80bd"><a href="#215141" label="[21:51:41]">&lt;vagrantc&gt;</a></span><span class="message">that's a bold claim</span></div><div class="line" id="215300"><span class="nick" style="color:#bc80bd"><a href="#215300" label="[21:53:00]">&lt;vagrantc&gt;</a></span><span class="message">lack of proper credit definitely made it hidden over time, but *no* gender misbalance?</span></div><div class="line" id="215340"><span class="nick" style="color:#6c3d55"><a href="#215340" label="[21:53:40]">&lt;stikonas&gt;</a></span><span class="message">vagrantc: wasn't gender misbalance caused by universities offering IT courses?</span></div><div class="line" id="215356"><span class="nick" style="color:#6c3d55"><a href="#215356" label="[21:53:56]">&lt;stikonas&gt;</a></span><span class="message">I thought before when programmers were pulled from other professions, it was much more balanced</span></div><div class="line" id="215420"><span class="nick" style="color:#bc80bd"><a href="#215420" label="[21:54:20]">&lt;vagrantc&gt;</a></span><span class="message">more balanced, i would guage</span></div><div class="line" id="215718"><span class="nick" style="color:#6c3d55"><a href="#215718" label="[21:57:18]">&lt;stikonas&gt;</a></span><span class="message">well, probably actually more woman were programmers back then</span></div><div class="line" id="215730"><span class="nick" style="color:#6c3d55"><a href="#215730" label="[21:57:30]">&lt;stikonas&gt;</a></span><span class="message">so maybe misbalanced in the other direction</span></div><div class="line" id="215943"><span class="nick" style="color:#80b1d3"><a href="#215943" label="[21:59:43]">&lt;melg8&gt;</a></span><span class="message">Here we go <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/115">https://github.com/fosslinux/live-bootstrap/pull/115</a>  - something back to community from me.</span></div><div class="line" id="221539"><span class="nick" style="color:#bc80bd"><a href="#221539" label="[22:15:39]">&lt;vagrantc&gt;</a></span><span class="message"> <a rel="nofollow" href="https://debconf18.debconf.org/talks/108-in-1968-mom-built-a-computer/">https://debconf18.debconf.org/talks/108-in-1968-mom-built-a-computer/</a> </span></div><br /></div></body></html>

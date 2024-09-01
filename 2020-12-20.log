@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-12-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000628"><span class="nick" style="color:#8dd3c7"><a href="#000628" label="[00:06:28]">&lt;fossy&gt;</a></span><span class="message">im unsuprised it detects linux</span></div><div class="line" id="003000"><span class="nick" style="color:#2e2a4a"><a href="#003000" label="[00:30:00]">&lt;pder&gt;</a></span><span class="message">When bootstrapping using kaem, should I assume that shell redirection is not allowed?</span></div><div class="line" id="005830"><span class="nick" style="color:#6b8072"><a href="#005830" label="[00:58:30]">&lt;mihi&gt;</a></span><span class="message">pder, as far as I know, kaem does not handle shell redirection, it only parses environment variables, looks up the binary and calls execve. But it should still be possible to call something from kaem that redirects streams (or redirect the streams when you call kaem)</span></div><div class="line" id="021224"><span class="nick" style="color:#80b1d3"><a href="#021224" label="[02:12:24]">&lt;OriansJ&gt;</a></span><span class="message">mihi: I'll review your merge shortly</span></div><div class="line" id="021356"><span class="nick" style="color:#80b1d3"><a href="#021356" label="[02:13:56]">&lt;OriansJ&gt;</a></span><span class="message">fossy: mine is: Intel(R) Core(TM)2 CPU P8600 @ 2.40GHz (notice the big difference between built by GCC and M2-Planet) the benchmark number is when M2-Planet is built with GCC.</span></div><div class="line" id="021548"><span class="nick" style="color:#80b1d3"><a href="#021548" label="[02:15:48]">&lt;OriansJ&gt;</a></span><span class="message">mihi: honestly I never considered cygwin as I have no Microsoft systems personally and use virtualization on my work computer.</span></div><div class="line" id="021652"><span class="nick" style="color:#80b1d3"><a href="#021652" label="[02:16:52]">&lt;OriansJ&gt;</a></span><span class="message">pder: shell redirection just has not been implemented yet in kaem but fossy would be the expert as they did most of the work.</span></div><div class="line" id="021914"><span class="nick" style="color:#80b1d3"><a href="#021914" label="[02:19:14]">&lt;OriansJ&gt;</a></span><span class="message">mihi: but you are correct, I did strip out string functions in M2-Planet to eliminiate conflicts with MAX_STRING being a global variable instead of a fixed constant. But impacted programs can be updated to have their own custom version without much trouble.</span></div><div class="line" id="022841"><span class="nick" style="color:#80b1d3"><a href="#022841" label="[02:28:41]">&lt;OriansJ&gt;</a></span><span class="message">huh: <a rel="nofollow" href="https://paste.debian.net/1177675/">https://paste.debian.net/1177675/</a>  why iterate to set a calloc'd block to NULL?</span></div><div class="line" id="022900"><span class="nick" style="color:#80b1d3"><a href="#022900" label="[02:29:00]">&lt;OriansJ&gt;</a></span><span class="message">I'm guessing GCC would drop that block entirely</span></div><div class="line" id="024451"><span class="nick" style="color:#2e2a4a"><a href="#024451" label="[02:44:51]">&lt;pder&gt;</a></span><span class="message">OriansJ: still struggling with comparisons even with latest M2-Planet build.  Now there is a regression and patty hangs</span></div><div class="line" id="025033"><span class="nick" style="color:#80b1d3"><a href="#025033" label="[02:50:33]">&lt;OriansJ&gt;</a></span><span class="message">pder: I hope I didn't reintroduce the wrong signed/unsigned behavior</span></div><div class="line" id="025059"><span class="nick" style="color:#80b1d3"><a href="#025059" label="[02:50:59]">&lt;OriansJ&gt;</a></span><span class="message">(I really should get some proper tests for that in M2-Planet)</span></div><div class="line" id="025943"><span class="nick" style="color:#8dd3c7"><a href="#025943" label="[02:59:43]">&lt;fossy&gt;</a></span><span class="message">Shell redirection is on my adgenda</span></div><div class="line" id="030231"><span class="nick" style="color:#80b1d3"><a href="#030231" label="[03:02:31]">&lt;OriansJ&gt;</a></span><span class="message">fossy: I attempted to copy the sha256.sh solution to Kaem/test.sh to address mihi's issue with test 14 of kaem on on the de_DE.UTF-8 local system</span></div><div class="line" id="030347"><span class="nick" style="color:#8dd3c7"><a href="#030347" label="[03:03:47]">&lt;fossy&gt;</a></span><span class="message">ok, thanks, ill check it out in a sec</span></div><div class="line" id="033805"><span class="nick" style="color:#80b1d3"><a href="#033805" label="[03:38:05]">&lt;OriansJ&gt;</a></span><span class="message">yt: a change in mescc-tools (hex2) that requires a reordering of 2 of the steps 7 and 8 in mescc-tools-seed. (and have kaem use mescc-tools version of string.c instead of M2-Planet's) I'll have x86 and AMD64 fixed up shortly</span></div><div class="line" id="101107"><span class="nick">***</span><span class="message notice">xwvvvvwx- is now known as xwvvvvwx</span></div><div class="line" id="105216"><span class="nick" style="color:#6d2462"><a href="#105216" label="[10:52:16]">&lt;nimaje&gt;</a></span><span class="message">OriansJ: because NULL doesn't have to be the value 0</span></div><div class="line" id="120048"><span class="nick" style="color:#234e69"><a href="#120048" label="[12:00:48]">&lt;siraben&gt;</a></span><span class="message">OriansJ: I see, if you or pder can produce a diff showing the desired output I can adjust the Haskell as needed.</span></div><div class="line" id="120126"><span class="nick" style="color:#234e69"><a href="#120126" label="[12:01:26]">&lt;siraben&gt;</a></span><span class="message">Hagfish: the project is picking up, lots of cross-collaboration!</span></div><div class="line" id="120509"><span class="nick" style="color:#234e69"><a href="#120509" label="[12:05:09]">&lt;siraben&gt;</a></span><span class="message">The good thing about using Git and various tools is that the history is well tracked and would only need to be collected and summarized</span></div><div class="line" id="120624"><span class="nick" style="color:#234e69"><a href="#120624" label="[12:06:24]">&lt;siraben&gt;</a></span><span class="message">and of course prior work by OriansJ,  janneke et al. set the foundation</span></div><div class="line" id="131023"><span class="nick" style="color:#6b8072"><a href="#131023" label="[13:10:23]">&lt;mihi&gt;</a></span><span class="message">OriansJ, good catch. It used to be malloc and I forgot to drop the loop when changing it to calloc... And as nimaje pointed out, in-memory representation of ((void*)0) does not match that of ((uintptr_t)0) on some exotic architectures, but I assume nobody would want to use those for bootstrapping anyway...</span></div><div class="line" id="131328"><span class="nick" style="color:#6b8072"><a href="#131328" label="[13:13:28]">&lt;mihi&gt;</a></span><span class="message">OTOH when changing the hash table size from 49157 to 65536 (65537), I would not call that a reduction. The value is from some old academic paper which suggested to use primes in the middle between to powers of two as hash sizes for optimal collision minimization, but I guess the practical benefit for a faster &quot;clamping&quot; operation outweighs the theoretical benefit :) (the double clamping was to avoid said bug in</span></div><div class="line" id="131329"><span class="nick" style="color:#6b8072"><a href="#131329" label="[13:13:29]">&lt;mihi&gt;</a></span><span class="message">mescc and could probably have gone once that was fixed)</span></div><div class="line" id="131456"><span class="nick" style="color:#6b8072"><a href="#131456" label="[13:14:56]">&lt;mihi&gt;</a></span><span class="message">and my gut feeling is that gcc does not optimize the loop away as jump_tables is not a local variable and it is hard to argue that there can not be any side effects while main is running... And indeed on my machine, the loop is clearly visible in the -S output.</span></div><div class="line" id="134236"><span class="nick" style="color:#6c3d55"><a href="#134236" label="[13:42:36]">*</a></span><span class="message">janneke just managed to &quot;bootstrap&quot; tinycc on ARM</span></div><div class="line" id="134248"><span class="nick" style="color:#d9d9d9"><a href="#134248" label="[13:42:48]">&lt;janneke&gt;</a></span><span class="message">that's still the reduced binary seed bootstrap</span></div><div class="line" id="142550"><span class="nick" style="color:#234e69"><a href="#142550" label="[14:25:50]">&lt;siraben&gt;</a></span><span class="message">janneke: horray!</span></div><div class="line" id="151218"><span class="nick" style="color:#bc80bd"><a href="#151218" label="[15:12:18]">&lt;yt_&gt;</a></span><span class="message">OriansJ: I'll have the corresponding AArch64 changes up in a minute</span></div><div class="line" id="153939"><span class="nick" style="color:#bc80bd"><a href="#153939" label="[15:39:39]">&lt;yt_&gt;</a></span><span class="message">OriansJ: PR is up <a rel="nofollow" href="https://github.com/oriansj/mescc-tools-seed/pull/22">https://github.com/oriansj/mescc-tools-seed/pull/22</a> </span></div><div class="line" id="165501"><span class="nick" style="color:#80b1d3"><a href="#165501" label="[16:55:01]">&lt;OriansJ&gt;</a></span><span class="message">nimaje: true on those systems NULL is 0xFFFFFFF and calloc sets memory to 0xFFFFFFF</span></div><div class="line" id="165648"><span class="nick" style="color:#80b1d3"><a href="#165648" label="[16:56:48]">&lt;OriansJ&gt;</a></span><span class="message">yt: thank you merged</span></div><div class="line" id="165841"><span class="nick" style="color:#6d2462"><a href="#165841" label="[16:58:41]">&lt;nimaje&gt;</a></span><span class="message">why does calloc set memory to something other than 0? calloc should always set memory to 0 as it can't know the type</span></div><div class="line" id="170316"><span class="nick" style="color:#80b1d3"><a href="#170316" label="[17:03:16]">&lt;OriansJ&gt;</a></span><span class="message">nimaje: because some memory types default to  0x00 and others 0xFF and calloc is to return what would be considered unused memory (or atleast cleared to behave like unused memory)</span></div><div class="line" id="170351"><span class="nick" style="color:#80b1d3"><a href="#170351" label="[17:03:51]">&lt;OriansJ&gt;</a></span><span class="message">mihi: <a rel="nofollow" href="https://paste.debian.net/1177719/">https://paste.debian.net/1177719/</a>  I did some measuring</span></div><div class="line" id="173328"><span class="nick" style="color:#80b1d3"><a href="#173328" label="[17:33:28]">&lt;OriansJ&gt;</a></span><span class="message">mihi: I would just like to personally thank you for helping me complete the objectives for the mescc-tools v1.1.0 release.</span></div><div class="line" id="173730"><span class="nick" style="color:#80b1d3"><a href="#173730" label="[17:37:30]">&lt;OriansJ&gt;</a></span><span class="message">Today is the official release of mescc-tools v1.1.0 with meaningful performance improvements for both M1 and hex2; which significiantly reduce the build time for janneke 's mes.M1 bootstrap seed and all binaries made by MesCC</span></div><div class="line" id="174037"><span class="nick" style="color:#80b1d3"><a href="#174037" label="[17:40:37]">&lt;OriansJ&gt;</a></span><span class="message">with the BSD compatibility enhancements thanks to nimaje, kaem enhancements thanks to fossy, AArch64 enhancements thanks to yt and the big speed improvements in hex2 thanks to mihi. ^_^ great job everyone.</span></div><div class="line" id="174524"><span class="nick" style="color:#80b1d3"><a href="#174524" label="[17:45:24]">&lt;OriansJ&gt;</a></span><span class="message">oh and VagrantC's debian GCC 10 work</span></div><div class="line" id="174914"><span class="nick" style="color:#d9d9d9"><a href="#174914" label="[17:49:14]">&lt;janneke&gt;</a></span><span class="message">OriansJ: congrats!</span></div><div class="line" id="174914"><span class="nick" style="color:#d9d9d9"><a href="#174914" label="[17:49:14]">&lt;janneke&gt;</a></span><span class="message"> </span></div><div class="line" id="184119"><span class="nick" style="color:#2e2a4a"><a href="#184119" label="[18:41:19]">&lt;pder&gt;</a></span><span class="message">woohoo, well done everyone!</span></div><div class="line" id="185914"><span class="nick" style="color:#234e69"><a href="#185914" label="[18:59:14]">&lt;siraben&gt;</a></span><span class="message">yay!</span></div><div class="line" id="191418"><span class="nick" style="color:#234e69"><a href="#191418" label="[19:14:18]">&lt;siraben&gt;</a></span><span class="message">OriansJ: wait until the CI has finished then merge <a rel="nofollow" href="https://github.com/oriansj/blynn-compiler/pull/10">https://github.com/oriansj/blynn-compiler/pull/10</a> </span></div><div class="line" id="191919"><span class="nick" style="color:#234e69"><a href="#191919" label="[19:19:19]">&lt;siraben&gt;</a></span><span class="message">Alright CI passed, good to merge</span></div><div class="line" id="194821"><span class="nick" style="color:#3c5b35"><a href="#194821" label="[19:48:21]">&lt;Hagfish&gt;</a></span><span class="message">excellent work everyone!</span></div><div class="line" id="200306"><span class="nick" style="color:#2e2a4a"><a href="#200306" label="[20:03:06]">&lt;pder&gt;</a></span><span class="message">I pushed some more updates for blynn-compiler to the methodically branch.  We can now build up to crossly.c using M2-Planet and mescc-tools.  Make sure you are using the latest M2-Planet</span></div><div class="line" id="200527"><span class="nick" style="color:#bc80bd"><a href="#200527" label="[20:05:27]">&lt;yt_&gt;</a></span><span class="message">OriansJ: I think I made a tiny bit of progress on mes-m2 macro support. Could you please take a look? <a rel="nofollow" href="https://github.com/oriansj/mes-m2/pull/8">https://github.com/oriansj/mes-m2/pull/8</a> </span></div><div class="line" id="200528"><span class="nick" style="color:#2e2a4a"><a href="#200528" label="[20:05:28]">&lt;pder&gt;</a></span><span class="message">Still need to investigate some signed/unsigned comparison behavior that differs from the gcc build.  I had to reintroduce my workaround in vm.c for now.  Only three more stages of the compiler bootstrap to go</span></div><div class="line" id="201309"><span class="nick" style="color:#80b1d3"><a href="#201309" label="[20:13:09]">&lt;OriansJ&gt;</a></span><span class="message">siraben: merged; thank you</span></div><div class="line" id="201317"><span class="nick" style="color:#80b1d3"><a href="#201317" label="[20:13:17]">&lt;OriansJ&gt;</a></span><span class="message">pder: nicely done</span></div><div class="line" id="203304"><span class="nick" style="color:#80b1d3"><a href="#203304" label="[20:33:04]">&lt;OriansJ&gt;</a></span><span class="message">yt: your improvements have been merged</span></div><div class="line" id="203715"><span class="nick" style="color:#80b1d3"><a href="#203715" label="[20:37:15]">&lt;OriansJ&gt;</a></span><span class="message">pder: you are correct it appears unsigned behavior is showing up where it shouldn't</span></div><div class="line" id="204246"><span class="nick" style="color:#2e2a4a"><a href="#204246" label="[20:42:46]">&lt;pder&gt;</a></span><span class="message">yt_: very nice.  Do you or anyone know what else is needed for mes-m2 to be able to host mescc?</span></div><div class="line" id="204526"><span class="nick" style="color:#80b1d3"><a href="#204526" label="[20:45:26]">&lt;OriansJ&gt;</a></span><span class="message">pder: last I checked once macros and modules are done and MesCC is tweaked to use the guile compatible primitives that mes-m2 provides (eg clear out a few of the hacks) it should be fully functional</span></div><div class="line" id="204618"><span class="nick" style="color:#80b1d3"><a href="#204618" label="[20:46:18]">&lt;OriansJ&gt;</a></span><span class="message">(basically make MesCC believe it is running on guile and not Mes)</span></div><div class="line" id="204731"><span class="nick" style="color:#80b1d3"><a href="#204731" label="[20:47:31]">&lt;OriansJ&gt;</a></span><span class="message">If there are any primitives that are missing because I made a mistake, make a test using guile and that primitive and I'll make mes-m2 match that behavior</span></div><div class="line" id="210954"><span class="nick" style="color:#80b1d3"><a href="#210954" label="[21:09:54]">&lt;OriansJ&gt;</a></span><span class="message">basically I was using  Ur-Scheme as a test of mes-m2's macros (as it is just literally guile -s compiler.scm) and gave up when I just couldn't figure out what was actually wrong</span></div><div class="line" id="211102"><span class="nick" style="color:#80b1d3"><a href="#211102" label="[21:11:02]">&lt;OriansJ&gt;</a></span><span class="message">it works fine for 70% of it but got stuck at &quot;ERROR: not equal ((x y . z) (x y . z))&quot;</span></div><div class="line" id="211200"><span class="nick" style="color:#80b1d3"><a href="#211200" label="[21:12:00]">&lt;OriansJ&gt;</a></span><span class="message">unwinding scheme to C primitives is not very fun for me.</span></div><div class="line" id="211339"><span class="nick" style="color:#80b1d3"><a href="#211339" label="[21:13:39]">&lt;OriansJ&gt;</a></span><span class="message">but once that is done; mes-m2 is significantly faster than mes.c (especially when compiled with GCC) and runs in less memory because it is a compacting scheme and not a stop and copy.</span></div><div class="line" id="211359"><span class="nick" style="color:#80b1d3"><a href="#211359" label="[21:13:59]">&lt;OriansJ&gt;</a></span><span class="message">So it'll significantly reduce the guix bootstrap time</span></div><br /></div></body></html>

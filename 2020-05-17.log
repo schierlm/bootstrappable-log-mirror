@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-05-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="021413"><span class="nick">***</span><span class="message notice">main1 is now known as main</span></div><div class="line" id="095014"><span class="nick" style="color:#8dd3c7"><a href="#095014" label="[09:50:14]">&lt;nikita`&gt;</a></span><span class="message">Thanks</span></div><div class="line" id="105055"><span class="nick">***</span><span class="message notice">janneke_ is now known as janneke</span></div><div class="line" id="195241"><span class="nick" style="color:#2e2a4a"><a href="#195241" label="[19:52:41]">&lt;gf&gt;</a></span><span class="message">Humm... Got some questions on Java SDK bootstrap but is it ok to ask? Managed to follow up till ecj-javac-wrapper, but not sure how to handle args. Is just stripping the &quot;-J&quot; args enough for the fake javac wrapper used to call ecj to build classpath-0.99 ?</span></div><div class="line" id="202932"><span class="nick" style="color:#6b8072"><a href="#202932" label="[20:29:32]">&lt;OriansJ`&gt;</a></span><span class="message">gf: it is always acceptable to ask bootstrapping questions that you have.</span></div><div class="line" id="204141"><span class="nick" style="color:#2e2a4a"><a href="#204141" label="[20:41:41]">&lt;gf&gt;</a></span><span class="message">Thanks. Its about bootstrapping JAVA, starting from jikes,classpath,jamvm,ant,ecj, but from there, it appears I need a wrapper that calls ecj</span></div><div class="line" id="204241"><span class="nick" style="color:#2e2a4a"><a href="#204241" label="[20:42:41]">&lt;gf&gt;</a></span><span class="message">what should this wrapper (fake javac) perform?</span></div><div class="line" id="204418"><span class="nick" style="color:#2e2a4a"><a href="#204418" label="[20:44:18]">&lt;gf&gt;</a></span><span class="message">I understand that jikes is unable to build classpath0.99, so ecj is used.</span></div><div class="line" id="204437"><span class="nick" style="color:#2e2a4a"><a href="#204437" label="[20:44:37]">&lt;gf&gt;</a></span><span class="message">but ecj can not handle some args that javac acccepts</span></div><div class="line" id="204551"><span class="nick" style="color:#2e2a4a"><a href="#204551" label="[20:45:51]">&lt;gf&gt;</a></span><span class="message">Reading the java.scm source tells me little about -J option being a problem, and</span></div><div class="line" id="204855"><span class="nick" style="color:#2e2a4a"><a href="#204855" label="[20:48:55]">&lt;gf&gt;</a></span><span class="message">compiling classpath-0.99 using args &quot; ../classpath-0.99/configure --prefix=/usr --disable-Werror   --with-ecj-jar=/usr/share/java/ecj-bootstrap.jar   JAVA=/usr/bin/jamvm   GCJ_JAVAC_TRUE=no   ac_cv_prog_java_works=yes   --disable-Werror   --disable-gmp   --disable-gtk-peer   --disable-gconf-peer   --disable-plugin   --disable-dssi   --disable-alsa   --disable-gjdoc   --disable-examples&quot; gives me &quot;checking if javac -Xlint:unchecked,cast,d</span></div><div class="line" id="204855"><span class="nick" style="color:#2e2a4a"><a href="#204855" label="[20:48:55]">&lt;gf&gt;</a></span><span class="message">ivzero,empty,finally,overrides works... configure: error: The Java compiler javac -Xlint:unchecked,cast,divzero,empty,finally,overrides failed (see config.log, check the CLASSPATH?)&quot;</span></div><div class="line" id="204927"><span class="nick" style="color:#2e2a4a"><a href="#204927" label="[20:49:27]">&lt;gf&gt;</a></span><span class="message">so I must be doing something wrong...</span></div><div class="line" id="205007"><span class="nick" style="color:#2e2a4a"><a href="#205007" label="[20:50:07]">&lt;gf&gt;</a></span><span class="message">classpath is set to CLASSPATH=/usr/lib/rt.jar:/lib/ant-antlr.jar:/lib/ant-apache-bcel.jar:/lib/ant-apache-bsf.jar:/lib/ant-apache-log4j.jar:/lib/ant-apache-oro.jar:/lib/ant-apache-regexp.jar:/lib/ant-apache-resolver.jar:/lib/ant-apache-xalan2.jar:/lib/ant-commons-logging.jar:/lib/ant-commons-net.jar:/lib/ant-jai.jar:/lib/ant-javamail.jar:/lib/ant-jdepend.jar:/lib/ant-jmf.jar:/lib/ant-jsch.jar:/lib/ant-junit.jar:/lib/ant-junit4.jar:/lib/a</span></div><div class="line" id="205007"><span class="nick" style="color:#2e2a4a"><a href="#205007" label="[20:50:07]">&lt;gf&gt;</a></span><span class="message">nt-launcher.jar:/lib/ant-netrexx.jar:/lib/ant-swing.jar:/lib/ant.jar</span></div><div class="line" id="205129"><span class="nick" style="color:#2e2a4a"><a href="#205129" label="[20:51:29]">&lt;gf&gt;</a></span><span class="message">Any clue?</span></div><br /></div></body></html>

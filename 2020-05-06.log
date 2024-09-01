@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-05-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004754"><span class="nick" style="color:#389600"><a href="#004754" label="[00:47:54]">&lt;markjenkinsznc&gt;</a></span><span class="message">OriansJ, <a rel="nofollow" href="https://github.com/markjenkins/stage0/tree/disasm_py-wip">https://github.com/markjenkins/stage0/tree/disasm_py-wip</a>  is sort of at a point now where one might consider it ready to merge, though I'm planning to do a bit more before I PR</span></div><div class="line" id="004842"><span class="nick" style="color:#389600"><a href="#004842" label="[00:48:42]">&lt;markjenkinsznc&gt;</a></span><span class="message">Commits today and yesterday now have this integrated successfully with Knight.py / User_Interface.py</span></div><div class="line" id="005115"><span class="nick" style="color:#389600"><a href="#005115" label="[00:51:15]">&lt;markjenkinsznc&gt;</a></span><span class="message">three noticeable differences from disasm.c: 1) sections that are not recognizable as code or string are not longer IMPROPER_NOP but displayed as data in single quotes '' which can be re-assembled</span></div><div class="line" id="005238"><span class="nick" style="color:#389600"><a href="#005238" label="[00:52:38]">&lt;markjenkinsznc&gt;</a></span><span class="message">those data lines just have #DATA as a comment because the line itself shows the hex</span></div><div class="line" id="005636"><span class="nick" style="color:#389600"><a href="#005636" label="[00:56:36]">&lt;markjenkinsznc&gt;</a></span><span class="message">2) there's priority for disassembling as instruction vs string which is typical default for a disassembler. I think some of the short strings in roms/forth fall victim</span></div><div class="line" id="005718"><span class="nick" style="color:#389600"><a href="#005718" label="[00:57:18]">&lt;markjenkinsznc&gt;</a></span><span class="message">I did bodge away the common case of four bytes of 0x00 mapping aggressively to NOP to allow some strings with a lot of null padding to still be disassembled as string</span></div><div class="line" id="005757"><span class="nick" style="color:#389600"><a href="#005757" label="[00:57:57]">&lt;markjenkinsznc&gt;</a></span><span class="message">hmmm, turns out I didn't have a third compatibility point, but two other notes</span></div><div class="line" id="005836"><span class="nick" style="color:#389600"><a href="#005836" label="[00:58:36]">&lt;markjenkinsznc&gt;</a></span><span class="message">there's a makefile test suite included which shows all roms being successfully disassembled and re-assembled back</span></div><div class="line" id="005916"><span class="nick" style="color:#389600"><a href="#005916" label="[00:59:16]">&lt;markjenkinsznc&gt;</a></span><span class="message">but I've observed some failure cases outside the test suite, a full fuzz test suite is called for before I PR</span></div><div class="line" id="010212"><span class="nick" style="color:#389600"><a href="#010212" label="[01:02:12]">&lt;markjenkinsznc&gt;</a></span><span class="message">closing note b) once we start assembling strings to 1 null pad and leaving instructions on any boundary and dissassembling with --string-null-pad-align 1 it's going to be a problem for Knight.py/User_Interface.py's 0-9-A-F address columns interface because that won't align right for every line any more</span></div><div class="line" id="010442"><span class="nick" style="color:#389600"><a href="#010442" label="[01:04:42]">&lt;markjenkinsznc&gt;</a></span><span class="message">once I do PR, I'm thinking of consolidating my commits to one and having the subsequent history of features come post-merge with pretty much where we are now as a 1 commit starting point</span></div><div class="line" id="063506"><span class="nick" style="color:#2e2a4a"><a href="#063506" label="[06:35:06]">&lt;plasma41&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="http://bootstrappable.org/projects/mes.html">http://bootstrappable.org/projects/mes.html</a>  lists refers to Stage0 beginning with a 280 byte binary. I had previously read elsewhere that the initial binary was 357 bytes. Has the binary been reduced in sized or am I misremembering the 357 number.</span></div><div class="line" id="063549"><span class="nick" style="color:#2e2a4a"><a href="#063549" label="[06:35:49]">&lt;plasma41&gt;</a></span><span class="message">s/lists refers/refers/</span></div><div class="line" id="063623"><span class="nick" style="color:#2e2a4a"><a href="#063623" label="[06:36:23]">&lt;plasma41&gt;</a></span><span class="message">s/I had/I thought I had/</span></div><div class="line" id="063643"><span class="nick" style="color:#2e2a4a"><a href="#063643" label="[06:36:43]">&lt;plasma41&gt;</a></span><span class="message">s/sized/size/</span></div><div class="line" id="063701"><span class="nick" style="color:#2e2a4a"><a href="#063701" label="[06:37:01]">&lt;plasma41&gt;</a></span><span class="message">I clearly can't type properly today.</span></div><div class="line" id="121702"><span class="nick" style="color:#6b8072"><a href="#121702" label="[12:17:02]">&lt;OriansJ&gt;</a></span><span class="message">markjenkinsznc: sounds great, keep up the good work</span></div><div class="line" id="121756"><span class="nick" style="color:#6b8072"><a href="#121756" label="[12:17:56]">&lt;OriansJ&gt;</a></span><span class="message">plasma41: there are multiple hex0 bootstrap seeds and they do have different sizes. For example the bios hex0 seed has to be 512bytes in size.</span></div><div class="line" id="135137"><span class="nick">***</span><span class="message notice">deesix_ is now known as deesix</span></div><div class="line" id="160345"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="160348"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><br /></div></body></html>

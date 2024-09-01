@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-02-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="052614"><span class="nick" style="color:#8dd3c7"><a href="#052614" label="[05:26:14]">&lt;pabs3&gt;</a></span><span class="message">Linux kernel discussion on moving from C89 to C99 or C11/C17/C2x: <a rel="nofollow" href="https://lwn.net/SubscriberLink/885941/28fc0d85e002eb86/">https://lwn.net/SubscriberLink/885941/28fc0d85e002eb86/</a> </span></div><div class="line" id="052819"><span class="nick" style="color:#8dd3c7"><a href="#052819" label="[05:28:19]">&lt;pabs3&gt;</a></span><span class="message">seems C11 was chosen, meaning updating the GCC requirement to 8.x</span></div><div class="line" id="053516"><span class="nick" style="color:#8dd3c7"><a href="#053516" label="[05:35:16]">&lt;pabs3&gt;</a></span><span class="message">HN discussion: <a rel="nofollow" href="https://news.ycombinator.com/item?id=30459634">https://news.ycombinator.com/item?id=30459634</a> </span></div><div class="line" id="113231"><span class="nick" style="color:#2e2a4a"><a href="#113231" label="[11:32:31]">&lt;bauen1&gt;</a></span><span class="message">pabs3: you can still use an earlier version of linux, you'll have to (well, want to) compile up to the most recent version of all toolchain components anyway</span></div><div class="line" id="115217"><span class="nick" style="color:#6b8072"><a href="#115217" label="[11:52:17]">&lt;stikonas[m]&gt;</a></span><span class="message">live-bootstrap already builds earlier version of linux (4.9.10) because newer kernel versions already have more stringent requirements on make, gcc and binutils that what is available early</span></div><div class="line" id="130507"><span class="nick" style="color:#80b1d3"><a href="#130507" label="[13:05:07]">&lt;fossy&gt;</a></span><span class="message">stikonas[m], i am running into similar reproducibility issues in qemu, not too sure what is going on just yet</span></div><div class="line" id="143751"><span class="nick">***</span><span class="message notice">roptat is now known as Guest8046</span></div><div class="line" id="185326"><span class="nick" style="color:#6d2462"><a href="#185326" label="[18:53:26]">&lt;unmatched-paren&gt;</a></span><span class="message">this looks useful for learning assembly: <a rel="nofollow" href="https://github.com/bergercookie/asm-lsp">https://github.com/bergercookie/asm-lsp</a> </span></div><div class="line" id="185512"><span class="nick" style="color:#6d2462"><a href="#185512" label="[18:55:12]">&lt;unmatched-paren&gt;</a></span><span class="message">autocompletion and doc popups (extracted from the gas/nasm docs, i guess?) should really help with discovering instructions</span></div><div class="line" id="185647"><span class="nick" style="color:#6d2462"><a href="#185647" label="[18:56:47]">&lt;unmatched-paren&gt;</a></span><span class="message">although it seems unmaintained..</span></div><div class="line" id="185758"><span class="nick" style="color:#6d2462"><a href="#185758" label="[18:57:58]">&lt;unmatched-paren&gt;</a></span><span class="message">but here in bootstrapping land we are generally less resistant than other people to using unmaintained software :P</span></div><div class="line" id="185916"><span class="nick" style="color:#6d2462"><a href="#185916" label="[18:59:16]">&lt;unmatched-paren&gt;</a></span><span class="message">it's build on top of an existing opcodes database, so i guess it'll be pretty complete</span></div><div class="line" id="210342"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="222556"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="224715"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="225227"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><br /></div></body></html>

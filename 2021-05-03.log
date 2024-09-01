@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-05-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003231"><span class="nick" style="color:#8dd3c7"><a href="#003231" label="[00:32:31]">&lt;OriansJ&gt;</a></span><span class="message">kaem-optional-seed is even required if one is willing to do a reboot; the first boot would be the hex0-seed building kaem-optional-seed from its hex0 sources and then the second boot would then run kaem-optional-seed as the init and the rest can run just fine from there.</span></div><div class="line" id="020714"><span class="nick" style="color:#8dd3c7"><a href="#020714" label="[02:07:14]">&lt;OriansJ&gt;</a></span><span class="message">melg8: we could if they exist and we will learn a great deal when we examine them in depth. However we will not know for absolute certain until we remove the kernel and hardware that we didn't make ourselves from the root of trust.</span></div><div class="line" id="021214"><span class="nick">***</span><span class="message notice">lukedashjr is now known as luke-jr</span></div><div class="line" id="101713"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><div class="line" id="105752"><span class="nick" style="color:#2e2a4a"><a href="#105752" label="[10:57:52]">&lt;stikonas&gt;</a></span><span class="message">well, just after tcc we build untar.c which can decompress tar archives but is not command line compatible, then we build gzip and gnu tar (old version)</span></div><div class="line" id="105803"><span class="nick" style="color:#2e2a4a"><a href="#105803" label="[10:58:03]">&lt;stikonas&gt;</a></span><span class="message">so we indeed have tar very early</span></div><div class="line" id="105817"><span class="nick" style="color:#2e2a4a"><a href="#105817" label="[10:58:17]">&lt;stikonas&gt;</a></span><span class="message">and untar.c can be made to build with M2-Planet</span></div><div class="line" id="112344"><span class="nick" style="color:#6b8072"><a href="#112344" label="[11:23:44]">&lt;gforce_de1977&gt;</a></span><span class="message">stikonas: i did some resarch with SLAB/SLUB/SLOB and better gathering data, so this seems to be the final plot: <a rel="nofollow" href="http://intercity-vpn.de/bootstrap/bootstrap-usedmem-experimentQEMU-1375M.png">http://intercity-vpn.de/bootstrap/bootstrap-usedmem-experimentQEMU-1375M.png</a> </span></div><div class="line" id="112401"><span class="nick" style="color:#6b8072"><a href="#112401" label="[11:24:01]">&lt;gforce_de1977&gt;</a></span><span class="message">rawdata + log: <a rel="nofollow" href="http://intercity-vpn.de/bootstrap/bootstrap-usedmem-experimentQEMU-1375M.txt">http://intercity-vpn.de/bootstrap/bootstrap-usedmem-experimentQEMU-1375M.txt</a> </span></div><div class="line" id="112437"><span class="nick" style="color:#6b8072"><a href="#112437" label="[11:24:37]">&lt;gforce_de1977&gt;</a></span><span class="message">which leads to the question: are we cleaning up after building packageX ?</span></div><div class="line" id="112517"><span class="nick" style="color:#6b8072"><a href="#112517" label="[11:25:17]">&lt;gforce_de1977&gt;</a></span><span class="message">and OriansJ: early bootstrap needs &quot;only&quot; 550mb, not 1gig</span></div><div class="line" id="114915"><span class="nick" style="color:#2e2a4a"><a href="#114915" label="[11:49:15]">&lt;stikonas&gt;</a></span><span class="message">gforce_de1977: no, we definitely are no cleaning after building packages</span></div><div class="line" id="114926"><span class="nick" style="color:#2e2a4a"><a href="#114926" label="[11:49:26]">&lt;stikonas&gt;</a></span><span class="message">that's very clearly visible in final fs</span></div><div class="line" id="115729"><span class="nick" style="color:#6b8072"><a href="#115729" label="[11:57:29]">&lt;gforce_de1977&gt;</a></span><span class="message">stikonas: ok, I will do an experiment how mem consumption behaves when auto-cleaning-up, but RAM is not an real issue for now, but at least nice-to-know, what is possible. it would be cool to go down a little bit...</span></div><div class="line" id="141521"><span class="nick" style="color:#80b1d3"><a href="#141521" label="[14:15:21]">&lt;bauen1&gt;</a></span><span class="message">stikonas[m]: i would need a tar that can create archives, but i guess that works out</span></div><div class="line" id="144323"><span class="nick" style="color:#6d2462"><a href="#144323" label="[14:43:23]">&lt;melg8&gt;</a></span><span class="message">Hi, can somebody check if touch working from inside of build image. I can't change time of last access for existing file by doing something like 'touch -t 200901310846.26 test_file'. So it's like - me doing something wrong, or is it really not working, thanks.</span></div><div class="line" id="162218"><span class="nick" style="color:#6b8072"><a href="#162218" label="[16:22:18]">&lt;gforce_de1977&gt;</a></span><span class="message">melg8: does a simple :&gt;&gt;test_file works?</span></div><div class="line" id="162356"><span class="nick" style="color:#6b8072"><a href="#162356" label="[16:23:56]">&lt;gforce_de1977&gt;</a></span><span class="message">fossy: stikonas: a added a simple &quot;rm -fR /after/$pkg&quot; to helpers.sh and the bootstrap now need ~600mb RAM: <a rel="nofollow" href="http://intercity-vpn.de/bootstrap/bootstrap-usedmem-experimentQEMU-1375M.png">http://intercity-vpn.de/bootstrap/bootstrap-usedmem-experimentQEMU-1375M.png</a> </span></div><div class="line" id="162440"><span class="nick" style="color:#6b8072"><a href="#162440" label="[16:24:40]">&lt;gforce_de1977&gt;</a></span><span class="message">i can add an &quot;--autoclean&quot; to roofs.py, if you like</span></div><div class="line" id="162612"><span class="nick" style="color:#6d2462"><a href="#162612" label="[16:26:12]">&lt;melg8&gt;</a></span><span class="message">@gforce_de1977 can you show example of full command? and - even if it works, i need to set some fixed date - not just current date - i'm trying to fix reproducibility</span></div><div class="line" id="163141"><span class="nick" style="color:#6b8072"><a href="#163141" label="[16:31:41]">&lt;gforce_de1977&gt;</a></span><span class="message">melg8: ok: this *is* the full command</span></div><div class="line" id="163252"><span class="nick" style="color:#6b8072"><a href="#163252" label="[16:32:52]">&lt;gforce_de1977&gt;</a></span><span class="message">i will try to boot into a bootstrap-shell, give me 1 hour 8-)))</span></div><div class="line" id="163344"><span class="nick" style="color:#6d2462"><a href="#163344" label="[16:33:44]">&lt;melg8&gt;</a></span><span class="message">can you link to your version of source? i could rebuild it too - maybe your cleanups fix some of reproduce issues</span></div><div class="line" id="163417"><span class="nick" style="color:#6d2462"><a href="#163417" label="[16:34:17]">&lt;melg8&gt;</a></span><span class="message">ls is workings - meaning - showing output</span></div><div class="line" id="163449"><span class="nick" style="color:#6b8072"><a href="#163449" label="[16:34:49]">&lt;gforce_de1977&gt;</a></span><span class="message">melg8: i'am just using master and have also probs, e.g. <a rel="nofollow" href="http://intercity-vpn.de/bootstrap/diff-16-1619253444-and-13-1619350041.html">http://intercity-vpn.de/bootstrap/diff-16-1619253444-and-13-1619350041.html</a> </span></div><div class="line" id="164505"><span class="nick" style="color:#234e69"><a href="#164505" label="[16:45:05]">&lt;stikonas[m]&gt;</a></span><span class="message">melg8: touch might be patched out not to work</span></div><div class="line" id="164658"><span class="nick" style="color:#6d2462"><a href="#164658" label="[16:46:58]">&lt;melg8&gt;</a></span><span class="message">what i've been thinking of - is like - at the end of build - just find all files and change their dates with touch - so there are no modification date conflicts between builds. And why it patched not to work?</span></div><div class="line" id="164744"><span class="nick" style="color:#2e2a4a"><a href="#164744" label="[16:47:44]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/sysa/coreutils-5.0/patches/touch-getdate.patch">https://github.com/fosslinux/live-bootstrap/blob/master/sysa/coreutils-5.0/patches/touch-getdate.patch</a> </span></div><div class="line" id="164801"><span class="nick" style="color:#2e2a4a"><a href="#164801" label="[16:48:01]">&lt;stikonas&gt;</a></span><span class="message">to remove dependency on bison</span></div><div class="line" id="164822"><span class="nick" style="color:#2e2a4a"><a href="#164822" label="[16:48:22]">&lt;stikonas&gt;</a></span><span class="message">coreutils 5 is built before bison is available</span></div><div class="line" id="164850"><span class="nick" style="color:#2e2a4a"><a href="#164850" label="[16:48:50]">&lt;stikonas&gt;</a></span><span class="message">and coreutils 6 (from where we build only a few commands) does not work with bison 3.4.0</span></div><div class="line" id="164855"><span class="nick" style="color:#6d2462"><a href="#164855" label="[16:48:55]">&lt;melg8&gt;</a></span><span class="message">but i try to use -t not -d flag</span></div><div class="line" id="165256"><span class="nick" style="color:#2e2a4a"><a href="#165256" label="[16:52:56]">&lt;stikonas&gt;</a></span><span class="message">oh, rest should work</span></div><div class="line" id="165313"><span class="nick" style="color:#2e2a4a"><a href="#165313" label="[16:53:13]">&lt;stikonas&gt;</a></span><span class="message">just date parsing</span></div><div class="line" id="165431"><span class="nick" style="color:#6d2462"><a href="#165431" label="[16:54:31]">&lt;melg8&gt;</a></span><span class="message">can you recheck it? because i use same command on my host and inside of chroot - and get different result outputs of ls</span></div><div class="line" id="165510"><span class="nick" style="color:#6d2462"><a href="#165510" label="[16:55:10]">&lt;melg8&gt;</a></span><span class="message">&quot;find /after -exec touch -t 200901310846.26 {} +&quot; - that was full command</span></div><div class="line" id="170143"><span class="nick" style="color:#6b8072"><a href="#170143" label="[17:01:43]">&lt;gforce_de1977&gt;</a></span><span class="message">melg8: i think the idea from bauen1: is better: patch libc the output a monotonic raising artificial timestamp on each call starting at e.g. unixtime 1</span></div><div class="line" id="170302"><span class="nick" style="color:#6d2462"><a href="#170302" label="[17:03:02]">&lt;melg8&gt;</a></span><span class="message">that would be great, but... monotonic rising timestamps would affect scenarious if there more than 1 thread involved</span></div><div class="line" id="170437"><span class="nick" style="color:#6b8072"><a href="#170437" label="[17:04:37]">&lt;gforce_de1977&gt;</a></span><span class="message">melg8: more than 1 thread should be avoided IMHO. our upcoming mini OS will not support that anyway 8-))))</span></div><div class="line" id="170507"><span class="nick" style="color:#6d2462"><a href="#170507" label="[17:05:07]">&lt;melg8&gt;</a></span><span class="message">btw, did i missed where bauen1 suggested it? or it was not today?</span></div><div class="line" id="170530"><span class="nick" style="color:#6b8072"><a href="#170530" label="[17:05:30]">&lt;gforce_de1977&gt;</a></span><span class="message">bauen1 suggested that some days ago</span></div><div class="line" id="170608"><span class="nick" style="color:#6d2462"><a href="#170608" label="[17:06:08]">&lt;melg8&gt;</a></span><span class="message">need to find it)</span></div><div class="line" id="170610"><span class="nick" style="color:#6b8072"><a href="#170610" label="[17:06:10]">&lt;gforce_de1977&gt;</a></span><span class="message">Q: does somebody know how to freeze a QEMU-session (e.g. like suspend to RAM) and restore that later?</span></div><div class="line" id="170644"><span class="nick" style="color:#6b8072"><a href="#170644" label="[17:06:44]">&lt;gforce_de1977&gt;</a></span><span class="message">that way we can provide a simple &quot;ready build, you are in the shell now...&quot; image</span></div><div class="line" id="171741"><span class="nick" style="color:#2e2a4a"><a href="#171741" label="[17:17:41]">&lt;stikonas&gt;</a></span><span class="message">not sure if qemu provides that...</span></div><div class="line" id="171809"><span class="nick" style="color:#2e2a4a"><a href="#171809" label="[17:18:09]">&lt;stikonas&gt;</a></span><span class="message">disks can be snapshotted, but we don't have any disk n live-bootstrap</span></div><div class="line" id="173144"><span class="nick" style="color:#6b8072"><a href="#173144" label="[17:31:44]">&lt;gforce_de1977&gt;</a></span><span class="message">stikonas: disks are not interesting, i want RAM 8-)))</span></div><div class="line" id="173253"><span class="nick" style="color:#6b8072"><a href="#173253" label="[17:32:53]">&lt;gforce_de1977&gt;</a></span><span class="message">i spotted something really strange: when running bootstrap into an interactive shell, there are a lot of tasks hanging aroung: /bin/busybox pidof make sed configure | wc -w -&gt; 409</span></div><div class="line" id="173659"><span class="nick" style="color:#6b8072"><a href="#173659" label="[17:36:59]">&lt;gforce_de1977&gt;</a></span><span class="message">maybe this has something todo with the way is changed the build. will investigate.</span></div><div class="line" id="173814"><span class="nick" style="color:#6b8072"><a href="#173814" label="[17:38:14]">&lt;gforce_de1977&gt;</a></span><span class="message">melg8: your touch command does indeed also not working here, will tinker for a workaround</span></div><div class="line" id="174022"><span class="nick" style="color:#6b8072"><a href="#174022" label="[17:40:22]">&lt;gforce_de1977&gt;</a></span><span class="message">melg8: touch -d also does not work: touch -d &quot;1999-12-31 00:00:00&quot; /after/run2.sh</span></div><div class="line" id="174046"><span class="nick" style="color:#6d2462"><a href="#174046" label="[17:40:46]">&lt;melg8&gt;</a></span><span class="message">thanks for check!</span></div><div class="line" id="174047"><span class="nick" style="color:#6b8072"><a href="#174047" label="[17:40:47]">&lt;gforce_de1977&gt;</a></span><span class="message">but a /bin/busybox touch -d &quot;1999-12-31 00:00:00&quot; /after/run2.sh succeeds, so touch is really hmmm b0rken</span></div><div class="line" id="174154"><span class="nick" style="color:#6d2462"><a href="#174154" label="[17:41:54]">&lt;melg8&gt;</a></span><span class="message">i dont have busybox :(</span></div><div class="line" id="174245"><span class="nick" style="color:#6b8072"><a href="#174245" label="[17:42:45]">&lt;gforce_de1977&gt;</a></span><span class="message">touch -r also does not work</span></div><div class="line" id="174319"><span class="nick" style="color:#6b8072"><a href="#174319" label="[17:43:19]">&lt;gforce_de1977&gt;</a></span><span class="message">nobody has busybox, i have just injected it, so it is not part of bootstrap</span></div><div class="line" id="174336"><span class="nick" style="color:#6b8072"><a href="#174336" label="[17:43:36]">&lt;gforce_de1977&gt;</a></span><span class="message">setting date also does not work</span></div><div class="line" id="174343"><span class="nick" style="color:#6d2462"><a href="#174343" label="[17:43:43]">&lt;melg8&gt;</a></span><span class="message">about the solution with patched libc - but when there just starting mes/tcc/untar - and some of it saves files to disk - they have correct dates, where do these dates come from ?</span></div><div class="line" id="174447"><span class="nick" style="color:#6b8072"><a href="#174447" label="[17:44:47]">&lt;gforce_de1977&gt;</a></span><span class="message">melg8: when creating files, e.g. :&gt;myfile &amp;&amp; ls -l myfile -&gt; this works</span></div><div class="line" id="174532"><span class="nick" style="color:#6b8072"><a href="#174532" label="[17:45:32]">&lt;gforce_de1977&gt;</a></span><span class="message">also: echo &quot;fooo&quot; &gt;&gt;myfile works, the date.now is also applied</span></div><div class="line" id="174543"><span class="nick" style="color:#6b8072"><a href="#174543" label="[17:45:43]">&lt;gforce_de1977&gt;</a></span><span class="message">just touch does not work 8-))))</span></div><div class="line" id="174655"><span class="nick" style="color:#6b8072"><a href="#174655" label="[17:46:55]">&lt;gforce_de1977&gt;</a></span><span class="message">have to leave, cu later</span></div><div class="line" id="174707"><span class="nick" style="color:#6d2462"><a href="#174707" label="[17:47:07]">&lt;melg8&gt;</a></span><span class="message">gl</span></div><div class="line" id="175035"><span class="nick" style="color:#80b1d3"><a href="#175035" label="[17:50:35]">&lt;bauen1&gt;</a></span><span class="message">gforce_de1977: don't patch libc, patch the kernel but yeah</span></div><div class="line" id="175206"><span class="nick" style="color:#6d2462"><a href="#175206" label="[17:52:06]">&lt;melg8&gt;</a></span><span class="message">thats... will be harder for me, than to patch libc xD</span></div><div class="line" id="175335"><span class="nick" style="color:#6d2462"><a href="#175335" label="[17:53:35]">&lt;melg8&gt;</a></span><span class="message">But, than - chroot option of project - will not have same dates? is this times are from kernel?</span></div><div class="line" id="175342"><span class="nick" style="color:#2e2a4a"><a href="#175342" label="[17:53:42]">&lt;stikonas&gt;</a></span><span class="message">well, touch -d is definitely not expected to work</span></div><div class="line" id="175347"><span class="nick" style="color:#2e2a4a"><a href="#175347" label="[17:53:47]">&lt;stikonas&gt;</a></span><span class="message">as that is exactly what is patched out</span></div><div class="line" id="175512"><span class="nick" style="color:#80b1d3"><a href="#175512" label="[17:55:12]">&lt;bauen1&gt;</a></span><span class="message">melg8: reason being that you'd want the &quot;time counter&quot; to persist across programs, even once that don't use libc</span></div><div class="line" id="175724"><span class="nick" style="color:#6d2462"><a href="#175724" label="[17:57:24]">&lt;melg8&gt;</a></span><span class="message">when some new files are first created as part of build process - from what source filesystem takes dates for created/modified attributes of this files?</span></div><div class="line" id="175937"><span class="nick" style="color:#2e2a4a"><a href="#175937" label="[17:59:37]">&lt;stikonas&gt;</a></span><span class="message">can't we do what guix does</span></div><div class="line" id="175947"><span class="nick" style="color:#2e2a4a"><a href="#175947" label="[17:59:47]">&lt;stikonas&gt;</a></span><span class="message">it uses normal timestamps, but later removes them</span></div><div class="line" id="175950"><span class="nick" style="color:#2e2a4a"><a href="#175950" label="[17:59:50]">&lt;stikonas&gt;</a></span><span class="message">or someting like that</span></div><div class="line" id="175954"><span class="nick" style="color:#2e2a4a"><a href="#175954" label="[17:59:54]">&lt;stikonas&gt;</a></span><span class="message">so guix store has timestamp 0</span></div><div class="line" id="180055"><span class="nick" style="color:#6d2462"><a href="#180055" label="[18:00:55]">&lt;melg8&gt;</a></span><span class="message">thats why i've tried touching stuff) because on my host system that fixed like 40 mb diffs to few kb diffs</span></div><div class="line" id="180302"><span class="nick" style="color:#80b1d3"><a href="#180302" label="[18:03:02]">&lt;bauen1&gt;</a></span><span class="message">yeah that would go a long way, but could still leave some timing issues with make</span></div><div class="line" id="232726"><span class="nick" style="color:#6c3d55"><a href="#232726" label="[23:27:26]">&lt;gef&gt;</a></span><span class="message">&gt; melg8: i think the idea from bauen1: is better: patch libc the output a monotonic raising artificial &gt; timestamp on each call starting at e.g. unixtime 1</span></div><div class="line" id="232726"><span class="nick" style="color:#6c3d55"><a href="#232726" label="[23:27:26]">&lt;gef&gt;</a></span><span class="message">&gt; ...</span></div><div class="line" id="232726"><span class="nick" style="color:#6c3d55"><a href="#232726" label="[23:27:26]">&lt;gef&gt;</a></span><span class="message">&gt; btw, did i missed where bauen1 suggested it? or it was not today?</span></div><div class="line" id="232726"><span class="nick" style="color:#6c3d55"><a href="#232726" label="[23:27:26]">&lt;gef&gt;</a></span><span class="message">&gt; bauen1 suggested that some days ago</span></div><div class="line" id="232726"><span class="nick" style="color:#6c3d55"><a href="#232726" label="[23:27:26]">&lt;gef&gt;</a></span><span class="message">well, was it bauen1 or, was it me? :-) (we might have proposed that independently oh each other though). There are merits to both keeping it 0 or increasing it monotonically, either is good according to what you want to achieve.</span></div><br /></div></body></html>

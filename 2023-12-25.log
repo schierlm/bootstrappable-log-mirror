@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-12-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="050029"><span class="nick" style="color:#389600"><a href="#050029" label="[05:00:29]">&lt;Googulator&gt;</a></span><span class="message">fossy: I'm seeing non-reproducible hashes for linux-4.9.10. Binary diffing reveals... timestamps.</span></div><div class="line" id="050047"><span class="nick" style="color:#389600"><a href="#050047" label="[05:00:47]">&lt;Googulator&gt;</a></span><span class="message">Are we setting KBUILD_BUILD_TIMESTAMP?</span></div><div class="line" id="051933"><span class="nick" style="color:#389600"><a href="#051933" label="[05:19:33]">&lt;Googulator&gt;</a></span><span class="message">OK, seems like KBUILD_BUILD_TIMESTAMP is not set, and indeed, never was - <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/commit/e06a19f9e20dc4e3fe8084f03a00b8cf2bc9a6b4">https://github.com/fosslinux/live-bootstrap/commit/e06a19f9e20dc4e3fe8084f03a00b8cf2bc9a6b4</a>  is what exposed this problem (we're now building the Linux kernel as a proper package, so it gets checksummed now)</span></div><div class="line" id="060951"><span class="nick" style="color:#8dd3c7"><a href="#060951" label="[06:09:51]">&lt;fossy&gt;</a></span><span class="message">oh - that is highly likely, i generated the checksums from a QEMU run and retested them with a chroot run but i don't think i had --build-kernels</span></div><div class="line" id="061229"><span class="nick" style="color:#389600"><a href="#061229" label="[06:12:29]">&lt;Googulator&gt;</a></span><span class="message">Correct checksum is fd2264a08cbeeb28f3e2580cba174376a154c77b0ef6cbf67b55fd13c0987f52 after defining KBUILD_BUILD_TIMESTAMP=@0</span></div><div class="line" id="084516"><span class="nick" style="color:#2e2a4a"><a href="#084516" label="[08:45:16]">&lt;lrvick&gt;</a></span><span class="message">On a totally fresh debian-13 machine, after some failed download attempts, I was able to build from stage0 to gcc13 with live-bootstrap. Will have to continue hunting down whatever edge cases cause the issues I filed that impact me when building from inside a debian qube.</span></div><div class="line" id="084535"><span class="nick" style="color:#2e2a4a"><a href="#084535" label="[08:45:35]">&lt;lrvick&gt;</a></span><span class="message">But hey, I have a control case now at least.</span></div><div class="line" id="103206"><span class="nick" style="color:#389600"><a href="#103206" label="[10:32:06]">&lt;Googulator&gt;</a></span><span class="message">fossy: Updated <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/361">https://github.com/fosslinux/live-bootstrap/pull/361</a>  and posted <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/366">https://github.com/fosslinux/live-bootstrap/pull/366</a>  for the kernel timestamp issue. Regular (one stage) bwrap now fully works with this, even with --build-kernels and without --update-checksums; for 3-stage bwrap, I've successfully completed stage 1, and am currently</span></div><div class="line" id="103206"><span class="nick" style="color:#389600"><a href="#103206" label="[10:32:06]">&lt;Googulator&gt;</a></span><span class="message">running stage 2 with no issues so far.</span></div><div class="line" id="110024"><span class="nick" style="color:#389600"><a href="#110024" label="[11:00:24]">&lt;Googulator&gt;</a></span><span class="message">good news: CI successful up to Linux kernel build (former sysa), and moved on to the &quot;up to Python bootstrap&quot; stage (former sysc1)</span></div><div class="line" id="110218"><span class="nick" style="color:#389600"><a href="#110218" label="[11:02:18]">&lt;Googulator&gt;</a></span><span class="message">bad news: that 2nd stage failed due to network being unavailable and distfiles not being carried over (should be easy to fix)</span></div><div class="line" id="110607"><span class="nick" style="color:#389600"><a href="#110607" label="[11:06:07]">&lt;Googulator&gt;</a></span><span class="message">pushed a fix for it</span></div><div class="line" id="113938"><span class="nick" style="color:#6b8072"><a href="#113938" label="[11:39:38]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; lrvick: worth running diffoscope on good and bad autoconf output tarball</span></div><div class="line" id="144111"><span class="nick" style="color:#80b1d3"><a href="#144111" label="[14:41:11]">&lt;stikonas&gt;</a></span><span class="message">got something interesting &quot;working&quot; on UEFI. Unfortunately, afterwards it still completely crashes UEFI: <a rel="nofollow" href="https://stikonas.eu/files/bootstrap/posix.png">https://stikonas.eu/files/bootstrap/posix.png</a> </span></div><div class="line" id="144831"><span class="nick" style="color:#80b1d3"><a href="#144831" label="[14:48:31]">&lt;stikonas&gt;</a></span><span class="message"> (<a rel="nofollow" href="https://git.stikonas.eu/andrius/stage0-uefi/src/branch/posix-runner/posix-runner/posix-runner.c">https://git.stikonas.eu/andrius/stage0-uefi/src/branch/posix-runner/posix-runner/posix-runner.c</a>) </span></div><div class="line" id="172508"><span class="nick" style="color:#80b1d3"><a href="#172508" label="[17:25:08]">&lt;stikonas&gt;</a></span><span class="message">hmm, no idea what can cause those crashes :(. They seemingly happen after short random time after return from syscall, sometimes only part of the text in my next function is printed. Strange...</span></div><div class="line" id="181133"><span class="nick" style="color:#2e2a4a"><a href="#181133" label="[18:11:33]">&lt;lrvick&gt;</a></span><span class="message">Built live-bootstrap twice from 0 from fresh clones with chroot and confirmed matching hashes of 4f50d8f5e1f123a8e6d34dff1d5892f79d250f2fb5d7fa2a94cff1f2e8f9649c</span></div><div class="line" id="181139"><span class="nick" style="color:#2e2a4a"><a href="#181139" label="[18:11:39]">&lt;lrvick&gt;</a></span><span class="message">now to replicate that in a container....</span></div><div class="line" id="221412"><span class="nick" style="color:#389600"><a href="#221412" label="[22:14:12]">&lt;Googulator&gt;</a></span><span class="message">fossy: what's the time limit on GitHub CI passes?</span></div><div class="line" id="221420"><span class="nick" style="color:#389600"><a href="#221420" label="[22:14:20]">&lt;Googulator&gt;</a></span><span class="message">2.5 hours?</span></div><div class="line" id="221507"><span class="nick" style="color:#389600"><a href="#221507" label="[22:15:07]">&lt;Googulator&gt;</a></span><span class="message">pass2 is currently chugging along with the timer showing 2h 12m, I'm starting to get worried it will time out</span></div><div class="line" id="221613"><span class="nick" style="color:#389600"><a href="#221613" label="[22:16:13]">&lt;Googulator&gt;</a></span><span class="message">of course, we can move Python bootstrap to pass3 if needed, and if that makes pass3 too long, my PR actually supports any number of passes, so creating a pass4 is trivial</span></div><div class="line" id="222545"><span class="nick" style="color:#80b1d3"><a href="#222545" label="[22:25:45]">&lt;stikonas&gt;</a></span><span class="message">Googulator: I think 4h</span></div><div class="line" id="222715"><span class="nick" style="color:#80b1d3"><a href="#222715" label="[22:27:15]">&lt;stikonas&gt;</a></span><span class="message">though this now says 6h <a rel="nofollow" href="https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration">https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration</a> </span></div><div class="line" id="222722"><span class="nick" style="color:#80b1d3"><a href="#222722" label="[22:27:22]">&lt;stikonas&gt;</a></span><span class="message">maybe it was increased at some point</span></div><div class="line" id="223639"><span class="nick" style="color:#389600"><a href="#223639" label="[22:36:39]">&lt;Googulator&gt;</a></span><span class="message">OK, pass 2 is successful - and pass 3 then did nothing, because it hits the same breakpoint as pass2</span></div><div class="line" id="223909"><span class="nick" style="color:#80b1d3"><a href="#223909" label="[22:39:09]">&lt;stikonas&gt;</a></span><span class="message">hmm, I'm getting a bit stuck with 64-bit syscalls. Maybe I should try to implement 32-bit. That might be more useful in the short term anyway (as live-bootstrap only runs till completion on x86)</span></div><div class="line" id="224653"><span class="nick" style="color:#389600"><a href="#224653" label="[22:46:53]">&lt;Googulator&gt;</a></span><span class="message">the challenge with 32-bit syscalls is that you need to handle int 80h there</span></div><div class="line" id="224707"><span class="nick" style="color:#389600"><a href="#224707" label="[22:47:07]">&lt;Googulator&gt;</a></span><span class="message">Does UEFI provide a way to install your own interrupt handler?</span></div><div class="line" id="225405"><span class="nick" style="color:#80b1d3"><a href="#225405" label="[22:54:05]">&lt;stikonas&gt;</a></span><span class="message">no idea...</span></div><div class="line" id="225428"><span class="nick" style="color:#80b1d3"><a href="#225428" label="[22:54:28]">&lt;stikonas&gt;</a></span><span class="message">but yeah, it's looking more complicated</span></div><div class="line" id="225434"><span class="nick" style="color:#80b1d3"><a href="#225434" label="[22:54:34]">&lt;stikonas&gt;</a></span><span class="message">maybe I'll stick to 64 bit mode</span></div><div class="line" id="225440"><span class="nick" style="color:#80b1d3"><a href="#225440" label="[22:54:40]">&lt;stikonas&gt;</a></span><span class="message">where I had some partial success</span></div><div class="line" id="225603"><span class="nick" style="color:#80b1d3"><a href="#225603" label="[22:56:03]">&lt;stikonas&gt;</a></span><span class="message">perhaps I should try to figure out how sysretq works (I'll need it later anyway for non &quot;exit&quot; syscalls)</span></div><br /></div></body></html>

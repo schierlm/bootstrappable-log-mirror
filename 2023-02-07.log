@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-02-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003314"><span class="nick" style="color:#389600"><a href="#003314" label="[00:33:14]">&lt;oriansj&gt;</a></span><span class="message">ekaitz: I look forward to seeing your talk ^_^ it looked interesting but life got in the way of watching the live stream -_-</span></div><div class="line" id="004548"><span class="nick" style="color:#389600"><a href="#004548" label="[00:45:48]">&lt;oriansj&gt;</a></span><span class="message">deesix: well it is definitely a step in the right direction; although it is incorrect on the 3rd slide as one can buy 32bit processors with 3KB of RAM and 16KB of Flash for $0.04/per (Which is enough to run hex2 or M0)</span></div><div class="line" id="004748"><span class="nick" style="color:#389600"><a href="#004748" label="[00:47:48]">&lt;oriansj&gt;</a></span><span class="message">perhaps that is the slowest and most memory constrained self-hosting computer that they have yet achieved?</span></div><div class="line" id="005949"><span class="nick" style="color:#389600"><a href="#005949" label="[00:59:49]">&lt;oriansj&gt;</a></span><span class="message">(listening to the talk and it looks like that was what they really mean)</span></div><div class="line" id="074750"><span class="nick" style="color:#8dd3c7"><a href="#074750" label="[07:47:50]">&lt;fossy&gt;</a></span><span class="message">364M    gcc-10.4.0_0.tar.bz2</span></div><div class="line" id="074753"><span class="nick" style="color:#8dd3c7"><a href="#074753" label="[07:47:53]">&lt;fossy&gt;</a></span><span class="message">o.o</span></div><div class="line" id="074759"><span class="nick" style="color:#8dd3c7"><a href="#074759" label="[07:47:59]">&lt;fossy&gt;</a></span><span class="message">thats 10x the size of the previous gcc</span></div><div class="line" id="074823"><span class="nick" style="color:#8dd3c7"><a href="#074823" label="[07:48:23]">&lt;fossy&gt;</a></span><span class="message">now to test in qemu then should be 99% done</span></div><div class="line" id="075627"><span class="nick" style="color:#8dd3c7"><a href="#075627" label="[07:56:27]">&lt;fossy&gt;</a></span><span class="message">a bit of that size is cause of a new binary lto-dump but i don't see any way to disable it.. or if its required..</span></div><div class="line" id="075633"><span class="nick" style="color:#8dd3c7"><a href="#075633" label="[07:56:33]">&lt;fossy&gt;</a></span><span class="message">idk much about lto</span></div><div class="line" id="075637"><span class="nick" style="color:#8dd3c7"><a href="#075637" label="[07:56:37]">&lt;fossy&gt;</a></span><span class="message">didn't explicitly enable it</span></div><div class="line" id="075653"><span class="nick" style="color:#8dd3c7"><a href="#075653" label="[07:56:53]">&lt;fossy&gt;</a></span><span class="message">and cc1{,plus} are just massive now (260MB each)</span></div><div class="line" id="075705"><span class="nick" style="color:#8dd3c7"><a href="#075705" label="[07:57:05]">&lt;fossy&gt;</a></span><span class="message">and it is statically linked so that contributes</span></div><div class="line" id="124528"><span class="nick" style="color:#2e2a4a"><a href="#124528" label="[12:45:28]">&lt;stikonas[m]&gt;</a></span><span class="message">LTO is likely to be configure option</span></div><div class="line" id="124622"><span class="nick" style="color:#2e2a4a"><a href="#124622" label="[12:46:22]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: and large part of it might be debug symbols</span></div><div class="line" id="124631"><span class="nick" style="color:#2e2a4a"><a href="#124631" label="[12:46:31]">&lt;stikonas[m]&gt;</a></span><span class="message">We don't strip them</span></div><div class="line" id="124716"><span class="nick" style="color:#2e2a4a"><a href="#124716" label="[12:47:16]">&lt;stikonas[m]&gt;</a></span><span class="message">We possibly could try but when I tried to run strip on python, resulting python binary was just segfaulting</span></div><div class="line" id="125345"><span class="nick" style="color:#6b8072"><a href="#125345" label="[12:53:45]">&lt;efraim&gt;</a></span><span class="message">I was there at the Self-Hosting FPGA talk at FOSDEM, very interesting talk</span></div><div class="line" id="133051"><span class="nick" style="color:#2e2a4a"><a href="#133051" label="[13:30:51]">&lt;stikonas[m]&gt;</a></span><span class="message">Yes, deesix linked it here earlier</span></div><div class="line" id="133207"><span class="nick" style="color:#2e2a4a"><a href="#133207" label="[13:32:07]">&lt;stikonas[m]&gt;</a></span><span class="message">efraim: rust in guix potentially uses prebuilt binaries</span></div><div class="line" id="133238"><span class="nick" style="color:#6b8072"><a href="#133238" label="[13:32:38]">&lt;efraim&gt;</a></span><span class="message">stikonas[m]: send a bug so I don't forget about it</span></div><div class="line" id="133418"><span class="nick" style="color:#2e2a4a"><a href="#133418" label="[13:34:18]">&lt;stikonas[m]&gt;</a></span><span class="message">Yeah, I can do that one I'm back in the evening</span></div><div class="line" id="140032"><span class="nick" style="color:#6b8072"><a href="#140032" label="[14:00:32]">&lt;efraim&gt;</a></span><span class="message">thanks</span></div><div class="line" id="140103"><span class="nick" style="color:#6b8072"><a href="#140103" label="[14:01:03]">&lt;efraim&gt;</a></span><span class="message">I wonder how far back it goes. and if we have any windows static libraries also.</span></div><div class="line" id="155746"><span class="nick" style="color:#2e2a4a"><a href="#155746" label="[15:57:46]">&lt;stikonas[m]&gt;</a></span><span class="message">It seemed to only have amd64 elf binaries</span></div><div class="line" id="155813"><span class="nick" style="color:#2e2a4a"><a href="#155813" label="[15:58:13]">&lt;stikonas[m]&gt;</a></span><span class="message">Probably simple rm would fix them</span></div><div class="line" id="155833"><span class="nick" style="color:#2e2a4a"><a href="#155833" label="[15:58:33]">&lt;stikonas[m]&gt;</a></span><span class="message">Anyway, I'll report it to guix bugtracker in the evening</span></div><div class="line" id="160846"><span class="nick" style="color:#6b8072"><a href="#160846" label="[16:08:46]">&lt;efraim&gt;</a></span><span class="message">thanks</span></div><div class="line" id="161659"><span class="nick" style="color:#80b1d3"><a href="#161659" label="[16:16:59]">&lt;muurkha&gt;</a></span><span class="message">a simple rm would fix most people</span></div><div class="line" id="190952"><span class="nick" style="color:#389600"><a href="#190952" label="[19:09:52]">&lt;oriansj&gt;</a></span><span class="message">muurkha: I believe that would actually be more correctly classified as a &quot;work around&quot; for a problem that can't be solved rationally.</span></div><div class="line" id="195603"><span class="nick" style="color:#6d2462"><a href="#195603" label="[19:56:03]">&lt;Christoph[m]&gt;</a></span><span class="message">oriansj: Did you see the discussion on prescheme in <a rel="nofollow" href="https://logs.guix.gnu.org/spritely/2023-02-07.log#162254">https://logs.guix.gnu.org/spritely/2023-02-07.log#162254</a>  ? I wanted to ask you:</span></div><div class="line" id="195603"><span class="nick" style="color:#6d2462"><a href="#195603" label="[19:56:03]">&lt;Christoph[m]&gt;</a></span><span class="message">1. You once planned a bootstrap scheme, maybe is prescheme a sufficient solution?</span></div><div class="line" id="195603"><span class="nick" style="color:#6d2462"><a href="#195603" label="[19:56:03]">&lt;Christoph[m]&gt;</a></span><span class="message">2. The discussion there is also about if perhaps prescheme can be compiled with a simple C compiler. There's plenty of knowledge about simple C compilers in this room, maybe someone can help?</span></div><div class="line" id="202327"><span class="nick" style="color:#80b1d3"><a href="#202327" label="[20:23:27]">&lt;muurkha&gt;</a></span><span class="message">heh</span></div><div class="line" id="202417"><span class="nick" style="color:#80b1d3"><a href="#202417" label="[20:24:17]">&lt;muurkha&gt;</a></span><span class="message">Christoph[m]: you mean, like, an S-expression syntax front end to a simple compiler that with a different syntactic frontend compiles C?</span></div><div class="line" id="202433"><span class="nick" style="color:#80b1d3"><a href="#202433" label="[20:24:33]">&lt;muurkha&gt;</a></span><span class="message">most of a simple C compiler is the syntactic frontend though</span></div><div class="line" id="210151"><span class="nick" style="color:#6d2462"><a href="#210151" label="[21:01:51]">&lt;Christoph[m]&gt;</a></span><span class="message">Hm, in the other channel, they said that prescheme compiles to C. Maybe the simpler C compiler is needed to compile that result.</span></div><div class="line" id="213906"><span class="nick" style="color:#234e69"><a href="#213906" label="[21:39:06]">&lt;stikonas&gt;</a></span><span class="message">but you still need to comple the prescheme to C compiler</span></div><div class="line" id="214332"><span class="nick" style="color:#234e69"><a href="#214332" label="[21:43:32]">&lt;stikonas&gt;</a></span><span class="message">ok, I think it's this one <a rel="nofollow" href="https://github.com/nineties-retro/sps">https://github.com/nineties-retro/sps</a> </span></div><div class="line" id="214344"><span class="nick" style="color:#234e69"><a href="#214344" label="[21:43:44]">&lt;stikonas&gt;</a></span><span class="message">so it's written in pre-scheme itself</span></div><div class="line" id="230739"><span class="nick" style="color:#389600"><a href="#230739" label="[23:07:39]">&lt;oriansj&gt;</a></span><span class="message">Christoph[m]: no I did not but thank you for the link ^_^</span></div><div class="line" id="230905"><span class="nick" style="color:#389600"><a href="#230905" label="[23:09:05]">&lt;oriansj&gt;</a></span><span class="message">the bootstrap scheme I am playing with is supposed to be self-hosting and as easy (or ideally easier) to implement in assembly than cc_* (otherwise there is no point and just do mes.c in assembly)</span></div><div class="line" id="231001"><span class="nick" style="color:#389600"><a href="#231001" label="[23:10:01]">&lt;oriansj&gt;</a></span><span class="message">and usually when people talk about simpler C compilers, they usually refer to TCC (which is by no definition a simple program)</span></div><div class="line" id="231155"><span class="nick" style="color:#389600"><a href="#231155" label="[23:11:55]">&lt;oriansj&gt;</a></span><span class="message">and when we looked more seriously at prescheme in the past we found janneke's Mes.c superior in many ways and ultimately not worth the effort to explore given its build requirements.</span></div><div class="line" id="231525"><span class="nick" style="color:#389600"><a href="#231525" label="[23:15:25]">&lt;oriansj&gt;</a></span><span class="message">And thanks to Michael Schierl's wonderful guile bootstrapping work; guile is just a better option on the higher and with Mes.c being a better option on the lower end; there just isn't much bootstrapping value one can get out of prescheme these days.</span></div><div class="line" id="233613"><span class="nick" style="color:#2e2a4a"><a href="#233613" label="[23:36:13]">&lt;stikonas[m]&gt;</a></span><span class="message">I guess these days the question is not whether it (more generally, not just prescheme) can be used for bootstrapping but whether there is any benefit over what we have. I.e. implementation that is easy to understand, more cross platform support, possibly much faster, though this is not as important.</span></div><div class="line" id="234145"><span class="nick" style="color:#389600"><a href="#234145" label="[23:41:45]">&lt;oriansj&gt;</a></span><span class="message">it doesn't even need to be any better; it just needs someone willing to do the work and find its place as a possible path in the bootstrap chain.</span></div><div class="line" id="234336"><span class="nick" style="color:#389600"><a href="#234336" label="[23:43:36]">&lt;oriansj&gt;</a></span><span class="message">and if one is willing to do that work and puts effort into making it better; it'll eventually become a useful tool that other people may choose to use.</span></div><div class="line" id="234555"><span class="nick" style="color:#389600"><a href="#234555" label="[23:45:55]">&lt;oriansj&gt;</a></span><span class="message">if anything, it'll make the bootstrapping ecosystem richer and give people more freedom of choice</span></div><div class="line" id="234658"><span class="nick" style="color:#2e2a4a"><a href="#234658" label="[23:46:58]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, if somebody is willing to do the work then certainly</span></div><div class="line" id="234707"><span class="nick" style="color:#389600"><a href="#234707" label="[23:47:07]">&lt;oriansj&gt;</a></span><span class="message">as who does decides ^_^</span></div><div class="line" id="235201"><span class="nick" style="color:#2e2a4a"><a href="#235201" label="[23:52:01]">&lt;stikonas[m]&gt;</a></span><span class="message">Anyway, something smaller than cc_x86 might be interesting</span></div><div class="line" id="235305"><span class="nick" style="color:#2e2a4a"><a href="#235305" label="[23:53:05]">&lt;stikonas[m]&gt;</a></span><span class="message">Especially if high level prototype of cc_x86.c could be ported to that simpler thing</span></div><div class="line" id="235356"><span class="nick" style="color:#389600"><a href="#235356" label="[23:53:56]">&lt;oriansj&gt;</a></span><span class="message">well I was more thinking of porting mes.c to the typed scheme</span></div><div class="line" id="235421"><span class="nick" style="color:#389600"><a href="#235421" label="[23:54:21]">&lt;oriansj&gt;</a></span><span class="message">and boy am I having an educational experience doing so</span></div><br /></div></body></html>

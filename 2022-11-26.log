@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-11-26.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="142232"><span class="nick" style="color:#389600"><a href="#142232" label="[14:22:32]">&lt;stikonas&gt;</a></span><span class="message">hmm, I'm still unable to create any new directory in UEFI... Something goes wrong though I can't see what...</span></div><div class="line" id="142250"><span class="nick" style="color:#389600"><a href="#142250" label="[14:22:50]">&lt;stikonas&gt;</a></span><span class="message">I think I get success error code from open function but the  new directory is simply not there..</span></div><div class="line" id="151731"><span class="nick" style="color:#8dd3c7"><a href="#151731" label="[15:17:31]">&lt;oriansj&gt;</a></span><span class="message">well we could do a stand alone test built with GCC to sanity check the idea</span></div><div class="line" id="152438"><span class="nick" style="color:#389600"><a href="#152438" label="[15:24:38]">&lt;stikonas&gt;</a></span><span class="message">yeah, or possibly clang as it's easier to build uefi binaries with it...</span></div><div class="line" id="152512"><span class="nick" style="color:#389600"><a href="#152512" label="[15:25:12]">&lt;stikonas&gt;</a></span><span class="message">well, making dirs is the one thing that I have not tried when I was writing those early C prototypes (i.e. kaem-optional and hex0)</span></div><div class="line" id="153336"><span class="nick" style="color:#389600"><a href="#153336" label="[15:33:36]">&lt;stikonas&gt;</a></span><span class="message">oriansj: seems to work fine...</span></div><div class="line" id="153351"><span class="nick" style="color:#389600"><a href="#153351" label="[15:33:51]">&lt;stikonas&gt;</a></span><span class="message">so it is indeed just opening &quot;file&quot; with EFI_FILE_DIRECTORY attribute</span></div><div class="line" id="153402"><span class="nick" style="color:#389600"><a href="#153402" label="[15:34:02]">&lt;stikonas&gt;</a></span><span class="message">so I probably have done something wrong in M2libc</span></div><div class="line" id="154236"><span class="nick" style="color:#389600"><a href="#154236" label="[15:42:36]">&lt;stikonas&gt;</a></span><span class="message">something might be miscompiled...</span></div><div class="line" id="154313"><span class="nick" style="color:#389600"><a href="#154313" label="[15:43:13]">&lt;stikonas&gt;</a></span><span class="message">after mode = 1 &lt;&lt; 63; it has some random stuff in it... <a rel="nofollow" href="https://paste.debian.net/1261947/">https://paste.debian.net/1261947/</a> </span></div><div class="line" id="154352"><span class="nick" style="color:#389600"><a href="#154352" label="[15:43:52]">&lt;stikonas&gt;</a></span><span class="message">anyway, need to run away for some time, will look at it later</span></div><div class="line" id="183645"><span class="nick" style="color:#389600"><a href="#183645" label="[18:36:45]">&lt;stikonas&gt;</a></span><span class="message">oriansj: found the issue</span></div><div class="line" id="183707"><span class="nick" style="color:#389600"><a href="#183707" label="[18:37:07]">&lt;stikonas&gt;</a></span><span class="message">in M2 one can't skip any function arguments</span></div><div class="line" id="183718"><span class="nick" style="color:#389600"><a href="#183718" label="[18:37:18]">&lt;stikonas&gt;</a></span><span class="message">i.e. int mkdir(char const* name, mode_t) will cause miscompilation</span></div><div class="line" id="183728"><span class="nick" style="color:#389600"><a href="#183728" label="[18:37:28]">&lt;stikonas&gt;</a></span><span class="message">where as int mkdir(char const* name, mode_t _mode) would work</span></div><div class="line" id="184719"><span class="nick" style="color:#389600"><a href="#184719" label="[18:47:19]">&lt;stikonas&gt;</a></span><span class="message">oriansj: oh, actually POSIX write might also not like writing into non-existing directories</span></div><div class="line" id="184727"><span class="nick" style="color:#389600"><a href="#184727" label="[18:47:27]">&lt;stikonas&gt;</a></span><span class="message">we were saying it's UEFI specific</span></div><div class="line" id="184737"><span class="nick" style="color:#389600"><a href="#184737" label="[18:47:37]">&lt;stikonas&gt;</a></span><span class="message">but stage0-posix has bin/placeholder files</span></div><div class="line" id="184747"><span class="nick" style="color:#389600"><a href="#184747" label="[18:47:47]">&lt;stikonas&gt;</a></span><span class="message">must be for exactly the same reason...</span></div><div class="line" id="184831"><span class="nick" style="color:#389600"><a href="#184831" label="[18:48:31]">&lt;stikonas&gt;</a></span><span class="message">anyway, mkdir implementation that I just wrote would be useful later</span></div><div class="line" id="184838"><span class="nick" style="color:#389600"><a href="#184838" label="[18:48:38]">&lt;stikonas&gt;</a></span><span class="message">so not a wasted effort</span></div><div class="line" id="184913"><span class="nick" style="color:#389600"><a href="#184913" label="[18:49:13]">&lt;stikonas&gt;</a></span><span class="message">and I'll add stage0-uefi/amd64/bin/placeholder file too</span></div><div class="line" id="185041"><span class="nick" style="color:#389600"><a href="#185041" label="[18:50:41]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/23">https://github.com/oriansj/M2libc/pull/23</a> </span></div><div class="line" id="192840"><span class="nick" style="color:#8dd3c7"><a href="#192840" label="[19:28:40]">&lt;oriansj&gt;</a></span><span class="message">stikonas: good plan</span></div><div class="line" id="192855"><span class="nick" style="color:#389600"><a href="#192855" label="[19:28:55]">&lt;stikonas&gt;</a></span><span class="message">ok, anyway, I've pushed my stage0-uefi changes</span></div><div class="line" id="192905"><span class="nick" style="color:#389600"><a href="#192905" label="[19:29:05]">&lt;stikonas&gt;</a></span><span class="message">so now we build final version of M1 and hex2</span></div><div class="line" id="192925"><span class="nick" style="color:#389600"><a href="#192925" label="[19:29:25]">&lt;stikonas&gt;</a></span><span class="message">hex2 is actually identical to the previous version but I guess that's expected</span></div><div class="line" id="192956"><span class="nick" style="color:#8dd3c7"><a href="#192956" label="[19:29:56]">&lt;oriansj&gt;</a></span><span class="message">merged</span></div><div class="line" id="193013"><span class="nick" style="color:#389600"><a href="#193013" label="[19:30:13]">&lt;stikonas&gt;</a></span><span class="message">thanks</span></div><div class="line" id="193432"><span class="nick" style="color:#8dd3c7"><a href="#193432" label="[19:34:32]">&lt;oriansj&gt;</a></span><span class="message">plus making directories will really handy when you get untar working on UEFI</span></div><div class="line" id="193510"><span class="nick" style="color:#389600"><a href="#193510" label="[19:35:10]">&lt;stikonas&gt;</a></span><span class="message">well, I've also pushed kaem build now, though obviously kaem is not yet functional</span></div><div class="line" id="193514"><span class="nick" style="color:#389600"><a href="#193514" label="[19:35:14]">&lt;stikonas&gt;</a></span><span class="message">but at least it builds</span></div><div class="line" id="193526"><span class="nick" style="color:#389600"><a href="#193526" label="[19:35:26]">&lt;stikonas&gt;</a></span><span class="message">just doesn't do much beyond --help and --version</span></div><div class="line" id="193617"><span class="nick" style="color:#389600"><a href="#193617" label="[19:36:17]">&lt;stikonas&gt;</a></span><span class="message">but at least in the next kaem script I can use all / paths and keep \ for line breaks</span></div><div class="line" id="193658"><span class="nick" style="color:#389600"><a href="#193658" label="[19:36:58]">&lt;stikonas&gt;</a></span><span class="message">there is probably still quite a bit of M2libc work left until we are done...</span></div><div class="line" id="193711"><span class="nick" style="color:#389600"><a href="#193711" label="[19:37:11]">&lt;stikonas&gt;</a></span><span class="message">first need to make kaem work with spawning rather than forking</span></div><div class="line" id="193738"><span class="nick" style="color:#389600"><a href="#193738" label="[19:37:38]">&lt;stikonas&gt;</a></span><span class="message">then M2-Mesoplanet will probably build but I expect that I'll have to fix lots of #include statements</span></div><div class="line" id="194453"><span class="nick" style="color:#389600"><a href="#194453" label="[19:44:53]">&lt;stikonas&gt;</a></span><span class="message">oh and I still need to fix truncations when creating files</span></div><div class="line" id="195010"><span class="nick" style="color:#8dd3c7"><a href="#195010" label="[19:50:10]">&lt;oriansj&gt;</a></span><span class="message">still very impressive to gotten this far</span></div><div class="line" id="195114"><span class="nick" style="color:#389600"><a href="#195114" label="[19:51:14]">&lt;stikonas&gt;</a></span><span class="message">and only kaem and M2-Mesoplanet will need any #ifdefs</span></div><div class="line" id="195120"><span class="nick" style="color:#389600"><a href="#195120" label="[19:51:20]">&lt;stikonas&gt;</a></span><span class="message">everything else should just work</span></div><div class="line" id="203221"><span class="nick" style="color:#389600"><a href="#203221" label="[20:32:21]">&lt;stikonas&gt;</a></span><span class="message">I wonder how much stuff are we missing in M2libc to build mes-m2</span></div><div class="line" id="204133"><span class="nick" style="color:#389600"><a href="#204133" label="[20:41:33]">&lt;stikonas&gt;</a></span><span class="message">also need to start thinking about environmental variables</span></div><br /></div></body></html>

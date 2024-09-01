@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-04-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005448"><span class="nick" style="color:#8dd3c7"><a href="#005448" label="[00:54:48]">&lt;OriansJ&gt;</a></span><span class="message">Hagfish: # would be a comment line but the cat would dump to stdout and the || would ensure in cases where builtins/pipsize.h didn't exist that it wouldn't abort the rest of the build.</span></div><div class="line" id="005532"><span class="nick" style="color:#8dd3c7"><a href="#005532" label="[00:55:32]">&lt;OriansJ&gt;</a></span><span class="message">bauen1: why do a OS as library when at that stage you have M2-Planet and mescc-tools running on bare metal?</span></div><div class="line" id="005602"><span class="nick" style="color:#8dd3c7"><a href="#005602" label="[00:56:02]">&lt;OriansJ&gt;</a></span><span class="message">wouldn't one want to get as much functionality in a straight shot to Linux?</span></div><div class="line" id="005629"><span class="nick" style="color:#8dd3c7"><a href="#005629" label="[00:56:29]">&lt;OriansJ&gt;</a></span><span class="message">aka build a POSIX capable of running the steps leading to the building of GCC+Linux?</span></div><div class="line" id="005720"><span class="nick" style="color:#8dd3c7"><a href="#005720" label="[00:57:20]">&lt;OriansJ&gt;</a></span><span class="message">I mean, why complicate the bootstrap with having to setup another build environment when you can go straight to getting everything you want done?</span></div><div class="line" id="005917"><span class="nick" style="color:#8dd3c7"><a href="#005917" label="[00:59:17]">&lt;OriansJ&gt;</a></span><span class="message">now if one were on a desert island and had to use only the things they bootstrapped, that would be reasonable to a degree. But since have have much more tools to work with, why not take advantage and build the best bootstrappable pieces possible to reduce the total number of steps?</span></div><div class="line" id="011622"><span class="nick" style="color:#2e2a4a"><a href="#011622" label="[01:16:22]">&lt;fossy&gt;</a></span><span class="message">is there anyone else who feels like when they step away from doing something and then come back after a few days everything just works</span></div><div class="line" id="011643"><span class="nick" style="color:#2e2a4a"><a href="#011643" label="[01:16:43]">&lt;fossy&gt;</a></span><span class="message">because i paused my perl work cause of my exam for school and came back today and found the problem after just half an hour of debugging</span></div><div class="line" id="011646"><span class="nick" style="color:#2e2a4a"><a href="#011646" label="[01:16:46]">&lt;fossy&gt;</a></span><span class="message">:D</span></div><div class="line" id="011649"><span class="nick" style="color:#2e2a4a"><a href="#011649" label="[01:16:49]">&lt;fossy&gt;</a></span><span class="message">perl 5.32.1 is done!</span></div><div class="line" id="011701"><span class="nick" style="color:#2e2a4a"><a href="#011701" label="[01:17:01]">&lt;fossy&gt;</a></span><span class="message">well as long as this compile works, i am 90% sure that it will</span></div><div class="line" id="011945"><span class="nick" style="color:#2e2a4a"><a href="#011945" label="[01:19:45]">&lt;fossy&gt;</a></span><span class="message">stikonas: i think i might investigate doing some parallelism... i think our compiles will become very slow very soon if we don't use multithreading where possible</span></div><div class="line" id="012033"><span class="nick" style="color:#6b8072"><a href="#012033" label="[01:20:33]">&lt;stikonas&gt;</a></span><span class="message">fossy: also I think qemu is really slowing CI...</span></div><div class="line" id="012038"><span class="nick" style="color:#80b1d3"><a href="#012038" label="[01:20:38]">&lt;xentrac&gt;</a></span><span class="message">bauen1: you might not even need a microkernel; a CP/M-style or MS-DOS-style BIOS might be enough</span></div><div class="line" id="012041"><span class="nick" style="color:#6b8072"><a href="#012041" label="[01:20:41]">&lt;stikonas&gt;</a></span><span class="message">my runs in chroot are much quicker</span></div><div class="line" id="012103"><span class="nick" style="color:#6b8072"><a href="#012103" label="[01:21:03]">&lt;stikonas&gt;</a></span><span class="message">nice work on perl!</span></div><div class="line" id="012134"><span class="nick" style="color:#8dd3c7"><a href="#012134" label="[01:21:34]">&lt;OriansJ&gt;</a></span><span class="message">fossy: it is called the benefits of a fresh perspective</span></div><div class="line" id="012147"><span class="nick" style="color:#80b1d3"><a href="#012147" label="[01:21:47]">&lt;xentrac&gt;</a></span><span class="message">congratulations, fossy!  perl is a beast</span></div><div class="line" id="012257"><span class="nick" style="color:#6b8072"><a href="#012257" label="[01:22:57]">&lt;stikonas&gt;</a></span><span class="message">yeah, perl is a bit annoying due to metaconfig...</span></div><div class="line" id="012315"><span class="nick" style="color:#6b8072"><a href="#012315" label="[01:23:15]">&lt;stikonas&gt;</a></span><span class="message">not that autotools is much better...</span></div><div class="line" id="012326"><span class="nick" style="color:#6b8072"><a href="#012326" label="[01:23:26]">&lt;stikonas&gt;</a></span><span class="message">but at least autotools is so common, that there is more knowledge about it</span></div><div class="line" id="013816"><span class="nick" style="color:#6d2462"><a href="#013816" label="[01:38:16]">&lt;gef&gt;</a></span><span class="message">@fossy: a night's sleep is well known to produce miracles! On one occasion, I even solved one very hard problem *during* sleeping. Alas, it happened only once, it would have been big cheating otherwise ;-)</span></div><div class="line" id="034157"><span class="nick" style="color:#2e2a4a"><a href="#034157" label="[03:41:57]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: yes, i agree that qemu is slowing CI, i mean in general though (perl unparallised takes 5+mins on my machine)</span></div><div class="line" id="034212"><span class="nick" style="color:#2e2a4a"><a href="#034212" label="[03:42:12]">&lt;fossy&gt;</a></span><span class="message">i'm considering that we should use chroot in CI</span></div><div class="line" id="070527"><span class="nick" style="color:#234e69"><a href="#070527" label="[07:05:27]">&lt;gforce_de1977&gt;</a></span><span class="message">fossy: congrats for perl! (solving problems after having distance is common, solving problems while sleeping is also not unknown ..., today i'am doing a hike, lets see which problems will solve this eventually 8-))))</span></div><div class="line" id="070952"><span class="nick" style="color:#234e69"><a href="#070952" label="[07:09:52]">&lt;gforce_de1977&gt;</a></span><span class="message">i had 2 failed CI-builds tonight during massrun: <a rel="nofollow" href="http://intercity-vpn.de/bootstrap/bootstrap.log-multilog-19-1619235591.txt">http://intercity-vpn.de/bootstrap/bootstrap.log-multilog-19-1619235591.txt</a> </span></div><div class="line" id="071015"><span class="nick" style="color:#234e69"><a href="#071015" label="[07:10:15]">&lt;gforce_de1977&gt;</a></span><span class="message">sad: my auto-base64-dumper did not work, have to find the mistake</span></div><div class="line" id="074607"><span class="nick" style="color:#234e69"><a href="#074607" label="[07:46:07]">&lt;gforce_de1977&gt;</a></span><span class="message">on the otherside: using 'find' after a failed 'findutils' build will maybe not lead to success 8-)))</span></div><div class="line" id="122019"><span class="nick" style="color:#6b8072"><a href="#122019" label="[12:20:19]">&lt;stikonas&gt;</a></span><span class="message">fossy: I guess let's switch to chroot then...</span></div><div class="line" id="122025"><span class="nick" style="color:#6b8072"><a href="#122025" label="[12:20:25]">&lt;stikonas&gt;</a></span><span class="message">(for CI)</span></div><div class="line" id="122055"><span class="nick" style="color:#6b8072"><a href="#122055" label="[12:20:55]">&lt;stikonas&gt;</a></span><span class="message">it will also gives us more flexibility for which CI runner we use</span></div><div class="line" id="152236"><span class="nick" style="color:#8dd3c7"><a href="#152236" label="[15:22:36]">&lt;OriansJ&gt;</a></span><span class="message">gforce_de1977: xeh exists in stage0-posix for a reason, so you can always look at the hex of a file</span></div><div class="line" id="192331"><span class="nick" style="color:#234e69"><a href="#192331" label="[19:23:31]">&lt;gforce_de1977&gt;</a></span><span class="message">OriansJ: wow! xeh is new to me, very good</span></div><div class="line" id="193332"><span class="nick" style="color:#234e69"><a href="#193332" label="[19:33:32]">&lt;gforce_de1977&gt;</a></span><span class="message">(unsure if we build that, will check)</span></div><div class="line" id="193425"><span class="nick" style="color:#234e69"><a href="#193425" label="[19:34:25]">&lt;gforce_de1977&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/blob/master/Legacy_pieces/xeh.hex0">https://github.com/oriansj/stage0-posix/blob/master/Legacy_pieces/xeh.hex0</a> </span></div><div class="line" id="194035"><span class="nick" style="color:#8dd3c7"><a href="#194035" label="[19:40:35]">&lt;OriansJ&gt;</a></span><span class="message">gforce_de1977:it along with sin can be used to audit any source code file you have which is trying to play unicode games</span></div><br /></div></body></html>

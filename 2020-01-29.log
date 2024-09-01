@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-01-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011119"><span class="nick" style="color:#8dd3c7"><a href="#011119" label="[01:11:19]">&lt;oriansj&gt;</a></span><span class="message">fossy: For M2-Planet FILE is just an int</span></div><div class="line" id="011211"><span class="nick" style="color:#2e2a4a"><a href="#011211" label="[01:12:11]">&lt;fossy&gt;</a></span><span class="message">ah</span></div><div class="line" id="011334"><span class="nick" style="color:#8dd3c7"><a href="#011334" label="[01:13:34]">&lt;oriansj&gt;</a></span><span class="message">also the Posix standard is int</span></div><div class="line" id="011545"><span class="nick" style="color:#6b8072"><a href="#011545" label="[01:15:45]">&lt;xentrac&gt;</a></span><span class="message">the standard answer is that the fileno(3) function gives you the fd of a FILE*</span></div><div class="line" id="011750"><span class="nick" style="color:#8dd3c7"><a href="#011750" label="[01:17:50]">&lt;oriansj&gt;</a></span><span class="message">xentrac: thank you and it would be trivial to implement int fileno(FILE *stream); in M2-Planet (just return what was passed)</span></div><div class="line" id="011913"><span class="nick" style="color:#6b8072"><a href="#011913" label="[01:19:13]">&lt;xentrac&gt;</a></span><span class="message">as long as nobody needs ungetc, I think all the buffering stuff is just an optimization</span></div><div class="line" id="012201"><span class="nick" style="color:#8dd3c7"><a href="#012201" label="[01:22:01]">&lt;oriansj&gt;</a></span><span class="message">xentrac: well janneke did figure out how to do that in M2-Planet.</span></div><div class="line" id="013534"><span class="nick" style="color:#6b8072"><a href="#013534" label="[01:35:34]">&lt;xentrac&gt;</a></span><span class="message">oh! in that case you're home free :)</span></div><div class="line" id="013942"><span class="nick" style="color:#8dd3c7"><a href="#013942" label="[01:39:42]">&lt;oriansj&gt;</a></span><span class="message">xentrac: well yeah; we just need to finish mes-m2 and then we are done bootstrapping GCC from hex0</span></div><div class="line" id="014448"><span class="nick" style="color:#2e2a4a"><a href="#014448" label="[01:44:48]">&lt;fossy&gt;</a></span><span class="message">hooray ;)</span></div><div class="line" id="014455"><span class="nick" style="color:#2e2a4a"><a href="#014455" label="[01:44:55]">&lt;fossy&gt;</a></span><span class="message">i can't wait for that day</span></div><div class="line" id="014503"><span class="nick" style="color:#2e2a4a"><a href="#014503" label="[01:45:03]">&lt;fossy&gt;</a></span><span class="message">when oriansj makes mes-m2 run mescc</span></div><div class="line" id="014648"><span class="nick" style="color:#8dd3c7"><a href="#014648" label="[01:46:48]">&lt;oriansj&gt;</a></span><span class="message">fossy: well the bigger half will be when I get mes-m2 able to bootstrap guile and run guix</span></div><div class="line" id="014948"><span class="nick" style="color:#2e2a4a"><a href="#014948" label="[01:49:48]">&lt;fossy&gt;</a></span><span class="message">true</span></div><div class="line" id="014954"><span class="nick" style="color:#2e2a4a"><a href="#014954" label="[01:49:54]">&lt;fossy&gt;</a></span><span class="message">and Gash</span></div><div class="line" id="015001"><span class="nick" style="color:#2e2a4a"><a href="#015001" label="[01:50:01]">&lt;fossy&gt;</a></span><span class="message">personally im more excited about hex0 -&gt; GCC</span></div><div class="line" id="021102"><span class="nick" style="color:#2e2a4a"><a href="#021102" label="[02:11:02]">&lt;fossy&gt;</a></span><span class="message">hooorayyyy i have make</span></div><div class="line" id="021105"><span class="nick" style="color:#2e2a4a"><a href="#021105" label="[02:11:05]">&lt;fossy&gt;</a></span><span class="message">➜ ../bin/make --version</span></div><div class="line" id="021107"><span class="nick" style="color:#2e2a4a"><a href="#021107" label="[02:11:07]">&lt;fossy&gt;</a></span><span class="message">GNU Make 3.80</span></div><div class="line" id="021109"><span class="nick" style="color:#2e2a4a"><a href="#021109" label="[02:11:09]">&lt;fossy&gt;</a></span><span class="message">Copyright (C) 2002  Free Software Foundation, Inc.</span></div><div class="line" id="021112"><span class="nick" style="color:#2e2a4a"><a href="#021112" label="[02:11:12]">&lt;fossy&gt;</a></span><span class="message">built from TCC</span></div><div class="line" id="022552"><span class="nick" style="color:#2e2a4a"><a href="#022552" label="[02:25:52]">&lt;fossy&gt;</a></span><span class="message">janneke, you may be interested to know that i built that make from tcc-boot0</span></div><div class="line" id="022554"><span class="nick" style="color:#2e2a4a"><a href="#022554" label="[02:25:54]">&lt;fossy&gt;</a></span><span class="message">;; FIXME: add sensible check target (without depending on make)</span></div><div class="line" id="022557"><span class="nick" style="color:#2e2a4a"><a href="#022557" label="[02:25:57]">&lt;fossy&gt;</a></span><span class="message">             ;; ./check.sh ?</span></div><div class="line" id="022619"><span class="nick" style="color:#2e2a4a"><a href="#022619" label="[02:26:19]">&lt;fossy&gt;</a></span><span class="message">so you could hypothetically move make to before tcc-boot and depend on make</span></div><div class="line" id="023253"><span class="nick" style="color:#6b8072"><a href="#023253" label="[02:32:53]">&lt;xentrac&gt;</a></span><span class="message">yaas!</span></div><div class="line" id="024243"><span class="nick" style="color:#2e2a4a"><a href="#024243" label="[02:42:43]">&lt;fossy&gt;</a></span><span class="message">can someone point me to a link to gash-utils</span></div><div class="line" id="024245"><span class="nick" style="color:#2e2a4a"><a href="#024245" label="[02:42:45]">&lt;fossy&gt;</a></span><span class="message">cant find it</span></div><div class="line" id="042321"><span class="nick" style="color:#2e2a4a"><a href="#042321" label="[04:23:21]">&lt;fossy&gt;</a></span><span class="message">hm, trying to construct tcc-boot... -D seems to be highly buggy</span></div><div class="line" id="042334"><span class="nick" style="color:#2e2a4a"><a href="#042334" label="[04:23:34]">&lt;fossy&gt;</a></span><span class="message">am plagued by errors like libtcc.c:757: error: identifier expected</span></div><div class="line" id="083405"><span class="nick" style="color:#80b1d3"><a href="#083405" label="[08:34:05]">&lt;janneke&gt;</a></span><span class="message">fossy: beautiful -- looks like the hard bit is done!</span></div><div class="line" id="083426"><span class="nick" style="color:#2e2a4a"><a href="#083426" label="[08:34:26]">&lt;fossy&gt;</a></span><span class="message">janneke: yes!</span></div><div class="line" id="083439"><span class="nick" style="color:#2e2a4a"><a href="#083439" label="[08:34:39]">&lt;fossy&gt;</a></span><span class="message">still fiddling with tcc-boot tho</span></div><div class="line" id="083506"><span class="nick" style="color:#2e2a4a"><a href="#083506" label="[08:35:06]">&lt;fossy&gt;</a></span><span class="message">im tempted to just try doing the whole bootstrap without tcc-boot lol</span></div><div class="line" id="083520"><span class="nick" style="color:#80b1d3"><a href="#083520" label="[08:35:20]">&lt;janneke&gt;</a></span><span class="message">fossy: i have done many circles before the whole path worked</span></div><div class="line" id="083715"><span class="nick" style="color:#80b1d3"><a href="#083715" label="[08:37:15]">&lt;janneke&gt;</a></span><span class="message">fossy: in the scheme-only bootstrap, that's what we do</span></div><div class="line" id="083844"><span class="nick" style="color:#80b1d3"><a href="#083844" label="[08:38:44]">&lt;janneke&gt;</a></span><span class="message">tcc-boot0 builds make, gzip, bzip2, sed0, diffutils, patch, bash</span></div><div class="line" id="083937"><span class="nick" style="color:#80b1d3"><a href="#083937" label="[08:39:37]">&lt;janneke&gt;</a></span><span class="message">tcc-boot is really just &quot;nice to have&quot;: to build an unpatched tcc</span></div><div class="line" id="084011"><span class="nick" style="color:#2e2a4a"><a href="#084011" label="[08:40:11]">&lt;fossy&gt;</a></span><span class="message">janneke: ah, ok</span></div><div class="line" id="084101"><span class="nick" style="color:#2e2a4a"><a href="#084101" label="[08:41:01]">&lt;fossy&gt;</a></span><span class="message">janneke: well mescc-tools-seed dosent use tarballs it uses git submodules (for better or for worse) so we can skip gzip bzip2 and patch</span></div><div class="line" id="084120"><span class="nick" style="color:#2e2a4a"><a href="#084120" label="[08:41:20]">&lt;fossy&gt;</a></span><span class="message">janneke: how about the binutils glibc GCC triplet</span></div><div class="line" id="084128"><span class="nick" style="color:#2e2a4a"><a href="#084128" label="[08:41:28]">&lt;fossy&gt;</a></span><span class="message">is that built using tcc-boot0?</span></div><div class="line" id="084233"><span class="nick" style="color:#80b1d3"><a href="#084233" label="[08:42:33]">&lt;janneke&gt;</a></span><span class="message">fossy: no, i'm using tcc-boot there; but not for a technical reason afaic remember</span></div><div class="line" id="084242"><span class="nick" style="color:#2e2a4a"><a href="#084242" label="[08:42:42]">&lt;fossy&gt;</a></span><span class="message">okey</span></div><div class="line" id="084246"><span class="nick" style="color:#80b1d3"><a href="#084246" label="[08:42:46]">&lt;janneke&gt;</a></span><span class="message">so, okay to skip if you like</span></div><div class="line" id="084311"><span class="nick" style="color:#80b1d3"><a href="#084311" label="[08:43:11]">&lt;janneke&gt;</a></span><span class="message">you probably really want to build binutils, gcc-core, glibc, gcc</span></div><div class="line" id="084327"><span class="nick" style="color:#80b1d3"><a href="#084327" label="[08:43:27]">&lt;janneke&gt;</a></span><span class="message">and say you bootstrapped this gnu triplet</span></div><div class="line" id="084425"><span class="nick" style="color:#80b1d3"><a href="#084425" label="[08:44:25]">&lt;janneke&gt;</a></span><span class="message">fossy: here is gash: <a rel="nofollow" href="https://git.savannah.gnu.org/git/gash.git">https://git.savannah.gnu.org/git/gash.git</a> </span></div><div class="line" id="084525"><span class="nick" style="color:#80b1d3"><a href="#084525" label="[08:45:25]">&lt;janneke&gt;</a></span><span class="message">fossy: here is gash core utils (they are being split off): <a rel="nofollow" href="https://gitlab.com/janneke/gash/tree/gash-core-utils">https://gitlab.com/janneke/gash/tree/gash-core-utils</a> </span></div><div class="line" id="084949"><span class="nick" style="color:#80b1d3"><a href="#084949" label="[08:49:49]">&lt;janneke&gt;</a></span><span class="message">fossy: about mescc-tools-seed using git; that's just a developer's convenience</span></div><div class="line" id="085102"><span class="nick" style="color:#80b1d3"><a href="#085102" label="[08:51:02]">&lt;janneke&gt;</a></span><span class="message">in my wip-full-source-bootstrap setup i use mescc-tools and m2-planet tarballs</span></div><div class="line" id="092155"><span class="nick" style="color:#2e2a4a"><a href="#092155" label="[09:21:55]">&lt;fossy&gt;</a></span><span class="message">thanls</span></div><div class="line" id="092159"><span class="nick" style="color:#2e2a4a"><a href="#092159" label="[09:21:59]">&lt;fossy&gt;</a></span><span class="message">thanks</span></div><div class="line" id="123732"><span class="nick" style="color:#6d2462"><a href="#123732" label="[12:37:32]">&lt;jelle&gt;</a></span><span class="message">janneke: I will mail you back soon btw :( I'll be at FOSDEM btw =)</span></div><div class="line" id="123902"><span class="nick" style="color:#80b1d3"><a href="#123902" label="[12:39:02]">&lt;janneke&gt;</a></span><span class="message">jelle: sure, no worries :-)</span></div><div class="line" id="123918"><span class="nick" style="color:#80b1d3"><a href="#123918" label="[12:39:18]">&lt;janneke&gt;</a></span><span class="message">jelle: have you considered coming to the guix days? <a rel="nofollow" href="https://libreplanet.org/wiki/Group:Guix/FOSDEM2020">https://libreplanet.org/wiki/Group:Guix/FOSDEM2020</a> </span></div><div class="line" id="123940"><span class="nick" style="color:#6d2462"><a href="#123940" label="[12:39:40]">&lt;jelle&gt;</a></span><span class="message">I have an Arch day tommorow and friday =)</span></div><div class="line" id="123957"><span class="nick" style="color:#80b1d3"><a href="#123957" label="[12:39:57]">&lt;janneke&gt;</a></span><span class="message">jelle: sure, great</span></div><div class="line" id="124020"><span class="nick" style="color:#6d2462"><a href="#124020" label="[12:40:20]">&lt;jelle&gt;</a></span><span class="message">36 participants that's great</span></div><div class="line" id="124206"><span class="nick" style="color:#80b1d3"><a href="#124206" label="[12:42:06]">&lt;janneke&gt;</a></span><span class="message">yeah, would be good to have some cross-distro event though; guess that's sat+sun</span></div><div class="line" id="124337"><span class="nick" style="color:#6d2462"><a href="#124337" label="[12:43:37]">&lt;jelle&gt;</a></span><span class="message">I probably won't attend talks so that would work</span></div><div class="line" id="124446"><span class="nick" style="color:#234e69"><a href="#124446" label="[12:44:46]">&lt;dddddd&gt;</a></span><span class="message">hi</span></div><div class="line" id="130102"><span class="nick" style="color:#80b1d3"><a href="#130102" label="[13:01:02]">&lt;janneke&gt;</a></span><span class="message">dddddd: will you be at fosdem?</span></div><div class="line" id="130214"><span class="nick" style="color:#234e69"><a href="#130214" label="[13:02:14]">&lt;dddddd&gt;</a></span><span class="message">no ):</span></div><div class="line" id="131336"><span class="nick" style="color:#234e69"><a href="#131336" label="[13:13:36]">&lt;dddddd&gt;</a></span><span class="message">But I'm looking forward the live stream.</span></div><div class="line" id="131810"><span class="nick" style="color:#234e69"><a href="#131810" label="[13:18:10]">&lt;dddddd&gt;</a></span><span class="message">oriansj, I guess that the next step on the AArch64 front would be adding support to the cc_* family, right?</span></div><div class="line" id="181402"><span class="nick" style="color:#8dd3c7"><a href="#181402" label="[18:14:02]">&lt;oriansj&gt;</a></span><span class="message">dddddd: nope; after AArch64 is integrated into M2-Planet the steps have to be developed (hex0, hex1, hex2, M0, then finally cc_AArch64); along with porting MesCC to AArch64</span></div><div class="line" id="181620"><span class="nick" style="color:#8dd3c7"><a href="#181620" label="[18:16:20]">&lt;oriansj&gt;</a></span><span class="message">A good step is writing the pieces in NASM (which we then can convert to M0 and hex*)</span></div><div class="line" id="182127"><span class="nick" style="color:#8dd3c7"><a href="#182127" label="[18:21:27]">&lt;oriansj&gt;</a></span><span class="message">But honestly I'd first get AArch64 into an M2-Planet release and probably do the stage0 steps for AArch64 after I do the steps for ARMv7l (as that would be easier to do)</span></div><div class="line" id="200421"><span class="nick" style="color:#234e69"><a href="#200421" label="[20:04:21]">&lt;dddddd&gt;</a></span><span class="message">oriansj, I see. I'm hoping to send you the patches for M2-Planet not later than this weekend (past weekend I tried the commit-per-test but I didn't like it and prepared another idea of patch split). So, let's celebrate FOSDEM with the last(?) review and merge. (:</span></div><div class="line" id="200827"><span class="nick" style="color:#234e69"><a href="#200827" label="[20:08:27]">&lt;dddddd&gt;</a></span><span class="message">I'm not quite conviced of the need of NASM versions (which can't be used in a proper bootstrap AFAIU) but if there's kind of pressure to deliver them... so it be.</span></div><div class="line" id="201704"><span class="nick" style="color:#234e69"><a href="#201704" label="[20:17:04]">&lt;dddddd&gt;</a></span><span class="message">*convinced</span></div><div class="line" id="202820"><span class="nick" style="color:#2e2a4a"><a href="#202820" label="[20:28:20]">&lt;fossy&gt;</a></span><span class="message">dddddd: no they can't be used in the bootstrap but they can be used to verify the bootstrap and help people to understand the hex*/M* code</span></div><div class="line" id="203315"><span class="nick" style="color:#234e69"><a href="#203315" label="[20:33:15]">&lt;dddddd&gt;</a></span><span class="message">You can get there disassembling the thing, which feels better for verification that looking to another (related, but not itself) the thing</span></div><div class="line" id="221112"><span class="nick" style="color:#8dd3c7"><a href="#221112" label="[22:11:12]">&lt;oriansj&gt;</a></span><span class="message">dddddd: actually the NASM allows one to develop the 1:1 assembly required for the tools without having to figure out the M1 DEFINEs you need to use</span></div><div class="line" id="221416"><span class="nick" style="color:#8dd3c7"><a href="#221416" label="[22:14:16]">&lt;oriansj&gt;</a></span><span class="message">So not absolutely required but I find it handy to get an idea before I write the M1 DEFINEs and do a line by line conversion to M1 (and then to hex2 and below)</span></div><div class="line" id="221642"><span class="nick" style="color:#8dd3c7"><a href="#221642" label="[22:16:42]">&lt;oriansj&gt;</a></span><span class="message">also I was hoping for a M2-Planet release before janneke's talk so he can announce the release at the conference</span></div><div class="line" id="221806"><span class="nick" style="color:#8dd3c7"><a href="#221806" label="[22:18:06]">&lt;oriansj&gt;</a></span><span class="message">(no rush fossy, I don't think you'll be able to get kaem good enough to bootstrap make via TCC or GCC in time for the talk)</span></div><div class="line" id="221854"><span class="nick" style="color:#234e69"><a href="#221854" label="[22:18:54]">&lt;dddddd&gt;</a></span><span class="message">Indeed an asm is nice to create the definitions (I used gas/objdump to get the encoding).</span></div><div class="line" id="224827"><span class="nick" style="color:#8dd3c7"><a href="#224827" label="[22:48:27]">&lt;oriansj&gt;</a></span><span class="message">Plus I am aiming to get everything into talk-notes before thursday night, so that janneke has plenty of time to ask for clarifications.</span></div><br /></div></body></html>

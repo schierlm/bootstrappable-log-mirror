@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000345"><span class="nick" style="color:#8dd3c7"><a href="#000345" label="[00:03:45]">&lt;Hagfish&gt;</a></span><span class="message">hmm, you'd think that a team that did the work to deblob the kernel would also care about pregenerated headers, but maybe it hasn't had as much publicity as an issue yet</span></div><div class="line" id="000817"><span class="nick" style="color:#2e2a4a"><a href="#000817" label="[00:08:17]">&lt;fossy&gt;</a></span><span class="message">stikonas: needs some make feature we dont have</span></div><div class="line" id="000823"><span class="nick" style="color:#2e2a4a"><a href="#000823" label="[00:08:23]">&lt;fossy&gt;</a></span><span class="message">or something like that</span></div><div class="line" id="000845"><span class="nick" style="color:#2e2a4a"><a href="#000845" label="[00:08:45]">&lt;fossy&gt;</a></span><span class="message">.21 might work, I just went with the newest lts</span></div><div class="line" id="001528"><span class="nick" style="color:#6b8072"><a href="#001528" label="[00:15:28]">&lt;stikonas&gt;</a></span><span class="message">Hagfish: generated headers are a known thing but I don't think it's considered that big of an issue in general by most people</span></div><div class="line" id="001627"><span class="nick" style="color:#6b8072"><a href="#001627" label="[00:16:27]">&lt;stikonas&gt;</a></span><span class="message">mostly because they are less opaque than binary blobs</span></div><div class="line" id="001648"><span class="nick" style="color:#6b8072"><a href="#001648" label="[00:16:48]">&lt;stikonas&gt;</a></span><span class="message">you can easily study how everything works even if you have generated files</span></div><div class="line" id="001721"><span class="nick" style="color:#6b8072"><a href="#001721" label="[00:17:21]">&lt;stikonas&gt;</a></span><span class="message">and they are probably more readable than lets say ./configure scripts</span></div><div class="line" id="001741"><span class="nick" style="color:#6b8072"><a href="#001741" label="[00:17:41]">&lt;stikonas&gt;</a></span><span class="message">although, if you have 200 MBs of them that's open for discusssion</span></div><div class="line" id="001945"><span class="nick" style="color:#6b8072"><a href="#001945" label="[00:19:45]">&lt;stikonas&gt;</a></span><span class="message">fossy: in the worst case we can also insert some intermediate version of make</span></div><div class="line" id="002006"><span class="nick" style="color:#6b8072"><a href="#002006" label="[00:20:06]">&lt;stikonas&gt;</a></span><span class="message">we mostly stayed with the old one because it just worked for us (until perl)</span></div><div class="line" id="003106"><span class="nick" style="color:#2e2a4a"><a href="#003106" label="[00:31:06]">&lt;fossy&gt;</a></span><span class="message">i have this,</span></div><div class="line" id="003109"><span class="nick" style="color:#2e2a4a"><a href="#003109" label="[00:31:09]">&lt;fossy&gt;</a></span><span class="message"> <a rel="nofollow" href="https://web.archive.org/web/20070602142803/http://wiki.gnewsense.org/Firmware/PossibleFirmware">https://web.archive.org/web/20070602142803/http://wiki.gnewsense.org/Firmware/PossibleFirmware</a> </span></div><div class="line" id="003119"><span class="nick" style="color:#2e2a4a"><a href="#003119" label="[00:31:19]">&lt;fossy&gt;</a></span><span class="message">and this, <a rel="nofollow" href="https://web.archive.org/web/20070602143523/http://wiki.gnewsense.org/Firmware/FalsePositive">https://web.archive.org/web/20070602143523/http://wiki.gnewsense.org/Firmware/FalsePositive</a> </span></div><div class="line" id="003129"><span class="nick" style="color:#2e2a4a"><a href="#003129" label="[00:31:29]">&lt;fossy&gt;</a></span><span class="message">this seems to be what was used for gnewsense 1.0</span></div><div class="line" id="003347"><span class="nick" style="color:#2e2a4a"><a href="#003347" label="[00:33:47]">&lt;fossy&gt;</a></span><span class="message">oh, here we go <a rel="nofollow" href="https://web.archive.org/web/20080417063512/http://svn.gnewsense.svnhopper.net/gnewsense/builder/trunk/gen-kernel">https://web.archive.org/web/20080417063512/http://svn.gnewsense.svnhopper.net/gnewsense/builder/trunk/gen-kernel</a> </span></div><div class="line" id="003402"><span class="nick" style="color:#2e2a4a"><a href="#003402" label="[00:34:02]">&lt;fossy&gt;</a></span><span class="message">so now i just should be able to look at a .15 -&gt; .16 changelog and check there's no new things</span></div><div class="line" id="004221"><span class="nick" style="color:#6b8072"><a href="#004221" label="[00:42:21]">&lt;stikonas&gt;</a></span><span class="message">hmm, this script seems much more crude than linux-libre but I guess we are not really using most of those drivers anyway</span></div><div class="line" id="004229"><span class="nick" style="color:#2e2a4a"><a href="#004229" label="[00:42:29]">&lt;fossy&gt;</a></span><span class="message">yeah, exactly</span></div><div class="line" id="004246"><span class="nick" style="color:#6b8072"><a href="#004246" label="[00:42:46]">&lt;stikonas&gt;</a></span><span class="message">almost all blobs should be in drivers/ directory</span></div><div class="line" id="004318"><span class="nick" style="color:#2e2a4a"><a href="#004318" label="[00:43:18]">&lt;fossy&gt;</a></span><span class="message">I'm just disabling all drivers + anything that looks suspicious added in 2.6.16 then this script</span></div><div class="line" id="004349"><span class="nick" style="color:#2e2a4a"><a href="#004349" label="[00:43:49]">&lt;fossy&gt;</a></span><span class="message">it's funny looking at this. almsot nothing in the changelog still is used today</span></div><div class="line" id="005104"><span class="nick" style="color:#6b8072"><a href="#005104" label="[00:51:04]">&lt;stikonas&gt;</a></span><span class="message">well, it's more than 10 year old stuff</span></div><div class="line" id="005150"><span class="nick" style="color:#6b8072"><a href="#005150" label="[00:51:50]">&lt;stikonas&gt;</a></span><span class="message">hopefully it will work with most of the modern drives</span></div><div class="line" id="010948"><span class="nick" style="color:#80b1d3"><a href="#010948" label="[01:09:48]">&lt;xentrac&gt;</a></span><span class="message">in theory generated headers just factually document some interface you're trying to program to</span></div><div class="line" id="011005"><span class="nick" style="color:#80b1d3"><a href="#011005" label="[01:10:05]">&lt;xentrac&gt;</a></span><span class="message">they can be wrong but otherwise it's hard for them to be malicious</span></div><div class="line" id="013727"><span class="nick" style="color:#2e2a4a"><a href="#013727" label="[01:37:27]">&lt;fossy&gt;</a></span><span class="message">lol this file ./fs/nls/nls_cp949.c</span></div><div class="line" id="013736"><span class="nick" style="color:#2e2a4a"><a href="#013736" label="[01:37:36]">&lt;fossy&gt;</a></span><span class="message">856K of autogenerated lookup tables</span></div><div class="line" id="013744"><span class="nick" style="color:#2e2a4a"><a href="#013744" label="[01:37:44]">&lt;fossy&gt;</a></span><span class="message">luckily i disabled NLS already</span></div><div class="line" id="013825"><span class="nick" style="color:#80b1d3"><a href="#013825" label="[01:38:25]">&lt;xentrac&gt;</a></span><span class="message">ugh.  that's what I need to be working on tonight actually :(</span></div><div class="line" id="014449"><span class="nick" style="color:#8dd3c7"><a href="#014449" label="[01:44:49]">&lt;Hagfish&gt;</a></span><span class="message">stikonas: thanks for the context about generated headers, that's really informative</span></div><div class="line" id="014547"><span class="nick" style="color:#8dd3c7"><a href="#014547" label="[01:45:47]">&lt;Hagfish&gt;</a></span><span class="message">and good point, xentrac</span></div><div class="line" id="014942"><span class="nick" style="color:#2e2a4a"><a href="#014942" label="[01:49:42]">&lt;fossy&gt;</a></span><span class="message">lol</span></div><div class="line" id="014945"><span class="nick" style="color:#2e2a4a"><a href="#014945" label="[01:49:45]">&lt;fossy&gt;</a></span><span class="message">/* Not sure what all the bytes in these char</span></div><div class="line" id="014947"><span class="nick" style="color:#2e2a4a"><a href="#014947" label="[01:49:47]">&lt;fossy&gt;</a></span><span class="message"> * arrays do, but they're necessary to make</span></div><div class="line" id="014949"><span class="nick" style="color:#2e2a4a"><a href="#014949" label="[01:49:49]">&lt;fossy&gt;</a></span><span class="message"> * the camera work.</span></div><div class="line" id="014951"><span class="nick" style="color:#2e2a4a"><a href="#014951" label="[01:49:51]">&lt;fossy&gt;</a></span><span class="message"> */</span></div><div class="line" id="015008"><span class="nick" style="color:#6b8072"><a href="#015008" label="[01:50:08]">&lt;stikonas&gt;</a></span><span class="message">well, it's basically a binary blob then</span></div><div class="line" id="015039"><span class="nick" style="color:#6b8072"><a href="#015039" label="[01:50:39]">&lt;stikonas&gt;</a></span><span class="message">at least those huge header files get rid of magic numbers</span></div><div class="line" id="015522"><span class="nick" style="color:#80b1d3"><a href="#015522" label="[01:55:22]">&lt;xentrac&gt;</a></span><span class="message">(I mean wrong data you send to hardware can easily provoke security vulnerabilities)</span></div><div class="line" id="020043"><span class="nick" style="color:#8dd3c7"><a href="#020043" label="[02:00:43]">&lt;Hagfish&gt;</a></span><span class="message">hmm, yeah, that's kinda sus :)</span></div><div class="line" id="020102"><span class="nick" style="color:#2e2a4a"><a href="#020102" label="[02:01:02]">&lt;fossy&gt;</a></span><span class="message">gnewsense missed quite a bit, even in 2.6.15</span></div><div class="line" id="020118"><span class="nick" style="color:#2e2a4a"><a href="#020118" label="[02:01:18]">&lt;fossy&gt;</a></span><span class="message">grep -E '^ *0x[0123456789ABCDEFabcdef]*, *' -r . is a very good command  for finding these files</span></div><div class="line" id="020148"><span class="nick" style="color:#2e2a4a"><a href="#020148" label="[02:01:48]">&lt;fossy&gt;</a></span><span class="message">LMAO someone has made a binary blob for the boot logo of some device for all things</span></div><div class="line" id="020151"><span class="nick" style="color:#2e2a4a"><a href="#020151" label="[02:01:51]">&lt;fossy&gt;</a></span><span class="message">wtf</span></div><div class="line" id="021008"><span class="nick" style="color:#80b1d3"><a href="#021008" label="[02:10:08]">&lt;xentrac&gt;</a></span><span class="message">well, how else do you expect them to represent the boot logo?  As a Logo-style turtle graphics program?</span></div><div class="line" id="021856"><span class="nick" style="color:#8dd3c7"><a href="#021856" label="[02:18:56]">&lt;Hagfish&gt;</a></span><span class="message">that would be cool :)</span></div><div class="line" id="021906"><span class="nick" style="color:#8dd3c7"><a href="#021906" label="[02:19:06]">&lt;Hagfish&gt;</a></span><span class="message">or put an SVG renderer in there :)</span></div><div class="line" id="021930"><span class="nick" style="color:#8dd3c7"><a href="#021930" label="[02:19:30]">&lt;Hagfish&gt;</a></span><span class="message">or, i guess, put the SVG renderer in the toolchain and store the XML as the source</span></div><div class="line" id="022029"><span class="nick" style="color:#6b8072"><a href="#022029" label="[02:20:29]">&lt;stikonas&gt;</a></span><span class="message">fossy: hmm, maybe we should try newer kernel then?</span></div><div class="line" id="022033"><span class="nick" style="color:#6b8072"><a href="#022033" label="[02:20:33]">&lt;stikonas&gt;</a></span><span class="message">with proper linux-libre</span></div><div class="line" id="022041"><span class="nick" style="color:#6b8072"><a href="#022041" label="[02:20:41]">&lt;stikonas&gt;</a></span><span class="message">it should be possible to build newer gnu make earlier</span></div><div class="line" id="023006"><span class="nick" style="color:#2e2a4a"><a href="#023006" label="[02:30:06]">&lt;fossy&gt;</a></span><span class="message">stikonas: yeah, i think so</span></div><div class="line" id="023505"><span class="nick" style="color:#2e2a4a"><a href="#023505" label="[02:35:05]">&lt;fossy&gt;</a></span><span class="message">stikonas: how would you feel abt merging linux 2.6.16 temporarily so that other work can continue and then i immediatley go onto moving to linux-libre - i'll remove as many pregened files as I can but with the knowledge there are still probably a few lurking around for maybe another week while i update the kernel</span></div><div class="line" id="023548"><span class="nick" style="color:#2e2a4a"><a href="#023548" label="[02:35:48]">&lt;fossy&gt;</a></span><span class="message">ls</span></div><div class="line" id="023549"><span class="nick" style="color:#2e2a4a"><a href="#023549" label="[02:35:49]">&lt;fossy&gt;</a></span><span class="message">oops</span></div><div class="line" id="023636"><span class="nick" style="color:#6d2462"><a href="#023636" label="[02:36:36]">&lt;stikonas[m]&gt;</a></span><span class="message">That's fine with me</span></div><div class="line" id="092906"><span class="nick">***</span><span class="message notice">rt is now known as robin</span></div><div class="line" id="190421"><span class="nick" style="color:#80b1d3"><a href="#190421" label="[19:04:21]">&lt;xentrac&gt;</a></span><span class="message">happy friend day!</span></div><div class="line" id="235836"><span class="nick" style="color:#6b8072"><a href="#235836" label="[23:58:36]">&lt;stikonas&gt;</a></span><span class="message">oriansj: maybe a stupid question but is -4 just a convention here <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/blob/15a783e18f0f04a1195133f1ae9a3e799ef78ebf/x86/hex1_x86.hex0#L293">https://github.com/oriansj/stage0-posix/blob/15a783e18f0f04a1195133f1ae9a3e799ef78ebf/x86/hex1_x86.hex0#L293</a>  ?</span></div><br /></div></body></html>

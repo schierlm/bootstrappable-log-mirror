@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-11-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="022123"><span class="nick" style="color:#8dd3c7"><a href="#022123" label="[02:21:23]">&lt;OriansJ&gt;</a></span><span class="message">vagrantc: well thanks to the recent help I got from nimaje to get mescc-tools working on FreeBSD; we learned what changes would be needed to be done to MesCC to enable it's Linux binaries to also run on FreeBSD.</span></div><div class="line" id="022215"><span class="nick" style="color:#8dd3c7"><a href="#022215" label="[02:22:15]">&lt;OriansJ&gt;</a></span><span class="message">as for MesCC having issues with cross-compiling; we will just have to address that later.</span></div><div class="line" id="022358"><span class="nick" style="color:#8dd3c7"><a href="#022358" label="[02:23:58]">&lt;OriansJ&gt;</a></span><span class="message">But you should be able to always build Mes.c reproducibly from the M1-macro assembly version.</span></div><div class="line" id="022500"><span class="nick" style="color:#8dd3c7"><a href="#022500" label="[02:25:00]">&lt;OriansJ&gt;</a></span><span class="message">As M1 with the same options will always produce the exact same output regardsless of host/ISA/Kernel/wordsize</span></div><div class="line" id="022527"><span class="nick" style="color:#8dd3c7"><a href="#022527" label="[02:25:27]">&lt;OriansJ&gt;</a></span><span class="message">NO EXCEPTIONS.</span></div><div class="line" id="022731"><span class="nick" style="color:#8dd3c7"><a href="#022731" label="[02:27:31]">&lt;OriansJ&gt;</a></span><span class="message">So just use Guile to run MesCC to build mes.c and then you should be always able to get the same binary out. even on Debian kFreeBSD</span></div><div class="line" id="024111"><span class="nick" style="color:#8dd3c7"><a href="#024111" label="[02:41:11]">&lt;OriansJ&gt;</a></span><span class="message">and ./bin/get_machine ${GET_MACHINE_FLAGS} should only cause an issue if it was set -eux and not just set -ex; unless the outside environment has an implicit -u</span></div><div class="line" id="024213"><span class="nick" style="color:#2e2a4a"><a href="#024213" label="[02:42:13]">&lt;vagrantc&gt;</a></span><span class="message">it seems non-deterministic</span></div><div class="line" id="024304"><span class="nick" style="color:#2e2a4a"><a href="#024304" label="[02:43:04]">&lt;vagrantc&gt;</a></span><span class="message">OriansJ: yes, but there's no way to ensure the linux binary emulation is enabled on the debian build infrastructure</span></div><div class="line" id="024359"><span class="nick" style="color:#2e2a4a"><a href="#024359" label="[02:43:59]">&lt;vagrantc&gt;</a></span><span class="message">ah, yes, i forgot to push the set -ex fix</span></div><div class="line" id="024411"><span class="nick" style="color:#2e2a4a"><a href="#024411" label="[02:44:11]">&lt;vagrantc&gt;</a></span><span class="message">or rather, pull it into the applied patches</span></div><div class="line" id="024418"><span class="nick" style="color:#2e2a4a"><a href="#024418" label="[02:44:18]">&lt;vagrantc&gt;</a></span><span class="message">anyways, another day for another upload :)</span></div><div class="line" id="024420"><span class="nick" style="color:#6b8072"><a href="#024420" label="[02:44:20]">*</a></span><span class="message">vagrantc waves</span></div><div class="line" id="025622"><span class="nick" style="color:#8dd3c7"><a href="#025622" label="[02:56:22]">&lt;OriansJ&gt;</a></span><span class="message">vagrantc: what seems non-deterministic?</span></div><div class="line" id="030013"><span class="nick" style="color:#8dd3c7"><a href="#030013" label="[03:00:13]">&lt;OriansJ&gt;</a></span><span class="message">hello CoderForLife</span></div><div class="line" id="030145"><span class="nick" style="color:#80b1d3"><a href="#030145" label="[03:01:45]">&lt;CoderForLife&gt;</a></span><span class="message">Hello and GN OriansJ</span></div><div class="line" id="141346"><span class="nick">***</span><span class="message notice">terpri_ is now known as terpri</span></div><div class="line" id="180153"><span class="nick" style="color:#2e2a4a"><a href="#180153" label="[18:01:53]">&lt;vagrantc&gt;</a></span><span class="message">well, i appear to be playing whack-a-mole now with mescc-tools ... amd64 appears to be fixed, but i386 is still failing on debian's build machines (but works fine for me locally): <a rel="nofollow" href="https://buildd.debian.org/status/fetch.php?pkg=mescc-tools&amp;arch=i386&amp;ver=1.0.1-5&amp;stamp=1604652429&amp;raw=0">https://buildd.debian.org/status/fetch.php?pkg=mescc-tools&amp;arch=i386&amp;ver=1.0.1-5&amp;stamp=1604652429&amp;raw=0</a> </span></div><div class="line" id="180232"><span class="nick" style="color:#2e2a4a"><a href="#180232" label="[18:02:32]">&lt;vagrantc&gt;</a></span><span class="message">i've pulled in several of the patches from upstream mescc-tools, but since i can't reproduce the test failure locally ... kind of hard to debug</span></div><div class="line" id="180318"><span class="nick" style="color:#2e2a4a"><a href="#180318" label="[18:03:18]">&lt;vagrantc&gt;</a></span><span class="message">+ LANG=C sha256sum -c test/test2/proof.answer</span></div><div class="line" id="180318"><span class="nick" style="color:#2e2a4a"><a href="#180318" label="[18:03:18]">&lt;vagrantc&gt;</a></span><span class="message">sha256sum: WARNING: 1 computed checksum did NOT match</span></div><div class="line" id="180319"><span class="nick" style="color:#2e2a4a"><a href="#180319" label="[18:03:19]">&lt;vagrantc&gt;</a></span><span class="message">+ out=test/test2/proof: FAILED</span></div><div class="line" id="180326"><span class="nick" style="color:#2e2a4a"><a href="#180326" label="[18:03:26]">&lt;vagrantc&gt;</a></span><span class="message">is the notable part of that build log</span></div><div class="line" id="182250"><span class="nick" style="color:#6d2462"><a href="#182250" label="[18:22:50]">&lt;rain1&gt;</a></span><span class="message">what is the difference between the two files?</span></div><div class="line" id="182309"><span class="nick" style="color:#6d2462"><a href="#182309" label="[18:23:09]">&lt;rain1&gt;</a></span><span class="message">test/test2/proof.answer and test/test2/proof</span></div><div class="line" id="182314"><span class="nick" style="color:#2e2a4a"><a href="#182314" label="[18:23:14]">&lt;vagrantc&gt;</a></span><span class="message">no idea, as i have no access to the files</span></div><div class="line" id="182333"><span class="nick" style="color:#2e2a4a"><a href="#182333" label="[18:23:33]">&lt;vagrantc&gt;</a></span><span class="message">i guess i could upload again and cat them</span></div><div class="line" id="182338"><span class="nick" style="color:#6d2462"><a href="#182338" label="[18:23:38]">&lt;rain1&gt;</a></span><span class="message">ah i understand why this is so hard then</span></div><div class="line" id="182351"><span class="nick" style="color:#2e2a4a"><a href="#182351" label="[18:23:51]">&lt;vagrantc&gt;</a></span><span class="message">the test should probably be more verbose on failure</span></div><div class="line" id="182358"><span class="nick" style="color:#2e2a4a"><a href="#182358" label="[18:23:58]">&lt;vagrantc&gt;</a></span><span class="message">all tests probably should</span></div><div class="line" id="182430"><span class="nick" style="color:#2e2a4a"><a href="#182430" label="[18:24:30]">&lt;vagrantc&gt;</a></span><span class="message">if i could reproduce the problem locally, i could test, but it works just fine for my local builds</span></div><div class="line" id="182434"><span class="nick" style="color:#6d2462"><a href="#182434" label="[18:24:34]">&lt;rain1&gt;</a></span><span class="message">yeah it could print a diff if the checksums don't match, that's a nice idea</span></div><div class="line" id="182512"><span class="nick" style="color:#2e2a4a"><a href="#182512" label="[18:25:12]">&lt;vagrantc&gt;</a></span><span class="message">i'll try a few different machines to see if i can reproduce elsewhere</span></div><div class="line" id="184845"><span class="nick" style="color:#2e2a4a"><a href="#184845" label="[18:48:45]">&lt;vagrantc&gt;</a></span><span class="message">oh, it gets more interesting ... <a rel="nofollow" href="https://tests.reproducible-builds.org/debian/rb-pkg/unstable/i386/mescc-tools.html">https://tests.reproducible-builds.org/debian/rb-pkg/unstable/i386/mescc-tools.html</a> </span></div><div class="line" id="184858"><span class="nick" style="color:#2e2a4a"><a href="#184858" label="[18:48:58]">&lt;vagrantc&gt;</a></span><span class="message">there, the first build succeeded, the second build failed</span></div><div class="line" id="185033"><span class="nick" style="color:#2e2a4a"><a href="#185033" label="[18:50:33]">&lt;vagrantc&gt;</a></span><span class="message">and the first build was running an amd64 kernel, the second build a i686-pae kernel ...</span></div><div class="line" id="185123"><span class="nick" style="color:#2e2a4a"><a href="#185123" label="[18:51:23]">&lt;vagrantc&gt;</a></span><span class="message">hrm. but the buildd.debian.org also was running an amd64 kernel ...</span></div><div class="line" id="185806"><span class="nick" style="color:#2e2a4a"><a href="#185806" label="[18:58:06]">&lt;vagrantc&gt;</a></span><span class="message">aha!</span></div><div class="line" id="185817"><span class="nick" style="color:#2e2a4a"><a href="#185817" label="[18:58:17]">&lt;vagrantc&gt;</a></span><span class="message">i was running my i386 builds without the linux32 personality set</span></div><div class="line" id="185827"><span class="nick" style="color:#2e2a4a"><a href="#185827" label="[18:58:27]">&lt;vagrantc&gt;</a></span><span class="message">i can make it fail locally now</span></div><div class="line" id="190122"><span class="nick" style="color:#2e2a4a"><a href="#190122" label="[19:01:22]">&lt;vagrantc&gt;</a></span><span class="message"> <a rel="nofollow" href="https://try.diffoscope.org/yukxtfcthhcd.html">https://try.diffoscope.org/yukxtfcthhcd.html</a> </span></div><div class="line" id="191238"><span class="nick" style="color:#2e2a4a"><a href="#191238" label="[19:12:38]">&lt;vagrantc&gt;</a></span><span class="message">ok, i guess i just need to pick all the patches</span></div><div class="line" id="191619"><span class="nick" style="color:#2e2a4a"><a href="#191619" label="[19:16:19]">&lt;vagrantc&gt;</a></span><span class="message">because it works fine then</span></div><div class="line" id="192947"><span class="nick" style="color:#2e2a4a"><a href="#192947" label="[19:29:47]">&lt;vagrantc&gt;</a></span><span class="message">ok, tired of debugging exactly which patches succeed and which fail to cherry-pick the minimal set ... just going to upload with all the patches from upstream :)</span></div><div class="line" id="215314"><span class="nick" style="color:#8dd3c7"><a href="#215314" label="[21:53:14]">&lt;OriansJ&gt;</a></span><span class="message">vagrantc: well it is usually easiest not to have to maintain software and let other people do the heavy lifting.</span></div><div class="line" id="215515"><span class="nick" style="color:#8dd3c7"><a href="#215515" label="[21:55:15]">&lt;OriansJ&gt;</a></span><span class="message">I do however find it funny seeing diffoscope comparing an ELF binary and sha256sum file (literally name and checksum for the ELF binary)</span></div><div class="line" id="215935"><span class="nick" style="color:#2e2a4a"><a href="#215935" label="[21:59:35]">&lt;vagrantc&gt;</a></span><span class="message"> <a rel="nofollow" href="https://buildd.debian.org/status/package.php?p=mescc%2dtools">https://buildd.debian.org/status/package.php?p=mescc%2dtools</a>  looks ok again</span></div><div class="line" id="220149"><span class="nick" style="color:#2e2a4a"><a href="#220149" label="[22:01:49]">&lt;vagrantc&gt;</a></span><span class="message">OriansJ: i tend to like to prefer figuring out what the minimal change is to fix something, but yes, at some point happy to have others fix everything :)</span></div><div class="line" id="220915"><span class="nick" style="color:#8dd3c7"><a href="#220915" label="[22:09:15]">&lt;OriansJ&gt;</a></span><span class="message">vagrantc: well the minimal delta would be what changes are required to get mescc-tools to have the debian specific files; otherwise the changes should be done upstream.</span></div><div class="line" id="220944"><span class="nick" style="color:#8dd3c7"><a href="#220944" label="[22:09:44]">&lt;OriansJ&gt;</a></span><span class="message">as mescc-tools takes distro specific bugs extremely seriously</span></div><div class="line" id="221039"><span class="nick" style="color:#8dd3c7"><a href="#221039" label="[22:10:39]">&lt;OriansJ&gt;</a></span><span class="message">if it doesn't work identically on ALL DISTROS and all POSIX kernels, there are bugs that need to be addressed.</span></div><div class="line" id="221958"><span class="nick" style="color:#2e2a4a"><a href="#221958" label="[22:19:58]">&lt;vagrantc&gt;</a></span><span class="message">the debian gnu/kfreebsd case will be ... interesting :)</span></div><div class="line" id="222036"><span class="nick" style="color:#2e2a4a"><a href="#222036" label="[22:20:36]">&lt;vagrantc&gt;</a></span><span class="message">i've got a virtual machine running it now, but prioritized getting the package fixed in more conventional environments first :)</span></div><div class="line" id="223345"><span class="nick" style="color:#8dd3c7"><a href="#223345" label="[22:33:45]">&lt;OriansJ&gt;</a></span><span class="message">vagrantc: the only thing that might not work on non-linux systems would be thecreated Linux binaries not running. Otherwise everything else should work perfectly</span></div><div class="line" id="223424"><span class="nick" style="color:#2e2a4a"><a href="#223424" label="[22:34:24]">&lt;vagrantc&gt;</a></span><span class="message">does it only create linux binaries?</span></div><div class="line" id="223452"><span class="nick" style="color:#2e2a4a"><a href="#223452" label="[22:34:52]">&lt;vagrantc&gt;</a></span><span class="message">e.g. does it potentially create native binaries?</span></div><div class="line" id="234740"><span class="nick" style="color:#8dd3c7"><a href="#234740" label="[23:47:40]">&lt;OriansJ&gt;</a></span><span class="message">vagrantc: well if you notice the binaries reference elf_headers/elf32.hex2 as a source input; if you look at that file, you will see that it is a hand written ELF header.</span></div><div class="line" id="234755"><span class="nick" style="color:#8dd3c7"><a href="#234755" label="[23:47:55]">&lt;OriansJ&gt;</a></span><span class="message">specifically a Linux ELF header</span></div><div class="line" id="234849"><span class="nick" style="color:#8dd3c7"><a href="#234849" label="[23:48:49]">&lt;OriansJ&gt;</a></span><span class="message">if you look closer at the test binaries, you'll notice manually written Linux syscalls.</span></div><div class="line" id="234939"><span class="nick" style="color:#8dd3c7"><a href="#234939" label="[23:49:39]">&lt;OriansJ&gt;</a></span><span class="message">So it can create binaries for any target Operating system. One just needs to manually deal with that target's specific details.</span></div><div class="line" id="235103"><span class="nick" style="color:#8dd3c7"><a href="#235103" label="[23:51:03]">&lt;OriansJ&gt;</a></span><span class="message">EG it can be used to make Windows com and exe binaries without a single line of hex2 or M1 changing.</span></div><div class="line" id="235345"><span class="nick" style="color:#8dd3c7"><a href="#235345" label="[23:53:45]">&lt;OriansJ&gt;</a></span><span class="message">if you look closely hex2 only understands reading hex; :labels, %pointers and &amp;addresses in big and little endian format (with a hair of architecture specific pointer encoding logic)</span></div><div class="line" id="235549"><span class="nick" style="color:#8dd3c7"><a href="#235549" label="[23:55:49]">&lt;OriansJ&gt;</a></span><span class="message">M1 only understands: DEFINEs, %numbers, &quot;RAW Strings&quot; and 'hex literals' and simply passes the :labels, %pointers and &amp;address, along with its output for hex2 to deal with.</span></div><div class="line" id="235726"><span class="nick" style="color:#8dd3c7"><a href="#235726" label="[23:57:26]">&lt;OriansJ&gt;</a></span><span class="message">There is absolutely nothing Operating system specific in any of it. Minus the bit in hex2 dealing with architecture specific pointer rules. Nothing is actually architecture specific either.</span></div><div class="line" id="235826"><span class="nick" style="color:#8dd3c7"><a href="#235826" label="[23:58:26]">&lt;OriansJ&gt;</a></span><span class="message">So regardless of the host Operating system and architecture and implementation. Source code passed with specific options must always produce identical output. NO EXCEPTIONS.</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-10-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001115"><span class="nick" style="color:#389600"><a href="#001115" label="[00:11:15]">&lt;OriansJ&gt;</a></span><span class="message">janneke: well we could skip compression for the initial bootstrap binaries and then add it only after we could build it</span></div><div class="line" id="003202"><span class="nick" style="color:#2e2a4a"><a href="#003202" label="[00:32:02]">&lt;civodul&gt;</a></span><span class="message">janneke: i think weinholt has an R6 implementation of gzip, if that's an option</span></div><div class="line" id="003206"><span class="nick" style="color:#2e2a4a"><a href="#003206" label="[00:32:06]">&lt;civodul&gt;</a></span><span class="message">probably in Industria</span></div><div class="line" id="003920"><span class="nick" style="color:#389600"><a href="#003920" label="[00:39:20]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: The Loko scheme compiler certainly looks interesting however I haven't had the chance or time to figure out it's bootstrapping requirements nor if it is able to compile/interpret MesCC as those would be the big 2 to know about.</span></div><div class="line" id="004707"><span class="nick" style="color:#389600"><a href="#004707" label="[00:47:07]">&lt;OriansJ&gt;</a></span><span class="message">Hagfish: I look forward to see it running on real hardware, especially when RISC-V with ECC is available in the sub-$300 range (dropping $3K just isn't in most people's budgets)</span></div><div class="line" id="010022"><span class="nick" style="color:#6b8072"><a href="#010022" label="[01:00:22]">&lt;xentrac&gt;</a></span><span class="message">OriansJ: yeah, I think those are interesting questions but I don't know either</span></div><div class="line" id="012336"><span class="nick" style="color:#389600"><a href="#012336" label="[01:23:36]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: plus it wouldn't hurt for us to find ways of making MesCC even faster</span></div><div class="line" id="013319"><span class="nick" style="color:#6b8072"><a href="#013319" label="[01:33:19]">&lt;xentrac&gt;</a></span><span class="message">one of the interesting things about Loko from my point of view is the possibility of running on &quot;bare&quot; hardware rather than on an OS</span></div><div class="line" id="013345"><span class="nick" style="color:#6b8072"><a href="#013345" label="[01:33:45]">&lt;xentrac&gt;</a></span><span class="message">as long as we're bootstrapping on an OS, the OS can backdoor us and otherwise interfere with reproducibility</span></div><div class="line" id="021706"><span class="nick" style="color:#389600"><a href="#021706" label="[02:17:06]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: well stage0 up to M2-Planet doesn't depend upon an OS and has atleast 1 implementation that runs on bare hardware (no bios or firmware)</span></div><div class="line" id="021819"><span class="nick" style="color:#389600"><a href="#021819" label="[02:18:19]">&lt;OriansJ&gt;</a></span><span class="message">So adding a OS that is buildable via M2-Planet or below is part of the current plans</span></div><div class="line" id="022118"><span class="nick" style="color:#389600"><a href="#022118" label="[02:21:18]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: gio already has a bootstrap to M2-Planet for x86 (on the bios level if I remember correctly)</span></div><div class="line" id="022239"><span class="nick" style="color:#389600"><a href="#022239" label="[02:22:39]">&lt;OriansJ&gt;</a></span><span class="message">with that we can straight build a valid posix in a reduced C subset; test and debug until we are happy and then do a switch to a M2-Planet build and thus eliminate that potential problem.</span></div><div class="line" id="022809"><span class="nick" style="color:#389600"><a href="#022809" label="[02:28:09]">&lt;OriansJ&gt;</a></span><span class="message">although this looked like a fun little project: <a rel="nofollow" href="https://github.com/luke8086/boot2c">https://github.com/luke8086/boot2c</a> </span></div><div class="line" id="041937"><span class="nick" style="color:#6b8072"><a href="#041937" label="[04:19:37]">&lt;xentrac&gt;</a></span><span class="message">boot2c is for bios, loko is for multiboot</span></div><div class="line" id="114816"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="121706"><span class="nick" style="color:#389600"><a href="#121706" label="[12:17:06]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: unfortunately both suffer from the file-system bootstrap problem and that is one of those things we need to work out a solution for.</span></div><div class="line" id="122931"><span class="nick" style="color:#80b1d3"><a href="#122931" label="[12:29:31]">&lt;warren&gt;</a></span><span class="message">I'm curious does anyone know how Guix's rust was bootstrapped if mrustc works on only x86_64?</span></div><div class="line" id="123400"><span class="nick" style="color:#2e2a4a"><a href="#123400" label="[12:34:00]">&lt;civodul&gt;</a></span><span class="message">hi warren!</span></div><div class="line" id="123404"><span class="nick" style="color:#2e2a4a"><a href="#123404" label="[12:34:04]">&lt;civodul&gt;</a></span><span class="message"> <a rel="nofollow" href="https://guix.gnu.org/blog/2018/bootstrapping-rust/">https://guix.gnu.org/blog/2018/bootstrapping-rust/</a>  has some details</span></div><div class="line" id="123519"><span class="nick" style="color:#80b1d3"><a href="#123519" label="[12:35:19]">&lt;warren&gt;</a></span><span class="message">oops, I meant armhfp</span></div><div class="line" id="123552"><span class="nick" style="color:#80b1d3"><a href="#123552" label="[12:35:52]">&lt;warren&gt;</a></span><span class="message">they list i686 x86_64 and armhfp as being available for rust 1.37</span></div><div class="line" id="123612"><span class="nick" style="color:#80b1d3"><a href="#123612" label="[12:36:12]">&lt;warren&gt;</a></span><span class="message">wondering how they bootstrapped armhfp as AFAIK mrustc doesn't work there</span></div><div class="line" id="124810"><span class="nick" style="color:#2e2a4a"><a href="#124810" label="[12:48:10]">&lt;civodul&gt;</a></span><span class="message">Guix targets armhf, and i *think* that chain works there too</span></div><div class="line" id="134321"><span class="nick" style="color:#6b8072"><a href="#134321" label="[13:43:21]">&lt;xentrac&gt;</a></span><span class="message">OriansJ: what is the file-system bootstrap problem?</span></div><div class="line" id="225430"><span class="nick" style="color:#80b1d3"><a href="#225430" label="[22:54:30]">&lt;warren&gt;</a></span><span class="message">civodul: <a rel="nofollow" href="https://guix.gnu.org/packages/rust-1.37.0/">https://guix.gnu.org/packages/rust-1.37.0/</a>  It turns out this page is wrong. It implies that i686 and armhfp is already working. But if you look at history only x86_64 ever succeeded at build: <a rel="nofollow" href="https://ci.guix.gnu.org/search?query=rust-1.20">https://ci.guix.gnu.org/search?query=rust-1.20</a> </span></div><div class="line" id="225442"><span class="nick" style="color:#80b1d3"><a href="#225442" label="[22:54:42]">&lt;warren&gt;</a></span><span class="message">civodul: this lines up with my understanding that mrustc only works on x86_64</span></div><div class="line" id="225551"><span class="nick" style="color:#80b1d3"><a href="#225551" label="[22:55:51]">&lt;warren&gt;</a></span><span class="message"> <a rel="nofollow" href="https://ci.guix.gnu.org/search?query=mrustc">https://ci.guix.gnu.org/search?query=mrustc</a>   mrustc builds on armhfp but it doesn't actually work I guess.</span></div><div class="line" id="225820"><span class="nick" style="color:#6d2462"><a href="#225820" label="[22:58:20]">*</a></span><span class="message">vagrantc waves to warren </span></div><div class="line" id="230204"><span class="nick" style="color:#234e69"><a href="#230204" label="[23:02:04]">&lt;vagrantc&gt;</a></span><span class="message">warren: seem to be crossing paths again</span></div><div class="line" id="230240"><span class="nick" style="color:#80b1d3"><a href="#230240" label="[23:02:40]">&lt;warren&gt;</a></span><span class="message">vagrantc: wow hi</span></div><div class="line" id="230326"><span class="nick" style="color:#80b1d3"><a href="#230326" label="[23:03:26]">&lt;warren&gt;</a></span><span class="message">LOL, I was just told to stop worrying about upstream's rustc bootstrap because somebody already proved mrustc bootstrap can lead to a binary identical rustc as that build from upstream's bootstrap.</span></div><div class="line" id="230328"><span class="nick" style="color:#234e69"><a href="#230328" label="[23:03:28]">&lt;vagrantc&gt;</a></span><span class="message">mrustc installs on guix on armhf, but not substitute available for rust itself, building</span></div><div class="line" id="230354"><span class="nick" style="color:#234e69"><a href="#230354" label="[23:03:54]">&lt;vagrantc&gt;</a></span><span class="message">or rather, i'm running a test build now</span></div><div class="line" id="230411"><span class="nick" style="color:#80b1d3"><a href="#230411" label="[23:04:11]">&lt;warren&gt;</a></span><span class="message">vagrantc: are you a Guix developer? I haven't tried it myself yet but I do need to learn Guix. Bitcoin soon moves to all official builds in Guix.</span></div><div class="line" id="230414"><span class="nick" style="color:#234e69"><a href="#230414" label="[23:04:14]">&lt;vagrantc&gt;</a></span><span class="message">substitutes might just not be available</span></div><div class="line" id="230434"><span class="nick" style="color:#234e69"><a href="#230434" label="[23:04:34]">&lt;vagrantc&gt;</a></span><span class="message">warren: they're foolish enough to let me push commits without review :)</span></div><div class="line" id="230458"><span class="nick" style="color:#80b1d3"><a href="#230458" label="[23:04:58]">&lt;warren&gt;</a></span><span class="message">vagrantc: most projects do the best they can with whatever volunteers willing to work on it</span></div><div class="line" id="230521"><span class="nick" style="color:#234e69"><a href="#230521" label="[23:05:21]">&lt;vagrantc&gt;</a></span><span class="message">warren: i gave a talk at debconf last year &quot;My Crush on GNU Guix&quot; so i've been experimenting :)</span></div><div class="line" id="230826"><span class="nick" style="color:#80b1d3"><a href="#230826" label="[23:08:26]">&lt;warren&gt;</a></span><span class="message">For the last several years Bitcoin builds had been with a tool called Gitian which installed the same Ubuntu LTS chroot to make reproducible output. It uses a glibc and libstdc++ compat wrapper so binaries can work on earlier Linux ditsros  <a rel="nofollow" href="https://github.com/bitcoin/bitcoin/tree/master/src/compat.">https://github.com/bitcoin/bitcoin/tree/master/src/compat.</a>  It also cross-compiles deterministic binaries to Win64 and OSX. But of course this isn't safe because it's blindly trusting whatever is in Ubuntu.</span></div><div class="line" id="230846"><span class="nick" style="color:#6b8072"><a href="#230846" label="[23:08:46]">&lt;xentrac&gt;</a></span><span class="message">oh hi warren!  nice to see you here!</span></div><div class="line" id="230859"><span class="nick" style="color:#80b1d3"><a href="#230859" label="[23:08:59]">&lt;warren&gt;</a></span><span class="message">xentrac: hi, where do we know each other from?</span></div><div class="line" id="230900"><span class="nick" style="color:#6b8072"><a href="#230900" label="[23:09:00]">&lt;xentrac&gt;</a></span><span class="message">I was just thinking about you and #acetarium yesterday</span></div><div class="line" id="230904"><span class="nick" style="color:#80b1d3"><a href="#230904" label="[23:09:04]">&lt;warren&gt;</a></span><span class="message">oohh</span></div><div class="line" id="230921"><span class="nick" style="color:#80b1d3"><a href="#230921" label="[23:09:21]">&lt;warren&gt;</a></span><span class="message">xentrac: I left #acetarium a few years ago because it seemed the original people abandoned it</span></div><div class="line" id="230922"><span class="nick" style="color:#6b8072"><a href="#230922" label="[23:09:22]">&lt;xentrac&gt;</a></span><span class="message">you and I were the people mad liked to attack</span></div><div class="line" id="231001"><span class="nick" style="color:#6b8072"><a href="#231001" label="[23:10:01]">&lt;xentrac&gt;</a></span><span class="message">blindly trusting what was in Ubuntu at some past point seems safer than blindly trusting Ubuntu forever</span></div><div class="line" id="231012"><span class="nick" style="color:#6b8072"><a href="#231012" label="[23:10:12]">&lt;xentrac&gt;</a></span><span class="message">but Guix does seem like a big improvement!</span></div><div class="line" id="231125"><span class="nick" style="color:#80b1d3"><a href="#231125" label="[23:11:25]">&lt;warren&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/bitcoin/bitcoin/tree/master/contrib/guix">https://github.com/bitcoin/bitcoin/tree/master/contrib/guix</a>  &lt;--- Bitcoin wants to move to Guix-based builds. With the same glibc/libstdc++ wrappers the binaries work on many distros. Linux builds already work. They are close to mingw Win64 builds working. Somebody else has to redo the OSX cross compile. After that Bitcoin can abandon the Ubuntu-based build system.</span></div><div class="line" id="231158"><span class="nick" style="color:#6b8072"><a href="#231158" label="[23:11:58]">&lt;xentrac&gt;</a></span><span class="message">fantastic!</span></div><div class="line" id="231215"><span class="nick" style="color:#80b1d3"><a href="#231215" label="[23:12:15]">&lt;warren&gt;</a></span><span class="message">OSX is kind of screwed because it can only work by importing a gigantic binary blob from the Apple SDK. Apple users are screwed no matter what. At least the rest of the build system isn't introducing *more* attack vectors.</span></div><div class="line" id="231309"><span class="nick" style="color:#6b8072"><a href="#231309" label="[23:13:09]">&lt;xentrac&gt;</a></span><span class="message">really? you can't build a Mach-O binary that MacOS will load without a gigantic binary blob?</span></div><div class="line" id="231423"><span class="nick" style="color:#234e69"><a href="#231423" label="[23:14:23]">&lt;vagrantc&gt;</a></span><span class="message">warren: is there some simple test case for mrustc on armhf?</span></div><div class="line" id="231551"><span class="nick" style="color:#234e69"><a href="#231551" label="[23:15:51]">&lt;vagrantc&gt;</a></span><span class="message">or is the test case to build rusy?</span></div><div class="line" id="231555"><span class="nick" style="color:#234e69"><a href="#231555" label="[23:15:55]">&lt;vagrantc&gt;</a></span><span class="message">er, rust</span></div><div class="line" id="232148"><span class="nick" style="color:#80b1d3"><a href="#232148" label="[23:21:48]">&lt;warren&gt;</a></span><span class="message">vagrantc: &quot;build a working rustc that passes its own tests ... and that successfully builds the next rustc that passes its own tests&quot;. There had been weird bugs where the next bootstrap is broken!</span></div><div class="line" id="232203"><span class="nick" style="color:#80b1d3"><a href="#232203" label="[23:22:03]">&lt;warren&gt;</a></span><span class="message">xentrac: I dont know the OSX details</span></div><div class="line" id="232336"><span class="nick" style="color:#234e69"><a href="#232336" label="[23:23:36]">&lt;vagrantc&gt;</a></span><span class="message">warren: ok, running a test build now ...</span></div><div class="line" id="232357"><span class="nick" style="color:#80b1d3"><a href="#232357" label="[23:23:57]">&lt;warren&gt;</a></span><span class="message">vagrantc: building rust 1.19 right?</span></div><div class="line" id="232441"><span class="nick" style="color:#234e69"><a href="#232441" label="[23:24:41]">&lt;vagrantc&gt;</a></span><span class="message">warren: for starters ... and then 1.20, etc.</span></div><div class="line" id="232509"><span class="nick" style="color:#234e69"><a href="#232509" label="[23:25:09]">&lt;vagrantc&gt;</a></span><span class="message">for self-hosting languages, that's kind of the only way to do it...</span></div><div class="line" id="232520"><span class="nick" style="color:#80b1d3"><a href="#232520" label="[23:25:20]">&lt;warren&gt;</a></span><span class="message">yup</span></div><div class="line" id="232551"><span class="nick" style="color:#80b1d3"><a href="#232551" label="[23:25:51]">&lt;warren&gt;</a></span><span class="message">I read all the links in /topic. How close is stage0 from being able to bootstrap stuff that leads into gcc-2.95?</span></div><br /></div></body></html>

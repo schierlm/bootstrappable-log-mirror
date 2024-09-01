@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-11-08.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="202105"><span class="nick" style="color:#389600"><a href="#202105" label="[20:21:05]">&lt;oriansj&gt;</a></span><span class="message">I have an idea for getting switch statements into M2-Planet</span></div><div class="line" id="202208"><span class="nick" style="color:#389600"><a href="#202208" label="[20:22:08]">&lt;oriansj&gt;</a></span><span class="message">it will be a little ugly and not the most efficient.</span></div><div class="line" id="202910"><span class="nick" style="color:#8dd3c7"><a href="#202910" label="[20:29:10]">&lt;stikonas&gt;</a></span><span class="message">oriansj: ?</span></div><div class="line" id="203129"><span class="nick" style="color:#389600"><a href="#203129" label="[20:31:29]">&lt;oriansj&gt;</a></span><span class="message">jump over the case statements, basically dump the case statements in order and then recursively populate the cmp/je bits for all of the cases and a label for after the switch closes };</span></div><div class="line" id="203248"><span class="nick" style="color:#389600"><a href="#203248" label="[20:32:48]">&lt;oriansj&gt;</a></span><span class="message">so case 11: case 12: case 13: return foo; just becomes :label_case_12 :label_case_13 :label_case_11 (regular return foo logic)</span></div><div class="line" id="203251"><span class="nick" style="color:#8dd3c7"><a href="#203251" label="[20:32:51]">&lt;stikonas&gt;</a></span><span class="message">and break will jump to that last label?</span></div><div class="line" id="203318"><span class="nick" style="color:#8dd3c7"><a href="#203318" label="[20:33:18]">&lt;stikonas&gt;</a></span><span class="message">or not allowed?</span></div><div class="line" id="203334"><span class="nick" style="color:#8dd3c7"><a href="#203334" label="[20:33:34]">&lt;stikonas&gt;</a></span><span class="message">I guess we only need to reinstate enough switch in mes.c</span></div><div class="line" id="203344"><span class="nick" style="color:#8dd3c7"><a href="#203344" label="[20:33:44]">&lt;stikonas&gt;</a></span><span class="message">so doesn't have to support everything in the world anyway</span></div><div class="line" id="203659"><span class="nick" style="color:#389600"><a href="#203659" label="[20:36:59]">&lt;oriansj&gt;</a></span><span class="message">indeed</span></div><div class="line" id="203753"><span class="nick" style="color:#389600"><a href="#203753" label="[20:37:53]">&lt;oriansj&gt;</a></span><span class="message">and we don't need nested switch statement suport either</span></div><br /></div></body></html>

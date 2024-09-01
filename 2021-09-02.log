@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-09-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="205707"><span class="nick" style="color:#8dd3c7"><a href="#205707" label="[20:57:07]">&lt;oriansj&gt;</a></span><span class="message">I think I forgot storing of file size or any permission meta-data</span></div><div class="line" id="205734"><span class="nick" style="color:#8dd3c7"><a href="#205734" label="[20:57:34]">&lt;oriansj&gt;</a></span><span class="message">I probably should store the file size in the directory as it only needed to be stored once.</span></div><div class="line" id="205744"><span class="nick" style="color:#2e2a4a"><a href="#205744" label="[20:57:44]">&lt;xentrac&gt;</a></span><span class="message">if you don't have hardlinks, yeah</span></div><div class="line" id="205816"><span class="nick" style="color:#2e2a4a"><a href="#205816" label="[20:58:16]">&lt;xentrac&gt;</a></span><span class="message">you need to special-case . and .. but you need to special-case those anyway</span></div><div class="line" id="205850"><span class="nick" style="color:#8dd3c7"><a href="#205850" label="[20:58:50]">&lt;oriansj&gt;</a></span><span class="message">well it is a copy-on-write to remove need for journaling.</span></div><div class="line" id="210011"><span class="nick" style="color:#8dd3c7"><a href="#210011" label="[21:00:11]">&lt;oriansj&gt;</a></span><span class="message">also the filesystem on disk itself doesn't have to support . or .. as those can be handled by the code running filesystem support</span></div><div class="line" id="210256"><span class="nick" style="color:#2e2a4a"><a href="#210256" label="[21:02:56]">&lt;xentrac&gt;</a></span><span class="message">you don't need journaling if it's just in RAM</span></div><div class="line" id="214155"><span class="nick" style="color:#8dd3c7"><a href="#214155" label="[21:41:55]">&lt;oriansj&gt;</a></span><span class="message">name idea: En Passant filesystem?</span></div><div class="line" id="214249"><span class="nick" style="color:#2e2a4a"><a href="#214249" label="[21:42:49]">&lt;xentrac&gt;</a></span><span class="message">haha, because everyone always forgets about it and it's probably not all that useful anyway?</span></div><div class="line" id="214543"><span class="nick" style="color:#2e2a4a"><a href="#214543" label="[21:45:43]">&lt;xentrac&gt;</a></span><span class="message">how about Castling or Sicilian Defense or Promotion?</span></div><div class="line" id="214941"><span class="nick" style="color:#8dd3c7"><a href="#214941" label="[21:49:41]">&lt;oriansj&gt;</a></span><span class="message">knight-fork?</span></div><div class="line" id="214944"><span class="nick" style="color:#2e2a4a"><a href="#214944" label="[21:49:44]">&lt;xentrac&gt;</a></span><span class="message">Bongcloud?  Open Catalan?</span></div><div class="line" id="215013"><span class="nick" style="color:#2e2a4a"><a href="#215013" label="[21:50:13]">&lt;xentrac&gt;</a></span><span class="message">knight-fork is a strong move but it strongly implies that you're forking Knight</span></div><div class="line" id="215125"><span class="nick" style="color:#8dd3c7"><a href="#215125" label="[21:51:25]">&lt;oriansj&gt;</a></span><span class="message">forking-knight filesystem</span></div><div class="line" id="215217"><span class="nick" style="color:#8dd3c7"><a href="#215217" label="[21:52:17]">&lt;oriansj&gt;</a></span><span class="message">because file forks and the first filesystem we will make for knight?</span></div><div class="line" id="215316"><span class="nick" style="color:#8dd3c7"><a href="#215316" label="[21:53:16]">&lt;oriansj&gt;</a></span><span class="message">or is GFK a better variation (Good forking knight)</span></div><div class="line" id="215838"><span class="nick" style="color:#2e2a4a"><a href="#215838" label="[21:58:38]">&lt;xentrac&gt;</a></span><span class="message">ha! that's greate!</span></div><div class="line" id="215841"><span class="nick" style="color:#2e2a4a"><a href="#215841" label="[21:58:41]">&lt;xentrac&gt;</a></span><span class="message">*great</span></div><div class="line" id="222344"><span class="nick" style="color:#6b8072"><a href="#222344" label="[22:23:44]">&lt;Hagfish&gt;</a></span><span class="message">it's a little crude</span></div><div class="line" id="222610"><span class="nick" style="color:#6b8072"><a href="#222610" label="[22:26:10]">&lt;Hagfish&gt;</a></span><span class="message">you could call it the London System, and then if you improve the performance, you could call it the Accelerated London System</span></div><div class="line" id="222825"><span class="nick" style="color:#2e2a4a"><a href="#222825" label="[22:28:25]">&lt;xentrac&gt;</a></span><span class="message">it's not in the same ballpark of crude as &quot;hardcore forking action'</span></div><div class="line" id="231311"><span class="nick" style="color:#80b1d3"><a href="#231311" label="[23:13:11]">&lt;stikonas[m]&gt;</a></span><span class="message">Had a tiny bit of time, finished GAS prototype of M0 for risc-v</span></div><div class="line" id="231547"><span class="nick" style="color:#8dd3c7"><a href="#231547" label="[23:15:47]">&lt;oriansj&gt;</a></span><span class="message">stikonas: nice</span></div><div class="line" id="231550"><span class="nick" style="color:#80b1d3"><a href="#231550" label="[23:15:50]">&lt;stikonas[m]&gt;</a></span><span class="message">Shouldn't be too hard to convert it to final form (M0.hex2)</span></div><br /></div></body></html>

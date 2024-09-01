@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-09-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001735"><span class="nick" style="color:#8dd3c7"><a href="#001735" label="[00:17:35]">&lt;stikonas&gt;</a></span><span class="message">oriansj: can you merge <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/pull/45">https://github.com/oriansj/stage0-posix/pull/45</a>  ?</span></div><div class="line" id="001812"><span class="nick" style="color:#8dd3c7"><a href="#001812" label="[00:18:12]">&lt;stikonas&gt;</a></span><span class="message">luckily the fix was easy and didn't change number of instructions, so could be easily backported to hex1</span></div><div class="line" id="001854"><span class="nick" style="color:#8dd3c7"><a href="#001854" label="[00:18:54]">&lt;stikonas&gt;</a></span><span class="message">this slow me down a bit with cc_riscv64 coding though... But now some simple expressions are starting to work...</span></div><div class="line" id="001941"><span class="nick" style="color:#8dd3c7"><a href="#001941" label="[00:19:41]">&lt;stikonas&gt;</a></span><span class="message">so rest should be much easier...</span></div><div class="line" id="013046"><span class="nick" style="color:#8dd3c7"><a href="#013046" label="[01:30:46]">&lt;stikonas&gt;</a></span><span class="message">relational expressions (a&lt;b) are somewhat awkward to implement for risc-v in M1 assembly. Fortunately, S and B encodings are identical for small numbers. so something like this works RS1_A0 RS2_A1 @8 BLT in order to branch 8 bytes forward</span></div><div class="line" id="051901"><span class="nick" style="color:#2e2a4a"><a href="#051901" label="[05:19:01]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged.</span></div><div class="line" id="052000"><span class="nick" style="color:#2e2a4a"><a href="#052000" label="[05:20:00]">&lt;oriansj&gt;</a></span><span class="message">also why would relational expressions be awkward? isn't there compare instructions which put the compare result in a register for use?</span></div><div class="line" id="052225"><span class="nick" style="color:#6b8072"><a href="#052225" label="[05:22:25]">&lt;xentrac&gt;</a></span><span class="message">well, there's a subtract instruction, yeah</span></div><div class="line" id="052252"><span class="nick" style="color:#6b8072"><a href="#052252" label="[05:22:52]">&lt;xentrac&gt;</a></span><span class="message">but the compare instructions are actually conditional branch instructions</span></div><div class="line" id="052311"><span class="nick" style="color:#6b8072"><a href="#052311" label="[05:23:11]">&lt;xentrac&gt;</a></span><span class="message">like stikonas[m]'s example of blt a0, a1, .+8</span></div><div class="line" id="052829"><span class="nick" style="color:#2e2a4a"><a href="#052829" label="[05:28:29]">&lt;oriansj&gt;</a></span><span class="message">jump if register is negative/positive or zero instructions?</span></div><div class="line" id="053001"><span class="nick" style="color:#6b8072"><a href="#053001" label="[05:30:01]">&lt;xentrac&gt;</a></span><span class="message">sort of, yeah</span></div><div class="line" id="053041"><span class="nick" style="color:#6b8072"><a href="#053041" label="[05:30:41]">&lt;xentrac&gt;</a></span><span class="message">there's a zero register, so you can use beq and bge with the zero register as one operand</span></div><div class="line" id="053111"><span class="nick" style="color:#2e2a4a"><a href="#053111" label="[05:31:11]">&lt;oriansj&gt;</a></span><span class="message">doesn't really help for longer jumps</span></div><div class="line" id="053114"><span class="nick" style="color:#6b8072"><a href="#053114" label="[05:31:14]">&lt;xentrac&gt;</a></span><span class="message">that gives you &quot;jump if register is zero&quot;, and &quot;jump if register is nonnegative&quot;</span></div><div class="line" id="053127"><span class="nick" style="color:#6b8072"><a href="#053127" label="[05:31:27]">&lt;xentrac&gt;</a></span><span class="message">yeah, for longer jumps you can jump over an unconditional jump</span></div><div class="line" id="053240"><span class="nick" style="color:#2e2a4a"><a href="#053240" label="[05:32:40]">&lt;oriansj&gt;</a></span><span class="message">So RISC-V just will have to have a register load, 2 unconditional jumps and a compare with a fixed jump.</span></div><div class="line" id="053320"><span class="nick" style="color:#6b8072"><a href="#053320" label="[05:33:20]">&lt;xentrac&gt;</a></span><span class="message">I-type JAL gives you a 2-mebibyte jump range, which is probably enough to get to something like GCC</span></div><div class="line" id="053349"><span class="nick" style="color:#6b8072"><a href="#053349" label="[05:33:49]">&lt;xentrac&gt;</a></span><span class="message">uh, sorry, J-type</span></div><div class="line" id="053427"><span class="nick" style="color:#6b8072"><a href="#053427" label="[05:34:27]">&lt;xentrac&gt;</a></span><span class="message">JALR is I-type and can jump anywhere, at the cost of first loading the jump destination into a register, or most of it anyway</span></div><div class="line" id="053516"><span class="nick" style="color:#6b8072"><a href="#053516" label="[05:35:16]">&lt;xentrac&gt;</a></span><span class="message">yeah, that's definitely a workable solution.  just, as stikonas[m] said, somewhat awkward</span></div><div class="line" id="053517"><span class="nick" style="color:#2e2a4a"><a href="#053517" label="[05:35:17]">&lt;oriansj&gt;</a></span><span class="message">32bit jump range is kinda the standard for M2-Planet. The smallest right now is 24bit (ARMv7l)</span></div><div class="line" id="053529"><span class="nick" style="color:#6b8072"><a href="#053529" label="[05:35:29]">&lt;xentrac&gt;</a></span><span class="message">well, JAL is 20-bit</span></div><div class="line" id="053623"><span class="nick" style="color:#6b8072"><a href="#053623" label="[05:36:23]">&lt;xentrac&gt;</a></span><span class="message">which is 2 mebibytes instead of 1 because it's counted in 16-bit parcels</span></div><div class="line" id="053939"><span class="nick" style="color:#6b8072"><a href="#053939" label="[05:39:39]">&lt;xentrac&gt;</a></span><span class="message">if you want portability, it's somewhat simpler to program in a format where you have a BLT operation that then breaks down into two instructions (a compare and a conditional branch) on amd64 and arm, than to have separate compare and conditional branch operations in the source, where the compare operation stores its results in a register, and then the conditional branch operation compiles into all</span></div><div class="line" id="053945"><span class="nick" style="color:#6b8072"><a href="#053945" label="[05:39:45]">&lt;xentrac&gt;</a></span><span class="message">of that stuff</span></div><div class="line" id="054031"><span class="nick" style="color:#6b8072"><a href="#054031" label="[05:40:31]">&lt;xentrac&gt;</a></span><span class="message">amusingly, amd64 implementations go to the trouble of recognizing the instruction pair and re-merging it into a RISC-V-like compare-and-branch &quot;macro-op&quot;</span></div><div class="line" id="054323"><span class="nick" style="color:#2e2a4a"><a href="#054323" label="[05:43:23]">&lt;oriansj&gt;</a></span><span class="message">well well variable length instruction encoding is a much better match for compare and branch than fixed length instruction encoding.</span></div><div class="line" id="054344"><span class="nick" style="color:#2e2a4a"><a href="#054344" label="[05:43:44]">&lt;oriansj&gt;</a></span><span class="message">^well well^well yes^</span></div><div class="line" id="054413"><span class="nick" style="color:#6b8072"><a href="#054413" label="[05:44:13]">&lt;xentrac&gt;</a></span><span class="message">prolly yeah</span></div><div class="line" id="054442"><span class="nick" style="color:#6b8072"><a href="#054442" label="[05:44:42]">&lt;xentrac&gt;</a></span><span class="message">in the context of the C extension, LUI seems kinda goofy</span></div><div class="line" id="054506"><span class="nick" style="color:#6b8072"><a href="#054506" label="[05:45:06]">&lt;xentrac&gt;</a></span><span class="message">why not just have a 6-byte instruction format with a 32-bit immediate?  but they didn't</span></div><div class="line" id="055035"><span class="nick" style="color:#6b8072"><a href="#055035" label="[05:50:35]">&lt;xentrac&gt;</a></span><span class="message">AUIPC is a little more immediate, and AUIPC+JALR gives you a 32-bit jump range</span></div><div class="line" id="055314"><span class="nick" style="color:#2e2a4a"><a href="#055314" label="[05:53:14]">&lt;oriansj&gt;</a></span><span class="message">well instructions are supposed by be 16bit packet based if I remember correctly. So no clue on what their decision making progress but they probably write it in their book I didn't buy.</span></div><div class="line" id="060044"><span class="nick" style="color:#6b8072"><a href="#060044" label="[06:00:44]">&lt;xentrac&gt;</a></span><span class="message">right, they're divided into 16-bit parcels</span></div><div class="line" id="060106"><span class="nick" style="color:#6b8072"><a href="#060106" label="[06:01:06]">&lt;xentrac&gt;</a></span><span class="message">the book I think you're thinking of is free (of charge) in Spanish and some other languages, but not in English</span></div><div class="line" id="060151"><span class="nick" style="color:#6b8072"><a href="#060151" label="[06:01:51]">&lt;xentrac&gt;</a></span><span class="message">but so far I haven't found any material in it that isn't in the RISC-V spec, just prettier colors and more enthusiastic cheerleading, which the RISC-V spec is blessedly free of, unlike Intel manuals</span></div><div class="line" id="063029"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="064208"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="065828"><span class="nick">***</span><span class="message notice">tungsten.libera.chat sets mode: +o ChanServ</span></div><div class="line" id="131603"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="132004"><span class="nick" style="color:#2e2a4a"><a href="#132004" label="[13:20:04]">&lt;oriansj&gt;</a></span><span class="message">xentrac: well praising the good parts of one's own work is natural. It is the admitting of one's own mistakes and flaws that is most healthy in technical matters and so rarely done.</span></div><div class="line" id="134459"><span class="nick" style="color:#8dd3c7"><a href="#134459" label="[13:44:59]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I think longer jumps can still be implemented via pseudoinstructions, so we are not limited to 20 bits...</span></div><div class="line" id="134521"><span class="nick" style="color:#8dd3c7"><a href="#134521" label="[13:45:21]">&lt;stikonas&gt;</a></span><span class="message">riscv specs pdf defines call pseudoinstruction which is auipc + jalr</span></div><div class="line" id="134536"><span class="nick" style="color:#8dd3c7"><a href="#134536" label="[13:45:36]">&lt;stikonas&gt;</a></span><span class="message">should be possible to call far-away functions with it</span></div><div class="line" id="134550"><span class="nick" style="color:#8dd3c7"><a href="#134550" label="[13:45:50]">&lt;stikonas&gt;</a></span><span class="message">but we probably don't need them</span></div><div class="line" id="134608"><span class="nick" style="color:#8dd3c7"><a href="#134608" label="[13:46:08]">&lt;stikonas&gt;</a></span><span class="message">once you reach TCC, that's up to TCC to deal with all that stuff</span></div><div class="line" id="140226"><span class="nick" style="color:#2e2a4a"><a href="#140226" label="[14:02:26]">&lt;oriansj&gt;</a></span><span class="message">stikonas: sounds reasonable</span></div><div class="line" id="140451"><span class="nick" style="color:#8dd3c7"><a href="#140451" label="[14:04:51]">&lt;stikonas&gt;</a></span><span class="message">and function calls in cc_* and I guess M2-Planet are implemented by calling it via register</span></div><div class="line" id="140457"><span class="nick" style="color:#8dd3c7"><a href="#140457" label="[14:04:57]">&lt;stikonas&gt;</a></span><span class="message">so it's exactly this jalr call</span></div><div class="line" id="184428"><span class="nick" style="color:#2e2a4a"><a href="#184428" label="[18:44:28]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well there are two types of function calls in M2-Planet; passed function pointers and static function calls. The first has to be passed in a register (otherwise we would have to support polymorphic code) and the second is the one that RISC-V will probably might need some considerations.</span></div><div class="line" id="184518"><span class="nick" style="color:#2e2a4a"><a href="#184518" label="[18:45:18]">&lt;oriansj&gt;</a></span><span class="message">as most architectures it is just call %label or ~label call</span></div><div class="line" id="184604"><span class="nick" style="color:#2e2a4a"><a href="#184604" label="[18:46:04]">&lt;oriansj&gt;</a></span><span class="message">but stikonas; you probably know RISC-V much better than me on what would probably be the closest mapping which would work.</span></div><div class="line" id="184632"><span class="nick" style="color:#80b1d3"><a href="#184632" label="[18:46:32]">&lt;stikonas[m]&gt;</a></span><span class="message">We will see when we get there...</span></div><div class="line" id="184722"><span class="nick" style="color:#80b1d3"><a href="#184722" label="[18:47:22]">&lt;stikonas[m]&gt;</a></span><span class="message">We can still load address of label into register if we want long jump...</span></div><div class="line" id="184741"><span class="nick" style="color:#80b1d3"><a href="#184741" label="[18:47:41]">&lt;stikonas[m]&gt;</a></span><span class="message">But we don't really need it to build tcc...</span></div><div class="line" id="184755"><span class="nick" style="color:#80b1d3"><a href="#184755" label="[18:47:55]">&lt;stikonas[m]&gt;</a></span><span class="message">Tcc is about 100KB or so</span></div><div class="line" id="184822"><span class="nick" style="color:#2e2a4a"><a href="#184822" label="[18:48:22]">&lt;oriansj&gt;</a></span><span class="message">so load R5 &amp;label jalr R5 will probably work (with RISC-V specific needed tweaks of course)</span></div><div class="line" id="185014"><span class="nick" style="color:#2e2a4a"><a href="#185014" label="[18:50:14]">&lt;oriansj&gt;</a></span><span class="message">well mes.c is 212KB</span></div><div class="line" id="185121"><span class="nick" style="color:#2e2a4a"><a href="#185121" label="[18:51:21]">&lt;oriansj&gt;</a></span><span class="message">but to be honest, I have not kept up on MesCC's RISC-V progress and if it resulted in greater requirements.</span></div><div class="line" id="185421"><span class="nick" style="color:#80b1d3"><a href="#185421" label="[18:54:21]">&lt;stikonas[m]&gt;</a></span><span class="message">Not sure if there was any progress...</span></div><div class="line" id="185740"><span class="nick" style="color:#2e2a4a"><a href="#185740" label="[18:57:40]">&lt;oriansj&gt;</a></span><span class="message">well lack of RISC-V support in mescc-tools probably was the biggest issue. Hopefully know that you have helped solve those issues stikonas, they might be able to make progress now.</span></div><div class="line" id="185841"><span class="nick" style="color:#80b1d3"><a href="#185841" label="[18:58:41]">&lt;stikonas[m]&gt;</a></span><span class="message">Yeah, I can see some code generation commits in mescc but looks more like gas syntax</span></div><div class="line" id="185905"><span class="nick" style="color:#80b1d3"><a href="#185905" label="[18:59:05]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, we indeed didn't have anything in mescc-tools until recently</span></div><div class="line" id="190008"><span class="nick" style="color:#2e2a4a"><a href="#190008" label="[19:00:08]">&lt;oriansj&gt;</a></span><span class="message">well we had the --flags setup for RISC-V and a #define matching the ELF numbers but not actually anything to help in making real RISC-V binaries</span></div><div class="line" id="193402"><span class="nick">***</span><span class="message notice">dongcarl1 is now known as dongcarl</span></div><div class="line" id="225145"><span class="nick" style="color:#6b8072"><a href="#225145" label="[22:51:45]">&lt;xentrac&gt;</a></span><span class="message">oriansj: the RISC-V spec only mentions a couple of mistakes and flaws, but I suppose it's new enough that if they thought some decision was bad they would have just changed it</span></div><div class="line" id="235958"><span class="nick" style="color:#2e2a4a"><a href="#235958" label="[23:59:58]">&lt;oriansj&gt;</a></span><span class="message">or put it under a depreciation version.</span></div><br /></div></body></html>

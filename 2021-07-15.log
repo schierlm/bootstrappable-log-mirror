@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-15.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000026"><span class="nick" style="color:#389600"><a href="#000026" label="[00:00:26]">&lt;stikonas&gt;</a></span><span class="message">ROM cpu sounds cool but probably not too practical</span></div><div class="line" id="001105"><span class="nick" style="color:#8dd3c7"><a href="#001105" label="[00:11:05]">&lt;oriansj&gt;</a></span><span class="message">clemens3: There was always hope. in fact I'd argue we are getting better and better at bootstrapping. With more options and more success. Nice video by the way.</span></div><div class="line" id="001352"><span class="nick" style="color:#8dd3c7"><a href="#001352" label="[00:13:52]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well we know RISC-V can be done on mescc-tools (so logically it'll work just fine in M2-Planet); the only issue is the encoding will be inefficient (like AArch64) but will work if a b it slow.</span></div><div class="line" id="001427"><span class="nick" style="color:#8dd3c7"><a href="#001427" label="[00:14:27]">&lt;oriansj&gt;</a></span><span class="message">Also MesCC is gaining RISC-V support so that'll be nice</span></div><div class="line" id="002253"><span class="nick" style="color:#389600"><a href="#002253" label="[00:22:53]">&lt;stikonas&gt;</a></span><span class="message">well, mescc might not fit on Pineapple One</span></div><div class="line" id="002322"><span class="nick" style="color:#389600"><a href="#002322" label="[00:23:22]">&lt;stikonas&gt;</a></span><span class="message">512 kb of RAM</span></div><div class="line" id="003742"><span class="nick" style="color:#8dd3c7"><a href="#003742" label="[00:37:42]">&lt;oriansj&gt;</a></span><span class="message">stikonas: yeah, M2-Planet would require tweaks to fit in 512KB of RAM when compiling itself. (It is kinda wasteful)</span></div><div class="line" id="004449"><span class="nick" style="color:#8dd3c7"><a href="#004449" label="[00:44:49]">&lt;oriansj&gt;</a></span><span class="message">the logical side effect of storing not only the entire input file(s) in memory but also the tokenization information and the emit info to make debugging and porting to new architectures easier.</span></div><div class="line" id="004459"><span class="nick" style="color:#389600"><a href="#004459" label="[00:44:59]">&lt;stikonas&gt;</a></span><span class="message">well, maybe Pineapple one will also be upgraded with a bit more RAM</span></div><div class="line" id="004503"><span class="nick" style="color:#389600"><a href="#004503" label="[00:45:03]">&lt;stikonas&gt;</a></span><span class="message">I think they are still working on it</span></div><div class="line" id="004710"><span class="nick" style="color:#8dd3c7"><a href="#004710" label="[00:47:10]">&lt;oriansj&gt;</a></span><span class="message">well the tweaks needed to cut ram usage wouldn't be hard to do. Convert tokenization from a do all at once to a pull model. Then turn off te M2libc input/output buffering (which will really hurt speed)</span></div><div class="line" id="004751"><span class="nick" style="color:#8dd3c7"><a href="#004751" label="[00:47:51]">&lt;oriansj&gt;</a></span><span class="message">Especially on flash media (where single byte writes are really expensive)</span></div><div class="line" id="004854"><span class="nick" style="color:#8dd3c7"><a href="#004854" label="[00:48:54]">&lt;oriansj&gt;</a></span><span class="message">Going from M2-Planet to M2-Planet+M2libc speeds up that case from 14Minutes to 1 second.</span></div><div class="line" id="025746"><span class="nick" style="color:#6b8072"><a href="#025746" label="[02:57:46]">&lt;pabs3&gt;</a></span><span class="message">oriansj: hmm, I'm semi-unsure about even that. an eventual situation might be a bootstrap started by a human reading the .hex0 text+machine-code files printed out on paper as well as their printed machine-code manual and writing out the corresponding bytes to the bootstrap medium themselves somehow. for automated bootstrap testing there is the sed/xxd command you can use just before writing the binaries to the bootstrap medium</span></div><div class="line" id="032815"><span class="nick" style="color:#8dd3c7"><a href="#032815" label="[03:28:15]">&lt;oriansj&gt;</a></span><span class="message">pabs3: completely fair. A toggle board is definitely a valid option and eliminates the need for one to trust the binaries in bootstrap-seeds. Hence the &quot;NEVER TRUST ANYTHING IN HERE&quot; warning and the hex0 sources for hex0 and kaem-minimal in stage0-posix</span></div><div class="line" id="033417"><span class="nick" style="color:#6b8072"><a href="#033417" label="[03:34:17]">&lt;pabs3&gt;</a></span><span class="message">btw, what is the expected mechanism for writing these binaries to the bootstrap medium? I guess thats easy for virtual machines, just point qemu at your boot binaries</span></div><div class="line" id="044451"><span class="nick" style="color:#8dd3c7"><a href="#044451" label="[04:44:51]">&lt;oriansj&gt;</a></span><span class="message">pabs3: well I'm planning on using paper tape as my initial bootstrap medium. So standard hole punch will probably work. Floppy disks could be written to with a magnetic needle and a steady hand if one doesn't need much storage capacity.</span></div><div class="line" id="084304"><span class="nick" style="color:#80b1d3"><a href="#084304" label="[08:43:04]">&lt;siraben&gt;</a></span><span class="message">fun little exercise, formally verifying XOR swap in C <a rel="nofollow" href="https://gist.github.com/siraben/d2ad58914166d5f6139b03b1b503ed6c">https://gist.github.com/siraben/d2ad58914166d5f6139b03b1b503ed6c</a> </span></div><div class="line" id="090507"><span class="nick" style="color:#6d2462"><a href="#090507" label="[09:05:07]">&lt;fossy&gt;</a></span><span class="message">holy guacamole</span></div><div class="line" id="090521"><span class="nick" style="color:#6d2462"><a href="#090521" label="[09:05:21]">&lt;fossy&gt;</a></span><span class="message">i have been trying to figure out for 2 days why the kernel will not recognise the disk</span></div><div class="line" id="090528"><span class="nick" style="color:#6d2462"><a href="#090528" label="[09:05:28]">&lt;fossy&gt;</a></span><span class="message">... the kernel predates sda</span></div><div class="line" id="090530"><span class="nick" style="color:#6d2462"><a href="#090530" label="[09:05:30]">&lt;fossy&gt;</a></span><span class="message">duh</span></div><div class="line" id="090535"><span class="nick" style="color:#6d2462"><a href="#090535" label="[09:05:35]">&lt;fossy&gt;</a></span><span class="message">sata is emulated as ide</span></div><div class="line" id="090547"><span class="nick" style="color:#6d2462"><a href="#090547" label="[09:05:47]">&lt;fossy&gt;</a></span><span class="message">so i need hda not sda</span></div><div class="line" id="104700"><span class="nick" style="color:#234e69"><a href="#104700" label="[10:47:00]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm, I'm slightly worried about disk selection on non qemu systems...</span></div><div class="line" id="133041"><span class="nick" style="color:#8dd3c7"><a href="#133041" label="[13:30:41]">&lt;oriansj&gt;</a></span><span class="message">fossy: well these sorts of things are expected to happen. There are a great many gotchas buried is old code bases. We are lucky to avoid most of them until ooops complete and utter frustration until we figure it out.</span></div><div class="line" id="133207"><span class="nick" style="color:#8dd3c7"><a href="#133207" label="[13:32:07]">&lt;oriansj&gt;</a></span><span class="message">stikonas: we may wish to incorporate some form of user selection for things that might be different; so that we don't have to cover every edge case.</span></div><div class="line" id="133314"><span class="nick" style="color:#389600"><a href="#133314" label="[13:33:14]">&lt;stikonas&gt;</a></span><span class="message">yeah, we might need something like that. Basically, I'm worried about user trying bootstrap form USB stick to test things and accidentally wiping rootfs</span></div><div class="line" id="134410"><span class="nick" style="color:#8dd3c7"><a href="#134410" label="[13:44:10]">&lt;oriansj&gt;</a></span><span class="message">fortunately now that we have GCC things like dialog (<a rel="nofollow" href="http://invisible-island.net/dialog/dialog.html">http://invisible-island.net/dialog/dialog.html</a>)  and zenity (<a rel="nofollow" href="https://gitlab.gnome.org/GNOME/zenity/-/commits/master?ofs=1900">https://gitlab.gnome.org/GNOME/zenity/-/commits/master?ofs=1900</a>)  should be quite buildable and easy to wire into a bash script.</span></div><br /></div></body></html>

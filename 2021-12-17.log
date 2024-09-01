@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-12-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004830"><span class="nick" style="color:#8dd3c7"><a href="#004830" label="[00:48:30]">&lt;oriansj&gt;</a></span><span class="message">rekado: absolutely agreed. I'm tired of it.</span></div><div class="line" id="010127"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="012217"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="014920"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="041501"><span class="nick">***</span><span class="message notice">theruran_ is now known as theruran</span></div><div class="line" id="090041"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="090112"><span class="nick" style="color:#2e2a4a"><a href="#090112" label="[09:01:12]">&lt;rekado_&gt;</a></span><span class="message">found something.  The problem lies with icedtea-2.6.13/openjdk.build-boot/j2sdk-image/jre/lib/resources.jar, which looks wrong</span></div><div class="line" id="090222"><span class="nick" style="color:#2e2a4a"><a href="#090222" label="[09:02:22]">&lt;rekado_&gt;</a></span><span class="message">first element in that zip file is called “META-INF/,” followed by some unprintable characters</span></div><div class="line" id="090241"><span class="nick" style="color:#2e2a4a"><a href="#090241" label="[09:02:41]">&lt;rekado_&gt;</a></span><span class="message">and it also has two entries for META-INF/MANIFEST.MF, different sizes, same name</span></div><div class="line" id="090344"><span class="nick" style="color:#2e2a4a"><a href="#090344" label="[09:03:44]">&lt;rekado_&gt;</a></span><span class="message">it also contains things that I wouldn’t have expected: makefiles, for example</span></div><div class="line" id="090412"><span class="nick" style="color:#2e2a4a"><a href="#090412" label="[09:04:12]">&lt;rekado_&gt;</a></span><span class="message">so my next step is to figure out how it’s created</span></div><div class="line" id="113414"><span class="nick" style="color:#6b8072"><a href="#113414" label="[11:34:14]">&lt;stikonas&gt;</a></span><span class="message">rekado_: hmm, it might be that I didn't hit it because I didn't rm -rf *.jar as Guix does</span></div><div class="line" id="113607"><span class="nick" style="color:#6b8072"><a href="#113607" label="[11:36:07]">&lt;stikonas&gt;</a></span><span class="message">which is the correct thing to do but might explain why I didn't spot it</span></div><div class="line" id="122231"><span class="nick" style="color:#6b8072"><a href="#122231" label="[12:22:31]">&lt;stikonas&gt;</a></span><span class="message">hmm, it's only openjdk 9 and newer ebuild that do (for-each delete-file (find-files &quot;.&quot; &quot;.*.(bin|exe|jar)$&quot;))</span></div><div class="line" id="122237"><span class="nick" style="color:#6b8072"><a href="#122237" label="[12:22:37]">&lt;stikonas&gt;</a></span><span class="message">so it must be something else...</span></div><div class="line" id="124716"><span class="nick" style="color:#80b1d3"><a href="#124716" label="[12:47:16]">&lt;ekaitz&gt;</a></span><span class="message">Y</span></div><div class="line" id="145138"><span class="nick" style="color:#2e2a4a"><a href="#145138" label="[14:51:38]">&lt;rekado_&gt;</a></span><span class="message">stikonas: turns out that the problem does not happen when I use gjar from GNU classpath.</span></div><div class="line" id="145143"><span class="nick" style="color:#2e2a4a"><a href="#145143" label="[14:51:43]">&lt;rekado_&gt;</a></span><span class="message">it only happens with fastjar.</span></div><div class="line" id="145244"><span class="nick" style="color:#2e2a4a"><a href="#145244" label="[14:52:44]">&lt;rekado_&gt;</a></span><span class="message">so I got past the build phase with gjar.  Still gotta fix the keystore phase.</span></div><div class="line" id="145254"><span class="nick" style="color:#2e2a4a"><a href="#145254" label="[14:52:54]">&lt;rekado_&gt;</a></span><span class="message">not sure what to do about gtk and all that.</span></div><div class="line" id="145335"><span class="nick" style="color:#2e2a4a"><a href="#145335" label="[14:53:35]">&lt;rekado_&gt;</a></span><span class="message">I don’t want to add gtk to the inputs, because this is just a bootstrap build.  But when I remove gtk I need to allow icedtea to use the included header files.</span></div><div class="line" id="145346"><span class="nick" style="color:#2e2a4a"><a href="#145346" label="[14:53:46]">&lt;rekado_&gt;</a></span><span class="message">I’d prefer not to build any of that stuff at all.</span></div><div class="line" id="145358"><span class="nick" style="color:#2e2a4a"><a href="#145358" label="[14:53:58]">&lt;rekado_&gt;</a></span><span class="message">all I care about is the subset I need to build the next JDK</span></div><div class="line" id="184741"><span class="nick" style="color:#2e2a4a"><a href="#184741" label="[18:47:41]">&lt;rekado_&gt;</a></span><span class="message">I thought I had built icedtea@3 already with this new icedtea@2, but now I’m getting “error: package sun.security.action does not exist” during the build of icedtea@3.</span></div><div class="line" id="184813"><span class="nick" style="color:#2e2a4a"><a href="#184813" label="[18:48:13]">&lt;rekado_&gt;</a></span><span class="message">I guess this means that some required parts of icedtea@2 weren’t built.</span></div><div class="line" id="193146"><span class="nick" style="color:#6b8072"><a href="#193146" label="[19:31:46]">&lt;stikonas&gt;</a></span><span class="message">hmm, did you disable too much?</span></div><div class="line" id="193214"><span class="nick" style="color:#6b8072"><a href="#193214" label="[19:32:14]">&lt;stikonas&gt;</a></span><span class="message">although, disabling gtk shouldn't really cause this</span></div><div class="line" id="193237"><span class="nick" style="color:#6b8072"><a href="#193237" label="[19:32:37]">&lt;stikonas&gt;</a></span><span class="message">rekado_: and you are still doing two stage build of icedtea@2?</span></div><div class="line" id="193241"><span class="nick" style="color:#6b8072"><a href="#193241" label="[19:32:41]">&lt;stikonas&gt;</a></span><span class="message">i.e. with bootstrap</span></div><div class="line" id="193311"><span class="nick" style="color:#2e2a4a"><a href="#193311" label="[19:33:11]">&lt;rekado_&gt;</a></span><span class="message">yes, I’m doing a bootstrap build</span></div><div class="line" id="193317"><span class="nick" style="color:#6b8072"><a href="#193317" label="[19:33:17]">&lt;stikonas&gt;</a></span><span class="message">or to be more precise, --enable-bootstrap in configure</span></div><div class="line" id="193319"><span class="nick" style="color:#6b8072"><a href="#193319" label="[19:33:19]">&lt;stikonas&gt;</a></span><span class="message">ok</span></div><div class="line" id="193323"><span class="nick" style="color:#2e2a4a"><a href="#193323" label="[19:33:23]">&lt;rekado_&gt;</a></span><span class="message">I added gtk back in, but it’s the same.</span></div><div class="line" id="193342"><span class="nick" style="color:#2e2a4a"><a href="#193342" label="[19:33:42]">&lt;rekado_&gt;</a></span><span class="message">gotta grep the sources a little more to figure out what provides sun.security.action, and why it’s not there.</span></div><div class="line" id="193347"><span class="nick" style="color:#2e2a4a"><a href="#193347" label="[19:33:47]">&lt;rekado_&gt;</a></span><span class="message">maybe tomorrow</span></div><div class="line" id="193354"><span class="nick" style="color:#6b8072"><a href="#193354" label="[19:33:54]">&lt;stikonas&gt;</a></span><span class="message">well, you had a great progress anyway</span></div><div class="line" id="205300"><span class="nick" style="color:#2e2a4a"><a href="#205300" label="[20:53:00]">&lt;rekado_&gt;</a></span><span class="message">when I build icedtea@3 with “--disable-bootstrap” it builds fine, but jre/lib/amd64/libsaproc.so retains a reference to icedtea@2, which I’d like to avoid.</span></div><div class="line" id="205320"><span class="nick" style="color:#2e2a4a"><a href="#205320" label="[20:53:20]">&lt;rekado_&gt;</a></span><span class="message">don’t know what tha library is and why it has a reference to icedtea@2</span></div><div class="line" id="210516"><span class="nick" style="color:#6b8072"><a href="#210516" label="[21:05:16]">&lt;stikonas&gt;</a></span><span class="message">hmm, that is strange...</span></div><div class="line" id="210542"><span class="nick" style="color:#6b8072"><a href="#210542" label="[21:05:42]">&lt;stikonas&gt;</a></span><span class="message">but in the end I think you should use --enable-bootstrap</span></div><div class="line" id="210605"><span class="nick" style="color:#6b8072"><a href="#210605" label="[21:06:05]">&lt;stikonas&gt;</a></span><span class="message">but this information might be useful for debugging purpose</span></div><div class="line" id="210806"><span class="nick" style="color:#2e2a4a"><a href="#210806" label="[21:08:06]">&lt;rekado_&gt;</a></span><span class="message">the only reference appears to be the name of the “include” directory of the old JDK.</span></div><div class="line" id="210831"><span class="nick" style="color:#2e2a4a"><a href="#210831" label="[21:08:31]">&lt;rekado_&gt;</a></span><span class="message">gotta figure out where that’s embedded, but it seems that this is not a big deal</span></div><div class="line" id="210903"><span class="nick" style="color:#2e2a4a"><a href="#210903" label="[21:09:03]">&lt;rekado_&gt;</a></span><span class="message">why would it be better to use --enable-bootstrap for the second real JDK?</span></div><div class="line" id="210946"><span class="nick" style="color:#2e2a4a"><a href="#210946" label="[21:09:46]">&lt;rekado_&gt;</a></span><span class="message">(that’s what I’m using in the old bootstrap, but for the new bootstrap that bypasses icedtea 1 I thought I’d try to further reduce build times)</span></div><div class="line" id="211143"><span class="nick" style="color:#6b8072"><a href="#211143" label="[21:11:43]">&lt;stikonas&gt;</a></span><span class="message">well, icedtea@3 is used as production JRE...</span></div><div class="line" id="211154"><span class="nick" style="color:#6b8072"><a href="#211154" label="[21:11:54]">&lt;stikonas&gt;</a></span><span class="message">so it might be better to build it with itself</span></div><div class="line" id="211205"><span class="nick" style="color:#2e2a4a"><a href="#211205" label="[21:12:05]">&lt;rekado_&gt;</a></span><span class="message">oh, true</span></div><div class="line" id="211324"><span class="nick" style="color:#6b8072"><a href="#211324" label="[21:13:24]">&lt;stikonas&gt;</a></span><span class="message">rekado_: btw, are you building icedtea 3.7.0?</span></div><div class="line" id="211356"><span class="nick" style="color:#6b8072"><a href="#211356" label="[21:13:56]">&lt;stikonas&gt;</a></span><span class="message">rekado_: maybe worth trying 3.21?</span></div><div class="line" id="211419"><span class="nick" style="color:#2e2a4a"><a href="#211419" label="[21:14:19]">&lt;rekado_&gt;</a></span><span class="message">oh, I didn’t know there are newer versions</span></div><div class="line" id="211422"><span class="nick" style="color:#2e2a4a"><a href="#211422" label="[21:14:22]">&lt;rekado_&gt;</a></span><span class="message">thanks for the hint</span></div><div class="line" id="211506"><span class="nick" style="color:#6b8072"><a href="#211506" label="[21:15:06]">&lt;stikonas&gt;</a></span><span class="message">yeah, I'm trying to update my overlay from 3.7.0 to 3.21 too</span></div><div class="line" id="211537"><span class="nick" style="color:#6b8072"><a href="#211537" label="[21:15:37]">&lt;stikonas&gt;</a></span><span class="message">although, I'm still trying to add musl patches for 3.21 (glibc build does work for me) but that's not relevant for guix</span></div><div class="line" id="212322"><span class="nick" style="color:#2e2a4a"><a href="#212322" label="[21:23:22]">&lt;rekado_&gt;</a></span><span class="message">about sun.security.action: the lib/rt.jar of icedtea@2 contains it, but the javac of the bootstrap JDK explicitly sets the classpath to *its* bootstrap JDK, i.e. jamvm’s lib/rt.jar and GNU Classpath.</span></div><div class="line" id="212354"><span class="nick" style="color:#2e2a4a"><a href="#212354" label="[21:23:54]">&lt;rekado_&gt;</a></span><span class="message">pretty obvious mistake; just gotta figure out where I made it…</span></div><div class="line" id="212417"><span class="nick" style="color:#6b8072"><a href="#212417" label="[21:24:17]">&lt;stikonas&gt;</a></span><span class="message">so are you building icedtea@2 without bootstrap?</span></div><div class="line" id="212452"><span class="nick" style="color:#2e2a4a"><a href="#212452" label="[21:24:52]">&lt;rekado_&gt;</a></span><span class="message">no, I am building it with --enable-bootstrap</span></div><div class="line" id="212453"><span class="nick" style="color:#6b8072"><a href="#212453" label="[21:24:53]">&lt;stikonas&gt;</a></span><span class="message">I would have thought icedtea@2 should have no references to jamvm and classpath later</span></div><div class="line" id="212455"><span class="nick" style="color:#6b8072"><a href="#212455" label="[21:24:55]">&lt;stikonas&gt;</a></span><span class="message">hmm</span></div><div class="line" id="212509"><span class="nick" style="color:#2e2a4a"><a href="#212509" label="[21:25:09]">&lt;rekado_&gt;</a></span><span class="message">I also thought so</span></div><div class="line" id="212513"><span class="nick" style="color:#2e2a4a"><a href="#212513" label="[21:25:13]">&lt;rekado_&gt;</a></span><span class="message">bit of a surprise</span></div><div class="line" id="212515"><span class="nick" style="color:#6b8072"><a href="#212515" label="[21:25:15]">&lt;stikonas&gt;</a></span><span class="message">well, you can try pushing your wip code, I can try to review</span></div><div class="line" id="212528"><span class="nick" style="color:#6b8072"><a href="#212528" label="[21:25:28]">&lt;stikonas&gt;</a></span><span class="message">in case it's something obvious...</span></div><div class="line" id="212606"><span class="nick" style="color:#6b8072"><a href="#212606" label="[21:26:06]">&lt;stikonas&gt;</a></span><span class="message">hmm, not sure what it can be... The only thing that comes to my mind is somehow results of first compilation are installed rather than second one...</span></div><div class="line" id="212657"><span class="nick" style="color:#2e2a4a"><a href="#212657" label="[21:26:57]">&lt;rekado_&gt;</a></span><span class="message">I think it’s a side-effect of using gexps in build phases</span></div><div class="line" id="212709"><span class="nick" style="color:#2e2a4a"><a href="#212709" label="[21:27:09]">&lt;rekado_&gt;</a></span><span class="message">icedtea@3 inherits a build phase from icedtea@2 that sets the CLASSPATH</span></div><div class="line" id="212718"><span class="nick" style="color:#2e2a4a"><a href="#212718" label="[21:27:18]">&lt;rekado_&gt;</a></span><span class="message">I’m 99% sure it’s that</span></div><div class="line" id="212849"><span class="nick" style="color:#6d2462"><a href="#212849" label="[21:28:49]">*</a></span><span class="message">rekado_ rebuilds</span></div><div class="line" id="212901"><span class="nick" style="color:#6b8072"><a href="#212901" label="[21:29:01]">&lt;stikonas&gt;</a></span><span class="message">hmm, yes, that might cause it...</span></div><div class="line" id="213055"><span class="nick" style="color:#6b8072"><a href="#213055" label="[21:30:55]">&lt;stikonas&gt;</a></span><span class="message">well, let's see if that helps. Although, it would probably be good to bump icedtea-8 to 3.21.9 anyway</span></div><div class="line" id="213102"><span class="nick" style="color:#6b8072"><a href="#213102" label="[21:31:02]">&lt;stikonas&gt;</a></span><span class="message">s/3.21.9/3.21.0/</span></div><div class="line" id="214017"><span class="nick" style="color:#2e2a4a"><a href="#214017" label="[21:40:17]">&lt;rekado_&gt;</a></span><span class="message">yes, I’ll first build it as is and then upgrade separately.</span></div><div class="line" id="214030"><span class="nick" style="color:#2e2a4a"><a href="#214030" label="[21:40:30]">&lt;rekado_&gt;</a></span><span class="message">there are already too many changes in my worktree</span></div><div class="line" id="214141"><span class="nick" style="color:#2e2a4a"><a href="#214141" label="[21:41:41]">&lt;rekado_&gt;</a></span><span class="message">before I went MIA I had actually worked on reducing the Java bootstrap by building only selected parts of icedtea 6, package by package</span></div><div class="line" id="214148"><span class="nick" style="color:#2e2a4a"><a href="#214148" label="[21:41:48]">&lt;rekado_&gt;</a></span><span class="message">such as the langtools</span></div><div class="line" id="214202"><span class="nick" style="color:#6b8072"><a href="#214202" label="[21:42:02]">&lt;stikonas&gt;</a></span><span class="message">oh I see</span></div><div class="line" id="214209"><span class="nick" style="color:#6b8072"><a href="#214209" label="[21:42:09]">&lt;stikonas&gt;</a></span><span class="message">well, ecj-4 should be much faster than icedtea-6 anyway</span></div><div class="line" id="214218"><span class="nick" style="color:#2e2a4a"><a href="#214218" label="[21:42:18]">&lt;rekado_&gt;</a></span><span class="message">I had grown tired of the long builds, and I felt uncomfortable with building all those things we don’t really want.</span></div><div class="line" id="214234"><span class="nick" style="color:#2e2a4a"><a href="#214234" label="[21:42:34]">&lt;rekado_&gt;</a></span><span class="message">yeah, going through ecj4 was a very good idea</span></div><div class="line" id="214236"><span class="nick" style="color:#6b8072"><a href="#214236" label="[21:42:36]">&lt;stikonas&gt;</a></span><span class="message">it's still much better than rustc...</span></div><div class="line" id="214300"><span class="nick" style="color:#2e2a4a"><a href="#214300" label="[21:43:00]">&lt;rekado_&gt;</a></span><span class="message">yeah, I didn’t realize how good we had it with the Java bootstrap, hah :)</span></div><div class="line" id="214302"><span class="nick" style="color:#6b8072"><a href="#214302" label="[21:43:02]">&lt;stikonas&gt;</a></span><span class="message">although mrustc is at least able to catch up eventually</span></div><div class="line" id="214314"><span class="nick" style="color:#2e2a4a"><a href="#214314" label="[21:43:14]">&lt;rekado_&gt;</a></span><span class="message">(on some architectures)</span></div><div class="line" id="214335"><span class="nick" style="color:#6b8072"><a href="#214335" label="[21:43:35]">&lt;stikonas&gt;</a></span><span class="message">with java we just get new versions and probably won't be able to skip icedtea 2 ever...</span></div><div class="line" id="214340"><span class="nick" style="color:#2e2a4a"><a href="#214340" label="[21:43:40]">&lt;rekado_&gt;</a></span><span class="message">gotta go now, but I’ll report back later</span></div><div class="line" id="214341"><span class="nick" style="color:#6b8072"><a href="#214341" label="[21:43:41]">&lt;stikonas&gt;</a></span><span class="message">and now it goes to 17</span></div><div class="line" id="214350"><span class="nick" style="color:#6b8072"><a href="#214350" label="[21:43:50]">&lt;stikonas&gt;</a></span><span class="message">have a good day</span></div><br /></div></body></html>

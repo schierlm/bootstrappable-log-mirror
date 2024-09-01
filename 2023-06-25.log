@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-06-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="075545"><span class="nick" style="color:#389600"><a href="#075545" label="[07:55:45]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">I figured out how to build pnet, but the problem is that the runtime(ilrun) segfaults</span></div><div class="line" id="075616"><span class="nick" style="color:#389600"><a href="#075616" label="[07:56:16]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">Here's the full GDB backtrace: <a rel="nofollow" href="https://paste.debian.net/1284073">https://paste.debian.net/1284073</a> </span></div><div class="line" id="080057"><span class="nick" style="color:#389600"><a href="#080057" label="[08:00:57]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">*segfaults when I try to run it</span></div><div class="line" id="143716"><span class="nick" style="color:#389600"><a href="#143716" label="[14:37:16]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">it turns out I just needed to build pnet with libjit</span></div><div class="line" id="150518"><span class="nick" style="color:#8dd3c7"><a href="#150518" label="[15:05:18]">&lt;stikonas&gt;</a></span><span class="message">is this for bootstrapping mono?</span></div><div class="line" id="164553"><span class="nick" style="color:#389600"><a href="#164553" label="[16:45:53]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">stikonas: yep</span></div><div class="line" id="190737"><span class="nick" style="color:#2e2a4a"><a href="#190737" label="[19:07:37]">&lt;muurkha&gt;</a></span><span class="message">oh cool</span></div><div class="line" id="195115"><span class="nick" style="color:#6b8072"><a href="#195115" label="[19:51:15]">&lt;lanodan&gt;</a></span><span class="message">So going to revive parts of dotGNU?</span></div><div class="line" id="200930"><span class="nick" style="color:#2e2a4a"><a href="#200930" label="[20:09:30]">&lt;muurkha&gt;</a></span><span class="message">hmm, this Artistic-Licensed implementation of Smalltalk written in C is interesting: <a rel="nofollow" href="https://github.com/rcornwell/smalltalk">https://github.com/rcornwell/smalltalk</a> </span></div><div class="line" id="200945"><span class="nick" style="color:#2e2a4a"><a href="#200945" label="[20:09:45]">&lt;muurkha&gt;</a></span><span class="message">it doesn't require an implementation of Smalltalk to bootstrap it, the way Squeak does</span></div><div class="line" id="200958"><span class="nick" style="color:#2e2a4a"><a href="#200958" label="[20:09:58]">&lt;muurkha&gt;</a></span><span class="message">I'm not sure if it's compatible enough with Squeak to be used to bootstrap Squeak</span></div><div class="line" id="201757"><span class="nick" style="color:#2e2a4a"><a href="#201757" label="[20:17:57]">&lt;muurkha&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/rcornwell/smalltalk/blob/master/parse.c">https://github.com/rcornwell/smalltalk/blob/master/parse.c</a> </span></div><div class="line" id="225504"><span class="nick" style="color:#80b1d3"><a href="#225504" label="[22:55:04]">&lt;stikonas[m]&gt;</a></span><span class="message">&lt;DallasStrouseOro&gt; &quot;I see on <a rel="nofollow" href="https://bootstrappable...">https://bootstrappable...</a>&quot;  &lt;- you just need to build gazillion of intermediate versions to get to the latest</span></div><div class="line" id="225540"><span class="nick" style="color:#80b1d3"><a href="#225540" label="[22:55:40]">&lt;stikonas[m]&gt;</a></span><span class="message">once you have rust 1.54, there is nothing special in building latest</span></div><div class="line" id="225621"><span class="nick" style="color:#80b1d3"><a href="#225621" label="[22:56:21]">&lt;stikonas[m]&gt;</a></span><span class="message">e.g. on Gentoo I just use (lightly tweaked) Gentoo ebuilds</span></div><div class="line" id="225642"><span class="nick" style="color:#80b1d3"><a href="#225642" label="[22:56:42]">&lt;stikonas[m]&gt;</a></span><span class="message"> <a rel="nofollow" href="https://gitlab.com/stikonas/gentoo-bootstrap/-/tree/master/dev-lang/rust">https://gitlab.com/stikonas/gentoo-bootstrap/-/tree/master/dev-lang/rust</a> </span></div><div class="line" id="225724"><span class="nick" style="color:#80b1d3"><a href="#225724" label="[22:57:24]">&lt;stikonas[m]&gt;</a></span><span class="message">and that projects.html is unfortunately somewhat outdated</span></div><div class="line" id="230624"><span class="nick" style="color:#6d2462"><a href="#230624" label="[23:06:24]">&lt;Christoph[m]&gt;</a></span><span class="message">rust is already bootstrapped, isn't it? See <a rel="nofollow" href="https://guix.gnu.org/blog/2018/bootstrapping-rust/">https://guix.gnu.org/blog/2018/bootstrapping-rust/</a> </span></div><div class="line" id="231052"><span class="nick" style="color:#234e69"><a href="#231052" label="[23:10:52]">&lt;orowith2os[m]&gt;</a></span><span class="message">Christoph[m]: oh, so it already works</span></div><div class="line" id="231058"><span class="nick" style="color:#234e69"><a href="#231058" label="[23:10:58]">&lt;orowith2os[m]&gt;</a></span><span class="message">good to know</span></div><div class="line" id="231100"><span class="nick" style="color:#234e69"><a href="#231100" label="[23:11:00]">&lt;orowith2os[m]&gt;</a></span><span class="message">I</span></div><div class="line" id="231111"><span class="nick" style="color:#234e69"><a href="#231111" label="[23:11:11]">&lt;orowith2os[m]&gt;</a></span><span class="message">bleh, misclick. I'll pass it along to the freedesktop-sdk folks</span></div><div class="line" id="231717"><span class="nick" style="color:#234e69"><a href="#231717" label="[23:17:17]">&lt;orowith2os[m]&gt;</a></span><span class="message">&lt;stikonas[m]&gt; &quot;<a rel="nofollow" href="https://gitlab.com/stikonas/...">https://gitlab.com/stikonas/...</a>&quot;  &lt;- poking at the README: &quot;mrustc is ocasionally broken on some versions of GCC. Last tested with GCC 12.2.1.&quot; GCC 13 likes to complain about missing includes, I've already submitted some fixes upstream so it works fine: <a rel="nofollow" href="https://github.com/thepowersgang/mrustc/pull/305">https://github.com/thepowersgang/mrustc/pull/305</a> </span></div><div class="line" id="232225"><span class="nick" style="color:#80b1d3"><a href="#232225" label="[23:22:25]">&lt;stikonas[m]&gt;</a></span><span class="message">orowith2os[m]: I think free desktop sdk people know about mrustc</span></div><div class="line" id="232234"><span class="nick" style="color:#80b1d3"><a href="#232234" label="[23:22:34]">&lt;stikonas[m]&gt;</a></span><span class="message">But it's slow</span></div><div class="line" id="232254"><span class="nick" style="color:#80b1d3"><a href="#232254" label="[23:22:54]">&lt;stikonas[m]&gt;</a></span><span class="message">Especially going from 1.54 to 1.69</span></div><div class="line" id="232316"><span class="nick" style="color:#234e69"><a href="#232316" label="[23:23:16]">&lt;orowith2os[m]&gt;</a></span><span class="message">yeah, they don't like having to build one version after another</span></div><div class="line" id="232411"><span class="nick" style="color:#234e69"><a href="#232411" label="[23:24:11]">&lt;orowith2os[m]&gt;</a></span><span class="message">I want to see if I can make mrustc build just a bit faster, because right now it only builds on one core, which as you can imagine is.... pain</span></div><div class="line" id="233115"><span class="nick" style="color:#234e69"><a href="#233115" label="[23:31:15]">&lt;orowith2os[m]&gt;</a></span><span class="message">so at least cut out a good ~2 hours from the build process</span></div><div class="line" id="233250"><span class="nick" style="color:#80b1d3"><a href="#233250" label="[23:32:50]">&lt;stikonas[m]&gt;</a></span><span class="message">Memory usage of mrustc is bigger problem</span></div><div class="line" id="233316"><span class="nick" style="color:#80b1d3"><a href="#233316" label="[23:33:16]">&lt;stikonas[m]&gt;</a></span><span class="message">Or rather memory usage of GCC that is spawned by mrustc</span></div><div class="line" id="234619"><span class="nick" style="color:#2e2a4a"><a href="#234619" label="[23:46:19]">&lt;muurkha&gt;</a></span><span class="message">GCC is usually not as bad as clang on that, so it's a bit surprising</span></div><div class="line" id="235051"><span class="nick" style="color:#8dd3c7"><a href="#235051" label="[23:50:51]">&lt;stikonas&gt;</a></span><span class="message">well, it depends on the size of the C file</span></div><div class="line" id="235101"><span class="nick" style="color:#8dd3c7"><a href="#235101" label="[23:51:01]">&lt;stikonas&gt;</a></span><span class="message">mrustc generates fairly large C files</span></div><div class="line" id="235135"><span class="nick" style="color:#8dd3c7"><a href="#235135" label="[23:51:35]">&lt;stikonas&gt;</a></span><span class="message">basically the whole module is converted into one C file</span></div><div class="line" id="235140"><span class="nick" style="color:#8dd3c7"><a href="#235140" label="[23:51:40]">&lt;stikonas&gt;</a></span><span class="message">and then compiled in one go</span></div><div class="line" id="235233"><span class="nick" style="color:#2e2a4a"><a href="#235233" label="[23:52:33]">&lt;muurkha&gt;</a></span><span class="message">yeah</span></div><div class="line" id="235934"><span class="nick" style="color:#234e69"><a href="#235934" label="[23:59:34]">&lt;orowith2os[m]&gt;</a></span><span class="message">oh, well, that explains why it builds everything on one core, at least</span></div><br /></div></body></html>

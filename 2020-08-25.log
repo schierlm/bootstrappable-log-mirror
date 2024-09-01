@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-08-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="055000"><span class="nick">***</span><span class="message notice">terpri_ is now known as terpri</span></div><div class="line" id="085355"><span class="nick" style="color:#8dd3c7"><a href="#085355" label="[08:53:55]">&lt;bauen1&gt;</a></span><span class="message">OriansJ`: thanks</span></div><div class="line" id="100947"><span class="nick" style="color:#2e2a4a"><a href="#100947" label="[10:09:47]">&lt;dannym_&gt;</a></span><span class="message">janneke: Great!</span></div><div class="line" id="100949"><span class="nick" style="color:#2e2a4a"><a href="#100949" label="[10:09:49]">&lt;dannym_&gt;</a></span><span class="message">janneke: Yeah, the startup is thumb-incompatible...</span></div><div class="line" id="101554"><span class="nick" style="color:#6b8072"><a href="#101554" label="[10:15:54]">&lt;janneke&gt;</a></span><span class="message">dannym_: ah, thumb is default -- weird :)</span></div><div class="line" id="101612"><span class="nick" style="color:#2e2a4a"><a href="#101612" label="[10:16:12]">&lt;dannym_&gt;</a></span><span class="message">janneke: (mostly because all the upper registers are not available in thumb)</span></div><div class="line" id="101647"><span class="nick" style="color:#2e2a4a"><a href="#101647" label="[10:16:47]">&lt;dannym_&gt;</a></span><span class="message">janneke: Yeah</span></div><div class="line" id="101720"><span class="nick" style="color:#6b8072"><a href="#101720" label="[10:17:20]">&lt;janneke&gt;</a></span><span class="message">dannym_: ah ok</span></div><div class="line" id="101721"><span class="nick" style="color:#2e2a4a"><a href="#101721" label="[10:17:21]">&lt;dannym_&gt;</a></span><span class="message">janneke: Well, Thumb takes less space.  With todays caches that means a real speedup because the OS doesn't have to evict the program from i-cache all the time...</span></div><div class="line" id="101753"><span class="nick" style="color:#2e2a4a"><a href="#101753" label="[10:17:53]">&lt;dannym_&gt;</a></span><span class="message">janneke: But for bootstrapping, I think ARM is better to use simply because it's older and even ancient ARM machines can do (mostly) the same instruction set</span></div><div class="line" id="101805"><span class="nick" style="color:#6b8072"><a href="#101805" label="[10:18:05]">&lt;janneke&gt;</a></span><span class="message">dannym_: ah, right</span></div><div class="line" id="101902"><span class="nick" style="color:#6b8072"><a href="#101902" label="[10:19:02]">&lt;janneke&gt;</a></span><span class="message">dannym_: sadly, i found that the 32bit gcc-built tinycc runs on the banana, but not under qemu-binfmt</span></div><div class="line" id="101925"><span class="nick" style="color:#2e2a4a"><a href="#101925" label="[10:19:25]">&lt;dannym_&gt;</a></span><span class="message">janneke: I hate those qemu incompatibilities</span></div><div class="line" id="101939"><span class="nick" style="color:#2e2a4a"><a href="#101939" label="[10:19:39]">&lt;dannym_&gt;</a></span><span class="message">janneke: I thought I had avoided all of those by now :P</span></div><div class="line" id="101945"><span class="nick" style="color:#6b8072"><a href="#101945" label="[10:19:45]">&lt;janneke&gt;</a></span><span class="message">also, the qemu-binformat-built executable does not run on banana (i haven't tried to bisect object files or anyting -- there /are/ differences)</span></div><div class="line" id="102105"><span class="nick" style="color:#2e2a4a"><a href="#102105" label="[10:21:05]">&lt;dannym_&gt;</a></span><span class="message">janneke: I sometimes abuse qemu-internal debugging feature for finding the reason: -d nochain,in_asm,cpu</span></div><div class="line" id="102116"><span class="nick" style="color:#2e2a4a"><a href="#102116" label="[10:21:16]">&lt;dannym_&gt;</a></span><span class="message">janneke: It will print the assembly as it is JIT compiling it</span></div><div class="line" id="102144"><span class="nick" style="color:#2e2a4a"><a href="#102144" label="[10:21:44]">&lt;dannym_&gt;</a></span><span class="message">janneke: It's not perfect because if it already had the block (in a loop etc) it won't print it again because it already JIT-compiled it (duh)</span></div><div class="line" id="102156"><span class="nick" style="color:#2e2a4a"><a href="#102156" label="[10:21:56]">&lt;dannym_&gt;</a></span><span class="message">janneke: Or just gdb on banana, might be easier :)</span></div><div class="line" id="102315"><span class="nick" style="color:#2e2a4a"><a href="#102315" label="[10:23:15]">&lt;dannym_&gt;</a></span><span class="message">I can also have a look on it of course :)</span></div><div class="line" id="104123"><span class="nick" style="color:#6b8072"><a href="#104123" label="[10:41:23]">&lt;janneke&gt;</a></span><span class="message">dannym_: OK -- i'm trying to let most ARM work to you ;)</span></div><div class="line" id="104155"><span class="nick" style="color:#6b8072"><a href="#104155" label="[10:41:55]">&lt;janneke&gt;</a></span><span class="message">but i like to stay involved and esp. help with non-arm stuff &amp; bugs</span></div><div class="line" id="104524"><span class="nick" style="color:#2e2a4a"><a href="#104524" label="[10:45:24]">&lt;dannym_&gt;</a></span><span class="message">janneke: OK :)</span></div><div class="line" id="104846"><span class="nick" style="color:#2e2a4a"><a href="#104846" label="[10:48:46]">&lt;dannym_&gt;</a></span><span class="message">janneke: Is the tinycc you are working on <a rel="nofollow" href="https://gitlab.com/janneke/tinycc.git">https://gitlab.com/janneke/tinycc.git</a>  branch mes-0.23 ?</span></div><div class="line" id="104953"><span class="nick" style="color:#6b8072"><a href="#104953" label="[10:49:53]">&lt;janneke&gt;</a></span><span class="message">dannym_: yes</span></div><div class="line" id="105501"><span class="nick" style="color:#6b8072"><a href="#105501" label="[10:55:01]">&lt;janneke&gt;</a></span><span class="message">dannym_: i have a local diff adding -lmescc that i'm not happy with/uncertain about =&gt; <a rel="nofollow" href="https://paste.debian.net/1161109">https://paste.debian.net/1161109</a> </span></div><div class="line" id="105527"><span class="nick" style="color:#6b8072"><a href="#105527" label="[10:55:27]">&lt;janneke&gt;</a></span><span class="message">but for the rest it should build using &quot;./doit&quot;</span></div><div class="line" id="110717"><span class="nick" style="color:#2e2a4a"><a href="#110717" label="[11:07:17]">&lt;dannym_&gt;</a></span><span class="message">janneke: I'm disentangling libc and libmescc, changing where the syscall implementation a tiny bit again, on mes-wip</span></div><div class="line" id="110735"><span class="nick" style="color:#2e2a4a"><a href="#110735" label="[11:07:35]">&lt;dannym_&gt;</a></span><span class="message">janneke: After that, it should be possible to use mes-built libc without mescc.a</span></div><div class="line" id="111425"><span class="nick" style="color:#6b8072"><a href="#111425" label="[11:14:25]">&lt;janneke&gt;</a></span><span class="message">dannym_: yeah, such incremental insight is mainly why i have come to only push to wip-* commits master after the guix bootstrap succeeded again ;-)</span></div><div class="line" id="111508"><span class="nick" style="color:#2e2a4a"><a href="#111508" label="[11:15:08]">&lt;dannym_&gt;</a></span><span class="message">janneke: I see :)</span></div><div class="line" id="111533"><span class="nick" style="color:#2e2a4a"><a href="#111533" label="[11:15:33]">&lt;dannym_&gt;</a></span><span class="message">janneke: Pushed that to mes' wip on savannah as commit d86aa5c5891ea146339174068e027a7ab1c08a48</span></div><div class="line" id="111815"><span class="nick" style="color:#80b1d3"><a href="#111815" label="[11:18:15]">*</a></span><span class="message">janneke looks</span></div><div class="line" id="113322"><span class="nick" style="color:#6b8072"><a href="#113322" label="[11:33:22]">&lt;janneke&gt;</a></span><span class="message">dannym_: whoa yea -- i didn't mean that as criticizm; i'm merely sympathizing with how difficult it can be to oversee such changes</span></div><div class="line" id="113348"><span class="nick" style="color:#6b8072"><a href="#113348" label="[11:33:48]">&lt;janneke&gt;</a></span><span class="message">dannym_: i made many of such changes that seemed like a good idea, esp. &quot;simple&quot; once in include headers</span></div><div class="line" id="113503"><span class="nick" style="color:#6b8072"><a href="#113503" label="[11:35:03]">&lt;janneke&gt;</a></span><span class="message">i dread the &quot;extern&quot; change that we may need to make for gcc 10 to avoid multiple definition errors</span></div><div class="line" id="120853"><span class="nick" style="color:#2e2a4a"><a href="#120853" label="[12:08:53]">&lt;dannym_&gt;</a></span><span class="message">janneke: Yeah I understand :)</span></div><div class="line" id="174349"><span class="nick">***</span><span class="message notice">terpri__ is now known as terpri</span></div><br /></div></body></html>

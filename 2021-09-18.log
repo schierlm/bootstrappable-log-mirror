@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-09-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001405"><span class="nick" style="color:#389600"><a href="#001405" label="[00:14:05]">&lt;oriansj&gt;</a></span><span class="message">stikonas: indeed; less so than before but still a good bit because there are just not enough registers in x86</span></div><div class="line" id="003258"><span class="nick" style="color:#8dd3c7"><a href="#003258" label="[00:32:58]">&lt;stikonas&gt;</a></span><span class="message">well, should be easier with amd64</span></div><div class="line" id="003305"><span class="nick" style="color:#8dd3c7"><a href="#003305" label="[00:33:05]">&lt;stikonas&gt;</a></span><span class="message">it has more registers if I remember correctly</span></div><div class="line" id="003307"><span class="nick" style="color:#8dd3c7"><a href="#003307" label="[00:33:07]">&lt;stikonas&gt;</a></span><span class="message">16?</span></div><div class="line" id="003556"><span class="nick" style="color:#8dd3c7"><a href="#003556" label="[00:35:56]">&lt;stikonas&gt;</a></span><span class="message">for risc-v I'm actually struggling to use them all...</span></div><div class="line" id="003608"><span class="nick" style="color:#8dd3c7"><a href="#003608" label="[00:36:08]">&lt;stikonas&gt;</a></span><span class="message">that's why I use some of the registers as global variables</span></div><div class="line" id="003639"><span class="nick" style="color:#8dd3c7"><a href="#003639" label="[00:36:39]">&lt;stikonas&gt;</a></span><span class="message">on risc-v loading it from memory requires quite a few instructions... AUIPC followed by ADDI to get address of label and then LD</span></div><div class="line" id="004729"><span class="nick" style="color:#6b8072"><a href="#004729" label="[00:47:29]">&lt;xentrac&gt;</a></span><span class="message">you do, yes</span></div><div class="line" id="005339"><span class="nick" style="color:#6b8072"><a href="#005339" label="[00:53:39]">&lt;xentrac&gt;</a></span><span class="message">Berkeley RISC-I and -II and SPARC did this nifty register window thing where most of your registers are mapped into a processor-internal circular buffer</span></div><div class="line" id="005448"><span class="nick" style="color:#6b8072"><a href="#005448" label="[00:54:48]">&lt;xentrac&gt;</a></span><span class="message">on SPARC you have 8 &quot;global&quot; registers which act like normal registers, 8 &quot;out&quot; registers, 8 &quot;in&quot; registers which are your caller's &quot;out&quot; registers, and 8 &quot;local&quot; registers which aren't shared with callers or callees</span></div><div class="line" id="005540"><span class="nick" style="color:#6b8072"><a href="#005540" label="[00:55:40]">&lt;xentrac&gt;</a></span><span class="message">if the circular buffer fills up, a software fault handler copies a windowful of registers to RAM</span></div><div class="line" id="005709"><span class="nick" style="color:#6b8072"><a href="#005709" label="[00:57:09]">&lt;xentrac&gt;</a></span><span class="message">pretty nifty idea: in the usual case doing a subroutine call and allocating a stack frame is just a single cycle, and deallocating it and returning is another single cycle</span></div><div class="line" id="005823"><span class="nick" style="color:#6b8072"><a href="#005823" label="[00:58:23]">&lt;xentrac&gt;</a></span><span class="message">it imposed similar overhead on loading stuff from memory, though instead of AUIPC you would use SETHI, which set the high 16 bits of a register (so it wasn't PIC by default)</span></div><div class="line" id="005905"><span class="nick" style="color:#6b8072"><a href="#005905" label="[00:59:05]">&lt;xentrac&gt;</a></span><span class="message">RISC-V abandoned the Berkeley RISC register window mechanism in favor of a more MIPS-like approach</span></div><div class="line" id="012023"><span class="nick" style="color:#8dd3c7"><a href="#012023" label="[01:20:23]">&lt;stikonas&gt;</a></span><span class="message">there is definitely more than 2h of work in cc_* after tokenization is woring</span></div><div class="line" id="012025"><span class="nick" style="color:#8dd3c7"><a href="#012025" label="[01:20:25]">&lt;stikonas&gt;</a></span><span class="message">working</span></div><div class="line" id="012122"><span class="nick" style="color:#8dd3c7"><a href="#012122" label="[01:21:22]">&lt;stikonas&gt;</a></span><span class="message">might finish loops today but still need to do conditionals, local variables and expressions (which is the biggest part out of those)</span></div><div class="line" id="020301"><span class="nick" style="color:#389600"><a href="#020301" label="[02:03:01]">&lt;oriansj&gt;</a></span><span class="message">well register windows don't present much advantage over pushing onto an L1 page and honestly the fixed register behavior of SPARC and the easier Berkeley RISC chips wasn't as flexiable as AMD's 29K series</span></div><div class="line" id="021454"><span class="nick" style="color:#389600"><a href="#021454" label="[02:14:54]">&lt;oriansj&gt;</a></span><span class="message">stikonas: really? it just calling match with strings and calling emit with strings for everything but local and argument offset calculations. kinda tedious but copy paste should make quick work of it.</span></div><div class="line" id="021518"><span class="nick" style="color:#8dd3c7"><a href="#021518" label="[02:15:18]">&lt;stikonas&gt;</a></span><span class="message">yeah, copy paste does help</span></div><div class="line" id="021531"><span class="nick" style="color:#8dd3c7"><a href="#021531" label="[02:15:31]">&lt;stikonas&gt;</a></span><span class="message">late evening doesn't help though</span></div><div class="line" id="021552"><span class="nick" style="color:#8dd3c7"><a href="#021552" label="[02:15:52]">&lt;stikonas&gt;</a></span><span class="message">it will be done this weekend anyway</span></div><div class="line" id="021614"><span class="nick" style="color:#8dd3c7"><a href="#021614" label="[02:16:14]">&lt;stikonas&gt;</a></span><span class="message">so far things seem to be working...</span></div><div class="line" id="021621"><span class="nick" style="color:#8dd3c7"><a href="#021621" label="[02:16:21]">&lt;stikonas&gt;</a></span><span class="message">that I implemented</span></div><div class="line" id="021707"><span class="nick" style="color:#389600"><a href="#021707" label="[02:17:07]">&lt;oriansj&gt;</a></span><span class="message">fair exhustion can easily make this much much harder.</span></div><div class="line" id="021854"><span class="nick" style="color:#389600"><a href="#021854" label="[02:18:54]">&lt;oriansj&gt;</a></span><span class="message">also if you haven't worked on the C version of cc_* yet, it is easy to miss the easier path of implementation</span></div><div class="line" id="022122"><span class="nick" style="color:#8dd3c7"><a href="#022122" label="[02:21:22]">&lt;stikonas&gt;</a></span><span class="message">indeed, I didn't work on C version. And I don't even have GAS version, it's straight M1. But at least implementation order seems to be working well for me</span></div><div class="line" id="022144"><span class="nick" style="color:#8dd3c7"><a href="#022144" label="[02:21:44]">&lt;stikonas&gt;</a></span><span class="message">I am able to test most of the stuff immediately</span></div><div class="line" id="023454"><span class="nick" style="color:#8dd3c7"><a href="#023454" label="[02:34:54]">&lt;stikonas&gt;</a></span><span class="message">reverse instruction order also mixes up some statement strings...</span></div><div class="line" id="023503"><span class="nick" style="color:#8dd3c7"><a href="#023503" label="[02:35:03]">&lt;stikonas&gt;</a></span><span class="message">but it's only minor annoyance...</span></div><div class="line" id="023610"><span class="nick" style="color:#8dd3c7"><a href="#023610" label="[02:36:10]">&lt;stikonas&gt;</a></span><span class="message">e.g. &quot;JUMP %FOR_&quot; followed by &quot;:FOR_THEN_&quot; becomes &quot;$FOR_&quot; followed by &quot;JAL\n:FOR_THEN_&quot;</span></div><div class="line" id="024616"><span class="nick" style="color:#389600"><a href="#024616" label="[02:46:16]">&lt;oriansj&gt;</a></span><span class="message">yep, the most annoying ordering details to work out in M1 output for cc_* and M2-Planet</span></div><div class="line" id="024650"><span class="nick" style="color:#389600"><a href="#024650" label="[02:46:50]">&lt;oriansj&gt;</a></span><span class="message">best to have those sorted and tested to produce working output before trying to implement in assembly</span></div><div class="line" id="024721"><span class="nick" style="color:#389600"><a href="#024721" label="[02:47:21]">&lt;oriansj&gt;</a></span><span class="message">as changing the order in assembly is much more messy than doing it in C</span></div><div class="line" id="031950"><span class="nick" style="color:#8dd3c7"><a href="#031950" label="[03:19:50]">&lt;stikonas&gt;</a></span><span class="message">ok, conditionals are also working</span></div><div class="line" id="031954"><span class="nick" style="color:#8dd3c7"><a href="#031954" label="[03:19:54]">&lt;stikonas&gt;</a></span><span class="message">probably enough for today</span></div><div class="line" id="071921"><span class="nick" style="color:#6b8072"><a href="#071921" label="[07:19:21]">&lt;xentrac&gt;</a></span><span class="message">true that SPARC and Berkeley RISC weren't as *flexible* as the Am29K</span></div><div class="line" id="071931"><span class="nick" style="color:#6b8072"><a href="#071931" label="[07:19:31]">&lt;xentrac&gt;</a></span><span class="message">but they were a lot *faster* and *smaller*</span></div><div class="line" id="133629"><span class="nick" style="color:#389600"><a href="#133629" label="[13:36:29]">&lt;oriansj&gt;</a></span><span class="message">xentrac: a lot &quot;faster&quot; and &quot;smaller&quot; is hard to believe when compared against 3clock cycles and a 32bit instruction.</span></div><div class="line" id="134336"><span class="nick" style="color:#389600"><a href="#134336" label="[13:43:36]">&lt;oriansj&gt;</a></span><span class="message">although delayed branches were such a bad idea in retrospect</span></div><div class="line" id="134911"><span class="nick" style="color:#389600"><a href="#134911" label="[13:49:11]">&lt;oriansj&gt;</a></span><span class="message">also the 128 local + 64 global registers were a bit excessive even for optimizing compilers today.</span></div><div class="line" id="135531"><span class="nick" style="color:#389600"><a href="#135531" label="[13:55:31]">&lt;oriansj&gt;</a></span><span class="message">minor correction 3 clock cycles and 3 32bit instructions. as even the documentation says &quot;The&quot;</span></div><div class="line" id="135550"><span class="nick" style="color:#389600"><a href="#135550" label="[13:55:50]">&lt;oriansj&gt;</a></span><span class="message">function-call overhead in the 29K family consists of a small number of single-cycle instructions;</span></div><div class="line" id="142854"><span class="nick" style="color:#8dd3c7"><a href="#142854" label="[14:28:54]">&lt;stikonas&gt;</a></span><span class="message">oriansj: is there any particular reason why M2-Planet and cc_* prototypes have different constants in collect_local</span></div><div class="line" id="142936"><span class="nick" style="color:#8dd3c7"><a href="#142936" label="[14:29:36]">&lt;stikonas&gt;</a></span><span class="message">e.g. cc_aarch64 has a-&gt;depth = 64 in &quot;main&quot; section but &quot;32&quot; in M2-Planet</span></div><div class="line" id="142948"><span class="nick" style="color:#8dd3c7"><a href="#142948" label="[14:29:48]">&lt;stikonas&gt;</a></span><span class="message">I guess M2-Planet numbers are the correct ones?</span></div><div class="line" id="143547"><span class="nick" style="color:#389600"><a href="#143547" label="[14:35:47]">&lt;oriansj&gt;</a></span><span class="message">actually they are both correct because cc_aarch64 uses the stack but M2-Planet uses something more efficient.</span></div><div class="line" id="143607"><span class="nick" style="color:#8dd3c7"><a href="#143607" label="[14:36:07]">&lt;stikonas&gt;</a></span><span class="message">oh I see</span></div><div class="line" id="143630"><span class="nick" style="color:#8dd3c7"><a href="#143630" label="[14:36:30]">&lt;stikonas&gt;</a></span><span class="message">oh ok, so I need those larger numbers...</span></div><div class="line" id="143645"><span class="nick" style="color:#389600"><a href="#143645" label="[14:36:45]">&lt;oriansj&gt;</a></span><span class="message">all pushes on the AArch64 stack is 128bits but we are only pushing 64bit registers, so we just use a different register and instruction sequence to get a more efficient result.</span></div><div class="line" id="143649"><span class="nick" style="color:#8dd3c7"><a href="#143649" label="[14:36:49]">&lt;stikonas&gt;</a></span><span class="message">well, need to figure out what's correct for riscv but probably similar to aarch64</span></div><div class="line" id="143733"><span class="nick" style="color:#389600"><a href="#143733" label="[14:37:33]">&lt;oriansj&gt;</a></span><span class="message">So you just need to know what calling convention you wish to implement</span></div><div class="line" id="143853"><span class="nick" style="color:#8dd3c7"><a href="#143853" label="[14:38:53]">&lt;stikonas&gt;</a></span><span class="message">well, I guess I'll use stack too in cc_riscv64</span></div><div class="line" id="143902"><span class="nick" style="color:#8dd3c7"><a href="#143902" label="[14:39:02]">&lt;stikonas&gt;</a></span><span class="message">and leave more efficient one for M2-Planet</span></div><div class="line" id="143909"><span class="nick" style="color:#8dd3c7"><a href="#143909" label="[14:39:09]">&lt;stikonas&gt;</a></span><span class="message">stack should be simpler</span></div><div class="line" id="144017"><span class="nick" style="color:#389600"><a href="#144017" label="[14:40:17]">&lt;oriansj&gt;</a></span><span class="message">stack is simplest for a C state machine but passing arguments in registers is simplest when writing assembly by hand.</span></div><div class="line" id="144121"><span class="nick" style="color:#389600"><a href="#144121" label="[14:41:21]">&lt;oriansj&gt;</a></span><span class="message">also you need to be careful in the preservation order so that something like foo(bar(), 1); doesn't break your code</span></div><div class="line" id="144157"><span class="nick" style="color:#389600"><a href="#144157" label="[14:41:57]">&lt;oriansj&gt;</a></span><span class="message">look carefully at the C versions because they'll help you avoid it.</span></div><div class="line" id="144459"><span class="nick" style="color:#8dd3c7"><a href="#144459" label="[14:44:59]">&lt;stikonas&gt;</a></span><span class="message">yeah, I'm always looking at C versions</span></div><div class="line" id="144511"><span class="nick" style="color:#8dd3c7"><a href="#144511" label="[14:45:11]">&lt;stikonas&gt;</a></span><span class="message">both cc_* and a bit at M2-Planet</span></div><div class="line" id="144625"><span class="nick" style="color:#389600"><a href="#144625" label="[14:46:25]">&lt;oriansj&gt;</a></span><span class="message">the cc_* is much closer to what you'll be doing as wrongish but working is good enough to get a M2-Planet that can self-host</span></div><div class="line" id="144646"><span class="nick" style="color:#8dd3c7"><a href="#144646" label="[14:46:46]">&lt;stikonas&gt;</a></span><span class="message">yeah, that's my thinking too...</span></div><div class="line" id="144651"><span class="nick" style="color:#8dd3c7"><a href="#144651" label="[14:46:51]">&lt;stikonas&gt;</a></span><span class="message">just get bare minimum that is simplest</span></div><div class="line" id="144706"><span class="nick" style="color:#8dd3c7"><a href="#144706" label="[14:47:06]">&lt;stikonas&gt;</a></span><span class="message">since cc_* only has to be able to build one single program</span></div><div class="line" id="144714"><span class="nick" style="color:#389600"><a href="#144714" label="[14:47:14]">&lt;oriansj&gt;</a></span><span class="message">the big differences are about dealing with correct output behavior which need to be subtly checked.</span></div><div class="line" id="144922"><span class="nick" style="color:#389600"><a href="#144922" label="[14:49:22]">&lt;oriansj&gt;</a></span><span class="message">structs and the matching of strings are the only things that absolutely have to be right in cc_*</span></div><div class="line" id="145435"><span class="nick" style="color:#389600"><a href="#145435" label="[14:54:35]">&lt;oriansj&gt;</a></span><span class="message">being wasteful in the call stack is fine</span></div><div class="line" id="150256"><span class="nick" style="color:#8dd3c7"><a href="#150256" label="[15:02:56]">&lt;stikonas&gt;</a></span><span class="message">crashing somewhere is not fine though... Time to debug and find where I messed up...</span></div><div class="line" id="160223"><span class="nick" style="color:#8dd3c7"><a href="#160223" label="[16:02:23]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/blob/master/cc_core.c#L830">https://github.com/oriansj/M2-Planet/blob/master/cc_core.c#L830</a>  should be &amp;postfix-expr  ?</span></div><div class="line" id="160245"><span class="nick" style="color:#8dd3c7"><a href="#160245" label="[16:02:45]">&lt;stikonas&gt;</a></span><span class="message">instead of postfix-expr</span></div><div class="line" id="160251"><span class="nick" style="color:#8dd3c7"><a href="#160251" label="[16:02:51]">&lt;stikonas&gt;</a></span><span class="message">or am I misreading the code</span></div><div class="line" id="160316"><span class="nick" style="color:#8dd3c7"><a href="#160316" label="[16:03:16]">&lt;stikonas&gt;</a></span><span class="message">(if yes, I can fix it later myself)</span></div><div class="line" id="173104"><span class="nick" style="color:#389600"><a href="#173104" label="[17:31:04]">&lt;oriansj&gt;</a></span><span class="message">well line 830 is a comment</span></div><div class="line" id="173634"><span class="nick" style="color:#389600"><a href="#173634" label="[17:36:34]">&lt;oriansj&gt;</a></span><span class="message">now if you are referring to common_recursion recieving a function pointer</span></div><div class="line" id="173807"><span class="nick" style="color:#389600"><a href="#173807" label="[17:38:07]">&lt;oriansj&gt;</a></span><span class="message">we are just passing the function to be directly called. So passing the &amp;label is exactly what is needed for the f(); call inside of it.</span></div><div class="line" id="192153"><span class="nick" style="color:#8dd3c7"><a href="#192153" label="[19:21:53]">&lt;stikonas&gt;</a></span><span class="message">yes, I meant the comment</span></div><div class="line" id="192258"><span class="nick" style="color:#8dd3c7"><a href="#192258" label="[19:22:58]">&lt;stikonas&gt;</a></span><span class="message">well, it looked to me like those are handled in primary_expr function here: \<a rel="nofollow" href="https://github.com/oriansj/M2-Planet/blob/master/cc_core.c#L1082">https://github.com/oriansj/M2-Planet/blob/master/cc_core.c#L1082</a> </span></div><div class="line" id="192313"><span class="nick" style="color:#8dd3c7"><a href="#192313" label="[19:23:13]">&lt;stikonas&gt;</a></span><span class="message">which handles &amp; sizeof ! and ~</span></div><div class="line" id="193319"><span class="nick" style="color:#389600"><a href="#193319" label="[19:33:19]">&lt;oriansj&gt;</a></span><span class="message">well the comments unfortunately are out of date and in some cases straight wrong. As they were originally to help me work out how to build the state machine to match the C precedence order</span></div><div class="line" id="193823"><span class="nick" style="color:#8dd3c7"><a href="#193823" label="[19:38:23]">&lt;stikonas&gt;</a></span><span class="message">ok, I'll update them a bit...</span></div><div class="line" id="193839"><span class="nick" style="color:#8dd3c7"><a href="#193839" label="[19:38:39]">&lt;stikonas&gt;</a></span><span class="message">I was just trying to see if I am misreading somerthing or not</span></div><div class="line" id="194146"><span class="nick" style="color:#389600"><a href="#194146" label="[19:41:46]">&lt;oriansj&gt;</a></span><span class="message">basically the precedence is embedded in the call order.</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-04-05.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005456"><span class="nick" style="color:#389600"><a href="#005456" label="[00:54:56]">&lt;aggi&gt;</a></span><span class="message">well, compiled tccboot from source, but don't know how to assemble a syslinux-tccboot.iso for it to place initrd.img at a specific address</span></div><div class="line" id="010641"><span class="nick" style="color:#389600"><a href="#010641" label="[01:06:41]">&lt;aggi&gt;</a></span><span class="message">i see, syslinux already does load the romfs.gz into memory some place... ok, but the self-compile tccboot-loader doesn't spawn</span></div><div class="line" id="012401"><span class="nick" style="color:#389600"><a href="#012401" label="[01:24:01]">&lt;aggi&gt;</a></span><span class="message">syslinux Loading tccboot Loading example.roms.gz ... and then nothing ... i'll see</span></div><div class="line" id="020238"><span class="nick" style="color:#389600"><a href="#020238" label="[02:02:38]">&lt;aggi&gt;</a></span><span class="message">allright, i can rule out newer syslinux-version isn't at fault; tccboot.orig and initrd.img.orig from Bellard do launch with a re-created iso</span></div><div class="line" id="020348"><span class="nick" style="color:#389600"><a href="#020348" label="[02:03:48]">&lt;aggi&gt;</a></span><span class="message">however, the re-compiled tccboot loader doesn't emit anything at all, weird... only used some newer i686-gcc-4.7/binutils-ld</span></div><div class="line" id="020350"><span class="nick" style="color:#389600"><a href="#020350" label="[02:03:50]">&lt;aggi&gt;</a></span><span class="message">next try</span></div><div class="line" id="023023"><span class="nick" style="color:#389600"><a href="#023023" label="[02:30:23]">&lt;aggi&gt;</a></span><span class="message">nope, no luck with re-compiling tccboot-loader from source; it just doesn't executed once loaded by syslinux, while the original loader does</span></div><div class="line" id="023059"><span class="nick" style="color:#389600"><a href="#023059" label="[02:30:59]">&lt;aggi&gt;</a></span><span class="message">the only relevant difference seems to be i686-tcc4.7/binutils-ld versions used; i am almost certain i have not made any other mistake with this</span></div><div class="line" id="023110"><span class="nick" style="color:#389600"><a href="#023110" label="[02:31:10]">&lt;aggi&gt;</a></span><span class="message">i686-gcc4.7</span></div><div class="line" id="210731"><span class="nick" style="color:#389600"><a href="#210731" label="[21:07:31]">&lt;aggi&gt;</a></span><span class="message">tried something else: copied the entire source tree of /usr/src/linux from tccboot.iso (Bellard) into a linux-2.4.26 src tree and git-diffed the entire thing</span></div><div class="line" id="210850"><span class="nick" style="color:#389600"><a href="#210850" label="[21:08:50]">&lt;aggi&gt;</a></span><span class="message">and found, the FASTCALL attribute troubles recent tcc-compiler version; and there was two variants to test (adding this attribute where it was missing, or removing it where it caused incompatible function definitions complained about)</span></div><div class="line" id="210939"><span class="nick" style="color:#389600"><a href="#210939" label="[21:09:39]">&lt;aggi&gt;</a></span><span class="message">anyhow, it seems some of the crashes are/were related to this, finally now the kernel crashes with page request at 0xf8000000.. no clue why</span></div><div class="line" id="211000"><span class="nick" style="color:#389600"><a href="#211000" label="[21:10:00]">&lt;aggi&gt;</a></span><span class="message">i'll test another tcc-compiler-version again</span></div><div class="line" id="211019"><span class="nick" style="color:#389600"><a href="#211019" label="[21:10:19]">&lt;aggi&gt;</a></span><span class="message">and then, i see no test-case remaining to verify</span></div><div class="line" id="211436"><span class="nick" style="color:#389600"><a href="#211436" label="[21:14:36]">&lt;aggi&gt;</a></span><span class="message">the confusing situation is, the exact same sources do compile with tcc-0.9.21 on tccboot.iso, although i couldn't reproduce this setup with a self-compiled tccboot-loader (as mentioned yesterday)</span></div><div class="line" id="211527"><span class="nick" style="color:#389600"><a href="#211527" label="[21:15:27]">&lt;aggi&gt;</a></span><span class="message">which is the root-cause, i got no baseline identified, of a known-working state matching a source/compiler setup</span></div><div class="line" id="211533"><span class="nick" style="color:#389600"><a href="#211533" label="[21:15:33]">&lt;aggi&gt;</a></span><span class="message">to diff/bisect against</span></div><div class="line" id="235044"><span class="nick" style="color:#8dd3c7"><a href="#235044" label="[23:50:44]">&lt;oriansj&gt;</a></span><span class="message">aggi: is there a possiblity that TCC Boot never actually was self-hosting?</span></div><div class="line" id="235350"><span class="nick" style="color:#389600"><a href="#235350" label="[23:53:50]">&lt;aggi&gt;</a></span><span class="message">oriansj: what are you referring to with tccboot? tccboot-loader (for kernel JIT) or tccboot-kernel (for kernel AoT)?</span></div><div class="line" id="235504"><span class="nick" style="color:#389600"><a href="#235504" label="[23:55:04]">&lt;aggi&gt;</a></span><span class="message">to answer one question: the original tccboot-loader (tccboot-0.1) itself was compiled/linked with GCC; which for the sake of simplicity i too did with it</span></div><div class="line" id="235556"><span class="nick" style="color:#389600"><a href="#235556" label="[23:55:56]">&lt;aggi&gt;</a></span><span class="message">although an tccboot-loader compiled from source was emitted, it failed, as reported yesterday, hence a cannot reproduce the JIT kernel compilation 100% from source</span></div><div class="line" id="235732"><span class="nick" style="color:#389600"><a href="#235732" label="[23:57:32]">&lt;aggi&gt;</a></span><span class="message">there is something else which i don't understand - one test case of several dozen in combination - compiling with tcc and linking with gcc separately too crashes; although gcc-linking can support vmlinux.lds linker scripts</span></div><div class="line" id="235924"><span class="nick" style="color:#389600"><a href="#235924" label="[23:59:24]">&lt;aggi&gt;</a></span><span class="message">and with another test-case, assuming tcc-0.9.21 is identical to the sources i compiled for it, the tccboot.iso JIT kernel compilation suceeds, and the _same_ sources compiled AoT causes kernel crashes, which i too see related to address-mappings/memory-layout</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-05-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="024521"><span class="nick" style="color:#8dd3c7"><a href="#024521" label="[02:45:21]">&lt;vagrantc&gt;</a></span><span class="message">hrm. mescc-tools 1.0.1 fails to build on debian ... some issue with the install target?</span></div><div class="line" id="024550"><span class="nick" style="color:#8dd3c7"><a href="#024550" label="[02:45:50]">&lt;vagrantc&gt;</a></span><span class="message">cp bin/M1 bin/hex2 bin/blood-elf kaem bin/get_machine /&lt;&lt;PKGBUILDDIR&gt;&gt;/debian/mescc-tools/usr/bin</span></div><div class="line" id="024553"><span class="nick" style="color:#8dd3c7"><a href="#024553" label="[02:45:53]">&lt;vagrantc&gt;</a></span><span class="message">cp: -r not specified; omitting directory 'kaem'</span></div><div class="line" id="025223"><span class="nick" style="color:#2e2a4a"><a href="#025223" label="[02:52:23]">*</a></span><span class="message">vagrantc tries a quick patch</span></div><div class="line" id="030206"><span class="nick" style="color:#8dd3c7"><a href="#030206" label="[03:02:06]">&lt;vagrantc&gt;</a></span><span class="message">seems kaem switch to a directory between 0.7.0 and 1.0.1 ... which might be confusing the make</span></div><div class="line" id="033206"><span class="nick" style="color:#8dd3c7"><a href="#033206" label="[03:32:06]">&lt;vagrantc&gt;</a></span><span class="message">i've worked around it in the debian packaging for now by not &quot;make install&quot; ... but i wonder how that even worked for anyone.</span></div><div class="line" id="033527"><span class="nick" style="color:#8dd3c7"><a href="#033527" label="[03:35:27]">&lt;vagrantc&gt;</a></span><span class="message">oh, i see that this was fixed upstream by renaming the &quot;kaem&quot; directory to &quot;Kaem&quot; ... heh.</span></div><div class="line" id="033542"><span class="nick" style="color:#8dd3c7"><a href="#033542" label="[03:35:42]">&lt;vagrantc&gt;</a></span><span class="message">along with a bunch of other commits regarding guix...</span></div><div class="line" id="034014"><span class="nick" style="color:#8dd3c7"><a href="#034014" label="[03:40:14]">&lt;vagrantc&gt;</a></span><span class="message">could also move everything into &quot;src&quot; or something like that...</span></div><div class="line" id="034306"><span class="nick" style="color:#2e2a4a"><a href="#034306" label="[03:43:06]">*</a></span><span class="message">vagrantc waves for now</span></div><div class="line" id="123925"><span class="nick" style="color:#6b8072"><a href="#123925" label="[12:39:25]">&lt;OriansJ&gt;</a></span><span class="message">vagrantc: thank you for the notice</span></div><div class="line" id="155042"><span class="nick" style="color:#80b1d3"><a href="#155042" label="[15:50:42]">&lt;gf&gt;</a></span><span class="message">rekado, I noticed an error while following classpath-devel</span></div><div class="line" id="155127"><span class="nick" style="color:#80b1d3"><a href="#155127" label="[15:51:27]">&lt;gf&gt;</a></span><span class="message">The command passes to configure --with-javac= returns</span></div><div class="line" id="155130"><span class="nick" style="color:#80b1d3"><a href="#155130" label="[15:51:30]">&lt;gf&gt;</a></span><span class="message">configure: WARNING: unrecognized options: --with-javac</span></div><div class="line" id="155137"><span class="nick" style="color:#80b1d3"><a href="#155137" label="[15:51:37]">&lt;gf&gt;</a></span><span class="message">is this intended ?</span></div><div class="line" id="155551"><span class="nick" style="color:#80b1d3"><a href="#155551" label="[15:55:51]">&lt;gf&gt;</a></span><span class="message">is this supposed to be JAVAC=</span></div><div class="line" id="171306"><span class="nick" style="color:#6d2462"><a href="#171306" label="[17:13:06]">&lt;rekado_&gt;</a></span><span class="message">gf: oh, you’re right</span></div><div class="line" id="171310"><span class="nick" style="color:#6d2462"><a href="#171310" label="[17:13:10]">&lt;rekado_&gt;</a></span><span class="message">I’m seeing it here: <a rel="nofollow" href="https://ci.guix.gnu.org/log/2j4qaxygsp93h24wzhwak0c1x28p668a-classpath-0.99-1.e7c13ee0c">https://ci.guix.gnu.org/log/2j4qaxygsp93h24wzhwak0c1x28p668a-classpath-0.99-1.e7c13ee0c</a> </span></div><div class="line" id="171352"><span class="nick" style="color:#6d2462"><a href="#171352" label="[17:13:52]">&lt;rekado_&gt;</a></span><span class="message">in Guix it doesn’t matter because the only javac we have at this point is the bootstrap javac</span></div><div class="line" id="171409"><span class="nick" style="color:#6d2462"><a href="#171409" label="[17:14:09]">&lt;rekado_&gt;</a></span><span class="message">but on a system that builds packages without file system virtualization this could be a problem</span></div><div class="line" id="171556"><span class="nick" style="color:#80b1d3"><a href="#171556" label="[17:15:56]">&lt;gf&gt;</a></span><span class="message">OK, nevermind then. and thanks for the other day, got the wrapper script running</span></div><div class="line" id="171624"><span class="nick" style="color:#6d2462"><a href="#171624" label="[17:16:24]">&lt;rekado_&gt;</a></span><span class="message">excellent!</span></div><div class="line" id="171711"><span class="nick" style="color:#6d2462"><a href="#171711" label="[17:17:11]">&lt;rekado_&gt;</a></span><span class="message">on what OS are you trying to reproduce this bootstrap path?</span></div><div class="line" id="171804"><span class="nick" style="color:#80b1d3"><a href="#171804" label="[17:18:04]">&lt;gf&gt;</a></span><span class="message">This work is for Slackware-current (prob, future 15)</span></div><div class="line" id="173919"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="173926"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><div class="line" id="222609"><span class="nick" style="color:#234e69"><a href="#222609" label="[22:26:09]">&lt;stikonas&gt;</a></span><span class="message">gf: you can take a look at my gentoo java bootstrap path too</span></div><div class="line" id="222731"><span class="nick" style="color:#234e69"><a href="#222731" label="[22:27:31]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://git.stikonas.eu/andrius/gentoo-bootstrap">https://git.stikonas.eu/andrius/gentoo-bootstrap</a> </span></div><div class="line" id="222752"><span class="nick">***</span><span class="message notice">reepca` is now known as reepca</span></div><br /></div></body></html>

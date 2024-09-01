@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-05-05.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005143"><span class="nick" style="color:#389600"><a href="#005143" label="[00:51:43]">&lt;muurkha&gt;</a></span><span class="message">right, but even if riscv64 had the same syscall numbers as amd64, or if you had a libc, it wouldn't help much; it wouldn't allow you to run unmodified RV64 machine code on amd64 or vice versa</span></div><div class="line" id="005242"><span class="nick" style="color:#389600"><a href="#005242" label="[00:52:42]">&lt;muurkha&gt;</a></span><span class="message">what allows you to write code and run it on both platforms is writing it in C instead of assembly, then compiling it with C compilers for each platform</span></div><div class="line" id="005401"><span class="nick" style="color:#389600"><a href="#005401" label="[00:54:01]">&lt;muurkha&gt;</a></span><span class="message">libc and syscalls are not really relevant to that, except in the sense that libc is what is responsible for allowing you to call open() or write() instead of writing some inline assembly with a syscall instruction in it</span></div><div class="line" id="011915"><span class="nick" style="color:#8dd3c7"><a href="#011915" label="[01:19:15]">&lt;stikonas[m]&gt;</a></span><span class="message">Very true. Though libc allows to only write platform dependent call once and not in each application</span></div><div class="line" id="012020"><span class="nick" style="color:#389600"><a href="#012020" label="[01:20:20]">&lt;muurkha&gt;</a></span><span class="message">yeah, I guess that's true</span></div><div class="line" id="103130"><span class="nick" style="color:#2e2a4a"><a href="#103130" label="[10:31:30]">&lt;emilytrau[m]&gt;</a></span><span class="message">`Can somebody please explain to me why it's called blood-elf? I've figured out all the other bizzare names (kaem, M2-Planet, MES) but this one still eludes me.`</span></div><div class="line" id="103130"><span class="nick" style="color:#2e2a4a"><a href="#103130" label="[10:31:30]">&lt;emilytrau[m]&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/NixOS/nixpkgs/pull/227914#discussion_r1185772170">https://github.com/NixOS/nixpkgs/pull/227914#discussion_r1185772170</a> </span></div><div class="line" id="104708"><span class="nick" style="color:#6b8072"><a href="#104708" label="[10:47:08]">&lt;janneke&gt;</a></span><span class="message">ACTION always assumed it had something to do with dwarfs</span></div><div class="line" id="104729"><span class="nick" style="color:#80b1d3"><a href="#104729" label="[10:47:29]">&lt;[exa]&gt;</a></span><span class="message">${BLOOD_FLAG} ftw</span></div><div class="line" id="120004"><span class="nick" style="color:#8dd3c7"><a href="#120004" label="[12:00:04]">&lt;stikonas[m]&gt;</a></span><span class="message">emilytrau: are you going to fetch makefiles from master or from fixed commit?</span></div><div class="line" id="120021"><span class="nick" style="color:#2e2a4a"><a href="#120021" label="[12:00:21]">&lt;emilytrau[m]&gt;</a></span><span class="message">fixed commit</span></div><div class="line" id="120037"><span class="nick" style="color:#8dd3c7"><a href="#120037" label="[12:00:37]">&lt;stikonas[m]&gt;</a></span><span class="message">OK I think that's fine then</span></div><div class="line" id="120056"><span class="nick" style="color:#8dd3c7"><a href="#120056" label="[12:00:56]">&lt;stikonas[m]&gt;</a></span><span class="message">If we rework coeeutils, e.g. use gash utils later</span></div><div class="line" id="120109"><span class="nick" style="color:#8dd3c7"><a href="#120109" label="[12:01:09]">&lt;stikonas[m]&gt;</a></span><span class="message">You could still fetch an older commit</span></div><div class="line" id="120128"><span class="nick" style="color:#2e2a4a"><a href="#120128" label="[12:01:28]">&lt;emilytrau[m]&gt;</a></span><span class="message">ya ya ^_^</span></div><div class="line" id="120538"><span class="nick" style="color:#8dd3c7"><a href="#120538" label="[12:05:38]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: are you also fine with merging that coreutils PR?</span></div><div class="line" id="151934"><span class="nick" style="color:#6d2462"><a href="#151934" label="[15:19:34]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: yes, I am ok with that</span></div><div class="line" id="152013"><span class="nick" style="color:#6d2462"><a href="#152013" label="[15:20:13]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: can you once-over the CI thing in case i missed anything obvious?</span></div><div class="line" id="152017"><span class="nick" style="color:#6d2462"><a href="#152017" label="[15:20:17]">&lt;fossy&gt;</a></span><span class="message">ill do gcc 13 this weekedn</span></div><div class="line" id="152055"><span class="nick" style="color:#8dd3c7"><a href="#152055" label="[15:20:55]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: probably too busy until next week...</span></div><div class="line" id="152210"><span class="nick" style="color:#6d2462"><a href="#152210" label="[15:22:10]">&lt;fossy&gt;</a></span><span class="message">no worries :)</span></div><div class="line" id="155636"><span class="nick" style="color:#8dd3c7"><a href="#155636" label="[15:56:36]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: there might be another way to speed up sysc</span></div><div class="line" id="155725"><span class="nick" style="color:#8dd3c7"><a href="#155725" label="[15:57:25]">&lt;stikonas[m]&gt;</a></span><span class="message">CFLAGS=&quot;-O0&quot; might make compilation much faster (almost tcc level fast)</span></div><div class="line" id="155735"><span class="nick" style="color:#8dd3c7"><a href="#155735" label="[15:57:35]">&lt;stikonas[m]&gt;</a></span><span class="message">Though binaries might be slower</span></div><div class="line" id="174331"><span class="nick" style="color:#234e69"><a href="#174331" label="[17:43:31]">&lt;oriansj&gt;</a></span><span class="message">probie: actually that is the very situation which we have builder-hex0 for. And it is in hex0 so it is so tightly connected to the host architecture that libc details don't matter.</span></div><div class="line" id="174700"><span class="nick" style="color:#234e69"><a href="#174700" label="[17:47:00]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well the FORTH code itself might be portable across architectures and even the FORTH object code in some very special cases but the actual bits running on the processors by definition have to be different even for add r1, r2 (which does work on x86, AMD64, armv7l, aarch64, riscv32 and riscv64 if you use an assembler smart enough)</span></div><div class="line" id="175214"><span class="nick" style="color:#234e69"><a href="#175214" label="[17:52:14]">&lt;oriansj&gt;</a></span><span class="message">emilytrau[m]: it is called blood-elf because it kills the dwarf (stub) problem we had. [Because our ouput files needed generated dwarf stubs needed for objdump -d to get function names, which is what blood-elf produces]</span></div><div class="line" id="181524"><span class="nick" style="color:#6c3d55"><a href="#181524" label="[18:15:24]">&lt;aggi&gt;</a></span><span class="message">no, gcc compilation is much slower than tcc, even with -O0</span></div><div class="line" id="183425"><span class="nick" style="color:#6b8072"><a href="#183425" label="[18:34:25]">&lt;janneke&gt;</a></span><span class="message">stikonas[m]: is there a chance that mescc's risc-v code could work with an older release of mescc-tools (for now?)</span></div><div class="line" id="183452"><span class="nick" style="color:#6b8072"><a href="#183452" label="[18:34:52]">&lt;janneke&gt;</a></span><span class="message">or was it a mistake?</span></div><div class="line" id="184117"><span class="nick" style="color:#389600"><a href="#184117" label="[18:41:17]">&lt;muurkha&gt;</a></span><span class="message">emilytrau[m]: also there is a playable race in World of Warcraft called the &quot;Blood Elf&quot;: <a rel="nofollow" href="https://wowpedia.fandom.com/wiki/Blood_elf">https://wowpedia.fandom.com/wiki/Blood_elf</a> </span></div><div class="line" id="184129"><span class="nick" style="color:#8dd3c7"><a href="#184129" label="[18:41:29]">&lt;stikonas[m]&gt;</a></span><span class="message">It might with small modifications</span></div><div class="line" id="184143"><span class="nick" style="color:#8dd3c7"><a href="#184143" label="[18:41:43]">&lt;stikonas[m]&gt;</a></span><span class="message">But 64 bit m2 planet is broken</span></div><div class="line" id="184209"><span class="nick" style="color:#8dd3c7"><a href="#184209" label="[18:42:09]">&lt;stikonas[m]&gt;</a></span><span class="message">So you'll need to mix and match tools and compiler...</span></div><div class="line" id="184826"><span class="nick" style="color:#6b8072"><a href="#184826" label="[18:48:26]">&lt;janneke&gt;</a></span><span class="message">yeah, guess that's too tricksy</span></div><div class="line" id="195329"><span class="nick" style="color:#8dd3c7"><a href="#195329" label="[19:53:29]">&lt;stikonas[m]&gt;</a></span><span class="message">janneke: you can always so 0.25.1 release with riscv later if you want amd64 stuff sooner</span></div><div class="line" id="195346"><span class="nick" style="color:#8dd3c7"><a href="#195346" label="[19:53:46]">&lt;stikonas[m]&gt;</a></span><span class="message">Though we first need new stage0-posix release</span></div><div class="line" id="200454"><span class="nick" style="color:#d9d9d9"><a href="#200454" label="[20:04:54]">&lt;gforce_de1977&gt;</a></span><span class="message">emilytrau[m] - the naming is really funny here: &quot;explanation&quot; is here, but should go ontop - <a rel="nofollow" href="https://github.com/oriansj/mescc-tools/blob/master/blood-elf.c#L567">https://github.com/oriansj/mescc-tools/blob/master/blood-elf.c#L567</a> </span></div><br /></div></body></html>

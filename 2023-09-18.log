@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-09-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000232"><span class="nick" style="color:#389600"><a href="#000232" label="[00:02:32]">&lt;oriansj&gt;</a></span><span class="message">muurkha: you are completely right minus one detail</span></div><div class="line" id="000326"><span class="nick" style="color:#389600"><a href="#000326" label="[00:03:26]">&lt;oriansj&gt;</a></span><span class="message">implementing that logic in hex0 -&gt; M1 would be quite difficult but in C and above we probably could do that reasonably well</span></div><div class="line" id="012115"><span class="nick" style="color:#8dd3c7"><a href="#012115" label="[01:21:15]">&lt;stikonas&gt;</a></span><span class="message">ok, we are getting fairly close to bootstrapping tcc on riscv64 :)</span></div><div class="line" id="012312"><span class="nick" style="color:#8dd3c7"><a href="#012312" label="[01:23:12]">&lt;stikonas&gt;</a></span><span class="message">so we can do stage0-riscv64 -&gt; mes-m2/mescc -&gt; mes/mescc -&gt; mes-tcc (which is already the first version build of tcc with some stuff disabled via ifdef flags) -&gt; boot0-tcc (which is now tcc built with tcc) but boot0-tcc crashes</span></div><div class="line" id="012345"><span class="nick" style="color:#8dd3c7"><a href="#012345" label="[01:23:45]">&lt;stikonas&gt;</a></span><span class="message">s/stage0-riscv64/stage0-posix-riscv64/</span></div><div class="line" id="014724"><span class="nick" style="color:#2e2a4a"><a href="#014724" label="[01:47:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; (Thanks to janneke and ekaitz for the last fix)</span></div><div class="line" id="020549"><span class="nick" style="color:#389600"><a href="#020549" label="[02:05:49]">&lt;oriansj&gt;</a></span><span class="message">it is great seeing the  #guix-risc-v group progress ^_^</span></div><div class="line" id="052128"><span class="nick" style="color:#6b8072"><a href="#052128" label="[05:21:28]">&lt;muurkha&gt;</a></span><span class="message">stikonas: that's awesome!</span></div><div class="line" id="052235"><span class="nick" style="color:#6b8072"><a href="#052235" label="[05:22:35]">&lt;muurkha&gt;</a></span><span class="message">oriansj: yeah, I wonder if a low-level bytecode interpreter might be a usable way to do it</span></div><div class="line" id="054622"><span class="nick" style="color:#389600"><a href="#054622" label="[05:46:22]">&lt;oriansj&gt;</a></span><span class="message">muurkha: yes but it would certainly require a good deal of cleverness to make one small enough to implement in hex0 on many platforms.</span></div><div class="line" id="054731"><span class="nick" style="color:#6b8072"><a href="#054731" label="[05:47:31]">&lt;muurkha&gt;</a></span><span class="message">probably so</span></div><div class="line" id="055942"><span class="nick" style="color:#389600"><a href="#055942" label="[05:59:42]">&lt;oriansj&gt;</a></span><span class="message">one would only need to encode load{8,16,32,64}, loadu{8,16,32,64}, store{8,16,32,64}, add, sub, shli, shri, call, return, jz, jnz and a couple knight halcodes (push and pop would certainly make the lower stages much easier)</span></div><div class="line" id="060052"><span class="nick" style="color:#389600"><a href="#060052" label="[06:00:52]">&lt;oriansj&gt;</a></span><span class="message">if we make a register be the PC, we can eliminate separate call, return instructions</span></div><div class="line" id="060133"><span class="nick" style="color:#389600"><a href="#060133" label="[06:01:33]">&lt;oriansj&gt;</a></span><span class="message">jz and jnz could be done with conditional add and conditional substract instructions.</span></div><div class="line" id="060430"><span class="nick" style="color:#6b8072"><a href="#060430" label="[06:04:30]">&lt;muurkha&gt;</a></span><span class="message">if you make a register be the PC, yes</span></div><div class="line" id="060615"><span class="nick" style="color:#6b8072"><a href="#060615" label="[06:06:15]">&lt;muurkha&gt;</a></span><span class="message">that doesn't impose the same level of avoidable waste on efficient emulation as something like memory-mapped I/O or memory-mapped registers (like the PDP-10), because you can statically identify which instructions touch the PC</span></div><div class="line" id="060646"><span class="nick" style="color:#6b8072"><a href="#060646" label="[06:06:46]">&lt;muurkha&gt;</a></span><span class="message">you probably want some kind of bitwise operation</span></div><div class="line" id="060726"><span class="nick" style="color:#6b8072"><a href="#060726" label="[06:07:26]">&lt;muurkha&gt;</a></span><span class="message">just on the theory that if what you're writing in this stuff is an assembler, you're probably going to want to extract bitfields sometimes?  maybe that's more of a concern for a disassembler</span></div><div class="line" id="060853"><span class="nick" style="color:#6b8072"><a href="#060853" label="[06:08:53]">&lt;muurkha&gt;</a></span><span class="message">a separate call instruction is still useful, though I guess you could replace it with something like addi lr, pc, #8; mov pc, r0</span></div><div class="line" id="060934"><span class="nick" style="color:#6b8072"><a href="#060934" label="[06:09:34]">&lt;muurkha&gt;</a></span><span class="message">also how do you get from just add, sub, jz, and jnz to jg or ja?</span></div><div class="line" id="061031"><span class="nick" style="color:#6b8072"><a href="#061031" label="[06:10:31]">&lt;muurkha&gt;</a></span><span class="message">not sure you really need all those varieties of load.  ARM got by for quite a while with just LDM, LDR, and LDB, didn't it?</span></div><div class="line" id="061102"><span class="nick" style="color:#6b8072"><a href="#061102" label="[06:11:02]">&lt;muurkha&gt;</a></span><span class="message">uh, LDRB</span></div><div class="line" id="062455"><span class="nick" style="color:#6b8072"><a href="#062455" label="[06:24:55]">&lt;muurkha&gt;</a></span><span class="message">you left out MOV and load-immediate, but you can get them out of addi if you have a zero register</span></div><div class="line" id="233758"><span class="nick" style="color:#389600"><a href="#233758" label="[23:37:58]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well bitwise AND is handy but not *absolutely* required for bootstrapping; much like multiplication and division.</span></div><div class="line" id="233910"><span class="nick" style="color:#389600"><a href="#233910" label="[23:39:10]">&lt;oriansj&gt;</a></span><span class="message">it just makes certain things faster, simpler and easier to reason about</span></div><div class="line" id="234026"><span class="nick" style="color:#389600"><a href="#234026" label="[23:40:26]">&lt;oriansj&gt;</a></span><span class="message">and arm does have the different loads as otherwise you would have to sign extend or zero extend registers frequently</span></div><div class="line" id="234805"><span class="nick" style="color:#389600"><a href="#234805" label="[23:48:05]">&lt;oriansj&gt;</a></span><span class="message">(you can see them in M2libc/armv7l/armv7l_defs.M1 )</span></div><div class="line" id="235601"><span class="nick" style="color:#6b8072"><a href="#235601" label="[23:56:01]">&lt;muurkha&gt;</a></span><span class="message">they did eventually add more sizes of loads, it's true</span></div><div class="line" id="235701"><span class="nick" style="color:#389600"><a href="#235701" label="[23:57:01]">&lt;oriansj&gt;</a></span><span class="message">Things like LDRH and LDRSH, LDRB and LDRSB are expected for 32bit architectures but 32bit loads doing signed vs unsigned doesn't matter but on 64bit systems it does matter</span></div><div class="line" id="235807"><span class="nick" style="color:#389600"><a href="#235807" label="[23:58:07]">&lt;oriansj&gt;</a></span><span class="message">specifying signed vs unsigned 64bit loads would mean the architecture could be 128bits without any issues</span></div><div class="line" id="235850"><span class="nick" style="color:#389600"><a href="#235850" label="[23:58:50]">&lt;oriansj&gt;</a></span><span class="message">but yeah, just 4GB of RAM is enough to get to TCC and Fiwix</span></div><div class="line" id="235939"><span class="nick" style="color:#389600"><a href="#235939" label="[23:59:39]">&lt;oriansj&gt;</a></span><span class="message">anything bigger and we run into a great deal more complexity</span></div><br /></div></body></html>

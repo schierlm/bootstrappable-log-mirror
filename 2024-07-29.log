@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-07-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010437"><span class="nick" style="color:#389600"><a href="#010437" label="[01:04:37]">&lt;fossy&gt;</a></span><span class="message">aggi: i presume you are talking about live-bootstrap's bootstrap path; don't believe gcc-4.x does need musl 1.2 (that would be strange, given that it historically preceds musl 1.2). musl libc update is simply desirable because it is newer, and in live-bootstrap, we do not care that it breaks tcc, because we are trying to get away from tcc as soon as possible</span></div><div class="line" id="010453"><span class="nick" style="color:#389600"><a href="#010453" label="[01:04:53]">&lt;fossy&gt;</a></span><span class="message">(at that point in the bootstrap)</span></div><div class="line" id="010510"><span class="nick" style="color:#8dd3c7"><a href="#010510" label="[01:05:10]">&lt;aggi&gt;</a></span><span class="message">fossy: thanks for the reply</span></div><div class="line" id="010523"><span class="nick" style="color:#8dd3c7"><a href="#010523" label="[01:05:23]">&lt;aggi&gt;</a></span><span class="message">&quot;we do not care that it breaks tcc, because we are trying to get away from tcc as soon as possible&quot;</span></div><div class="line" id="010527"><span class="nick" style="color:#8dd3c7"><a href="#010527" label="[01:05:27]">&lt;aggi&gt;</a></span><span class="message">fossy: why?</span></div><div class="line" id="011916"><span class="nick" style="color:#8dd3c7"><a href="#011916" label="[01:19:16]">&lt;aggi&gt;</a></span><span class="message">ok, let me elaborate myself</span></div><div class="line" id="012012"><span class="nick" style="color:#8dd3c7"><a href="#012012" label="[01:20:12]">&lt;aggi&gt;</a></span><span class="message">briefly, i intend to avoid gcc as long as possible, and use tcc-toolchain _only_; however trusting #bootstrappable can and did confirm gcc-bootstrappring works anytime i wanted to do this myself</span></div><div class="line" id="012158"><span class="nick" style="color:#8dd3c7"><a href="#012158" label="[01:21:58]">&lt;aggi&gt;</a></span><span class="message">unspecific to bootstrapping, it seems tcc is rarely ever tested/supported as default system-compiler anywhere</span></div><div class="line" id="012227"><span class="nick" style="color:#8dd3c7"><a href="#012227" label="[01:22:27]">&lt;aggi&gt;</a></span><span class="message">same question. why would that be?</span></div><div class="line" id="012802"><span class="nick" style="color:#389600"><a href="#012802" label="[01:28:02]">&lt;fossy&gt;</a></span><span class="message">tcc is a fairly brittle or otherwise undesirable compiler for a few reasons; 1. its codebase is horrible and very difficult to read or modify (gcc isn't amazing, but still better). 2. it cannot compile much modern software (to be fair, a fair chunk does work, but not an acceptable amount). 3. while it is fast, it does not produce particularly fast code. 4. there are many (perhaps slightly</span></div><div class="line" id="012804"><span class="nick" style="color:#389600"><a href="#012804" label="[01:28:04]">&lt;fossy&gt;</a></span><span class="message">more obscure but still) regularly used compiler options it does not have, which often makes it difficult to use with modern build systems.</span></div><div class="line" id="012839"><span class="nick" style="color:#389600"><a href="#012839" label="[01:28:39]">&lt;fossy&gt;</a></span><span class="message">5. (this is more of a personal gripe) i'm really not a fan of it's current development process (mob)</span></div><div class="line" id="013002"><span class="nick" style="color:#8dd3c7"><a href="#013002" label="[01:30:02]">&lt;aggi&gt;</a></span><span class="message">ok. for various reasons, i do maintain a complete c-only/no-c++ system profile with gentoo, and verified it passed with gcc-4.x and various cross-compilation test-cases covered</span></div><div class="line" id="013054"><span class="nick" style="color:#389600"><a href="#013054" label="[01:30:54]">&lt;fossy&gt;</a></span><span class="message">okay, i see how tcc is interesting for you then, as you have a fairly minimal system profile and tcc is small</span></div><div class="line" id="013059"><span class="nick" style="color:#8dd3c7"><a href="#013059" label="[01:30:59]">&lt;aggi&gt;</a></span><span class="message">and next, intend to fully support tcc-toolchain with this profile (for x86, and as an intermediate step with helpful gentoo tooling involved)</span></div><div class="line" id="013121"><span class="nick" style="color:#8dd3c7"><a href="#013121" label="[01:31:21]">&lt;aggi&gt;</a></span><span class="message">fossy: on the contrary, it is a rather complete and useful set of software</span></div><div class="line" id="013155"><span class="nick" style="color:#389600"><a href="#013155" label="[01:31:55]">&lt;fossy&gt;</a></span><span class="message">minimal insofar as a &quot;typical&quot; modern system goes</span></div><div class="line" id="013211"><span class="nick" style="color:#8dd3c7"><a href="#013211" label="[01:32:11]">&lt;aggi&gt;</a></span><span class="message">my main concern isn't neither tcc nor gcc btw.; but the GNU buildsyste itself (autotools/automake) in combination with gentoo eclasses and ebuilds</span></div><div class="line" id="013220"><span class="nick" style="color:#389600"><a href="#013220" label="[01:32:20]">&lt;fossy&gt;</a></span><span class="message">i'm not doubting that it is complete + useful (at least for your usecase)</span></div><div class="line" id="013247"><span class="nick" style="color:#8dd3c7"><a href="#013247" label="[01:32:47]">&lt;aggi&gt;</a></span><span class="message">i spare you details, what a headache libgcc.a linkage was, when cross-compiling (with gcc, musl)</span></div><div class="line" id="013257"><span class="nick" style="color:#2e2a4a"><a href="#013257" label="[01:32:57]">&lt;sam_&gt;</a></span><span class="message">on 32-bit arches you can't downgrade musl 1.2.x -&gt; 1.1.x, I dunno about others, I wouldn't recommend it anyway</span></div><div class="line" id="013630"><span class="nick" style="color:#8dd3c7"><a href="#013630" label="[01:36:30]">&lt;aggi&gt;</a></span><span class="message">sam_: you're sure?</span></div><div class="line" id="013709"><span class="nick" style="color:#8dd3c7"><a href="#013709" label="[01:37:09]">&lt;aggi&gt;</a></span><span class="message">anyway, just scraped the musl-1.1.24.ebuild, and this too fails with tcc... i'm gone for a little while</span></div><div class="line" id="013711"><span class="nick" style="color:#2e2a4a"><a href="#013711" label="[01:37:11]">&lt;sam_&gt;</a></span><span class="message">yeah, see <a rel="nofollow" href="https://musl.libc.org/time64.html">https://musl.libc.org/time64.html</a> </span></div><div class="line" id="013726"><span class="nick" style="color:#8dd3c7"><a href="#013726" label="[01:37:26]">&lt;aggi&gt;</a></span><span class="message">sam_: i see. ok.</span></div><div class="line" id="014036"><span class="nick" style="color:#8dd3c7"><a href="#014036" label="[01:40:36]">&lt;aggi&gt;</a></span><span class="message">ok, mus-1.1.24.ebuild just failed with CC=tcc too a moment ago, with the exact same error from musl-1.2.x.ebuild</span></div><div class="line" id="014146"><span class="nick" style="color:#8dd3c7"><a href="#014146" label="[01:41:46]">&lt;aggi&gt;</a></span><span class="message">i'll keep in mind musl-1.2.x may succeed with tcc-toolchain; it's a notable amount of test-cases since bootstrappable compiles either musl-libc in three passes, and gentoo got it's own ebuilds that i use for convenience</span></div><div class="line" id="020140"><span class="nick" style="color:#8dd3c7"><a href="#020140" label="[02:01:40]">&lt;aggi&gt;</a></span><span class="message">i see, thread-local-storage is first on the hitlist of unsupported things with musl-libc and tcc-toolchain; scary</span></div><div class="line" id="022334"><span class="nick" style="color:#8dd3c7"><a href="#022334" label="[02:23:34]">&lt;aggi&gt;</a></span><span class="message">next one, float exception handling gone</span></div><div class="line" id="022400"><span class="nick" style="color:#8dd3c7"><a href="#022400" label="[02:24:00]">&lt;aggi&gt;</a></span><span class="message">fossy: question answered why bootstrappable focused on a quick transition towards gcc</span></div><div class="line" id="022536"><span class="nick" style="color:#8dd3c7"><a href="#022536" label="[02:25:36]">&lt;aggi&gt;</a></span><span class="message">i'll see soone enough, how minimal the c-only/no-c++ profile will be with tcc-toolchain</span></div><div class="line" id="023338"><span class="nick" style="color:#6b8072"><a href="#023338" label="[02:33:38]">&lt;pabs3&gt;</a></span><span class="message">TIL <a rel="nofollow" href="https://tinygo.org/">https://tinygo.org/</a>  - LLVM based compiler for Golang</span></div><div class="line" id="025550"><span class="nick" style="color:#8dd3c7"><a href="#025550" label="[02:55:50]">&lt;aggi&gt;</a></span><span class="message">thanks to bootstrappable patches: &gt;&gt;&gt; sys-libs/musl-1.1.24 merged.</span></div><div class="line" id="091143"><span class="nick" style="color:#80b1d3"><a href="#091143" label="[09:11:43]">&lt;nimaje&gt;</a></span><span class="message">hm, with these reasons a toolchain build on qbe, scc, cproc seems like a good idea</span></div><div class="line" id="125856"><span class="nick" style="color:#6d2462"><a href="#125856" label="[12:58:56]">&lt;lanodan&gt;</a></span><span class="message">Possibly that said it needs an as(1) implementation and typically that's tcc or binutils (there's minias done for qbe but it seems to be a stalled WIP).</span></div><div class="line" id="125915"><span class="nick" style="color:#6d2462"><a href="#125915" label="[12:59:15]">&lt;lanodan&gt;</a></span><span class="message">Same kind of deal with chibicc</span></div><br /></div></body></html>

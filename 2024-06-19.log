@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="083941"><span class="nick" style="color:#389600"><a href="#083941" label="[08:39:41]">&lt;pabs3&gt;</a></span><span class="message">SWH and ArchiveTeam Codearchiver haven't archived darcs.haskell.org, no darcs support</span></div><div class="line" id="130651"><span class="nick" style="color:#8dd3c7"><a href="#130651" label="[13:06:51]">&lt;aggi&gt;</a></span><span class="message">seems there was some refactoring here: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/tree/master/sysa/">https://github.com/fosslinux/live-bootstrap/tree/master/sysa/</a> </span></div><div class="line" id="130818"><span class="nick" style="color:#8dd3c7"><a href="#130818" label="[13:08:18]">&lt;aggi&gt;</a></span><span class="message">found it already, git commit 6ed2e09f3a533a1efdd807a77a7c00a07bf984f1</span></div><div class="line" id="131254"><span class="nick" style="color:#8dd3c7"><a href="#131254" label="[13:12:54]">&lt;aggi&gt;</a></span><span class="message">looking for the musl patches, not sure, if i wouldn't want to try newlib instead (that's the one fiwix.org chose)</span></div><div class="line" id="132050"><span class="nick" style="color:#8dd3c7"><a href="#132050" label="[13:20:50]">&lt;aggi&gt;</a></span><span class="message">seems live-bootstrap uses musl-1.1 with tcc (without binutils/gcc required?), and then later musl-1.2 with gcc/binutils</span></div><div class="line" id="135921"><span class="nick" style="color:#2e2a4a"><a href="#135921" label="[13:59:21]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Newlib needs autotools</span></div><div class="line" id="135949"><span class="nick" style="color:#2e2a4a"><a href="#135949" label="[13:59:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Which is why musl was more appropriate for live-bootstrap before autotools is bootstrapped</span></div><div class="line" id="140010"><span class="nick" style="color:#8dd3c7"><a href="#140010" label="[14:00:10]">&lt;aggi&gt;</a></span><span class="message">yes, amost everything does... but the fork towards oasis-linux style system integration with lua is too far ahead</span></div><div class="line" id="140037"><span class="nick" style="color:#8dd3c7"><a href="#140037" label="[14:00:37]">&lt;aggi&gt;</a></span><span class="message">too quickly checked $ ls python perl of live-bootstrap... scary</span></div><div class="line" id="140111"><span class="nick" style="color:#8dd3c7"><a href="#140111" label="[14:01:11]">&lt;aggi&gt;</a></span><span class="message">because, for the mentioned stage0-x86-tcc i am residing on an unverified/compromised BUILDHOST still (spawn from gentoo), that i want to replace with #bootstrappable some time</span></div><div class="line" id="140152"><span class="nick" style="color:#2e2a4a"><a href="#140152" label="[14:01:52]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Well, we also managed to build gentoo off live-bootstrap</span></div><div class="line" id="140155"><span class="nick" style="color:#8dd3c7"><a href="#140155" label="[14:01:55]">&lt;aggi&gt;</a></span><span class="message">for #gentoo i would need python, for autoototols i would need at least perl-5.8.6 (that's the one i verified here compatible with autotools_</span></div><div class="line" id="140226"><span class="nick" style="color:#8dd3c7"><a href="#140226" label="[14:02:26]">&lt;aggi&gt;</a></span><span class="message">stikonas: good!</span></div><div class="line" id="140303"><span class="nick" style="color:#8dd3c7"><a href="#140303" label="[14:03:03]">&lt;aggi&gt;</a></span><span class="message">however, the acceptance criteria i consider, are a little more strict (no gcc, no binutils as long as possible for the entire stage0 userspace)</span></div><div class="line" id="140351"><span class="nick" style="color:#8dd3c7"><a href="#140351" label="[14:03:51]">&lt;aggi&gt;</a></span><span class="message">this one for musl seems a little scary: musl-1.1.24/patches/fenv.patch</span></div><div class="line" id="140433"><span class="nick" style="color:#8dd3c7"><a href="#140433" label="[14:04:33]">&lt;aggi&gt;</a></span><span class="message">because this would break floating point exception handling, and i intend to use the system (designated as stage0), as a self-sufficient development host, instead of bootstrapping &quot;only&quot;</span></div><div class="line" id="140531"><span class="nick" style="color:#8dd3c7"><a href="#140531" label="[14:05:31]">&lt;aggi&gt;</a></span><span class="message">hence i fear to end up with a slightly broken libc (musl document problems with threading for &lt;linux-2.6 too, besides FPE handling)</span></div><div class="line" id="140701"><span class="nick" style="color:#2e2a4a"><a href="#140701" label="[14:07:01]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; aggi: for fenv feel free to add those assembly instructions to tcc</span></div><div class="line" id="140711"><span class="nick" style="color:#2e2a4a"><a href="#140711" label="[14:07:11]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; That shouldn't be too hard</span></div><div class="line" id="140719"><span class="nick" style="color:#2e2a4a"><a href="#140719" label="[14:07:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; ekaitz did a lot for riscv</span></div><div class="line" id="140742"><span class="nick" style="color:#8dd3c7"><a href="#140742" label="[14:07:42]">&lt;aggi&gt;</a></span><span class="message">i am having no problems with admitting i am not sufficiently competent to accomplish this within a reasonable time-frame</span></div><div class="line" id="140903"><span class="nick" style="color:#8dd3c7"><a href="#140903" label="[14:09:03]">&lt;aggi&gt;</a></span><span class="message">and another issue seems to be, with the proposed system-integration path of mine, that's a fork against live-bootstrap with yet unknown efforts required to keep that compatible</span></div><div class="line" id="140947"><span class="nick" style="color:#8dd3c7"><a href="#140947" label="[14:09:47]">&lt;aggi&gt;</a></span><span class="message">such as live-bootstrap step1 (in current terms) -&gt; your tcc-version/musl-1.x -&gt; verified/clean BUILDHOST for my stage0</span></div><div class="line" id="141029"><span class="nick" style="color:#8dd3c7"><a href="#141029" label="[14:10:29]">&lt;aggi&gt;</a></span><span class="message">and i rather avoided python completely (not an absolute criteria, but ls python seems scary to me), hence various scripting of #bootstrappable will be gone for me</span></div><div class="line" id="141237"><span class="nick" style="color:#8dd3c7"><a href="#141237" label="[14:12:37]">&lt;aggi&gt;</a></span><span class="message">re-calling the issue of the kernel-bootstrapping i verified, how BUILDHOST was poisoning/leaking i386-tcc cross-compiler, that i had to move onto slackware11 temporarily for testing</span></div><div class="line" id="141256"><span class="nick" style="color:#8dd3c7"><a href="#141256" label="[14:12:56]">&lt;aggi&gt;</a></span><span class="message">hence, your bootstrapping work providing a verified/clean buildhost is crucial</span></div><div class="line" id="141651"><span class="nick" style="color:#8dd3c7"><a href="#141651" label="[14:16:51]">&lt;aggi&gt;</a></span><span class="message">with regards to RISC-V, i am worried it won't be possible to kernel-bootstrap with tcc-toolchain, and instead various intermediate steps (fiwix etc) are required, to arrive at gcc/binutils cross-compilers for kernel capable to run on any risc-v hardware</span></div><div class="line" id="141806"><span class="nick" style="color:#8dd3c7"><a href="#141806" label="[14:18:06]">&lt;aggi&gt;</a></span><span class="message">just in case it was supposed to be a linux-kernel (5.x, 6.x) for risc-v one day, it's an equivalent for gcc -S missing required by Kbuild ever since linux-2.5</span></div><div class="line" id="141841"><span class="nick" style="color:#8dd3c7"><a href="#141841" label="[14:18:41]">&lt;aggi&gt;</a></span><span class="message">susematz failed with linux-4.6 verified against tcc-toolchain (ignoring the 16bit real-mode assembly parts)</span></div><div class="line" id="141935"><span class="nick" style="color:#8dd3c7"><a href="#141935" label="[14:19:35]">&lt;aggi&gt;</a></span><span class="message">that's TWO giant blockers for kernel-bootstrapping when keeping tcc-toolchain, if risc-v couldn't be powered by a linux-2.x (and it can't)</span></div><div class="line" id="142051"><span class="nick" style="color:#8dd3c7"><a href="#142051" label="[14:20:51]">&lt;aggi&gt;</a></span><span class="message">and risc-v will imply an additional cross-compilation stage, due to this, except if #bootstrappable considered a complete re-integration for risc-v</span></div><div class="line" id="212222"><span class="nick" style="color:#6b8072"><a href="#212222" label="[21:22:22]">&lt;oriansj&gt;</a></span><span class="message">aggi: well it is possible to backport RISC-V support to older Linux kernels if you wish to achieve TCC-only Linux bootstrap.</span></div><div class="line" id="212233"><span class="nick" style="color:#6b8072"><a href="#212233" label="[21:22:33]">&lt;oriansj&gt;</a></span><span class="message">(on RISC-V of course)</span></div><div class="line" id="212600"><span class="nick" style="color:#8dd3c7"><a href="#212600" label="[21:26:00]">&lt;aggi&gt;</a></span><span class="message">oriansj: there seems no way around x86 anyway, hence the question too is if the x86 path should remain when heading towards RISC-V</span></div><div class="line" id="212628"><span class="nick" style="color:#8dd3c7"><a href="#212628" label="[21:26:28]">&lt;aggi&gt;</a></span><span class="message">i wouldn't expect this to be a realistic scenario</span></div><div class="line" id="212710"><span class="nick" style="color:#8dd3c7"><a href="#212710" label="[21:27:10]">&lt;aggi&gt;</a></span><span class="message">because i was trapped and mis-guided by aarch64 once already, and a relevant criteria for this: long term supply of desirable hardware</span></div><div class="line" id="212809"><span class="nick" style="color:#8dd3c7"><a href="#212809" label="[21:28:09]">&lt;aggi&gt;</a></span><span class="message">if an operating-system/firmware was tailored for any board (including u-boot and a kernel patched whichever versions that would be, 5.x/6.x mainly nowadays)</span></div><div class="line" id="212828"><span class="nick" style="color:#8dd3c7"><a href="#212828" label="[21:28:28]">&lt;aggi&gt;</a></span><span class="message">few years later various development SBC aren't available anylonger</span></div><div class="line" id="212848"><span class="nick" style="color:#8dd3c7"><a href="#212848" label="[21:28:48]">&lt;aggi&gt;</a></span><span class="message">i think risc-v will be affected by this problem too</span></div><div class="line" id="213025"><span class="nick" style="color:#8dd3c7"><a href="#213025" label="[21:30:25]">&lt;aggi&gt;</a></span><span class="message">in comparison, i could throw a x86-[gcc4|tcc]-linux.iso at almost any hardware, although uefi could complicate this in the future</span></div><div class="line" id="213311"><span class="nick" style="color:#8dd3c7"><a href="#213311" label="[21:33:11]">&lt;aggi&gt;</a></span><span class="message">i am not in the mood to fiddle together customized os-firmware images for dozens of different variants and vendors, which is the situation of ARM currently, and risc-v following</span></div><div class="line" id="213439"><span class="nick" style="color:#8dd3c7"><a href="#213439" label="[21:34:39]">&lt;aggi&gt;</a></span><span class="message">and if a clean bootstrapping towards an alternative ISA was desired, this involved x86 as a buildhost with cross-compilers anyway</span></div><div class="line" id="220236"><span class="nick" style="color:#80b1d3"><a href="#220236" label="[22:02:36]">&lt;moikvin&gt;</a></span><span class="message">does anyone have to link to that one repo with the great readme about how each step(starting with hex0) works?</span></div><div class="line" id="220803"><span class="nick" style="color:#6b8072"><a href="#220803" label="[22:08:03]">&lt;oriansj&gt;</a></span><span class="message">moikvin: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst">https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst</a> </span></div><div class="line" id="220918"><span class="nick" style="color:#6b8072"><a href="#220918" label="[22:09:18]">&lt;oriansj&gt;</a></span><span class="message">aggi: fair enough concern about ARM and RISC-V; they lack any core platform where they are strongly tied to for compatibility (unlike IBM 390X or x86 or AMD64)</span></div><div class="line" id="220934"><span class="nick" style="color:#6b8072"><a href="#220934" label="[22:09:34]">&lt;oriansj&gt;</a></span><span class="message">PowerPC is kinda iffy</span></div><div class="line" id="231619"><span class="nick" style="color:#2e2a4a"><a href="#231619" label="[23:16:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; In theory with things like devicetree ARM/RISC-V may eventually catch up to the x86 PC circa 1994 where you have a standardised way of booting, and can use the same generic kernel on all machines. Looking back at Linux distros it seems to have been about ~20 years ago where they started getting generic kernels that could be used on every PC. I guess that was more to do with struggling to fit the...</span></div><div class="line" id="231624"><span class="nick" style="color:#2e2a4a"><a href="#231624" label="[23:16:24]">&lt;matrix_bridge&gt;</a></span><span class="message">... kernel onto a floppy rather than any technical limitation of the PC platform though.</span></div><div class="line" id="231738"><span class="nick" style="color:#2e2a4a"><a href="#231738" label="[23:17:38]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; (looking at slackware I mean)</span></div><br /></div></body></html>

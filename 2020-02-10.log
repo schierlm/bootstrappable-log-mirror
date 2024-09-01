@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-02-10.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010007"><span class="nick">***</span><span class="message notice">dongcarl8 is now known as dongcarl</span></div><div class="line" id="010855"><span class="nick">***</span><span class="message notice">mniip_ is now known as mniip</span></div><div class="line" id="032008"><span class="nick" style="color:#8dd3c7"><a href="#032008" label="[03:20:08]">&lt;fossy&gt;</a></span><span class="message">OriansJ: how do I define a double in m1</span></div><div class="line" id="032025"><span class="nick" style="color:#8dd3c7"><a href="#032025" label="[03:20:25]">&lt;fossy&gt;</a></span><span class="message">Equivalent of &quot;dd&quot; instruction in m1</span></div><div class="line" id="032029"><span class="nick" style="color:#8dd3c7"><a href="#032029" label="[03:20:29]">&lt;fossy&gt;</a></span><span class="message">in nasm</span></div><div class="line" id="032554"><span class="nick" style="color:#2e2a4a"><a href="#032554" label="[03:25:54]">&lt;OriansJ&gt;</a></span><span class="message">fossy: depends if you are doing db to create a string &quot;string&quot; or write a byte in hex 'aa bb cc dd ee' or do a common definition like DEFINE NULL 00000000</span></div><div class="line" id="032635"><span class="nick" style="color:#2e2a4a"><a href="#032635" label="[03:26:35]">&lt;OriansJ&gt;</a></span><span class="message">or if you are just trying to put a number like dd 42 -&gt; %42</span></div><div class="line" id="032721"><span class="nick" style="color:#2e2a4a"><a href="#032721" label="[03:27:21]">&lt;OriansJ&gt;</a></span><span class="message">or an address dd $ -&gt; :foo &amp;foo</span></div><div class="line" id="033358"><span class="nick" style="color:#2e2a4a"><a href="#033358" label="[03:33:58]">&lt;OriansJ&gt;</a></span><span class="message">fossy: another good way to know how nasm code translates to M1;; simply compare the NASM versions and with M1 versions of cc_* in mescc-tools-seed</span></div><div class="line" id="033457"><span class="nick" style="color:#2e2a4a"><a href="#033457" label="[03:34:57]">&lt;OriansJ&gt;</a></span><span class="message">as it does cover every single bit of NASM functionality you would need to write a C compiler in Assembly and the M1 things required to do the exact same thing.</span></div><div class="line" id="033914"><span class="nick" style="color:#8dd3c7"><a href="#033914" label="[03:39:14]">&lt;fossy&gt;</a></span><span class="message">dd 0x280284849 (not those numbers) is what I am trying to translate</span></div><div class="line" id="033919"><span class="nick" style="color:#8dd3c7"><a href="#033919" label="[03:39:19]">&lt;fossy&gt;</a></span><span class="message">and okey dokey</span></div><div class="line" id="120149"><span class="nick" style="color:#2e2a4a"><a href="#120149" label="[12:01:49]">&lt;OriansJ&gt;</a></span><span class="message">fossy: 0x280284849 is a 5byte number and wouldn't fit in 4bytes; in which case instead of %0xabcdef you would need to do '0280284849'</span></div><div class="line" id="121355"><span class="nick" style="color:#6b8072"><a href="#121355" label="[12:13:55]">&lt;deesix&gt;</a></span><span class="message">aren't 0-starting numbers considered octal by M1? I think I tested that.</span></div><div class="line" id="121436"><span class="nick" style="color:#6b8072"><a href="#121436" label="[12:14:36]">&lt;deesix&gt;</a></span><span class="message">when 0 but not 0x nor 0b</span></div><div class="line" id="121458"><span class="nick" style="color:#6b8072"><a href="#121458" label="[12:14:58]">&lt;deesix&gt;</a></span><span class="message">hmm, the single quote</span></div><div class="line" id="121626"><span class="nick" style="color:#6b8072"><a href="#121626" label="[12:16:26]">&lt;deesix&gt;</a></span><span class="message">that'd be a string, I guess</span></div><div class="line" id="121804"><span class="nick" style="color:#2e2a4a"><a href="#121804" label="[12:18:04]">&lt;OriansJ&gt;</a></span><span class="message">nope a hex literal</span></div><div class="line" id="121849"><span class="nick" style="color:#2e2a4a"><a href="#121849" label="[12:18:49]">&lt;OriansJ&gt;</a></span><span class="message">as in when M1 get a 'garbage' it'll just strip off the 's and dump what is inside for hex2 to deal with</span></div><div class="line" id="121931"><span class="nick" style="color:#6b8072"><a href="#121931" label="[12:19:31]">&lt;deesix&gt;</a></span><span class="message">I see, process-string call hexify-string for single quoted strings</span></div><div class="line" id="122000"><span class="nick" style="color:#2e2a4a"><a href="#122000" label="[12:20:00]">&lt;OriansJ&gt;</a></span><span class="message">It is a dense way of saying &quot;hold my beer, I know what I am doing&quot;</span></div><div class="line" id="122035"><span class="nick" style="color:#2e2a4a"><a href="#122035" label="[12:20:35]">&lt;OriansJ&gt;</a></span><span class="message">Which sometimes you might just need when writing in assembly</span></div><div class="line" id="122040"><span class="nick" style="color:#6b8072"><a href="#122040" label="[12:20:40]">&lt;deesix&gt;</a></span><span class="message">I was confusing it with %0nnn and friens</span></div><div class="line" id="122100"><span class="nick" style="color:#6b8072"><a href="#122100" label="[12:21:00]">&lt;deesix&gt;</a></span><span class="message">*friends</span></div><div class="line" id="122113"><span class="nick" style="color:#2e2a4a"><a href="#122113" label="[12:21:13]">&lt;OriansJ&gt;</a></span><span class="message">which is natural when you don't see hex-literals all that often.</span></div><div class="line" id="122537"><span class="nick" style="color:#2e2a4a"><a href="#122537" label="[12:25:37]">&lt;OriansJ&gt;</a></span><span class="message">M2-Planet only generates them when a string can't be expressed as a raw string;</span></div><div class="line" id="140126"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="142035"><span class="nick">***</span><span class="message notice">dddddd_ is now known as dddddd</span></div><div class="line" id="142108"><span class="nick">***</span><span class="message notice">deesix_ is now known as deesix</span></div><br /></div></body></html>

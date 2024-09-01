@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="034415"><span class="nick" style="color:#389600"><a href="#034415" label="[03:44:15]">&lt;pabs3&gt;</a></span><span class="message">-rss/#hackernews- I've compared nearly all Rust crates.io crates to contents of their Git repos: <a rel="nofollow" href="https://mastodon.social/@kornel/112626463128422583">https://mastodon.social/@kornel/112626463128422583</a>  <a rel="nofollow" href="https://news.ycombinator.com/item?id=40698536">https://news.ycombinator.com/item?id=40698536</a> </span></div><div class="line" id="035615"><span class="nick" style="color:#8dd3c7"><a href="#035615" label="[03:56:15]">&lt;sam_&gt;</a></span><span class="message">nice!</span></div><div class="line" id="041127"><span class="nick" style="color:#389600"><a href="#041127" label="[04:11:27]">&lt;pabs3&gt;</a></span><span class="message">ACTION likes Golang's approach of just using the git repo instead of an intermediate format</span></div><div class="line" id="220939"><span class="nick" style="color:#2e2a4a"><a href="#220939" label="[22:09:39]">&lt;oriansj&gt;</a></span><span class="message">pabs3: thank you for the hard data</span></div><div class="line" id="231323"><span class="nick" style="color:#6b8072"><a href="#231323" label="[23:13:23]">&lt;mihi&gt;</a></span><span class="message">pabs3, unfortunately I don't know the crates and cargo system well enough, but perhaps you can answer my question. Do you know if it is possible with crates and cargo (like it is in Maven) to publish &quot;plugins&quot; as crates so that they alter the compilation of another package that plugin-depends on it? In that case, it would be interesting to analyze crates if there exist any cycles where crate A (a library) has a</span></div><div class="line" id="231323"><span class="nick" style="color:#6b8072"><a href="#231323" label="[23:13:23]">&lt;mihi&gt;</a></span><span class="message">plugin dependency on B while crate B (a plugin) has a library dependency on A. That way, evil maintainers could create kind of a trusting trust attack without even directly modifying the Rust compiler, resulting in code in any packages that depend on A which neither appears in A or B source code.</span></div><br /></div></body></html>

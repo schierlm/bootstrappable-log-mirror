@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-08-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="115050"><span class="nick" style="color:#389600"><a href="#115050" label="[11:50:50]">&lt;oriansj&gt;</a></span><span class="message">muurkha: yeah the 8KB assembler found down on this page: <a rel="nofollow" href="https://board.flatassembler.net/topic.php?t=22633">https://board.flatassembler.net/topic.php?t=22633</a> </span></div><div class="line" id="144511"><span class="nick" style="color:#8dd3c7"><a href="#144511" label="[14:45:11]">&lt;Piraty&gt;</a></span><span class="message">is there a maintained variant of gcc4 ?</span></div><div class="line" id="150451"><span class="nick" style="color:#2e2a4a"><a href="#150451" label="[15:04:51]">&lt;drakonis&gt;</a></span><span class="message">oriansj: it is a fun thing</span></div><div class="line" id="150503"><span class="nick" style="color:#2e2a4a"><a href="#150503" label="[15:05:03]">&lt;drakonis&gt;</a></span><span class="message">how feature packed can you make a 8kb assembler?</span></div><div class="line" id="150531"><span class="nick" style="color:#2e2a4a"><a href="#150531" label="[15:05:31]">&lt;drakonis&gt;</a></span><span class="message">alternatively, make it as basic as possible to bootstrap a better assembler on top of it</span></div><div class="line" id="164551"><span class="nick" style="color:#6b8072"><a href="#164551" label="[16:45:51]">&lt;muurkha&gt;</a></span><span class="message">oriansj: thanks</span></div><div class="line" id="164905"><span class="nick" style="color:#6b8072"><a href="#164905" label="[16:49:05]">&lt;muurkha&gt;</a></span><span class="message">fasm8k.zip</span></div><div class="line" id="202514"><span class="nick" style="color:#80b1d3"><a href="#202514" label="[20:25:14]">&lt;notgull&gt;</a></span><span class="message">Macro assemblers are trippy to me</span></div><div class="line" id="203104"><span class="nick" style="color:#80b1d3"><a href="#203104" label="[20:31:04]">&lt;notgull&gt;</a></span><span class="message">Potentially stupid bootstrap idea: bootstrap to a WASM vm to avoid target-specific work</span></div><div class="line" id="204035"><span class="nick" style="color:#6d2462"><a href="#204035" label="[20:40:35]">&lt;[exa]&gt;</a></span><span class="message">...well you can bootstrap to a MIPS VM to avoid 10000x the amount of WASM-specific work</span></div><div class="line" id="204102"><span class="nick" style="color:#6d2462"><a href="#204102" label="[20:41:02]">&lt;[exa]&gt;</a></span><span class="message">(and emulate MIPS)</span></div><div class="line" id="204132"><span class="nick" style="color:#80b1d3"><a href="#204132" label="[20:41:32]">&lt;notgull&gt;</a></span><span class="message">Interesting, I was under the impression that a WASM VM is easier to emulate than other contemporary architectures</span></div><div class="line" id="204635"><span class="nick" style="color:#6d2462"><a href="#204635" label="[20:46:35]">&lt;[exa]&gt;</a></span><span class="message">wasn't WASM requiring a jit compilation to be cpu-style interpretable? (I never really got how the functions are actually labeled there)</span></div><div class="line" id="204751"><span class="nick" style="color:#80b1d3"><a href="#204751" label="[20:47:51]">&lt;notgull&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/yblein/rust-wasm">https://github.com/yblein/rust-wasm</a>  This is a very simple Rust implementation without any JIT whatsoever</span></div><div class="line" id="204921"><span class="nick" style="color:#6d2462"><a href="#204921" label="[20:49:21]">&lt;[exa]&gt;</a></span><span class="message">ahhhhhhhhhh ok that was the other web thing that required linkage</span></div><div class="line" id="204948"><span class="nick" style="color:#6d2462"><a href="#204948" label="[20:49:48]">&lt;[exa]&gt;</a></span><span class="message">this is basically miniforth, could work.</span></div><div class="line" id="205053"><span class="nick" style="color:#80b1d3"><a href="#205053" label="[20:50:53]">&lt;notgull&gt;</a></span><span class="message">I've been watching bootstrap from afar, been meaning to figure out how to setup QEMU and get into it</span></div><div class="line" id="205207"><span class="nick" style="color:#80b1d3"><a href="#205207" label="[20:52:07]">&lt;notgull&gt;</a></span><span class="message">Glad that you like the idea, time to write a WASM VM in macro assembly :-)</span></div><div class="line" id="205229"><span class="nick" style="color:#6d2462"><a href="#205229" label="[20:52:29]">&lt;[exa]&gt;</a></span><span class="message">yeah actually shouldn't be THAT hard</span></div><div class="line" id="205242"><span class="nick" style="color:#6d2462"><a href="#205242" label="[20:52:42]">&lt;[exa]&gt;</a></span><span class="message">it's got only &lt;256 instructions :D</span></div><div class="line" id="205324"><span class="nick" style="color:#80b1d3"><a href="#205324" label="[20:53:24]">&lt;notgull&gt;</a></span><span class="message">The hardest thing would be implementing the external API that lets you have useful side effects (like int 18h)</span></div><div class="line" id="205404"><span class="nick" style="color:#80b1d3"><a href="#205404" label="[20:54:04]">&lt;notgull&gt;</a></span><span class="message">As well as getting actually useful software to run on it</span></div><div class="line" id="211153"><span class="nick" style="color:#234e69"><a href="#211153" label="[21:11:53]">&lt;mala&gt;</a></span><span class="message">this may be COMPLETELY unuseful but I heard that the Spritely kids are building a WASM VM in Guile</span></div><div class="line" id="211351"><span class="nick" style="color:#6d2462"><a href="#211351" label="[21:13:51]">&lt;[exa]&gt;</a></span><span class="message">notgull: technically you don't need that much, unix is quite useful with like 10 syscalls</span></div><div class="line" id="215732"><span class="nick" style="color:#6c3d55"><a href="#215732" label="[21:57:32]">&lt;stikonas&gt;</a></span><span class="message">notgull: we discussed WASM before too... Potentially it can be used as a precursor to cc_* (WASM might be simpler than C)</span></div><div class="line" id="215748"><span class="nick" style="color:#6c3d55"><a href="#215748" label="[21:57:48]">&lt;stikonas&gt;</a></span><span class="message">but you would still need hex0-&gt;hex1-&gt;hex2-&gt;M0-&gt;wasm</span></div><div class="line" id="215820"><span class="nick" style="color:#6c3d55"><a href="#215820" label="[21:58:20]">&lt;stikonas&gt;</a></span><span class="message">though it is likely to be slow...</span></div><div class="line" id="215838"><span class="nick" style="color:#6c3d55"><a href="#215838" label="[21:58:38]">&lt;stikonas&gt;</a></span><span class="message">interpreters are much slower than compiles as can be seen from mes...</span></div><div class="line" id="215935"><span class="nick" style="color:#6c3d55"><a href="#215935" label="[21:59:35]">&lt;stikonas&gt;</a></span><span class="message">notgull: presumably for external API you need something like inline assembly...</span></div><div class="line" id="215947"><span class="nick" style="color:#6c3d55"><a href="#215947" label="[21:59:47]">&lt;stikonas&gt;</a></span><span class="message">and then instead of M2libc we have M2libwasm</span></div><div class="line" id="221132"><span class="nick" style="color:#80b1d3"><a href="#221132" label="[22:11:32]">&lt;notgull&gt;</a></span><span class="message">I was thinking that it might be useful in the bare metal to write the WASM interpreter to disk and then boot to it, that way we could use it as an OS to get around the 1MB memory restriction</span></div><div class="line" id="221257"><span class="nick" style="color:#6c3d55"><a href="#221257" label="[22:12:57]">&lt;stikonas&gt;</a></span><span class="message">no we have 1 MB memory restriction?</span></div><div class="line" id="221304"><span class="nick" style="color:#6c3d55"><a href="#221304" label="[22:13:04]">&lt;stikonas&gt;</a></span><span class="message">s/no/do/</span></div><div class="line" id="221324"><span class="nick" style="color:#80b1d3"><a href="#221324" label="[22:13:24]">&lt;notgull&gt;</a></span><span class="message">I thought that, on x86 BIOS, you can't use more than 1 MB of memory without entering real mode</span></div><div class="line" id="221336"><span class="nick" style="color:#80b1d3"><a href="#221336" label="[22:13:36]">&lt;notgull&gt;</a></span><span class="message">s/real/protected</span></div><div class="line" id="221338"><span class="nick" style="color:#6c3d55"><a href="#221338" label="[22:13:38]">&lt;stikonas&gt;</a></span><span class="message">real mode maybe, but you can switch to 32-bit mode</span></div><div class="line" id="221345"><span class="nick" style="color:#6c3d55"><a href="#221345" label="[22:13:45]">&lt;stikonas&gt;</a></span><span class="message">I think that's what builder-hex0 does</span></div><div class="line" id="221356"><span class="nick" style="color:#80b1d3"><a href="#221356" label="[22:13:56]">&lt;notgull&gt;</a></span><span class="message">Ah, I see, you switch back and forth</span></div><div class="line" id="221450"><span class="nick" style="color:#6c3d55"><a href="#221450" label="[22:14:50]">&lt;stikonas&gt;</a></span><span class="message">indeed</span></div><div class="line" id="221504"><span class="nick" style="color:#80b1d3"><a href="#221504" label="[22:15:04]">&lt;notgull&gt;</a></span><span class="message">In my own adventures I was going to see how little it would take to bootstrap to a minimal protected-mode OS that could then bootstrap OpenBSD or a simpler OS than that</span></div><div class="line" id="221551"><span class="nick" style="color:#6c3d55"><a href="#221551" label="[22:15:51]">&lt;stikonas&gt;</a></span><span class="message">well, given that builder-hex0 can bootstrap Linux, it can then also bootstrap OpenBSD</span></div><div class="line" id="221602"><span class="nick" style="color:#6c3d55"><a href="#221602" label="[22:16:02]">&lt;stikonas&gt;</a></span><span class="message">so that gives you an upper bound</span></div><div class="line" id="221626"><span class="nick" style="color:#6c3d55"><a href="#221626" label="[22:16:26]">&lt;stikonas&gt;</a></span><span class="message">and the stage1 part of builder-hex0 (which combines hex0 with reading disk and jumping to stage2) is about 200 bytes</span></div><div class="line" id="221634"><span class="nick" style="color:#80b1d3"><a href="#221634" label="[22:16:34]">&lt;notgull&gt;</a></span><span class="message">Okay, I may be a bit lost. Is there a way to patch TinyCC or whatever to not use syscalls outside of the ones that builder-hex0 supports?</span></div><div class="line" id="221707"><span class="nick" style="color:#6c3d55"><a href="#221707" label="[22:17:07]">&lt;stikonas&gt;</a></span><span class="message">that depends on your libc</span></div><div class="line" id="221727"><span class="nick" style="color:#6c3d55"><a href="#221727" label="[22:17:27]">&lt;stikonas&gt;</a></span><span class="message">builder-hex0 supports enough syscalls to run tcc</span></div><div class="line" id="221744"><span class="nick" style="color:#6c3d55"><a href="#221744" label="[22:17:44]">&lt;stikonas&gt;</a></span><span class="message">the questions is whether the software you are building with tcc needs those extra syscalls</span></div><div class="line" id="221755"><span class="nick" style="color:#6c3d55"><a href="#221755" label="[22:17:55]">&lt;stikonas&gt;</a></span><span class="message">and some stuff, .e.g. make indeed needs more</span></div><div class="line" id="221811"><span class="nick" style="color:#6c3d55"><a href="#221811" label="[22:18:11]">&lt;stikonas&gt;</a></span><span class="message">but by then you can build Fiwix (on x86)</span></div><div class="line" id="221817"><span class="nick" style="color:#80b1d3"><a href="#221817" label="[22:18:17]">&lt;notgull&gt;</a></span><span class="message">Oh, I see. That makes this whole thing make a lot more sense</span></div><div class="line" id="221829"><span class="nick" style="color:#80b1d3"><a href="#221829" label="[22:18:29]">&lt;notgull&gt;</a></span><span class="message">I remember reading the bootstrap list on the Miraheze wiki</span></div><div class="line" id="221854"><span class="nick" style="color:#6c3d55"><a href="#221854" label="[22:18:54]">&lt;stikonas&gt;</a></span><span class="message">parts.rst in live-bootstrap might have more descriptions</span></div><div class="line" id="221907"><span class="nick" style="color:#6c3d55"><a href="#221907" label="[22:19:07]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst">https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst</a> </span></div><div class="line" id="221923"><span class="nick" style="color:#6c3d55"><a href="#221923" label="[22:19:23]">&lt;stikonas&gt;</a></span><span class="message">though for full picture you might need to look at individual Readmes of some early projects</span></div><div class="line" id="221956"><span class="nick" style="color:#6c3d55"><a href="#221956" label="[22:19:56]">&lt;stikonas&gt;</a></span><span class="message">hmm, I'm struggling to make my riscv64 soc visionfive2 boot without initramfs :(</span></div><div class="line" id="222003"><span class="nick" style="color:#80b1d3"><a href="#222003" label="[22:20:03]">&lt;notgull&gt;</a></span><span class="message">I see, thanks!</span></div><div class="line" id="222023"><span class="nick" style="color:#6c3d55"><a href="#222023" label="[22:20:23]">&lt;stikonas&gt;</a></span><span class="message">can't understand why sdcard driver does not kick in. Even though I compiled it into kernel binary...</span></div><br /></div></body></html>

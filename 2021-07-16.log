@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-16.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005512"><span class="nick" style="color:#8dd3c7"><a href="#005512" label="[00:55:12]">&lt;stikonas&gt;</a></span><span class="message">so for those who don't follow it too closely, live-bootstrap has now G++ 4.7.4 merged</span></div><div class="line" id="012825"><span class="nick" style="color:#8dd3c7"><a href="#012825" label="[01:28:25]">&lt;stikonas&gt;</a></span><span class="message">fossy: I guess I'll now wait for your PR, otherwise if I do more PRs, then you'll be forever playing catch up..</span></div><div class="line" id="015908"><span class="nick" style="color:#2e2a4a"><a href="#015908" label="[01:59:08]">&lt;oriansj&gt;</a></span><span class="message">stikonas: then you might want to update the parts.rst to match.</span></div><div class="line" id="015950"><span class="nick" style="color:#2e2a4a"><a href="#015950" label="[01:59:50]">&lt;oriansj&gt;</a></span><span class="message">wait, sorry missed the &quot;we build both C and C++ backends&quot;</span></div><div class="line" id="020018"><span class="nick" style="color:#2e2a4a"><a href="#020018" label="[02:00:18]">&lt;oriansj&gt;</a></span><span class="message">So all that absolutely remains to bootstrap guix is guile right stikonas?</span></div><div class="line" id="020255"><span class="nick" style="color:#8dd3c7"><a href="#020255" label="[02:02:55]">&lt;stikonas&gt;</a></span><span class="message">oriansj: we have guile in a slightly older branch (before we decided to build guile first), I think I'll rebase it now (drop half of the commits that are already merged + update checksums)</span></div><div class="line" id="020330"><span class="nick" style="color:#8dd3c7"><a href="#020330" label="[02:03:30]">&lt;stikonas&gt;</a></span><span class="message">hopefully guix can bootstrap with guile 3.0</span></div><div class="line" id="020444"><span class="nick" style="color:#8dd3c7"><a href="#020444" label="[02:04:44]">&lt;stikonas&gt;</a></span><span class="message">guile and g++ are a bit orthogonal if autogen is avoided</span></div><div class="line" id="020651"><span class="nick" style="color:#8dd3c7"><a href="#020651" label="[02:06:51]">&lt;stikonas&gt;</a></span><span class="message">I haven't tried building guix in live-bootstrap yet...</span></div><div class="line" id="020728"><span class="nick" style="color:#8dd3c7"><a href="#020728" label="[02:07:28]">&lt;stikonas&gt;</a></span><span class="message">it might be best to do a after.sh hook for live-bootstrap too</span></div><div class="line" id="020756"><span class="nick" style="color:#8dd3c7"><a href="#020756" label="[02:07:56]">&lt;stikonas&gt;</a></span><span class="message">so that people can add extra on top, e.g. guix or something else for other distros</span></div><div class="line" id="020824"><span class="nick" style="color:#8dd3c7"><a href="#020824" label="[02:08:24]">&lt;stikonas&gt;</a></span><span class="message">(similarly to after.kaem hook in stage0-posix)</span></div><div class="line" id="023044"><span class="nick" style="color:#2e2a4a"><a href="#023044" label="[02:30:44]">&lt;oriansj&gt;</a></span><span class="message">stikonas: it might be best to have civodul help us form a new guix seed from live-bootstrap.</span></div><div class="line" id="023941"><span class="nick" style="color:#2e2a4a"><a href="#023941" label="[02:39:41]">&lt;oriansj&gt;</a></span><span class="message">now it is on me to solve the kernel problem.</span></div><div class="line" id="071417"><span class="nick" style="color:#6b8072"><a href="#071417" label="[07:14:17]">&lt;dongcarl&gt;</a></span><span class="message">Hi, apologies I've been out of the loop for quite a while...</span></div><div class="line" id="071457"><span class="nick" style="color:#6b8072"><a href="#071457" label="[07:14:57]">&lt;dongcarl&gt;</a></span><span class="message">Wondering if oriansj's message in #guix means that live-bootstrap will integrate into Guix?</span></div><div class="line" id="095602"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="104636"><span class="nick" style="color:#8dd3c7"><a href="#104636" label="[10:46:36]">&lt;stikonas&gt;</a></span><span class="message">dongcarl: well, by integrate I mean live-bootstrap can build all of the guix bootstrap binaries on i386 (including static guile) so we have an option of replacing bootstrap binaries with built in live-bootstrap. (I don't know how bootstrap binaries are built now)</span></div><div class="line" id="104704"><span class="nick" style="color:#8dd3c7"><a href="#104704" label="[10:47:04]">&lt;stikonas&gt;</a></span><span class="message">guix binary/daemon can probably be easily built on live-bootstrap too...</span></div><div class="line" id="151652"><span class="nick">***</span><span class="message notice">ericonr- is now known as ericonr</span></div><div class="line" id="183142"><span class="nick">***</span><span class="message notice">bandali_ is now known as bandali</span></div><div class="line" id="183955"><span class="nick" style="color:#80b1d3"><a href="#183955" label="[18:39:55]">&lt;clemens3&gt;</a></span><span class="message">I find it a bit ironic, here you are thinking about making your own hardware in order to avoid getting a backdoor.. but when I want to install the guix package installer, it says download this install script, and.. run it!</span></div><div class="line" id="184002"><span class="nick" style="color:#80b1d3"><a href="#184002" label="[18:40:02]">&lt;clemens3&gt;</a></span><span class="message"> <a rel="nofollow" href="https://guix.gnu.org/manual/en/html_node/Binary-Installation.html">https://guix.gnu.org/manual/en/html_node/Binary-Installation.html</a> </span></div><div class="line" id="184044"><span class="nick" style="color:#80b1d3"><a href="#184044" label="[18:40:44]">&lt;clemens3&gt;</a></span><span class="message">at least maybe provide it with a signed gpg key or such..</span></div><div class="line" id="184056"><span class="nick" style="color:#80b1d3"><a href="#184056" label="[18:40:56]">&lt;clemens3&gt;</a></span><span class="message">i mean the script signed..</span></div><div class="line" id="184620"><span class="nick" style="color:#6d2462"><a href="#184620" label="[18:46:20]">&lt;vagrantc&gt;</a></span><span class="message">clemens3: things can always be improved at nearly any stage in the process of bootstrappability</span></div><div class="line" id="184645"><span class="nick" style="color:#6d2462"><a href="#184645" label="[18:46:45]">&lt;vagrantc&gt;</a></span><span class="message">there's always another chicken and another egg</span></div><div class="line" id="184716"><span class="nick" style="color:#6d2462"><a href="#184716" label="[18:47:16]">&lt;vagrantc&gt;</a></span><span class="message">which came first, the chicken, the egg, or the yoghurt?</span></div><div class="line" id="184807"><span class="nick" style="color:#80b1d3"><a href="#184807" label="[18:48:07]">&lt;clemens3&gt;</a></span><span class="message">vagrantc: trying to bootstrap java and reusing the guix groundwork..</span></div><div class="line" id="184848"><span class="nick" style="color:#6d2462"><a href="#184848" label="[18:48:48]">&lt;vagrantc&gt;</a></span><span class="message">clemens3: but you can fix later parts in the chain and later go to earlier parts in the chain ... it's not always an either-or scenario</span></div><div class="line" id="184905"><span class="nick" style="color:#6d2462"><a href="#184905" label="[18:49:05]">&lt;vagrantc&gt;</a></span><span class="message">fix what you can where you can, and work towards improving it</span></div><div class="line" id="185012"><span class="nick" style="color:#6d2462"><a href="#185012" label="[18:50:12]">&lt;vagrantc&gt;</a></span><span class="message">basically, absolutely nothing is absolutely bootstrappable at this point, but there are parts of the process that are, with given starting points</span></div><div class="line" id="185042"><span class="nick" style="color:#80b1d3"><a href="#185042" label="[18:50:42]">&lt;clemens3&gt;</a></span><span class="message">yeah, no problem, it is what it is..:) but I find it all over the place then things just get downloaded and executed, be it docker images, what not, and at the same time whole research departments go down on the micro code and what not..</span></div><div class="line" id="185108"><span class="nick" style="color:#6d2462"><a href="#185108" label="[18:51:08]">&lt;vagrantc&gt;</a></span><span class="message">yeah, the &quot;status quo&quot; is pretty awful :)</span></div><div class="line" id="185124"><span class="nick" style="color:#80b1d3"><a href="#185124" label="[18:51:24]">&lt;clemens3&gt;</a></span><span class="message">gpg keyserver are also fully broken..</span></div><div class="line" id="190244"><span class="nick">***</span><span class="message notice">lfam is now known as dstolfa1</span></div><div class="line" id="190253"><span class="nick">***</span><span class="message notice">dstolfa1 is now known as lfam</span></div><div class="line" id="200720"><span class="nick">***</span><span class="message notice">pgreco_ is now known as pgreco</span></div><div class="line" id="201246"><span class="nick" style="color:#6b8072"><a href="#201246" label="[20:12:46]">&lt;dongcarl&gt;</a></span><span class="message">stikonas: Oh you mean there’s a path to replace ALL of the guix bootstrap binaries with live-bootstrap?</span></div><div class="line" id="201519"><span class="nick" style="color:#6b8072"><a href="#201519" label="[20:15:19]">&lt;dongcarl&gt;</a></span><span class="message">I’m guessing Guile was the hardest part that just got finished?</span></div><div class="line" id="204136"><span class="nick" style="color:#8dd3c7"><a href="#204136" label="[20:41:36]">&lt;stikonas&gt;</a></span><span class="message">dongcarl: yes, I think so. I haven't tested binaries that live-bootstrap builds with guix but I guess it should work (somebody more familiar with guix can tell me)</span></div><div class="line" id="204226"><span class="nick" style="color:#8dd3c7"><a href="#204226" label="[20:42:26]">&lt;stikonas&gt;</a></span><span class="message">we are building guile 3.0.7</span></div><div class="line" id="204340"><span class="nick" style="color:#8dd3c7"><a href="#204340" label="[20:43:40]">&lt;stikonas&gt;</a></span><span class="message">at the moment there is also gcc/g++ 4.7.4 and binutils 2.14 but if necessary latest binutils (I think 2.36) just builds. As for gcc, next step I think can jump up to gcc 10.3.0</span></div><div class="line" id="204402"><span class="nick" style="color:#8dd3c7"><a href="#204402" label="[20:44:02]">&lt;stikonas&gt;</a></span><span class="message">(mabe not 11, since gcc 11 uses more modern C++ features)</span></div><div class="line" id="204451"><span class="nick" style="color:#8dd3c7"><a href="#204451" label="[20:44:51]">&lt;stikonas&gt;</a></span><span class="message">guile is indeed the hardest out of all bootstrap binaries (others like mkdir, tar, xz, bash are much simpler)</span></div><div class="line" id="205528"><span class="nick" style="color:#234e69"><a href="#205528" label="[20:55:28]">&lt;Hagfish&gt;</a></span><span class="message">gcc 10.3 was released this april.  that's huge progress if it can be reached</span></div><div class="line" id="205914"><span class="nick" style="color:#8dd3c7"><a href="#205914" label="[20:59:14]">&lt;stikonas&gt;</a></span><span class="message">well, with gcc is not hard to jump to newer versions</span></div><div class="line" id="205916"><span class="nick" style="color:#8dd3c7"><a href="#205916" label="[20:59:16]">&lt;stikonas&gt;</a></span><span class="message">it's not rust...</span></div><div class="line" id="210003"><span class="nick" style="color:#8dd3c7"><a href="#210003" label="[21:00:03]">&lt;stikonas&gt;</a></span><span class="message">once you have gcc/g++ 4.7.4 it's not a big deal to go to newer versions</span></div><div class="line" id="211306"><span class="nick" style="color:#234e69"><a href="#211306" label="[21:13:06]">&lt;Hagfish&gt;</a></span><span class="message">that does make me feel a bit better about gcc, thank you</span></div><div class="line" id="220913"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="221439"><span class="nick" style="color:#2e2a4a"><a href="#221439" label="[22:14:39]">&lt;oriansj&gt;</a></span><span class="message">clemens3: if it makes you feel better here is an alternate binary install script for Guix which does use gpg <a rel="nofollow" href="https://paste.debian.net/1204609/">https://paste.debian.net/1204609/</a> </span></div><div class="line" id="221829"><span class="nick" style="color:#2e2a4a"><a href="#221829" label="[22:18:29]">&lt;oriansj&gt;</a></span><span class="message">dongcarl: technically we have a path to replacing *ALL* bootstrap binaries for *EVERYONE* as once one has Guile, they are able to run Guix. Once one has GCC, the rest of the world of software is only a guix build chain away. (With various unknown bootstrapping nightmares to kill along the way)</span></div><div class="line" id="222105"><span class="nick" style="color:#8dd3c7"><a href="#222105" label="[22:21:05]">&lt;stikonas&gt;</a></span><span class="message">even without Guix, it's not hard for everyone to bootstrap from what is in live-bootstrap. It's already full i386 toolchain with a lot of tools that people expect</span></div><div class="line" id="222210"><span class="nick" style="color:#8dd3c7"><a href="#222210" label="[22:22:10]">&lt;stikonas&gt;</a></span><span class="message">it's mostly a case of building libraries that you use</span></div><div class="line" id="222320"><span class="nick" style="color:#8dd3c7"><a href="#222320" label="[22:23:20]">&lt;stikonas&gt;</a></span><span class="message">dongcarl: which might be a bit more work for more complicated projects, e.g. bitcoin would need Qt. But something with less dependencies is very easy to build</span></div><div class="line" id="222440"><span class="nick" style="color:#8dd3c7"><a href="#222440" label="[22:24:40]">&lt;stikonas&gt;</a></span><span class="message">that said, Guix has an advantage of a lot of packaged stuff that is more maintained</span></div><div class="line" id="222636"><span class="nick" style="color:#8dd3c7"><a href="#222636" label="[22:26:36]">&lt;stikonas&gt;</a></span><span class="message">although, guix does not do no-pregen stuff in packages but it's just a matter of nobody did that, not because tools needed for regeneration are not bootstrapped</span></div><div class="line" id="222717"><span class="nick" style="color:#8dd3c7"><a href="#222717" label="[22:27:17]">&lt;stikonas&gt;</a></span><span class="message">well, maybe with the exception of autogen... we don't know how to build autogen with no pre-generated files</span></div><div class="line" id="222745"><span class="nick" style="color:#8dd3c7"><a href="#222745" label="[22:27:45]">&lt;stikonas&gt;</a></span><span class="message">and of course we still have kernel that is not bootstrapped</span></div><div class="line" id="223136"><span class="nick" style="color:#2e2a4a"><a href="#223136" label="[22:31:36]">&lt;oriansj&gt;</a></span><span class="message">stikonas: we will get to that. Just need to keep solving one problem at a time until all the work is done (Which will never happen but it'll be fun to see the excuses get more and more pathetic)</span></div><br /></div></body></html>

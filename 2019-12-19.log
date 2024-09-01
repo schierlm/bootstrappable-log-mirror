@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-12-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003048"><span class="nick" style="color:#389600"><a href="#003048" label="[00:30:48]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: did that solve your segfault problem?</span></div><div class="line" id="003137"><span class="nick" style="color:#8dd3c7"><a href="#003137" label="[00:31:37]">&lt;fosslinux&gt;</a></span><span class="message">oriansj: im looking at it rn</span></div><div class="line" id="003150"><span class="nick" style="color:#8dd3c7"><a href="#003150" label="[00:31:50]">&lt;fosslinux&gt;</a></span><span class="message">havent had a chance yet</span></div><div class="line" id="003240"><span class="nick" style="color:#389600"><a href="#003240" label="[00:32:40]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: well you can always throw code my way if you need help reasoning about how M2-Planet interacts with it</span></div><div class="line" id="003255"><span class="nick" style="color:#8dd3c7"><a href="#003255" label="[00:32:55]">&lt;fosslinux&gt;</a></span><span class="message">yep</span></div><div class="line" id="003304"><span class="nick" style="color:#8dd3c7"><a href="#003304" label="[00:33:04]">&lt;fosslinux&gt;</a></span><span class="message">i'll throw something in the next half hour or so</span></div><div class="line" id="012057"><span class="nick" style="color:#8dd3c7"><a href="#012057" label="[01:20:57]">&lt;fosslinux&gt;</a></span><span class="message">oriansj: ok i have something for you</span></div><div class="line" id="012104"><span class="nick" style="color:#8dd3c7"><a href="#012104" label="[01:21:04]">&lt;fosslinux&gt;</a></span><span class="message">it was my erroneous code</span></div><div class="line" id="012106"><span class="nick" style="color:#8dd3c7"><a href="#012106" label="[01:21:06]">&lt;fosslinux&gt;</a></span><span class="message">struct MyStruct</span></div><div class="line" id="012108"><span class="nick" style="color:#8dd3c7"><a href="#012108" label="[01:21:08]">&lt;fosslinux&gt;</a></span><span class="message">{</span></div><div class="line" id="012110"><span class="nick" style="color:#8dd3c7"><a href="#012110" label="[01:21:10]">&lt;fosslinux&gt;</a></span><span class="message"> char *array[UNDEF_CONSTANT];</span></div><div class="line" id="012112"><span class="nick" style="color:#8dd3c7"><a href="#012112" label="[01:21:12]">&lt;fosslinux&gt;</a></span><span class="message">}</span></div><div class="line" id="012158"><span class="nick" style="color:#8dd3c7"><a href="#012158" label="[01:21:58]">&lt;fosslinux&gt;</a></span><span class="message">if you have a random string that is undefined, ie an undefined constant or variable here, that seems to be passed directly to the build_member function which dies</span></div><div class="line" id="012236"><span class="nick" style="color:#8dd3c7"><a href="#012236" label="[01:22:36]">&lt;fosslinux&gt;</a></span><span class="message">it kinda makes sense that it segfaults</span></div><div class="line" id="012241"><span class="nick" style="color:#8dd3c7"><a href="#012241" label="[01:22:41]">&lt;fosslinux&gt;</a></span><span class="message">but a error message would be good</span></div><div class="line" id="013541"><span class="nick" style="color:#389600"><a href="#013541" label="[01:35:41]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: that would be struct type* build_member(struct type* last, int offset) in cc_types.c</span></div><div class="line" id="013558"><span class="nick" style="color:#8dd3c7"><a href="#013558" label="[01:35:58]">&lt;fosslinux&gt;</a></span><span class="message">yeah I found that</span></div><div class="line" id="013603"><span class="nick" style="color:#389600"><a href="#013603" label="[01:36:03]">&lt;oriansj&gt;</a></span><span class="message">and it does have require_match(&quot;Struct only supports [num] form\n&quot;, &quot;]&quot;);</span></div><div class="line" id="013613"><span class="nick" style="color:#8dd3c7"><a href="#013613" label="[01:36:13]">&lt;fosslinux&gt;</a></span><span class="message">yes, but that is not triggered</span></div><div class="line" id="013642"><span class="nick" style="color:#389600"><a href="#013642" label="[01:36:42]">&lt;oriansj&gt;</a></span><span class="message">because it attempts to numerate something that isn't a number and it returns zero as the size</span></div><div class="line" id="013726"><span class="nick" style="color:#8dd3c7"><a href="#013726" label="[01:37:26]">&lt;fosslinux&gt;</a></span><span class="message">ohhh, I see</span></div><div class="line" id="013731"><span class="nick" style="color:#8dd3c7"><a href="#013731" label="[01:37:31]">&lt;fosslinux&gt;</a></span><span class="message">so there's not really a fix</span></div><div class="line" id="013733"><span class="nick" style="color:#8dd3c7"><a href="#013733" label="[01:37:33]">&lt;fosslinux&gt;</a></span><span class="message">?</span></div><div class="line" id="013742"><span class="nick" style="color:#389600"><a href="#013742" label="[01:37:42]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: well there is a way to catch that</span></div><div class="line" id="013814"><span class="nick" style="color:#389600"><a href="#013814" label="[01:38:14]">&lt;oriansj&gt;</a></span><span class="message">simply check if i-&gt;size == 0 after the assignment and throw an error</span></div><div class="line" id="013841"><span class="nick" style="color:#389600"><a href="#013841" label="[01:38:41]">&lt;oriansj&gt;</a></span><span class="message">easy to fix, I'll have a patch up in one minute</span></div><div class="line" id="013849"><span class="nick" style="color:#8dd3c7"><a href="#013849" label="[01:38:49]">&lt;fosslinux&gt;</a></span><span class="message">oh right</span></div><div class="line" id="013852"><span class="nick" style="color:#8dd3c7"><a href="#013852" label="[01:38:52]">&lt;fosslinux&gt;</a></span><span class="message">I get it now</span></div><div class="line" id="013855"><span class="nick" style="color:#8dd3c7"><a href="#013855" label="[01:38:55]">&lt;fosslinux&gt;</a></span><span class="message">thanks</span></div><div class="line" id="014400"><span class="nick" style="color:#389600"><a href="#014400" label="[01:44:00]">&lt;oriansj&gt;</a></span><span class="message">patch is up</span></div><div class="line" id="014439"><span class="nick" style="color:#389600"><a href="#014439" label="[01:44:39]">&lt;oriansj&gt;</a></span><span class="message">thank you fosslinux for helping me improve M2-Planet ^_^</span></div><div class="line" id="014456"><span class="nick" style="color:#8dd3c7"><a href="#014456" label="[01:44:56]">&lt;fosslinux&gt;</a></span><span class="message">oriansj: haha, no problem</span></div><div class="line" id="014618"><span class="nick" style="color:#389600"><a href="#014618" label="[01:46:18]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: also do you like the new REPL behavior in mes-m2?</span></div><div class="line" id="014632"><span class="nick" style="color:#6b8072"><a href="#014632" label="[01:46:32]">*</a></span><span class="message">fosslinux takes a look</span></div><div class="line" id="015108"><span class="nick" style="color:#8dd3c7"><a href="#015108" label="[01:51:08]">&lt;fosslinux&gt;</a></span><span class="message">oh you merged slow_lisp into master?</span></div><div class="line" id="015141"><span class="nick" style="color:#8dd3c7"><a href="#015141" label="[01:51:41]">&lt;fosslinux&gt;</a></span><span class="message">oh yes this is much nicer</span></div><div class="line" id="015152"><span class="nick" style="color:#8dd3c7"><a href="#015152" label="[01:51:52]">&lt;fosslinux&gt;</a></span><span class="message">oh yay a boot-0.scm</span></div><div class="line" id="015211"><span class="nick" style="color:#8dd3c7"><a href="#015211" label="[01:52:11]">&lt;fosslinux&gt;</a></span><span class="message">yes this is so good</span></div><div class="line" id="022334"><span class="nick" style="color:#389600"><a href="#022334" label="[02:23:34]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: I am glad you like it ^_^</span></div><div class="line" id="161832"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="205154"><span class="nick" style="color:#80b1d3"><a href="#205154" label="[20:51:54]">&lt;`Lion&gt;</a></span><span class="message">rain1: this might be one for your archive? <a rel="nofollow" href="https://www.simplethread.com/software-complexity-killing-us/">https://www.simplethread.com/software-complexity-killing-us/</a> </span></div><div class="line" id="205432"><span class="nick" style="color:#6d2462"><a href="#205432" label="[20:54:32]">&lt;real-grue&gt;</a></span><span class="message">Do you collect such articles about simpler software/KISS/etc?</span></div><div class="line" id="205802"><span class="nick" style="color:#80b1d3"><a href="#205802" label="[20:58:02]">&lt;`Lion&gt;</a></span><span class="message">not really, but occasionally i search around hoping to find something at least mildly interesting and unusual</span></div><div class="line" id="205920"><span class="nick" style="color:#80b1d3"><a href="#205920" label="[20:59:20]">&lt;`Lion&gt;</a></span><span class="message">but there's a wiki collecting links to articles like that, <a rel="nofollow" href="https://softwarecrisis.miraheze.org/">https://softwarecrisis.miraheze.org/</a> </span></div><div class="line" id="205923"><span class="nick" style="color:#80b1d3"><a href="#205923" label="[20:59:23]">&lt;`Lion&gt;</a></span><span class="message">that i believe rain1 maintains</span></div><div class="line" id="210114"><span class="nick" style="color:#6d2462"><a href="#210114" label="[21:01:14]">&lt;real-grue&gt;</a></span><span class="message">Here is a good one: <a rel="nofollow" href="https://cr.yp.to/bib/1995/wirth.pdf">https://cr.yp.to/bib/1995/wirth.pdf</a> </span></div><div class="line" id="210251"><span class="nick" style="color:#80b1d3"><a href="#210251" label="[21:02:51]">&lt;`Lion&gt;</a></span><span class="message">ah, good old 1995 :)</span></div><div class="line" id="210321"><span class="nick" style="color:#6d2462"><a href="#210321" label="[21:03:21]">&lt;real-grue&gt;</a></span><span class="message">Also, from TRIZ: &quot;it is said that we have obtained an ideal system which then has no more existence as a system, but its useful  function remains  assured.  This result is referred to by G. Altshuller: Ideal Final Result&quot;.</span></div><div class="line" id="225813"><span class="nick" style="color:#234e69"><a href="#225813" label="[22:58:13]">&lt;rain1&gt;</a></span><span class="message">thanks `Lion</span></div><div class="line" id="234440"><span class="nick" style="color:#389600"><a href="#234440" label="[23:44:40]">&lt;oriansj&gt;</a></span><span class="message">found something people here might find interesting: <a rel="nofollow" href="https://www.youtube.com/watch?v=k1hJoalcK68">https://www.youtube.com/watch?v=k1hJoalcK68</a>  <a rel="nofollow" href="http://relaysbc.sourceforge.net/">http://relaysbc.sourceforge.net/</a> </span></div><br /></div></body></html>

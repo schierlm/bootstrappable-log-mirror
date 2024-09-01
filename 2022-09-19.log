@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-09-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="121301"><span class="nick" style="color:#8dd3c7"><a href="#121301" label="[12:13:01]">&lt;oriansj&gt;</a></span><span class="message">hmmm have @FSF-APPROVED @FSF-APPROVED-OTHER set but failing on font due to license when doing an X11 emerge.</span></div><div class="line" id="124450"><span class="nick" style="color:#2e2a4a"><a href="#124450" label="[12:44:50]">&lt;stikonas&gt;</a></span><span class="message">maybe that license is not explicitely approved by FSF?</span></div><div class="line" id="124513"><span class="nick" style="color:#2e2a4a"><a href="#124513" label="[12:45:13]">&lt;stikonas&gt;</a></span><span class="message">there are some less used licenses that are free software licenses but not approved by FSF</span></div><div class="line" id="124542"><span class="nick" style="color:#2e2a4a"><a href="#124542" label="[12:45:42]">&lt;stikonas&gt;</a></span><span class="message">though I myself just use default (ACCEPT_LICENSE=&quot;-* @FREE&quot;) license list</span></div><div class="line" id="125045"><span class="nick" style="color:#2e2a4a"><a href="#125045" label="[12:50:45]">&lt;stikonas&gt;</a></span><span class="message">hmm, my first prototype of M0.S for UEFI doesn't work... I'll have to try to debug it</span></div><div class="line" id="133001"><span class="nick">***</span><span class="message notice">WaxCPU is now known as Andrew</span></div><div class="line" id="134033"><span class="nick">***</span><span class="message notice">Maja_ is now known as Maja</span></div><div class="line" id="155850"><span class="nick" style="color:#2e2a4a"><a href="#155850" label="[15:58:50]">&lt;stikonas&gt;</a></span><span class="message">fossy, doras: so I've pushed the change to build gperf statically and remaining libraries both statically and dynamically</span></div><div class="line" id="155901"><span class="nick" style="color:#2e2a4a"><a href="#155901" label="[15:59:01]">&lt;stikonas&gt;</a></span><span class="message">though I haven't managed to make guile do static build...</span></div><div class="line" id="191132"><span class="nick" style="color:#2e2a4a"><a href="#191132" label="[19:11:32]">&lt;stikonas&gt;</a></span><span class="message">doras: we missed at least a pair of pregenerated files in libtool 2.4.7...</span></div><div class="line" id="191441"><span class="nick" style="color:#2e2a4a"><a href="#191441" label="[19:14:41]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/203">https://github.com/fosslinux/live-bootstrap/issues/203</a> </span></div><div class="line" id="191448"><span class="nick" style="color:#2e2a4a"><a href="#191448" label="[19:14:48]">&lt;stikonas&gt;</a></span><span class="message">CC fossy ^^</span></div><div class="line" id="192020"><span class="nick" style="color:#2e2a4a"><a href="#192020" label="[19:20:20]">&lt;stikonas&gt;</a></span><span class="message">doras: any chance you could look at it later?</span></div><div class="line" id="192027"><span class="nick" style="color:#2e2a4a"><a href="#192027" label="[19:20:27]">&lt;stikonas&gt;</a></span><span class="message">I've written 3 possible options</span></div><div class="line" id="201805"><span class="nick" style="color:#6b8072"><a href="#201805" label="[20:18:05]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: when I wrote simple-patch.c I had older submodules without replace, and it didn't look like replace handled multiline patches but maybe I'm wrong about that?</span></div><div class="line" id="202020"><span class="nick" style="color:#2e2a4a"><a href="#202020" label="[20:20:20]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: probably no</span></div><div class="line" id="202033"><span class="nick" style="color:#2e2a4a"><a href="#202033" label="[20:20:33]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: no, I think replace is just very simple replacement for sed without anything fancy</span></div><div class="line" id="202111"><span class="nick" style="color:#2e2a4a"><a href="#202111" label="[20:21:11]">&lt;stikonas&gt;</a></span><span class="message">it was mainly written to configure mes <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/sysa/mes-0.24/mes-0.24.kaem#L50">https://github.com/fosslinux/live-bootstrap/blob/master/sysa/mes-0.24/mes-0.24.kaem#L50</a> </span></div><div class="line" id="202148"><span class="nick" style="color:#2e2a4a"><a href="#202148" label="[20:21:48]">&lt;stikonas&gt;</a></span><span class="message">maybe we should have used your simple-patch.c but we were not aware of it...</span></div><div class="line" id="202334"><span class="nick" style="color:#6b8072"><a href="#202334" label="[20:23:34]">&lt;rickmasters&gt;</a></span><span class="message">I wrote it after replace was written so you wouldn't have been able to</span></div><div class="line" id="202419"><span class="nick" style="color:#6b8072"><a href="#202419" label="[20:24:19]">&lt;rickmasters&gt;</a></span><span class="message">it was written in kind of a hurry, I'm sure it could be better so not something I was proud to advertise</span></div><div class="line" id="202443"><span class="nick" style="color:#6b8072"><a href="#202443" label="[20:24:43]">&lt;rickmasters&gt;</a></span><span class="message">but feel free to use it if you'd like</span></div><div class="line" id="202547"><span class="nick" style="color:#6b8072"><a href="#202547" label="[20:25:47]">&lt;rickmasters&gt;</a></span><span class="message">That reminds me I have a TODO item to report a bug in M2libc/string.c memcmp - didn't work for me so I wrote memsame function</span></div><div class="line" id="202839"><span class="nick" style="color:#6b8072"><a href="#202839" label="[20:28:39]">&lt;rickmasters&gt;</a></span><span class="message">for those interested: <a rel="nofollow" href="https://github.com/ironmeld/boot2now/blob/main/tool-steps/builder-hex0-with-tcc-from-mes/simple-patch.c">https://github.com/ironmeld/boot2now/blob/main/tool-steps/builder-hex0-with-tcc-from-mes/simple-patch.c</a> </span></div><div class="line" id="203750"><span class="nick" style="color:#6b8072"><a href="#203750" label="[20:37:50]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: simple-patch reads the before and after patterns from files so its a bit more of a hassle to use</span></div><div class="line" id="203834"><span class="nick" style="color:#6b8072"><a href="#203834" label="[20:38:34]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: I'll probably switch my single line patches to replace so I can get rid of the patch files</span></div><div class="line" id="204023"><span class="nick" style="color:#6b8072"><a href="#204023" label="[20:40:23]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: I finally got around to updating my submodules so thats an option now</span></div><br /></div></body></html>

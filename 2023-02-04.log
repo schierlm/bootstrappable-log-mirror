@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-02-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010938"><span class="nick" style="color:#389600"><a href="#010938" label="[01:09:38]">&lt;stikonas&gt;</a></span><span class="message">sam_: looks like I might not need your help with mrustc after all (some time ago I was telling you that I had some issues building it with emerge even though it worked outside emerge). Looks like something fixed it (probably gcc upgrade)</span></div><div class="line" id="011414"><span class="nick" style="color:#389600"><a href="#011414" label="[01:14:14]">&lt;stikonas&gt;</a></span><span class="message">well, unfortunately mrustc is sometimes picky about what gcc version is used to build it</span></div><div class="line" id="104027"><span class="nick" style="color:#8dd3c7"><a href="#104027" label="[10:40:27]">&lt;sam_&gt;</a></span><span class="message">excellent</span></div><div class="line" id="200630"><span class="nick" style="color:#389600"><a href="#200630" label="[20:06:30]">&lt;stikonas&gt;</a></span><span class="message">sam_: actually it was not gcc, so I might either need your help or just use workaround</span></div><div class="line" id="200634"><span class="nick" style="color:#8dd3c7"><a href="#200634" label="[20:06:34]">&lt;sam_&gt;</a></span><span class="message">:)</span></div><div class="line" id="200747"><span class="nick" style="color:#389600"><a href="#200747" label="[20:07:47]">&lt;stikonas&gt;</a></span><span class="message">sam_: so any idea what might cause this <a rel="nofollow" href="https://pastebin.com/aZaLSeLu">https://pastebin.com/aZaLSeLu</a> </span></div><div class="line" id="200806"><span class="nick" style="color:#389600"><a href="#200806" label="[20:08:06]">&lt;stikonas&gt;</a></span><span class="message">sam_: I think I see this when I call build with emake, but not when I build it with just make</span></div><div class="line" id="200826"><span class="nick" style="color:#8dd3c7"><a href="#200826" label="[20:08:26]">&lt;sam_&gt;</a></span><span class="message">almost certainly a parallel build issue</span></div><div class="line" id="200905"><span class="nick" style="color:#389600"><a href="#200905" label="[20:09:05]">&lt;stikonas&gt;</a></span><span class="message">hmm, so I could use &quot;emake -j1&quot;?</span></div><div class="line" id="200938"><span class="nick" style="color:#389600"><a href="#200938" label="[20:09:38]">&lt;stikonas&gt;</a></span><span class="message">although I thought that mrust does not do parallel builds</span></div><div class="line" id="200955"><span class="nick" style="color:#389600"><a href="#200955" label="[20:09:55]">&lt;stikonas&gt;</a></span><span class="message">emake also adds CFLAGS?</span></div><div class="line" id="201016"><span class="nick" style="color:#8dd3c7"><a href="#201016" label="[20:10:16]">&lt;sam_&gt;</a></span><span class="message">emake only does ${MAKE:-make} ${MAKEOPTS} essentially</span></div><div class="line" id="201021"><span class="nick" style="color:#8dd3c7"><a href="#201021" label="[20:10:21]">&lt;sam_&gt;</a></span><span class="message">so emake -j1 should work</span></div><div class="line" id="201046"><span class="nick" style="color:#389600"><a href="#201046" label="[20:10:46]">&lt;stikonas&gt;</a></span><span class="message">ok, let me try that</span></div><div class="line" id="203508"><span class="nick" style="color:#389600"><a href="#203508" label="[20:35:08]">&lt;stikonas&gt;</a></span><span class="message">ok, emake -j1 works</span></div><br /></div></body></html>

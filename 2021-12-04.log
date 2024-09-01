@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-12-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011440"><span class="nick" style="color:#8dd3c7"><a href="#011440" label="[01:14:40]">&lt;stikonas&gt;</a></span><span class="message">hmm, I think struct siginfo_t is incorrect, that's why kaem fails to get non-zero exit codes</span></div><div class="line" id="014648"><span class="nick" style="color:#8dd3c7"><a href="#014648" label="[01:46:48]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/12">https://github.com/oriansj/M2libc/pull/12</a>  (this fixes kaem not reporting non-zero exit codes)</span></div><div class="line" id="022452"><span class="nick" style="color:#2e2a4a"><a href="#022452" label="[02:24:52]">&lt;oriansj&gt;</a></span><span class="message">stikonas: M2libc merged</span></div><div class="line" id="022547"><span class="nick" style="color:#8dd3c7"><a href="#022547" label="[02:25:47]">&lt;stikonas&gt;</a></span><span class="message">thanks</span></div><div class="line" id="023451"><span class="nick" style="color:#8dd3c7"><a href="#023451" label="[02:34:51]">&lt;stikonas&gt;</a></span><span class="message">hex2 lseek is fixed now too, I'll fix hex1 tomorrow</span></div><div class="line" id="023456"><span class="nick" style="color:#8dd3c7"><a href="#023456" label="[02:34:56]">&lt;stikonas&gt;</a></span><span class="message">and that should be it for riscv32</span></div><div class="line" id="135232"><span class="nick" style="color:#8dd3c7"><a href="#135232" label="[13:52:32]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I have a couple of small PRs: <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/13">https://github.com/oriansj/M2libc/pull/13</a>  and <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds/pull/14">https://github.com/oriansj/bootstrap-seeds/pull/14</a> </span></div><div class="line" id="155253"><span class="nick" style="color:#2e2a4a"><a href="#155253" label="[15:52:53]">&lt;oriansj&gt;</a></span><span class="message">M2libc merged</span></div><div class="line" id="155425"><span class="nick" style="color:#2e2a4a"><a href="#155425" label="[15:54:25]">&lt;oriansj&gt;</a></span><span class="message">and bootstrap-seeds merged</span></div><div class="line" id="170717"><span class="nick" style="color:#8dd3c7"><a href="#170717" label="[17:07:17]">&lt;stikonas&gt;</a></span><span class="message">ok, I've pushed them to stage0-posix now</span></div><div class="line" id="170723"><span class="nick" style="color:#8dd3c7"><a href="#170723" label="[17:07:23]">&lt;stikonas&gt;</a></span><span class="message">so that should be it for riscv32...</span></div><div class="line" id="174544"><span class="nick" style="color:#2e2a4a"><a href="#174544" label="[17:45:44]">&lt;oriansj&gt;</a></span><span class="message">well make test-riscv32 seems to die at the first step</span></div><div class="line" id="175601"><span class="nick" style="color:#8dd3c7"><a href="#175601" label="[17:56:01]">&lt;stikonas&gt;</a></span><span class="message">hmm, let me retry</span></div><div class="line" id="175632"><span class="nick" style="color:#8dd3c7"><a href="#175632" label="[17:56:32]">&lt;stikonas&gt;</a></span><span class="message">hmm, indeed, must be something wrong in bootstrap seed</span></div><div class="line" id="175719"><span class="nick" style="color:#8dd3c7"><a href="#175719" label="[17:57:19]">&lt;stikonas&gt;</a></span><span class="message">strange</span></div><div class="line" id="175733"><span class="nick" style="color:#8dd3c7"><a href="#175733" label="[17:57:33]">&lt;stikonas&gt;</a></span><span class="message">bootstrap-seeds/POSIX/riscv32/kaem-optional-seed kaem.riscv32 does work</span></div><div class="line" id="175749"><span class="nick" style="color:#8dd3c7"><a href="#175749" label="[17:57:49]">&lt;stikonas&gt;</a></span><span class="message">oh, I think I know what's wrong</span></div><div class="line" id="175819"><span class="nick" style="color:#8dd3c7"><a href="#175819" label="[17:58:19]">&lt;stikonas&gt;</a></span><span class="message">missed one jump in hex0 encoding</span></div><div class="line" id="175857"><span class="nick" style="color:#8dd3c7"><a href="#175857" label="[17:58:57]">&lt;stikonas&gt;</a></span><span class="message">should be easy to fix, just need to move that initialization up in the file</span></div><div class="line" id="175951"><span class="nick" style="color:#8dd3c7"><a href="#175951" label="[17:59:51]">&lt;stikonas&gt;</a></span><span class="message">yes, that fixes it...</span></div><div class="line" id="180005"><span class="nick" style="color:#8dd3c7"><a href="#180005" label="[18:00:05]">&lt;stikonas&gt;</a></span><span class="message">sorry... Will update bootstrap-seeds then</span></div><div class="line" id="180216"><span class="nick" style="color:#8dd3c7"><a href="#180216" label="[18:02:16]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds/pull/15">https://github.com/oriansj/bootstrap-seeds/pull/15</a> </span></div><div class="line" id="180330"><span class="nick" style="color:#8dd3c7"><a href="#180330" label="[18:03:30]">&lt;stikonas&gt;</a></span><span class="message">ok, also fixed it in hex2 and M1 prototypes...</span></div><div class="line" id="180344"><span class="nick" style="color:#8dd3c7"><a href="#180344" label="[18:03:44]">&lt;stikonas&gt;</a></span><span class="message">GAS prototype is missing for kaem-minimal... Not sure if we need it now</span></div><div class="line" id="180420"><span class="nick" style="color:#8dd3c7"><a href="#180420" label="[18:04:20]">&lt;stikonas&gt;</a></span><span class="message">shouldn't be too hard to make it but right now I don't have riscv32 toolchain...</span></div><div class="line" id="180432"><span class="nick" style="color:#8dd3c7"><a href="#180432" label="[18:04:32]">&lt;stikonas&gt;</a></span><span class="message">(except for M2-Planet, M1 and hex2)</span></div><div class="line" id="181757"><span class="nick" style="color:#2e2a4a"><a href="#181757" label="[18:17:57]">&lt;oriansj&gt;</a></span><span class="message">bootstrap-seeds merged</span></div><div class="line" id="181810"><span class="nick" style="color:#8dd3c7"><a href="#181810" label="[18:18:10]">&lt;stikonas&gt;</a></span><span class="message">ok, let me update stage0-posix</span></div><div class="line" id="181857"><span class="nick" style="color:#8dd3c7"><a href="#181857" label="[18:18:57]">&lt;stikonas&gt;</a></span><span class="message">oriansj: ok, done</span></div><div class="line" id="181909"><span class="nick" style="color:#8dd3c7"><a href="#181909" label="[18:19:09]">&lt;stikonas&gt;</a></span><span class="message">make test-riscv32 works now</span></div><div class="line" id="181943"><span class="nick" style="color:#8dd3c7"><a href="#181943" label="[18:19:43]">&lt;stikonas&gt;</a></span><span class="message">would be good to have this tested on HW...</span></div><div class="line" id="182012"><span class="nick" style="color:#8dd3c7"><a href="#182012" label="[18:20:12]">&lt;stikonas&gt;</a></span><span class="message">but at least in terms of registers we should be all initialized now</span></div><div class="line" id="192454"><span class="nick" style="color:#2e2a4a"><a href="#192454" label="[19:24:54]">&lt;oriansj&gt;</a></span><span class="message">looks good</span></div><div class="line" id="192856"><span class="nick" style="color:#8dd3c7"><a href="#192856" label="[19:28:56]">&lt;stikonas&gt;</a></span><span class="message">ok</span></div><div class="line" id="193030"><span class="nick" style="color:#8dd3c7"><a href="#193030" label="[19:30:30]">&lt;stikonas&gt;</a></span><span class="message">oh, I think there is another thing missing. error message in M2-Planet needs updating</span></div><div class="line" id="193211"><span class="nick" style="color:#8dd3c7"><a href="#193211" label="[19:32:11]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/pull/39">https://github.com/oriansj/M2-Planet/pull/39</a> </span></div><div class="line" id="193347"><span class="nick" style="color:#8dd3c7"><a href="#193347" label="[19:33:47]">&lt;stikonas&gt;</a></span><span class="message">wait, need to update tests...</span></div><div class="line" id="193509"><span class="nick" style="color:#8dd3c7"><a href="#193509" label="[19:35:09]">&lt;stikonas&gt;</a></span><span class="message">ok, pushed</span></div><div class="line" id="195114"><span class="nick" style="color:#8dd3c7"><a href="#195114" label="[19:51:14]">&lt;stikonas&gt;</a></span><span class="message">hmm, probably intermittent error but I got the following</span></div><div class="line" id="195120"><span class="nick" style="color:#8dd3c7"><a href="#195120" label="[19:51:20]">&lt;stikonas&gt;</a></span><span class="message"> +&gt; ./AArch64/artifact/M0 ./AArch64/artifact/M2-0.M1 ./AArch64/artifact/M2.hex2</span></div><div class="line" id="195122"><span class="nick" style="color:#8dd3c7"><a href="#195122" label="[19:51:22]">&lt;stikonas&gt;</a></span><span class="message">qemu: uncaught target signal 11 (Segmentation fault) - core dumped</span></div><div class="line" id="195724"><span class="nick" style="color:#8dd3c7"><a href="#195724" label="[19:57:24]">&lt;stikonas&gt;</a></span><span class="message">oh, it's only reproducible in qemu, works fine on real HW, probably caused by high memory usage</span></div><div class="line" id="195840"><span class="nick" style="color:#8dd3c7"><a href="#195840" label="[19:58:40]">&lt;stikonas&gt;</a></span><span class="message">I've seen this in risc-v too but then <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/commit/d203bcc811afd0490013f973520885b353aaee4c">https://github.com/oriansj/stage0-posix/commit/d203bcc811afd0490013f973520885b353aaee4c</a>  fixed it</span></div><div class="line" id="200057"><span class="nick" style="color:#8dd3c7"><a href="#200057" label="[20:00:57]">&lt;stikonas&gt;</a></span><span class="message">because M2-Planet has gotten bigger, we probably started hitting it more often in qemu now</span></div><div class="line" id="201213"><span class="nick" style="color:#2e2a4a"><a href="#201213" label="[20:12:13]">&lt;oriansj&gt;</a></span><span class="message">M2-Planet merged</span></div><div class="line" id="201303"><span class="nick" style="color:#8dd3c7"><a href="#201303" label="[20:13:03]">&lt;stikonas&gt;</a></span><span class="message">and stage0-posix updated too</span></div><div class="line" id="210903"><span class="nick" style="color:#8dd3c7"><a href="#210903" label="[21:09:03]">&lt;stikonas&gt;</a></span><span class="message">also updated stage-posix in live-bootstrap</span></div><br /></div></body></html>

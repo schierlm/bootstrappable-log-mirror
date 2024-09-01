@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-12-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="024748"><span class="nick" style="color:#8dd3c7"><a href="#024748" label="[02:47:48]">&lt;oriansj&gt;</a></span><span class="message">hmm it looks like I never actually implemented memchr</span></div><div class="line" id="024754"><span class="nick" style="color:#8dd3c7"><a href="#024754" label="[02:47:54]">&lt;oriansj&gt;</a></span><span class="message">for string.h</span></div><div class="line" id="024914"><span class="nick" style="color:#8dd3c7"><a href="#024914" label="[02:49:14]">&lt;oriansj&gt;</a></span><span class="message">stikonas: you previously mentioned how you wanted to unify the Linux files using #ifdefs for M2libc</span></div><div class="line" id="025421"><span class="nick" style="color:#8dd3c7"><a href="#025421" label="[02:54:21]">&lt;oriansj&gt;</a></span><span class="message">I guess no one used it, so it is probably safe to remove until we need to add it</span></div><div class="line" id="030416"><span class="nick" style="color:#8dd3c7"><a href="#030416" label="[03:04:16]">&lt;oriansj&gt;</a></span><span class="message">here was my thought; rename from $ARCH/Linux/name.h to $ARCH/Linux/name.c and have a new name.h in the root directory with uses the arch to #include &lt;$ARCH/Linux/name.c&gt;</span></div><div class="line" id="043854"><span class="nick" style="color:#8dd3c7"><a href="#043854" label="[04:38:54]">&lt;oriansj&gt;</a></span><span class="message">first half of M2libc update is done, need to think more clearly about the arch specific bits</span></div><div class="line" id="045635"><span class="nick" style="color:#2e2a4a"><a href="#045635" label="[04:56:35]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.techradar.com/news/computing/moore-s-law-how-long-will-it-last-1226772">https://www.techradar.com/news/computing/moore-s-law-how-long-will-it-last-1226772</a>  (published in 2014)</span></div><div class="line" id="045645"><span class="nick" style="color:#2e2a4a"><a href="#045645" label="[04:56:45]">&lt;Hagfish&gt;</a></span><span class="message">&quot;I pick about 2020 as the earliest we could call [Moore's Law] dead,&quot; said DARPA Director and Pentium processor architect Robert Colwell, when he spoke at the Hot Chips conference in 2013. &quot;And I'm picking 7nm. You could talk me into 2022. You might even be able to talk me into 5nm. But you're not going to talk me into 1nm. I think physics dictates against that.&quot;</span></div><div class="line" id="122059"><span class="nick" style="color:#6b8072"><a href="#122059" label="[12:20:59]">&lt;stikonas&gt;</a></span><span class="message">oriansj: yes, I think that way of doing arch specific bits should work</span></div><div class="line" id="122131"><span class="nick" style="color:#6b8072"><a href="#122131" label="[12:21:31]">&lt;stikonas&gt;</a></span><span class="message">we might need to keep some preprocessor support in M2-Planet for it to work</span></div><div class="line" id="122133"><span class="nick" style="color:#6b8072"><a href="#122133" label="[12:21:33]">&lt;stikonas&gt;</a></span><span class="message">but I think it's fine</span></div><div class="line" id="135753"><span class="nick" style="color:#8dd3c7"><a href="#135753" label="[13:57:53]">&lt;oriansj&gt;</a></span><span class="message">Hagfish: I think the general agreement about moore's law is that it is about the number of transistors per dollar, which can continue to go up with yield improvements, density improvements, new multilayer technologies and 3D packing. The final area will just be those businesses cutting costs by elimination of staff</span></div><div class="line" id="135856"><span class="nick" style="color:#8dd3c7"><a href="#135856" label="[13:58:56]">&lt;oriansj&gt;</a></span><span class="message">stikonas: yeah, just #define #ifdef and #ifndef should be sufficient in M2-Planet; which will certainly simplify things</span></div><div class="line" id="140526"><span class="nick" style="color:#80b1d3"><a href="#140526" label="[14:05:26]">&lt;stikonas[m]&gt;</a></span><span class="message">It will also reduce size of m2-planet a bit, now we are already starting to hit qemu crashes on aarch64</span></div><div class="line" id="140604"><span class="nick" style="color:#80b1d3"><a href="#140604" label="[14:06:04]">&lt;stikonas[m]&gt;</a></span><span class="message">Although, those should be properly solved in M0 by implementing scratch</span></div><div class="line" id="140938"><span class="nick" style="color:#80b1d3"><a href="#140938" label="[14:09:38]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, first victim of Moore's law breaking was that frequency stopped increasing but despite that, performance still increases, just in other ways</span></div><div class="line" id="141005"><span class="nick" style="color:#80b1d3"><a href="#141005" label="[14:10:05]">&lt;stikonas[m]&gt;</a></span><span class="message">I guess we are already close to physical limits of CPU frequency</span></div><div class="line" id="141120"><span class="nick" style="color:#80b1d3"><a href="#141120" label="[14:11:20]">&lt;stikonas[m]&gt;</a></span><span class="message">If you take, e.g. 5Ghz, then in one cycle, light can only travel 6cm</span></div><div class="line" id="141131"><span class="nick" style="color:#80b1d3"><a href="#141131" label="[14:11:31]">&lt;stikonas[m]&gt;</a></span><span class="message">So close to CPU size</span></div><div class="line" id="141629"><span class="nick" style="color:#8dd3c7"><a href="#141629" label="[14:16:29]">&lt;oriansj&gt;</a></span><span class="message">true M0 was just a rough approximation designed to be quickly implemented and some refinements probably will be needed</span></div><div class="line" id="141750"><span class="nick" style="color:#6b8072"><a href="#141750" label="[14:17:50]">&lt;stikonas&gt;</a></span><span class="message">well, on riscv I used scratch for strings and it was fairly simple</span></div><div class="line" id="142311"><span class="nick" style="color:#6b8072"><a href="#142311" label="[14:23:11]">&lt;stikonas&gt;</a></span><span class="message">ir was a fairly small diff: <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/commit/d203bcc811afd0490013f973520885b353aaee4c#diff-0f88b5ad79a676522450321d75ae24cfb525a31016a8023405068f4c296df444">https://github.com/oriansj/stage0-posix/commit/d203bcc811afd0490013f973520885b353aaee4c#diff-0f88b5ad79a676522450321d75ae24cfb525a31016a8023405068f4c296df444</a> </span></div><div class="line" id="142349"><span class="nick" style="color:#6b8072"><a href="#142349" label="[14:23:49]">&lt;stikonas&gt;</a></span><span class="message">and ClearScratch taken from other files (I think hex2)</span></div><div class="line" id="150858"><span class="nick" style="color:#8dd3c7"><a href="#150858" label="[15:08:58]">&lt;oriansj&gt;</a></span><span class="message">well yes, the problem is always getting the time to do these extras</span></div><div class="line" id="150952"><span class="nick" style="color:#8dd3c7"><a href="#150952" label="[15:09:52]">&lt;oriansj&gt;</a></span><span class="message">but they do make wonderful easy tasks for new people who want to get their hands dirty on the low level work</span></div><div class="line" id="155858"><span class="nick" style="color:#8dd3c7"><a href="#155858" label="[15:58:58]">&lt;oriansj&gt;</a></span><span class="message">stikonas: thanks for sorting out the multi-arch solution for M2libc when you did mes-m2 multi-arch</span></div><div class="line" id="160119"><span class="nick" style="color:#80b1d3"><a href="#160119" label="[16:01:19]">&lt;stikonas[m]&gt;</a></span><span class="message">You mean kaem files?</span></div><div class="line" id="160141"><span class="nick" style="color:#80b1d3"><a href="#160141" label="[16:01:41]">&lt;stikonas[m]&gt;</a></span><span class="message">I don't remember now what else I did...</span></div><div class="line" id="160752"><span class="nick" style="color:#8dd3c7"><a href="#160752" label="[16:07:52]">&lt;oriansj&gt;</a></span><span class="message">stikonas: your mes.c work; you'll see it in the new sys/stat.h once it is up</span></div><div class="line" id="161834"><span class="nick" style="color:#8dd3c7"><a href="#161834" label="[16:18:34]">&lt;oriansj&gt;</a></span><span class="message">and commit for M2libc is now up</span></div><div class="line" id="215833"><span class="nick" style="color:#8dd3c7"><a href="#215833" label="[21:58:33]">&lt;oriansj&gt;</a></span><span class="message">now just to find time to do the M2-Mesoplanet #include support and the most requested feature will finally be done</span></div><br /></div></body></html>

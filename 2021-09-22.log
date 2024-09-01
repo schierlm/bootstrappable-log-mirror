@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-09-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013632"><span class="nick" style="color:#8dd3c7"><a href="#013632" label="[01:36:32]">*</a></span><span class="message">stikonas is trying to debug recursive functions in cc_riscv64... Non recursive functions seem to work...</span></div><div class="line" id="013705"><span class="nick" style="color:#2e2a4a"><a href="#013705" label="[01:37:05]">&lt;xentrac&gt;</a></span><span class="message">awesome!</span></div><div class="line" id="013923"><span class="nick" style="color:#6b8072"><a href="#013923" label="[01:39:23]">&lt;stikonas&gt;</a></span><span class="message">yeah, it's getting close to working</span></div><div class="line" id="013933"><span class="nick" style="color:#6b8072"><a href="#013933" label="[01:39:33]">&lt;stikonas&gt;</a></span><span class="message">but M2-Planet definitely needs recursive functions</span></div><div class="line" id="014053"><span class="nick" style="color:#2e2a4a"><a href="#014053" label="[01:40:53]">&lt;xentrac&gt;</a></span><span class="message">you'd probably have noticed if you were storing local variables or the return address in a static location</span></div><div class="line" id="014106"><span class="nick" style="color:#2e2a4a"><a href="#014106" label="[01:41:06]">&lt;xentrac&gt;</a></span><span class="message">especially on RISC-V, where storing anything in a static location is a PITA</span></div><div class="line" id="014128"><span class="nick" style="color:#2e2a4a"><a href="#014128" label="[01:41:28]">&lt;xentrac&gt;</a></span><span class="message">what's the symptom?</span></div><div class="line" id="014254"><span class="nick" style="color:#6b8072"><a href="#014254" label="[01:42:54]">&lt;stikonas&gt;</a></span><span class="message">depends, recursive factorial crashes, recursive gcd function returns 0</span></div><div class="line" id="014319"><span class="nick" style="color:#6b8072"><a href="#014319" label="[01:43:19]">&lt;stikonas&gt;</a></span><span class="message">recursive fibonacci also crashes...</span></div><div class="line" id="014413"><span class="nick" style="color:#6b8072"><a href="#014413" label="[01:44:13]">&lt;stikonas&gt;</a></span><span class="message">well, need to debug with gdb a bit...</span></div><div class="line" id="014418"><span class="nick" style="color:#6b8072"><a href="#014418" label="[01:44:18]">&lt;stikonas&gt;</a></span><span class="message">perhaps something is overwritten</span></div><div class="line" id="014421"><span class="nick" style="color:#6b8072"><a href="#014421" label="[01:44:21]">&lt;stikonas&gt;</a></span><span class="message">or wrong offset...</span></div><div class="line" id="014831"><span class="nick" style="color:#6b8072"><a href="#014831" label="[01:48:31]">&lt;stikonas&gt;</a></span><span class="message">I think I might know what's the issue... All other arches have some code to deal with base pointer which I haven't implemented yet</span></div><div class="line" id="021232"><span class="nick" style="color:#6b8072"><a href="#021232" label="[02:12:32]">&lt;stikonas&gt;</a></span><span class="message">xentrac: yes, it was base pointer being overwritten, fixed now</span></div><div class="line" id="021246"><span class="nick" style="color:#2e2a4a"><a href="#021246" label="[02:12:46]">&lt;xentrac&gt;</a></span><span class="message">aha, great!</span></div><div class="line" id="021421"><span class="nick" style="color:#6b8072"><a href="#021421" label="[02:14:21]">&lt;stikonas&gt;</a></span><span class="message">so I only need to do 1) function pointer calls (shouldn't be too hard now), [ ], maybe hex escapes (e.g. \x20) but I don't think M2-Planet uses them and possibly then get rid of RV64M instructions to stay within RV32I/RV64I</span></div><div class="line" id="021452"><span class="nick" style="color:#6b8072"><a href="#021452" label="[02:14:52]">&lt;stikonas&gt;</a></span><span class="message">well, and need to port bootstrap.c to risv-v before M2-Planet can be built...</span></div><div class="line" id="023603"><span class="nick" style="color:#2e2a4a"><a href="#023603" label="[02:36:03]">&lt;xentrac&gt;</a></span><span class="message">hmm, do you have hardware at hand that doesn't have mul/div?</span></div><div class="line" id="023801"><span class="nick" style="color:#80b1d3"><a href="#023801" label="[02:38:01]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, e.g pineapple one would only have integers</span></div><div class="line" id="023831"><span class="nick" style="color:#2e2a4a"><a href="#023831" label="[02:38:31]">&lt;xentrac&gt;</a></span><span class="message">for now, yeah</span></div><div class="line" id="023844"><span class="nick" style="color:#2e2a4a"><a href="#023844" label="[02:38:44]">&lt;xentrac&gt;</a></span><span class="message">but RV64M isn't floating-point, it's mul/div</span></div><div class="line" id="023905"><span class="nick" style="color:#2e2a4a"><a href="#023905" label="[02:39:05]">&lt;xentrac&gt;</a></span><span class="message">I mean mul/div is what it addsd over RV64I</span></div><div class="line" id="023909"><span class="nick" style="color:#2e2a4a"><a href="#023909" label="[02:39:09]">&lt;xentrac&gt;</a></span><span class="message">*adds</span></div><div class="line" id="024104"><span class="nick" style="color:#2e2a4a"><a href="#024104" label="[02:41:04]">&lt;xentrac&gt;</a></span><span class="message">all the RV64 hardware I've seen or heard of is at least RV64IMAFD aka RV64G</span></div><div class="line" id="024129"><span class="nick" style="color:#2e2a4a"><a href="#024129" label="[02:41:29]">&lt;xentrac&gt;</a></span><span class="message">RISC-V without M is a reasonable thing for a class project or a very small embedded microcontroller</span></div><div class="line" id="024148"><span class="nick" style="color:#2e2a4a"><a href="#024148" label="[02:41:48]">&lt;xentrac&gt;</a></span><span class="message">but those are also almost invariably 32-bit</span></div><div class="line" id="024243"><span class="nick" style="color:#80b1d3"><a href="#024243" label="[02:42:43]">&lt;stikonas[m]&gt;</a></span><span class="message">Well yeah, pineapple one is 32bit</span></div><div class="line" id="024255"><span class="nick" style="color:#80b1d3"><a href="#024255" label="[02:42:55]">&lt;stikonas[m]&gt;</a></span><span class="message">We'll see if I do that...</span></div><div class="line" id="024307"><span class="nick" style="color:#2e2a4a"><a href="#024307" label="[02:43:07]">&lt;xentrac&gt;</a></span><span class="message">yeah</span></div><div class="line" id="024334"><span class="nick" style="color:#80b1d3"><a href="#024334" label="[02:43:34]">&lt;stikonas[m]&gt;</a></span><span class="message">Need to do func pointer calls first and then array notation</span></div><div class="line" id="024349"><span class="nick" style="color:#2e2a4a"><a href="#024349" label="[02:43:49]">&lt;xentrac&gt;</a></span><span class="message">awesome :D</span></div><div class="line" id="032156"><span class="nick" style="color:#6d2462"><a href="#032156" label="[03:21:56]">&lt;oriansj&gt;</a></span><span class="message">xentrac: multiply and divide (and modulo) as just functions in M2-Planet is perfectly fine. In fact any base operation can be a call into a hand written function.</span></div><div class="line" id="032248"><span class="nick" style="color:#6d2462"><a href="#032248" label="[03:22:48]">&lt;oriansj&gt;</a></span><span class="message">So not depending on non RV32I/RV64I instructions would certainly lower the hardware bar</span></div><div class="line" id="033700"><span class="nick" style="color:#2e2a4a"><a href="#033700" label="[03:37:00]">&lt;xentrac&gt;</a></span><span class="message">it would lower it, yes, and in particular in the RV32I case</span></div><div class="line" id="033739"><span class="nick" style="color:#2e2a4a"><a href="#033739" label="[03:37:39]">&lt;xentrac&gt;</a></span><span class="message">but I think that in the RV64 case we're talking about, to use your metaphor, lowering the bar from 1 meter to 999 millimeters</span></div><div class="line" id="033826"><span class="nick" style="color:#2e2a4a"><a href="#033826" label="[03:38:26]">&lt;xentrac&gt;</a></span><span class="message">just in the sense that I don't know of even one RV64I processor without M</span></div><div class="line" id="033940"><span class="nick" style="color:#2e2a4a"><a href="#033940" label="[03:39:40]">&lt;xentrac&gt;</a></span><span class="message">maybe one exists?</span></div><div class="line" id="035341"><span class="nick" style="color:#6d2462"><a href="#035341" label="[03:53:41]">&lt;oriansj&gt;</a></span><span class="message">I honestly couldn't tell you. oh and my previous estimate for a 32bit processor was off. We only need 12K transistors for an ARM Cortex M0 core</span></div><div class="line" id="040016"><span class="nick" style="color:#2e2a4a"><a href="#040016" label="[04:00:16]">&lt;xentrac&gt;</a></span><span class="message">oh?</span></div><div class="line" id="040126"><span class="nick" style="color:#2e2a4a"><a href="#040126" label="[04:01:26]">&lt;xentrac&gt;</a></span><span class="message">I think my estimate was 10k for &quot;a basic CPU&quot;, though of course the MuP21 was 7000</span></div><div class="line" id="040456"><span class="nick" style="color:#2e2a4a"><a href="#040456" label="[04:04:56]">&lt;xentrac&gt;</a></span><span class="message">the 68k was famously about 68k transistors, the ARM 1 was 25000, the 8051 was 50k, the RISC-I was 44.5k</span></div><div class="line" id="040541"><span class="nick" style="color:#2e2a4a"><a href="#040541" label="[04:05:41]">&lt;xentrac&gt;</a></span><span class="message">I haven't found a good estimate for a minimal RV32E anywhere, because everybody's building them in FPGAs and not transistors</span></div><div class="line" id="040651"><span class="nick" style="color:#2e2a4a"><a href="#040651" label="[04:06:51]">&lt;xentrac&gt;</a></span><span class="message">though Claire Wolf did get yosys to synthesize her PicoRV32 RISC-V design to TTL SSI logic: <a rel="nofollow" href="https://old.reddit.com/r/FPGA/comments/3kn5qu/open_source_fpgacpldpla/">https://old.reddit.com/r/FPGA/comments/3kn5qu/open_source_fpgacpldpla/</a> </span></div><div class="line" id="040830"><span class="nick" style="color:#2e2a4a"><a href="#040830" label="[04:08:30]">&lt;xentrac&gt;</a></span><span class="message">it was 16326 gates and 1815 flip-flops in 4846 chips</span></div><div class="line" id="041046"><span class="nick" style="color:#2e2a4a"><a href="#041046" label="[04:10:46]">&lt;xentrac&gt;</a></span><span class="message">that's also about 35-40k transistors</span></div><div class="line" id="041107"><span class="nick" style="color:#2e2a4a"><a href="#041107" label="[04:11:07]">&lt;xentrac&gt;</a></span><span class="message">you'd expect it to be a little smaller than RISC-I because it doesn't have register windows</span></div><div class="line" id="041128"><span class="nick" style="color:#2e2a4a"><a href="#041128" label="[04:11:28]">&lt;xentrac&gt;</a></span><span class="message">but MISCy designs can clearly make do with a smaller transistor budget</span></div><div class="line" id="041153"><span class="nick" style="color:#2e2a4a"><a href="#041153" label="[04:11:53]">&lt;xentrac&gt;</a></span><span class="message">btw if you hate the RISC-V instruction encoding, the MuP21's instruction encoding will make you projectile barf!</span></div><div class="line" id="041820"><span class="nick" style="color:#6d2462"><a href="#041820" label="[04:18:20]">&lt;oriansj&gt;</a></span><span class="message">possibly but thus far no one cares enough about MuP21 to bother trying to bootstrap it.</span></div><div class="line" id="060244"><span class="nick" style="color:#2e2a4a"><a href="#060244" label="[06:02:44]">&lt;xentrac&gt;</a></span><span class="message">no, I imagine not :)</span></div><div class="line" id="060430"><span class="nick" style="color:#2e2a4a"><a href="#060430" label="[06:04:30]">&lt;xentrac&gt;</a></span><span class="message">all that C software that assumes ints are 32 bit, so we ended up with this stupid LP64 bullshit?  imagine how that stuff would deal with 20-bit ints</span></div><div class="line" id="125254"><span class="nick" style="color:#6d2462"><a href="#125254" label="[12:52:54]">&lt;oriansj&gt;</a></span><span class="message">xentrac: well most software developers never consider common hardware (like PowerPC) they don't have, let alone alien hardware architectures with non-byte multiple words.</span></div><div class="line" id="135755"><span class="nick" style="color:#6b8072"><a href="#135755" label="[13:57:55]">&lt;stikonas&gt;</a></span><span class="message">I guess most software developers can just let compiler developers to worry about those</span></div><div class="line" id="143102"><span class="nick" style="color:#234e69"><a href="#143102" label="[14:31:02]">&lt;fossy&gt;</a></span><span class="message">let someone else worry about it is a common theme in the computing world</span></div><div class="line" id="143253"><span class="nick" style="color:#6c3d55"><a href="#143253" label="[14:32:53]">&lt;pabs3&gt;</a></span><span class="message">is there such hardware made in recent times? or only things running on FPGAs?</span></div><div class="line" id="235909"><span class="nick" style="color:#6b8072"><a href="#235909" label="[23:59:09]">&lt;stikonas&gt;</a></span><span class="message">hmm, this will be annoying...</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-01-31.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011752"><span class="nick" style="color:#389600"><a href="#011752" label="[01:17:52]">&lt;fossy&gt;</a></span><span class="message">most of the prs ive pushed still need fixing lol so don't merge any yet</span></div><div class="line" id="011947"><span class="nick" style="color:#8dd3c7"><a href="#011947" label="[01:19:47]">&lt;stikonas&gt;</a></span><span class="message">sure</span></div><div class="line" id="011956"><span class="nick" style="color:#8dd3c7"><a href="#011956" label="[01:19:56]">&lt;stikonas&gt;</a></span><span class="message">though you can always mark them as drafts</span></div><div class="line" id="012329"><span class="nick" style="color:#8dd3c7"><a href="#012329" label="[01:23:29]">&lt;stikonas&gt;</a></span><span class="message">I'm still surprised that build systems need users though</span></div><div class="line" id="012341"><span class="nick" style="color:#8dd3c7"><a href="#012341" label="[01:23:41]">&lt;stikonas&gt;</a></span><span class="message">I mean I understand that for normal system I would like to have users</span></div><div class="line" id="012401"><span class="nick" style="color:#8dd3c7"><a href="#012401" label="[01:24:01]">&lt;stikonas&gt;</a></span><span class="message">but these days lots of people build stuff in the containeer as namespaced root</span></div><div class="line" id="012442"><span class="nick" style="color:#8dd3c7"><a href="#012442" label="[01:24:42]">&lt;stikonas&gt;</a></span><span class="message">anywya, generally looks like nice improvements</span></div><div class="line" id="012829"><span class="nick" style="color:#389600"><a href="#012829" label="[01:28:29]">&lt;fossy&gt;</a></span><span class="message">stikonas: not sure if build systems is really the right word tbh, i was referring to package manager build systems</span></div><div class="line" id="012848"><span class="nick" style="color:#8dd3c7"><a href="#012848" label="[01:28:48]">&lt;stikonas&gt;</a></span><span class="message">oh those...</span></div><div class="line" id="012904"><span class="nick" style="color:#389600"><a href="#012904" label="[01:29:04]">&lt;fossy&gt;</a></span><span class="message">and adjacent things such as gentoo prefix</span></div><div class="line" id="012938"><span class="nick" style="color:#8dd3c7"><a href="#012938" label="[01:29:38]">&lt;stikonas&gt;</a></span><span class="message">yeah, that is still strange but oh well...</span></div><div class="line" id="013002"><span class="nick" style="color:#8dd3c7"><a href="#013002" label="[01:30:02]">&lt;stikonas&gt;</a></span><span class="message">I would think that prefix should only care about stuff inside that prefix...</span></div><div class="line" id="013004"><span class="nick" style="color:#8dd3c7"><a href="#013004" label="[01:30:04]">&lt;stikonas&gt;</a></span><span class="message">but oh well...</span></div><div class="line" id="013155"><span class="nick" style="color:#389600"><a href="#013155" label="[01:31:55]">&lt;fossy&gt;</a></span><span class="message">yeah agreed it doesn't make complete semse to me</span></div><div class="line" id="013159"><span class="nick" style="color:#389600"><a href="#013159" label="[01:31:59]">&lt;fossy&gt;</a></span><span class="message">sense*</span></div><div class="line" id="033444"><span class="nick" style="color:#2e2a4a"><a href="#033444" label="[03:34:44]">&lt;oriansj&gt;</a></span><span class="message">muurkha: I have been reading your Pennoncel architecture note; if you switch to 16 registers, then you can reduce down to 2 instruction formats and only need to support a 16bit immediate.</span></div><div class="line" id="065547"><span class="nick" style="color:#6b8072"><a href="#065547" label="[06:55:47]">&lt;muurkha&gt;</a></span><span class="message">oriansj: hmm, that's an interesting idea; 16 registers is certainly still quite tolerable, but I think you'd *need* to support only a 16-bit immediate with only two instruction formats</span></div><div class="line" id="065750"><span class="nick" style="color:#6b8072"><a href="#065750" label="[06:57:50]">&lt;muurkha&gt;</a></span><span class="message">but, if you only support a 16-bit immediate, you can only directly call subroutines within a 64K range (or 256K if you shift), which seems like a big limitation?  if you have a scratch register you could call into the larger range with li16; movt; jalr which I guess might be okay</span></div><div class="line" id="065839"><span class="nick" style="color:#6b8072"><a href="#065839" label="[06:58:39]">&lt;muurkha&gt;</a></span><span class="message">you lose the byte-alignment of fields, but maybe nibble-alignment is just as good</span></div><div class="line" id="065948"><span class="nick" style="color:#6b8072"><a href="#065948" label="[06:59:48]">&lt;muurkha&gt;</a></span><span class="message">I'm assuming the two formats are BBW (opcode8 srcreg4 dstreg4 imm16) and BRRR (opcode8 srcreg8 srcreg8 dstreg8)</span></div><div class="line" id="074419"><span class="nick" style="color:#6b8072"><a href="#074419" label="[07:44:19]">&lt;muurkha&gt;</a></span><span class="message">oriansj: I'm pleased you liked it</span></div><div class="line" id="134356"><span class="nick" style="color:#80b1d3"><a href="#134356" label="[13:43:56]">&lt;Googulator&gt;</a></span><span class="message">fossy: PRs #415 &amp; #418 updated</span></div><div class="line" id="134848"><span class="nick" style="color:#6d2462"><a href="#134848" label="[13:48:48]">&lt;janneke&gt;</a></span><span class="message">Googulator: what kind of documentation wrt to Guix full-source bootstrap are you missing?  Have you seen <a rel="nofollow" href="https://guix.gnu.org/en/blog/2023/the-full-source-bootstrap-building-from-source-all-the-way-down/?">https://guix.gnu.org/en/blog/2023/the-full-source-bootstrap-building-from-source-all-the-way-down/?</a> </span></div><div class="line" id="134944"><span class="nick" style="color:#6d2462"><a href="#134944" label="[13:49:44]">&lt;janneke&gt;</a></span><span class="message">if you install guix and run `guix build hello --no-substitutes', the full source bootstrap will be built before your eyes</span></div><div class="line" id="135002"><span class="nick" style="color:#6d2462"><a href="#135002" label="[13:50:02]">&lt;janneke&gt;</a></span><span class="message">the code is all in <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/guix.git/tree/gnu/packages/commencement.scm">https://git.savannah.gnu.org/cgit/guix.git/tree/gnu/packages/commencement.scm</a> </span></div><div class="line" id="144304"><span class="nick" style="color:#6b8072"><a href="#144304" label="[14:43:04]">&lt;muurkha&gt;</a></span><span class="message">oh, I guess if anyone else wants to know what oriansj and I were talking about, check out gpr-pc-tiny-isa.md in <a rel="nofollow" href="http://canonical.org/~kragen/sw/pavnotes2.git">http://canonical.org/~kragen/sw/pavnotes2.git</a> </span></div><div class="line" id="144308"><span class="nick" style="color:#6b8072"><a href="#144308" label="[14:43:08]">&lt;muurkha&gt;</a></span><span class="message">bbl</span></div><div class="line" id="150016"><span class="nick" style="color:#80b1d3"><a href="#150016" label="[15:00:16]">&lt;Googulator&gt;</a></span><span class="message">janneke: does that actually rebuild everything, not just &quot;hello&quot; itself?</span></div><div class="line" id="150144"><span class="nick" style="color:#80b1d3"><a href="#150144" label="[15:01:44]">&lt;Googulator&gt;</a></span><span class="message">I definitely remember using guix build with &quot;--no-substitutes&quot;, but it didn't look like a full rebuild starting from seeds</span></div><div class="line" id="150242"><span class="nick" style="color:#80b1d3"><a href="#150242" label="[15:02:42]">&lt;Googulator&gt;</a></span><span class="message">exact command was `guix build cl-yale-haskell --no-substitutes`</span></div><div class="line" id="150313"><span class="nick" style="color:#80b1d3"><a href="#150313" label="[15:03:13]">&lt;Googulator&gt;</a></span><span class="message">I did that when I was debugging yale-haskell on clisp</span></div><div class="line" id="150347"><span class="nick" style="color:#80b1d3"><a href="#150347" label="[15:03:47]">&lt;Googulator&gt;</a></span><span class="message">it rebuilt clisp itself, plus cl-yale-haskell (which failed), but nothing more</span></div><div class="line" id="150650"><span class="nick" style="color:#80b1d3"><a href="#150650" label="[15:06:50]">&lt;Googulator&gt;</a></span><span class="message">anyway, bootstrappable.org doesn't even link to the Guix full source bootstrap, only to the earlier reduced binary seed one</span></div><div class="line" id="151533"><span class="nick" style="color:#234e69"><a href="#151533" label="[15:15:33]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Googulator: I think you need to guix gc everything first</span></div><div class="line" id="151603"><span class="nick" style="color:#234e69"><a href="#151603" label="[15:16:03]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Otherwise it would use previously downloaded substitutes</span></div><div class="line" id="151630"><span class="nick" style="color:#234e69"><a href="#151630" label="[15:16:30]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; --no-substitutes only applies for new stuff</span></div><div class="line" id="151737"><span class="nick" style="color:#234e69"><a href="#151737" label="[15:17:37]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; And bootstrapple.org does not link to any new stuff like kernel bootstrap either</span></div><div class="line" id="231046"><span class="nick" style="color:#389600"><a href="#231046" label="[23:10:46]">&lt;fossy&gt;</a></span><span class="message">stikonas: what's the right way to use your gentoo-bootstrap overlay for rust?</span></div><div class="line" id="231102"><span class="nick" style="color:#389600"><a href="#231102" label="[23:11:02]">&lt;fossy&gt;</a></span><span class="message">do you emerge -1 each subsequent version?</span></div><div class="line" id="231110"><span class="nick" style="color:#8dd3c7"><a href="#231110" label="[23:11:10]">&lt;stikonas&gt;</a></span><span class="message">fossy: unfortunately for rust yes...</span></div><div class="line" id="231122"><span class="nick" style="color:#8dd3c7"><a href="#231122" label="[23:11:22]">&lt;stikonas&gt;</a></span><span class="message">cause they are all on the same slot</span></div><div class="line" id="231130"><span class="nick" style="color:#389600"><a href="#231130" label="[23:11:30]">&lt;fossy&gt;</a></span><span class="message">yeah okay that makes sense</span></div><div class="line" id="231135"><span class="nick" style="color:#8dd3c7"><a href="#231135" label="[23:11:35]">&lt;stikonas&gt;</a></span><span class="message">openjdk bootstrap is a bit more user friendly in that regard</span></div><div class="line" id="231135"><span class="nick" style="color:#389600"><a href="#231135" label="[23:11:35]">&lt;fossy&gt;</a></span><span class="message">didn't think there'd be a better way</span></div><div class="line" id="231235"><span class="nick" style="color:#8dd3c7"><a href="#231235" label="[23:12:35]">&lt;stikonas&gt;</a></span><span class="message">fossy: so have you managed to get there from live-bootstrap?</span></div><div class="line" id="231246"><span class="nick" style="color:#6c3d55"><a href="#231246" label="[23:12:46]">&lt;sam_&gt;</a></span><span class="message">stikonas: (I do want to fix that, btw, or at least guide someone else to fix it)</span></div><div class="line" id="231254"><span class="nick" style="color:#6c3d55"><a href="#231254" label="[23:12:54]">&lt;sam_&gt;</a></span><span class="message">i have a rough plan for what needs to be done</span></div><div class="line" id="231257"><span class="nick" style="color:#6c3d55"><a href="#231257" label="[23:12:57]">&lt;sam_&gt;</a></span><span class="message">i just need to find someone to do it</span></div><div class="line" id="231312"><span class="nick" style="color:#389600"><a href="#231312" label="[23:13:12]">&lt;fossy&gt;</a></span><span class="message">stikonas: unfortunately not yet</span></div><div class="line" id="231313"><span class="nick" style="color:#8dd3c7"><a href="#231313" label="[23:13:13]">&lt;stikonas&gt;</a></span><span class="message">sam_: nice!</span></div><div class="line" id="231331"><span class="nick" style="color:#8dd3c7"><a href="#231331" label="[23:13:31]">&lt;stikonas&gt;</a></span><span class="message">fossy: oh, you might also need GCC 12 or less</span></div><div class="line" id="231336"><span class="nick" style="color:#8dd3c7"><a href="#231336" label="[23:13:36]">&lt;stikonas&gt;</a></span><span class="message">I think I last tested it with 12</span></div><div class="line" id="231341"><span class="nick" style="color:#8dd3c7"><a href="#231341" label="[23:13:41]">&lt;stikonas&gt;</a></span><span class="message">13 might need extra patches</span></div><div class="line" id="231352"><span class="nick" style="color:#8dd3c7"><a href="#231352" label="[23:13:52]">&lt;stikonas&gt;</a></span><span class="message">but I'm too lazy (or too busy) to backport them</span></div><div class="line" id="231408"><span class="nick" style="color:#8dd3c7"><a href="#231408" label="[23:14:08]">&lt;stikonas&gt;</a></span><span class="message">especially given that there might be new mrustc release soonish that will target rust 1.74</span></div><div class="line" id="231535"><span class="nick" style="color:#389600"><a href="#231535" label="[23:15:35]">&lt;fossy&gt;</a></span><span class="message">sam_: while you're around, live-bootstrap is now able to create a gentoo prefix. I was trying to make a seed stage3 for catalyst by doing ROOT=rootfs emerge -e @system, but that still installs everything to EPREFIX, (eg, my EPREFIX was /gentoo, and it was installing everything into rootfs/gentoo, whereas i just want things to go straight into rootfs/)</span></div><div class="line" id="231625"><span class="nick" style="color:#6c3d55"><a href="#231625" label="[23:16:25]">&lt;sam_&gt;</a></span><span class="message">stikonas: the gist is, we already have the _downside_ of slotting right now because rust-bin and rust are coinstallable (as ebuilds cannot pick the right one to use, virtual/rust might be satisfied, but rustc might not be the version depended on), so we may as well do it properly, we just need to add some small infra in an eclass to let ebuilds properly pick a version</span></div><div class="line" id="231631"><span class="nick" style="color:#6c3d55"><a href="#231631" label="[23:16:31]">&lt;sam_&gt;</a></span><span class="message">then we can slot dev-lang/rust itself trivially</span></div><div class="line" id="231703"><span class="nick" style="color:#6c3d55"><a href="#231703" label="[23:17:03]">&lt;sam_&gt;</a></span><span class="message">fossy: yeah, that's also then ROOT= I think; we need to improve our bootstrapping story for ROOT and it's on my mind but I don't yet have a plan</span></div><div class="line" id="231707"><span class="nick" style="color:#6c3d55"><a href="#231707" label="[23:17:07]">&lt;sam_&gt;</a></span><span class="message">fossy: also thank you for the update!</span></div><div class="line" id="231736"><span class="nick" style="color:#389600"><a href="#231736" label="[23:17:36]">&lt;fossy&gt;</a></span><span class="message">okey cool</span></div><div class="line" id="231844"><span class="nick" style="color:#8dd3c7"><a href="#231844" label="[23:18:44]">&lt;stikonas&gt;</a></span><span class="message">fossy: still, if you got emerge working, then you are mostly there</span></div><div class="line" id="231932"><span class="nick" style="color:#8dd3c7"><a href="#231932" label="[23:19:32]">&lt;stikonas&gt;</a></span><span class="message">I'm unfortunately much slower trying to debug tcc...</span></div><div class="line" id="231948"><span class="nick" style="color:#389600"><a href="#231948" label="[23:19:48]">&lt;fossy&gt;</a></span><span class="message">yeah, just trying to see if i can toggle some flags/variables here and there to &quot;deprefix&quot; the prefix emerge</span></div><div class="line" id="231956"><span class="nick" style="color:#389600"><a href="#231956" label="[23:19:56]">&lt;fossy&gt;</a></span><span class="message">might try installing portage to / instead</span></div><div class="line" id="045011"><span class="nick" style="color:#2e2a4a"><a href="#045011" label="[04:50:11]">&lt;oriansj&gt;</a></span><span class="message">muurkha: 32KB is more than plenty for 99% of functions; just put the jump target that is greater than 64KB out at the end of the function (or if you are in a function that is greater than 32KB in size, you can do a jump load combo like we have in M2-Planet</span></div><div class="line" id="045806"><span class="nick" style="color:#2e2a4a"><a href="#045806" label="[04:58:06]">&lt;oriansj&gt;</a></span><span class="message">and for  BBW I would do: opcode8 dstreg4 srcreg4 imm16 and for  BRRR I would do opcode8 dstreg4 srcreg4 srcreg4 xop4 xop8 (that way you can set xop4 to zero and keep byte and nybble alignment and later when you need extra opcodes, you can just set xop4 to 0001)</span></div><div class="line" id="050034"><span class="nick" style="color:#2e2a4a"><a href="#050034" label="[05:00:34]">&lt;oriansj&gt;</a></span><span class="message">and the 64KB address space of 16bits maps nicely to a 64KB L1 cache</span></div><div class="line" id="050153"><span class="nick" style="color:#2e2a4a"><a href="#050153" label="[05:01:53]">&lt;oriansj&gt;</a></span><span class="message">or if you love bit shifting (like the original ARM design did) you can use the xop4 as the shift value</span></div><div class="line" id="050214"><span class="nick" style="color:#2e2a4a"><a href="#050214" label="[05:02:14]">&lt;oriansj&gt;</a></span><span class="message">(but that seems a bit of a waste to me)</span></div><div class="line" id="134013"><span class="nick" style="color:#2e2a4a"><a href="#134013" label="[13:40:13]">&lt;oriansj&gt;</a></span><span class="message">Googulator: yeah we have a huge documentation problem (as that is what our website and wiki effectively are)</span></div><div class="line" id="134102"><span class="nick" style="color:#2e2a4a"><a href="#134102" label="[13:41:02]">&lt;oriansj&gt;</a></span><span class="message">we need someone interested in just writing about what is going on and updating those various pieces to reflect the work that has been done and is in progress.</span></div><div class="line" id="140137"><span class="nick" style="color:#80b1d3"><a href="#140137" label="[14:01:37]">&lt;Googulator&gt;</a></span><span class="message">oriansj: it probably doesn't help the documentation situation that the website is coded in Scheme</span></div><div class="line" id="140308"><span class="nick" style="color:#80b1d3"><a href="#140308" label="[14:03:08]">&lt;Googulator&gt;</a></span><span class="message">the functional-declarative style of Scheme is a good fit for markup (HTML is also declarative), but Lisp syntax is still intimidating to non-Lispers</span></div><div class="line" id="140609"><span class="nick" style="color:#2e2a4a"><a href="#140609" label="[14:06:09]">&lt;oriansj&gt;</a></span><span class="message">we don't even need proper markup, just raw text and simple wrapping</span></div><div class="line" id="140623"><span class="nick" style="color:#2e2a4a"><a href="#140623" label="[14:06:23]">&lt;oriansj&gt;</a></span><span class="message">basic support for images and not much else</span></div><div class="line" id="140651"><span class="nick" style="color:#2e2a4a"><a href="#140651" label="[14:06:51]">&lt;oriansj&gt;</a></span><span class="message">heck it should work on gopher or gemini as the information is what matters</span></div><div class="line" id="150954"><span class="nick" style="color:#80b1d3"><a href="#150954" label="[15:09:54]">&lt;Googulator&gt;</a></span><span class="message">oriansj: I also don't see any means to contribute to the website, e.g. no pull request functionality</span></div><div class="line" id="151040"><span class="nick" style="color:#80b1d3"><a href="#151040" label="[15:10:40]">&lt;Googulator&gt;</a></span><span class="message">I guess one could send patches to the bootstrappable mailing list</span></div><div class="line" id="151126"><span class="nick" style="color:#80b1d3"><a href="#151126" label="[15:11:26]">&lt;Googulator&gt;</a></span><span class="message">(which, btw, is not linked from <a rel="nofollow" href="http://savannah.gnu.org/mail/?group=guix">http://savannah.gnu.org/mail/?group=guix</a>  even though the repository is under the Guix project)</span></div><div class="line" id="182250"><span class="nick" style="color:#80b1d3"><a href="#182250" label="[18:22:50]">&lt;Googulator&gt;</a></span><span class="message"> <a rel="nofollow" href="https://logs.guix.gnu.org/bootstrappable">https://logs.guix.gnu.org/bootstrappable</a>  seems to be malfunctioning</span></div><div class="line" id="182307"><span class="nick" style="color:#80b1d3"><a href="#182307" label="[18:23:07]">&lt;Googulator&gt;</a></span><span class="message">still logging to yesterday's log</span></div><br /></div></body></html>

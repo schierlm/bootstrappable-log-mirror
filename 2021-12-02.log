@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-12-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="210629"><span class="nick">***</span><span class="message notice">robin__ is now known as robin</span></div><div class="line" id="213227"><span class="nick" style="color:#8dd3c7"><a href="#213227" label="[21:32:27]">&lt;oriansj&gt;</a></span><span class="message">should I submit a proposal for FOSDEM this year?</span></div><div class="line" id="213303"><span class="nick" style="color:#8dd3c7"><a href="#213303" label="[21:33:03]">&lt;oriansj&gt;</a></span><span class="message">as it would likely just be an expanded version of my lightning talk.</span></div><div class="line" id="214623"><span class="nick" style="color:#2e2a4a"><a href="#214623" label="[21:46:23]">&lt;stikonas&gt;</a></span><span class="message">oriansj: well, I guess it's always good to make bootstrappable work more known</span></div><div class="line" id="214653"><span class="nick" style="color:#2e2a4a"><a href="#214653" label="[21:46:53]">&lt;stikonas&gt;</a></span><span class="message">we got a lot of reports saying &quot;this work is really cool but I've just discovered it&quot;</span></div><div class="line" id="214721"><span class="nick" style="color:#2e2a4a"><a href="#214721" label="[21:47:21]">&lt;stikonas&gt;</a></span><span class="message">so it's not widely known yet</span></div><div class="line" id="214926"><span class="nick" style="color:#2e2a4a"><a href="#214926" label="[21:49:26]">&lt;stikonas&gt;</a></span><span class="message">hmm, I have some initial riscv32 work for M2-Planet. But it crashes when built with cc_* (both riscv32 and riscv64 version)... So something in my new diff must be causing the problem</span></div><div class="line" id="220522"><span class="nick" style="color:#8dd3c7"><a href="#220522" label="[22:05:22]">&lt;oriansj&gt;</a></span><span class="message">stikonas: stack offsets being correct? and right instructions for the reads/writes to ensure you don't put garbage on the stack?</span></div><div class="line" id="220652"><span class="nick" style="color:#2e2a4a"><a href="#220652" label="[22:06:52]">&lt;stikonas&gt;</a></span><span class="message">hmm, not sure, but I think the easiest way to debug this is to split the diff into smaller parts and see when crashes start on riscv64...</span></div><div class="line" id="220743"><span class="nick" style="color:#2e2a4a"><a href="#220743" label="[22:07:43]">&lt;stikonas&gt;</a></span><span class="message">then at least I can identify what construct breaks cc_riscv*</span></div><div class="line" id="220827"><span class="nick" style="color:#2e2a4a"><a href="#220827" label="[22:08:27]">&lt;stikonas&gt;</a></span><span class="message">the diff is here <a rel="nofollow" href="https://paste.debian.net/1221740/">https://paste.debian.net/1221740/</a> </span></div><div class="line" id="220854"><span class="nick" style="color:#2e2a4a"><a href="#220854" label="[22:08:54]">&lt;stikonas&gt;</a></span><span class="message">without this patch riscv64 works but with it riscv64 breaks (with the same crash as riscv32)</span></div><div class="line" id="220922"><span class="nick" style="color:#2e2a4a"><a href="#220922" label="[22:09:22]">&lt;stikonas&gt;</a></span><span class="message">maybe &quot;((RISCV32 == Architecture) || (RISCV64 == Architecture))&quot; breaks something...</span></div><div class="line" id="220937"><span class="nick" style="color:#2e2a4a"><a href="#220937" label="[22:09:37]">&lt;stikonas&gt;</a></span><span class="message">everything else seems even more benign</span></div><div class="line" id="221011"><span class="nick" style="color:#2e2a4a"><a href="#221011" label="[22:10:11]">&lt;stikonas&gt;</a></span><span class="message">(it's M2 itself that crashes when building blood-elf)</span></div><div class="line" id="221157"><span class="nick" style="color:#6b8072"><a href="#221157" label="[22:11:57]">&lt;fossy&gt;</a></span><span class="message">&lt;@oriansj&gt; should I submit a proposal for FOSDEM this year?</span></div><div class="line" id="221201"><span class="nick" style="color:#6b8072"><a href="#221201" label="[22:12:01]">&lt;fossy&gt;</a></span><span class="message">yeah</span></div><div class="line" id="221516"><span class="nick" style="color:#2e2a4a"><a href="#221516" label="[22:15:16]">&lt;stikonas&gt;</a></span><span class="message">oriansj: yes, it's ((RISCV32 == Architecture) || (RISCV64 == Architecture)) that breaks cc_riscv*</span></div><div class="line" id="221522"><span class="nick" style="color:#2e2a4a"><a href="#221522" label="[22:15:22]">&lt;stikonas&gt;</a></span><span class="message">oh, actually no, ignore the above</span></div><div class="line" id="221600"><span class="nick" style="color:#2e2a4a"><a href="#221600" label="[22:16:00]">&lt;stikonas&gt;</a></span><span class="message">hmm, actually it might be two problems and once is caused by ||</span></div><div class="line" id="221610"><span class="nick" style="color:#2e2a4a"><a href="#221610" label="[22:16:10]">&lt;stikonas&gt;</a></span><span class="message">but even without or build crashes later...</span></div><div class="line" id="222440"><span class="nick" style="color:#2e2a4a"><a href="#222440" label="[22:24:40]">&lt;stikonas&gt;</a></span><span class="message">ok, the other problem is fixed, so it's just || not working...</span></div><div class="line" id="222453"><span class="nick" style="color:#2e2a4a"><a href="#222453" label="[22:24:53]">&lt;stikonas&gt;</a></span><span class="message">strange... It's the construct that is already used in Knight...</span></div><div class="line" id="222949"><span class="nick" style="color:#8dd3c7"><a href="#222949" label="[22:29:49]">&lt;oriansj&gt;</a></span><span class="message">it could be the cc_riscv32 has an output bug.</span></div><div class="line" id="223013"><span class="nick" style="color:#8dd3c7"><a href="#223013" label="[22:30:13]">&lt;oriansj&gt;</a></span><span class="message">does cc_riscv64 build it correctly?</span></div><div class="line" id="223158"><span class="nick" style="color:#2e2a4a"><a href="#223158" label="[22:31:58]">&lt;stikonas&gt;</a></span><span class="message">well, I found one copy-paste error where I had RISCV64 twice instead of one RISCV32 and the other branch doing RISCV64</span></div><div class="line" id="223200"><span class="nick" style="color:#2e2a4a"><a href="#223200" label="[22:32:00]">&lt;stikonas&gt;</a></span><span class="message">checking it now...</span></div><div class="line" id="223218"><span class="nick" style="color:#2e2a4a"><a href="#223218" label="[22:32:18]">&lt;stikonas&gt;</a></span><span class="message">(line 307 in the diff)</span></div><div class="line" id="223250"><span class="nick" style="color:#2e2a4a"><a href="#223250" label="[22:32:50]">&lt;stikonas&gt;</a></span><span class="message">so riscv64 build succeeded now\</span></div><div class="line" id="223258"><span class="nick" style="color:#2e2a4a"><a href="#223258" label="[22:32:58]">&lt;stikonas&gt;</a></span><span class="message">running riscv32</span></div><div class="line" id="223349"><span class="nick" style="color:#2e2a4a"><a href="#223349" label="[22:33:49]">&lt;stikonas&gt;</a></span><span class="message">ok, that's also fixed</span></div><div class="line" id="223354"><span class="nick" style="color:#2e2a4a"><a href="#223354" label="[22:33:54]">&lt;stikonas&gt;</a></span><span class="message">so it was just a typo</span></div><div class="line" id="223425"><span class="nick" style="color:#2e2a4a"><a href="#223425" label="[22:34:25]">&lt;stikonas&gt;</a></span><span class="message">something later fails but I guess that's expected...</span></div><div class="line" id="223428"><span class="nick" style="color:#2e2a4a"><a href="#223428" label="[22:34:28]">&lt;stikonas&gt;</a></span><span class="message">m2libc port is not completed</span></div><div class="line" id="223444"><span class="nick" style="color:#2e2a4a"><a href="#223444" label="[22:34:44]">&lt;stikonas&gt;</a></span><span class="message">but blood-elf was built correctly</span></div><div class="line" id="223508"><span class="nick" style="color:#8dd3c7"><a href="#223508" label="[22:35:08]">&lt;oriansj&gt;</a></span><span class="message">honestly it looks rather minimal delta as a new M2-Planet port so nice work stikonas</span></div><div class="line" id="223520"><span class="nick" style="color:#2e2a4a"><a href="#223520" label="[22:35:20]">&lt;stikonas&gt;</a></span><span class="message">well, need to add tests...</span></div><div class="line" id="223600"><span class="nick" style="color:#2e2a4a"><a href="#223600" label="[22:36:00]">&lt;stikonas&gt;</a></span><span class="message">oh, tests also need fixing due to open function that you used in M2libc...</span></div><div class="line" id="223621"><span class="nick" style="color:#2e2a4a"><a href="#223621" label="[22:36:21]">&lt;stikonas&gt;</a></span><span class="message">I've fixed that in stage0-posix, but M2-Planet tests have the same issue</span></div><div class="line" id="223921"><span class="nick" style="color:#8dd3c7"><a href="#223921" label="[22:39:21]">&lt;oriansj&gt;</a></span><span class="message">that is why we fix in M2libc and just have stage0-posix and M2-Planet pull the fixed version, so we only need to fix exactly once</span></div><div class="line" id="223955"><span class="nick" style="color:#2e2a4a"><a href="#223955" label="[22:39:55]">&lt;stikonas&gt;</a></span><span class="message">well, it's the stdlib.c using fcntl.h header...</span></div><div class="line" id="224005"><span class="nick" style="color:#2e2a4a"><a href="#224005" label="[22:40:05]">&lt;stikonas&gt;</a></span><span class="message">so I'm just moving it all in the build scripts above</span></div><div class="line" id="224027"><span class="nick" style="color:#2e2a4a"><a href="#224027" label="[22:40:27]">&lt;stikonas&gt;</a></span><span class="message">if M2-Mesoplanet would implement includes, that issue might go away anyway</span></div><div class="line" id="224038"><span class="nick" style="color:#2e2a4a"><a href="#224038" label="[22:40:38]">&lt;stikonas&gt;</a></span><span class="message">but includes are not that easy from what I understood...</span></div><div class="line" id="224422"><span class="nick" style="color:#8dd3c7"><a href="#224422" label="[22:44:22]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well, I have a simple way to do it in cc_reader.c but I need a solid block of time with no distractions to implment it.</span></div><div class="line" id="224433"><span class="nick" style="color:#2e2a4a"><a href="#224433" label="[22:44:33]">&lt;stikonas&gt;</a></span><span class="message">well, no rush...</span></div><div class="line" id="224458"><span class="nick" style="color:#2e2a4a"><a href="#224458" label="[22:44:58]">&lt;stikonas&gt;</a></span><span class="message">I'll just change order of -f for now. It's better to include .h files first anyway</span></div><div class="line" id="224506"><span class="nick" style="color:#2e2a4a"><a href="#224506" label="[22:45:06]">&lt;stikonas&gt;</a></span><span class="message">and .c only after that</span></div><div class="line" id="224535"><span class="nick" style="color:#8dd3c7"><a href="#224535" label="[22:45:35]">&lt;oriansj&gt;</a></span><span class="message">well we also need to update the .h and .c files to be more C standard in M2libc</span></div><div class="line" id="224548"><span class="nick" style="color:#2e2a4a"><a href="#224548" label="[22:45:48]">&lt;stikonas&gt;</a></span><span class="message">that too...</span></div><div class="line" id="224552"><span class="nick" style="color:#2e2a4a"><a href="#224552" label="[22:45:52]">&lt;stikonas&gt;</a></span><span class="message">including if guards...</span></div><div class="line" id="224607"><span class="nick" style="color:#8dd3c7"><a href="#224607" label="[22:46:07]">&lt;oriansj&gt;</a></span><span class="message">yeah</span></div><div class="line" id="224800"><span class="nick" style="color:#8dd3c7"><a href="#224800" label="[22:48:00]">&lt;oriansj&gt;</a></span><span class="message">the plan is as follows: M2libc make the .h files #include the .c versions of themselves in a #ifndef block</span></div><div class="line" id="224952"><span class="nick" style="color:#8dd3c7"><a href="#224952" label="[22:49:52]">&lt;oriansj&gt;</a></span><span class="message">cc_reader.c when the token is #include; read the next token and load that file, pushing current file name and line number onto a stack. output a token set like // #FILENAME new_name 0 and after reading that file // #FILENAME old_name ###</span></div><div class="line" id="225056"><span class="nick" style="color:#8dd3c7"><a href="#225056" label="[22:50:56]">&lt;oriansj&gt;</a></span><span class="message">with ### being the line number to resume at; so that M2-Planet's cc_reader.c can be adjusted to use the alternate filename and line numbers on the tokens it generates and produce more meaningful error messages</span></div><div class="line" id="225230"><span class="nick" style="color:#8dd3c7"><a href="#225230" label="[22:52:30]">&lt;oriansj&gt;</a></span><span class="message">what do you think stikonas?</span></div><div class="line" id="225300"><span class="nick" style="color:#2e2a4a"><a href="#225300" label="[22:53:00]">&lt;stikonas&gt;</a></span><span class="message">yeah, that should work</span></div><div class="line" id="225315"><span class="nick" style="color:#2e2a4a"><a href="#225315" label="[22:53:15]">&lt;stikonas&gt;</a></span><span class="message">still a bit of work but I think doable</span></div><div class="line" id="225813"><span class="nick" style="color:#2e2a4a"><a href="#225813" label="[22:58:13]">&lt;stikonas&gt;</a></span><span class="message">oriansj: now I'm hitting M2libc/stdio.c:348:unlink is not a defined symbol</span></div><div class="line" id="225832"><span class="nick" style="color:#2e2a4a"><a href="#225832" label="[22:58:32]">&lt;stikonas&gt;</a></span><span class="message">with test0001/hello-knight-native.sh</span></div><div class="line" id="225838"><span class="nick" style="color:#2e2a4a"><a href="#225838" label="[22:58:38]">&lt;stikonas&gt;</a></span><span class="message">I guess it's not implemented</span></div><div class="line" id="225924"><span class="nick" style="color:#2e2a4a"><a href="#225924" label="[22:59:24]">&lt;stikonas&gt;</a></span><span class="message">probably with all tests, not just test0001...</span></div><div class="line" id="225934"><span class="nick" style="color:#2e2a4a"><a href="#225934" label="[22:59:34]">&lt;stikonas&gt;</a></span><span class="message">so this one should be fixed in M2libc</span></div><div class="line" id="230005"><span class="nick" style="color:#2e2a4a"><a href="#230005" label="[23:00:05]">&lt;stikonas&gt;</a></span><span class="message">empty function?</span></div><div class="line" id="230010"><span class="nick" style="color:#2e2a4a"><a href="#230010" label="[23:00:10]">&lt;stikonas&gt;</a></span><span class="message">or what should we do</span></div><div class="line" id="230200"><span class="nick" style="color:#2e2a4a"><a href="#230200" label="[23:02:00]">&lt;stikonas&gt;</a></span><span class="message">or should I copy it from Linux/unistd.h</span></div><div class="line" id="230331"><span class="nick" style="color:#2e2a4a"><a href="#230331" label="[23:03:31]">&lt;stikonas&gt;</a></span><span class="message">ok, I think return 0 makes more sense...</span></div><div class="line" id="230431"><span class="nick" style="color:#2e2a4a"><a href="#230431" label="[23:04:31]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/9">https://github.com/oriansj/M2libc/pull/9</a> </span></div><div class="line" id="231049"><span class="nick" style="color:#2e2a4a"><a href="#231049" label="[23:10:49]">&lt;stikonas&gt;</a></span><span class="message">ok, I think M2-Planet PR is ready, I'll do it once M2libc PR is merged (as I need to update git submodule)</span></div><div class="line" id="231117"><span class="nick" style="color:#2e2a4a"><a href="#231117" label="[23:11:17]">&lt;stikonas&gt;</a></span><span class="message">riscv32 tests are added too but not enabled in make test since M2libc is not ready yet</span></div><div class="line" id="233459"><span class="nick" style="color:#8dd3c7"><a href="#233459" label="[23:34:59]">&lt;oriansj&gt;</a></span><span class="message">the only thing I have to note about your M2libc pull is you didn't include yourself in the copyright header</span></div><div class="line" id="233510"><span class="nick" style="color:#8dd3c7"><a href="#233510" label="[23:35:10]">&lt;oriansj&gt;</a></span><span class="message">but if you are fine will that I will merge as is</span></div><div class="line" id="233537"><span class="nick" style="color:#2e2a4a"><a href="#233537" label="[23:35:37]">&lt;stikonas&gt;</a></span><span class="message">ok, I can add that...</span></div><div class="line" id="233551"><span class="nick" style="color:#2e2a4a"><a href="#233551" label="[23:35:51]">&lt;stikonas&gt;</a></span><span class="message">it's something I usually try to add but also often forget...</span></div><div class="line" id="233557"><span class="nick" style="color:#2e2a4a"><a href="#233557" label="[23:35:57]">&lt;stikonas&gt;</a></span><span class="message">as do many other people...</span></div><div class="line" id="233633"><span class="nick" style="color:#8dd3c7"><a href="#233633" label="[23:36:33]">&lt;oriansj&gt;</a></span><span class="message">true however you are making meaningful additions</span></div><div class="line" id="233709"><span class="nick" style="color:#2e2a4a"><a href="#233709" label="[23:37:09]">&lt;stikonas&gt;</a></span><span class="message">well, I mean in general, not just in this project</span></div><div class="line" id="233716"><span class="nick" style="color:#2e2a4a"><a href="#233716" label="[23:37:16]">&lt;stikonas&gt;</a></span><span class="message">anyway, let me update PR</span></div><div class="line" id="233735"><span class="nick" style="color:#8dd3c7"><a href="#233735" label="[23:37:35]">&lt;oriansj&gt;</a></span><span class="message">literally whole ports worth of work by yourself. (which is quite impressive BTW)</span></div><div class="line" id="233805"><span class="nick" style="color:#2e2a4a"><a href="#233805" label="[23:38:05]">&lt;stikonas&gt;</a></span><span class="message">well, riscv32 is not really a full port</span></div><div class="line" id="233810"><span class="nick" style="color:#2e2a4a"><a href="#233810" label="[23:38:10]">&lt;stikonas&gt;</a></span><span class="message">so much is common with riscv32...</span></div><div class="line" id="233824"><span class="nick" style="color:#2e2a4a"><a href="#233824" label="[23:38:24]">&lt;stikonas&gt;</a></span><span class="message">it's way more similar than e.g. amd64 vs x86</span></div><div class="line" id="233834"><span class="nick" style="color:#2e2a4a"><a href="#233834" label="[23:38:34]">&lt;stikonas&gt;</a></span><span class="message">ok, PR updated</span></div><div class="line" id="234014"><span class="nick" style="color:#8dd3c7"><a href="#234014" label="[23:40:14]">&lt;oriansj&gt;</a></span><span class="message">ok merged</span></div><div class="line" id="234021"><span class="nick" style="color:#2e2a4a"><a href="#234021" label="[23:40:21]">&lt;stikonas&gt;</a></span><span class="message">ok, let me prepare M2-Planet...</span></div><div class="line" id="234207"><span class="nick" style="color:#2e2a4a"><a href="#234207" label="[23:42:07]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/pull/37">https://github.com/oriansj/M2-Planet/pull/37</a> </span></div><div class="line" id="234426"><span class="nick" style="color:#8dd3c7"><a href="#234426" label="[23:44:26]">&lt;oriansj&gt;</a></span><span class="message"> 205 computed checksums did NOT match and test1000 proof.answer wasn't updated</span></div><div class="line" id="234508"><span class="nick" style="color:#8dd3c7"><a href="#234508" label="[23:45:08]">&lt;oriansj&gt;</a></span><span class="message">wait, didn't update M2libc first</span></div><div class="line" id="234513"><span class="nick" style="color:#8dd3c7"><a href="#234513" label="[23:45:13]">&lt;oriansj&gt;</a></span><span class="message">double checking now</span></div><div class="line" id="234606"><span class="nick" style="color:#8dd3c7"><a href="#234606" label="[23:46:06]">&lt;oriansj&gt;</a></span><span class="message">ok, looks good</span></div><div class="line" id="234659"><span class="nick" style="color:#2e2a4a"><a href="#234659" label="[23:46:59]">&lt;stikonas&gt;</a></span><span class="message">yaeh, most of those run_test.sh changes are due to M2libc update...</span></div><div class="line" id="234716"><span class="nick" style="color:#2e2a4a"><a href="#234716" label="[23:47:16]">&lt;stikonas&gt;</a></span><span class="message">I'm looking at remaining M2libc changes now</span></div><div class="line" id="234736"><span class="nick" style="color:#2e2a4a"><a href="#234736" label="[23:47:36]">&lt;stikonas&gt;</a></span><span class="message">everything is trivial except for waitpid</span></div><br /></div></body></html>

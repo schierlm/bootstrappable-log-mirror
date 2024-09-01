@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-11-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001818"><span class="nick" style="color:#8dd3c7"><a href="#001818" label="[00:18:18]">&lt;samueldr&gt;</a></span><span class="message">siraben: I'm curious if you even started on mescc-tools+mes+tinycc, if you want to compare notes</span></div><div class="line" id="001852"><span class="nick" style="color:#8dd3c7"><a href="#001852" label="[00:18:52]">&lt;samueldr&gt;</a></span><span class="message">I have what I believe is a fully working tinycc build, I haven't gone further down or up the ladder of abstraction</span></div><div class="line" id="002640"><span class="nick" style="color:#8dd3c7"><a href="#002640" label="[00:26:40]">&lt;samueldr&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/samueldr/nixpkgs-bootstrappable-playground">https://github.com/samueldr/nixpkgs-bootstrappable-playground</a> </span></div><div class="line" id="002811"><span class="nick" style="color:#2e2a4a"><a href="#002811" label="[00:28:11]">&lt;V&gt;</a></span><span class="message">ooh</span></div><div class="line" id="002812"><span class="nick" style="color:#8dd3c7"><a href="#002812" label="[00:28:12]">&lt;samueldr&gt;</a></span><span class="message">really at this state, the only patch needed (and it really wasn't required) was this <a rel="nofollow" href="https://github.com/samueldr/nixpkgs-bootstrappable-playground/blob/development/0001-mescc-Don-t-depend-on-coreutils.patch">https://github.com/samueldr/nixpkgs-bootstrappable-playground/blob/development/0001-mescc-Don-t-depend-on-coreutils.patch</a> </span></div><div class="line" id="002821"><span class="nick" style="color:#8dd3c7"><a href="#002821" label="[00:28:21]">&lt;samueldr&gt;</a></span><span class="message">I just wanted to get nix path-info happy</span></div><div class="line" id="002828"><span class="nick" style="color:#2e2a4a"><a href="#002828" label="[00:28:28]">&lt;V&gt;</a></span><span class="message">The state is that the Usage (Maybe don't.)</span></div><div class="line" id="003032"><span class="nick" style="color:#8dd3c7"><a href="#003032" label="[00:30:32]">&lt;samueldr&gt;</a></span><span class="message">I always put quips like that in personal projects</span></div><div class="line" id="003112"><span class="nick" style="color:#8dd3c7"><a href="#003112" label="[00:31:12]">&lt;samueldr&gt;</a></span><span class="message">there is absolutely no SLA on that repo :)</span></div><div class="line" id="003303"><span class="nick" style="color:#8dd3c7"><a href="#003303" label="[00:33:03]">&lt;samueldr&gt;</a></span><span class="message">I updated the README, the patch I linked to drop basename/dirname makes it so all dependencies are &quot;the ambient impure posix /bin/sh&quot;, mescc-tools and mes</span></div><div class="line" id="003325"><span class="nick" style="color:#8dd3c7"><a href="#003325" label="[00:33:25]">&lt;samueldr&gt;</a></span><span class="message">otherwise we would have coreutils/bash and deps in there</span></div><div class="line" id="003334"><span class="nick" style="color:#8dd3c7"><a href="#003334" label="[00:33:34]">&lt;samueldr&gt;</a></span><span class="message">I *guess* static busybox could do too</span></div><div class="line" id="003403"><span class="nick" style="color:#6b8072"><a href="#003403" label="[00:34:03]">&lt;OriansJ&gt;</a></span><span class="message">well if you have guile, gash and gash-utils are a good replacement for bash and core-utils</span></div><div class="line" id="003444"><span class="nick" style="color:#6b8072"><a href="#003444" label="[00:34:44]">&lt;OriansJ&gt;</a></span><span class="message">ideally gash and gash-utils will in the future run on mes-m2 and kaem provides all the shell one needs to bootstrap up until that point.</span></div><div class="line" id="003509"><span class="nick" style="color:#8dd3c7"><a href="#003509" label="[00:35:09]">&lt;samueldr&gt;</a></span><span class="message">I don't know guile :) when I first was doing fool's errand of working with x86_64 the guile build would fail in inscrutable ways (to my neophyte eyes) while the shell-based bootstrap was more inspectable</span></div><div class="line" id="003521"><span class="nick" style="color:#8dd3c7"><a href="#003521" label="[00:35:21]">&lt;samueldr&gt;</a></span><span class="message">ah, neat</span></div><div class="line" id="003537"><span class="nick" style="color:#8dd3c7"><a href="#003537" label="[00:35:37]">&lt;samueldr&gt;</a></span><span class="message">though, note that I don't have anything against guile/scheme, I just don't know any of it</span></div><div class="line" id="003559"><span class="nick" style="color:#6b8072"><a href="#003559" label="[00:35:59]">&lt;OriansJ&gt;</a></span><span class="message">samueldr: fair</span></div><div class="line" id="003615"><span class="nick" style="color:#8dd3c7"><a href="#003615" label="[00:36:15]">&lt;samueldr&gt;</a></span><span class="message">other than reading enough of the guix commencement/bootstrap to get a feeling of some constructs and how they map to Nix/Nixpkgs constructs</span></div><div class="line" id="003711"><span class="nick" style="color:#6b8072"><a href="#003711" label="[00:37:11]">&lt;OriansJ&gt;</a></span><span class="message">samueldr: well gash is supposed to be a bash work-alike</span></div><div class="line" id="003721"><span class="nick" style="color:#8dd3c7"><a href="#003721" label="[00:37:21]">&lt;samueldr&gt;</a></span><span class="message">yeah, I figured</span></div><div class="line" id="003750"><span class="nick" style="color:#8dd3c7"><a href="#003750" label="[00:37:50]">&lt;samueldr&gt;</a></span><span class="message">for the time being what I have here works with both directions of the ladder of abstraction to be built</span></div><div class="line" id="003756"><span class="nick" style="color:#8dd3c7"><a href="#003756" label="[00:37:56]">&lt;samueldr&gt;</a></span><span class="message">this is a really minimal set of rungs</span></div><div class="line" id="004039"><span class="nick" style="color:#6b8072"><a href="#004039" label="[00:40:39]">&lt;OriansJ&gt;</a></span><span class="message">well big and complicated; usually is hard to make work. Extremely so when you are trying to start from nothing.</span></div><div class="line" id="004145"><span class="nick" style="color:#8dd3c7"><a href="#004145" label="[00:41:45]">&lt;samueldr&gt;</a></span><span class="message">yep, I'll try to remember to follow the news and when 0.23 is out and ready, see if updating to it is good</span></div><div class="line" id="004202"><span class="nick" style="color:#8dd3c7"><a href="#004202" label="[00:42:02]">&lt;samueldr&gt;</a></span><span class="message">though tbf I didn't try 0.22, but there is not tinycc branch for 0.22</span></div><div class="line" id="030109"><span class="nick" style="color:#6b8072"><a href="#030109" label="[03:01:09]">&lt;OriansJ&gt;</a></span><span class="message">updated <a rel="nofollow" href="https://bootstrapping.miraheze.org/wiki/Stage0#cc_.2A_.2B_family">https://bootstrapping.miraheze.org/wiki/Stage0#cc_.2A_.2B_family</a>  (for the first time in a long time) feel free to point out anything important I might have missed or anything I did not cover clearly.</span></div><div class="line" id="032912"><span class="nick" style="color:#80b1d3"><a href="#032912" label="[03:29:12]">&lt;xentrac&gt;</a></span><span class="message">that's wonderful!</span></div><div class="line" id="043611"><span class="nick" style="color:#6d2462"><a href="#043611" label="[04:36:11]">&lt;Hagfish&gt;</a></span><span class="message">yeah, that's a really great introduction for people, and it's nicely laid out reference document</span></div><div class="line" id="070133"><span class="nick" style="color:#234e69"><a href="#070133" label="[07:01:33]">&lt;siraben&gt;</a></span><span class="message">samueldr: do you program in other functional languages?</span></div><div class="line" id="070227"><span class="nick" style="color:#234e69"><a href="#070227" label="[07:02:27]">&lt;siraben&gt;</a></span><span class="message">Scheme can be understood by desugaring it to raw lambda calculus, the important extra addition is hygienic macros</span></div><div class="line" id="073736"><span class="nick" style="color:#234e69"><a href="#073736" label="[07:37:36]">&lt;siraben&gt;</a></span><span class="message">samueldr: thanks, will check it out</span></div><div class="line" id="073800"><span class="nick" style="color:#234e69"><a href="#073800" label="[07:38:00]">&lt;siraben&gt;</a></span><span class="message">I haven't gone either up or down as well</span></div><div class="line" id="080333"><span class="nick" style="color:#234e69"><a href="#080333" label="[08:03:33]">&lt;siraben&gt;</a></span><span class="message">samueldr: <a rel="nofollow" href="http://ix.io/2Ern">http://ix.io/2Ern</a> </span></div><div class="line" id="080358"><span class="nick" style="color:#234e69"><a href="#080358" label="[08:03:58]">&lt;siraben&gt;</a></span><span class="message">I also had to update the hash of your pinned nixpkgs and mes.nix</span></div><div class="line" id="084358"><span class="nick" style="color:#234e69"><a href="#084358" label="[08:43:58]">&lt;siraben&gt;</a></span><span class="message">samueldr: <a rel="nofollow" href="https://github.com/samueldr/nixpkgs-bootstrappable-playground/pull/1">https://github.com/samueldr/nixpkgs-bootstrappable-playground/pull/1</a> </span></div><div class="line" id="100912"><span class="nick" style="color:#6c3d55"><a href="#100912" label="[10:09:12]">&lt;rain1&gt;</a></span><span class="message">&lt;blackwidowmovie0&gt; They're all Miraheze users @rain1</span></div><div class="line" id="100912"><span class="nick" style="color:#6c3d55"><a href="#100912" label="[10:09:12]">&lt;rain1&gt;</a></span><span class="message">&lt;b&lt;blackwidowmovie0&gt; They're all Miraheze users @rain1</span></div><div class="line" id="100912"><span class="nick" style="color:#6c3d55"><a href="#100912" label="[10:09:12]">&lt;rain1&gt;</a></span><span class="message">&lt;blackwidowmovie0&gt; It automatically creates the users on every wiki.lackwidowmovie0&gt; It automatically creates the users on every wiki.</span></div><div class="line" id="100919"><span class="nick" style="color:#6c3d55"><a href="#100919" label="[10:09:19]">&lt;rain1&gt;</a></span><span class="message">sorry middle button is broken</span></div><div class="line" id="100937"><span class="nick" style="color:#6c3d55"><a href="#100937" label="[10:09:37]">&lt;rain1&gt;</a></span><span class="message">this was the response from #miraheze</span></div><div class="line" id="102713"><span class="nick">***</span><span class="message notice">coldtom0 is now known as coldtom</span></div><div class="line" id="122038"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="195634"><span class="nick" style="color:#8dd3c7"><a href="#195634" label="[19:56:34]">&lt;samueldr&gt;</a></span><span class="message">siraben: no, I don't have actual experience with functional programming in the theoretical sense</span></div><div class="line" id="195705"><span class="nick" style="color:#8dd3c7"><a href="#195705" label="[19:57:05]">&lt;samueldr&gt;</a></span><span class="message">siraben: uh, DUH, I forgot to pin the actual hash in the tarball URL</span></div><div class="line" id="205720"><span class="nick">***</span><span class="message notice">cbaines_ is now known as cbaines</span></div><br /></div></body></html>

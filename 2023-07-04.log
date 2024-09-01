@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-07-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011732"><span class="nick" style="color:#389600"><a href="#011732" label="[01:17:32]">&lt;oriansj&gt;</a></span><span class="message">muurkha: mov eax, [memory address] is a simple example</span></div><div class="line" id="012205"><span class="nick" style="color:#8dd3c7"><a href="#012205" label="[01:22:05]">&lt;muurkha&gt;</a></span><span class="message">did you test it?</span></div><div class="line" id="012502"><span class="nick" style="color:#8dd3c7"><a href="#012502" label="[01:25:02]">&lt;muurkha&gt;</a></span><span class="message">I just did and it zeroes the upper 32 bits</span></div><div class="line" id="012950"><span class="nick" style="color:#8dd3c7"><a href="#012950" label="[01:29:50]">&lt;muurkha&gt;</a></span><span class="message">here's the runnable example so *you* can reproduce that behavior with gas and gdb:</span></div><div class="line" id="012953"><span class="nick" style="color:#8dd3c7"><a href="#012953" label="[01:29:53]">&lt;muurkha&gt;</a></span><span class="message">	.globl main</span></div><div class="line" id="012955"><span class="nick" style="color:#8dd3c7"><a href="#012955" label="[01:29:55]">&lt;muurkha&gt;</a></span><span class="message">main:   mov $0xdeadbeeffee1dead, %rax; mov var, %eax; ret</span></div><div class="line" id="012958"><span class="nick" style="color:#8dd3c7"><a href="#012958" label="[01:29:58]">&lt;muurkha&gt;</a></span><span class="message">        .data</span></div><div class="line" id="013000"><span class="nick" style="color:#8dd3c7"><a href="#013000" label="[01:30:00]">&lt;muurkha&gt;</a></span><span class="message">var:    .long 0x1cedf00d</span></div><div class="line" id="013054"><span class="nick" style="color:#8dd3c7"><a href="#013054" label="[01:30:54]">&lt;muurkha&gt;</a></span><span class="message">you may have to compile with -no-pie</span></div><div class="line" id="020527"><span class="nick" style="color:#389600"><a href="#020527" label="[02:05:27]">&lt;oriansj&gt;</a></span><span class="message">muurkha: ok, here is my example: <a rel="nofollow" href="https://bpa.st/HPOFU">https://bpa.st/HPOFU</a>  and note it only updates a subset of the register</span></div><div class="line" id="020638"><span class="nick" style="color:#389600"><a href="#020638" label="[02:06:38]">&lt;oriansj&gt;</a></span><span class="message">you can change the al to ax and the behavior is the same</span></div><div class="line" id="020701"><span class="nick" style="color:#8dd3c7"><a href="#020701" label="[02:07:01]">&lt;muurkha&gt;</a></span><span class="message">oriansj: that's not an example of affecting only the lower 32 bits of a 64-bit register; it's an example of only affecting the lower 8 or 16 bits of a 64-bit register</span></div><div class="line" id="020743"><span class="nick" style="color:#8dd3c7"><a href="#020743" label="[02:07:43]">&lt;muurkha&gt;</a></span><span class="message">it's true that the 8- and 16-bit instructions do indeed leave the rest of the register untouched (the whole 64-bit register, not just the lower 32 bits, which I didn't know)</span></div><div class="line" id="020752"><span class="nick" style="color:#8dd3c7"><a href="#020752" label="[02:07:52]">&lt;muurkha&gt;</a></span><span class="message">but I was asking specifically about 32-bit operations</span></div><div class="line" id="040004"><span class="nick" style="color:#389600"><a href="#040004" label="[04:00:04]">&lt;oriansj&gt;</a></span><span class="message">well this is interesting:  rasm2 -a x86 -b 64  'mov eax, [0x1234]' vs rasm2 -a x86 -b 32  'mov eax, [0x1234]' looks like the encoding was repurposed</span></div><div class="line" id="042138"><span class="nick" style="color:#8dd3c7"><a href="#042138" label="[04:21:38]">&lt;muurkha&gt;</a></span><span class="message">yeah, there's a bunch of instructions that changed encoding, which was also true with the 80286→80386 transition</span></div><div class="line" id="044321"><span class="nick" style="color:#389600"><a href="#044321" label="[04:43:21]">&lt;oriansj&gt;</a></span><span class="message">I remember seeting that behavior when I was working on M2-Planet; but you are correct as far as I can tell.</span></div><div class="line" id="052127"><span class="nick" style="color:#8dd3c7"><a href="#052127" label="[05:21:27]">&lt;muurkha&gt;</a></span><span class="message">I think it's a lot more common to want to zero or sign-extend the high part of a 32-bit register (since there isn't any way to use it independently the way there is for AH, BH, CH, DH, SIH, DIH, BPH, and maybe SPH?)</span></div><div class="line" id="052206"><span class="nick" style="color:#8dd3c7"><a href="#052206" label="[05:22:06]">&lt;muurkha&gt;</a></span><span class="message">so it's kind of unfortunate that Intel's decision with the 80386 was to leave it unchanged</span></div><div class="line" id="052311"><span class="nick" style="color:#8dd3c7"><a href="#052311" label="[05:23:11]">&lt;muurkha&gt;</a></span><span class="message">it's additionally pretty unfortunate and confusing that amd64 made an inconsistent choice on that count, even if it's more often the useful choice</span></div><div class="line" id="105553"><span class="nick" style="color:#2e2a4a"><a href="#105553" label="[10:55:53]">&lt;efraim&gt;</a></span><span class="message">does tcc work on riscv?</span></div><div class="line" id="105649"><span class="nick" style="color:#2e2a4a"><a href="#105649" label="[10:56:49]">&lt;efraim&gt;</a></span><span class="message"> <a rel="nofollow" href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1040217">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1040217</a> </span></div><div class="line" id="105817"><span class="nick" style="color:#8dd3c7"><a href="#105817" label="[10:58:17]">&lt;muurkha&gt;</a></span><span class="message">I had no idea!</span></div><div class="line" id="124221"><span class="nick" style="color:#6b8072"><a href="#124221" label="[12:42:21]">&lt;janneke&gt;</a></span><span class="message">efraim: ekaitz even backported the riscv support to our bootstrappable-tcc</span></div><div class="line" id="124250"><span class="nick" style="color:#6b8072"><a href="#124250" label="[12:42:50]">&lt;janneke&gt;</a></span><span class="message">but what the status of any of those tcc's is, no idea ;)</span></div><div class="line" id="124416"><span class="nick" style="color:#80b1d3"><a href="#124416" label="[12:44:16]">&lt;stikonas[m]&gt;</a></span><span class="message">tcc is still limited on riscv</span></div><div class="line" id="124421"><span class="nick" style="color:#80b1d3"><a href="#124421" label="[12:44:21]">&lt;stikonas[m]&gt;</a></span><span class="message">Especially assembler</span></div><div class="line" id="124504"><span class="nick" style="color:#80b1d3"><a href="#124504" label="[12:45:04]">&lt;stikonas[m]&gt;</a></span><span class="message">janneke: by the way boitstrapoed mes-tcc seems to have at least preprocessor functional</span></div><div class="line" id="124556"><span class="nick" style="color:#80b1d3"><a href="#124556" label="[12:45:56]">&lt;stikonas[m]&gt;</a></span><span class="message">(And mes-tcc is somewhat confusingly named, one might think that this is mes built with tcc compiler)</span></div><div class="line" id="125037"><span class="nick" style="color:#6b8072"><a href="#125037" label="[12:50:37]">&lt;janneke&gt;</a></span><span class="message">stikonas[m]: yes, we may want to change those names</span></div><div class="line" id="125051"><span class="nick" style="color:#6b8072"><a href="#125051" label="[12:50:51]">&lt;janneke&gt;</a></span><span class="message">bootX-tcc =&gt; tcc-bootX</span></div><div class="line" id="125132"><span class="nick" style="color:#6b8072"><a href="#125132" label="[12:51:32]">&lt;janneke&gt;</a></span><span class="message">(i believe those names preceded the mes-gcc mes-m2 -mes-mescc era)</span></div><div class="line" id="125934"><span class="nick" style="color:#80b1d3"><a href="#125934" label="[12:59:34]">&lt;stikonas[m]&gt;</a></span><span class="message">Probably better</span></div><div class="line" id="125949"><span class="nick" style="color:#80b1d3"><a href="#125949" label="[12:59:49]">&lt;stikonas[m]&gt;</a></span><span class="message">Though on 64 bits I expect stages to be different</span></div><div class="line" id="130046"><span class="nick" style="color:#80b1d3"><a href="#130046" label="[13:00:46]">&lt;stikonas[m]&gt;</a></span><span class="message">I was passing -DHAVE_LONG_LONG=1 even to the first build compiled with mescc</span></div><div class="line" id="133618"><span class="nick" style="color:#389600"><a href="#133618" label="[13:36:18]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well yes, if you are not doing ugly bit operations but at that point you would want a proper pack and unpack instruction</span></div><div class="line" id="221438"><span class="nick" style="color:#8dd3c7"><a href="#221438" label="[22:14:38]">&lt;muurkha&gt;</a></span><span class="message">stikonas: I should have had an idea since we previously talked about inline assembler limitations in RISC-V TCC, but I forgot</span></div><div class="line" id="233626"><span class="nick" style="color:#6d2462"><a href="#233626" label="[23:36:26]">&lt;ekaitz&gt;</a></span><span class="message">muurkha: i'm trying to add some RISC-V assembler instructions to tcc</span></div><div class="line" id="233639"><span class="nick" style="color:#6d2462"><a href="#233639" label="[23:36:39]">&lt;ekaitz&gt;</a></span><span class="message">i'm stuck with jal</span></div><div class="line" id="233705"><span class="nick" style="color:#6d2462"><a href="#233705" label="[23:37:05]">&lt;ekaitz&gt;</a></span><span class="message">because i need to obtain the symbol addresses and TCC's code is horrible so it's really hard to know where they come from</span></div><div class="line" id="233717"><span class="nick" style="color:#6d2462"><a href="#233717" label="[23:37:17]">&lt;ekaitz&gt;</a></span><span class="message">i'll gdb it for fun and profit</span></div><br /></div></body></html>

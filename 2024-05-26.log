@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-05-26.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="120606"><span class="nick" style="color:#389600"><a href="#120606" label="[12:06:06]">&lt;Googulator&gt;</a></span><span class="message">Very promising update - Guix running inside livebootstrap is building a kernel!</span></div><div class="line" id="125331"><span class="nick" style="color:#8dd3c7"><a href="#125331" label="[12:53:31]">&lt;janneke&gt;</a></span><span class="message">Googulator: wow</span></div><div class="line" id="131110"><span class="nick" style="color:#2e2a4a"><a href="#131110" label="[13:11:10]">&lt;fossy&gt;</a></span><span class="message">Googulator: i've polished up configurator PR a bit, whenever you have a chance a re-review would be appreciated</span></div><div class="line" id="131135"><span class="nick" style="color:#2e2a4a"><a href="#131135" label="[13:11:35]">&lt;fossy&gt;</a></span><span class="message">if it detects that it's not running under Fiwix or Linux it assumes that it is in a kernel bootstrap and pushes configuration forward to once Fiwix is running</span></div><div class="line" id="131139"><span class="nick" style="color:#2e2a4a"><a href="#131139" label="[13:11:39]">&lt;fossy&gt;</a></span><span class="message">I think this is sensible</span></div><div class="line" id="131203"><span class="nick" style="color:#2e2a4a"><a href="#131203" label="[13:12:03]">&lt;fossy&gt;</a></span><span class="message">configurator also is no-op if you use rootfs.py</span></div><div class="line" id="131232"><span class="nick" style="color:#2e2a4a"><a href="#131232" label="[13:12:32]">&lt;fossy&gt;</a></span><span class="message">I have also learned today that submodules can reference commits in PRs???</span></div><div class="line" id="131552"><span class="nick" style="color:#6b8072"><a href="#131552" label="[13:15:52]">&lt;nimaje&gt;</a></span><span class="message">well, a PR is just some branch and submodules point to some commit in some git repo</span></div><div class="line" id="131729"><span class="nick" style="color:#2e2a4a"><a href="#131729" label="[13:17:29]">&lt;fossy&gt;</a></span><span class="message">yeah - it makes complete sense - just not something i realised was possible</span></div><div class="line" id="131754"><span class="nick" style="color:#2e2a4a"><a href="#131754" label="[13:17:54]">&lt;fossy&gt;</a></span><span class="message">i've checked out pr branches plenty of times (refs/pr/X/head) just silly me never made the connectiont hat i could do that wiht a submodule</span></div><div class="line" id="134439"><span class="nick" style="color:#389600"><a href="#134439" label="[13:44:39]">&lt;Googulator&gt;</a></span><span class="message">janneke: if this succeeds, then we've just removed the Linux kernel from Guix's bootstrap seed :)</span></div><div class="line" id="134527"><span class="nick" style="color:#8dd3c7"><a href="#134527" label="[13:45:27]">&lt;janneke&gt;</a></span><span class="message">yes, that's pretty amazing!</span></div><div class="line" id="134557"><span class="nick" style="color:#389600"><a href="#134557" label="[13:45:57]">&lt;Googulator&gt;</a></span><span class="message">for now, I am still using the 6 bootstrap binaries bash, mkdir, tar, xz, bootstrap-guile and hex0-seed - next step is eliminating those</span></div><div class="line" id="134627"><span class="nick" style="color:#389600"><a href="#134627" label="[13:46:27]">&lt;Googulator&gt;</a></span><span class="message">janneke: do you know if the hashes of the bootstrap binaries are included in hashes of subsequent packages?</span></div><div class="line" id="134711"><span class="nick" style="color:#389600"><a href="#134711" label="[13:47:11]">&lt;Googulator&gt;</a></span><span class="message">e.g. will replacing tar with a version built in live-bootstrap cause all packages to change hash?</span></div><div class="line" id="134747"><span class="nick" style="color:#389600"><a href="#134747" label="[13:47:47]">&lt;Googulator&gt;</a></span><span class="message">(if I understand it correctly, Guix's package hashes form a Merkle tree, unlike live-bootstraps, which are only hashes of the build output)</span></div><div class="line" id="134826"><span class="nick" style="color:#8dd3c7"><a href="#134826" label="[13:48:26]">&lt;janneke&gt;</a></span><span class="message">yes, any build input change causes a rebuild</span></div><div class="line" id="134846"><span class="nick" style="color:#8dd3c7"><a href="#134846" label="[13:48:46]">&lt;janneke&gt;</a></span><span class="message">that's quite essential for reproducibility/bootstrappability</span></div><div class="line" id="134917"><span class="nick" style="color:#389600"><a href="#134917" label="[13:49:17]">&lt;Googulator&gt;</a></span><span class="message">except for grafts, I guess</span></div><div class="line" id="134930"><span class="nick" style="color:#8dd3c7"><a href="#134930" label="[13:49:30]">&lt;janneke&gt;</a></span><span class="message">yes,</span></div><div class="line" id="134952"><span class="nick" style="color:#8dd3c7"><a href="#134952" label="[13:49:52]">&lt;janneke&gt;</a></span><span class="message">and it would be nice to be able to replace an input that has the same output hash</span></div><div class="line" id="135018"><span class="nick" style="color:#389600"><a href="#135018" label="[13:50:18]">&lt;Googulator&gt;</a></span><span class="message">unfortunately tar, xz, bash &amp; mkdir aren't packages, so they can't be grafted (bootstrap-guile might be graftable)</span></div><div class="line" id="135239"><span class="nick" style="color:#389600"><a href="#135239" label="[13:52:39]">&lt;Googulator&gt;</a></span><span class="message">eliminating the stage0 seeds is probably the easiest, as in a Guix bootstrap, AFAIK we have everything available right from the beginning that we would need for hex0 -&gt; binary conversion</span></div><div class="line" id="135300"><span class="nick" style="color:#80b1d3"><a href="#135300" label="[13:53:00]">&lt;mihi&gt;</a></span><span class="message">fossy, you can also reference commits in your submodules that (currently) only exist in your own local repository. You should take care not to push the submodule references before you pushed the main commit to the named repo (or created a PR for it in case of GitHub)</span></div><div class="line" id="135828"><span class="nick" style="color:#2e2a4a"><a href="#135828" label="[13:58:28]">&lt;fossy&gt;</a></span><span class="message">oh! nice to know</span></div><div class="line" id="140926"><span class="nick" style="color:#389600"><a href="#140926" label="[14:09:26]">&lt;Googulator&gt;</a></span><span class="message">janneke: do you know a way to tell Guix to use a directory other than /tmp for building?</span></div><div class="line" id="141008"><span class="nick" style="color:#389600"><a href="#141008" label="[14:10:08]">&lt;Googulator&gt;</a></span><span class="message">right now, I'm forced to unmount /tmp, as otherwise it would fill up in one of the build steps, but unmounting /tmp isn't exactly healthy</span></div><div class="line" id="142253"><span class="nick" style="color:#8dd3c7"><a href="#142253" label="[14:22:53]">&lt;janneke&gt;</a></span><span class="message">Googulator: no, guix always uses /tmp</span></div><div class="line" id="142311"><span class="nick" style="color:#8dd3c7"><a href="#142311" label="[14:23:11]">&lt;janneke&gt;</a></span><span class="message">...but what's in a name, you can alway (bind) mount/ anything on /tmp?</span></div><div class="line" id="143648"><span class="nick" style="color:#389600"><a href="#143648" label="[14:36:48]">&lt;Googulator&gt;</a></span><span class="message">Don't many things assume /tmp is volatile and can be written to without using space on / ?</span></div><div class="line" id="143659"><span class="nick" style="color:#389600"><a href="#143659" label="[14:36:59]">&lt;Googulator&gt;</a></span><span class="message">(btw, kernel built successfully :) )</span></div><div class="line" id="143920"><span class="nick" style="color:#6b8072"><a href="#143920" label="[14:39:20]">&lt;nimaje&gt;</a></span><span class="message">pretty sure posix only gurantees files staying in /tmp until the file descriptor is closed</span></div><div class="line" id="151153"><span class="nick" style="color:#80b1d3"><a href="#151153" label="[15:11:53]">&lt;mihi&gt;</a></span><span class="message">Googulator, I've set up many systems where both /tmp and /var/tmp are part of the root partition (e.g. Debian Installer does this when you choose a single partition layout), and never noticed negative consequences. When you expect not to use up real disk space, you should use /dev/shm.</span></div><div class="line" id="165438"><span class="nick" style="color:#6d2462"><a href="#165438" label="[16:54:38]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Different distros do different things. Debian/Ubuntu tend to have /tmp backed by disk, but delete everything on reboot. Slackware does the same, but does not clear /tmp on reboot. iirc older versions of centos used to be disk backed. Not sure if it's the default but on Centos 7 I've seen /tmp be a tmpfs (I remember getting called out at work because someone filled up tmp with a log file, I was...</span></div><div class="line" id="165443"><span class="nick" style="color:#6d2462"><a href="#165443" label="[16:54:43]">&lt;matrix_bridge&gt;</a></span><span class="message">... surprised to see they had also filled half the RAM until I realised tmp was now a tmpfs)</span></div><div class="line" id="174433"><span class="nick" style="color:#389600"><a href="#174433" label="[17:44:33]">&lt;Googulator&gt;</a></span><span class="message">Another hurdle down: cmdtest's Git source in Guix points to a server that's long ago gone, so it falls back to downloading an lzipped copy from the Software Heritage archive, which can then be decompressed using lzlib.</span></div><div class="line" id="174612"><span class="nick" style="color:#389600"><a href="#174612" label="[17:46:12]">&lt;Googulator&gt;</a></span><span class="message">Guix lists lzlib as a dependency, but it never mentions that lzlib by default only builds a static library, while Guix requires a shared version! An explicit --enable-shared later, Guix is building again, with cmdtest sources successfully obtained from SH.</span></div><div class="line" id="181024"><span class="nick" style="color:#234e69"><a href="#181024" label="[18:10:24]">&lt;civodul&gt;</a></span><span class="message">Googulator: that’s for guile-lzlib, right? we should clarify the need for ‘--enable-shared’</span></div><div class="line" id="181559"><span class="nick" style="color:#389600"><a href="#181559" label="[18:15:59]">&lt;Googulator&gt;</a></span><span class="message">No, lzlib itself.</span></div><div class="line" id="181615"><span class="nick" style="color:#389600"><a href="#181615" label="[18:16:15]">&lt;Googulator&gt;</a></span><span class="message">Guile-lzlib won't find lzlib unless it's built with --enable-shared</span></div><div class="line" id="181631"><span class="nick" style="color:#389600"><a href="#181631" label="[18:16:31]">&lt;Googulator&gt;</a></span><span class="message">(&quot;it&quot; being lzlib, not guile-lzlib)</span></div><div class="line" id="181700"><span class="nick" style="color:#389600"><a href="#181700" label="[18:17:00]">&lt;Googulator&gt;</a></span><span class="message">If the host system uses musl, then --disable-ldconfig also needs to be passed</span></div><br /></div></body></html>

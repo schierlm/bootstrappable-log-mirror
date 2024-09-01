@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-01-11.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="105102"><span class="nick" style="color:#389600"><a href="#105102" label="[10:51:02]">&lt;fossy&gt;</a></span><span class="message">doras, stikonas[m]: when i last touched sources, my primary goal was removing duplicates of the same information</span></div><div class="line" id="105144"><span class="nick" style="color:#389600"><a href="#105144" label="[10:51:44]">&lt;fossy&gt;</a></span><span class="message">previously we had the source information in rootfs.py and in source files</span></div><div class="line" id="105205"><span class="nick" style="color:#389600"><a href="#105205" label="[10:52:05]">&lt;fossy&gt;</a></span><span class="message">which made for 1. really annoying workflow 2.  really easy to miss differences</span></div><div class="line" id="105311"><span class="nick" style="color:#389600"><a href="#105311" label="[10:53:11]">&lt;fossy&gt;</a></span><span class="message">i am not really opposed to having some kind of manifest, or chaning up the representation of sources, but i don't want that to come at the expense of having duplicates of the same information</span></div><div class="line" id="105429"><span class="nick" style="color:#389600"><a href="#105429" label="[10:54:29]">&lt;fossy&gt;</a></span><span class="message">regarding the separate issue of it being an implentation detail, i do think that it is a good idea to have a more general output such as from rootfs.py, even if it is just cat sys*/*/sourcesinternally, it helps for future expansion</span></div><div class="line" id="130645"><span class="nick" style="color:#8dd3c7"><a href="#130645" label="[13:06:45]">&lt;doras&gt;</a></span><span class="message">Thanks fossy,, so I think we are aligned. I have no intention of duplication of course.</span></div><div class="line" id="154050"><span class="nick" style="color:#2e2a4a"><a href="#154050" label="[15:40:50]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: before we merge Python stuff, maybe we should think about dependencies between packages?</span></div><div class="line" id="154101"><span class="nick" style="color:#2e2a4a"><a href="#154101" label="[15:41:01]">&lt;stikonas[m]&gt;</a></span><span class="message">before shared libraries, all packages were self-contained</span></div><div class="line" id="154119"><span class="nick" style="color:#2e2a4a"><a href="#154119" label="[15:41:19]">&lt;stikonas[m]&gt;</a></span><span class="message">now e.g. python would depend on musl</span></div><div class="line" id="154141"><span class="nick" style="color:#2e2a4a"><a href="#154141" label="[15:41:41]">&lt;stikonas[m]&gt;</a></span><span class="message">and it's still possible to use it on random system, but it needs a bit of preparation</span></div><div class="line" id="154224"><span class="nick" style="color:#2e2a4a"><a href="#154224" label="[15:42:24]">&lt;stikonas[m]&gt;</a></span><span class="message">so e.g. for python, you need to extract musl package, then prepare /usr/bin -&gt; /bin and /usr/lib -&gt; /lib symlinks, then unpack Python package and then you can run e.g.</span></div><div class="line" id="154243"><span class="nick" style="color:#2e2a4a"><a href="#154243" label="[15:42:43]">&lt;stikonas[m]&gt;</a></span><span class="message">bwrap --bind /path/to/extracted/dir / python</span></div><div class="line" id="154624"><span class="nick" style="color:#2e2a4a"><a href="#154624" label="[15:46:24]">&lt;stikonas[m]&gt;</a></span><span class="message">might be a bit nicer if we can remove symlinking step...</span></div><div class="line" id="154636"><span class="nick" style="color:#2e2a4a"><a href="#154636" label="[15:46:36]">&lt;stikonas[m]&gt;</a></span><span class="message">(possibly by explicitely adding symlinks in musl package)</span></div><div class="line" id="154737"><span class="nick" style="color:#2e2a4a"><a href="#154737" label="[15:47:37]">&lt;stikonas[m]&gt;</a></span><span class="message">and then it would be good to store dependency metadata somewhere (doesn't have to be in tar.bz2, it could be separate)</span></div><div class="line" id="195111"><span class="nick" style="color:#6b8072"><a href="#195111" label="[19:51:11]">&lt;stikonas&gt;</a></span><span class="message">fossy: so one way in which python is not reproducible, it encodes kernel version</span></div><div class="line" id="195127"><span class="nick" style="color:#6b8072"><a href="#195127" label="[19:51:27]">&lt;stikonas&gt;</a></span><span class="message">i.e. plat-linux5:lib-tk vs plat-linux4:lib-tk</span></div><div class="line" id="195143"><span class="nick" style="color:#6b8072"><a href="#195143" label="[19:51:43]">&lt;stikonas&gt;</a></span><span class="message">diffoscope shows stuff like</span></div><div class="line" id="195146"><span class="nick" style="color:#6b8072"><a href="#195146" label="[19:51:46]">&lt;stikonas&gt;</a></span><span class="message">│ │ │ -  0x080d6490 006c696e 75783500 322e302e 3100252e .linux5.2.0.1.%.</span></div><div class="line" id="195148"><span class="nick" style="color:#6b8072"><a href="#195148" label="[19:51:48]">&lt;stikonas&gt;</a></span><span class="message">│ │ │ +  0x080d6490 006c696e 75783400 322e302e 3100252e .linux4.2.0.1.%.</span></div><div class="line" id="195230"><span class="nick" style="color:#6b8072"><a href="#195230" label="[19:52:30]">&lt;stikonas&gt;</a></span><span class="message">this should be not too hard to fix</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-11-15.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000217"><span class="nick" style="color:#389600"><a href="#000217" label="[00:02:17]">&lt;stikonas&gt;</a></span><span class="message">oriansj: can you please merge <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/7">https://github.com/oriansj/M2libc/pull/7</a> </span></div><div class="line" id="000223"><span class="nick" style="color:#389600"><a href="#000223" label="[00:02:23]">&lt;stikonas&gt;</a></span><span class="message">everything seems to work on x86 too now</span></div><div class="line" id="000235"><span class="nick" style="color:#389600"><a href="#000235" label="[00:02:35]">&lt;stikonas&gt;</a></span><span class="message">I just need to add bootstrap mode check</span></div><div class="line" id="000332"><span class="nick" style="color:#389600"><a href="#000332" label="[00:03:32]">&lt;stikonas&gt;</a></span><span class="message">oh, there is a nice helper maybe_bootstrap_error that I can use</span></div><div class="line" id="000824"><span class="nick" style="color:#389600"><a href="#000824" label="[00:08:24]">&lt;stikonas&gt;</a></span><span class="message">I've also updated <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/pull/34">https://github.com/oriansj/M2-Planet/pull/34</a>  but it still needs M2libc submodule update</span></div><div class="line" id="001935"><span class="nick" style="color:#389600"><a href="#001935" label="[00:19:35]">&lt;stikonas&gt;</a></span><span class="message">at least it's now down. That was harder than I initially expected...</span></div><div class="line" id="001940"><span class="nick" style="color:#389600"><a href="#001940" label="[00:19:40]">&lt;stikonas&gt;</a></span><span class="message">s/down/done/</span></div><div class="line" id="003917"><span class="nick" style="color:#2e2a4a"><a href="#003917" label="[00:39:17]">&lt;oriansj&gt;</a></span><span class="message">0FBE1B wouldn't fully sign-extend the byte</span></div><div class="line" id="004013"><span class="nick" style="color:#389600"><a href="#004013" label="[00:40:13]">&lt;stikonas&gt;</a></span><span class="message">hmm</span></div><div class="line" id="004024"><span class="nick" style="color:#389600"><a href="#004024" label="[00:40:24]">&lt;stikonas&gt;</a></span><span class="message">checking</span></div><div class="line" id="004037"><span class="nick" style="color:#2e2a4a"><a href="#004037" label="[00:40:37]">&lt;oriansj&gt;</a></span><span class="message">I believe the correct one is: 480FBE1B</span></div><div class="line" id="004136"><span class="nick" style="color:#389600"><a href="#004136" label="[00:41:36]">&lt;stikonas&gt;</a></span><span class="message">for LOAD_BYTE_rbx ?</span></div><div class="line" id="004146"><span class="nick" style="color:#2e2a4a"><a href="#004146" label="[00:41:46]">&lt;oriansj&gt;</a></span><span class="message">yes</span></div><div class="line" id="004147"><span class="nick" style="color:#389600"><a href="#004147" label="[00:41:47]">&lt;stikonas&gt;</a></span><span class="message">but what about LOAD_BYTE itself?</span></div><div class="line" id="004148"><span class="nick" style="color:#2e2a4a"><a href="#004148" label="[00:41:48]">&lt;oriansj&gt;</a></span><span class="message">although we haven been using 0FBE00 for eax;</span></div><div class="line" id="004158"><span class="nick" style="color:#389600"><a href="#004158" label="[00:41:58]">&lt;stikonas&gt;</a></span><span class="message">hmm, maybe that one also needs fixing then</span></div><div class="line" id="004219"><span class="nick" style="color:#389600"><a href="#004219" label="[00:42:19]">&lt;stikonas&gt;</a></span><span class="message">LOAD_BYTE is movsx eax, byte [rax]</span></div><div class="line" id="004223"><span class="nick" style="color:#2e2a4a"><a href="#004223" label="[00:42:23]">&lt;oriansj&gt;</a></span><span class="message">possibly</span></div><div class="line" id="004224"><span class="nick" style="color:#389600"><a href="#004224" label="[00:42:24]">&lt;stikonas&gt;</a></span><span class="message">according to rasm2</span></div><div class="line" id="004245"><span class="nick" style="color:#389600"><a href="#004245" label="[00:42:45]">&lt;stikonas&gt;</a></span><span class="message">ok, I can update both of them then</span></div><div class="line" id="004254"><span class="nick" style="color:#2e2a4a"><a href="#004254" label="[00:42:54]">&lt;oriansj&gt;</a></span><span class="message">I wonder if its behavior is correct</span></div><div class="line" id="004313"><span class="nick" style="color:#2e2a4a"><a href="#004313" label="[00:43:13]">&lt;oriansj&gt;</a></span><span class="message">perhaps I need to do some gdb testing</span></div><div class="line" id="004407"><span class="nick" style="color:#2e2a4a"><a href="#004407" label="[00:44:07]">&lt;oriansj&gt;</a></span><span class="message">as 480FBE00 would be the 64bit encoding</span></div><div class="line" id="004444"><span class="nick" style="color:#389600"><a href="#004444" label="[00:44:44]">&lt;stikonas&gt;</a></span><span class="message">yes, for LOAD_BYTE</span></div><div class="line" id="004459"><span class="nick" style="color:#389600"><a href="#004459" label="[00:44:59]">&lt;stikonas&gt;</a></span><span class="message">I'll try to rebuild stage0-posix with it</span></div><div class="line" id="004603"><span class="nick" style="color:#389600"><a href="#004603" label="[00:46:03]">&lt;stikonas&gt;</a></span><span class="message">btw, should I push sha256sum changes that I have (to use compound assignments) ?</span></div><div class="line" id="004613"><span class="nick" style="color:#389600"><a href="#004613" label="[00:46:13]">&lt;stikonas&gt;</a></span><span class="message">I did it as a test</span></div><div class="line" id="004624"><span class="nick" style="color:#2e2a4a"><a href="#004624" label="[00:46:24]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.felixcloutier.com/x86/movsx:movsxd">https://www.felixcloutier.com/x86/movsx:movsxd</a> </span></div><div class="line" id="004627"><span class="nick" style="color:#389600"><a href="#004627" label="[00:46:27]">&lt;stikonas&gt;</a></span><span class="message">but then we might as well switch to it</span></div><div class="line" id="004720"><span class="nick" style="color:#389600"><a href="#004720" label="[00:47:20]">&lt;stikonas&gt;</a></span><span class="message">oriansj: test failed...</span></div><div class="line" id="004725"><span class="nick" style="color:#389600"><a href="#004725" label="[00:47:25]">&lt;stikonas&gt;</a></span><span class="message">with 480FBE1B</span></div><div class="line" id="004739"><span class="nick" style="color:#389600"><a href="#004739" label="[00:47:39]">&lt;stikonas&gt;</a></span><span class="message">or maybe not</span></div><div class="line" id="004742"><span class="nick" style="color:#389600"><a href="#004742" label="[00:47:42]">&lt;stikonas&gt;</a></span><span class="message">let me rebuild checksum</span></div><div class="line" id="004757"><span class="nick" style="color:#389600"><a href="#004757" label="[00:47:57]">&lt;stikonas&gt;</a></span><span class="message">I forgot that we expect checksums to change...</span></div><div class="line" id="004835"><span class="nick" style="color:#2e2a4a"><a href="#004835" label="[00:48:35]">&lt;oriansj&gt;</a></span><span class="message">I think you helped me discover a bug in AMD64 stikonas</span></div><div class="line" id="004839"><span class="nick" style="color:#2e2a4a"><a href="#004839" label="[00:48:39]">&lt;oriansj&gt;</a></span><span class="message">thank you</span></div><div class="line" id="004857"><span class="nick" style="color:#389600"><a href="#004857" label="[00:48:57]">&lt;stikonas&gt;</a></span><span class="message">no problem :)</span></div><div class="line" id="004902"><span class="nick" style="color:#389600"><a href="#004902" label="[00:49:02]">&lt;stikonas&gt;</a></span><span class="message">that's what reviews are for</span></div><div class="line" id="004923"><span class="nick" style="color:#389600"><a href="#004923" label="[00:49:23]">&lt;stikonas&gt;</a></span><span class="message">sometimes while reviewing you can spot something else</span></div><div class="line" id="004931"><span class="nick" style="color:#389600"><a href="#004931" label="[00:49:31]">&lt;stikonas&gt;</a></span><span class="message">so stage0-posix builds fine now</span></div><div class="line" id="004934"><span class="nick" style="color:#389600"><a href="#004934" label="[00:49:34]">&lt;stikonas&gt;</a></span><span class="message">with that change</span></div><div class="line" id="004938"><span class="nick" style="color:#389600"><a href="#004938" label="[00:49:38]">&lt;stikonas&gt;</a></span><span class="message">ok, let me update PR then</span></div><div class="line" id="005024"><span class="nick" style="color:#389600"><a href="#005024" label="[00:50:24]">&lt;stikonas&gt;</a></span><span class="message">updated : <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/7">https://github.com/oriansj/M2libc/pull/7</a> </span></div><div class="line" id="005526"><span class="nick" style="color:#2e2a4a"><a href="#005526" label="[00:55:26]">&lt;oriansj&gt;</a></span><span class="message">and merged</span></div><div class="line" id="010639"><span class="nick" style="color:#389600"><a href="#010639" label="[01:06:39]">&lt;stikonas&gt;</a></span><span class="message">and <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/pull/34">https://github.com/oriansj/M2-Planet/pull/34</a>  updated</span></div><div class="line" id="011026"><span class="nick" style="color:#389600"><a href="#011026" label="[01:10:26]">&lt;stikonas&gt;</a></span><span class="message">and  this is what I was using for testing: <a rel="nofollow" href="https://github.com/oriansj/mescc-tools-extra/pull/8">https://github.com/oriansj/mescc-tools-extra/pull/8</a> </span></div><div class="line" id="011517"><span class="nick" style="color:#2e2a4a"><a href="#011517" label="[01:15:17]">&lt;oriansj&gt;</a></span><span class="message">merged</span></div><div class="line" id="013100"><span class="nick" style="color:#389600"><a href="#013100" label="[01:31:00]">&lt;stikonas&gt;</a></span><span class="message">thanks</span></div><div class="line" id="013754"><span class="nick" style="color:#2e2a4a"><a href="#013754" label="[01:37:54]">&lt;oriansj&gt;</a></span><span class="message">and merged</span></div><div class="line" id="203404"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><div class="line" id="203406"><span class="nick" style="color:#6b8072"><a href="#203406" label="[20:34:06]">&lt;rekado&gt;</a></span><span class="message">hey, do we want to keep the bootstrappable.org website?  It’s up for renewal soon.</span></div><div class="line" id="204325"><span class="nick" style="color:#389600"><a href="#204325" label="[20:43:25]">&lt;stikonas&gt;</a></span><span class="message">oriansj: ^^</span></div><div class="line" id="211932"><span class="nick" style="color:#80b1d3"><a href="#211932" label="[21:19:32]">&lt;fossy&gt;</a></span><span class="message">I think we should, it's a pretty good landing page that quite a lot of people go through to see what exactly bootstrappable is</span></div><div class="line" id="231748"><span class="nick" style="color:#6d2462"><a href="#231748" label="[23:17:48]">&lt;gbrlwck&gt;</a></span><span class="message">fossy: +1</span></div><br /></div></body></html>

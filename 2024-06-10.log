@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-10.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003105"><span class="nick" style="color:#389600"><a href="#003105" label="[00:31:05]">&lt;fossy&gt;</a></span><span class="message">stikonas: Hm</span></div><div class="line" id="003132"><span class="nick" style="color:#8dd3c7"><a href="#003132" label="[00:31:32]">&lt;stikonas&gt;</a></span><span class="message">fossy: yeah, it does look like my commit that is breaking kernel bootstrap... But I don't understand why...</span></div><div class="line" id="003137"><span class="nick" style="color:#389600"><a href="#003137" label="[00:31:37]">&lt;fossy&gt;</a></span><span class="message">i know i tested configurator on qemu  on the final branch, so that would be strange</span></div><div class="line" id="003140"><span class="nick" style="color:#389600"><a href="#003140" label="[00:31:40]">&lt;fossy&gt;</a></span><span class="message">ah</span></div><div class="line" id="003144"><span class="nick" style="color:#8dd3c7"><a href="#003144" label="[00:31:44]">&lt;stikonas&gt;</a></span><span class="message">something is wrong there</span></div><div class="line" id="003149"><span class="nick" style="color:#8dd3c7"><a href="#003149" label="[00:31:49]">&lt;stikonas&gt;</a></span><span class="message">maybe some limit is exceeded?</span></div><div class="line" id="003201"><span class="nick" style="color:#8dd3c7"><a href="#003201" label="[00:32:01]">&lt;stikonas&gt;</a></span><span class="message">well, I pushed a draft PR for now</span></div><div class="line" id="003211"><span class="nick" style="color:#8dd3c7"><a href="#003211" label="[00:32:11]">&lt;stikonas&gt;</a></span><span class="message">(I need to gather one more checksum first anyway)</span></div><div class="line" id="003211"><span class="nick" style="color:#389600"><a href="#003211" label="[00:32:11]">&lt;fossy&gt;</a></span><span class="message">#471 yeah?</span></div><div class="line" id="003227"><span class="nick" style="color:#8dd3c7"><a href="#003227" label="[00:32:27]">&lt;stikonas&gt;</a></span><span class="message">yes</span></div><div class="line" id="003318"><span class="nick" style="color:#8dd3c7"><a href="#003318" label="[00:33:18]">&lt;stikonas&gt;</a></span><span class="message">it's combined stage0/mes/tinycc upgrade</span></div><div class="line" id="003324"><span class="nick" style="color:#8dd3c7"><a href="#003324" label="[00:33:24]">&lt;stikonas&gt;</a></span><span class="message">stage0 because current one is broken</span></div><div class="line" id="003331"><span class="nick" style="color:#8dd3c7"><a href="#003331" label="[00:33:31]">&lt;stikonas&gt;</a></span><span class="message">(riscv64 checksums are wrong)</span></div><div class="line" id="003403"><span class="nick" style="color:#389600"><a href="#003403" label="[00:34:03]">&lt;fossy&gt;</a></span><span class="message">hmm, nothing stands out to me as problematic for builder-hex0. i'll give it a run and see if anything comes up</span></div><div class="line" id="003737"><span class="nick" style="color:#8dd3c7"><a href="#003737" label="[00:37:37]">&lt;stikonas&gt;</a></span><span class="message">yeah, I only tried it once...</span></div><div class="line" id="003748"><span class="nick" style="color:#8dd3c7"><a href="#003748" label="[00:37:48]">&lt;stikonas&gt;</a></span><span class="message">bwrap mode ran fine on x86</span></div><div class="line" id="003757"><span class="nick" style="color:#8dd3c7"><a href="#003757" label="[00:37:57]">&lt;stikonas&gt;</a></span><span class="message">x86_64 ran further than I expected...</span></div><div class="line" id="003808"><span class="nick" style="color:#8dd3c7"><a href="#003808" label="[00:38:08]">&lt;stikonas&gt;</a></span><span class="message">though still doesn't work in the end</span></div><div class="line" id="003842"><span class="nick" style="color:#8dd3c7"><a href="#003842" label="[00:38:42]">&lt;stikonas&gt;</a></span><span class="message">(tcc-mes was able to build crt1.c, and some other very simple C files but not full unified-libc.c)</span></div><div class="line" id="012352"><span class="nick" style="color:#2e2a4a"><a href="#012352" label="[01:23:52]">&lt;aggi&gt;</a></span><span class="message">seems the re-compiled tccboot did launch correctly to compile the example hello.c...</span></div><div class="line" id="012401"><span class="nick" style="color:#2e2a4a"><a href="#012401" label="[01:24:01]">&lt;aggi&gt;</a></span><span class="message">next one... kernel</span></div><div class="line" id="012600"><span class="nick" style="color:#2e2a4a"><a href="#012600" label="[01:26:00]">&lt;aggi&gt;</a></span><span class="message">it's a little more complicated, because different tcc/tccboot versions required different kernel-patches</span></div><div class="line" id="012918"><span class="nick" style="color:#2e2a4a"><a href="#012918" label="[01:29:18]">&lt;aggi&gt;</a></span><span class="message">it is even more confusing, because on the buildhost i compiled kernel AoT with a more recent tcc-version than i may use for tccboot JIT</span></div><div class="line" id="013015"><span class="nick" style="color:#2e2a4a"><a href="#013015" label="[01:30:15]">&lt;aggi&gt;</a></span><span class="message">i can't keep tccboot-compiler version and tcc in sync yet, because of build-system issues due to restructured code of tcc since 0.9.25</span></div><div class="line" id="013207"><span class="nick" style="color:#2e2a4a"><a href="#013207" label="[01:32:07]">&lt;aggi&gt;</a></span><span class="message">ACTION needs another deep breath before loading the kernelsrc.romfs</span></div><div class="line" id="025425"><span class="nick" style="color:#2e2a4a"><a href="#025425" label="[02:54:25]">&lt;aggi&gt;</a></span><span class="message">some progress... recompiled tccboot fails to process assembly, and it complains over some other problems when compiling kernel c sources</span></div><div class="line" id="025601"><span class="nick" style="color:#2e2a4a"><a href="#025601" label="[02:56:01]">&lt;aggi&gt;</a></span><span class="message">however... this time, tccboot does launch, and it does start compilation... have to see why compilation/assmbling _fails_ although i used the original romfs from Bellards tccboot.iso, and i too used an early version tcc-0.9.22 to link into tccboot</span></div><div class="line" id="025724"><span class="nick" style="color:#2e2a4a"><a href="#025724" label="[02:57:24]">&lt;aggi&gt;</a></span><span class="message">finally, i want to identify if/why the kernels i already succeed to AoT compile with tcc crashed, while bellards tccboot compiled kernel didn't</span></div><div class="line" id="025807"><span class="nick" style="color:#2e2a4a"><a href="#025807" label="[02:58:07]">&lt;aggi&gt;</a></span><span class="message">for this, i _must_ reproduce his known-working state from 20 years ago first</span></div><div class="line" id="025930"><span class="nick" style="color:#2e2a4a"><a href="#025930" label="[02:59:30]">&lt;aggi&gt;</a></span><span class="message">ideally, i may skip tccboot entirely, if i can track down why an AoT tcc-compiled kernel crashes</span></div><div class="line" id="025959"><span class="nick" style="color:#2e2a4a"><a href="#025959" label="[02:59:59]">&lt;aggi&gt;</a></span><span class="message">monday morning, 3o'clock, second pot of coffee</span></div><div class="line" id="102145"><span class="nick" style="color:#6b8072"><a href="#102145" label="[10:21:45]">&lt;janneke&gt;</a></span><span class="message">snuik: later tell vagrantc: oops! and thanks for testing; i'm testing a couple of patches on the version-0.26 branch right now</span></div><div class="line" id="102146"><span class="nick" style="color:#80b1d3"><a href="#102146" label="[10:21:46]">&lt;snuik&gt;</a></span><span class="message">Sure thing.</span></div><div class="line" id="102149"><span class="nick" style="color:#6b8072"><a href="#102149" label="[10:21:49]">&lt;janneke&gt;</a></span><span class="message">snuik: botsnack</span></div><div class="line" id="102150"><span class="nick" style="color:#80b1d3"><a href="#102150" label="[10:21:50]">&lt;snuik&gt;</a></span><span class="message">:)</span></div><div class="line" id="162215"><span class="nick" style="color:#2e2a4a"><a href="#162215" label="[16:22:15]">&lt;aggi&gt;</a></span><span class="message">i would say with certainty, it's not feasible to re-integrate tccboot for tcc-version any later than 0.9.24</span></div><div class="line" id="162428"><span class="nick" style="color:#2e2a4a"><a href="#162428" label="[16:24:28]">&lt;aggi&gt;</a></span><span class="message">a test-case i fiddled together compiled, had to link libc.a for tccboot to supply the rather many new libc functions required, yet then tccboot doesn't spawn compilation</span></div><div class="line" id="162915"><span class="nick" style="color:#2e2a4a"><a href="#162915" label="[16:29:15]">&lt;aggi&gt;</a></span><span class="message">testing tccboot with early 0.9.21..22 versions yielded problems during the parsing stage... &quot;include recursion too deep&quot;, or &quot;bad expression syntax&quot; inside asm.S files at the '.align' token</span></div><div class="line" id="162954"><span class="nick" style="color:#2e2a4a"><a href="#162954" label="[16:29:54]">&lt;aggi&gt;</a></span><span class="message">depending on what's tested first... those errors show up, with an inconclusive root-cause</span></div><div class="line" id="165456"><span class="nick" style="color:#2e2a4a"><a href="#165456" label="[16:54:56]">&lt;aggi&gt;</a></span><span class="message">so, all this failed:</span></div><div class="line" id="165513"><span class="nick" style="color:#2e2a4a"><a href="#165513" label="[16:55:13]">&lt;aggi&gt;</a></span><span class="message">1) AoT compilation of linux-2.4 with tcc</span></div><div class="line" id="165524"><span class="nick" style="color:#2e2a4a"><a href="#165524" label="[16:55:24]">&lt;aggi&gt;</a></span><span class="message">2) JIT compilation of linux with tccboot</span></div><div class="line" id="165546"><span class="nick" style="color:#2e2a4a"><a href="#165546" label="[16:55:46]">&lt;aggi&gt;</a></span><span class="message">3) updating tccboot to use a recent version of tcc</span></div><div class="line" id="165711"><span class="nick" style="color:#2e2a4a"><a href="#165711" label="[16:57:11]">&lt;aggi&gt;</a></span><span class="message">with regards to 1) kernel is compiled and linked with both an old and recent tcc, but _crashes_ without any further option for me to find the error</span></div><div class="line" id="165849"><span class="nick" style="color:#2e2a4a"><a href="#165849" label="[16:58:49]">&lt;aggi&gt;</a></span><span class="message">and 2) is very difficult/almost impossible to debug, to at least re-produce the known-working state from 2004 tccboot.iso</span></div><div class="line" id="170045"><span class="nick" style="color:#2e2a4a"><a href="#170045" label="[17:00:45]">&lt;aggi&gt;</a></span><span class="message">only good news is, i got scripting and git-repos arranged, which covered _many_ test-cases to match various kernel versions and compiler version for either JIT or AoT</span></div><div class="line" id="170243"><span class="nick" style="color:#2e2a4a"><a href="#170243" label="[17:02:43]">&lt;aggi&gt;</a></span><span class="message">including a tccboot which can compile/execute a simple example/hello.c, and booting AoT-compiled kernel-2.4.26 or kernel-2.4.37.11 which crash</span></div><div class="line" id="170422"><span class="nick" style="color:#2e2a4a"><a href="#170422" label="[17:04:22]">&lt;aggi&gt;</a></span><span class="message">the reason i am hesitating to publish this is simple: it's a huge waste of time for almost two decades already, and many other developers seem to have failed with it</span></div><div class="line" id="170556"><span class="nick" style="color:#2e2a4a"><a href="#170556" label="[17:05:56]">&lt;aggi&gt;</a></span><span class="message">i may try to move the setup from BUILDHOST=arm to BUILDHOST=x86, yet i am certain cross-compile was sanitized to prevent issues</span></div><div class="line" id="170817"><span class="nick" style="color:#2e2a4a"><a href="#170817" label="[17:08:17]">&lt;aggi&gt;</a></span><span class="message">with AoT compilation i recall kernel got stuck with processing interrupts, not hitting the correct ISR i suspect</span></div><div class="line" id="171204"><span class="nick" style="color:#2e2a4a"><a href="#171204" label="[17:12:04]">&lt;aggi&gt;</a></span><span class="message">what's confusing me too, is the fact a recent tcc-version sufficed to compile an entire userland (except libc asm parts and kernel), and this worked</span></div><div class="line" id="171325"><span class="nick" style="color:#2e2a4a"><a href="#171325" label="[17:13:25]">&lt;aggi&gt;</a></span><span class="message">indicating recent tcc versions were somewhat stabilized, to correctly process preprocessor macros for example</span></div><div class="line" id="171419"><span class="nick" style="color:#2e2a4a"><a href="#171419" label="[17:14:19]">&lt;aggi&gt;</a></span><span class="message">and too the bootcode.S related parts were correctly assembled by i386-tcc, since the bootloaders do execute too</span></div><div class="line" id="171449"><span class="nick" style="color:#2e2a4a"><a href="#171449" label="[17:14:49]">&lt;aggi&gt;</a></span><span class="message">at least the ones for 32bit asm (not 16bit)</span></div><div class="line" id="171521"><span class="nick" style="color:#2e2a4a"><a href="#171521" label="[17:15:21]">&lt;aggi&gt;</a></span><span class="message">hence it's searching for a needle in the haystack now</span></div><div class="line" id="202021"><span class="nick" style="color:#6d2462"><a href="#202021" label="[20:20:21]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; aggi: I've just done a bit of googling. I assume you found <a rel="nofollow" href="https://github.com/seyko2/tccboot">https://github.com/seyko2/tccboot</a>  and <a rel="nofollow" href="https://github.com/seyko2/tinycc">https://github.com/seyko2/tinycc</a>  . This looks like it may have been a semi-successful attempt to resurrect tccboot in 2016. There's also some contemporary messages on the tcc mailing list <a rel="nofollow" href="https://lists.nongnu.org/archive/html/tinycc-devel/">https://lists.nongnu.org/archive/html/tinycc-devel/</a> </span></div><div class="line" id="202037"><span class="nick" style="color:#6d2462"><a href="#202037" label="[20:20:37]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; (I've not tried to run that code though)</span></div><div class="line" id="202129"><span class="nick" style="color:#2e2a4a"><a href="#202129" label="[20:21:29]">&lt;aggi&gt;</a></span><span class="message">cosinusoidally, yes, i grabbed all projects there were and bisected through them</span></div><div class="line" id="202201"><span class="nick" style="color:#2e2a4a"><a href="#202201" label="[20:22:01]">&lt;aggi&gt;</a></span><span class="message">seyko2 seems the most promising, which i did a little cleanup for to cover the many test cases</span></div><div class="line" id="202229"><span class="nick" style="color:#2e2a4a"><a href="#202229" label="[20:22:29]">&lt;aggi&gt;</a></span><span class="message">the seyko2 AoT kernel compilation it is which finishes, kernel loaded, and crashes</span></div><div class="line" id="202333"><span class="nick" style="color:#2e2a4a"><a href="#202333" label="[20:23:33]">&lt;aggi&gt;</a></span><span class="message">which is confusing, because for linux-2.4.26 the JIT/tccboot compilation was known-good year 2004 (which i can't reproduce), and the exact same sources compiled with the exact same compiler setup for AoT/tcc crashes</span></div><div class="line" id="202429"><span class="nick" style="color:#2e2a4a"><a href="#202429" label="[20:24:29]">&lt;aggi&gt;</a></span><span class="message">hence i was hoping for re-producing tccboot to confirm what Bellard did 2004, to bisect this against AoT compilation (differences in memory layout, linking etc)</span></div><div class="line" id="202528"><span class="nick" style="color:#2e2a4a"><a href="#202528" label="[20:25:28]">&lt;aggi&gt;</a></span><span class="message">in principle however, i would conclude, even if i could repair/reproduce any known-working state, even then i raise doubts over the quality of tcc and bootstrapping with it</span></div><div class="line" id="202623"><span class="nick" style="color:#2e2a4a"><a href="#202623" label="[20:26:23]">&lt;aggi&gt;</a></span><span class="message">not sure if i wanted to rely upon this with any production-system, same with gcc/binutils</span></div><div class="line" id="203122"><span class="nick" style="color:#6d2462"><a href="#203122" label="[20:31:22]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; tcc is high enough quality to build fiwix, binutils and gcc, and then use the version of gcc it built to then build a relatively modern linux kernel (this is what live-bootstrap does)</span></div><div class="line" id="203154"><span class="nick" style="color:#6d2462"><a href="#203154" label="[20:31:54]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; tcc is totally unmaintainable by mortals though.</span></div><div class="line" id="204935"><span class="nick" style="color:#2e2a4a"><a href="#204935" label="[20:49:35]">&lt;aggi&gt;</a></span><span class="message">tcc too can build linux-kernel, but it crashes; and fiwix kernel was run by kexec, that's the practically severe limitations still</span></div><div class="line" id="205058"><span class="nick" style="color:#2e2a4a"><a href="#205058" label="[20:50:58]">&lt;aggi&gt;</a></span><span class="message">although i see the kernel-side at fault, because this is what they do over there: #ifdef gcc #else #error #endif</span></div><div class="line" id="210430"><span class="nick" style="color:#6d2462"><a href="#210430" label="[21:04:30]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; In live-bootstrap the fiwix kernel is run from builder-hex0. It goes builder-hex0-&gt; fiwix -&gt; Linux . It then is able to loop back around at a later stage and build and install grub in order to boot normally into Linux</span></div><div class="line" id="210802"><span class="nick" style="color:#2e2a4a"><a href="#210802" label="[21:08:02]">&lt;aggi&gt;</a></span><span class="message">if this system-integration path was clean and stable, i would stop at fiwix+tcc and drop linux+gcc</span></div><div class="line" id="210912"><span class="nick" style="color:#2e2a4a"><a href="#210912" label="[21:09:12]">&lt;aggi&gt;</a></span><span class="message">and i rather avoided binutils too, and find a solution for the missing 16bit assembly support elsewhere</span></div><div class="line" id="211100"><span class="nick" style="color:#2e2a4a"><a href="#211100" label="[21:11:00]">&lt;aggi&gt;</a></span><span class="message">the _pracitcally_ relevant aspect with Fiwix to run on real x86-hardware is USB and ethernet support</span></div><div class="line" id="215049"><span class="nick" style="color:#6d2462"><a href="#215049" label="[21:50:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; yep getting rid of binutils/gcc would open up the possibility of booting from source all the way up to userspace in a reasonable amount of time.</span></div><div class="line" id="215227"><span class="nick" style="color:#6d2462"><a href="#215227" label="[21:52:27]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; qemu does have a gdb remote debugging mode. If you can figure out which object code file causes the crash then you can possibly replace that file with one compiled by gcc and see if that fixes the issue. If it does fix the issue then that will identify which file tcc has miscompiled.</span></div><div class="line" id="222256"><span class="nick" style="color:#2e2a4a"><a href="#222256" label="[22:22:56]">&lt;aggi&gt;</a></span><span class="message">i suspect it's a linking memory-section issue</span></div><div class="line" id="231613"><span class="nick" style="color:#2e2a4a"><a href="#231613" label="[23:16:13]">&lt;aggi&gt;</a></span><span class="message">tracking this, it seems to fault when handling/enabling interrupts with sti()/__global_sti/__sti (assembly routine) called first in init/main.c</span></div><div class="line" id="231622"><span class="nick" style="color:#2e2a4a"><a href="#231622" label="[23:16:22]">&lt;aggi&gt;</a></span><span class="message">hitting an invalid memory page instantly</span></div><div class="line" id="231715"><span class="nick" style="color:#2e2a4a"><a href="#231715" label="[23:17:15]">&lt;aggi&gt;</a></span><span class="message">ACTION will leave for a little while</span></div><br /></div></body></html>

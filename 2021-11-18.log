@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-11-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000004"><span class="nick" style="color:#389600"><a href="#000004" label="[00:00:04]">&lt;stikonas&gt;</a></span><span class="message">vagrantc: unlikely...</span></div><div class="line" id="000032"><span class="nick" style="color:#389600"><a href="#000032" label="[00:00:32]">&lt;stikonas&gt;</a></span><span class="message">vagrantc: tar should be simple enough to implement in M2-Planet's C subset</span></div><div class="line" id="000159"><span class="nick" style="color:#389600"><a href="#000159" label="[00:01:59]">&lt;stikonas&gt;</a></span><span class="message">vagrantc: although we do have an issue where wrong file is extracted</span></div><div class="line" id="000218"><span class="nick" style="color:#389600"><a href="#000218" label="[00:02:18]">&lt;stikonas&gt;</a></span><span class="message">due to bad metadata parsing</span></div><div class="line" id="000314"><span class="nick" style="color:#389600"><a href="#000314" label="[00:03:14]">&lt;stikonas&gt;</a></span><span class="message">but in any case, correctly parsing tar sounds easier than e.g. writing M2-Planet</span></div><div class="line" id="000536"><span class="nick" style="color:#389600"><a href="#000536" label="[00:05:36]">&lt;stikonas&gt;</a></span><span class="message">vagrantc: but I did observe some minor non-critical issues in live-bootstrap when we tried to extract tarballs</span></div><div class="line" id="000551"><span class="nick" style="color:#389600"><a href="#000551" label="[00:05:51]">&lt;stikonas&gt;</a></span><span class="message">usually some extra empty file appears alongside source</span></div><div class="line" id="001226"><span class="nick" style="color:#8dd3c7"><a href="#001226" label="[00:12:26]">&lt;vagrantc&gt;</a></span><span class="message">oh, that's fun</span></div><div class="line" id="001727"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="035633"><span class="nick" style="color:#6b8072"><a href="#035633" label="[03:56:33]">&lt;oriansj&gt;</a></span><span class="message">stikonas: about the M0 segment fault; there are quite a few ways to segfault M0 such as just doing DEFINE foo and then just end the file</span></div><div class="line" id="035715"><span class="nick" style="color:#6b8072"><a href="#035715" label="[03:57:15]">&lt;oriansj&gt;</a></span><span class="message">it isn't supposed to be robust but as guick and ugly of a hack in as little hex2 as you can get away with.</span></div><div class="line" id="035725"><span class="nick" style="color:#80b1d3"><a href="#035725" label="[03:57:25]">&lt;stikonas[m]&gt;</a></span><span class="message">That's exactly the segfault I was fixing...</span></div><div class="line" id="035744"><span class="nick" style="color:#80b1d3"><a href="#035744" label="[03:57:44]">&lt;stikonas[m]&gt;</a></span><span class="message">But yeah, I agree that it's optional fix</span></div><div class="line" id="035758"><span class="nick" style="color:#6b8072"><a href="#035758" label="[03:57:58]">&lt;oriansj&gt;</a></span><span class="message">as for the get_machine segfault, yes that is fixed in the latest mescc-tools</span></div><div class="line" id="035813"><span class="nick" style="color:#80b1d3"><a href="#035813" label="[03:58:13]">&lt;stikonas[m]&gt;</a></span><span class="message">Fixing is just 2 lines...</span></div><div class="line" id="035841"><span class="nick" style="color:#6b8072"><a href="#035841" label="[03:58:41]">&lt;oriansj&gt;</a></span><span class="message">and when the input is just DEFINE</span></div><div class="line" id="035849"><span class="nick" style="color:#6b8072"><a href="#035849" label="[03:58:49]">&lt;oriansj&gt;</a></span><span class="message">or just DEFINE foo 1</span></div><div class="line" id="035958"><span class="nick" style="color:#6b8072"><a href="#035958" label="[03:59:58]">&lt;oriansj&gt;</a></span><span class="message">I mean if you want to make RISC-V's M0 being the best M0 around: go for it</span></div><div class="line" id="040345"><span class="nick" style="color:#6b8072"><a href="#040345" label="[04:03:45]">&lt;oriansj&gt;</a></span><span class="message">and if there are issues with the tar files and the mescc-tools-extra untar program, I probably should fix those</span></div><div class="line" id="040540"><span class="nick" style="color:#80b1d3"><a href="#040540" label="[04:05:40]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm, I probably wouldn't bother... Trying to work on m2-planet macros</span></div><div class="line" id="040821"><span class="nick" style="color:#6b8072"><a href="#040821" label="[04:08:21]">&lt;oriansj&gt;</a></span><span class="message">hint line feed is preserved for use by the macro processor and stripped before being passed to cc_core.c</span></div><div class="line" id="040905"><span class="nick" style="color:#6b8072"><a href="#040905" label="[04:09:05]">&lt;oriansj&gt;</a></span><span class="message">and -E option will show you what the macro expansion is</span></div><div class="line" id="194720"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="232217"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><br /></div></body></html>

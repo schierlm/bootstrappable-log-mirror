@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-10-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="050649"><span class="nick" style="color:#8dd3c7"><a href="#050649" label="[05:06:49]">&lt;pabs3&gt;</a></span><span class="message">hmm, the V language doesn't sound bootstrappable <a rel="nofollow" href="https://lists.debian.org/msgid-search/MN2PR14MB332895C7853B2B6F58FD8723B2B49@MN2PR14MB3328.namprd14.prod.outlook.com">https://lists.debian.org/msgid-search/MN2PR14MB332895C7853B2B6F58FD8723B2B49@MN2PR14MB3328.namprd14.prod.outlook.com</a> </span></div><div class="line" id="050946"><span class="nick" style="color:#2e2a4a"><a href="#050946" label="[05:09:46]">&lt;fossy&gt;</a></span><span class="message">hmm</span></div><div class="line" id="050948"><span class="nick" style="color:#2e2a4a"><a href="#050948" label="[05:09:48]">&lt;fossy&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/vlang/vc">https://github.com/vlang/vc</a> </span></div><div class="line" id="050953"><span class="nick" style="color:#2e2a4a"><a href="#050953" label="[05:09:53]">&lt;fossy&gt;</a></span><span class="message">but &quot;This repository is generated automatically&quot;</span></div><div class="line" id="051243"><span class="nick" style="color:#2e2a4a"><a href="#051243" label="[05:12:43]">&lt;fossy&gt;</a></span><span class="message">yeah, this isnt bootstrappable</span></div><div class="line" id="051326"><span class="nick" style="color:#6b8072"><a href="#051326" label="[05:13:26]">*</a></span><span class="message">pabs3 replied asking about it and suggesting not to package it until it is bootstrappable</span></div><div class="line" id="083855"><span class="nick" style="color:#80b1d3"><a href="#083855" label="[08:38:55]">&lt;stikonas[m]&gt;</a></span><span class="message">Yes, convertion to C tool is written in V...</span></div><div class="line" id="084749"><span class="nick" style="color:#80b1d3"><a href="#084749" label="[08:47:49]">&lt;stikonas[m]&gt;</a></span><span class="message">Or actually, it's just V itself</span></div><div class="line" id="084834"><span class="nick" style="color:#80b1d3"><a href="#084834" label="[08:48:34]">&lt;stikonas[m]&gt;</a></span><span class="message">It generates C code and builds it uses C compiler as backend</span></div><div class="line" id="084852"><span class="nick" style="color:#80b1d3"><a href="#084852" label="[08:48:52]">&lt;stikonas[m]&gt;</a></span><span class="message">In any case not bootsrappable</span></div><div class="line" id="130232"><span class="nick" style="color:#6d2462"><a href="#130232" label="[13:02:32]">&lt;gbrlwck&gt;</a></span><span class="message">i'm having issues trying to bootstrap MES: <a rel="nofollow" href="https://termbin.com/vdpq">https://termbin.com/vdpq</a> </span></div><div class="line" id="130435"><span class="nick" style="color:#6d2462"><a href="#130435" label="[13:04:35]">&lt;gbrlwck&gt;</a></span><span class="message">first of all: ./build.sh tries to `mkdir -p` which doesn't work with the mkdir version in stage0-posix.</span></div><div class="line" id="132651"><span class="nick" style="color:#6d2462"><a href="#132651" label="[13:26:51]">&lt;gbrlwck&gt;</a></span><span class="message">ok, found this statement in live-bootstrap's parts.rst: &quot;Note that we are using the experimental wip-m2 branch to jump over the gap between M2-Planet and mes&quot;</span></div><div class="line" id="132744"><span class="nick" style="color:#6d2462"><a href="#132744" label="[13:27:44]">&lt;gbrlwck&gt;</a></span><span class="message">i found branches wip-m2-old and wip-m2-merge (both 2 years old). is this the most recent path to go?</span></div><div class="line" id="134409"><span class="nick" style="color:#2e2a4a"><a href="#134409" label="[13:44:09]">&lt;fossy&gt;</a></span><span class="message">Hm that is now inaccurate</span></div><div class="line" id="134420"><span class="nick" style="color:#2e2a4a"><a href="#134420" label="[13:44:20]">&lt;fossy&gt;</a></span><span class="message">mes-M2 itself is now up to the task</span></div><div class="line" id="134434"><span class="nick" style="color:#2e2a4a"><a href="#134434" label="[13:44:34]">&lt;fossy&gt;</a></span><span class="message">github.com/oriansj/mes-m2</span></div><div class="line" id="140328"><span class="nick" style="color:#6d2462"><a href="#140328" label="[14:03:28]">&lt;gbrlwck&gt;</a></span><span class="message">fossy: thanks!</span></div><div class="line" id="152113"><span class="nick" style="color:#6d2462"><a href="#152113" label="[15:21:13]">&lt;gbrlwck&gt;</a></span><span class="message">to get bootstrapping to work i'll just have to translate .h and .c files in mes-m2 to riscv64?</span></div><div class="line" id="185101"><span class="nick" style="color:#6d2462"><a href="#185101" label="[18:51:01]">&lt;gbrlwck&gt;</a></span><span class="message">is &quot;mov____$i32,%eax SYS_exit&quot; in mes-m2/lib/linux/x86-mes-m2/mini.c written in language M1?</span></div><div class="line" id="211817"><span class="nick" style="color:#80b1d3"><a href="#211817" label="[21:18:17]">&lt;stikonas[m]&gt;</a></span><span class="message">gbrlwck: I think so (that's to build mes, mescc would need further work)</span></div><div class="line" id="211855"><span class="nick" style="color:#80b1d3"><a href="#211855" label="[21:18:55]">&lt;stikonas[m]&gt;</a></span><span class="message">There is also some older mes porting attempt</span></div><div class="line" id="211915"><span class="nick" style="color:#80b1d3"><a href="#211915" label="[21:19:15]">&lt;stikonas[m]&gt;</a></span><span class="message">That predates stage0-posix work</span></div><div class="line" id="211927"><span class="nick" style="color:#80b1d3"><a href="#211927" label="[21:19:27]">&lt;stikonas[m]&gt;</a></span><span class="message">But might have some useful patches</span></div><div class="line" id="211957"><span class="nick" style="color:#80b1d3"><a href="#211957" label="[21:19:57]">&lt;stikonas[m]&gt;</a></span><span class="message"> <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/mes.git/log/?h=wip-riscv">https://git.savannah.gnu.org/cgit/mes.git/log/?h=wip-riscv</a> </span></div><div class="line" id="212928"><span class="nick" style="color:#80b1d3"><a href="#212928" label="[21:29:28]">&lt;stikonas[m]&gt;</a></span><span class="message">gbrlwck: you might also want to talk to laanwj</span></div><div class="line" id="225931"><span class="nick" style="color:#234e69"><a href="#225931" label="[22:59:31]">&lt;stikonas&gt;</a></span><span class="message">oriansj: when you have some time, can you merge <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/pull/61">https://github.com/oriansj/stage0-posix/pull/61</a>  ?</span></div><div class="line" id="230000"><span class="nick" style="color:#234e69"><a href="#230000" label="[23:00:00]">&lt;stikonas&gt;</a></span><span class="message">I've addressed review comments now (fixed another typo)</span></div><br /></div></body></html>

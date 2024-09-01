@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-01-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002019"><span class="nick" style="color:#389600"><a href="#002019" label="[00:20:19]">&lt;doras&gt;</a></span><span class="message">fossy: would you mind doing one bwrap bootstrap before merging the Python PR?</span></div><div class="line" id="002116"><span class="nick" style="color:#389600"><a href="#002116" label="[00:21:16]">&lt;doras&gt;</a></span><span class="message">To see that it works and that you get the same package hashes as the other bootstrap modes.</span></div><div class="line" id="002244"><span class="nick" style="color:#8dd3c7"><a href="#002244" label="[00:22:44]">&lt;stikonas&gt;</a></span><span class="message">doras: I'm already running it</span></div><div class="line" id="002257"><span class="nick" style="color:#389600"><a href="#002257" label="[00:22:57]">&lt;doras&gt;</a></span><span class="message">Great :)</span></div><div class="line" id="002308"><span class="nick" style="color:#8dd3c7"><a href="#002308" label="[00:23:08]">&lt;stikonas&gt;</a></span><span class="message">though I'm also running Gentoo upgrade, so somewhat low on CPU resources...</span></div><div class="line" id="002340"><span class="nick" style="color:#389600"><a href="#002340" label="[00:23:40]">&lt;doras&gt;</a></span><span class="message">bwrap should be the quickest bootstrap mode, CPU-wise.</span></div><div class="line" id="002356"><span class="nick" style="color:#8dd3c7"><a href="#002356" label="[00:23:56]">&lt;stikonas&gt;</a></span><span class="message">mostly the same as chroot mode</span></div><div class="line" id="002410"><span class="nick" style="color:#389600"><a href="#002410" label="[00:24:10]">&lt;doras&gt;</a></span><span class="message">Well, yeah. They should be similar.</span></div><div class="line" id="002415"><span class="nick" style="color:#8dd3c7"><a href="#002415" label="[00:24:15]">&lt;stikonas&gt;</a></span><span class="message">I did notice some strange things with bwrap mode, but didn't care to investigate</span></div><div class="line" id="002429"><span class="nick" style="color:#8dd3c7"><a href="#002429" label="[00:24:29]">&lt;stikonas&gt;</a></span><span class="message">early sed in bootstrap mode is quite slow on my system</span></div><div class="line" id="002437"><span class="nick" style="color:#8dd3c7"><a href="#002437" label="[00:24:37]">&lt;stikonas&gt;</a></span><span class="message">(in bwrap mode only)</span></div><div class="line" id="002450"><span class="nick" style="color:#8dd3c7"><a href="#002450" label="[00:24:50]">&lt;stikonas&gt;</a></span><span class="message">but a few seconds per sed command was not worth investigating</span></div><div class="line" id="002454"><span class="nick" style="color:#389600"><a href="#002454" label="[00:24:54]">&lt;doras&gt;</a></span><span class="message">bwrap is doing less stuff in RAM early on because we can't create tmpfs mounts.</span></div><div class="line" id="002508"><span class="nick" style="color:#8dd3c7"><a href="#002508" label="[00:25:08]">&lt;stikonas&gt;</a></span><span class="message">oh possibly...</span></div><div class="line" id="002538"><span class="nick" style="color:#8dd3c7"><a href="#002538" label="[00:25:38]">&lt;stikonas&gt;</a></span><span class="message">in any case, qemu mode is slowest both because it's slower to do each thing due to emulation</span></div><div class="line" id="002546"><span class="nick" style="color:#8dd3c7"><a href="#002546" label="[00:25:46]">&lt;stikonas&gt;</a></span><span class="message">but also because it builds more stuff (linux kernel)</span></div><div class="line" id="002628"><span class="nick" style="color:#389600"><a href="#002628" label="[00:26:28]">&lt;doras&gt;</a></span><span class="message">I mean, we do create a few tmpfs mounts as part of the bwrap invocation, but I vaguely remember that there is some gap there.</span></div><div class="line" id="002701"><span class="nick" style="color:#8dd3c7"><a href="#002701" label="[00:27:01]">&lt;stikonas&gt;</a></span><span class="message">anyway, it is a useful mode to test, I mostly run bwrap and qemu</span></div><div class="line" id="002704"><span class="nick" style="color:#8dd3c7"><a href="#002704" label="[00:27:04]">&lt;stikonas&gt;</a></span><span class="message">rather than chroot now</span></div><div class="line" id="002726"><span class="nick" style="color:#389600"><a href="#002726" label="[00:27:26]">&lt;doras&gt;</a></span><span class="message">Yay :)</span></div><div class="line" id="002741"><span class="nick" style="color:#8dd3c7"><a href="#002741" label="[00:27:41]">&lt;stikonas&gt;</a></span><span class="message">because if chroot fails, bwrap would also fail, but not necesserily vice versa</span></div><div class="line" id="002801"><span class="nick" style="color:#8dd3c7"><a href="#002801" label="[00:28:01]">&lt;stikonas&gt;</a></span><span class="message">and qemu run somewhat different stuff, part of it runs on a different kernel</span></div><div class="line" id="002805"><span class="nick" style="color:#8dd3c7"><a href="#002805" label="[00:28:05]">&lt;stikonas&gt;</a></span><span class="message">so good to test reproducibility</span></div><div class="line" id="002915"><span class="nick" style="color:#8dd3c7"><a href="#002915" label="[00:29:15]">&lt;stikonas&gt;</a></span><span class="message">anyway, before we  can merge that PR, at the very least we need to fix parts.rst</span></div><div class="line" id="002924"><span class="nick" style="color:#389600"><a href="#002924" label="[00:29:24]">&lt;doras&gt;</a></span><span class="message">bwrap is a bit more strict about file permissions and ownership, yes.</span></div><div class="line" id="002930"><span class="nick" style="color:#8dd3c7"><a href="#002930" label="[00:29:30]">&lt;stikonas&gt;</a></span><span class="message">indeed</span></div><div class="line" id="002946"><span class="nick" style="color:#389600"><a href="#002946" label="[00:29:46]">&lt;doras&gt;</a></span><span class="message">I personally don't like the concept of a script running as root creating devices and executing a bunch of foreign build scripts with root privileges.</span></div><div class="line" id="002947"><span class="nick" style="color:#8dd3c7"><a href="#002947" label="[00:29:47]">&lt;stikonas&gt;</a></span><span class="message">but luckily live-bootstrap is not too needy here</span></div><div class="line" id="003001"><span class="nick" style="color:#8dd3c7"><a href="#003001" label="[00:30:01]">&lt;stikonas&gt;</a></span><span class="message">yeah, that is understandable</span></div><div class="line" id="003010"><span class="nick" style="color:#8dd3c7"><a href="#003010" label="[00:30:10]">&lt;stikonas&gt;</a></span><span class="message">ideally building stuff shouldn't need root</span></div><div class="line" id="003027"><span class="nick" style="color:#8dd3c7"><a href="#003027" label="[00:30:27]">&lt;stikonas&gt;</a></span><span class="message">though sometimes I couldn't think of any alternative (not in live-bootstrap)</span></div><div class="line" id="003035"><span class="nick" style="color:#389600"><a href="#003035" label="[00:30:35]">&lt;doras&gt;</a></span><span class="message">We can probably limit the bwrap sandbox further if we wanted.</span></div><div class="line" id="003044"><span class="nick" style="color:#389600"><a href="#003044" label="[00:30:44]">&lt;doras&gt;</a></span><span class="message">I kept it pretty light-weight.</span></div><div class="line" id="003049"><span class="nick" style="color:#8dd3c7"><a href="#003049" label="[00:30:49]">&lt;stikonas&gt;</a></span><span class="message">i.e. creating rootfs images usually needs root privileges</span></div><div class="line" id="003350"><span class="nick" style="color:#8dd3c7"><a href="#003350" label="[00:33:50]">&lt;stikonas&gt;</a></span><span class="message">fossy: what do you think about expanding &quot;Step 1&quot; in parts.rst?</span></div><div class="line" id="003424"><span class="nick" style="color:#8dd3c7"><a href="#003424" label="[00:34:24]">&lt;stikonas&gt;</a></span><span class="message">(just not part of this PR though)</span></div><div class="line" id="003924"><span class="nick" style="color:#8dd3c7"><a href="#003924" label="[00:39:24]">&lt;stikonas&gt;</a></span><span class="message">fossy: also probably worth opening bug report for Python 3.11 regarding make regen-all</span></div><div class="line" id="005707"><span class="nick" style="color:#2e2a4a"><a href="#005707" label="[00:57:07]">&lt;fossy&gt;</a></span><span class="message">stikonas: true</span></div><div class="line" id="005721"><span class="nick" style="color:#2e2a4a"><a href="#005721" label="[00:57:21]">&lt;fossy&gt;</a></span><span class="message">how do mean, step 1?</span></div><div class="line" id="005737"><span class="nick" style="color:#2e2a4a"><a href="#005737" label="[00:57:37]">&lt;fossy&gt;</a></span><span class="message">oh, stage0-posix?</span></div><div class="line" id="005742"><span class="nick" style="color:#8dd3c7"><a href="#005742" label="[00:57:42]">&lt;stikonas&gt;</a></span><span class="message">well, write a bit about stage0-posix steps</span></div><div class="line" id="005748"><span class="nick" style="color:#2e2a4a"><a href="#005748" label="[00:57:48]">&lt;fossy&gt;</a></span><span class="message">no problems with that</span></div><div class="line" id="005755"><span class="nick" style="color:#8dd3c7"><a href="#005755" label="[00:57:55]">&lt;stikonas&gt;</a></span><span class="message">I tried to write a bit like that in stage0-uefi, but it's obviously slightly different text</span></div><div class="line" id="005804"><span class="nick" style="color:#8dd3c7"><a href="#005804" label="[00:58:04]">&lt;stikonas&gt;</a></span><span class="message">(and also amd64 arch)</span></div><div class="line" id="005807"><span class="nick" style="color:#8dd3c7"><a href="#005807" label="[00:58:07]">&lt;stikonas&gt;</a></span><span class="message">see here: <a rel="nofollow" href="https://git.stikonas.eu/andrius/stage0-uefi">https://git.stikonas.eu/andrius/stage0-uefi</a> </span></div><div class="line" id="005837"><span class="nick" style="color:#2e2a4a"><a href="#005837" label="[00:58:37]">&lt;fossy&gt;</a></span><span class="message">yeah, that looks reasonably good to me</span></div><div class="line" id="005913"><span class="nick" style="color:#8dd3c7"><a href="#005913" label="[00:59:13]">&lt;stikonas&gt;</a></span><span class="message">anyway, once you fix parts.rst, I guess we can merge it</span></div><div class="line" id="005922"><span class="nick" style="color:#8dd3c7"><a href="#005922" label="[00:59:22]">&lt;stikonas&gt;</a></span><span class="message">I still need to look a bit more at pregen files</span></div><div class="line" id="005930"><span class="nick" style="color:#8dd3c7"><a href="#005930" label="[00:59:30]">&lt;stikonas&gt;</a></span><span class="message">but I can probably do that after merge</span></div><div class="line" id="005942"><span class="nick" style="color:#8dd3c7"><a href="#005942" label="[00:59:42]">&lt;stikonas&gt;</a></span><span class="message">in the worst case I'll open a bug</span></div><div class="line" id="005949"><span class="nick" style="color:#2e2a4a"><a href="#005949" label="[00:59:49]">&lt;fossy&gt;</a></span><span class="message">i just need to double check python 2.5 is fixed. it had a QEMU/chroot incompatibility</span></div><div class="line" id="010023"><span class="nick" style="color:#8dd3c7"><a href="#010023" label="[01:00:23]">&lt;stikonas&gt;</a></span><span class="message">well, I'm runing bootstrap too</span></div><div class="line" id="010029"><span class="nick" style="color:#8dd3c7"><a href="#010029" label="[01:00:29]">&lt;stikonas&gt;</a></span><span class="message">though today I only have time for brwap mode</span></div><div class="line" id="010100"><span class="nick" style="color:#8dd3c7"><a href="#010100" label="[01:01:00]">&lt;stikonas&gt;</a></span><span class="message">at some point we should also fix pregen stuff in <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/203">https://github.com/fosslinux/live-bootstrap/issues/203</a>,  I might take a look at it at some point later, though right now I was doing some updates to stage0-posix</span></div><div class="line" id="010102"><span class="nick" style="color:#2e2a4a"><a href="#010102" label="[01:01:02]">&lt;fossy&gt;</a></span><span class="message">no real rush, i'd prefer to take the time to test it even if it takes a couple day</span></div><div class="line" id="010127"><span class="nick" style="color:#8dd3c7"><a href="#010127" label="[01:01:27]">&lt;stikonas&gt;</a></span><span class="message">true</span></div><div class="line" id="010128"><span class="nick" style="color:#2e2a4a"><a href="#010128" label="[01:01:28]">&lt;fossy&gt;</a></span><span class="message">yeah, that is a problem</span></div><div class="line" id="010345"><span class="nick" style="color:#8dd3c7"><a href="#010345" label="[01:03:45]">&lt;stikonas&gt;</a></span><span class="message">by the way how much time does python build add?</span></div><div class="line" id="010510"><span class="nick" style="color:#2e2a4a"><a href="#010510" label="[01:05:10]">&lt;fossy&gt;</a></span><span class="message">on my system, abt +25 mins</span></div><div class="line" id="010535"><span class="nick" style="color:#8dd3c7"><a href="#010535" label="[01:05:35]">&lt;stikonas&gt;</a></span><span class="message">ok, quite a bit...</span></div><div class="line" id="010547"><span class="nick" style="color:#8dd3c7"><a href="#010547" label="[01:05:47]">&lt;stikonas&gt;</a></span><span class="message">but we have quite a few builds of python</span></div><div class="line" id="010550"><span class="nick" style="color:#2e2a4a"><a href="#010550" label="[01:05:50]">&lt;fossy&gt;</a></span><span class="message">most of it is the newer python versions, they are massive</span></div><div class="line" id="010615"><span class="nick" style="color:#8dd3c7"><a href="#010615" label="[01:06:15]">&lt;stikonas&gt;</a></span><span class="message">still guile is slower</span></div><div class="line" id="010909"><span class="nick" style="color:#2e2a4a"><a href="#010909" label="[01:09:09]">&lt;fossy&gt;</a></span><span class="message">gah, py2.5 is not fixed. so checksum for that will still be wrong</span></div><div class="line" id="010912"><span class="nick" style="color:#2e2a4a"><a href="#010912" label="[01:09:12]">&lt;fossy&gt;</a></span><span class="message">wait, did i even push checksums</span></div><div class="line" id="010949"><span class="nick" style="color:#8dd3c7"><a href="#010949" label="[01:09:49]">&lt;stikonas&gt;</a></span><span class="message">oh, maybe not...</span></div><div class="line" id="011024"><span class="nick" style="color:#8dd3c7"><a href="#011024" label="[01:10:24]">&lt;stikonas&gt;</a></span><span class="message">at least I don't remember seeing it</span></div><div class="line" id="011034"><span class="nick" style="color:#2e2a4a"><a href="#011034" label="[01:10:34]">&lt;fossy&gt;</a></span><span class="message">no, i don't think i did</span></div><div class="line" id="011119"><span class="nick" style="color:#2e2a4a"><a href="#011119" label="[01:11:19]">&lt;fossy&gt;</a></span><span class="message">i'll push them when this build finishes</span></div><div class="line" id="011128"><span class="nick" style="color:#2e2a4a"><a href="#011128" label="[01:11:28]">&lt;fossy&gt;</a></span><span class="message">because hopefully, they should be the correct ones</span></div><div class="line" id="011359"><span class="nick" style="color:#8dd3c7"><a href="#011359" label="[01:13:59]">&lt;stikonas&gt;</a></span><span class="message">ok, I'll cancel my build for now</span></div><div class="line" id="011401"><span class="nick" style="color:#8dd3c7"><a href="#011401" label="[01:14:01]">&lt;stikonas&gt;</a></span><span class="message">it will fail anyway</span></div><br /></div></body></html>

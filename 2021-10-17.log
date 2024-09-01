@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-10-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="043807"><span class="nick" style="color:#8dd3c7"><a href="#043807" label="[04:38:07]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged</span></div><div class="line" id="045806"><span class="nick" style="color:#8dd3c7"><a href="#045806" label="[04:58:06]">&lt;oriansj&gt;</a></span><span class="message">and incorporated into stage0-posix</span></div><div class="line" id="112526"><span class="nick" style="color:#2e2a4a"><a href="#112526" label="[11:25:26]">&lt;pabs3&gt;</a></span><span class="message"> <a rel="nofollow" href="https://codeandbitters.com/published-crate-analysis/">https://codeandbitters.com/published-crate-analysis/</a>  <a rel="nofollow" href="https://news.ycombinator.com/item?id=28827648">https://news.ycombinator.com/item?id=28827648</a> </span></div><div class="line" id="155447"><span class="nick" style="color:#8dd3c7"><a href="#155447" label="[15:54:47]">&lt;oriansj&gt;</a></span><span class="message">pabs3: it is almost like trusted source distribution is a magnet for coordinated trust problems and coordinated software distribution problems.</span></div><div class="line" id="161035"><span class="nick" style="color:#6b8072"><a href="#161035" label="[16:10:35]">&lt;Hagfish&gt;</a></span><span class="message">i think there will still be coordination problems in distributed systems, though</span></div><div class="line" id="163906"><span class="nick" style="color:#8dd3c7"><a href="#163906" label="[16:39:06]">&lt;oriansj&gt;</a></span><span class="message">Hagfish: well yes, unless one goes append only with a unified clock</span></div><div class="line" id="174411"><span class="nick" style="color:#6b8072"><a href="#174411" label="[17:44:11]">&lt;Hagfish&gt;</a></span><span class="message">yeah, that's a nice trick</span></div><div class="line" id="215616"><span class="nick" style="color:#80b1d3"><a href="#215616" label="[21:56:16]">&lt;stikonas&gt;</a></span><span class="message">hmm, it seems that kaem aliases are still buggy...</span></div><div class="line" id="220850"><span class="nick" style="color:#80b1d3"><a href="#220850" label="[22:08:50]">&lt;stikonas&gt;</a></span><span class="message">ok, found a stupid typo, hopefully it's just that</span></div><div class="line" id="221049"><span class="nick" style="color:#80b1d3"><a href="#221049" label="[22:10:49]">&lt;stikonas&gt;</a></span><span class="message">oriansj: can you pull in <a rel="nofollow" href="https://github.com/oriansj/mescc-tools/pull/34">https://github.com/oriansj/mescc-tools/pull/34</a> </span></div><div class="line" id="221200"><span class="nick" style="color:#80b1d3"><a href="#221200" label="[22:12:00]">&lt;stikonas&gt;</a></span><span class="message">testing with ls -l -h was not a good idea...</span></div><div class="line" id="224823"><span class="nick" style="color:#80b1d3"><a href="#224823" label="[22:48:23]">&lt;stikonas&gt;</a></span><span class="message">ok, with that typo fixed, mescc alias seems to work</span></div><div class="line" id="225343"><span class="nick" style="color:#80b1d3"><a href="#225343" label="[22:53:43]">&lt;stikonas&gt;</a></span><span class="message">so instead of a hundred or so lines like ${MES} --no-auto-compile -e main ${bindir}/mescc.scm -- -D HAVE_CONFIG_H=1 -I include -I include/linux/${ARCH} -c file.c we'll have mescc file.c</span></div><div class="line" id="230956"><span class="nick">***</span><span class="message notice">edef_ is now known as edef</span></div><br /></div></body></html>

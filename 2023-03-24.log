@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-03-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="055843"><span class="nick" style="color:#389600"><a href="#055843" label="[05:58:43]">&lt;fossy&gt;</a></span><span class="message">gforce_de1977: that's a very interesting graph</span></div><div class="line" id="055852"><span class="nick" style="color:#389600"><a href="#055852" label="[05:58:52]">&lt;fossy&gt;</a></span><span class="message">i presume that's sysa only?</span></div><div class="line" id="055925"><span class="nick" style="color:#389600"><a href="#055925" label="[05:59:25]">&lt;fossy&gt;</a></span><span class="message">that would be a little bit odd though...</span></div><div class="line" id="155052"><span class="nick" style="color:#8dd3c7"><a href="#155052" label="[15:50:52]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: I've implemented a rudimentary kexec mechanism in Fiwix and it worked well but with the another Fiwix kernel only</span></div><div class="line" id="155311"><span class="nick" style="color:#8dd3c7"><a href="#155311" label="[15:53:11]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: in the next days I'll work on it in order to be more user friendly and less 'hacky', and to be able to boot any other ELF binary</span></div><div class="line" id="162747"><span class="nick" style="color:#2e2a4a"><a href="#162747" label="[16:27:47]">&lt;gforce_de1977&gt;</a></span><span class="message">fossy: yeah, it is sysa only - and long ago - i have to do it again - in the end we can just limit qemu-memory and let it run, while also deleting unneeded stuff (which is not needed for further bootstrap)</span></div><div class="line" id="162830"><span class="nick" style="color:#2e2a4a"><a href="#162830" label="[16:28:30]">&lt;gforce_de1977&gt;</a></span><span class="message">(so we get at least a better feeling how much mem is really needed)</span></div><div class="line" id="205659"><span class="nick" style="color:#2e2a4a"><a href="#205659" label="[20:56:59]">&lt;gforce_de1977&gt;</a></span><span class="message">this one is even tagged with to actual program: zoom in please - <a rel="nofollow" href="http://intercity-vpn.de/bootstrap/memplot-memhack-24-999M.png">http://intercity-vpn.de/bootstrap/memplot-memhack-24-999M.png</a> </span></div><div class="line" id="215826"><span class="nick" style="color:#6b8072"><a href="#215826" label="[21:58:26]">&lt;oriansj&gt;</a></span><span class="message">gforce_de1977: wow, that really shows how short of a bootstrap bit stage0 really is</span></div><div class="line" id="223422"><span class="nick" style="color:#80b1d3"><a href="#223422" label="[22:34:22]">&lt;stikonas&gt;</a></span><span class="message">oriansj: well, we already knew that mes is much slower</span></div><div class="line" id="223600"><span class="nick" style="color:#6d2462"><a href="#223600" label="[22:36:00]">&lt;jfred&gt;</a></span><span class="message">o/ - just noticed the SSL cert for bootstrappable.org has expired</span></div><div class="line" id="223631"><span class="nick" style="color:#80b1d3"><a href="#223631" label="[22:36:31]">&lt;stikonas&gt;</a></span><span class="message">it always expires...</span></div><div class="line" id="223658"><span class="nick" style="color:#80b1d3"><a href="#223658" label="[22:36:58]">&lt;stikonas&gt;</a></span><span class="message">somebody set it up with letsencrypt without automatic renewal :(</span></div><div class="line" id="223852"><span class="nick" style="color:#234e69"><a href="#223852" label="[22:38:52]">&lt;vagrantc&gt;</a></span><span class="message">rekado: ^ ?</span></div><div class="line" id="234918"><span class="nick" style="color:#389600"><a href="#234918" label="[23:49:18]">&lt;fossy&gt;</a></span><span class="message">yes, stag0 is very fast</span></div><br /></div></body></html>

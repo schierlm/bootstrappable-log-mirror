@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-05-26.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004521"><span class="nick" style="color:#8dd3c7"><a href="#004521" label="[00:45:21]">&lt;oriansj&gt;</a></span><span class="message">I might just create a rm for mescc-tools-extra just so that we can delete it out of principal</span></div><div class="line" id="004540"><span class="nick" style="color:#8dd3c7"><a href="#004540" label="[00:45:40]">&lt;oriansj&gt;</a></span><span class="message">would that be too petty?</span></div><div class="line" id="004639"><span class="nick" style="color:#2e2a4a"><a href="#004639" label="[00:46:39]">&lt;stikonas&gt;</a></span><span class="message">that's probably fine</span></div><div class="line" id="004718"><span class="nick" style="color:#2e2a4a"><a href="#004718" label="[00:47:18]">&lt;stikonas&gt;</a></span><span class="message">but does not not need a new syscall?</span></div><div class="line" id="004858"><span class="nick" style="color:#2e2a4a"><a href="#004858" label="[00:48:58]">&lt;stikonas&gt;</a></span><span class="message">though hopefully that file can just be deleted from mes</span></div><div class="line" id="004901"><span class="nick" style="color:#2e2a4a"><a href="#004901" label="[00:49:01]">&lt;stikonas&gt;</a></span><span class="message">it's not needed for mescc anyway</span></div><div class="line" id="005218"><span class="nick" style="color:#8dd3c7"><a href="#005218" label="[00:52:18]">&lt;oriansj&gt;</a></span><span class="message">yes it needs the unlink syscall but fortunately we will not need to support that syscall in builder-hex0</span></div><div class="line" id="005231"><span class="nick" style="color:#8dd3c7"><a href="#005231" label="[00:52:31]">&lt;oriansj&gt;</a></span><span class="message">as the delete will happen with the next kernel</span></div><div class="line" id="005410"><span class="nick" style="color:#8dd3c7"><a href="#005410" label="[00:54:10]">&lt;oriansj&gt;</a></span><span class="message">well it is ultimately up to janneke what is included and not included in his mes tarballs</span></div><div class="line" id="005517"><span class="nick" style="color:#8dd3c7"><a href="#005517" label="[00:55:17]">&lt;oriansj&gt;</a></span><span class="message">I'll hack together a rm and add the syscall for M2libc</span></div><div class="line" id="005639"><span class="nick" style="color:#8dd3c7"><a href="#005639" label="[00:56:39]">&lt;oriansj&gt;</a></span><span class="message">assuming that I don't have to figure out the weird work around for riscv-32 again it should be done by tonight</span></div><div class="line" id="005815"><span class="nick" style="color:#2e2a4a"><a href="#005815" label="[00:58:15]">&lt;stikonas&gt;</a></span><span class="message">unlinkat seems to be supported on all arches on linux</span></div><div class="line" id="011120"><span class="nick" style="color:#8dd3c7"><a href="#011120" label="[01:11:20]">&lt;oriansj&gt;</a></span><span class="message">so yes, riscv-32 oncce again is missing syscalls</span></div><div class="line" id="011612"><span class="nick" style="color:#2e2a4a"><a href="#011612" label="[01:16:12]">&lt;stikonas&gt;</a></span><span class="message">well, I think most of those non-&quot;at&quot; file manipulation syscalls were made obsolete and replaced with &quot;-at&quot; versions, it's just that older arches have to keep them for compatibility</span></div><div class="line" id="011823"><span class="nick" style="color:#8dd3c7"><a href="#011823" label="[01:18:23]">&lt;oriansj&gt;</a></span><span class="message">and we have to use the older syscalls if we wish to be compatible with more POSIX kernels</span></div><div class="line" id="011837"><span class="nick" style="color:#8dd3c7"><a href="#011837" label="[01:18:37]">&lt;oriansj&gt;</a></span><span class="message">&gt;.&lt;</span></div><div class="line" id="012037"><span class="nick" style="color:#8dd3c7"><a href="#012037" label="[01:20:37]">&lt;oriansj&gt;</a></span><span class="message">and libcs would have to provide a shim/work-around to support legacy programs as well</span></div><div class="line" id="012229"><span class="nick" style="color:#8dd3c7"><a href="#012229" label="[01:22:29]">&lt;oriansj&gt;</a></span><span class="message">and m2libc already has unlink</span></div><div class="line" id="012333"><span class="nick" style="color:#8dd3c7"><a href="#012333" label="[01:23:33]">&lt;oriansj&gt;</a></span><span class="message">so then I don't even have to do any M2libc work</span></div><div class="line" id="012447"><span class="nick" style="color:#2e2a4a"><a href="#012447" label="[01:24:47]">&lt;stikonas&gt;</a></span><span class="message">well, syscalls themselves are usually not visible to programs, libc's (even modern ones) still expose unlink function, it's just under the hood they are implemented using appropriate syscall</span></div><div class="line" id="012506"><span class="nick" style="color:#2e2a4a"><a href="#012506" label="[01:25:06]">&lt;stikonas&gt;</a></span><span class="message">we only need unlink() function in M2libc</span></div><div class="line" id="012547"><span class="nick" style="color:#8dd3c7"><a href="#012547" label="[01:25:47]">&lt;oriansj&gt;</a></span><span class="message">and we already have that</span></div><div class="line" id="012605"><span class="nick" style="color:#8dd3c7"><a href="#012605" label="[01:26:05]">&lt;oriansj&gt;</a></span><span class="message">you even implemented it yourself for riscv-32 and riscv-64</span></div><div class="line" id="012641"><span class="nick" style="color:#8dd3c7"><a href="#012641" label="[01:26:41]">&lt;oriansj&gt;</a></span><span class="message">and so rm.c is done and built by M2-Mesoplanet</span></div><div class="line" id="012650"><span class="nick" style="color:#2e2a4a"><a href="#012650" label="[01:26:50]">&lt;stikonas&gt;</a></span><span class="message">nice</span></div><div class="line" id="012719"><span class="nick" style="color:#8dd3c7"><a href="#012719" label="[01:27:19]">&lt;oriansj&gt;</a></span><span class="message">and the program is now up</span></div><div class="line" id="012742"><span class="nick" style="color:#8dd3c7"><a href="#012742" label="[01:27:42]">&lt;oriansj&gt;</a></span><span class="message">it keeps going after failures just like regular rm (even though it is probably a really bad idea)</span></div><div class="line" id="012934"><span class="nick" style="color:#8dd3c7"><a href="#012934" label="[01:29:34]">&lt;oriansj&gt;</a></span><span class="message">the build process is: M2-Mesoplanet -f rm.c -o bin/rm</span></div><div class="line" id="013015"><span class="nick" style="color:#8dd3c7"><a href="#013015" label="[01:30:15]">&lt;oriansj&gt;</a></span><span class="message">test with: touch foo; ./bin/rm foo; ./bin/rm foo; (first success and second failure with error message)</span></div><div class="line" id="013131"><span class="nick" style="color:#8dd3c7"><a href="#013131" label="[01:31:31]">&lt;oriansj&gt;</a></span><span class="message">and if you need it later adding rmdir appears to be rather simple</span></div><div class="line" id="013329"><span class="nick" style="color:#2e2a4a"><a href="#013329" label="[01:33:29]">&lt;stikonas&gt;</a></span><span class="message">probably no need for rmdir right now</span></div><div class="line" id="013347"><span class="nick" style="color:#2e2a4a"><a href="#013347" label="[01:33:47]">&lt;stikonas&gt;</a></span><span class="message">but mescc-tools-extra is not becoming &quot;mini-coreutils&quot;</span></div><div class="line" id="013411"><span class="nick" style="color:#2e2a4a"><a href="#013411" label="[01:34:11]">&lt;stikonas&gt;</a></span><span class="message">s/not/now/</span></div><div class="line" id="013444"><span class="nick" style="color:#2e2a4a"><a href="#013444" label="[01:34:44]">&lt;stikonas&gt;</a></span><span class="message">we now have variants of mkdir, rm, cat, sha256sum, cp and chmod</span></div><div class="line" id="013450"><span class="nick" style="color:#8dd3c7"><a href="#013450" label="[01:34:50]">&lt;oriansj&gt;</a></span><span class="message">maybe just enough to bootstrap reall core-utils</span></div><div class="line" id="013506"><span class="nick" style="color:#8dd3c7"><a href="#013506" label="[01:35:06]">&lt;oriansj&gt;</a></span><span class="message">^reall^real^</span></div><div class="line" id="013522"><span class="nick" style="color:#2e2a4a"><a href="#013522" label="[01:35:22]">&lt;stikonas&gt;</a></span><span class="message">yes, real core-utils are not that hard to build</span></div><div class="line" id="013724"><span class="nick" style="color:#8dd3c7"><a href="#013724" label="[01:37:24]">&lt;oriansj&gt;</a></span><span class="message">and hex2 is like a better verison of od</span></div><div class="line" id="013942"><span class="nick" style="color:#8dd3c7"><a href="#013942" label="[01:39:42]">&lt;oriansj&gt;</a></span><span class="message">surprising no mknod.c yet</span></div><div class="line" id="015024"><span class="nick" style="color:#2e2a4a"><a href="#015024" label="[01:50:24]">&lt;stikonas&gt;</a></span><span class="message">well mknod is primarily for /dev/null but having it is not essential</span></div><div class="line" id="021522"><span class="nick" style="color:#6b8072"><a href="#021522" label="[02:15:22]">&lt;fossy&gt;</a></span><span class="message">and i don't really think we need mknod even before linux kernel</span></div><div class="line" id="025618"><span class="nick" style="color:#8dd3c7"><a href="#025618" label="[02:56:18]">&lt;oriansj&gt;</a></span><span class="message">well we need GCC for Linux, so do we need /dev/null to make GCC?</span></div><div class="line" id="030516"><span class="nick" style="color:#6b8072"><a href="#030516" label="[03:05:16]">&lt;fossy&gt;</a></span><span class="message">no, we don't &quot;need&quot; /dev/null for anything, really</span></div><div class="line" id="030543"><span class="nick" style="color:#6b8072"><a href="#030543" label="[03:05:43]">&lt;fossy&gt;</a></span><span class="message">i don't think we ran into anything that cares whether /dev/null is a node or a file</span></div><div class="line" id="030650"><span class="nick" style="color:#8dd3c7"><a href="#030650" label="[03:06:50]">&lt;oriansj&gt;</a></span><span class="message">but would it make things more clean if we did?</span></div><div class="line" id="030729"><span class="nick" style="color:#6b8072"><a href="#030729" label="[03:07:29]">&lt;fossy&gt;</a></span><span class="message">possibly.. i'd have to test</span></div><div class="line" id="081316"><span class="nick" style="color:#80b1d3"><a href="#081316" label="[08:13:16]">&lt;janneke&gt;</a></span><span class="message">oriansj: thanks!</span></div><div class="line" id="081334"><span class="nick">***</span><span class="message notice">ChanServ sets mode: -o janneke</span></div><br /></div></body></html>

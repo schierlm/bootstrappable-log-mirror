@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-05-30.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002021"><span class="nick" style="color:#389600"><a href="#002021" label="[00:20:21]">&lt;oriansj&gt;</a></span><span class="message">mihi: well I personally have no problem with tests written in perl. Could I just ask that you restrict yourself to the mini-perl subset that is quite easy to bootstrap?</span></div><div class="line" id="002327"><span class="nick" style="color:#389600"><a href="#002327" label="[00:23:27]">&lt;oriansj&gt;</a></span><span class="message">also your pull request was merged</span></div><div class="line" id="022131"><span class="nick" style="color:#389600"><a href="#022131" label="[02:21:31]">&lt;oriansj&gt;</a></span><span class="message">A final reminder that today (sunday) is the last day to vote. (details here: <a rel="nofollow" href="https://paste.debian.net/1198887/">https://paste.debian.net/1198887/</a>  )</span></div><div class="line" id="031055"><span class="nick" style="color:#2e2a4a"><a href="#031055" label="[03:10:55]">&lt;robin&gt;</a></span><span class="message">oriansj, what's the voting process and who is eligible to vote? (i'm behind on scrollback on...a lot of channels, now that i'm on 60+ instead of ~30)</span></div><div class="line" id="033710"><span class="nick" style="color:#389600"><a href="#033710" label="[03:37:10]">&lt;oriansj&gt;</a></span><span class="message">robin: you post (my vote) along with a paste of your vote. Everyone here is eligible to vote.</span></div><div class="line" id="033930"><span class="nick" style="color:#2e2a4a"><a href="#033930" label="[03:39:30]">&lt;robin&gt;</a></span><span class="message">oriansj, ty</span></div><div class="line" id="113506"><span class="nick" style="color:#6b8072"><a href="#113506" label="[11:35:06]">&lt;siraben&gt;</a></span><span class="message">Melg8: Ok, I'm running `sudo nix-shell -I nixpkgs=channel:nixpkgs-unstable -p python3 python38Packages.requests qemu linuxPackages_4_4.kernel --run 'python3 ./rootfs.py --kernel /nix/store/kg5wa8hww2g6zc03yas7llbzrbip4b5b-linux-4.4.267/bzImage --force_timestamps --tmpdir ./temp'` on a real instance of NixOS and it seems to be working</span></div><div class="line" id="113725"><span class="nick" style="color:#6b8072"><a href="#113725" label="[11:37:25]">&lt;siraben&gt;</a></span><span class="message">At the least it should be possible to adjust it to run in a Docker instance of NixOS (which is quite minimal, but the lack of sudo is a problem when the python program executes)</span></div><div class="line" id="113744"><span class="nick" style="color:#6b8072"><a href="#113744" label="[11:37:44]">&lt;siraben&gt;</a></span><span class="message">Could not access KVM kernel module: No such file or directoryqemu-system-x86_64: failed to initialize kvm: No such file or directory</span></div><div class="line" id="113813"><span class="nick" style="color:#6b8072"><a href="#113813" label="[11:38:13]">&lt;siraben&gt;</a></span><span class="message">Ah I have to add</span></div><div class="line" id="113820"><span class="nick" style="color:#6b8072"><a href="#113820" label="[11:38:20]">&lt;siraben&gt;</a></span><span class="message">boot.kernelModules = [ &quot;kvm-intel&quot; ];</span></div><div class="line" id="113820"><span class="nick" style="color:#6b8072"><a href="#113820" label="[11:38:20]">&lt;siraben&gt;</a></span><span class="message">virtualisation.libvirtd.enable = true;</span></div><div class="line" id="113822"><span class="nick" style="color:#6b8072"><a href="#113822" label="[11:38:22]">&lt;siraben&gt;</a></span><span class="message">to my config</span></div><div class="line" id="120321"><span class="nick" style="color:#6b8072"><a href="#120321" label="[12:03:21]">&lt;siraben&gt;</a></span><span class="message">Looks like since the cloud compute instance doesn't have kvm support, I cannot run live-bootstrap, unfortunately.</span></div><div class="line" id="120542"><span class="nick" style="color:#80b1d3"><a href="#120542" label="[12:05:42]">&lt;c4droid&gt;</a></span><span class="message">Hi, someone have idea about test suites failed for mescc-tools? I got some failed test</span></div><div class="line" id="120919"><span class="nick" style="color:#80b1d3"><a href="#120919" label="[12:09:19]">&lt;c4droid&gt;</a></span><span class="message">the test suites test/test1 throw the Segment fault</span></div><div class="line" id="124925"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="125637"><span class="nick" style="color:#389600"><a href="#125637" label="[12:56:37]">&lt;oriansj&gt;</a></span><span class="message">c4droid: they shouldn't be failing, unless the generating binaries are running non-target platforms.</span></div><div class="line" id="125954"><span class="nick" style="color:#389600"><a href="#125954" label="[12:59:54]">&lt;oriansj&gt;</a></span><span class="message">in fact the only failing test in debian: <a rel="nofollow" href="https://buildd.debian.org/status/package.php?p=mescc%2dtools">https://buildd.debian.org/status/package.php?p=mescc%2dtools</a>  is because vagrantc hasn't since 1/24 commit d792fb4bd24b4c1e2723abc9200065cb66c20271 fixes that single failure.</span></div><div class="line" id="130444"><span class="nick" style="color:#389600"><a href="#130444" label="[13:04:44]">&lt;oriansj&gt;</a></span><span class="message">So the first thing you should check is did you do git submodule init and  git submodule update --checkout ?</span></div><div class="line" id="130547"><span class="nick" style="color:#389600"><a href="#130547" label="[13:05:47]">&lt;oriansj&gt;</a></span><span class="message">The second thing you should check is what get_machine --os and get_machine (no options) returns.</span></div><div class="line" id="130930"><span class="nick" style="color:#389600"><a href="#130930" label="[13:09:30]">&lt;oriansj&gt;</a></span><span class="message">because if your architecture isn't amd64 or your OS doesn't show as Linux; then there is nothing that could segfault because the test would just be doing a sha256sum on the generated binary only. Which if the sha256sum matches and the execute bit is set; the only way the test could fail is if your kernel is violating the ELF spec.</span></div><div class="line" id="132613"><span class="nick" style="color:#389600"><a href="#132613" label="[13:26:13]">&lt;oriansj&gt;</a></span><span class="message">but I am more than happy to help you hunt down the exact cause of the segfault. As such behavior is completely unacceptable for mescc-tools</span></div><div class="line" id="213548"><span class="nick" style="color:#389600"><a href="#213548" label="[21:35:48]">&lt;oriansj&gt;</a></span><span class="message">now that is a handy tip for erc</span></div><div class="line" id="222149"><span class="nick" style="color:#6d2462"><a href="#222149" label="[22:21:49]">&lt;civodul&gt;</a></span><span class="message">hi!</span></div><div class="line" id="222153"><span class="nick" style="color:#6d2462"><a href="#222153" label="[22:21:53]">&lt;civodul&gt;</a></span><span class="message">glad this channel migrated</span></div><div class="line" id="222214"><span class="nick" style="color:#6d2462"><a href="#222214" label="[22:22:14]">&lt;civodul&gt;</a></span><span class="message">i inadvertently connected to freenode and was told i was banned from #bootstrappable</span></div><div class="line" id="222227"><span class="nick" style="color:#6d2462"><a href="#222227" label="[22:22:27]">&lt;civodul&gt;</a></span><span class="message">for other channels it said i needed to be invited</span></div><div class="line" id="222231"><span class="nick" style="color:#6d2462"><a href="#222231" label="[22:22:31]">&lt;civodul&gt;</a></span><span class="message">weird stuff!</span></div><div class="line" id="222341"><span class="nick" style="color:#234e69"><a href="#222341" label="[22:23:41]">&lt;vagrantc&gt;</a></span><span class="message">yeah, freenode, what a mess :/</span></div><div class="line" id="222353"><span class="nick" style="color:#234e69"><a href="#222353" label="[22:23:53]">&lt;vagrantc&gt;</a></span><span class="message">i think i fled right before it started to get really crazy</span></div><div class="line" id="222551"><span class="nick" style="color:#6d2462"><a href="#222551" label="[22:25:51]">&lt;civodul&gt;</a></span><span class="message">yeah, sadness</span></div><div class="line" id="225647"><span class="nick" style="color:#6c3d55"><a href="#225647" label="[22:56:47]">&lt;stikonas&gt;</a></span><span class="message">some channels are still preparing to migrate...</span></div><div class="line" id="225710"><span class="nick" style="color:#6c3d55"><a href="#225710" label="[22:57:10]">&lt;stikonas&gt;</a></span><span class="message">I still have to stay on some channels on Leenode...</span></div><div class="line" id="225733"><span class="nick" style="color:#6c3d55"><a href="#225733" label="[22:57:33]">&lt;stikonas&gt;</a></span><span class="message">hopefully not for too long</span></div><br /></div></body></html>

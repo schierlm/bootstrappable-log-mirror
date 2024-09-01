@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-16.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="163123"><span class="nick" style="color:#389600"><a href="#163123" label="[16:31:23]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; aggi: I think it's more likely that the GCC developers were making dubious &quot;optimisations&quot; on the basis of undefined behaviour. iirc Linux also makes heavy used of gcc extensions. I wonder if any of the bsd kernels are better in that regard. I would guess that they may be more stricter ansi C codebases.</span></div><div class="line" id="164154"><span class="nick" style="color:#8dd3c7"><a href="#164154" label="[16:41:54]">&lt;aggi&gt;</a></span><span class="message">fyi, linux-2.4 has some #ifdef for -D__STRICT_ANSI__</span></div><div class="line" id="164159"><span class="nick" style="color:#8dd3c7"><a href="#164159" label="[16:41:59]">&lt;aggi&gt;</a></span><span class="message">but i haven't arrived there yet</span></div><div class="line" id="170356"><span class="nick" style="color:#2e2a4a"><a href="#170356" label="[17:03:56]">&lt;stikonas&gt;</a></span><span class="message">Googulator: hmm, tcc mob also has some problems with fiwix...</span></div><div class="line" id="170412"><span class="nick" style="color:#2e2a4a"><a href="#170412" label="[17:04:12]">&lt;stikonas&gt;</a></span><span class="message">tcc itself seems to insert calls to memset</span></div><div class="line" id="170443"><span class="nick" style="color:#2e2a4a"><a href="#170443" label="[17:04:43]">&lt;stikonas&gt;</a></span><span class="message">I think here <a rel="nofollow" href="https://repo.or.cz/tinycc.git/blob/HEAD:/include/tccdefs.h#l273">https://repo.or.cz/tinycc.git/blob/HEAD:/include/tccdefs.h#l273</a> </span></div><div class="line" id="170531"><span class="nick" style="color:#2e2a4a"><a href="#170531" label="[17:05:31]">&lt;stikonas&gt;</a></span><span class="message">hmm, I wonder if we can disable this include</span></div><div class="line" id="173526"><span class="nick" style="color:#389600"><a href="#173526" label="[17:35:26]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; <a rel="nofollow" href="https://repo.or.cz/tinycc.git/blob/d348a9a51d32cece842b7885d27a411436d7887b:/tests/tests2/90_struct-init.c">https://repo.or.cz/tinycc.git/blob/d348a9a51d32cece842b7885d27a411436d7887b:/tests/tests2/90_struct-init.c</a>  from tcc 0.9.27 also seems to cause tcc to emit calls to memset</span></div><div class="line" id="173554"><span class="nick" style="color:#389600"><a href="#173554" label="[17:35:54]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Is there a fiwix bug?</span></div><div class="line" id="173626"><span class="nick" style="color:#389600"><a href="#173626" label="[17:36:26]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; <a rel="nofollow" href="https://repo.or.cz/tinycc.git?a=commit;h=ff998900b163e96c52a4fefc71736ed34626ed86">https://repo.or.cz/tinycc.git?a=commit;h=ff998900b163e96c52a4fefc71736ed34626ed86</a> </span></div><div class="line" id="184035"><span class="nick" style="color:#6b8072"><a href="#184035" label="[18:40:35]">&lt;stikonas_&gt;</a></span><span class="message">I don't think there is a bug...</span></div><div class="line" id="184044"><span class="nick" style="color:#6b8072"><a href="#184044" label="[18:40:44]">&lt;stikonas_&gt;</a></span><span class="message">it's just that I treid to upgrade tcc and suddenly it fails to build</span></div><div class="line" id="191934"><span class="nick" style="color:#389600"><a href="#191934" label="[19:19:34]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; sorry I probably didn't phrase that right. I meant was there a ticket raised with fiwix about it not building with tcc mob? Out of interest, which version of mob are you testing? Are you planning to upgrade live-bootstrap to use some newer mob version?</span></div><div class="line" id="193018"><span class="nick" style="color:#6b8072"><a href="#193018" label="[19:30:18]">&lt;stikonas_&gt;</a></span><span class="message">no, I don't think there is any ticket</span></div><div class="line" id="193035"><span class="nick" style="color:#389600"><a href="#193035" label="[19:30:35]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; and I just used last commit</span></div><div class="line" id="193040"><span class="nick" style="color:#389600"><a href="#193040" label="[19:30:40]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; or at least to test</span></div><div class="line" id="193045"><span class="nick" style="color:#389600"><a href="#193045" label="[19:30:45]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; whether that is feasible</span></div><div class="line" id="193059"><span class="nick" style="color:#389600"><a href="#193059" label="[19:30:59]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I hit a problem on x86 with and older tcc</span></div><div class="line" id="193117"><span class="nick" style="color:#389600"><a href="#193117" label="[19:31:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; somehow updating bootstrappable tcc to newer version that fixes riscv bugs breaks fiwix</span></div><div class="line" id="193149"><span class="nick" style="color:#389600"><a href="#193149" label="[19:31:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; tcc-boot [old] -&gt; tcc 0.9.27 -&gt; fiwix worked</span></div><div class="line" id="193154"><span class="nick" style="color:#389600"><a href="#193154" label="[19:31:54]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; tcc-boot [updated] -&gt; tcc 0.9.27 -&gt; fiwix doesn't work</span></div><div class="line" id="193203"><span class="nick" style="color:#389600"><a href="#193203" label="[19:32:03]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; so I'm testing tcc-boot [updated] -&gt; tcc mob -&gt; fiwix</span></div><div class="line" id="193239"><span class="nick" style="color:#389600"><a href="#193239" label="[19:32:39]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; tcc-boot [updated] -&gt; tcc 0.9.27 -&gt; tcc 0.9.27 doesn't work due to some other bug (tcc 0.9.27 couldn't self-host with meslibc)</span></div><div class="line" id="211658"><span class="nick" style="color:#8dd3c7"><a href="#211658" label="[21:16:58]">&lt;aggi&gt;</a></span><span class="message">on the slackeware11 buildhost i could confirm tcc commit e7262accb6e6965452e7f82c0ff281ef8412af4d could build a linux-2.4.26 and it didn't crash (i didn't git-pull for a little while)</span></div><div class="line" id="211743"><span class="nick" style="color:#8dd3c7"><a href="#211743" label="[21:17:43]">&lt;aggi&gt;</a></span><span class="message">currently i am gradually re-covering all test-cases to arrive at linux-2.4.37.11 compiled with both gcc-4.7 and tcc do not crash when booting</span></div><div class="line" id="211843"><span class="nick" style="color:#8dd3c7"><a href="#211843" label="[21:18:43]">&lt;aggi&gt;</a></span><span class="message">together with the customized non-Kbuild scripting, and differnt kconfigs (because tcc cannot digest everything yet without patching, to arrive at [optional] ACPI support for example)</span></div><div class="line" id="212005"><span class="nick" style="color:#8dd3c7"><a href="#212005" label="[21:20:05]">&lt;aggi&gt;</a></span><span class="message">i am merely a little excited, the linux-tcc test-cases could be confirmed, after a year of stagnation, there's progress</span></div><div class="line" id="212156"><span class="nick" style="color:#8dd3c7"><a href="#212156" label="[21:21:56]">&lt;aggi&gt;</a></span><span class="message">this is the plan: bootstrappable -&gt; your tcc-version -&gt; my tcc-version -&gt; c-only profile stage0-x86-linux-tcc.iso (no gcc, no binutils, no automake) -&gt; confirming bootstrapping gcc/binutils gradually from there</span></div><div class="line" id="212657"><span class="nick" style="color:#8dd3c7"><a href="#212657" label="[21:26:57]">&lt;aggi&gt;</a></span><span class="message">i am struggling with the same issues, related to various compiler versions, cross-compilation leakage issues etc.</span></div><div class="line" id="215203"><span class="nick" style="color:#8dd3c7"><a href="#215203" label="[21:52:03]">&lt;aggi&gt;</a></span><span class="message">and it's a principle concern, buildhost was leaking into tcc-linux compilation, when it should not and must not have</span></div><div class="line" id="215243"><span class="nick" style="color:#8dd3c7"><a href="#215243" label="[21:52:43]">&lt;aggi&gt;</a></span><span class="message">because, i am rather cautious with gentoo-crossdev here, going back and forth from/to aarch32/64/x86/64</span></div><div class="line" id="215317"><span class="nick" style="color:#8dd3c7"><a href="#215317" label="[21:53:17]">&lt;aggi&gt;</a></span><span class="message">all of the sudden an i386-tcc coming from such a host fails to compile linux without it crashing, and moving to slackware11 magically solved this issue</span></div><div class="line" id="215435"><span class="nick" style="color:#8dd3c7"><a href="#215435" label="[21:54:35]">&lt;aggi&gt;</a></span><span class="message">anyway, as another topic, which i haven't arrived at yet, i am looking forward to discussions among #gentoo-releng/toolchain, how i am supposed to bootstrap gentoo, without a _non-reproducible_ python.bin acquired from somewhere</span></div><div class="line" id="215521"><span class="nick" style="color:#8dd3c7"><a href="#215521" label="[21:55:21]">&lt;aggi&gt;</a></span><span class="message">yet, this is low priority, because i'll migrate my stuff away without relying on python anywhere</span></div><br /></div></body></html>

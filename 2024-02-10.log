@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-02-10.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="021024"><span class="nick" style="color:#389600"><a href="#021024" label="[02:10:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; Possibly more reliable, but using a proprietary Microsoft product as the source of truth for a Linux distro is suboptimal IMIO. Codeberg has support for hosting arbitrary artifacts with no limits for open source projects though. I am considering mirroring all the external source files for stagex, including for live-bootstrap, there.</span></div><div class="line" id="023548"><span class="nick" style="color:#8dd3c7"><a href="#023548" label="[02:35:48]">&lt;sam_&gt;</a></span><span class="message">oriansj, fossy, et. al: thank you for the takes!</span></div><div class="line" id="045412"><span class="nick" style="color:#2e2a4a"><a href="#045412" label="[04:54:12]">&lt;GoogulatorMobile&gt;</a></span><span class="message">lrvick2: unless Microsoft is able to preimage SHA256, the worst they can do even with full control over the source tarballs is DoSing live-bootstrap, which is essentially what already happens with unstable sources, albeit not intentionally.</span></div><div class="line" id="122139"><span class="nick" style="color:#389600"><a href="#122139" label="[12:21:39]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; <a rel="nofollow" href="https://github.com/actions/runner-images/discussions/7191#discussioncomment-8173888">https://github.com/actions/runner-images/discussions/7191#discussioncomment-8173888</a>  not sure if this has been officially announced but free tier github actions may now be able to use nested virtualization. Could potentially be used to have ci for the qemu path of live-bootstrap?</span></div><div class="line" id="134138"><span class="nick" style="color:#6b8072"><a href="#134138" label="[13:41:38]">&lt;stikonas&gt;</a></span><span class="message">fossy:  is bzip2 download broken for you?</span></div><div class="line" id="134138"><span class="nick" style="color:#80b1d3"><a href="#134138" label="[13:41:38]">&lt;snuik&gt;</a></span><span class="message">stikonas, you have 1 message</span></div><div class="line" id="134138"><span class="nick" style="color:#80b1d3"><a href="#134138" label="[13:41:38]">&lt;snuik&gt;</a></span><span class="message">stikonas, Googulator says: amd64 and riscv64 checksums might need updating too</span></div><div class="line" id="134423"><span class="nick" style="color:#6b8072"><a href="#134423" label="[13:44:23]">&lt;stikonas&gt;</a></span><span class="message">hmm, perhaps just my one system is boken</span></div><div class="line" id="134424"><span class="nick" style="color:#6b8072"><a href="#134424" label="[13:44:24]">&lt;stikonas&gt;</a></span><span class="message">broken</span></div><div class="line" id="134427"><span class="nick" style="color:#6b8072"><a href="#134427" label="[13:44:27]">&lt;stikonas&gt;</a></span><span class="message">seems to work elsewhere</span></div><div class="line" id="152628"><span class="nick" style="color:#6d2462"><a href="#152628" label="[15:26:28]">&lt;oriansj&gt;</a></span><span class="message">Googulator: well we should probably make many possible root sources of the tarballs.</span></div><div class="line" id="152723"><span class="nick" style="color:#6d2462"><a href="#152723" label="[15:27:23]">&lt;oriansj&gt;</a></span><span class="message">say git-lfs, gnunet, ipfs, torrents, hosting servers, etc</span></div><div class="line" id="152811"><span class="nick" style="color:#6d2462"><a href="#152811" label="[15:28:11]">&lt;oriansj&gt;</a></span><span class="message">I was also thinking of a gemini file share; as a quite minimal client could be used.</span></div><div class="line" id="153100"><span class="nick" style="color:#6d2462"><a href="#153100" label="[15:31:00]">&lt;oriansj&gt;</a></span><span class="message">say bootstrap gmni and just download the rest of the bootstrap tarballs.</span></div><div class="line" id="171204"><span class="nick" style="color:#6b8072"><a href="#171204" label="[17:12:04]">&lt;stikonas&gt;</a></span><span class="message">some of the sources are not easy to maintain, since tarballs change a bit as we develop live-bootstrap</span></div><div class="line" id="211939"><span class="nick" style="color:#234e69"><a href="#211939" label="[21:19:39]">&lt;lrvick2&gt;</a></span><span class="message">Really strugging to get bison 3.8.2 reproducible. Headers all out of order. Having the same problem with gettext, but every other package is bit for bit identical. <a rel="nofollow" href="https://sprunge.us/37CODL">https://sprunge.us/37CODL</a> </span></div><div class="line" id="212011"><span class="nick" style="color:#234e69"><a href="#212011" label="[21:20:11]">&lt;lrvick2&gt;</a></span><span class="message">starting to conside the consequences of using the older version live-bootstrap uses</span></div><div class="line" id="213247"><span class="nick" style="color:#6d2462"><a href="#213247" label="[21:32:47]">&lt;oriansj&gt;</a></span><span class="message">Googulator: or if we trust unecrypted protocols, we could leverage bash to do the downloads: { echo -e &quot;GET /gnu/wget/ HTTP/1.0\r\nHost: ftp.gnu.org\r\n\r&quot; &gt;&amp;3; cat &lt;&amp;3 ; } 3&lt;&gt; /dev/tcp/ftp.gnu.org/80</span></div><div class="line" id="222754"><span class="nick" style="color:#2e2a4a"><a href="#222754" label="[22:27:54]">&lt;GoogulatorMobile&gt;</a></span><span class="message">The issue isn't with trusting unencrypted protocols themselves, but rather for how long they will remain usable</span></div><div class="line" id="222815"><span class="nick" style="color:#2e2a4a"><a href="#222815" label="[22:28:15]">&lt;GoogulatorMobile&gt;</a></span><span class="message">Especially since that's a HTTP 1.0 request, which causes problems with virtual servers</span></div><div class="line" id="222859"><span class="nick" style="color:#2e2a4a"><a href="#222859" label="[22:28:59]">&lt;GoogulatorMobile&gt;</a></span><span class="message">IIRC Host: isn't even a valid header for HTTP 1.0, but 1.1 will probably need more headers to be valid</span></div><div class="line" id="223108"><span class="nick" style="color:#6d2462"><a href="#223108" label="[22:31:08]">&lt;oriansj&gt;</a></span><span class="message">That isn't a big problem either, as we could have a minimal client that just reads and writes to /dev/tcp/$HOST</span></div><div class="line" id="223629"><span class="nick" style="color:#6d2462"><a href="#223629" label="[22:36:29]">&lt;oriansj&gt;</a></span><span class="message">and protocols like torrents  can surivive for decades without a single party being responsible for seeding</span></div><div class="line" id="224341"><span class="nick" style="color:#6d2462"><a href="#224341" label="[22:43:41]">&lt;oriansj&gt;</a></span><span class="message">^surivive^survive^</span></div><div class="line" id="224622"><span class="nick" style="color:#6c3d55"><a href="#224622" label="[22:46:22]">&lt;deesix&gt;</a></span><span class="message">The usage of github for the whole development is, in my opinion, really-really disturbing, indeed.</span></div><div class="line" id="225419"><span class="nick" style="color:#6d2462"><a href="#225419" label="[22:54:19]">&lt;oriansj&gt;</a></span><span class="message">deesix: well stage0 and all related too tools could easily be moved to sourcehut (they are already mirrored there)</span></div><div class="line" id="225447"><span class="nick" style="color:#6d2462"><a href="#225447" label="[22:54:47]">&lt;oriansj&gt;</a></span><span class="message">but ultimately it is dependent on what other people like to use</span></div><div class="line" id="230151"><span class="nick" style="color:#6c3d55"><a href="#230151" label="[23:01:51]">&lt;deesix&gt;</a></span><span class="message">The web of hardcoded submodules is not easy to undo; not to mention all the data about issues, etc...</span></div><div class="line" id="231407"><span class="nick" style="color:#6d2462"><a href="#231407" label="[23:14:07]">&lt;oriansj&gt;</a></span><span class="message">deesix: it is easier than you think. Just move the M2libc repo, then all the rest and finally stage0-posix/stage0-uefi/stage0</span></div><div class="line" id="231653"><span class="nick" style="color:#6d2462"><a href="#231653" label="[23:16:53]">&lt;oriansj&gt;</a></span><span class="message">Googulator: note that to strip off the http 1.1 header one only needs: <a rel="nofollow" href="https://paste.debian.net/1306909/">https://paste.debian.net/1306909/</a> </span></div><div class="line" id="231819"><span class="nick" style="color:#6d2462"><a href="#231819" label="[23:18:19]">&lt;oriansj&gt;</a></span><span class="message">which when combined with: { echo -e &quot;GET /gnu/wget/wget2-latest.tar.gz HTTP/1.0\r\nHost: ftp.gnu.org\r\n\r&quot; &gt;&amp;3; cat &lt;&amp;3 ; } 3&lt;&gt; /dev/tcp/ftp.gnu.org/80 &gt;| wget2-latest.tar.gz will get you the wget.tar.gz</span></div><div class="line" id="232017"><span class="nick" style="color:#6d2462"><a href="#232017" label="[23:20:17]">&lt;oriansj&gt;</a></span><span class="message">you know what, I might as well write a little C program that uses /dev/tcp to download files for mescc-tools-extra</span></div><div class="line" id="232040"><span class="nick" style="color:#6d2462"><a href="#232040" label="[23:20:40]">&lt;oriansj&gt;</a></span><span class="message">I wonder if Fiwix supports that too?</span></div><div class="line" id="233417"><span class="nick" style="color:#6c3d55"><a href="#233417" label="[23:34:17]">&lt;deesix&gt;</a></span><span class="message">oriansj, good luck with those &quot;just&quot; and &quot;easier&quot;. Moving everything out is practically imposible.</span></div><div class="line" id="233824"><span class="nick" style="color:#6b8072"><a href="#233824" label="[23:38:24]">&lt;stikonas&gt;</a></span><span class="message">why impossible?</span></div><div class="line" id="233835"><span class="nick" style="color:#6b8072"><a href="#233835" label="[23:38:35]">&lt;stikonas&gt;</a></span><span class="message">it's really just doing git push</span></div><div class="line" id="233846"><span class="nick" style="color:#6b8072"><a href="#233846" label="[23:38:46]">&lt;stikonas&gt;</a></span><span class="message">and submodules are independent, they don't have to be in the same location</span></div><div class="line" id="233858"><span class="nick" style="color:#6b8072"><a href="#233858" label="[23:38:58]">&lt;stikonas&gt;</a></span><span class="message">so one can move main repo and submodules independently</span></div><div class="line" id="233955"><span class="nick" style="color:#6b8072"><a href="#233955" label="[23:39:55]">&lt;stikonas&gt;</a></span><span class="message">e.g. I self-host stage0-uefi myself but various submodules (M2-Planet, etc...) point to oriansj's repos</span></div><div class="line" id="234056"><span class="nick" style="color:#6b8072"><a href="#234056" label="[23:40:56]">&lt;stikonas&gt;</a></span><span class="message">what is slightly trickier is having two maintained upstream repos (e.g. like mescc-tools have)</span></div><div class="line" id="234115"><span class="nick" style="color:#6b8072"><a href="#234115" label="[23:41:15]">&lt;stikonas&gt;</a></span><span class="message">easy to forget to sync them...</span></div><div class="line" id="235114"><span class="nick" style="color:#6d2462"><a href="#235114" label="[23:51:14]">&lt;oriansj&gt;</a></span><span class="message">correction /dev/tcp is a bash abstraction that doesn't actually exist on linux</span></div><div class="line" id="235135"><span class="nick" style="color:#6c3d55"><a href="#235135" label="[23:51:35]">&lt;deesix&gt;</a></span><span class="message">stikonas, consider all the existing history with the hardcoded URLs in the submodules, for example. I'd love to have a mirror of all repos, all with relative submodules; it's a mess (if even possible). And, again... the lock-in is not just about the repo (the &quot;forge&quot; contains lots of data).</span></div><div class="line" id="235140"><span class="nick" style="color:#6d2462"><a href="#235140" label="[23:51:40]">&lt;oriansj&gt;</a></span><span class="message">so I will probably need to read a bit more to make a tcp client</span></div><div class="line" id="235244"><span class="nick" style="color:#6b8072"><a href="#235244" label="[23:52:44]">&lt;stikonas&gt;</a></span><span class="message">there isn't that much data in the forge... mostly merge requests, most without even description</span></div><div class="line" id="235246"><span class="nick" style="color:#6d2462"><a href="#235246" label="[23:52:46]">&lt;oriansj&gt;</a></span><span class="message">deesix: if there is a sufficiently good reason to replace submodules with something better, we will do so</span></div><div class="line" id="235309"><span class="nick" style="color:#6b8072"><a href="#235309" label="[23:53:09]">&lt;stikonas&gt;</a></span><span class="message">one can always switch to relative paths for submodules</span></div><div class="line" id="235311"><span class="nick" style="color:#6c3d55"><a href="#235311" label="[23:53:11]">&lt;deesix&gt;</a></span><span class="message">stikonas, what about &quot;issues&quot;?</span></div><div class="line" id="235322"><span class="nick" style="color:#6b8072"><a href="#235322" label="[23:53:22]">&lt;stikonas&gt;</a></span><span class="message">no many of those either...</span></div><div class="line" id="235344"><span class="nick" style="color:#6d2462"><a href="#235344" label="[23:53:44]">&lt;oriansj&gt;</a></span><span class="message">deesix: as long as the developers here agree on what to do, the rest can be replaced.</span></div><div class="line" id="235350"><span class="nick" style="color:#6b8072"><a href="#235350" label="[23:53:50]">&lt;stikonas&gt;</a></span><span class="message">see for yourself: <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/issues?q=is%3Aissue+is%3Aclosed">https://github.com/oriansj/stage0-posix/issues?q=is%3Aissue+is%3Aclosed</a> </span></div><div class="line" id="235403"><span class="nick" style="color:#6b8072"><a href="#235403" label="[23:54:03]">&lt;stikonas&gt;</a></span><span class="message">not a big loss even if this is lost</span></div><div class="line" id="235414"><span class="nick" style="color:#6b8072"><a href="#235414" label="[23:54:14]">&lt;stikonas&gt;</a></span><span class="message">probably a bit more in individual submodule such as M2-Planet</span></div><div class="line" id="235417"><span class="nick" style="color:#6d2462"><a href="#235417" label="[23:54:17]">&lt;oriansj&gt;</a></span><span class="message">heck we did a vote to move here from freenode</span></div><div class="line" id="235417"><span class="nick" style="color:#6b8072"><a href="#235417" label="[23:54:17]">&lt;stikonas&gt;</a></span><span class="message">but still not too many</span></div><div class="line" id="235430"><span class="nick" style="color:#6d2462"><a href="#235430" label="[23:54:30]">&lt;oriansj&gt;</a></span><span class="message">and that was a big and risky move</span></div><div class="line" id="235454"><span class="nick" style="color:#6d2462"><a href="#235454" label="[23:54:54]">&lt;oriansj&gt;</a></span><span class="message">moving where submodules point is not an issue</span></div><div class="line" id="235514"><span class="nick" style="color:#6d2462"><a href="#235514" label="[23:55:14]">&lt;oriansj&gt;</a></span><span class="message">especially if the current git repos can just remain as minor mirrors</span></div><div class="line" id="235533"><span class="nick" style="color:#6d2462"><a href="#235533" label="[23:55:33]">&lt;oriansj&gt;</a></span><span class="message">with a line in the README pointing to where the master repo is located.</span></div><div class="line" id="235549"><span class="nick" style="color:#6d2462"><a href="#235549" label="[23:55:49]">&lt;oriansj&gt;</a></span><span class="message">like you see in stage0</span></div><div class="line" id="235855"><span class="nick" style="color:#6c3d55"><a href="#235855" label="[23:58:55]">&lt;deesix&gt;</a></span><span class="message">oriansj, how can one replace the already commited URLs in the history?</span></div><div class="line" id="235910"><span class="nick" style="color:#6c3d55"><a href="#235910" label="[23:59:10]">&lt;deesix&gt;</a></span><span class="message">(without rewritting it)</span></div><div class="line" id="235947"><span class="nick" style="color:#6c3d55"><a href="#235947" label="[23:59:47]">&lt;deesix&gt;</a></span><span class="message">wrt submodules</span></div><div class="line" id="235954"><span class="nick" style="color:#6c3d55"><a href="#235954" label="[23:59:54]">&lt;deesix&gt;</a></span><span class="message">(recursively)</span></div><br /></div></body></html>

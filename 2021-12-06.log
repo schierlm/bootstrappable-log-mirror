@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-12-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000436"><span class="nick" style="color:#389600"><a href="#000436" label="[00:04:36]">&lt;gbrlwck&gt;</a></span><span class="message">ekaitz has left?  maybe they meant something like <a rel="nofollow" href="https://bootstrapping.miraheze.org/wiki/Stage0">https://bootstrapping.miraheze.org/wiki/Stage0</a>  ?</span></div><div class="line" id="000720"><span class="nick" style="color:#389600"><a href="#000720" label="[00:07:20]">&lt;gbrlwck&gt;</a></span><span class="message">stikonas: `make test-riscv32` fails (i don't think RV32 binaries run on RV64).  how/what exactly would you like me to test on HW?</span></div><div class="line" id="000757"><span class="nick" style="color:#8dd3c7"><a href="#000757" label="[00:07:57]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: well, if binaries don't run on rv64 then nothing you can do on your hardware...</span></div><div class="line" id="000813"><span class="nick" style="color:#8dd3c7"><a href="#000813" label="[00:08:13]">&lt;stikonas&gt;</a></span><span class="message">oh well, I just wasn't sure...</span></div><div class="line" id="000839"><span class="nick" style="color:#8dd3c7"><a href="#000839" label="[00:08:39]">&lt;stikonas&gt;</a></span><span class="message">e.g. I can run armv7l binaries on aarch64 box (and obviously x86 on amd64)</span></div><div class="line" id="000949"><span class="nick" style="color:#8dd3c7"><a href="#000949" label="[00:09:49]">&lt;stikonas&gt;</a></span><span class="message">yeah, maybe some info from that wiki is useful</span></div><div class="line" id="000957"><span class="nick" style="color:#8dd3c7"><a href="#000957" label="[00:09:57]">&lt;stikonas&gt;</a></span><span class="message">although, it's also not super up-to-date</span></div><div class="line" id="001228"><span class="nick" style="color:#389600"><a href="#001228" label="[00:12:28]">&lt;gbrlwck&gt;</a></span><span class="message">i get a &quot;cannot execute binary file: Exec format error&quot;</span></div><div class="line" id="001308"><span class="nick" style="color:#389600"><a href="#001308" label="[00:13:08]">&lt;gbrlwck&gt;</a></span><span class="message">i don't think RV32/RV64 was designed to be compatible; the others are bc they were designed to be backwards-compatible</span></div><div class="line" id="001500"><span class="nick" style="color:#8dd3c7"><a href="#001500" label="[00:15:00]">&lt;stikonas&gt;</a></span><span class="message">I guess RV tries to be as minimal as possible...</span></div><div class="line" id="001509"><span class="nick" style="color:#8dd3c7"><a href="#001509" label="[00:15:09]">&lt;stikonas&gt;</a></span><span class="message">so no backwards compatibility</span></div><div class="line" id="001527"><span class="nick" style="color:#8dd3c7"><a href="#001527" label="[00:15:27]">&lt;stikonas&gt;</a></span><span class="message">even though instructions for RV32 and RV64 are almost identical</span></div><div class="line" id="001620"><span class="nick" style="color:#8dd3c7"><a href="#001620" label="[00:16:20]">&lt;stikonas&gt;</a></span><span class="message">anyway, we can wait until sombody has some RV32 hw...</span></div><div class="line" id="001633"><span class="nick" style="color:#8dd3c7"><a href="#001633" label="[00:16:33]">&lt;stikonas&gt;</a></span><span class="message">I actually do have but it's not suitable to run Linux...</span></div><div class="line" id="001723"><span class="nick" style="color:#8dd3c7"><a href="#001723" label="[00:17:23]">&lt;stikonas&gt;</a></span><span class="message">stage0-posix is not designed to run on soldering iron</span></div><div class="line" id="001837"><span class="nick" style="color:#389600"><a href="#001837" label="[00:18:37]">&lt;gbrlwck&gt;</a></span><span class="message">well, it's not backwards if they are designed at the same time ;)</span></div><div class="line" id="001847"><span class="nick" style="color:#389600"><a href="#001847" label="[00:18:47]">&lt;gbrlwck&gt;</a></span><span class="message">you have a RV32 soldering iron?</span></div><div class="line" id="001903"><span class="nick" style="color:#389600"><a href="#001903" label="[00:19:03]">&lt;gbrlwck&gt;</a></span><span class="message">i have some smaller RV32 HW too, but it's too small for a full-fledged linux kernel</span></div><div class="line" id="002006"><span class="nick" style="color:#8dd3c7"><a href="#002006" label="[00:20:06]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: yeah, I have that pinecil</span></div><div class="line" id="002021"><span class="nick" style="color:#8dd3c7"><a href="#002021" label="[00:20:21]">&lt;stikonas&gt;</a></span><span class="message">haven't really used it yet</span></div><div class="line" id="002042"><span class="nick" style="color:#8dd3c7"><a href="#002042" label="[00:20:42]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: <a rel="nofollow" href="https://pine64.com/product/pinecil-smart-mini-portable-soldering-iron/?v=0446c16e2e66">https://pine64.com/product/pinecil-smart-mini-portable-soldering-iron/?v=0446c16e2e66</a> </span></div><div class="line" id="002231"><span class="nick" style="color:#389600"><a href="#002231" label="[00:22:31]">&lt;gbrlwck&gt;</a></span><span class="message">ok, so i know where to order my next soldering iron from</span></div><div class="line" id="002437"><span class="nick" style="color:#389600"><a href="#002437" label="[00:24:37]">&lt;gbrlwck&gt;</a></span><span class="message">i'm generally not sure whether i'd seen any RV32 board big enough to run linux</span></div><div class="line" id="002541"><span class="nick" style="color:#8dd3c7"><a href="#002541" label="[00:25:41]">&lt;stikonas&gt;</a></span><span class="message">maybe there isn't... There aren't even that many RV64 boards</span></div><div class="line" id="002610"><span class="nick" style="color:#389600"><a href="#002610" label="[00:26:10]">&lt;gbrlwck&gt;</a></span><span class="message">so... anybody have a FPGA laying around?</span></div><div class="line" id="002630"><span class="nick" style="color:#8dd3c7"><a href="#002630" label="[00:26:30]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: only at work...</span></div><div class="line" id="002715"><span class="nick" style="color:#389600"><a href="#002715" label="[00:27:15]">&lt;gbrlwck&gt;</a></span><span class="message">i think this is the most viable option to test on &quot;real&quot; hw ATM</span></div><div class="line" id="002718"><span class="nick" style="color:#8dd3c7"><a href="#002718" label="[00:27:18]">&lt;stikonas&gt;</a></span><span class="message">can't use those for RV work...</span></div><div class="line" id="002831"><span class="nick" style="color:#389600"><a href="#002831" label="[00:28:31]">&lt;gbrlwck&gt;</a></span><span class="message">i'll ask around...  i know some people doing hw design and working a lot with risc-v and FPGA's..  if there's already a linux kernel running it should not be much work to test</span></div><div class="line" id="034324"><span class="nick" style="color:#6b8072"><a href="#034324" label="[03:43:24]">&lt;oriansj&gt;</a></span><span class="message">ekaitz: please look at this <a rel="nofollow" href="https://github.com/oriansj/talk-notes/blob/master/DECISIONS.org">https://github.com/oriansj/talk-notes/blob/master/DECISIONS.org</a>  hopefully it answers your questions</span></div><div class="line" id="041043"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="062810"><span class="nick">***</span><span class="message notice">molybdenum.libera.chat sets mode: +oo oriansj ChanServ</span></div><div class="line" id="065100"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="155640"><span class="nick" style="color:#389600"><a href="#155640" label="[15:56:40]">&lt;gbrlwck&gt;</a></span><span class="message">very nice, imho</span></div><div class="line" id="162205"><span class="nick" style="color:#389600"><a href="#162205" label="[16:22:05]">&lt;gbrlwck&gt;</a></span><span class="message">janneke: what does this mean here: <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/mes.git/tree/module/mescc/i386/as.scm#n50">https://git.savannah.gnu.org/cgit/mes.git/tree/module/mescc/i386/as.scm#n50</a> </span></div><div class="line" id="162248"><span class="nick" style="color:#389600"><a href="#162248" label="[16:22:48]">&lt;gbrlwck&gt;</a></span><span class="message">i guess we\</span></div><div class="line" id="162333"><span class="nick" style="color:#389600"><a href="#162333" label="[16:23:33]">&lt;gbrlwck&gt;</a></span><span class="message">'re saving a register to a local variable (?).. but why the negation? is the (* n 4) part for alignment?</span></div><div class="line" id="165118"><span class="nick" style="color:#389600"><a href="#165118" label="[16:51:18]">&lt;gbrlwck&gt;</a></span><span class="message">i figure (function-locals) is to allocate space on the stack for local variables.  why is this necessary?  just decreasing the stack pointer (without writing stuff at the intermediate positions) seems of no use</span></div><div class="line" id="191540"><span class="nick" style="color:#80b1d3"><a href="#191540" label="[19:15:40]">&lt;muurkha&gt;</a></span><span class="message">to me that looks like it's multiplying the index by 4 because each variable occupies 4 bytes, then subtracting it from 0 to get a negative offset?  a difficulty with reading Scheme is that the lack of types makes it hard to figure out what something is supposed to be taking as an argument and what it's supposed to be returning</span></div><div class="line" id="193328"><span class="nick" style="color:#389600"><a href="#193328" label="[19:33:28]">&lt;gbrlwck&gt;</a></span><span class="message">muurkha: yeah, i guess something like that... i'll write janneke an email.</span></div><div class="line" id="193352"><span class="nick" style="color:#389600"><a href="#193352" label="[19:33:52]">&lt;gbrlwck&gt;</a></span><span class="message">regarding the types thing, i'm pretty sure we're operating on numbers in this context ;)</span></div><div class="line" id="195225"><span class="nick" style="color:#389600"><a href="#195225" label="[19:52:25]">&lt;gbrlwck&gt;</a></span><span class="message">aaaah, so #x80 means 1000 0000 in binary and distinguishes negative from positive numbers, right?</span></div><div class="line" id="201646"><span class="nick" style="color:#80b1d3"><a href="#201646" label="[20:16:46]">&lt;muurkha&gt;</a></span><span class="message">yes, but I suspect that in this case it's an operand encoding thing, trying to distinguish operands that can be encoded in one byte</span></div><div class="line" id="201737"><span class="nick" style="color:#80b1d3"><a href="#201737" label="[20:17:37]">&lt;muurkha&gt;</a></span><span class="message">and sure, everything computers do is &quot;operating on numbers&quot; in the sense that you can interpret any bit pattern as a number</span></div><div class="line" id="201803"><span class="nick" style="color:#80b1d3"><a href="#201803" label="[20:18:03]">&lt;muurkha&gt;</a></span><span class="message">the point of types is to be more specific so you can tell when you're doing something wrong</span></div><div class="line" id="201818"><span class="nick" style="color:#80b1d3"><a href="#201818" label="[20:18:18]">&lt;muurkha&gt;</a></span><span class="message">or so you can read someone else's code</span></div><div class="line" id="202331"><span class="nick" style="color:#6d2462"><a href="#202331" label="[20:23:31]">*</a></span><span class="message">stikonas is redoing openjdk bootstrap on Gentoo, seems like it was broken by GCC10, so need to apply some fixes...</span></div><div class="line" id="202443"><span class="nick" style="color:#80b1d3"><a href="#202443" label="[20:24:43]">&lt;muurkha&gt;</a></span><span class="message">yay!</span></div><div class="line" id="202726"><span class="nick" style="color:#234e69"><a href="#202726" label="[20:27:26]">&lt;Hagfish&gt;</a></span><span class="message">holding back the tide of entropy</span></div><div class="line" id="202729"><span class="nick" style="color:#234e69"><a href="#202729" label="[20:27:29]">&lt;Hagfish&gt;</a></span><span class="message">vital work, thank you</span></div><div class="line" id="203806"><span class="nick" style="color:#80b1d3"><a href="#203806" label="[20:38:06]">&lt;muurkha&gt;</a></span><span class="message">agreed</span></div><div class="line" id="232628"><span class="nick" style="color:#6b8072"><a href="#232628" label="[23:26:28]">&lt;oriansj&gt;</a></span><span class="message">gbrlwck: well to understand the x86 stack, you need to first understand it grows backwards towards zero instead of up to max_address.</span></div><div class="line" id="232651"><span class="nick" style="color:#6b8072"><a href="#232651" label="[23:26:51]">&lt;oriansj&gt;</a></span><span class="message">So every push decrements the stack pointer by the number of bytes pushed.</span></div><div class="line" id="232837"><span class="nick" style="color:#6b8072"><a href="#232837" label="[23:28:37]">&lt;oriansj&gt;</a></span><span class="message">second you can address relative to the stack pointer (ESP) or the base pointer (EBP) rather efficiently</span></div><div class="line" id="232902"><span class="nick" style="color:#6b8072"><a href="#232902" label="[23:29:02]">&lt;oriansj&gt;</a></span><span class="message">base pointer stays the same regardless of pushes and pops; stack pointer changes with every push and pop</span></div><div class="line" id="233045"><span class="nick" style="color:#6b8072"><a href="#233045" label="[23:30:45]">&lt;oriansj&gt;</a></span><span class="message">so every address prior to the base or the stack pointer is a positive value and everything after must be negative</span></div><div class="line" id="234145"><span class="nick" style="color:#6b8072"><a href="#234145" label="[23:41:45]">&lt;oriansj&gt;</a></span><span class="message">now there are 2 ways to deal with local variables in a C function: be lazy and just do a push when you see a new local variable (this is what M2-Planet does and why int i = 0; can't be inside a loop) or you process the function, recording all of the locals needed and set them up on the stack (this is what MesCC does)</span></div><br /></div></body></html>

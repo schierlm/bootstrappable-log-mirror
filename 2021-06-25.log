@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-06-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002133"><span class="nick">***</span><span class="message notice">cadmium.libera.chat sets mode: +o ChanServ</span></div><div class="line" id="002329"><span class="nick">***</span><span class="message notice">cadmium.libera.chat sets mode: +o oriansj</span></div><div class="line" id="002331"><span class="nick">***</span><span class="message notice">cadmium.libera.chat sets mode: +o janneke</span></div><div class="line" id="003156"><span class="nick">***</span><span class="message notice">cadmium.libera.chat sets mode: +o ChanServ</span></div><div class="line" id="221419"><span class="nick" style="color:#8dd3c7"><a href="#221419" label="[22:14:19]">&lt;stikonas&gt;</a></span><span class="message">interestingly, I found out that installation prefix in livebootstrap (currently /after) cannot be completely arbitrary. I suspect most values work but there is one that doesn't. Anybody wants to guess :D ?</span></div><div class="line" id="225448"><span class="nick" style="color:#2e2a4a"><a href="#225448" label="[22:54:48]">&lt;oriansj&gt;</a></span><span class="message">stikonas: /proc ?</span></div><div class="line" id="225458"><span class="nick" style="color:#2e2a4a"><a href="#225458" label="[22:54:58]">&lt;oriansj&gt;</a></span><span class="message">or /dev</span></div><div class="line" id="225513"><span class="nick" style="color:#8dd3c7"><a href="#225513" label="[22:55:13]">&lt;stikonas&gt;</a></span><span class="message">well, those would probably fail too</span></div><div class="line" id="225516"><span class="nick" style="color:#8dd3c7"><a href="#225516" label="[22:55:16]">&lt;stikonas&gt;</a></span><span class="message">it's actually /usr</span></div><div class="line" id="225531"><span class="nick" style="color:#8dd3c7"><a href="#225531" label="[22:55:31]">&lt;stikonas&gt;</a></span><span class="message">one would need to work quite a bit harder to support it</span></div><div class="line" id="225554"><span class="nick" style="color:#8dd3c7"><a href="#225554" label="[22:55:54]">&lt;stikonas&gt;</a></span><span class="message">but luckily we don't need it and can use any other prefix</span></div><div class="line" id="225621"><span class="nick" style="color:#8dd3c7"><a href="#225621" label="[22:56:21]">&lt;stikonas&gt;</a></span><span class="message">something goes wrong with gcc includes (and we do disable gcc's fixincludes because that needs autogen)</span></div><div class="line" id="225643"><span class="nick" style="color:#2e2a4a"><a href="#225643" label="[22:56:43]">&lt;oriansj&gt;</a></span><span class="message">stikonas: interesting.</span></div><div class="line" id="225733"><span class="nick" style="color:#8dd3c7"><a href="#225733" label="[22:57:33]">&lt;stikonas&gt;</a></span><span class="message">yeah, that was very surprising</span></div><div class="line" id="225756"><span class="nick" style="color:#8dd3c7"><a href="#225756" label="[22:57:56]">&lt;stikonas&gt;</a></span><span class="message">I was splitting installation image out of /after (so that after only has build scripts and temporary build directories) and installed files would go somewhere else</span></div><div class="line" id="225829"><span class="nick" style="color:#8dd3c7"><a href="#225829" label="[22:58:29]">&lt;stikonas&gt;</a></span><span class="message">and started with /usr and went all the way to 2nd rebuild of gcc, and then next package (bash 5.1) was failing to compile</span></div><div class="line" id="225901"><span class="nick" style="color:#8dd3c7"><a href="#225901" label="[22:59:01]">&lt;stikonas&gt;</a></span><span class="message">looked a bit at it but eventually decided to cut losses short and switched to another prefix (redoing the checksums now)</span></div><br /></div></body></html>

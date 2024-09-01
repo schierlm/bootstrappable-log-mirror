@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-05-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="060647"><span class="nick" style="color:#8dd3c7"><a href="#060647" label="[06:06:47]">&lt;littlebobeep&gt;</a></span><span class="message">.</span></div><div class="line" id="104053"><span class="nick">***</span><span class="message notice">littlebo1eep is now known as littlebebeep</span></div><div class="line" id="104206"><span class="nick">***</span><span class="message notice">littlebebeep is now known as littlebobeep</span></div><div class="line" id="122702"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="130553"><span class="nick" style="color:#2e2a4a"><a href="#130553" label="[13:05:53]">&lt;oriansj&gt;</a></span><span class="message">oh another day of productive fuzzing results wooo</span></div><div class="line" id="130620"><span class="nick" style="color:#2e2a4a"><a href="#130620" label="[13:06:20]">&lt;oriansj&gt;</a></span><span class="message">at this rate M2-Planet will be half input validation</span></div><div class="line" id="133455"><span class="nick" style="color:#2e2a4a"><a href="#133455" label="[13:34:55]">&lt;oriansj&gt;</a></span><span class="message">but the good news now M2-Planet will flag if you try to use a variable named any of the C keywords</span></div><div class="line" id="133519"><span class="nick" style="color:#2e2a4a"><a href="#133519" label="[13:35:19]">&lt;oriansj&gt;</a></span><span class="message">ironically M2-Planet supports 20 of 32 of those keywords</span></div><div class="line" id="133724"><span class="nick" style="color:#2e2a4a"><a href="#133724" label="[13:37:24]">&lt;oriansj&gt;</a></span><span class="message">and for those of you using [{(&lt;=&gt;)}]|&amp;!^%;:'\&quot; as a variable name in M2-Planet, sorry no longer supported.</span></div><div class="line" id="134239"><span class="nick" style="color:#2e2a4a"><a href="#134239" label="[13:42:39]">&lt;oriansj&gt;</a></span><span class="message">not that it ever was a good idea to use [{(&lt;=&gt;)}]|&amp;!^%;:'\&quot; as a variable name in C code</span></div><div class="line" id="134641"><span class="nick" style="color:#6b8072"><a href="#134641" label="[13:46:41]">&lt;Hagfish&gt;</a></span><span class="message">lol, yeah, i'd hope that any code auditors would flag that up if they saw it :D</span></div><div class="line" id="135000"><span class="nick" style="color:#2e2a4a"><a href="#135000" label="[13:50:00]">&lt;oriansj&gt;</a></span><span class="message">well with a couple unicode chars it looks like just a string used by in_set that you can assign in what looked like a comment.</span></div><div class="line" id="135234"><span class="nick" style="color:#2e2a4a"><a href="#135234" label="[13:52:34]">&lt;oriansj&gt;</a></span><span class="message">the sort of thing that would be depended upon in an attack which depended on different behavior in M2-Planet vs say GCC</span></div><div class="line" id="142418"><span class="nick" style="color:#6b8072"><a href="#142418" label="[14:24:18]">&lt;Hagfish&gt;</a></span><span class="message">that is devious!  yeah, all the more reason to treat non-ascii chars in source code as an attack</span></div><div class="line" id="142708"><span class="nick" style="color:#80b1d3"><a href="#142708" label="[14:27:08]">&lt;stikonas[m]&gt;</a></span><span class="message">Some non-ascii is fine... We do have some in the comments</span></div><div class="line" id="151902"><span class="nick" style="color:#80b1d3"><a href="#151902" label="[15:19:02]">&lt;stikonas[m]&gt;</a></span><span class="message">It's the ones that are non printable (control chars that are bad)</span></div><div class="line" id="161628"><span class="nick" style="color:#6b8072"><a href="#161628" label="[16:16:28]">&lt;Hagfish&gt;</a></span><span class="message">what's the purpose of the non-ascii characters?  i guess people's names are a valid reason (although i'd almost prefer those to be listed in a separate contributors.txt file, or something)</span></div><div class="line" id="162711"><span class="nick" style="color:#6d2462"><a href="#162711" label="[16:27:11]">&lt;f-a&gt;</a></span><span class="message">my head is spinning reading how you start from assembler to arrive to gcc, with a brief escapade with guild</span></div><div class="line" id="162714"><span class="nick" style="color:#6d2462"><a href="#162714" label="[16:27:14]">&lt;f-a&gt;</a></span><span class="message">*guile</span></div><div class="line" id="162748"><span class="nick" style="color:#6b8072"><a href="#162748" label="[16:27:48]">&lt;Hagfish&gt;</a></span><span class="message">it's quite a trip isn't it :)</span></div><div class="line" id="163104"><span class="nick" style="color:#6d2462"><a href="#163104" label="[16:31:04]">&lt;f-a&gt;</a></span><span class="message">I wonder if there are easier language to bootstrap</span></div><div class="line" id="163114"><span class="nick" style="color:#6d2462"><a href="#163114" label="[16:31:14]">&lt;f-a&gt;</a></span><span class="message">I thought C would be a candidate, but apparently it is quite complex</span></div><div class="line" id="163139"><span class="nick" style="color:#80b1d3"><a href="#163139" label="[16:31:39]">&lt;stikonas[m]&gt;</a></span><span class="message">f-a: guile is not used to build GCC, we just build it later</span></div><div class="line" id="163217"><span class="nick" style="color:#80b1d3"><a href="#163217" label="[16:32:17]">&lt;stikonas[m]&gt;</a></span><span class="message">C subset is the first stuff we build in assembly, so it's good candidate</span></div><div class="line" id="163254"><span class="nick" style="color:#6b8072"><a href="#163254" label="[16:32:54]">&lt;Hagfish&gt;</a></span><span class="message">i think lots of people have wondered about the most best set of languages to use, but to some extent the best path is whatever path someone chooses to put the effort into</span></div><div class="line" id="163318"><span class="nick" style="color:#80b1d3"><a href="#163318" label="[16:33:18]">&lt;stikonas[m]&gt;</a></span><span class="message">It's just that whole GCC need more tools, not just C compiler especially the build system</span></div><div class="line" id="163323"><span class="nick" style="color:#6b8072"><a href="#163323" label="[16:33:23]">&lt;Hagfish&gt;</a></span><span class="message">yeah</span></div><div class="line" id="163404"><span class="nick" style="color:#80b1d3"><a href="#163404" label="[16:34:04]">&lt;stikonas[m]&gt;</a></span><span class="message">We do brief escaped to scheme (mes)</span></div><div class="line" id="163608"><span class="nick" style="color:#6d2462"><a href="#163608" label="[16:36:08]">&lt;f-a&gt;</a></span><span class="message">maybe scheme syntax is itself easier?</span></div><div class="line" id="163609"><span class="nick" style="color:#6d2462"><a href="#163609" label="[16:36:09]">&lt;f-a&gt;</a></span><span class="message">or forth idk</span></div><div class="line" id="164454"><span class="nick" style="color:#234e69"><a href="#164454" label="[16:44:54]">&lt;rickmasters&gt;</a></span><span class="message">oriansj: I have to apologize. In my eagerness to be helpful, I think I jumped the gun in agreeing to add immediate disk writing and large disk support</span></div><div class="line" id="164518"><span class="nick" style="color:#234e69"><a href="#164518" label="[16:45:18]">&lt;rickmasters&gt;</a></span><span class="message">oriansj: I spent some time thinking about the requirements and wrote it up for discussion here: <a rel="nofollow" href="https://github.com/ironmeld/builder-hex0/issues/3">https://github.com/ironmeld/builder-hex0/issues/3</a> </span></div><div class="line" id="164937"><span class="nick" style="color:#6b8072"><a href="#164937" label="[16:49:37]">&lt;Hagfish&gt;</a></span><span class="message">a fascinating read, thank you! i've learnt more from that &quot;apology&quot;/&quot;issue&quot; than i've learnt from some people's entire careers :)</span></div><div class="line" id="165129"><span class="nick" style="color:#234e69"><a href="#165129" label="[16:51:29]">&lt;rickmasters&gt;</a></span><span class="message">sure, it was the least I could do, for now</span></div><div class="line" id="165235"><span class="nick" style="color:#6b8072"><a href="#165235" label="[16:52:35]">&lt;Hagfish&gt;</a></span><span class="message">personally i like the idea of &quot;extra stepping stones, smaller steps&quot; (i.e. intermediate kernels), but i'm not the one implementing/auditing this code so that's just personal preference</span></div><div class="line" id="165254"><span class="nick" style="color:#6b8072"><a href="#165254" label="[16:52:54]">&lt;Hagfish&gt;</a></span><span class="message">504 MB should be enough for anyone, right?</span></div><div class="line" id="165630"><span class="nick" style="color:#234e69"><a href="#165630" label="[16:56:30]">&lt;rickmasters&gt;</a></span><span class="message">another kernel has substantial pros and cons</span></div><div class="line" id="184739"><span class="nick" style="color:#2e2a4a"><a href="#184739" label="[18:47:39]">&lt;oriansj&gt;</a></span><span class="message">rickmasters: thank you for your honest and thought out response, it is quite helpful.</span></div><div class="line" id="185000"><span class="nick" style="color:#2e2a4a"><a href="#185000" label="[18:50:00]">&lt;oriansj&gt;</a></span><span class="message">and I could probably get this to fit in 504MB of disk size. It just means my kernel is going to have to support downloading of tars to continue the build chain</span></div><div class="line" id="185106"><span class="nick" style="color:#2e2a4a"><a href="#185106" label="[18:51:06]">&lt;oriansj&gt;</a></span><span class="message">but let me think deeper on this for a bit</span></div><div class="line" id="192024"><span class="nick" style="color:#6b8072"><a href="#192024" label="[19:20:24]">&lt;Hagfish&gt;</a></span><span class="message">hmm, the question of when to enable (and when to assume) network access is a tough one</span></div><div class="line" id="192706"><span class="nick" style="color:#6c3d55"><a href="#192706" label="[19:27:06]">&lt;rkeene&gt;</a></span><span class="message">In my build system, I only enable network access during the download phase</span></div><div class="line" id="192731"><span class="nick" style="color:#6c3d55"><a href="#192731" label="[19:27:31]">&lt;rkeene&gt;</a></span><span class="message">( <a rel="nofollow" href="https://chiselapp.com/user/rkeene/repository/bash-drop-network-access/">https://chiselapp.com/user/rkeene/repository/bash-drop-network-access/</a>  )</span></div><div class="line" id="194152"><span class="nick" style="color:#6b8072"><a href="#194152" label="[19:41:52]">&lt;Hagfish&gt;</a></span><span class="message">rkeene: that's such a great idea, thanks for sharing</span></div><div class="line" id="201853"><span class="nick" style="color:#6c3d55"><a href="#201853" label="[20:18:53]">&lt;rkeene&gt;</a></span><span class="message">I do a lot of different build systems</span></div><div class="line" id="213344"><span class="nick" style="color:#d9d9d9"><a href="#213344" label="[21:33:44]">&lt;bauen1&gt;</a></span><span class="message">oriansj: couldn't you fit a kernel into the 504mb that allows accessing another disk with sources on it ?</span></div><div class="line" id="220138"><span class="nick" style="color:#80b1d3"><a href="#220138" label="[22:01:38]">&lt;stikonas[m]&gt;</a></span><span class="message">Yes,multiple disks seems a reasonable solution</span></div><div class="line" id="220156"><span class="nick" style="color:#80b1d3"><a href="#220156" label="[22:01:56]">&lt;stikonas[m]&gt;</a></span><span class="message">Just keep builder-hex0 as it is</span></div><div class="line" id="220223"><span class="nick" style="color:#80b1d3"><a href="#220223" label="[22:02:23]">&lt;stikonas[m]&gt;</a></span><span class="message">And add all other features to next kernel in C (with inline M1)</span></div><div class="line" id="223548"><span class="nick" style="color:#bc80bd"><a href="#223548" label="[22:35:48]">&lt;Franciman&gt;</a></span><span class="message">is GNU mes, or other bootstrapping projects interested in formal verification?</span></div><div class="line" id="223553"><span class="nick" style="color:#bc80bd"><a href="#223553" label="[22:35:53]">&lt;Franciman&gt;</a></span><span class="message">of the code?</span></div><div class="line" id="223700"><span class="nick" style="color:#3c5b35"><a href="#223700" label="[22:37:00]">&lt;stikonas&gt;</a></span><span class="message">Franciman: well, if you find it fun, why not</span></div><div class="line" id="224141"><span class="nick" style="color:#af8d2f"><a href="#224141" label="[22:41:41]">&lt;janneke&gt;</a></span><span class="message">Franciman: that would be amazing, but i'm afraid Mes is not ready for that yet?</span></div><div class="line" id="224308"><span class="nick" style="color:#bc80bd"><a href="#224308" label="[22:43:08]">&lt;Franciman&gt;</a></span><span class="message">i see, but cool</span></div><div class="line" id="224326"><span class="nick" style="color:#bc80bd"><a href="#224326" label="[22:43:26]">&lt;Franciman&gt;</a></span><span class="message">i was wondering how formal verification should intersect with bootstrapping needs</span></div><div class="line" id="230656"><span class="nick" style="color:#389600"><a href="#230656" label="[23:06:56]">&lt;theruran&gt;</a></span><span class="message">Franciman: what about verifying the assembly? such as using Vale <a rel="nofollow" href="https://github.com/project-everest/vale">https://github.com/project-everest/vale</a> </span></div><div class="line" id="230703"><span class="nick" style="color:#bc80bd"><a href="#230703" label="[23:07:03]">&lt;Franciman&gt;</a></span><span class="message">interesting!</span></div><div class="line" id="230854"><span class="nick" style="color:#389600"><a href="#230854" label="[23:08:54]">&lt;theruran&gt;</a></span><span class="message">or ACL2 has an x86ISA book <a rel="nofollow" href="https://www.cs.utexas.edu/users/moore/acl2/manuals/current/manual/index-seo.php/X86ISA____INTRODUCTION?path=3760/2963/10720">https://www.cs.utexas.edu/users/moore/acl2/manuals/current/manual/index-seo.php/X86ISA____INTRODUCTION?path=3760/2963/10720</a> </span></div><div class="line" id="230903"><span class="nick" style="color:#bc80bd"><a href="#230903" label="[23:09:03]">&lt;Franciman&gt;</a></span><span class="message">thanks</span></div><div class="line" id="234735"><span class="nick" style="color:#6b8072"><a href="#234735" label="[23:47:35]">&lt;Hagfish&gt;</a></span><span class="message">hmm, a self-propagating backdoor would have to include a copy of itself in any compiler that it compiled</span></div><div class="line" id="234757"><span class="nick" style="color:#6b8072"><a href="#234757" label="[23:47:57]">&lt;Hagfish&gt;</a></span><span class="message">that seems like something an invariant you could rule out through static analysis</span></div><div class="line" id="234825"><span class="nick" style="color:#6b8072"><a href="#234825" label="[23:48:25]">&lt;Hagfish&gt;</a></span><span class="message">but i guess the problem is &quot;what system do you trust to run this analysis program on (and why do you trust that program to do what it says)?&quot;</span></div><br /></div></body></html>

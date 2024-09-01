@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-08-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="164737"><span class="nick">***</span><span class="message notice">examors_ is now known as examors</span></div><div class="line" id="173850"><span class="nick" style="color:#8dd3c7"><a href="#173850" label="[17:38:50]">&lt;rickmasters&gt;</a></span><span class="message">Hello, I'm back with another update on boot2now and the builder-hex0 bootstrap kernel work.</span></div><div class="line" id="173901"><span class="nick" style="color:#8dd3c7"><a href="#173901" label="[17:39:01]">&lt;rickmasters&gt;</a></span><span class="message">As a reminder, I reported on August 9th that I has was stuck for weeks building mes-tcc</span></div><div class="line" id="173911"><span class="nick" style="color:#8dd3c7"><a href="#173911" label="[17:39:11]">&lt;rickmasters&gt;</a></span><span class="message">but I had finally found a clue as to what was wrong.</span></div><div class="line" id="173921"><span class="nick" style="color:#8dd3c7"><a href="#173921" label="[17:39:21]">&lt;rickmasters&gt;</a></span><span class="message">Well, I fixed the issue and managed to build mes-tcc a few days ago.</span></div><div class="line" id="173932"><span class="nick" style="color:#8dd3c7"><a href="#173932" label="[17:39:32]">&lt;rickmasters&gt;</a></span><span class="message">Unfortunately, mes-tcc is only partially working.</span></div><div class="line" id="173952"><span class="nick" style="color:#8dd3c7"><a href="#173952" label="[17:39:52]">&lt;rickmasters&gt;</a></span><span class="message">I am debugging &quot;mes-tcc -ar cr /usr/lib/mes/libc.a unified-libc.o&quot;</span></div><div class="line" id="174007"><span class="nick" style="color:#8dd3c7"><a href="#174007" label="[17:40:07]">&lt;rickmasters&gt;</a></span><span class="message">which is currently failing with an &quot;Unsupported Elf Class&quot; error.</span></div><div class="line" id="174041"><span class="nick" style="color:#8dd3c7"><a href="#174041" label="[17:40:41]">&lt;rickmasters&gt;</a></span><span class="message">To elaborate, mes-tcc is in the tcc-0.9.26 package and is an early form of tcc built using mes.</span></div><div class="line" id="174057"><span class="nick" style="color:#8dd3c7"><a href="#174057" label="[17:40:57]">&lt;rickmasters&gt;</a></span><span class="message">This tcc-0.9.26 package also uses the libc sources from mes.</span></div><div class="line" id="174110"><span class="nick" style="color:#8dd3c7"><a href="#174110" label="[17:41:10]">&lt;rickmasters&gt;</a></span><span class="message">mes-tcc is the first compiler which progressively, over five passes, builds itself up to the final tcc-0.9.26 binary.</span></div><div class="line" id="174127"><span class="nick" style="color:#8dd3c7"><a href="#174127" label="[17:41:27]">&lt;rickmasters&gt;</a></span><span class="message">If I can get mes-tcc to work well, or perhaps get to the final tcc-0.9.26 binary, then that is</span></div><div class="line" id="174134"><span class="nick" style="color:#8dd3c7"><a href="#174134" label="[17:41:34]">&lt;rickmasters&gt;</a></span><span class="message">probably a good place to pause and explore building a kernel written in C and assembly.</span></div><div class="line" id="174141"><span class="nick" style="color:#8dd3c7"><a href="#174141" label="[17:41:41]">&lt;rickmasters&gt;</a></span><span class="message">The reason to pause is that I don't see an advantage of working towards later bootstrap</span></div><div class="line" id="174148"><span class="nick" style="color:#8dd3c7"><a href="#174148" label="[17:41:48]">&lt;rickmasters&gt;</a></span><span class="message">tools such as tcc-0.9.27, or tcc-0.9.27 with musl, for building the next kernel.</span></div><div class="line" id="174150"><span class="nick" style="color:#2e2a4a"><a href="#174150" label="[17:41:50]">&lt;stikonas&gt;</a></span><span class="message">hmm, that's comming from tcctools.c</span></div><div class="line" id="174158"><span class="nick" style="color:#8dd3c7"><a href="#174158" label="[17:41:58]">&lt;rickmasters&gt;</a></span><span class="message">And building gcc is much, much further away.</span></div><div class="line" id="174210"><span class="nick" style="color:#8dd3c7"><a href="#174210" label="[17:42:10]">&lt;rickmasters&gt;</a></span><span class="message">I also have a lot of technical debt built up that I need to work through.</span></div><div class="line" id="174217"><span class="nick" style="color:#8dd3c7"><a href="#174217" label="[17:42:17]">&lt;rickmasters&gt;</a></span><span class="message">I'll report any significant progress but I may be gone for a while again.</span></div><div class="line" id="174309"><span class="nick" style="color:#2e2a4a"><a href="#174309" label="[17:43:09]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: but maybe it makes sense to use higher level language?</span></div><div class="line" id="174345"><span class="nick" style="color:#2e2a4a"><a href="#174345" label="[17:43:45]">&lt;stikonas&gt;</a></span><span class="message">even if it's something similar to builder-hex0, but if you write it in M1 or C it might be easier for you</span></div><div class="line" id="174452"><span class="nick" style="color:#8dd3c7"><a href="#174452" label="[17:44:52]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: well that's what I have been working towards but it was not clear whether to use M1, M2, mescc, or tcc</span></div><div class="line" id="175108"><span class="nick" style="color:#8dd3c7"><a href="#175108" label="[17:51:08]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: looking back, the kernel programming wasn't the problem - it was debugging very difficult bugs with little information and very long run times</span></div><div class="line" id="175225"><span class="nick" style="color:#2e2a4a"><a href="#175225" label="[17:52:25]">&lt;stikonas&gt;</a></span><span class="message">yeah, long run times make it hard to debug</span></div><div class="line" id="175237"><span class="nick" style="color:#8dd3c7"><a href="#175237" label="[17:52:37]">&lt;rickmasters&gt;</a></span><span class="message">for example, mes corrupted memory when it got a file handle number that was too high</span></div><div class="line" id="175244"><span class="nick" style="color:#2e2a4a"><a href="#175244" label="[17:52:44]">&lt;stikonas&gt;</a></span><span class="message">for stage0-uefi I have some bugs with little information but at least short run times</span></div><div class="line" id="175307"><span class="nick" style="color:#2e2a4a"><a href="#175307" label="[17:53:07]">&lt;stikonas&gt;</a></span><span class="message">and it's already annoying</span></div><div class="line" id="175355"><span class="nick" style="color:#8dd3c7"><a href="#175355" label="[17:53:55]">&lt;rickmasters&gt;</a></span><span class="message">and i'm running on qemu without kvm, so mes would take over 24 hours to run, so debugging memory corruption in a slow interpreted program was just hard</span></div><div class="line" id="180034"><span class="nick" style="color:#8dd3c7"><a href="#180034" label="[18:00:34]">&lt;rickmasters&gt;</a></span><span class="message">I should spend time moving to bare metal, but i was willing to wait because I've got other things to do and I'm lazy</span></div><div class="line" id="181258"><span class="nick" style="color:#8dd3c7"><a href="#181258" label="[18:12:58]">&lt;rickmasters&gt;</a></span><span class="message">BTW, regarding M1, I have to admit, I was turned off by the primitive mnemonics and lack of documentation.</span></div><div class="line" id="181357"><span class="nick" style="color:#8dd3c7"><a href="#181357" label="[18:13:57]">&lt;rickmasters&gt;</a></span><span class="message">With tcc you get what looks like a standard-ish decent assembler</span></div><div class="line" id="181803"><span class="nick" style="color:#8dd3c7"><a href="#181803" label="[18:18:03]">&lt;rickmasters&gt;</a></span><span class="message">.... or maybe I'm looking at the mes assembly - the tcc.s file uses assembly syntax I am familiar with</span></div><div class="line" id="182332"><span class="nick" style="color:#2e2a4a"><a href="#182332" label="[18:23:32]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: the difference is just what defines you are using...</span></div><div class="line" id="182442"><span class="nick" style="color:#2e2a4a"><a href="#182442" label="[18:24:42]">&lt;stikonas&gt;</a></span><span class="message">I think mes just has defines called like mov____eax,ebx rather than COPY_EBX_to_EAX</span></div><div class="line" id="182518"><span class="nick" style="color:#8dd3c7"><a href="#182518" label="[18:25:18]">&lt;rickmasters&gt;</a></span><span class="message">Yeah, I've looked at the defines and see something like DEFINE LOAD_INTEGER 8B00 but I have no idea what that actually does</span></div><div class="line" id="182531"><span class="nick" style="color:#2e2a4a"><a href="#182531" label="[18:25:31]">&lt;stikonas&gt;</a></span><span class="message">I think I found M0 mnemonics alright but I didn't do much assembly before</span></div><div class="line" id="182541"><span class="nick" style="color:#2e2a4a"><a href="#182541" label="[18:25:41]">&lt;stikonas&gt;</a></span><span class="message">so perhaps it's a case of being used to it</span></div><div class="line" id="182558"><span class="nick" style="color:#2e2a4a"><a href="#182558" label="[18:25:58]">&lt;stikonas&gt;</a></span><span class="message">so another syntax looks unusual</span></div><div class="line" id="182640"><span class="nick" style="color:#8dd3c7"><a href="#182640" label="[18:26:40]">&lt;rickmasters&gt;</a></span><span class="message">but without docs &quot;LOAD_INTEGER&quot; doesn't have enough information, as opposed to mov eax, [eax]</span></div><div class="line" id="182811"><span class="nick" style="color:#2e2a4a"><a href="#182811" label="[18:28:11]">&lt;stikonas&gt;</a></span><span class="message">yes, perhaps we need better comments there</span></div><div class="line" id="182839"><span class="nick" style="color:#2e2a4a"><a href="#182839" label="[18:28:39]">&lt;stikonas&gt;</a></span><span class="message">not sure where those names came from</span></div><div class="line" id="182844"><span class="nick" style="color:#2e2a4a"><a href="#182844" label="[18:28:44]">&lt;stikonas&gt;</a></span><span class="message">I guess oriansj?</span></div><div class="line" id="182856"><span class="nick" style="color:#2e2a4a"><a href="#182856" label="[18:28:56]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: it's somewhat different for M0 on risc-v</span></div><div class="line" id="182945"><span class="nick" style="color:#2e2a4a"><a href="#182945" label="[18:29:45]">&lt;stikonas&gt;</a></span><span class="message">it's slightly closer to normal syntax, yet still a bit different</span></div><div class="line" id="183012"><span class="nick" style="color:#2e2a4a"><a href="#183012" label="[18:30:12]">&lt;stikonas&gt;</a></span><span class="message">e.g. &quot;addi a7, 217&quot; becomes &quot;RD_A7 !214 ADDI&quot;</span></div><div class="line" id="183033"><span class="nick" style="color:#2e2a4a"><a href="#183033" label="[18:30:33]">&lt;stikonas&gt;</a></span><span class="message">(typo in the number, should be the same)</span></div><div class="line" id="183136"><span class="nick" style="color:#2e2a4a"><a href="#183136" label="[18:31:36]">&lt;stikonas&gt;</a></span><span class="message">but risc-v style fixed word syntax needs much bigger hex2</span></div><div class="line" id="183311"><span class="nick" style="color:#8dd3c7"><a href="#183311" label="[18:33:11]">&lt;rickmasters&gt;</a></span><span class="message">I guess its not that hard to plug 8B00 into some disassembly tool and backfill the documentation but I decided to just avoid further investment in M1 if possible</span></div><div class="line" id="183717"><span class="nick" style="color:#8dd3c7"><a href="#183717" label="[18:37:17]">&lt;rickmasters&gt;</a></span><span class="message">my suspicion is that there was a goal to somewhat unify the assembly syntax across architectures by using an abstraction like LOAD_INTEGER</span></div><div class="line" id="183817"><span class="nick" style="color:#8dd3c7"><a href="#183817" label="[18:38:17]">&lt;rickmasters&gt;</a></span><span class="message">but that probably fell apart quickly because the register set can't really be abstracted away</span></div><div class="line" id="184049"><span class="nick" style="color:#8dd3c7"><a href="#184049" label="[18:40:49]">&lt;rickmasters&gt;</a></span><span class="message">anyway, I have to step away but I'm sure oriansj will chime in on these topics soon enough</span></div><div class="line" id="190447"><span class="nick" style="color:#6b8072"><a href="#190447" label="[19:04:47]">&lt;Hagfish&gt;</a></span><span class="message">what a legend, i'm glad he's still making progress, and it sounds like some more exciting milestones aren't too far away</span></div><div class="line" id="190513"><span class="nick" style="color:#6b8072"><a href="#190513" label="[19:05:13]">&lt;Hagfish&gt;</a></span><span class="message">i'm glad you were able to compare notes with him, stikonas, and your work sounds equally important and impressive</span></div><div class="line" id="231020"><span class="nick" style="color:#80b1d3"><a href="#231020" label="[23:10:20]">&lt;oriansj&gt;</a></span><span class="message">well most of the M1 DEFINEs are a direct product of M2-Planet's needs and were named related to what the Instruction was doing in the generated M1 output. Hence why the DEFINEs in cc_x86.s are quite different from those in M2libc.</span></div><div class="line" id="231110"><span class="nick" style="color:#80b1d3"><a href="#231110" label="[23:11:10]">&lt;oriansj&gt;</a></span><span class="message">The idea was anyone could create any DEFINEs to suit their needs rather than requiring anyone to use a standard set of DEFINEs that are hardcoded.</span></div><div class="line" id="231703"><span class="nick" style="color:#2e2a4a"><a href="#231703" label="[23:17:03]">&lt;stikonas&gt;</a></span><span class="message">oriansj: that's true, but I guess rickmasters is saying, we could have used names that are closer to e.g. nasm syntax</span></div><br /></div></body></html>

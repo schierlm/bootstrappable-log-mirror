@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-10-11.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004214"><span class="nick" style="color:#8dd3c7"><a href="#004214" label="[00:42:14]">&lt;stikonas&gt;</a></span><span class="message">oh, I think I finally figured out how to fix cc_amd64.efi...</span></div><div class="line" id="004222"><span class="nick" style="color:#8dd3c7"><a href="#004222" label="[00:42:22]">&lt;stikonas&gt;</a></span><span class="message">turns out I had to allocate more memory</span></div><div class="line" id="004250"><span class="nick" style="color:#8dd3c7"><a href="#004250" label="[00:42:50]">&lt;stikonas&gt;</a></span><span class="message">after I increased it from 16 MiB to 64 MiB and allcoated 8 MiB to user stack, it seems to work well</span></div><div class="line" id="004902"><span class="nick" style="color:#8dd3c7"><a href="#004902" label="[00:49:02]">&lt;stikonas&gt;</a></span><span class="message">and I suspect I'll have to increase it for M0 too...</span></div><div class="line" id="010008"><span class="nick" style="color:#8dd3c7"><a href="#010008" label="[01:00:08]">&lt;stikonas&gt;</a></span><span class="message">oriansj: hmm, I should probably rename PE32_text PE32_end into ELF_text and ELF_end. Or alternatively we can use more general names...</span></div><div class="line" id="010047"><span class="nick" style="color:#8dd3c7"><a href="#010047" label="[01:00:47]">&lt;stikonas&gt;</a></span><span class="message">otherwise we make it complicated to use cc_amd64.efi to build M2-Planet for posix</span></div><div class="line" id="010059"><span class="nick" style="color:#8dd3c7"><a href="#010059" label="[01:00:59]">&lt;stikonas&gt;</a></span><span class="message">and also more unnecessary complications in M2-Planet</span></div><div class="line" id="011232"><span class="nick" style="color:#8dd3c7"><a href="#011232" label="[01:12:32]">&lt;stikonas&gt;</a></span><span class="message">anyway, I can now build POSIX version of M2-Planet in stage0-uefi</span></div><div class="line" id="020206"><span class="nick" style="color:#8dd3c7"><a href="#020206" label="[02:02:06]">&lt;stikonas&gt;</a></span><span class="message">oriansj: sorry, one more update: <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds/pull/34">https://github.com/oriansj/bootstrap-seeds/pull/34</a> </span></div><div class="line" id="020211"><span class="nick" style="color:#8dd3c7"><a href="#020211" label="[02:02:11]">&lt;stikonas&gt;</a></span><span class="message">made hex0 one byte smaller</span></div><div class="line" id="020236"><span class="nick" style="color:#8dd3c7"><a href="#020236" label="[02:02:36]">&lt;stikonas&gt;</a></span><span class="message">zeroed out some more fields in PE header and also renamed PE32_end to ELF_end in the commented label</span></div><div class="line" id="022039"><span class="nick" style="color:#2e2a4a"><a href="#022039" label="[02:20:39]">&lt;stikonas[m]&gt;</a></span><span class="message">oriansj: thanks</span></div><div class="line" id="022132"><span class="nick" style="color:#6b8072"><a href="#022132" label="[02:21:32]">&lt;oriansj&gt;</a></span><span class="message">muurkha: make it 18bits and it'll be in good family</span></div><div class="line" id="022139"><span class="nick" style="color:#80b1d3"><a href="#022139" label="[02:21:39]">&lt;muurkha&gt;</a></span><span class="message">yeah</span></div><div class="line" id="022205"><span class="nick" style="color:#80b1d3"><a href="#022205" label="[02:22:05]">&lt;muurkha&gt;</a></span><span class="message">one of the nice things about Harvard architectures is that it's trivial to use a weird instruction size</span></div><div class="line" id="022335"><span class="nick" style="color:#6b8072"><a href="#022335" label="[02:23:35]">&lt;oriansj&gt;</a></span><span class="message">Christoph[m]: yeah hex0 was designed to be universal (for systems which used a multiple of 4bits for their instructions) and allow easy cross-platform verification of the root seeds; hex1 and M0 can be cross verified with hex2 and M1</span></div><div class="line" id="022417"><span class="nick" style="color:#6b8072"><a href="#022417" label="[02:24:17]">&lt;oriansj&gt;</a></span><span class="message">aggi: pretty close to toggling individual bytes into memory and then executing it.</span></div><div class="line" id="022531"><span class="nick" style="color:#6b8072"><a href="#022531" label="[02:25:31]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well we could change ELF_* to be something more universal; I just don't know what it would be</span></div><div class="line" id="023526"><span class="nick" style="color:#6b8072"><a href="#023526" label="[02:35:26]">&lt;oriansj&gt;</a></span><span class="message">muurkha: I don't think any single instruction size is a good idea; especially when multiple different sizes don't seem to cost too much complexity if done carefully.</span></div><div class="line" id="023548"><span class="nick" style="color:#6b8072"><a href="#023548" label="[02:35:48]">&lt;oriansj&gt;</a></span><span class="message">even RISC-V supports 16bit instructions</span></div><div class="line" id="023617"><span class="nick" style="color:#6b8072"><a href="#023617" label="[02:36:17]">&lt;oriansj&gt;</a></span><span class="message">(Using up an insane percentage of their opcode space doing it too)</span></div><div class="line" id="024544"><span class="nick" style="color:#80b1d3"><a href="#024544" label="[02:45:44]">&lt;muurkha&gt;</a></span><span class="message">yeah, I think RVC may actually be the densest instruction set GCC supports</span></div><div class="line" id="032115"><span class="nick" style="color:#6b8072"><a href="#032115" label="[03:21:15]">&lt;oriansj&gt;</a></span><span class="message">muurkha: sh4 probably beats it</span></div><div class="line" id="032136"><span class="nick" style="color:#6b8072"><a href="#032136" label="[03:21:36]">&lt;oriansj&gt;</a></span><span class="message">and it is supported by GCC</span></div><div class="line" id="032334"><span class="nick" style="color:#80b1d3"><a href="#032334" label="[03:23:34]">&lt;muurkha&gt;</a></span><span class="message">I don't think so, but I admit I don't have a cross-SH4 GCC handy to test with</span></div><div class="line" id="033400"><span class="nick" style="color:#6b8072"><a href="#033400" label="[03:34:00]">&lt;oriansj&gt;</a></span><span class="message">all instructions are 16bit originally with 16 registers; so it is hard to find a non-synthetic benchmark where RISC-V is Denser</span></div><div class="line" id="034129"><span class="nick" style="color:#80b1d3"><a href="#034129" label="[03:41:29]">&lt;muurkha&gt;</a></span><span class="message">you should try it</span></div><div class="line" id="034146"><span class="nick" style="color:#80b1d3"><a href="#034146" label="[03:41:46]">&lt;muurkha&gt;</a></span><span class="message">I think you'll be surprised</span></div><div class="line" id="034233"><span class="nick" style="color:#80b1d3"><a href="#034233" label="[03:42:33]">&lt;muurkha&gt;</a></span><span class="message">the SH4 only has 16 registers, while RISC-V has 32, so there are a lot of routines that can run in the register set in RISC-V which have to spill to RAM on the SH4</span></div><div class="line" id="034416"><span class="nick" style="color:#80b1d3"><a href="#034416" label="[03:44:16]">&lt;muurkha&gt;</a></span><span class="message">integer registers I mean</span></div><div class="line" id="034605"><span class="nick" style="color:#6b8072"><a href="#034605" label="[03:46:05]">&lt;oriansj&gt;</a></span><span class="message">muurkha: a C Compiler written in assembly didn't even spill on x86 with 8 registers; why would 16 registers be an issue</span></div><div class="line" id="035046"><span class="nick" style="color:#80b1d3"><a href="#035046" label="[03:50:46]">&lt;muurkha&gt;</a></span><span class="message">on x86 you use memory operands all the time</span></div><div class="line" id="035111"><span class="nick" style="color:#80b1d3"><a href="#035111" label="[03:51:11]">&lt;muurkha&gt;</a></span><span class="message">the hardware handles this efficiently by having lots more registers that aren't architecturally exposed</span></div><div class="line" id="035200"><span class="nick" style="color:#6d2462"><a href="#035200" label="[03:52:00]">&lt;Guest98&gt;</a></span><span class="message">hey did you see that bootstrappable.org Let's Encrypt cert didn't get updated?</span></div><div class="line" id="035200"><span class="nick" style="color:#6d2462"><a href="#035200" label="[03:52:00]">&lt;Guest98&gt;</a></span><span class="message">&gt; Not After Mon, 10 Oct 2022 12:02:42 GMT</span></div><div class="line" id="035209"><span class="nick" style="color:#80b1d3"><a href="#035209" label="[03:52:09]">&lt;muurkha&gt;</a></span><span class="message">oh hey thanks Guest98</span></div><div class="line" id="035311"><span class="nick" style="color:#80b1d3"><a href="#035311" label="[03:53:11]">&lt;muurkha&gt;</a></span><span class="message">on RISC architectures you can't do that; you have to use separate instructions to load operands into an architecturally exposed register and store results from an architecturally exposed register</span></div><div class="line" id="035403"><span class="nick" style="color:#80b1d3"><a href="#035403" label="[03:54:03]">&lt;muurkha&gt;</a></span><span class="message">so you need more registers</span></div><div class="line" id="035518"><span class="nick" style="color:#6d2462"><a href="#035518" label="[03:55:18]">&lt;Guest98&gt;</a></span><span class="message">np! wanted to make sure someone could that info early on</span></div><div class="line" id="035519"><span class="nick" style="color:#6d2462"><a href="#035519" label="[03:55:19]">&lt;Guest98&gt;</a></span><span class="message">also, looks like a fascinating convo here, unfortunately a bit over my head!</span></div><div class="line" id="035616"><span class="nick" style="color:#80b1d3"><a href="#035616" label="[03:56:16]">&lt;muurkha&gt;</a></span><span class="message">oh, we were just chattering about code density</span></div><div class="line" id="035634"><span class="nick" style="color:#80b1d3"><a href="#035634" label="[03:56:34]">&lt;muurkha&gt;</a></span><span class="message">like, what kind of instruction set design allows your programs to be smaller</span></div><div class="line" id="035832"><span class="nick" style="color:#80b1d3"><a href="#035832" label="[03:58:32]">&lt;muurkha&gt;</a></span><span class="message">from looking at simple examples I feel like stack machines generally beat traditional RISC (register-to-register) and CISC (register-to-memory or memory-to-memory) designs</span></div><div class="line" id="040006"><span class="nick" style="color:#80b1d3"><a href="#040006" label="[04:00:06]">&lt;muurkha&gt;</a></span><span class="message">they need about twice as many instructions, but those instructions are less than half as big</span></div><div class="line" id="040019"><span class="nick" style="color:#6d2462"><a href="#040019" label="[04:00:19]">&lt;Guest98&gt;</a></span><span class="message">huh, interesting</span></div><div class="line" id="040128"><span class="nick" style="color:#80b1d3"><a href="#040128" label="[04:01:28]">&lt;muurkha&gt;</a></span><span class="message">here are my notes on the subject from 15 years ago: <a rel="nofollow" href="https://dercuano.github.io/notes/tiny-interpreters-for-microcontrollers.html">https://dercuano.github.io/notes/tiny-interpreters-for-microcontrollers.html</a> </span></div><div class="line" id="040356"><span class="nick" style="color:#80b1d3"><a href="#040356" label="[04:03:56]">&lt;muurkha&gt;</a></span><span class="message">and generally two-register instructions (like amd64 or RVC) are denser than three-register instructions (like uncompressed RISC-V)</span></div><div class="line" id="040612"><span class="nick" style="color:#80b1d3"><a href="#040612" label="[04:06:12]">&lt;muurkha&gt;</a></span><span class="message">I mean, on uncompressed RISC-V you can say add a3, a4, s2 if you want to preserve the values in a4 and s2</span></div><div class="line" id="040744"><span class="nick" style="color:#80b1d3"><a href="#040744" label="[04:07:44]">&lt;muurkha&gt;</a></span><span class="message">on amd64 to do that you need two instructions, like you have to say mov %rsi, %rdi; add %rcx, %rsi, because the add instruction overwrites the old value in %rsi so you have to save it first if you want to use it again</span></div><div class="line" id="040856"><span class="nick" style="color:#80b1d3"><a href="#040856" label="[04:08:56]">&lt;muurkha&gt;</a></span><span class="message">but the advantage of the two-operand approach is that all the instructions like that are 3-6 bits shorter</span></div><div class="line" id="040907"><span class="nick" style="color:#80b1d3"><a href="#040907" label="[04:09:07]">&lt;muurkha&gt;</a></span><span class="message">which turns out to matter more most of the time</span></div><div class="line" id="043743"><span class="nick" style="color:#6b8072"><a href="#043743" label="[04:37:43]">&lt;oriansj&gt;</a></span><span class="message">well 2-7 bits shorter (There are 4 register 3-op instruction sets and 128 register sets as well)</span></div><div class="line" id="043810"><span class="nick" style="color:#6b8072"><a href="#043810" label="[04:38:10]">&lt;oriansj&gt;</a></span><span class="message">and 90% of the time, 2OPs is what you want</span></div><div class="line" id="045719"><span class="nick" style="color:#80b1d3"><a href="#045719" label="[04:57:19]">&lt;muurkha&gt;</a></span><span class="message">I didn't know there were 4-register 3-operand instruction sets!</span></div><div class="line" id="045725"><span class="nick" style="color:#80b1d3"><a href="#045725" label="[04:57:25]">&lt;muurkha&gt;</a></span><span class="message">but yeah</span></div><div class="line" id="050027"><span class="nick" style="color:#80b1d3"><a href="#050027" label="[05:00:27]">&lt;muurkha&gt;</a></span><span class="message">even with 2 operands, about 80% of results are only used once, which is why accumulator-only and stack instruction sets work</span></div><div class="line" id="050104"><span class="nick" style="color:#80b1d3"><a href="#050104" label="[05:01:04]">&lt;muurkha&gt;</a></span><span class="message">but every once in a while you need an additional stack operation or two</span></div><div class="line" id="050513"><span class="nick" style="color:#6b8072"><a href="#050513" label="[05:05:13]">&lt;oriansj&gt;</a></span><span class="message">The NAND2TETRIS CPU technically is 3 operands as you can do *A = D + A (but having only 2 actual registers so not exactly ideal)</span></div><div class="line" id="050617"><span class="nick" style="color:#80b1d3"><a href="#050617" label="[05:06:17]">&lt;muurkha&gt;</a></span><span class="message">by &quot;3 operands&quot; I mean where the instruction contains three operand fields</span></div><div class="line" id="050634"><span class="nick" style="color:#80b1d3"><a href="#050634" label="[05:06:34]">&lt;muurkha&gt;</a></span><span class="message">normally source 1, source 2, and destination</span></div><div class="line" id="050815"><span class="nick" style="color:#6b8072"><a href="#050815" label="[05:08:15]">&lt;oriansj&gt;</a></span><span class="message">indeed and hence why I don't really count architectures with less than 4 registers</span></div><div class="line" id="053126"><span class="nick" style="color:#234e69"><a href="#053126" label="[05:31:26]">&lt;pabs3&gt;</a></span><span class="message"> <a rel="nofollow" href="https://blogs.gnome.org/tbernard/2022/10/10/post-collapse-computing-2/">https://blogs.gnome.org/tbernard/2022/10/10/post-collapse-computing-2/</a>  <a rel="nofollow" href="https://news.ycombinator.com/item?id=33151003">https://news.ycombinator.com/item?id=33151003</a> </span></div><div class="line" id="095356"><span class="nick">***</span><span class="message notice">robin_ is now known as robin</span></div><div class="line" id="103403"><span class="nick" style="color:#2e2a4a"><a href="#103403" label="[10:34:03]">&lt;stikonas[m]&gt;</a></span><span class="message">So I think bootstrappable.org was not setup with autorenewal</span></div><div class="line" id="103418"><span class="nick" style="color:#2e2a4a"><a href="#103418" label="[10:34:18]">&lt;stikonas[m]&gt;</a></span><span class="message">It happens every 3 months...</span></div><div class="line" id="180510"><span class="nick" style="color:#6c3d55"><a href="#180510" label="[18:05:10]">&lt;civodul&gt;</a></span><span class="message">stikonas[m]: there is auto-renewable, but &quot;certbot renew&quot; is choking for reasons i don't understand</span></div><div class="line" id="180518"><span class="nick" style="color:#6c3d55"><a href="#180518" label="[18:05:18]">&lt;civodul&gt;</a></span><span class="message">thanks for reporting the issue!</span></div><div class="line" id="181744"><span class="nick" style="color:#80b1d3"><a href="#181744" label="[18:17:44]">&lt;muurkha&gt;</a></span><span class="message">above all we should thank Guest98</span></div><div class="line" id="192945"><span class="nick" style="color:#d9d9d9"><a href="#192945" label="[19:29:45]">&lt;ilmu[m]&gt;</a></span><span class="message">&lt;muurkha&gt; &quot;above all we should thank Guest9...&quot; &lt;- all hail Guest98</span></div><div class="line" id="221527"><span class="nick" style="color:#2e2a4a"><a href="#221527" label="[22:15:27]">&lt;stikonas[m]&gt;</a></span><span class="message">civodul: good to know. Feel free to share error messages in case somebody here might be able to help</span></div><br /></div></body></html>

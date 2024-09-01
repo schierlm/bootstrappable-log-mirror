@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-06-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000252"><span class="nick" style="color:#8dd3c7"><a href="#000252" label="[00:02:52]">&lt;mihi&gt;</a></span><span class="message">And there are 830 more packages that are in a build cycle (i. e. you need A to build B and B to build A). Most of the cycles are quite small (3 or 4), but there is one strongly connected component of 749 packages that all form a giant ball of mud of build dependencies...</span></div><div class="line" id="000348"><span class="nick" style="color:#8dd3c7"><a href="#000348" label="[00:03:48]">&lt;mihi&gt;</a></span><span class="message">Hagfish, probably there is a way to get them built (or cross-built) without depending on them, but at least the default build will first download the binary before building the source.</span></div><div class="line" id="000457"><span class="nick" style="color:#8dd3c7"><a href="#000457" label="[00:04:57]">&lt;mihi&gt;</a></span><span class="message">BTW any suggestions how to visualize a strongly-connected directed graph with 749 nodes? I could not get graphviz/dot to finish. yEd is able to open and visualize it, but either you only see a large gray ball of mud, or the nodes are too small to be seen...</span></div><div class="line" id="000534"><span class="nick" style="color:#8dd3c7"><a href="#000534" label="[00:05:34]">&lt;mihi&gt;</a></span><span class="message">All my data is here (also the scripts to create it), maybe I made some mistakes... <a rel="nofollow" href="https://github.com/schierlm/DebianBootstrapSuggestions">https://github.com/schierlm/DebianBootstrapSuggestions</a> </span></div><div class="line" id="002305"><span class="nick" style="color:#2e2a4a"><a href="#002305" label="[00:23:05]">&lt;Hagfish&gt;</a></span><span class="message">mihi: if there is a significant subset of nodes that don't depend on anything, but are depended on by lots of things, you could take them out of the graph and maybe colour the remaining nodes based on which core nodes they depend on</span></div><div class="line" id="002345"><span class="nick" style="color:#2e2a4a"><a href="#002345" label="[00:23:45]">&lt;Hagfish&gt;</a></span><span class="message">other than that, i think &quot;large gray ball of mud&quot; is as much semantic meaning as you can extract from a 749 node graph</span></div><div class="line" id="002400"><span class="nick" style="color:#2e2a4a"><a href="#002400" label="[00:24:00]">&lt;Hagfish&gt;</a></span><span class="message">at that scale, the problem isn't the visualisation, it's the input data :)</span></div><div class="line" id="002425"><span class="nick" style="color:#8dd3c7"><a href="#002425" label="[00:24:25]">&lt;mihi&gt;</a></span><span class="message">Hagfish, in a strongly connected graph there are no nodes that don't depend on anything :)</span></div><div class="line" id="002444"><span class="nick" style="color:#8dd3c7"><a href="#002444" label="[00:24:44]">&lt;mihi&gt;</a></span><span class="message">(strongly connected == every node indirectly depends on every other node)</span></div><div class="line" id="002907"><span class="nick" style="color:#6b8072"><a href="#002907" label="[00:29:07]">&lt;oriansj&gt;</a></span><span class="message">Melg8: --BaseAddress and --base-address in hex2 simply specify what is the address for which the binary will be loaded into memory. Its impact is primary on stack space for x86 and AMD64 and other architectures that put the stack below the binary in memory.</span></div><div class="line" id="002953"><span class="nick" style="color:#6b8072"><a href="#002953" label="[00:29:53]">&lt;oriansj&gt;</a></span><span class="message">So changing its value will never break a hex2 file (unless it hard-codes an address instead of doing &amp;label)</span></div><div class="line" id="003057"><span class="nick" style="color:#6b8072"><a href="#003057" label="[00:30:57]">&lt;oriansj&gt;</a></span><span class="message">The reason why I choose 0x8048000 and janneke opted for 0x1000000 is: it was the address that GCC usually does for x86 binaries and 0x1000000 is just a nice round number.</span></div><div class="line" id="003303"><span class="nick" style="color:#6b8072"><a href="#003303" label="[00:33:03]">&lt;oriansj&gt;</a></span><span class="message">mihi: I think sorting out Debian's build is going to involve some ugly guix build magic to sort it all out. Because I don't think it will be possible to bootstrap Debian outside of a functional package manager.</span></div><div class="line" id="003601"><span class="nick" style="color:#6b8072"><a href="#003601" label="[00:36:01]">&lt;oriansj&gt;</a></span><span class="message">stikonas: yeah mes-m2 is basically the ugly workhouse of dealing with all of the ugly details of bootstrapping mes.c and I can't blame janneke for that; M2-Planet+mescc-tools is my mess to clean up</span></div><div class="line" id="003739"><span class="nick" style="color:#6b8072"><a href="#003739" label="[00:37:39]">&lt;oriansj&gt;</a></span><span class="message">also stage0-posix has the current mes-m2 kaem build scripts for x86 but I'll need hel pto finish the M2libc porting of mes-m2+mescc to finally make mes-m2 architecture neutral.</span></div><div class="line" id="004033"><span class="nick" style="color:#8dd3c7"><a href="#004033" label="[00:40:33]">&lt;mihi&gt;</a></span><span class="message">oriansj, I agree until you have bootstrapped all &quot;build-essential&quot; packages (which include the package manager). My analysis was about the packages that are *not* build-essential and could in theory be bootstrapped from within a &quot;build-essential&quot; Debian.</span></div><div class="line" id="012317"><span class="nick" style="color:#6b8072"><a href="#012317" label="[01:23:17]">&lt;oriansj&gt;</a></span><span class="message">mihi: thank you for that correction in my understanding ^_^</span></div><div class="line" id="012914"><span class="nick" style="color:#2e2a4a"><a href="#012914" label="[01:29:14]">&lt;Hagfish&gt;</a></span><span class="message">mihi: and mine!</span></div><div class="line" id="012950"><span class="nick" style="color:#2e2a4a"><a href="#012950" label="[01:29:50]">&lt;Hagfish&gt;</a></span><span class="message">(pity i couldn't pass that on before they disconnected)</span></div><div class="line" id="022340"><span class="nick" style="color:#80b1d3"><a href="#022340" label="[02:23:40]">&lt;Melg8[m]&gt;</a></span><span class="message">oriansj: thanks!</span></div><div class="line" id="033512"><span class="nick" style="color:#80b1d3"><a href="#033512" label="[03:35:12]">&lt;Melg8[m]&gt;</a></span><span class="message">oriansj: can't we use something like <a rel="nofollow" href="https://github.com/xoreaxeaxeax/movfuscator">https://github.com/xoreaxeaxeax/movfuscator</a>  idea to protect some of our c compilers against kernel messing around? so like take this movfuscator compiled with regular gcc than compile tinycc with it, check that all instructions in resulting binary is moves, and than try to compile kernel with it?) than use that kernel to run the rest</span></div><div class="line" id="033935"><span class="nick" style="color:#80b1d3"><a href="#033935" label="[03:39:35]">&lt;Melg8[m]&gt;</a></span><span class="message">okay, from the video about it, that wouldn't fly - because compiler compiled with this would compile hello world for 3 days.</span></div><div class="line" id="033946"><span class="nick" style="color:#6b8072"><a href="#033946" label="[03:39:46]">&lt;oriansj&gt;</a></span><span class="message">Melg8: one would need to bootstrap a trusted GCC before one could use such a compiler. (As it needs GCC to be built)</span></div><div class="line" id="034032"><span class="nick" style="color:#6b8072"><a href="#034032" label="[03:40:32]">&lt;oriansj&gt;</a></span><span class="message">Also one doesn't have to compromise the binaries to compromise the outputs of the binaries.</span></div><div class="line" id="091308"><span class="nick" style="color:#6d2462"><a href="#091308" label="[09:13:08]">&lt;siraben&gt;</a></span><span class="message">Could someone maybe comment about the feasibility of <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/123">https://github.com/fosslinux/live-bootstrap/issues/123</a>  ?</span></div><div class="line" id="091313"><span class="nick" style="color:#6d2462"><a href="#091313" label="[09:13:13]">&lt;siraben&gt;</a></span><span class="message">(running live-bootstrap w/out sudo)</span></div><div class="line" id="092205"><span class="nick" style="color:#234e69"><a href="#092205" label="[09:22:05]">&lt;nimaje&gt;</a></span><span class="message">well, you should be root in docker(?), than just creating a small script at /bin/sudo that runs the command that sudo would run should work(?)</span></div><div class="line" id="092400"><span class="nick" style="color:#234e69"><a href="#092400" label="[09:24:00]">&lt;nimaje&gt;</a></span><span class="message">and as live-bootstrap don't uses options for sudo (as far as I found) the script would be   #!/bin/sh\n&quot;$@&quot;</span></div><div class="line" id="092529"><span class="nick" style="color:#6c3d55"><a href="#092529" label="[09:25:29]">&lt;fossy&gt;</a></span><span class="message">siraben: were you running without kvm also??</span></div><div class="line" id="092547"><span class="nick" style="color:#6d2462"><a href="#092547" label="[09:25:47]">&lt;siraben&gt;</a></span><span class="message">fossy: yeah without kvm as well</span></div><div class="line" id="092553"><span class="nick" style="color:#6c3d55"><a href="#092553" label="[09:25:53]">&lt;fossy&gt;</a></span><span class="message">gosh and it worked?</span></div><div class="line" id="092601"><span class="nick" style="color:#6c3d55"><a href="#092601" label="[09:26:01]">&lt;fossy&gt;</a></span><span class="message">that would have been super fricking slow</span></div><div class="line" id="092614"><span class="nick" style="color:#6d2462"><a href="#092614" label="[09:26:14]">&lt;siraben&gt;</a></span><span class="message">yes if I ran it on an actual NixOS server</span></div><div class="line" id="092624"><span class="nick" style="color:#6d2462"><a href="#092624" label="[09:26:24]">&lt;siraben&gt;</a></span><span class="message">uh I didn't stick around to see how long it took, heh</span></div><div class="line" id="092632"><span class="nick" style="color:#6d2462"><a href="#092632" label="[09:26:32]">&lt;siraben&gt;</a></span><span class="message">s/if/when/</span></div><div class="line" id="092653"><span class="nick" style="color:#6c3d55"><a href="#092653" label="[09:26:53]">&lt;fossy&gt;</a></span><span class="message">lol when gforce_d11977 tried it it ran for multiple days</span></div><div class="line" id="092706"><span class="nick" style="color:#6c3d55"><a href="#092706" label="[09:27:06]">&lt;fossy&gt;</a></span><span class="message">can probably just add a --disable-sudo --disable-kvm flags</span></div><div class="line" id="092718"><span class="nick" style="color:#6c3d55"><a href="#092718" label="[09:27:18]">&lt;fossy&gt;</a></span><span class="message">yeah that's doable</span></div><div class="line" id="092849"><span class="nick" style="color:#6d2462"><a href="#092849" label="[09:28:49]">&lt;siraben&gt;</a></span><span class="message">fossy: it definitely took less than a day for me</span></div><div class="line" id="092903"><span class="nick" style="color:#6d2462"><a href="#092903" label="[09:29:03]">&lt;siraben&gt;</a></span><span class="message">like a few hours tops (I ssh'd into my server to check on it)</span></div><div class="line" id="092932"><span class="nick" style="color:#6d2462"><a href="#092932" label="[09:29:32]">&lt;siraben&gt;</a></span><span class="message">hah, at most 4 hours according to my IRC messages</span></div><div class="line" id="092942"><span class="nick" style="color:#6d2462"><a href="#092942" label="[09:29:42]">&lt;siraben&gt;</a></span><span class="message">actually, let me run it again now</span></div><div class="line" id="093842"><span class="nick" style="color:#6d2462"><a href="#093842" label="[09:38:42]">&lt;siraben&gt;</a></span><span class="message">started: Wed 02 Jun 2021 07:38:29 AM UTC</span></div><div class="line" id="093901"><span class="nick" style="color:#6d2462"><a href="#093901" label="[09:39:01]">&lt;siraben&gt;</a></span><span class="message">`date; sudo nix-shell -I nixpkgs=channel:nixpkgs-unstable -p python3 python38Packages.requests qemu linuxPackages_4_4.kernel --run 'python3 ./rootfs.py --chroot --force_timestamps --tmpdir ./temp'; date`</span></div><div class="line" id="152849"><span class="nick" style="color:#6d2462"><a href="#152849" label="[15:28:49]">&lt;siraben&gt;</a></span><span class="message">lol i did not get to find out because a shell gets launched after bootstrapping finishes</span></div><div class="line" id="153202"><span class="nick" style="color:#d9d9d9"><a href="#153202" label="[15:32:02]">&lt;stikonas&gt;</a></span><span class="message">siraben: well, that's why timestamps option is not the default</span></div><div class="line" id="153216"><span class="nick" style="color:#d9d9d9"><a href="#153216" label="[15:32:16]">&lt;stikonas&gt;</a></span><span class="message">if you hadn't enabled it, you could then just check for latest file written</span></div><div class="line" id="153457"><span class="nick" style="color:#6d2462"><a href="#153457" label="[15:34:57]">&lt;siraben&gt;</a></span><span class="message">Yeah, I'll do it again now</span></div><div class="line" id="184758"><span class="nick" style="color:#6d2462"><a href="#184758" label="[18:47:58]">&lt;siraben&gt;</a></span><span class="message">stikonas:  I have a time</span></div><div class="line" id="184812"><span class="nick" style="color:#6d2462"><a href="#184812" label="[18:48:12]">&lt;siraben&gt;</a></span><span class="message">fossy: Wed 02 Jun 2021 15:05:10 PM UTC to 15:59 UTC</span></div><div class="line" id="195229"><span class="nick">***</span><span class="message notice">jackhill is now known as KM4MBG</span></div><div class="line" id="201421"><span class="nick">***</span><span class="message notice">wowaname is now known as opal</span></div><div class="line" id="202409"><span class="nick">***</span><span class="message notice">KM4MBG is now known as jackhill</span></div><div class="line" id="204532"><span class="nick" style="color:#bc80bd"><a href="#204532" label="[20:45:32]">&lt;stikonas[m]&gt;</a></span><span class="message">less than an hour?</span></div><div class="line" id="204548"><span class="nick" style="color:#bc80bd"><a href="#204548" label="[20:45:48]">&lt;stikonas[m]&gt;</a></span><span class="message">that sounds like it was not an emulated build</span></div><div class="line" id="204605"><span class="nick" style="color:#bc80bd"><a href="#204605" label="[20:46:05]">&lt;stikonas[m]&gt;</a></span><span class="message">well, if it's chroot, then qemu/kvm is irrelevant</span></div><div class="line" id="224622"><span class="nick" style="color:#3c5b35"><a href="#224622" label="[22:46:22]">&lt;Melg8&gt;</a></span><span class="message">Hi, is mes-m2, which is build by m2-planet on 13 step with mes-m2.kaem called by (live-bootstrap/sysa/mescc-tools-seed/src/mescc-tools-seed/x86/kaem.run) used anywhere later in the build or not?</span></div><div class="line" id="233859"><span class="nick" style="color:#6b8072"><a href="#233859" label="[23:38:59]">&lt;oriansj&gt;</a></span><span class="message">Melg8: mes-m2 built by M2-Planet is the mes.c binary upon which MesCC runs to compile TCC (assuming they have integrated the latest stage0-posix commit)</span></div><div class="line" id="234126"><span class="nick" style="color:#3c5b35"><a href="#234126" label="[23:41:26]">&lt;Melg8&gt;</a></span><span class="message">no, i think i'm looking at version that doesnt include this latest stage0-posix</span></div><div class="line" id="234353"><span class="nick" style="color:#6b8072"><a href="#234353" label="[23:43:53]">&lt;oriansj&gt;</a></span><span class="message">Melg8: that seems like something one would want to get done as it includes some serious performance improvements for mescc-tools and the mescc-tools-extra submodule which allows sha256sum checks of everything although I think I forgot to include the mescc-tools-extra build and the after.kaem hook for live-bootstrap to eliminate the double reboot.</span></div><div class="line" id="234414"><span class="nick" style="color:#3c5b35"><a href="#234414" label="[23:44:14]">&lt;Melg8&gt;</a></span><span class="message">why m2-planet -&gt; custom mes-m2 -&gt; GNU Mes (MesCC?) -&gt; TCC - can't some of this pipe collapse into something smaller?</span></div><div class="line" id="234549"><span class="nick" style="color:#6b8072"><a href="#234549" label="[23:45:49]">&lt;oriansj&gt;</a></span><span class="message">Melg8: well the old stage0-posix didn't build a mes-m2 that could run MesCC; So it was kinda a hack around that issue but the latest does build a mes-m2 that can run MesCC (and contains a version of MesCC that works in it too)</span></div><div class="line" id="234640"><span class="nick" style="color:#3c5b35"><a href="#234640" label="[23:46:40]">&lt;Melg8&gt;</a></span><span class="message">for example - what TCC can, that MesCC can't? what mes-m2 cant, but full Mes can?  i see that like 4 different c compilers, so they have different feature sets, if all of them needed?</span></div><div class="line" id="235014"><span class="nick" style="color:#6b8072"><a href="#235014" label="[23:50:14]">&lt;oriansj&gt;</a></span><span class="message">Melg8: well cc_* is the most minimal C compiler written in assembly so it is the only one that doesn't need a C compiler to be built. M2-Planet is the only C compiler simple enough to be built by cc_* but support macros and a bunch of nice extra features needed to build mes-m2 (a scheme interpreter) MesCC is a scheme program that compiles C programs but includes enough features to build TCC but not GCC.</span></div><div class="line" id="235159"><span class="nick" style="color:#3c5b35"><a href="#235159" label="[23:51:59]">&lt;Melg8&gt;</a></span><span class="message">btw, i try to eliminate some of code duplication with generator based on nix, which uses nix to generate kaem scripts, and what i observed so far is that (at least with versions of projects, that used by live-bootstrap) for example file x86_defs.M1 - with slight differences - are used from 3 different places (stage0-posix/x86/,</span></div><div class="line" id="235200"><span class="nick" style="color:#3c5b35"><a href="#235200" label="[23:52:00]">&lt;Melg8&gt;</a></span><span class="message">m2-planet/test/common_x86, mes-wip-2_13/lib/m2/x86) that looks strange for me)</span></div><div class="line" id="235516"><span class="nick" style="color:#3c5b35"><a href="#235516" label="[23:55:16]">&lt;Melg8&gt;</a></span><span class="message">so in principle - TCC or even GCC could be backported as M2-planet stage (which can be build by cc_) an that's it?</span></div><div class="line" id="235655"><span class="nick" style="color:#6b8072"><a href="#235655" label="[23:56:55]">&lt;oriansj&gt;</a></span><span class="message">Melg8: well those were harmonized in M2libc</span></div><div class="line" id="235751"><span class="nick" style="color:#6b8072"><a href="#235751" label="[23:57:51]">&lt;oriansj&gt;</a></span><span class="message">but yes in theory with sufficient effort TCC or GCC could be built by M2-Planet  or cc_*</span></div><br /></div></body></html>

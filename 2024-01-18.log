@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-01-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003325"><span class="nick" style="color:#389600"><a href="#003325" label="[00:33:25]">&lt;stikonas&gt;</a></span><span class="message">lrvick: what are you configure options?</span></div><div class="line" id="013019"><span class="nick" style="color:#389600"><a href="#013019" label="[01:30:19]">&lt;stikonas&gt;</a></span><span class="message">lrvick: at least from the long it seems it thinks it's running on x86_64-pc-linux-musl host</span></div><div class="line" id="013032"><span class="nick" style="color:#389600"><a href="#013032" label="[01:30:32]">&lt;stikonas&gt;</a></span><span class="message">but you need both build and host to be 32-bits</span></div><div class="line" id="013035"><span class="nick" style="color:#389600"><a href="#013035" label="[01:30:35]">&lt;stikonas&gt;</a></span><span class="message">and target to be 64-bits</span></div><div class="line" id="013139"><span class="nick" style="color:#389600"><a href="#013139" label="[01:31:39]">&lt;stikonas&gt;</a></span><span class="message">x86_64-pc-linux-muslx32 is not good tripple I think</span></div><div class="line" id="013144"><span class="nick" style="color:#389600"><a href="#013144" label="[01:31:44]">&lt;stikonas&gt;</a></span><span class="message">it will think that it's 64-bit</span></div><div class="line" id="022138"><span class="nick" style="color:#8dd3c7"><a href="#022138" label="[02:21:38]">&lt;lrvick&gt;</a></span><span class="message">Ah, it actually failed in libgcc. Was looking at the wrong config.log. <a rel="nofollow" href="https://dpaste.org/btsCX">https://dpaste.org/btsCX</a> </span></div><div class="line" id="022250"><span class="nick" style="color:#8dd3c7"><a href="#022250" label="[02:22:50]">&lt;lrvick&gt;</a></span><span class="message">but yeah let me hardcode --build and --host and see what happens</span></div><div class="line" id="023602"><span class="nick" style="color:#8dd3c7"><a href="#023602" label="[02:36:02]">&lt;lrvick&gt;</a></span><span class="message">it has at least lasted longer so far!</span></div><div class="line" id="043034"><span class="nick" style="color:#8dd3c7"><a href="#043034" label="[04:30:34]">&lt;lrvick&gt;</a></span><span class="message">nope, was too optimistic on time. Still only made it back to libgcc. It is seemingly ignoring --host and --build even after a distclean and reconfigure. <a rel="nofollow" href="https://dpaste.org/2wprA">https://dpaste.org/2wprA</a> </span></div><div class="line" id="093159"><span class="nick" style="color:#8dd3c7"><a href="#093159" label="[09:31:59]">&lt;lrvick&gt;</a></span><span class="message">made it a bit further. Now failing at missing pthread</span></div><div class="line" id="093204"><span class="nick" style="color:#8dd3c7"><a href="#093204" label="[09:32:04]">&lt;lrvick&gt;</a></span><span class="message"> <a rel="nofollow" href="https://dpaste.org/3ouyr">https://dpaste.org/3ouyr</a> </span></div><div class="line" id="101733"><span class="nick" style="color:#2e2a4a"><a href="#101733" label="[10:17:33]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Just disable threads</span></div><div class="line" id="101754"><span class="nick" style="color:#2e2a4a"><a href="#101754" label="[10:17:54]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; And other optional thongs during configure</span></div><div class="line" id="102817"><span class="nick" style="color:#8dd3c7"><a href="#102817" label="[10:28:17]">&lt;lrvick&gt;</a></span><span class="message">it is not fully clear what is and is not optinoal, but trying to disable threads now...</span></div><div class="line" id="120430"><span class="nick" style="color:#2e2a4a"><a href="#120430" label="[12:04:30]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Probably --disable-threads</span></div><div class="line" id="124112"><span class="nick" style="color:#2e2a4a"><a href="#124112" label="[12:41:12]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; See <a rel="nofollow" href="https://www.linuxfromscratch.org/lfs/view/development/chapter05/gcc-pass1.html">https://www.linuxfromscratch.org/lfs/view/development/chapter05/gcc-pass1.html</a>  too for what should be disabled</span></div><div class="line" id="133359"><span class="nick" style="color:#6b8072"><a href="#133359" label="[13:33:59]">&lt;Googulator&gt;</a></span><span class="message">pder: so simply enabling CONFIG_QEMU_DEBUGCON somehow makes it work?</span></div><div class="line" id="133459"><span class="nick" style="color:#6b8072"><a href="#133459" label="[13:34:59]">&lt;Googulator&gt;</a></span><span class="message">also, do you see the line &quot;QEMU Bochs-style debug console emulation enabled&quot; printed?</span></div><div class="line" id="201055"><span class="nick" style="color:#80b1d3"><a href="#201055" label="[20:10:55]">&lt;pder&gt;</a></span><span class="message">Googulator: no I don't see that line.  I searched my tmux scrollback buffer</span></div><div class="line" id="205137"><span class="nick" style="color:#8dd3c7"><a href="#205137" label="[20:51:37]">&lt;lrvick&gt;</a></span><span class="message">Okay disabled everything I think I can and got further</span></div><div class="line" id="205152"><span class="nick" style="color:#8dd3c7"><a href="#205152" label="[20:51:52]">&lt;lrvick&gt;</a></span><span class="message">new problem: #8 653.3 /bin/sh: line 8: x86_64-linux-musl-ar: command not found</span></div><div class="line" id="205301"><span class="nick" style="color:#8dd3c7"><a href="#205301" label="[20:53:01]">&lt;lrvick&gt;</a></span><span class="message">I had the same problem with &quot;as&quot; and got around it with &quot;--with-as=/usr/sbin/as&quot; but there does not appear to be a &quot;--with-ar&quot;</span></div><div class="line" id="205627"><span class="nick" style="color:#6d2462"><a href="#205627" label="[20:56:27]">&lt;Mikaku&gt;</a></span><span class="message">pder: if you enabled CONFIG_QEMU_DEBUGCON you definitely must see the line &quot;QEMU Bochs-style debug console emulation enabled&quot; during the kernel boot up</span></div><div class="line" id="205726"><span class="nick" style="color:#8dd3c7"><a href="#205726" label="[20:57:26]">&lt;lrvick&gt;</a></span><span class="message">lets see if I can symlink around this...</span></div><div class="line" id="211619"><span class="nick" style="color:#80b1d3"><a href="#211619" label="[21:16:19]">&lt;pder&gt;</a></span><span class="message">        if(kstat.flags &amp; KF_HAS_DEBUGCON) {</span></div><div class="line" id="211622"><span class="nick" style="color:#80b1d3"><a href="#211622" label="[21:16:22]">&lt;pder&gt;</a></span><span class="message">                printk(&quot;\t\t\t\tQEMU Bochs-style debug console emulation enabled\n&quot;);</span></div><div class="line" id="211624"><span class="nick" style="color:#80b1d3"><a href="#211624" label="[21:16:24]">&lt;pder&gt;</a></span><span class="message">        }</span></div><div class="line" id="211812"><span class="nick" style="color:#80b1d3"><a href="#211812" label="[21:18:12]">&lt;pder&gt;</a></span><span class="message">Mikaku: the only change I made was to change line in include/fiwix/config.h to #define CONFIG_QEMU_DEBUGCON</span></div><div class="line" id="211832"><span class="nick" style="color:#80b1d3"><a href="#211832" label="[21:18:32]">&lt;pder&gt;</a></span><span class="message">I did not change any qemu parameters for this test</span></div><div class="line" id="211904"><span class="nick" style="color:#80b1d3"><a href="#211904" label="[21:19:04]">&lt;pder&gt;</a></span><span class="message">Perhaps that if condition is not true for some other reason?</span></div><div class="line" id="220634"><span class="nick" style="color:#6d2462"><a href="#220634" label="[22:06:34]">&lt;Mikaku&gt;</a></span><span class="message">pder: ah, you're right, you need to include the specific parameter to QEMU</span></div><br /></div></body></html>

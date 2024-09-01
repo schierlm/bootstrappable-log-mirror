@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-06-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="022421"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="040459"><span class="nick" style="color:#8dd3c7"><a href="#040459" label="[04:04:59]">&lt;fossy&gt;</a></span><span class="message">can anmyone remember from many years ago if i would need to do anything special to get a serial console working under linux 2.6? console=ttyS0 dosen't help, netiher does earlyprint :( could be a kexec thing too</span></div><div class="line" id="041444"><span class="nick" style="color:#2e2a4a"><a href="#041444" label="[04:14:44]">&lt;oriansj&gt;</a></span><span class="message">Hagfish: we already exposed a half-dozen false truths about bootstrapping. The most frequent being that writing a good FORTH or a good scheme is much much harder than it is to write a capable C compiler. (The original cc_86.S was done in less than 24 hours but we spent years to get mes.c into the state needed today. [And it still needs improvements to run things like gash, gash-utils and bootstar])</span></div><div class="line" id="043856"><span class="nick" style="color:#6b8072"><a href="#043856" label="[04:38:56]">&lt;siraben&gt;</a></span><span class="message">oriansj: do you think that using Forth for bootstrapping would be very difficult?</span></div><div class="line" id="050155"><span class="nick" style="color:#2e2a4a"><a href="#050155" label="[05:01:55]">&lt;oriansj&gt;</a></span><span class="message">siraben: well in a skilled FORTH programmer's hands bootstrapping can be productively done in FORTH. The big problem is cooperation with other programmers. Much like it is rare to see more than one developer work on a scheme, it is rare to see more than one FORTH programmer work on a FORTH program.</span></div><div class="line" id="050251"><span class="nick" style="color:#6b8072"><a href="#050251" label="[05:02:51]">&lt;siraben&gt;</a></span><span class="message">Right.</span></div><div class="line" id="050323"><span class="nick" style="color:#2e2a4a"><a href="#050323" label="[05:03:23]">&lt;oriansj&gt;</a></span><span class="message">That isn't to say that it couldn't be done but it requires something harder to find than 2 C programmers who don't break each other's code.</span></div><div class="line" id="050415"><span class="nick" style="color:#2e2a4a"><a href="#050415" label="[05:04:15]">&lt;oriansj&gt;</a></span><span class="message">and honestly NieDzejkob has done some wonderful work in FORTH</span></div><div class="line" id="050508"><span class="nick" style="color:#2e2a4a"><a href="#050508" label="[05:05:08]">&lt;oriansj&gt;</a></span><span class="message">Mostly squeezing it into 510bytes (the last 2 bytes are needed for the boot tag)</span></div><div class="line" id="050906"><span class="nick" style="color:#2e2a4a"><a href="#050906" label="[05:09:06]">&lt;oriansj&gt;</a></span><span class="message">and I hope they make amazing progress in bootstrapping. Such projects tend to just sizzle out and it would be nice to be proven wrong about FORTH. But ask yourself this, could FORTH be used to implement cc_x86 in less than 24 hours? Which I absolutely could do in Assembly (even faster now that I have done it before)</span></div><div class="line" id="051517"><span class="nick" style="color:#2e2a4a"><a href="#051517" label="[05:15:17]">&lt;oriansj&gt;</a></span><span class="message">If I spent as much time on TCC as I did trying to compile mes.c with M2-Planet; it probably would have been done sooner.</span></div><div class="line" id="051719"><span class="nick" style="color:#2e2a4a"><a href="#051719" label="[05:17:19]">&lt;oriansj&gt;</a></span><span class="message">especially now that we have much better M2-Planet debug and macro support.</span></div><div class="line" id="051804"><span class="nick" style="color:#2e2a4a"><a href="#051804" label="[05:18:04]">&lt;oriansj&gt;</a></span><span class="message">and getting back to the M3 work when I finally get freetime is the current plan.</span></div><div class="line" id="094743"><span class="nick" style="color:#8dd3c7"><a href="#094743" label="[09:47:43]">&lt;fossy&gt;</a></span><span class="message">Ooops, my review for #127 was pending and not submitted :x</span></div><div class="line" id="124932"><span class="nick" style="color:#8dd3c7"><a href="#124932" label="[12:49:32]">&lt;fossy&gt;</a></span><span class="message">hell yea <a rel="nofollow" href="https://ttm.sh/FOi.txt">https://ttm.sh/FOi.txt</a> </span></div><div class="line" id="125450"><span class="nick" style="color:#8dd3c7"><a href="#125450" label="[12:54:50]">&lt;fossy&gt;</a></span><span class="message">stikonas: what do you think of when we reboot into a new kernel using a &quot;disk&quot; (which would just be a disk image in tmpfs for qemu mode)</span></div><div class="line" id="125505"><span class="nick" style="color:#8dd3c7"><a href="#125505" label="[12:55:05]">&lt;fossy&gt;</a></span><span class="message">i.e. root=/dev/sda instead of initramfs?</span></div><div class="line" id="125610"><span class="nick" style="color:#8dd3c7"><a href="#125610" label="[12:56:10]">&lt;fossy&gt;</a></span><span class="message">there's quite a few benefits at that point, including: transition to real linux filesystem structure (FHS), future kernel reboots don't need a generation of an initramfs</span></div><div class="line" id="125611"><span class="nick" style="color:#80b1d3"><a href="#125611" label="[12:56:11]">&lt;stikonas&gt;</a></span><span class="message">hmm, I'm not yet sure how it works</span></div><div class="line" id="125621"><span class="nick" style="color:#80b1d3"><a href="#125621" label="[12:56:21]">&lt;stikonas&gt;</a></span><span class="message">where is that disk image stored?</span></div><div class="line" id="125642"><span class="nick" style="color:#80b1d3"><a href="#125642" label="[12:56:42]">&lt;stikonas&gt;</a></span><span class="message">oh, on the host?</span></div><div class="line" id="125648"><span class="nick" style="color:#8dd3c7"><a href="#125648" label="[12:56:48]">&lt;fossy&gt;</a></span><span class="message">if you were running on real hardware it would be a real hard drive, the disk image would be on the host yeah</span></div><div class="line" id="125657"><span class="nick" style="color:#8dd3c7"><a href="#125657" label="[12:56:57]">&lt;fossy&gt;</a></span><span class="message">and then just -hda sysa/tmp/drive.img or whatever</span></div><div class="line" id="125714"><span class="nick" style="color:#80b1d3"><a href="#125714" label="[12:57:14]">&lt;stikonas&gt;</a></span><span class="message">on real hardware this has to be configurable...</span></div><div class="line" id="125718"><span class="nick" style="color:#8dd3c7"><a href="#125718" label="[12:57:18]">&lt;fossy&gt;</a></span><span class="message">yeah</span></div><div class="line" id="125731"><span class="nick" style="color:#8dd3c7"><a href="#125731" label="[12:57:31]">&lt;fossy&gt;</a></span><span class="message">i'm looking at how we can do an interactive configuration system</span></div><div class="line" id="125748"><span class="nick" style="color:#8dd3c7"><a href="#125748" label="[12:57:48]">&lt;fossy&gt;</a></span><span class="message">i'm thinking if our configuration file dosen't exist then we do interactive config otherwise read from that file</span></div><div class="line" id="125757"><span class="nick" style="color:#80b1d3"><a href="#125757" label="[12:57:57]">&lt;stikonas&gt;</a></span><span class="message">yeah, that's probably the best</span></div><div class="line" id="125806"><span class="nick" style="color:#80b1d3"><a href="#125806" label="[12:58:06]">&lt;stikonas&gt;</a></span><span class="message">do interactive with an option of preseeding answers</span></div><div class="line" id="125810"><span class="nick" style="color:#8dd3c7"><a href="#125810" label="[12:58:10]">&lt;fossy&gt;</a></span><span class="message">yeah</span></div><div class="line" id="125834"><span class="nick" style="color:#8dd3c7"><a href="#125834" label="[12:58:34]">&lt;fossy&gt;</a></span><span class="message">preseeding for emulation in particular, I don't want to have to input every time I run for dev lol</span></div><div class="line" id="125844"><span class="nick" style="color:#80b1d3"><a href="#125844" label="[12:58:44]">&lt;stikonas&gt;</a></span><span class="message">exactly</span></div><div class="line" id="125907"><span class="nick" style="color:#80b1d3"><a href="#125907" label="[12:59:07]">&lt;stikonas&gt;</a></span><span class="message">and will chroot mode survive (skipping kernel build)?</span></div><div class="line" id="125917"><span class="nick" style="color:#8dd3c7"><a href="#125917" label="[12:59:17]">&lt;fossy&gt;</a></span><span class="message">yeah, can just set chroot=true or something</span></div><div class="line" id="125922"><span class="nick" style="color:#8dd3c7"><a href="#125922" label="[12:59:22]">&lt;fossy&gt;</a></span><span class="message">in config file</span></div><div class="line" id="125925"><span class="nick" style="color:#80b1d3"><a href="#125925" label="[12:59:25]">&lt;stikonas&gt;</a></span><span class="message">ok</span></div><div class="line" id="125933"><span class="nick" style="color:#80b1d3"><a href="#125933" label="[12:59:33]">&lt;stikonas&gt;</a></span><span class="message">otherwise it's hard to do development, especially checksums</span></div><div class="line" id="125952"><span class="nick" style="color:#8dd3c7"><a href="#125952" label="[12:59:52]">&lt;fossy&gt;</a></span><span class="message">oh yeah no doubt we need chroot mode</span></div><div class="line" id="234502"><span class="nick" style="color:#6d2462"><a href="#234502" label="[23:45:02]">&lt;civodul&gt;</a></span><span class="message">janneke: surprising Wheeler reply on rb-general</span></div><div class="line" id="234517"><span class="nick" style="color:#6d2462"><a href="#234517" label="[23:45:17]">&lt;civodul&gt;</a></span><span class="message"> <a rel="nofollow" href="https://lists.reproducible-builds.org/pipermail/rb-general/2021-June/002287.html">https://lists.reproducible-builds.org/pipermail/rb-general/2021-June/002287.html</a> </span></div><div class="line" id="234525"><span class="nick" style="color:#6d2462"><a href="#234525" label="[23:45:25]">&lt;civodul&gt;</a></span><span class="message">looks a bit off to me</span></div><br /></div></body></html>

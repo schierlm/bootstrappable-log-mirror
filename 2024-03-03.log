@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-03-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="022512"><span class="nick" style="color:#389600"><a href="#022512" label="[02:25:12]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Christoph&gt; oriansj: Defining types bit by bit touches on a question I have long time now: What exactly is a type? How is 'type' defined? Bartosz Milewski models types with sets, but types cannot be sets because so many proof assistents make a point of working with types instead of sets. I've never seen axioms for types like Zermelo Fraenkel for sets. But I once saw a PhD thesis where a type by definition had an...</span></div><div class="line" id="022517"><span class="nick" style="color:#389600"><a href="#022517" label="[02:25:17]">&lt;matrix_bridge&gt;</a></span><span class="message">... encoding of its values specified (and I curse myself for having lost the reference). And now you wish for a programming language that allows defining types down to their bit representation, that's why I ask you.</span></div><div class="line" id="125222"><span class="nick" style="color:#8dd3c7"><a href="#125222" label="[12:52:22]">&lt;oriansj&gt;</a></span><span class="message">Christoph: the simplest way I know how to express the concepts of types in programming languages is as a bounded set of states with positional information which delivers some meaning to hardware.</span></div><div class="line" id="125729"><span class="nick" style="color:#8dd3c7"><a href="#125729" label="[12:57:29]">&lt;oriansj&gt;</a></span><span class="message">For example the following hardware: 1bit &lt;=&gt; 1 pixel graphics display; if you rearrange the bits inside of a byte (say from big to little endian) the image no longer appears correctly. If the property of an operation produces (say add) results in some effect; if its behavior changes the output we don't get the picture we expect but changes in its behavior that don't change the output (such as shuffling around internal operations to</span></div><div class="line" id="125729"><span class="nick" style="color:#8dd3c7"><a href="#125729" label="[12:57:29]">&lt;oriansj&gt;</a></span><span class="message">speed things up) we are fine with (assuming such shuffling doesn't result in side channels that leak private keys)</span></div><div class="line" id="130502"><span class="nick" style="color:#8dd3c7"><a href="#130502" label="[13:05:02]">&lt;oriansj&gt;</a></span><span class="message">they either must map to physical hardware requirements (like an ALU's big bit endian and little byte endian immediate format) or to human abstractions which are simple to reason about (Like Lisp's *WONDERFUL* rational number types)</span></div><div class="line" id="131813"><span class="nick" style="color:#8dd3c7"><a href="#131813" label="[13:18:13]">&lt;oriansj&gt;</a></span><span class="message">but those abstractions must ultimately have transformations and mappings that reduce down to the primitive types supported directly in hardware.</span></div><div class="line" id="131911"><span class="nick" style="color:#8dd3c7"><a href="#131911" label="[13:19:11]">&lt;oriansj&gt;</a></span><span class="message">and one could include primitive types that hardware doesn't directly support and thus incur a penalty for the multiple operations required to simulate them.</span></div><div class="line" id="185516"><span class="nick" style="color:#8dd3c7"><a href="#185516" label="[18:55:16]">&lt;oriansj&gt;</a></span><span class="message">I also believe there is a book called: Types and Programming Languages by Benjamin C. Pierce on the topic</span></div><div class="line" id="190904"><span class="nick" style="color:#2e2a4a"><a href="#190904" label="[19:09:04]">&lt;webczat&gt;</a></span><span class="message">question, someone here definitely knows: how to compile relocatable gcc? which is not dependent on the directory it's put in?</span></div><div class="line" id="191227"><span class="nick" style="color:#8dd3c7"><a href="#191227" label="[19:12:27]">&lt;oriansj&gt;</a></span><span class="message">which depends upon external libraries or no?</span></div><div class="line" id="191244"><span class="nick" style="color:#2e2a4a"><a href="#191244" label="[19:12:44]">&lt;webczat&gt;</a></span><span class="message">it's static linked. it's more about the search paths</span></div><div class="line" id="191302"><span class="nick" style="color:#2e2a4a"><a href="#191302" label="[19:13:02]">&lt;webczat&gt;</a></span><span class="message">the --with-sysroot makes it depend on paths.</span></div><div class="line" id="191407"><span class="nick" style="color:#8dd3c7"><a href="#191407" label="[19:14:07]">&lt;oriansj&gt;</a></span><span class="message">(also you need to include binutils and a glibc binary) well there is rpath</span></div><div class="line" id="191442"><span class="nick" style="color:#2e2a4a"><a href="#191442" label="[19:14:42]">&lt;webczat&gt;</a></span><span class="message">oriansj: this is a statically linked musl based gcc.</span></div><div class="line" id="191525"><span class="nick" style="color:#2e2a4a"><a href="#191525" label="[19:15:25]">&lt;webczat&gt;</a></span><span class="message">actually the problem is mostly header search</span></div><div class="line" id="191607"><span class="nick" style="color:#8dd3c7"><a href="#191607" label="[19:16:07]">&lt;oriansj&gt;</a></span><span class="message">you can just pass where you want it to look for headers/libraries</span></div><div class="line" id="191629"><span class="nick" style="color:#389600"><a href="#191629" label="[19:16:29]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; It's probably just easier to fake path for GCC using namespaces</span></div><div class="line" id="191657"><span class="nick" style="color:#8dd3c7"><a href="#191657" label="[19:16:57]">&lt;oriansj&gt;</a></span><span class="message">-I /$PATH/</span></div><div class="line" id="191724"><span class="nick" style="color:#2e2a4a"><a href="#191724" label="[19:17:24]">&lt;webczat&gt;</a></span><span class="message">oriansj: i was just wondering how does it normally look like when you make a portable native toolchain like available on <a rel="nofollow" href="http://musl.cc">http://musl.cc</a>  ... used it once but don't remember if it was path dependent or required passing flags to find stdlib includes</span></div><div class="line" id="191739"><span class="nick" style="color:#2e2a4a"><a href="#191739" label="[19:17:39]">&lt;webczat&gt;</a></span><span class="message">namespace tricks are really nice tricks. i love namespaces.</span></div><div class="line" id="191821"><span class="nick" style="color:#8dd3c7"><a href="#191821" label="[19:18:21]">&lt;oriansj&gt;</a></span><span class="message">plan 9 has a good few more than Linux but then again it isn't the most loved Unix</span></div><div class="line" id="191903"><span class="nick" style="color:#2e2a4a"><a href="#191903" label="[19:19:03]">&lt;webczat&gt;</a></span><span class="message">oriansj: for example?</span></div><div class="line" id="192010"><span class="nick" style="color:#8dd3c7"><a href="#192010" label="[19:20:10]">&lt;oriansj&gt;</a></span><span class="message">Well right now by a large margin the most loved Unix is Linux</span></div><br /></div></body></html>

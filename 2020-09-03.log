@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-09-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003314"><span class="nick">***</span><span class="message notice">LHLaurini2 is now known as LHLaurini</span></div><div class="line" id="024847"><span class="nick" style="color:#8dd3c7"><a href="#024847" label="[02:48:47]">&lt;fossy&gt;</a></span><span class="message">has anyone managed to bootstrap maven</span></div><div class="line" id="065826"><span class="nick" style="color:#2e2a4a"><a href="#065826" label="[06:58:26]">&lt;janneke&gt;</a></span><span class="message">fossy: <a rel="nofollow" href="https://lists.gnu.org/archive/html/guix-devel/2020-04/msg00072.html">https://lists.gnu.org/archive/html/guix-devel/2020-04/msg00072.html</a> </span></div><div class="line" id="070442"><span class="nick" style="color:#2e2a4a"><a href="#070442" label="[07:04:42]">&lt;janneke&gt;</a></span><span class="message">an amazing piece of work by roptat, in guix master now</span></div><div class="line" id="070444"><span class="nick" style="color:#2e2a4a"><a href="#070444" label="[07:04:44]">&lt;janneke&gt;</a></span><span class="message">=&gt; <a rel="nofollow" href="https://guix.gnu.org/manual/devel/en/html_node/Build-Systems.html">https://guix.gnu.org/manual/devel/en/html_node/Build-Systems.html</a> </span></div><div class="line" id="081020"><span class="nick" style="color:#8dd3c7"><a href="#081020" label="[08:10:20]">&lt;fossy&gt;</a></span><span class="message">janneke: thanks!!</span></div><div class="line" id="081359"><span class="nick" style="color:#2e2a4a"><a href="#081359" label="[08:13:59]">&lt;janneke&gt;</a></span><span class="message">fossy: it's about 110 commits (some are just package updates), starting here = <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/guix.git/commit?id=55b90c90532cd50617fb3dd56173f96de1cbe0b3">https://git.savannah.gnu.org/cgit/guix.git/commit?id=55b90c90532cd50617fb3dd56173f96de1cbe0b3</a> </span></div><div class="line" id="111528"><span class="nick" style="color:#8dd3c7"><a href="#111528" label="[11:15:28]">&lt;fossy&gt;</a></span><span class="message">janneke: cool; i'm looking to implement something like this in void linux</span></div><div class="line" id="132133"><span class="nick" style="color:#6b8072"><a href="#132133" label="[13:21:33]">&lt;roptat&gt;</a></span><span class="message">fossy: there's maven itself (that I had already bootstrapped, with some help), then the build system that can't work with only maven. The commits you see are the second part</span></div><div class="line" id="132417"><span class="nick" style="color:#6b8072"><a href="#132417" label="[13:24:17]">&lt;roptat&gt;</a></span><span class="message">Maven needs some plugins, and they normally require at least a plugin to build. I re-implemented the functionalities of the maven-plugin-plugin to be able to build plugins (including a minimal java parser), as well as procodures to deal with pom files, override version numbers in them and install them in a hierarchy that mimics maven's .m2</span></div><div class="line" id="205039"><span class="nick" style="color:#80b1d3"><a href="#205039" label="[20:50:39]">&lt;dongcarl&gt;</a></span><span class="message">Anyone got a link to KnightVM ISA docs?</span></div><div class="line" id="211853"><span class="nick" style="color:#6d2462"><a href="#211853" label="[21:18:53]">&lt;stikonas&gt;</a></span><span class="message">dongcarl: do you mean this <a rel="nofollow" href="https://github.com/oriansj/stage0/blob/41f99a9ffe36aecc16078051513a589eb13f5af8/High_level_prototypes/defs">https://github.com/oriansj/stage0/blob/41f99a9ffe36aecc16078051513a589eb13f5af8/High_level_prototypes/defs</a> </span></div><div class="line" id="211958"><span class="nick" style="color:#80b1d3"><a href="#211958" label="[21:19:58]">&lt;dongcarl&gt;</a></span><span class="message">Oh I somewhat vaguely remember there being more detailed docs... But I'm probably misremembering</span></div><div class="line" id="212204"><span class="nick" style="color:#6d2462"><a href="#212204" label="[21:22:04]">&lt;stikonas&gt;</a></span><span class="message">maybe this <a rel="nofollow" href="https://github.com/oriansj/stage0/blob/7c138543112180cc7171cb21319a77aa3391fa7f/ISA_HEX_Map.org">https://github.com/oriansj/stage0/blob/7c138543112180cc7171cb21319a77aa3391fa7f/ISA_HEX_Map.org</a> </span></div><div class="line" id="212232"><span class="nick" style="color:#6d2462"><a href="#212232" label="[21:22:32]">&lt;stikonas&gt;</a></span><span class="message">it seems a bit more detailed</span></div><br /></div></body></html>

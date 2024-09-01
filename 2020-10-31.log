@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-10-31.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="134517"><span class="nick" style="color:#8dd3c7"><a href="#134517" label="[13:45:17]">&lt;yt&gt;</a></span><span class="message">hi folks, I'm in the middle of porting stage0 to AArch64. I'm currently reworking cc_amd64.S to target AArch64, but noticed that M2-Planet supports a &quot;continue&quot; statement, while cc_amd64.S doesn't (it parses, but doesn't emit code). M2-Planet does use a single continue statement in its C source for cc. So, my question: replace the continue</span></div><div class="line" id="134517"><span class="nick" style="color:#8dd3c7"><a href="#134517" label="[13:45:17]">&lt;yt&gt;</a></span><span class="message">statement in M2 with a goto, or add continue support to the compiler written in assembly?</span></div><div class="line" id="143635"><span class="nick">***</span><span class="message notice">yt is now known as snnw</span></div><div class="line" id="144030"><span class="nick" style="color:#2e2a4a"><a href="#144030" label="[14:40:30]">&lt;deesix&gt;</a></span><span class="message">Hello snnw. I think there's cc_aarch64.s already.</span></div><div class="line" id="144556"><span class="nick" style="color:#2e2a4a"><a href="#144556" label="[14:45:56]">&lt;deesix&gt;</a></span><span class="message">snnw, since b425b4a5c8ae799d13188a857402712d49391d66 at git://git.savannah.gnu.org/stage0.git Are we talking about the same stage?</span></div><div class="line" id="144843"><span class="nick" style="color:#6b8072"><a href="#144843" label="[14:48:43]">&lt;snnw&gt;</a></span><span class="message">possibly not :D I'm looking at <a rel="nofollow" href="https://github.com/oriansj/stage0">https://github.com/oriansj/stage0</a>  in &quot;Linux Bootstrap&quot;</span></div><div class="line" id="145255"><span class="nick" style="color:#2e2a4a"><a href="#145255" label="[14:52:55]">&lt;deesix&gt;</a></span><span class="message">Oh, that's the mescc-tools-seed submodule.</span></div><div class="line" id="145519"><span class="nick" style="color:#6b8072"><a href="#145519" label="[14:55:19]">&lt;snnw&gt;</a></span><span class="message">ah yeah, sorry, slightly different from &quot;stage0&quot;</span></div><div class="line" id="145919"><span class="nick" style="color:#2e2a4a"><a href="#145919" label="[14:59:19]">&lt;deesix&gt;</a></span><span class="message">I'm not familiar with that, sorry. I guess OriansJ will answers your questions as soon as possible.</span></div><div class="line" id="150026"><span class="nick" style="color:#6b8072"><a href="#150026" label="[15:00:26]">&lt;snnw&gt;</a></span><span class="message">No worries. Do you happen to know which of the bootstrap flows people focus on most?</span></div><div class="line" id="151940"><span class="nick" style="color:#2e2a4a"><a href="#151940" label="[15:19:40]">&lt;deesix&gt;</a></span><span class="message">I'm not sure.</span></div><div class="line" id="182132"><span class="nick" style="color:#80b1d3"><a href="#182132" label="[18:21:32]">&lt;kj24&gt;</a></span><span class="message">hello</span></div><div class="line" id="182223"><span class="nick" style="color:#80b1d3"><a href="#182223" label="[18:22:23]">&lt;kj24&gt;</a></span><span class="message">does anyone know how much is the worth of bootstrap websites in fiver or upwork</span></div><div class="line" id="182757"><span class="nick" style="color:#6d2462"><a href="#182757" label="[18:27:57]">&lt;yanmaani&gt;</a></span><span class="message">wrong channel</span></div><div class="line" id="215649"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-08-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003105"><span class="nick" style="color:#389600"><a href="#003105" label="[00:31:05]">&lt;oriansj&gt;</a></span><span class="message">stikonas: definitely true and probably a good deal of work.</span></div><div class="line" id="003822"><span class="nick" style="color:#8dd3c7"><a href="#003822" label="[00:38:22]">&lt;stikonas&gt;</a></span><span class="message">and actually for riscv64, even tcc does not support binutils compatible assembly...</span></div><div class="line" id="003830"><span class="nick" style="color:#8dd3c7"><a href="#003830" label="[00:38:30]">&lt;stikonas&gt;</a></span><span class="message">the syntax is slightly different...</span></div><div class="line" id="183107"><span class="nick" style="color:#2e2a4a"><a href="#183107" label="[18:31:07]">&lt;janneke&gt;</a></span><span class="message">ACTION just answered samplet...and is pretty blown away by their work <a rel="nofollow" href="https://lists.gnu.org/archive/html/bug-mes/2023-08/msg00000.html">https://lists.gnu.org/archive/html/bug-mes/2023-08/msg00000.html</a> </span></div><div class="line" id="183938"><span class="nick" style="color:#6b8072"><a href="#183938" label="[18:39:38]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; janneke: Speaking of your email, I don't think we have any blockers for new M2-Planet, I guess main blocker is that oriansj needs to find time to make a release</span></div><div class="line" id="184315"><span class="nick" style="color:#6b8072"><a href="#184315" label="[18:43:15]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; janneke: and at the moment ekaitz and I (for riscv work) are running mes with commit HACK mescc: Consider truncate after each shift operation.</span></div><div class="line" id="184354"><span class="nick" style="color:#6b8072"><a href="#184354" label="[18:43:54]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; <a rel="nofollow" href="https://git.stikonas.eu/andrius/mes/commits/branch/wip-riscv">https://git.stikonas.eu/andrius/mes/commits/branch/wip-riscv</a> </span></div><div class="line" id="184407"><span class="nick" style="color:#6b8072"><a href="#184407" label="[18:44:07]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; That might be sufficient to bootstrap tcc</span></div><div class="line" id="184738"><span class="nick" style="color:#80b1d3"><a href="#184738" label="[18:47:38]">&lt;ekaitz&gt;</a></span><span class="message">janneke stikonas, we still have that struct initializer issue in mes, but for the moment we can go on with the hack stikonas proposed</span></div><div class="line" id="184740"><span class="nick" style="color:#6b8072"><a href="#184740" label="[18:47:40]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; We are able to build tcc that still has some issues but this mes-tcc binary can rebuild mes C library except for strtold.c</span></div><div class="line" id="184747"><span class="nick" style="color:#80b1d3"><a href="#184747" label="[18:47:47]">&lt;ekaitz&gt;</a></span><span class="message">which is basically initialize by hand all the fields</span></div><div class="line" id="184817"><span class="nick" style="color:#6b8072"><a href="#184817" label="[18:48:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Indeed, in practice initialising one field was enough</span></div><div class="line" id="184937"><span class="nick" style="color:#2e2a4a"><a href="#184937" label="[18:49:37]">&lt;janneke&gt;</a></span><span class="message">that's great</span></div><div class="line" id="184942"><span class="nick" style="color:#2e2a4a"><a href="#184942" label="[18:49:42]">&lt;janneke&gt;</a></span><span class="message">grmbl</span></div><div class="line" id="184957"><span class="nick" style="color:#2e2a4a"><a href="#184957" label="[18:49:57]">&lt;janneke&gt;</a></span><span class="message"> /msg chanserv deop #bootstrappable</span></div><div class="line" id="185033"><span class="nick" style="color:#80b1d3"><a href="#185033" label="[18:50:33]">&lt;ekaitz&gt;</a></span><span class="message">janneke: stikonas is doing a great job with all this</span></div><div class="line" id="185042"><span class="nick" style="color:#2e2a4a"><a href="#185042" label="[18:50:42]">&lt;janneke&gt;</a></span><span class="message">i can totally appreciate having to find time for a release</span></div><div class="line" id="185057"><span class="nick" style="color:#2e2a4a"><a href="#185057" label="[18:50:57]">&lt;janneke&gt;</a></span><span class="message">such things don't go well under time pressure anyway</span></div><div class="line" id="185130"><span class="nick" style="color:#2e2a4a"><a href="#185130" label="[18:51:30]">&lt;janneke&gt;</a></span><span class="message">yeah, it's really more exciting all the time!</span></div><div class="line" id="190632"><span class="nick" style="color:#6b8072"><a href="#190632" label="[19:06:32]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; ekaitz: well, you also sorted out assembly instructions and casts</span></div><div class="line" id="190815"><span class="nick" style="color:#80b1d3"><a href="#190815" label="[19:08:15]">&lt;ekaitz&gt;</a></span><span class="message">:)</span></div><div class="line" id="191012"><span class="nick" style="color:#2e2a4a"><a href="#191012" label="[19:10:12]">&lt;janneke&gt;</a></span><span class="message">for who haven't heard, mes runs gash =&gt; <a rel="nofollow" href="https://lists.gnu.org/archive/html/bug-mes/2023-08/msg00000.html">https://lists.gnu.org/archive/html/bug-mes/2023-08/msg00000.html</a> </span></div><div class="line" id="191039"><span class="nick" style="color:#2e2a4a"><a href="#191039" label="[19:10:39]">&lt;janneke&gt;</a></span><span class="message">or maybe gash runs on mes -- it depends on how you look a it :)</span></div><div class="line" id="191212"><span class="nick" style="color:#6b8072"><a href="#191212" label="[19:12:12]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yes, that would be nice to have</span></div><div class="line" id="191249"><span class="nick" style="color:#6b8072"><a href="#191249" label="[19:12:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; At least as initial bash replacement</span></div><div class="line" id="191302"><span class="nick" style="color:#6b8072"><a href="#191302" label="[19:13:02]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; As kaem shell is much simpler</span></div><div class="line" id="191812"><span class="nick" style="color:#6b8072"><a href="#191812" label="[19:18:12]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Now we need scheme version of autotools (autoconf/automake, etc)</span></div><div class="line" id="191927"><span class="nick" style="color:#6b8072"><a href="#191927" label="[19:19:27]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But that's probably too hard...</span></div><div class="line" id="191944"><span class="nick" style="color:#6b8072"><a href="#191944" label="[19:19:44]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Different autotools versions are also quite incompatible</span></div><br /></div></body></html>

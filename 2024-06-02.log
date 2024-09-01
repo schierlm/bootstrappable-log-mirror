@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="035857"><span class="nick" style="color:#389600"><a href="#035857" label="[03:58:57]">&lt;Googulator&gt;</a></span><span class="message">mihi: getcwd is used one line earlier without failing, so it's presumably not null - that leaves libc as possibly null</span></div><div class="line" id="040024"><span class="nick" style="color:#389600"><a href="#040024" label="[04:00:24]">&lt;Googulator&gt;</a></span><span class="message">(and yes, I'm aware &quot;variable&quot; is not quite the right word in a functional language, but Scheme is also not Haskell, so I'm assuming libc is something intermediate between a true variable and the kind of defined values you can have in a pure functional language like Haskell)</span></div><div class="line" id="043612"><span class="nick" style="color:#389600"><a href="#043612" label="[04:36:12]">&lt;Googulator&gt;</a></span><span class="message">indeed, if Scheme were lazy like Haskell, then a printout fixing an error where something is unexpectedly null would be a lot more understandable, although still potentially pointing to a language / runtime environment bug</span></div><div class="line" id="045034"><span class="nick" style="color:#8dd3c7"><a href="#045034" label="[04:50:34]">&lt;oriansj&gt;</a></span><span class="message">well scheme being compiled to byte-code could being doing an optimization pass and skip anything that doesn't have side effects.</span></div><div class="line" id="045102"><span class="nick" style="color:#8dd3c7"><a href="#045102" label="[04:51:02]">&lt;oriansj&gt;</a></span><span class="message">pabs3: &gt;.&lt; ouch</span></div><div class="line" id="114556"><span class="nick" style="color:#2e2a4a"><a href="#114556" label="[11:45:56]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Indeed ouch...</span></div><div class="line" id="114615"><span class="nick" style="color:#2e2a4a"><a href="#114615" label="[11:46:15]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; You need to use recovery that doesn't support USB booting :O</span></div><div class="line" id="114636"><span class="nick" style="color:#2e2a4a"><a href="#114636" label="[11:46:36]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; PCs supported this for 20 years at least</span></div><div class="line" id="114650"><span class="nick" style="color:#2e2a4a"><a href="#114650" label="[11:46:50]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Much simpler recovering from USB...</span></div><div class="line" id="133700"><span class="nick" style="color:#6b8072"><a href="#133700" label="[13:37:00]">&lt;mihi&gt;</a></span><span class="message">stikonas: to be fair, for a not-so-technical person having to reinstall their OS it can be an obstacle to find an empty USB key large enough where you can put your installer on (so when helping out, I usually carry an empty or emptiable USB key with me). So a recovery in firmware that supports the built-in network adapters and can recover macOS from network is certainly convenient (for recovering macOS, not for</span></div><div class="line" id="133701"><span class="nick" style="color:#6b8072"><a href="#133701" label="[13:37:01]">&lt;mihi&gt;</a></span><span class="message">installing Linux). Microsoft tried to add this (&quot;Cloud Reinstall&quot;) to Windows 10/11 Recovery for a while, but in my experience it is more often failing than working.</span></div><div class="line" id="134859"><span class="nick" style="color:#6b8072"><a href="#134859" label="[13:48:59]">&lt;mihi&gt;</a></span><span class="message">Googulator, so it fails in string-append when setting cflags because argument is not a string (because it is presumably #f)? And I don't mind anyone calling a lexical let binding a variable, as it behaves as such. Still, when you consider this C code: char *printed = assoc_ref(inputs, &quot;libc&quot;), *headers = assoc_ref(input, &quot;headers&quot;), *libc = assoc_ref(input, &quot;libc&quot;);  I would not call libc and printed to be the</span></div><div class="line" id="134859"><span class="nick" style="color:#6b8072"><a href="#134859" label="[13:48:59]">&lt;mihi&gt;</a></span><span class="message">same variable (although a correct assoc_ref implementation probably lets both point to the same string).</span></div><div class="line" id="135311"><span class="nick" style="color:#6b8072"><a href="#135311" label="[13:53:11]">&lt;mihi&gt;</a></span><span class="message">(Still, when there is corrupted memory around, or some parts reside in &quot;free&quot; memory, I can think of many reasons why assoc_ref might return different results for same arguments, especially when you cannot rule out that the GC might have been running between both calls - debugging that might be very tricky, though.</span></div><div class="line" id="135317"><span class="nick" style="color:#6b8072"><a href="#135317" label="[13:53:17]">&lt;mihi&gt;</a></span><span class="message">)</span></div><div class="line" id="135442"><span class="nick" style="color:#6b8072"><a href="#135442" label="[13:54:42]">&lt;mihi&gt;</a></span><span class="message">Googulator, I assume it still breaks (does not fix the issue) when you do the printing between the bindings for libs and cflags?</span></div><div class="line" id="135558"><span class="nick" style="color:#6b8072"><a href="#135558" label="[13:55:58]">&lt;mihi&gt;</a></span><span class="message">i.e. adding an extra binding (_ignored (begin (display &quot;GETCWD &quot;) (display (getcwd)) (display &quot;LIBC&quot;) (display (assoc-ref inputs &quot;libc&quot;)) (newline))) ?</span></div><div class="line" id="135703"><span class="nick" style="color:#6b8072"><a href="#135703" label="[13:57:03]">&lt;mihi&gt;</a></span><span class="message">argh I meant (_ignored (begin (display &quot;GETCWD &quot;) (display (getcwd)) (display &quot;LIBC&quot;) (display libc) (newline))</span></div><div class="line" id="140155"><span class="nick" style="color:#6b8072"><a href="#140155" label="[14:01:55]">&lt;mihi&gt;</a></span><span class="message">oriansj, I'm pretty sure both (display) and (setenv) have side-effects, so the compiler cannot skip either call to assoc-ref.</span></div><div class="line" id="172510"><span class="nick" style="color:#389600"><a href="#172510" label="[17:25:10]">&lt;Googulator&gt;</a></span><span class="message">OK, it gets weirder: with the debug prints added, it successfully builds glibc-mesboot once, then builds lots of other stuff, then again goes on to build glibc-mesboot(!), and it fails - with the same error and before</span></div><div class="line" id="172527"><span class="nick" style="color:#389600"><a href="#172527" label="[17:25:27]">&lt;Googulator&gt;</a></span><span class="message">*AND* I somehow don't see my debug prints in the 2nd (failing) run!</span></div><div class="line" id="172815"><span class="nick" style="color:#389600"><a href="#172815" label="[17:28:15]">&lt;Googulator&gt;</a></span><span class="message">As if it's somehow using the original code, instead of the patched one</span></div><div class="line" id="201058"><span class="nick" style="color:#2e2a4a"><a href="#201058" label="[20:10:58]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I don't know anything about guile, but I know JS VMs typically have some kind of command line/env var option to disable the JIT and runtime. That might be worth a try. <a rel="nofollow" href="https://www.gnu.org/software/guile/manual/html_node/Environment-Variables.html">https://www.gnu.org/software/guile/manual/html_node/Environment-Variables.html</a>   possibly GUILE_JIT_THRESHOLD=-1 ?</span></div><div class="line" id="201940"><span class="nick" style="color:#2e2a4a"><a href="#201940" label="[20:19:40]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; presumably Guile has some sort of test suite too? If so, does that get run as part of the build?</span></div><br /></div></body></html>

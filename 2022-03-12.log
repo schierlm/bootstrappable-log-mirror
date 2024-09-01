@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-03-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="061430"><span class="nick">***</span><span class="message notice">alMalsamo is now known as lumberjack123</span></div><div class="line" id="140137"><span class="nick" style="color:#8dd3c7"><a href="#140137" label="[14:01:37]">&lt;stikonas&gt;</a></span><span class="message">oriansj: is fossy not added to mescc-tools-extra repository? I've tried to add fossy as reviewer for <a rel="nofollow" href="https://github.com/oriansj/mescc-tools-extra/pull/9">https://github.com/oriansj/mescc-tools-extra/pull/9</a>  but somehow this doesn't work</span></div><div class="line" id="222119"><span class="nick" style="color:#8dd3c7"><a href="#222119" label="[22:21:19]">&lt;stikonas&gt;</a></span><span class="message">fossy: now I'm getting the same guile checksum in chroot mode too, was something fixed?</span></div><div class="line" id="222145"><span class="nick" style="color:#8dd3c7"><a href="#222145" label="[22:21:45]">&lt;stikonas&gt;</a></span><span class="message">I thought at some point earlier it was not reproducible</span></div><div class="line" id="224624"><span class="nick" style="color:#2e2a4a"><a href="#224624" label="[22:46:24]">&lt;fossy&gt;</a></span><span class="message">stikonas: yes i pushed a fix</span></div><div class="line" id="224637"><span class="nick" style="color:#2e2a4a"><a href="#224637" label="[22:46:37]">&lt;fossy&gt;</a></span><span class="message">it was that it needed to have the --build=i386-unknown-linux-musl</span></div><div class="line" id="224644"><span class="nick" style="color:#2e2a4a"><a href="#224644" label="[22:46:44]">&lt;fossy&gt;</a></span><span class="message">but the diffoscope didn't make that very obvious</span></div><div class="line" id="231950"><span class="nick" style="color:#8dd3c7"><a href="#231950" label="[23:19:50]">&lt;stikonas&gt;</a></span><span class="message">oh I see, yes, some packages need --build and/or --host options</span></div><div class="line" id="232026"><span class="nick" style="color:#8dd3c7"><a href="#232026" label="[23:20:26]">&lt;stikonas&gt;</a></span><span class="message">fossy: anyway, your PR is almost ready now, just need to fix those missing checksuming issues</span></div><div class="line" id="232040"><span class="nick" style="color:#8dd3c7"><a href="#232040" label="[23:20:40]">&lt;stikonas&gt;</a></span><span class="message">I pushed mescc-tools-extra update that might help with catching them</span></div><div class="line" id="232056"><span class="nick" style="color:#8dd3c7"><a href="#232056" label="[23:20:56]">&lt;stikonas&gt;</a></span><span class="message">although, I still need to update it in stage0-posix</span></div><div class="line" id="233240"><span class="nick" style="color:#8dd3c7"><a href="#233240" label="[23:32:40]">&lt;stikonas&gt;</a></span><span class="message">fossy: I've now pushed an update to stage0-posix</span></div><div class="line" id="233306"><span class="nick" style="color:#8dd3c7"><a href="#233306" label="[23:33:06]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/commit/a6ba2f6c17aa06ceeaccdea2fef352548b9e8e09">https://github.com/oriansj/stage0-posix/commit/a6ba2f6c17aa06ceeaccdea2fef352548b9e8e09</a> </span></div><div class="line" id="235702"><span class="nick" style="color:#2e2a4a"><a href="#235702" label="[23:57:02]">&lt;fossy&gt;</a></span><span class="message">stikonas: btw, i haven't seen  run.sh: line 196: /tmp/filelist.txt: error 02 in recent times</span></div><div class="line" id="235728"><span class="nick" style="color:#8dd3c7"><a href="#235728" label="[23:57:28]">&lt;stikonas&gt;</a></span><span class="message">possibly fixed by your latest commits</span></div><div class="line" id="235804"><span class="nick" style="color:#8dd3c7"><a href="#235804" label="[23:58:04]">&lt;stikonas&gt;</a></span><span class="message">it's not a big deal anyway, it was just a warning</span></div><div class="line" id="235819"><span class="nick" style="color:#8dd3c7"><a href="#235819" label="[23:58:19]">&lt;stikonas&gt;</a></span><span class="message">and if it's still there and we spot it later we can fix it then</span></div><div class="line" id="235827"><span class="nick" style="color:#8dd3c7"><a href="#235827" label="[23:58:27]">&lt;stikonas&gt;</a></span><span class="message">but checksums would be good to fix</span></div><div class="line" id="235951"><span class="nick" style="color:#2e2a4a"><a href="#235951" label="[23:59:51]">&lt;fossy&gt;</a></span><span class="message">yep, adding that change now</span></div><br /></div></body></html>

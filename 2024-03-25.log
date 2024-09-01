@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-03-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="075553"><span class="nick" style="color:#389600"><a href="#075553" label="[07:55:53]">&lt;ludocode&gt;</a></span><span class="message">Hello bootstrappers. I want to share something I've been working on for the past ~16 months. It's called Onramp: <a rel="nofollow" href="https://github.com/ludocode/onramp/">https://github.com/ludocode/onramp/</a> </span></div><div class="line" id="075634"><span class="nick" style="color:#389600"><a href="#075634" label="[07:56:34]">&lt;ludocode&gt;</a></span><span class="message">It's a bit like stage0 + M2-Planet + mescc all-in-one, except it's all built on a platform-independent bytecode, simple enough that the VM can be implemented directly in machine code.</span></div><div class="line" id="075702"><span class="nick" style="color:#389600"><a href="#075702" label="[07:57:02]">&lt;ludocode&gt;</a></span><span class="message">The idea is to make the bootstrap process future-proof so that bootstrapping can still be done far in the future or for aliens with architectures very different from our own. Sort of a permanent solution to the &quot;cuneiform tablets of 2015&quot; problem.</span></div><div class="line" id="075758"><span class="nick" style="color:#389600"><a href="#075758" label="[07:57:58]">&lt;ludocode&gt;</a></span><span class="message">It's nowhere near done of course. I want to get it building TinyCC, then eventually get it running in freestanding to catch up to the functionality of builder-hex0 and such. I'm probably a couple years away from this goal but making progress.</span></div><div class="line" id="110828"><span class="nick" style="color:#8dd3c7"><a href="#110828" label="[11:08:28]">&lt;ekaitz&gt;</a></span><span class="message">ludocode: really cool!</span></div><div class="line" id="124428"><span class="nick" style="color:#2e2a4a"><a href="#124428" label="[12:44:28]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Indeed sounds cool, custom VM here was floated from time to time but I guess the only thing we had was knight vm</span></div><div class="line" id="142054"><span class="nick" style="color:#2e2a4a"><a href="#142054" label="[14:20:54]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I guess the main difficulty is writing a really small VM that is still capable enough</span></div><div class="line" id="142116"><span class="nick" style="color:#2e2a4a"><a href="#142116" label="[14:21:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; For sure it will be far larger than hex1</span></div><div class="line" id="142327"><span class="nick" style="color:#6b8072"><a href="#142327" label="[14:23:27]">&lt;Guest991&gt;</a></span><span class="message">Hello, can anyone help me to write the rootfs.py file in bash language?</span></div><div class="line" id="143350"><span class="nick" style="color:#389600"><a href="#143350" label="[14:33:50]">&lt;ludocode&gt;</a></span><span class="message">Yeah I remember reading about Knight in stage 0 but I couldn't figure out what it was</span></div><div class="line" id="143415"><span class="nick" style="color:#389600"><a href="#143415" label="[14:34:15]">&lt;ludocode&gt;</a></span><span class="message">The VM for Onramp is really simple, only about 800 x86_64 instructions: <a rel="nofollow" href="https://github.com/ludocode/onramp/blob/develop/platform/vm/x86_64-linux/vm.ohx">https://github.com/ludocode/onramp/blob/develop/platform/vm/x86_64-linux/vm.ohx</a> </span></div><div class="line" id="143534"><span class="nick" style="color:#389600"><a href="#143534" label="[14:35:34]">&lt;ludocode&gt;</a></span><span class="message">Onramp's hex language also has what I call &quot;address assertions&quot;. A hex tool can treat them as comments and ignore them, or it can check that the address value matches the number of bytes that have been emitted</span></div><div class="line" id="143548"><span class="nick" style="color:#389600"><a href="#143548" label="[14:35:48]">&lt;ludocode&gt;</a></span><span class="message">Makes it a lot easier to write larger programs in hex machine code</span></div><div class="line" id="212339"><span class="nick" style="color:#80b1d3"><a href="#212339" label="[21:23:39]">&lt;euleritian&gt;</a></span><span class="message">There once was a GNU project called epsilon, which claimed to start with 7 primitives and allows to build any language from there. So all one would have to provide to port epsilon to other platforms would be those seven primitives. But as far as I can tell there never was a version 1.0, and it's been stale for many years. <a rel="nofollow" href="https://www.gnu.org/software/epsilon/">https://www.gnu.org/software/epsilon/</a> </span></div><div class="line" id="214940"><span class="nick" style="color:#2e2a4a"><a href="#214940" label="[21:49:40]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; doesn't even seem to have any code published there...</span></div><div class="line" id="214946"><span class="nick" style="color:#2e2a4a"><a href="#214946" label="[21:49:46]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; unless I'm looking at the wrong place</span></div><div class="line" id="215152"><span class="nick" style="color:#6d2462"><a href="#215152" label="[21:51:52]">&lt;plasma41&gt;</a></span><span class="message">Andrius Štikonas: <a rel="nofollow" href="http://git.savannah.gnu.org/cgit/epsilon.git">http://git.savannah.gnu.org/cgit/epsilon.git</a>  ?</span></div><div class="line" id="215216"><span class="nick" style="color:#2e2a4a"><a href="#215216" label="[21:52:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; ok, I was looking at some other repo</span></div><div class="line" id="215458"><span class="nick" style="color:#6d2462"><a href="#215458" label="[21:54:58]">&lt;plasma41&gt;</a></span><span class="message">The git repo only contains the code history going back to 2013. For older revisions one needs to look through the Bazaar repository that was used prior. <a rel="nofollow" href="http://bzr.savannah.gnu.org/lh/epsilon/">http://bzr.savannah.gnu.org/lh/epsilon/</a> </span></div><div class="line" id="223035"><span class="nick" style="color:#6d2462"><a href="#223035" label="[22:30:35]">&lt;plasma41&gt;</a></span><span class="message">TIL that Breezy, a Bazaar client written in Python, now requires a Rust compiler in its build process. :-(</span></div><br /></div></body></html>

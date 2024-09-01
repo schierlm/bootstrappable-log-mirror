@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-10-10.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013014"><span class="nick" style="color:#8dd3c7"><a href="#013014" label="[01:30:14]">&lt;stikonas&gt;</a></span><span class="message">hmm, interesting cc_amd64 problems when running directly in qemu without first going into bios menu or uefi shell seem to be stack related</span></div><div class="line" id="013019"><span class="nick" style="color:#8dd3c7"><a href="#013019" label="[01:30:19]">&lt;stikonas&gt;</a></span><span class="message">in particular that user stack thing</span></div><div class="line" id="013059"><span class="nick" style="color:#8dd3c7"><a href="#013059" label="[01:30:59]">&lt;stikonas&gt;</a></span><span class="message">though I don't yet understand how exactly</span></div><div class="line" id="013219"><span class="nick" style="color:#2e2a4a"><a href="#013219" label="[01:32:19]">&lt;muurkha&gt;</a></span><span class="message">oriansj: I agree; it's kind of based on the PDP-8 or the DG NOVA, but the NOVA *did* have 4 registers</span></div><div class="line" id="015711"><span class="nick" style="color:#8dd3c7"><a href="#015711" label="[01:57:11]">&lt;stikonas&gt;</a></span><span class="message">hmm, it's definitely UEFI shell that initializes something... BIOS menu only works after you exit from uefi shell but not before...</span></div><div class="line" id="085535"><span class="nick" style="color:#6b8072"><a href="#085535" label="[08:55:35]">&lt;Christoph[m]&gt;</a></span><span class="message">If there was, say, editor support for dealing with relative jumps, would you consider the result as written not by humans and thus not acceptable for bootstrap?</span></div><div class="line" id="085535"><span class="nick" style="color:#6b8072"><a href="#085535" label="[08:55:35]">&lt;Christoph[m]&gt;</a></span><span class="message">Or are there so few files that would be benefiting such an effort that it's not worth it?</span></div><div class="line" id="085721"><span class="nick" style="color:#80b1d3"><a href="#085721" label="[08:57:21]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">Christoph[m]: I would consider editor support for relative jumps to be acceptable for bootstrapping, if the relative jumps in the editor's source code were calculated by hand</span></div><div class="line" id="103720"><span class="nick" style="color:#6d2462"><a href="#103720" label="[10:37:20]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, there isn't that much hex0 code</span></div><div class="line" id="103754"><span class="nick" style="color:#6d2462"><a href="#103754" label="[10:37:54]">&lt;stikonas[m]&gt;</a></span><span class="message">Relative jumps are painful to cal calculate but we don't have that many of them</span></div><div class="line" id="104005"><span class="nick" style="color:#6d2462"><a href="#104005" label="[10:40:05]">&lt;stikonas[m]&gt;</a></span><span class="message">And if they are automatically calculated then it's a bit of cheating</span></div><div class="line" id="105633"><span class="nick" style="color:#6b8072"><a href="#105633" label="[10:56:33]">&lt;Christoph[m]&gt;</a></span><span class="message">hex0 code has to be written for each supported architecture?</span></div><div class="line" id="111818"><span class="nick" style="color:#234e69"><a href="#111818" label="[11:18:18]">&lt;unmatched-paren&gt;</a></span><span class="message">Christoph[m]: yes</span></div><div class="line" id="111835"><span class="nick" style="color:#234e69"><a href="#111835" label="[11:18:35]">&lt;unmatched-paren&gt;</a></span><span class="message">it's just a different and more tedious way to write assembly</span></div><div class="line" id="115929"><span class="nick" style="color:#6c3d55"><a href="#115929" label="[11:59:29]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged</span></div><div class="line" id="120204"><span class="nick" style="color:#6c3d55"><a href="#120204" label="[12:02:04]">&lt;oriansj&gt;</a></span><span class="message">Christoph[m]: well the hardest part of getting started with hex0, usually if you have to figure out all the stupid details which are never documented or are often documented incorrectly.</span></div><div class="line" id="120824"><span class="nick" style="color:#6c3d55"><a href="#120824" label="[12:08:24]">&lt;oriansj&gt;</a></span><span class="message">for example ARM incorrectly documents the order of the bits. it isn't [condition code] [operation] [register][register][shift][register], it is actually [shift][register][register][part opcode][register][condition code][part opcode]</span></div><div class="line" id="120908"><span class="nick" style="color:#6c3d55"><a href="#120908" label="[12:09:08]">&lt;oriansj&gt;</a></span><span class="message">PowerPC does ELF headers e_entry entirely differently from everyone else</span></div><div class="line" id="120958"><span class="nick" style="color:#6c3d55"><a href="#120958" label="[12:09:58]">&lt;oriansj&gt;</a></span><span class="message">RISC-V required a whole song and dance just to get to a minimal working state</span></div><div class="line" id="121406"><span class="nick" style="color:#6c3d55"><a href="#121406" label="[12:14:06]">&lt;oriansj&gt;</a></span><span class="message">muurkha: I think their 15bit immediate is probably to blame for the technical choices made in the design.</span></div><div class="line" id="122435"><span class="nick" style="color:#6c3d55"><a href="#122435" label="[12:24:35]">&lt;oriansj&gt;</a></span><span class="message">if they went with 32bit instructions, 16bit immediate and 16 registers and added just a handful more circuits to the main design (barrel shifter, call and return); then the assembly programming becomes so much cleaner and you can avoid having to do A = A ^ D; D = A ^D; A = A ^ D; (XOR swaps make me feel like a dirty little programming whore)</span></div><div class="line" id="124723"><span class="nick" style="color:#6d2462"><a href="#124723" label="[12:47:23]">&lt;stikonas[m]&gt;</a></span><span class="message">Christoph: And UEFI versions of hex0 required oriansj to figure out PE32 header</span></div><div class="line" id="124747"><span class="nick" style="color:#6d2462"><a href="#124747" label="[12:47:47]">&lt;stikonas[m]&gt;</a></span><span class="message">There is a bit of documentation but very incomplete</span></div><div class="line" id="124750"><span class="nick" style="color:#6d2462"><a href="#124750" label="[12:47:50]">&lt;stikonas[m]&gt;</a></span><span class="message">So a lot of trial and error</span></div><div class="line" id="124826"><span class="nick" style="color:#6d2462"><a href="#124826" label="[12:48:26]">&lt;stikonas[m]&gt;</a></span><span class="message">And PE32 header is huge, bigger than whole hex0 on POSIX</span></div><div class="line" id="124851"><span class="nick" style="color:#6d2462"><a href="#124851" label="[12:48:51]">&lt;stikonas[m]&gt;</a></span><span class="message">But a lot of it can be set to zero</span></div><div class="line" id="135948"><span class="nick" style="color:#6b8072"><a href="#135948" label="[13:59:48]">&lt;Christoph[m]&gt;</a></span><span class="message">Wow! I expected at least RISC-V to be properly documented!</span></div><div class="line" id="140148"><span class="nick" style="color:#6b8072"><a href="#140148" label="[14:01:48]">&lt;Christoph[m]&gt;</a></span><span class="message">And hex1? Is hex1 architecture independent? Or does that later start with C?</span></div><div class="line" id="145136"><span class="nick" style="color:#6d2462"><a href="#145136" label="[14:51:36]">&lt;stikonas[m]&gt;</a></span><span class="message">Christoph: hex1 is architecture dependent</span></div><div class="line" id="145141"><span class="nick" style="color:#6d2462"><a href="#145141" label="[14:51:41]">&lt;stikonas[m]&gt;</a></span><span class="message">Both code and algorithm</span></div><div class="line" id="145237"><span class="nick" style="color:#6d2462"><a href="#145237" label="[14:52:37]">&lt;stikonas[m]&gt;</a></span><span class="message">hex0 code is architecture dependent (needs to be ported to each ISA/platform) but algorithm is the same</span></div><div class="line" id="145330"><span class="nick" style="color:#6d2462"><a href="#145330" label="[14:53:30]">&lt;stikonas[m]&gt;</a></span><span class="message">So riscv version of hex0 can build hex0_x86.hex0 into 32-bit Elf executable hex0</span></div><div class="line" id="145415"><span class="nick" style="color:#6d2462"><a href="#145415" label="[14:54:15]">&lt;stikonas[m]&gt;</a></span><span class="message">Hex1, hex2 and M0 are then generally incompatible</span></div><div class="line" id="145441"><span class="nick" style="color:#6d2462"><a href="#145441" label="[14:54:41]">&lt;stikonas[m]&gt;</a></span><span class="message">Though x86 and amd64 version are compatible</span></div><div class="line" id="145555"><span class="nick" style="color:#6d2462"><a href="#145555" label="[14:55:55]">&lt;stikonas[m]&gt;</a></span><span class="message">Then later once we have M2-planet we build C versions (hex2 and M1) to replace early hex2 and M0</span></div><div class="line" id="145559"><span class="nick" style="color:#6d2462"><a href="#145559" label="[14:55:59]">&lt;stikonas[m]&gt;</a></span><span class="message">Those support all arches</span></div><div class="line" id="145630"><span class="nick" style="color:#6d2462"><a href="#145630" label="[14:56:30]">&lt;stikonas[m]&gt;</a></span><span class="message">(They accept --architecture command line arguments)</span></div><div class="line" id="145721"><span class="nick" style="color:#6d2462"><a href="#145721" label="[14:57:21]">&lt;stikonas[m]&gt;</a></span><span class="message">The reason is that different arches do quite different things with labels and immediate constants</span></div><div class="line" id="145827"><span class="nick" style="color:#6d2462"><a href="#145827" label="[14:58:27]">&lt;stikonas[m]&gt;</a></span><span class="message">E.g. on x86 call function 5 bytes later is E8 05000000</span></div><div class="line" id="145843"><span class="nick" style="color:#6d2462"><a href="#145843" label="[14:58:43]">&lt;stikonas[m]&gt;</a></span><span class="message">Whereas on RISC that number is encoded very non trivially</span></div><div class="line" id="145920"><span class="nick" style="color:#6d2462"><a href="#145920" label="[14:59:20]">&lt;stikonas[m]&gt;</a></span><span class="message"> <a rel="nofollow" href="https://i.stack.imgur.com/MUKIE.png">https://i.stack.imgur.com/MUKIE.png</a> </span></div><div class="line" id="150020"><span class="nick" style="color:#6d2462"><a href="#150020" label="[15:00:20]">&lt;stikonas[m]&gt;</a></span><span class="message">Calling function is jump style instruction</span></div><div class="line" id="150049"><span class="nick" style="color:#6d2462"><a href="#150049" label="[15:00:49]">&lt;stikonas[m]&gt;</a></span><span class="message">And you can see bits are shuffled arround</span></div><div class="line" id="150146"><span class="nick" style="color:#6d2462"><a href="#150146" label="[15:01:46]">&lt;stikonas[m]&gt;</a></span><span class="message">First you have bit 20 then 10, 9 8, ..., 1, 11, 19, 18, ..., 12</span></div><div class="line" id="150249"><span class="nick" style="color:#6d2462"><a href="#150249" label="[15:02:49]">&lt;stikonas[m]&gt;</a></span><span class="message">Actually the other way, this diagram is right to left...</span></div><div class="line" id="150252"><span class="nick" style="color:#6d2462"><a href="#150252" label="[15:02:52]">&lt;stikonas[m]&gt;</a></span><span class="message">But still shuffled a lot</span></div><div class="line" id="150418"><span class="nick" style="color:#6d2462"><a href="#150418" label="[15:04:18]">&lt;stikonas[m]&gt;</a></span><span class="message">So writing hex0 code is much harder on risc-v compared to x86/amd64</span></div><div class="line" id="150536"><span class="nick" style="color:#6d2462"><a href="#150536" label="[15:05:36]">&lt;stikonas[m]&gt;</a></span><span class="message">On x86 you just take a number, convert to hex and swap byte order to little endian</span></div><div class="line" id="150551"><span class="nick" style="color:#6d2462"><a href="#150551" label="[15:05:51]">&lt;stikonas[m]&gt;</a></span><span class="message">No other shuffling of bits is necessary</span></div><div class="line" id="150658"><span class="nick" style="color:#6d2462"><a href="#150658" label="[15:06:58]">&lt;stikonas[m]&gt;</a></span><span class="message">And on risc-v I used this template to help me: <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-riscv64/blob/master/Development/immediate_transformations.txt">https://github.com/oriansj/stage0-posix-riscv64/blob/master/Development/immediate_transformations.txt</a> </span></div><div class="line" id="171457"><span class="nick" style="color:#d9d9d9"><a href="#171457" label="[17:14:57]">&lt;aggi&gt;</a></span><span class="message">this hex0 language, is this equivalent to directly feeding opcodes into the CPU?</span></div><div class="line" id="172631"><span class="nick" style="color:#2e2a4a"><a href="#172631" label="[17:26:31]">&lt;muurkha&gt;</a></span><span class="message">oriansj: or 17-bit instructions</span></div><div class="line" id="182723"><span class="nick" style="color:#6d2462"><a href="#182723" label="[18:27:23]">&lt;stikonas[m]&gt;</a></span><span class="message">aggi: basically yes, plus two things: comments and conversion of a pair of ASCII hex numbers to bytes</span></div><div class="line" id="182754"><span class="nick" style="color:#6d2462"><a href="#182754" label="[18:27:54]">&lt;stikonas[m]&gt;</a></span><span class="message">And we only write 3 things in it</span></div><div class="line" id="182814"><span class="nick" style="color:#6d2462"><a href="#182814" label="[18:28:14]">&lt;stikonas[m]&gt;</a></span><span class="message">1. hex0 itself. This should be as small as possible</span></div><div class="line" id="183002"><span class="nick" style="color:#6d2462"><a href="#183002" label="[18:30:02]">&lt;stikonas[m]&gt;</a></span><span class="message">2. kaem-optional-sees: trivial shell that can run other commands, this might be optional if you have a way of running hex0 but is often useful in scripting automations</span></div><div class="line" id="183002"><span class="nick" style="color:#6d2462"><a href="#183002" label="[18:30:02]">&lt;stikonas[m]&gt;</a></span><span class="message">3. hex1 which can calculate relative jumps</span></div><div class="line" id="183040"><span class="nick" style="color:#6d2462"><a href="#183040" label="[18:30:40]">&lt;stikonas[m]&gt;</a></span><span class="message">One can just start with hex1 but then your minimal seed would be bigger</span></div><div class="line" id="183049"><span class="nick" style="color:#6d2462"><a href="#183049" label="[18:30:49]">&lt;stikonas[m]&gt;</a></span><span class="message">Though amount of hex0 code smaller...</span></div><div class="line" id="214233"><span class="nick">***</span><span class="message notice">jackhill is now known as KM4MBG</span></div><div class="line" id="214306"><span class="nick">***</span><span class="message notice">KM4MBG is now known as jackhill</span></div><br /></div></body></html>

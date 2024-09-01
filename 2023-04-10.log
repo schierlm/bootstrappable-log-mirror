@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-04-10.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="022444"><span class="nick" style="color:#389600"><a href="#022444" label="[02:24:44]">&lt;fossy&gt;</a></span><span class="message">oh, i do vaguely remember that, mihi</span></div><div class="line" id="082359"><span class="nick" style="color:#8dd3c7"><a href="#082359" label="[08:23:59]">&lt;aggi&gt;</a></span><span class="message">seems tcc-0.9.27 requires rather many libc functions (which 0.9.22 didn't), besides uint64_t related macros(__udivdi3 etc.)</span></div><div class="line" id="082451"><span class="nick" style="color:#8dd3c7"><a href="#082451" label="[08:24:51]">&lt;aggi&gt;</a></span><span class="message">with tcc-0.9.22 i didn't need to reference/link any libc headers/objects, with tcc-0.9.27 this seems unavoidable, and i think it may be undesireable to do this</span></div><div class="line" id="082516"><span class="nick" style="color:#8dd3c7"><a href="#082516" label="[08:25:16]">&lt;aggi&gt;</a></span><span class="message">i didn't bisect yet which version is the latest unaffected</span></div><div class="line" id="082608"><span class="nick" style="color:#8dd3c7"><a href="#082608" label="[08:26:08]">&lt;aggi&gt;</a></span><span class="message">and i noticed something else; the original tccboot loader binary on tccboot.iso from bellard is 130KiB in size (probably compiled with gcc -Os, don't know); my tccboot-loader compiled witht i386-tcc is almost twice the size</span></div><div class="line" id="082627"><span class="nick" style="color:#8dd3c7"><a href="#082627" label="[08:26:27]">&lt;aggi&gt;</a></span><span class="message">although i didn't link into any libc stuff</span></div><div class="line" id="082719"><span class="nick" style="color:#8dd3c7"><a href="#082719" label="[08:27:19]">&lt;aggi&gt;</a></span><span class="message">that's two problems now: the tccboot-loader-0.9.22 which i compiled errors in the JIT compilation phase of kernel still</span></div><div class="line" id="082739"><span class="nick" style="color:#8dd3c7"><a href="#082739" label="[08:27:39]">&lt;aggi&gt;</a></span><span class="message">and with tcc-0.9.27 i couldn't test yet because it requires a libc choice made, which i am not willing to yet</span></div><div class="line" id="082743"><span class="nick" style="color:#8dd3c7"><a href="#082743" label="[08:27:43]">&lt;aggi&gt;</a></span><span class="message">ouch</span></div><div class="line" id="082858"><span class="nick" style="color:#8dd3c7"><a href="#082858" label="[08:28:58]">&lt;aggi&gt;</a></span><span class="message">instead of the libc-problem, i'll try to repair tccboot-0.9.22 and/or move forward to any latest unaffected version of it</span></div><div class="line" id="083001"><span class="nick" style="color:#8dd3c7"><a href="#083001" label="[08:30:01]">&lt;aggi&gt;</a></span><span class="message">and Bellard didn't respond to my email yet, which isn't a priority since i have to hack may way through this myself anyway</span></div><div class="line" id="143520"><span class="nick" style="color:#2e2a4a"><a href="#143520" label="[14:35:20]">&lt;rickmasters&gt;</a></span><span class="message">fossy: any thoughts on the status of kernel bootstrapping PR?</span></div><div class="line" id="215348"><span class="nick" style="color:#6b8072"><a href="#215348" label="[21:53:48]">&lt;stikonas[m]&gt;</a></span><span class="message">rickmasters: I think it should be good to go, we can fix rest of the stuff if needed later</span></div><br /></div></body></html>

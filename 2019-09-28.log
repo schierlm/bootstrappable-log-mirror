@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-09-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="033545"><span class="nick" style="color:#8dd3c7"><a href="#033545" label="[03:35:45]">&lt;OriansJ&gt;</a></span><span class="message">Now for the tough question of the day. Should I submit a proposal for a LibrePlanet 2020 talk about the stage0 work?</span></div><div class="line" id="035557"><span class="nick" style="color:#8dd3c7"><a href="#035557" label="[03:55:57]">&lt;OriansJ&gt;</a></span><span class="message">This of course is the question that I present here because ultimately the talk would be for us.</span></div><div class="line" id="061702"><span class="nick" style="color:#2e2a4a"><a href="#061702" label="[06:17:02]">&lt;jackhill&gt;</a></span><span class="message">I'm surprised to see so few scheme implementations here: <a rel="nofollow" href="https://bootstrapping.miraheze.org/wiki/Boostrapping_Specific_Languages">https://bootstrapping.miraheze.org/wiki/Boostrapping_Specific_Languages</a>  (maybe I shouldn't be)</span></div><div class="line" id="061726"><span class="nick" style="color:#2e2a4a"><a href="#061726" label="[06:17:26]">&lt;jackhill&gt;</a></span><span class="message">I wonder how hard it would be to get additional ones to bootstrap from the ones that are</span></div><div class="line" id="074054"><span class="nick" style="color:#6b8072"><a href="#074054" label="[07:40:54]">&lt;xentrac&gt;</a></span><span class="message">there is a missing t in that page title</span></div><div class="line" id="074218"><span class="nick" style="color:#6b8072"><a href="#074218" label="[07:42:18]">&lt;xentrac&gt;</a></span><span class="message">I am confused about what the page says about Lisps though</span></div><div class="line" id="074300"><span class="nick" style="color:#6b8072"><a href="#074300" label="[07:43:00]">&lt;xentrac&gt;</a></span><span class="message">why would you need lazy evaluation for macros? I think someone was unclear on the concept of Lisp macros when they wrote that entry</span></div><div class="line" id="074403"><span class="nick" style="color:#6b8072"><a href="#074403" label="[07:44:03]">&lt;xentrac&gt;</a></span><span class="message">at some point Ur-Scheme stopped building successfully with Guile; I should fix that</span></div><div class="line" id="074522"><span class="nick" style="color:#6b8072"><a href="#074522" label="[07:45:22]">&lt;xentrac&gt;</a></span><span class="message">OriansJ: I don't know anything about LibrePlanet but I think giving talks about stage0 is an excellent idea</span></div><div class="line" id="102402"><span class="nick" style="color:#80b1d3"><a href="#102402" label="[10:24:02]">&lt;rain2&gt;</a></span><span class="message">jackhill: it may be quite difficult do you have a specific scheme you want to try?</span></div><div class="line" id="102725"><span class="nick" style="color:#80b1d3"><a href="#102725" label="[10:27:25]">&lt;rain2&gt;</a></span><span class="message">a big part of the trouble would be implementation specific quirks of the language that are used to implement the language</span></div><div class="line" id="102731"><span class="nick" style="color:#80b1d3"><a href="#102731" label="[10:27:31]">&lt;rain2&gt;</a></span><span class="message">one would have to simulate those in the host scheme</span></div><div class="line" id="102744"><span class="nick" style="color:#80b1d3"><a href="#102744" label="[10:27:44]">&lt;rain2&gt;</a></span><span class="message">and this can be a very long and difficult process with something large like a whole compiler</span></div><div class="line" id="102811"><span class="nick" style="color:#80b1d3"><a href="#102811" label="[10:28:11]">&lt;rain2&gt;</a></span><span class="message">I think that it's easier when bootstrapping off a smaller simpler compiler was designed in from the start</span></div><div class="line" id="103141"><span class="nick" style="color:#80b1d3"><a href="#103141" label="[10:31:41]">&lt;rain2&gt;</a></span><span class="message"> <a rel="nofollow" href="https://bootstrapping.miraheze.org/wiki/Bootstrapping_Specific_Languages">https://bootstrapping.miraheze.org/wiki/Bootstrapping_Specific_Languages</a>  ok its moved</span></div><div class="line" id="103144"><span class="nick" style="color:#80b1d3"><a href="#103144" label="[10:31:44]">&lt;rain2&gt;</a></span><span class="message">thanks!</span></div><div class="line" id="141206"><span class="nick" style="color:#8dd3c7"><a href="#141206" label="[14:12:06]">&lt;OriansJ&gt;</a></span><span class="message">jackhill: well much of the data comes from people here and I guess there has not been an exhustive search for lisps/schemes yet</span></div><div class="line" id="141518"><span class="nick" style="color:#8dd3c7"><a href="#141518" label="[14:15:18]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: I am to blame for the lisp macros part and to be honest it was written after I wrote a lisp interpreter in assembly and was trying to figure out how to shoe-horn macros into slow_lisp (Improvements to the wiki are always welcome ^_^)</span></div><div class="line" id="142121"><span class="nick" style="color:#8dd3c7"><a href="#142121" label="[14:21:21]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: Libreplanet is a very FSF heavy event and I found they tended more towards talks about politics than technical work. In fact they did reject my last 2 proposals outright and my 3rd they accepted but turned around and said that my talk got pulled from the schedule to make room for another talk they wanted more. :shrug:</span></div><div class="line" id="150619"><span class="nick" style="color:#8dd3c7"><a href="#150619" label="[15:06:19]">&lt;OriansJ&gt;</a></span><span class="message">speaking of which I guess it is time for me to admit I need some help. Specifically with mes-m2 [<a rel="nofollow" href="https://github.com/oriansj/mes-m2">https://github.com/oriansj/mes-m2</a>]  I need someone familiar with guile to add some scheme tests for all of the scheme primitives which succeed on guile but will catch me if I break that primitive.</span></div><div class="line" id="151323"><span class="nick" style="color:#6d2462"><a href="#151323" label="[15:13:23]">&lt;janneke&gt;</a></span><span class="message">OriansJ: what exactly are you looking for, beyond what you have now in test/?</span></div><div class="line" id="151434"><span class="nick" style="color:#8dd3c7"><a href="#151434" label="[15:14:34]">&lt;OriansJ&gt;</a></span><span class="message">janneke: one test per scheme primitive; so that I can change the implementation of primitives individually</span></div><div class="line" id="151503"><span class="nick" style="color:#6d2462"><a href="#151503" label="[15:15:03]">&lt;janneke&gt;</a></span><span class="message">OriansJ: ah, right</span></div><div class="line" id="151530"><span class="nick" style="color:#8dd3c7"><a href="#151530" label="[15:15:30]">&lt;OriansJ&gt;</a></span><span class="message">and make sure each primitive behaves exactly like guile</span></div><div class="line" id="151556"><span class="nick" style="color:#8dd3c7"><a href="#151556" label="[15:15:56]">&lt;OriansJ&gt;</a></span><span class="message">thus when I am done; mes-m2 will be a drop in for guile for the guix bootstrap</span></div><div class="line" id="151703"><span class="nick" style="color:#6d2462"><a href="#151703" label="[15:17:03]">&lt;janneke&gt;</a></span><span class="message">that's a great perspective</span></div><div class="line" id="151731"><span class="nick" style="color:#6d2462"><a href="#151731" label="[15:17:31]">&lt;janneke&gt;</a></span><span class="message">yes, my tests are pretty ad-hoc, and followed the evolution of my learning to write a scheme...</span></div><div class="line" id="151824"><span class="nick" style="color:#8dd3c7"><a href="#151824" label="[15:18:24]">&lt;OriansJ&gt;</a></span><span class="message">well that is the next major step for guix anyway; reduce the bootstrap binary down to only a gcc statically compiled mes-m2 with the scheme source files for slow-utils and MesCC</span></div><div class="line" id="151847"><span class="nick" style="color:#6d2462"><a href="#151847" label="[15:18:47]">&lt;janneke&gt;</a></span><span class="message">yes, sure -- but i like your approach</span></div><div class="line" id="151907"><span class="nick" style="color:#8dd3c7"><a href="#151907" label="[15:19:07]">&lt;OriansJ&gt;</a></span><span class="message">Which means someone needs to import all of the scheme replacements for core-utils into slow-utils (including gash)</span></div><div class="line" id="151918"><span class="nick" style="color:#6d2462"><a href="#151918" label="[15:19:18]">&lt;janneke&gt;</a></span><span class="message">yes</span></div><div class="line" id="151945"><span class="nick" style="color:#234e69"><a href="#151945" label="[15:19:45]">*</a></span><span class="message">janneke needs to go afk in 5min -- will be back later &quot;tonight&quot;</span></div><div class="line" id="151954"><span class="nick" style="color:#8dd3c7"><a href="#151954" label="[15:19:54]">&lt;OriansJ&gt;</a></span><span class="message">I have to hammer mes-m2 until it is 100% deterministic across all platforms and possibly behave better under low memory conditions</span></div><div class="line" id="152102"><span class="nick" style="color:#8dd3c7"><a href="#152102" label="[15:21:02]">&lt;OriansJ&gt;</a></span><span class="message">I also have to rewrite several mescc-tools into scheme to remove those binaries from the next generation guix bootstrap</span></div><div class="line" id="152151"><span class="nick" style="color:#8dd3c7"><a href="#152151" label="[15:21:51]">&lt;OriansJ&gt;</a></span><span class="message">and then once that is done I can finish getting mes-m2 into a form buildable by M2-Planet (which ends the bootstrap problem forever)</span></div><div class="line" id="152512"><span class="nick" style="color:#8dd3c7"><a href="#152512" label="[15:25:12]">&lt;OriansJ&gt;</a></span><span class="message">Then I have to go back and do the hex0-&gt;cc_armv7l for armv7l and hex0-&gt;cc_aarch64 ports.</span></div><div class="line" id="152630"><span class="nick" style="color:#8dd3c7"><a href="#152630" label="[15:26:30]">&lt;OriansJ&gt;</a></span><span class="message">Then I have to do a posix from M2-Planet v1.x to eliminate Linux from our trusting trust domain.</span></div><div class="line" id="152841"><span class="nick" style="color:#8dd3c7"><a href="#152841" label="[15:28:41]">&lt;OriansJ&gt;</a></span><span class="message">Then I have to do FPGA work for knight to eliminate the hardware from the bootstrap scope down to a single FPGA+RAM.</span></div><div class="line" id="152920"><span class="nick" style="color:#8dd3c7"><a href="#152920" label="[15:29:20]">&lt;OriansJ&gt;</a></span><span class="message">Then I have to implement that design in TTL and then I'll finally be done.</span></div><div class="line" id="153053"><span class="nick" style="color:#8dd3c7"><a href="#153053" label="[15:30:53]">&lt;OriansJ&gt;</a></span><span class="message">Then I was planning on getting an 686-pae FPGA design for those wanting to reduce their hardware trust down to FPGA+RAM</span></div><div class="line" id="153210"><span class="nick" style="color:#8dd3c7"><a href="#153210" label="[15:32:10]">&lt;OriansJ&gt;</a></span><span class="message">Then if someone hasn't done it already, create a libresilicon design for the above; thus providing libre-hardware for those who wish to use x86 or knight and not have to worry about malicious hardware.</span></div><div class="line" id="153514"><span class="nick" style="color:#8dd3c7"><a href="#153514" label="[15:35:14]">&lt;OriansJ&gt;</a></span><span class="message">also I still need to find people to audit the work, find typos and force me to clarify anything that I have done that does not seem immediately obvious to them.</span></div><div class="line" id="171047"><span class="nick" style="color:#2e2a4a"><a href="#171047" label="[17:10:47]">&lt;jackhill&gt;</a></span><span class="message">rain2, OriansJ: thanks. I'm most interested in Chez and Racket.</span></div><div class="line" id="171118"><span class="nick" style="color:#2e2a4a"><a href="#171118" label="[17:11:18]">&lt;jackhill&gt;</a></span><span class="message">which does look like it would be very non-trivial to do.</span></div><div class="line" id="171510"><span class="nick" style="color:#2e2a4a"><a href="#171510" label="[17:15:10]">&lt;jackhill&gt;</a></span><span class="message">but I was hopeing that bootstrapping via different implementation would be more attractive to scheme authors, than maintaining a bootstrap via a different language that your community isn't excited about/experienced with using.</span></div><div class="line" id="172203"><span class="nick" style="color:#8dd3c7"><a href="#172203" label="[17:22:03]">&lt;OriansJ&gt;</a></span><span class="message">jackhill: well, we will have a universal bootstrap scheme with mes-m2</span></div><div class="line" id="172246"><span class="nick" style="color:#8dd3c7"><a href="#172246" label="[17:22:46]">&lt;OriansJ&gt;</a></span><span class="message">then provided your scheme can be bootstrapped from scheme (such as from guile) then we can keep that bootstrap problem small</span></div><div class="line" id="172551"><span class="nick" style="color:#8dd3c7"><a href="#172551" label="[17:25:51]">&lt;OriansJ&gt;</a></span><span class="message">basically for bootstrap chains that wish not to do alot of heavy lift, assume guile, gcc and the full Gnu toolset</span></div><div class="line" id="174334"><span class="nick" style="color:#8dd3c7"><a href="#174334" label="[17:43:34]">&lt;OriansJ&gt;</a></span><span class="message">jackhill: scheme has a problem; all of the good scheme implementations are quite complex (because otherwise they would be slow) and all of the simple scheme implementations lack functionality required to used for real scheme programs that do important work. So janneke built mes.c which honestly is an amazing result given that it right out of the gates was able to run a C compiler good enough to self-host itself. That is why I am</span></div><div class="line" id="174334"><span class="nick" style="color:#8dd3c7"><a href="#174334" label="[17:43:34]">&lt;OriansJ&gt;</a></span><span class="message">hammering on mes-m2. Because there is nothing else out there good enough that we have found to replace it and honestly because I really don't want to put in the 2 years of work required to skip the work janneke has done by making M2-Planet v2.x build tcc directly.</span></div><div class="line" id="175709"><span class="nick" style="color:#8dd3c7"><a href="#175709" label="[17:57:09]">&lt;OriansJ&gt;</a></span><span class="message">The work remaining on mes-m2 is at this point about removing guile from the guix bootstrap by extending mes-m2 to the point guix can be run off it directly (atleast enough for it to do the guile build) and for me to get it into a form M2-Planet v1.x/v2.x can handle</span></div><div class="line" id="181736"><span class="nick" style="color:#2e2a4a"><a href="#181736" label="[18:17:36]">&lt;jackhill&gt;</a></span><span class="message">OriansJ: cool! You and janneke (and everyone else) are doing amazing work, thanks! Bootstrapping other schemes with guile and gcc sounds reasonable, even if it is a log of work :)</span></div><div class="line" id="182101"><span class="nick" style="color:#8dd3c7"><a href="#182101" label="[18:21:01]">&lt;OriansJ&gt;</a></span><span class="message">jackhill: well we encourage everyone here to make any amazing thing they think is missing ^_^ because honestly we are all better when we help each other.</span></div><div class="line" id="182115"><span class="nick" style="color:#8dd3c7"><a href="#182115" label="[18:21:15]">&lt;OriansJ&gt;</a></span><span class="message">hopefully you are working on something fun this week jackhill</span></div><div class="line" id="182916"><span class="nick" style="color:#8dd3c7"><a href="#182916" label="[18:29:16]">&lt;OriansJ&gt;</a></span><span class="message">for example if anyone wanted to pick up the minimal posix in M2-Planet work that would be amazing (you can do most of the development with gcc and do the conversion at the end) or if someone wanted to do FPGA work to ensure those pieces are in place sooner. [Lots of room for people to work on the pieces they think will be fun or needed]</span></div><div class="line" id="183640"><span class="nick" style="color:#2e2a4a"><a href="#183640" label="[18:36:40]">&lt;jackhill&gt;</a></span><span class="message">OriansJ: this week, I'm learning lots of stuff about languages and compilers, so that is very fun</span></div><div class="line" id="183825"><span class="nick" style="color:#8dd3c7"><a href="#183825" label="[18:38:25]">&lt;OriansJ&gt;</a></span><span class="message">jackhill: that is great if you have questions we love to help ^_^</span></div><div class="line" id="183924"><span class="nick" style="color:#2e2a4a"><a href="#183924" label="[18:39:24]">&lt;jackhill&gt;</a></span><span class="message">thanks!</span></div><div class="line" id="200453"><span class="nick" style="color:#8dd3c7"><a href="#200453" label="[20:04:53]">&lt;OriansJ&gt;</a></span><span class="message">janneke: I've uploaded the blood-elf in scheme prototype (play with it and see if works as a drop in replacement for the binary version for MesCC) Assuming nothing is wrong with it; I'll get started on M1-macro in scheme and then you can remove mescc-tools from the mes-m2 bootstrap base (unless you are using kaem and in which case; I'll do that one next)</span></div><div class="line" id="205243"><span class="nick" style="color:#80b1d3"><a href="#205243" label="[20:52:43]">&lt;rain2&gt;</a></span><span class="message">jackhill: cheers!</span></div><div class="line" id="205305"><span class="nick" style="color:#80b1d3"><a href="#205305" label="[20:53:05]">&lt;rain2&gt;</a></span><span class="message">I don't know how to bootstrap chez, it seems very difficult because it depends on binary blob boot files</span></div><div class="line" id="205308"><span class="nick" style="color:#80b1d3"><a href="#205308" label="[20:53:08]">&lt;rain2&gt;</a></span><span class="message">that are self hosted</span></div><div class="line" id="205359"><span class="nick" style="color:#80b1d3"><a href="#205359" label="[20:53:59]">&lt;rain2&gt;</a></span><span class="message">racket was almost bootstrappable - I think the core of the compiler was basically all written in C and there was only a couple generated files - but that's all changing with the move to chez</span></div><div class="line" id="205446"><span class="nick" style="color:#80b1d3"><a href="#205446" label="[20:54:46]">&lt;rain2&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/racket/racket/issues/2218#issuecomment-485419530">https://github.com/racket/racket/issues/2218#issuecomment-485419530</a> </span></div><div class="line" id="225445"><span class="nick" style="color:#2e2a4a"><a href="#225445" label="[22:54:45]">&lt;jackhill&gt;</a></span><span class="message">rain2: thanks for the pointer. Inteed C Racket seems easier than Chez Racket. Would be nice to teach Guile how to build the Chez boot files.</span></div><br /></div></body></html>

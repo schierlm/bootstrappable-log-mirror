@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-11-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003040"><span class="nick" style="color:#389600"><a href="#003040" label="[00:30:40]">&lt;stikonas&gt;</a></span><span class="message">fossy: regarding <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/320">https://github.com/fosslinux/live-bootstrap/issues/320</a>,  do you think it's worth trying pkgconf?</span></div><div class="line" id="003044"><span class="nick" style="color:#389600"><a href="#003044" label="[00:30:44]">&lt;stikonas&gt;</a></span><span class="message">chances are it would mostly work</span></div><div class="line" id="003050"><span class="nick" style="color:#389600"><a href="#003050" label="[00:30:50]">&lt;stikonas&gt;</a></span><span class="message">or easily patchable...</span></div><div class="line" id="003223"><span class="nick" style="color:#8dd3c7"><a href="#003223" label="[00:32:23]">&lt;fossy&gt;</a></span><span class="message">yes, I'm taking a look at pkgconf now...</span></div><div class="line" id="003258"><span class="nick" style="color:#8dd3c7"><a href="#003258" label="[00:32:58]">&lt;fossy&gt;</a></span><span class="message">looks like it should be alright, especially given its self-marketing as &quot;pkg-config compatible replacement with no dependencies other than C99&quot;</span></div><div class="line" id="003344"><span class="nick" style="color:#8dd3c7"><a href="#003344" label="[00:33:44]">&lt;fossy&gt;</a></span><span class="message">i'm a little confused why there appears to be autotools AND meson stuff in the source tree, but if it works with autotools we should be good</span></div><div class="line" id="005303"><span class="nick" style="color:#8dd3c7"><a href="#005303" label="[00:53:03]">&lt;fossy&gt;</a></span><span class="message">pkgconf should be pretty easy to change, which i'll do tomorrow, just for now i will update the pkg config tarball to a http source...</span></div><div class="line" id="005401"><span class="nick" style="color:#2e2a4a"><a href="#005401" label="[00:54:01]">&lt;oriansj&gt;</a></span><span class="message">emilytrau: looks like I feel behind on M2libc pull requests</span></div><div class="line" id="005408"><span class="nick" style="color:#2e2a4a"><a href="#005408" label="[00:54:08]">&lt;oriansj&gt;</a></span><span class="message">^feel^fell^</span></div><div class="line" id="010019"><span class="nick" style="color:#2e2a4a"><a href="#010019" label="[01:00:19]">&lt;oriansj&gt;</a></span><span class="message">so I merged in that patch and the fix from fossy</span></div><div class="line" id="011057"><span class="nick" style="color:#389600"><a href="#011057" label="[01:10:57]">&lt;stikonas&gt;</a></span><span class="message">oriansj: how about unlink?</span></div><div class="line" id="011105"><span class="nick" style="color:#389600"><a href="#011105" label="[01:11:05]">&lt;stikonas&gt;</a></span><span class="message">I think that one is also tested</span></div><div class="line" id="011124"><span class="nick" style="color:#389600"><a href="#011124" label="[01:11:24]">&lt;stikonas&gt;</a></span><span class="message">if I remember correctly, mknod was not tested, but it's not used anywhere either</span></div><div class="line" id="011235"><span class="nick" style="color:#389600"><a href="#011235" label="[01:12:35]">&lt;stikonas&gt;</a></span><span class="message">a bit annoying that it's after stage0-posix release but oh well...</span></div><div class="line" id="011242"><span class="nick" style="color:#389600"><a href="#011242" label="[01:12:42]">&lt;stikonas&gt;</a></span><span class="message">there will always be another</span></div><div class="line" id="011305"><span class="nick" style="color:#389600"><a href="#011305" label="[01:13:05]">&lt;stikonas&gt;</a></span><span class="message">and aarch64 bootstrap is not really done past stage0-posix</span></div><div class="line" id="012825"><span class="nick" style="color:#2e2a4a"><a href="#012825" label="[01:28:25]">&lt;oriansj&gt;</a></span><span class="message">and aarch64 may undergo more extreme changes before the next release if we switch to word format</span></div><div class="line" id="013218"><span class="nick" style="color:#2e2a4a"><a href="#013218" label="[01:32:18]">&lt;oriansj&gt;</a></span><span class="message">well if I read emilytrau's message correctly, the other patches don't work (or cause some other issue that prevents stage0-posix from working )</span></div><div class="line" id="013400"><span class="nick" style="color:#2e2a4a"><a href="#013400" label="[01:34:00]">&lt;oriansj&gt;</a></span><span class="message">but as AArch64 recieves more testing and refinement as it gains MesCC support, I am sure all of those details will be tested and worked out</span></div><div class="line" id="014120"><span class="nick" style="color:#6b8072"><a href="#014120" label="[01:41:20]">&lt;artemist&gt;</a></span><span class="message">I can't gaurantee any aarch64 timeline, it's kind of on and off because adhd. It will happen when it happens (or not)</span></div><div class="line" id="015703"><span class="nick" style="color:#389600"><a href="#015703" label="[01:57:03]">&lt;stikonas&gt;</a></span><span class="message">well, that's why it's not a problem for those fixes not to be in release</span></div><div class="line" id="033045"><span class="nick" style="color:#2e2a4a"><a href="#033045" label="[03:30:45]">&lt;oriansj&gt;</a></span><span class="message">artemist: that is fine, you can do it (or not) as it makes you happy.</span></div><br /></div></body></html>

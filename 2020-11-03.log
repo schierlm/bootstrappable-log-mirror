@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-11-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="020136"><span class="nick" style="color:#8dd3c7"><a href="#020136" label="[02:01:36]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: quite busy</span></div><div class="line" id="020631"><span class="nick" style="color:#8dd3c7"><a href="#020631" label="[02:06:31]">&lt;OriansJ&gt;</a></span><span class="message">vagrantc: honestly, I am quite concerned that debian can't build mescc-tools as I have verfied that make clean test works without issue with gcc 10.2.0 and the make file doesn't have any special requirements</span></div><div class="line" id="021737"><span class="nick" style="color:#8dd3c7"><a href="#021737" label="[02:17:37]">&lt;OriansJ&gt;</a></span><span class="message">I looked at your <a rel="nofollow" href="https://salsa.debian.org/vagrant/mescc-tools">https://salsa.debian.org/vagrant/mescc-tools</a>  and nothing in that should be breaking. There are no .h files (which can cause issues with gcc 10+) literally just a straight gcc source files -o output; so nothing that should be breaking</span></div><div class="line" id="022255"><span class="nick" style="color:#8dd3c7"><a href="#022255" label="[02:22:55]">&lt;OriansJ&gt;</a></span><span class="message">but I do see something wrong in <a rel="nofollow" href="https://tests.reproducible-builds.org/debian/rb-pkg/unstable/amd64/mescc-tools.html">https://tests.reproducible-builds.org/debian/rb-pkg/unstable/amd64/mescc-tools.html</a> </span></div><div class="line" id="022607"><span class="nick" style="color:#8dd3c7"><a href="#022607" label="[02:26:07]">&lt;OriansJ&gt;</a></span><span class="message">it seems to be trying to CD into the kaem directory; which wouldn't work unless your version included fossy's work. Otherwise it would be doing the old build pattern</span></div><div class="line" id="023059"><span class="nick" style="color:#2e2a4a"><a href="#023059" label="[02:30:59]">&lt;vagrantc&gt;</a></span><span class="message">OriansJ: yes, i reproduced those errors locally ... so some toolchain changes since it was working</span></div><div class="line" id="023141"><span class="nick" style="color:#2e2a4a"><a href="#023141" label="[02:31:41]">&lt;vagrantc&gt;</a></span><span class="message">OriansJ: <a rel="nofollow" href="https://salsa.debian.org/debian/mescc-tools">https://salsa.debian.org/debian/mescc-tools</a>  is the location for current packaging</span></div><div class="line" id="023243"><span class="nick" style="color:#2e2a4a"><a href="#023243" label="[02:32:43]">&lt;vagrantc&gt;</a></span><span class="message">OriansJ: it's straight from 1.0.1, plus one patch for CFLAGS <a rel="nofollow" href="https://salsa.debian.org/debian/mescc-tools/-/blob/debian/master/debian/patches/kaem-accept-cflags">https://salsa.debian.org/debian/mescc-tools/-/blob/debian/master/debian/patches/kaem-accept-cflags</a> </span></div><div class="line" id="023253"><span class="nick" style="color:#2e2a4a"><a href="#023253" label="[02:32:53]">&lt;vagrantc&gt;</a></span><span class="message">which i think you've merged upstream</span></div><div class="line" id="023315"><span class="nick" style="color:#2e2a4a"><a href="#023315" label="[02:33:15]">&lt;vagrantc&gt;</a></span><span class="message">that said, applying all the patches from git, and it builds just fine ... so hence my interest in a new release :)</span></div><div class="line" id="023337"><span class="nick" style="color:#2e2a4a"><a href="#023337" label="[02:33:37]">&lt;vagrantc&gt;</a></span><span class="message">or i can build a heavily patched version, or just make a local git snapshot</span></div><div class="line" id="023343"><span class="nick" style="color:#8dd3c7"><a href="#023343" label="[02:33:43]">&lt;OriansJ&gt;</a></span><span class="message">it looks like kaem broke the build</span></div><div class="line" id="023519"><span class="nick" style="color:#2e2a4a"><a href="#023519" label="[02:35:19]">&lt;vagrantc&gt;</a></span><span class="message"> <a rel="nofollow" href="https://tests.reproducible-builds.org/debian/history/amd64/mescc-tools.html">https://tests.reproducible-builds.org/debian/history/amd64/mescc-tools.html</a>  looks like it started failing mid-october ... same exact version/sources used to build fine</span></div><div class="line" id="023528"><span class="nick" style="color:#2e2a4a"><a href="#023528" label="[02:35:28]">&lt;vagrantc&gt;</a></span><span class="message">and now it fails consistantly</span></div><div class="line" id="023731"><span class="nick" style="color:#8dd3c7"><a href="#023731" label="[02:37:31]">&lt;OriansJ&gt;</a></span><span class="message">vagrantc: the solution is -fcommon in kaem/makefile at the end of CFLAGS</span></div><div class="line" id="023740"><span class="nick" style="color:#6b8072"><a href="#023740" label="[02:37:40]">&lt;fossy&gt;</a></span><span class="message">fcommon</span></div><div class="line" id="023744"><span class="nick" style="color:#6b8072"><a href="#023744" label="[02:37:44]">&lt;fossy&gt;</a></span><span class="message">what do we need fcommon for</span></div><div class="line" id="023818"><span class="nick" style="color:#8dd3c7"><a href="#023818" label="[02:38:18]">&lt;OriansJ&gt;</a></span><span class="message">fossy: gcc-10+ treats including a .h as declaring all of the globals multiple times</span></div><div class="line" id="023856"><span class="nick" style="color:#2e2a4a"><a href="#023856" label="[02:38:56]">&lt;vagrantc&gt;</a></span><span class="message">OriansJ: i pass -fcommon</span></div><div class="line" id="023919"><span class="nick" style="color:#8dd3c7"><a href="#023919" label="[02:39:19]">&lt;OriansJ&gt;</a></span><span class="message">vagrantc: but it isn't passed to the kaem makefile</span></div><div class="line" id="023919"><span class="nick" style="color:#2e2a4a"><a href="#023919" label="[02:39:19]">&lt;vagrantc&gt;</a></span><span class="message">in fact, i think i'm the one who reported that workaround :)</span></div><div class="line" id="023945"><span class="nick" style="color:#8dd3c7"><a href="#023945" label="[02:39:45]">&lt;OriansJ&gt;</a></span><span class="message">The solution is two way: fast: just use -fcommon to get GCC to ignore that and the proper way, which is to create a globals file and change the globals in the .h into externs</span></div><div class="line" id="024027"><span class="nick" style="color:#8dd3c7"><a href="#024027" label="[02:40:27]">&lt;OriansJ&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1169720/">https://paste.debian.net/1169720/</a> </span></div><div class="line" id="024108"><span class="nick" style="color:#2e2a4a"><a href="#024108" label="[02:41:08]">&lt;vagrantc&gt;</a></span><span class="message">ah, the makefile isn't inheriting the CFLAGS</span></div><div class="line" id="024117"><span class="nick" style="color:#8dd3c7"><a href="#024117" label="[02:41:17]">&lt;OriansJ&gt;</a></span><span class="message">on commit d95036679c53f9ede644b55ad470bbb1c20fcc5b (which the problem can be reproduced) apply that diff and boom make clean test works again</span></div><div class="line" id="024134"><span class="nick" style="color:#2e2a4a"><a href="#024134" label="[02:41:34]">&lt;vagrantc&gt;</a></span><span class="message">but in debian, gcc 10 has been the default since december...</span></div><div class="line" id="024143"><span class="nick" style="color:#2e2a4a"><a href="#024143" label="[02:41:43]">&lt;vagrantc&gt;</a></span><span class="message">so, why did it start failing in october?</span></div><div class="line" id="024226"><span class="nick" style="color:#2e2a4a"><a href="#024226" label="[02:42:26]">&lt;vagrantc&gt;</a></span><span class="message">or couldn't the kaem makefile inherrit the CFLAGS passed?</span></div><div class="line" id="024304"><span class="nick" style="color:#2e2a4a"><a href="#024304" label="[02:43:04]">&lt;vagrantc&gt;</a></span><span class="message">ah yes, that's what the patch i have does</span></div><div class="line" id="024442"><span class="nick" style="color:#2e2a4a"><a href="#024442" label="[02:44:42]">&lt;vagrantc&gt;</a></span><span class="message">anyways, thanks for poking at it ... gotta head out</span></div><div class="line" id="024533"><span class="nick" style="color:#8dd3c7"><a href="#024533" label="[02:45:33]">&lt;OriansJ&gt;</a></span><span class="message">vagrantc: hopefully that fixes your build problem (until we can do a proper release)</span></div><div class="line" id="024602"><span class="nick" style="color:#8dd3c7"><a href="#024602" label="[02:46:02]">&lt;OriansJ&gt;</a></span><span class="message">Still trying to find time to hack on hex2 to get its speed up prior to the release</span></div><div class="line" id="024730"><span class="nick" style="color:#2e2a4a"><a href="#024730" label="[02:47:30]">&lt;vagrantc&gt;</a></span><span class="message">OriansJ: that should already work due to debian/patches/* inheriting the -fcommon from debian/rules</span></div><div class="line" id="024748"><span class="nick" style="color:#8dd3c7"><a href="#024748" label="[02:47:48]">&lt;OriansJ&gt;</a></span><span class="message">plus fossy probably will want to revert my kaem changes (and get it into proper shape)</span></div><div class="line" id="024805"><span class="nick" style="color:#2e2a4a"><a href="#024805" label="[02:48:05]">&lt;vagrantc&gt;</a></span><span class="message">the git checkout doesn't apply that patch...</span></div><div class="line" id="024831"><span class="nick" style="color:#2e2a4a"><a href="#024831" label="[02:48:31]">&lt;vagrantc&gt;</a></span><span class="message">e.g. QUILT_PATCHES=debian/patches quilt push --fuzz=0 --all</span></div><div class="line" id="024856"><span class="nick" style="color:#2e2a4a"><a href="#024856" label="[02:48:56]">&lt;vagrantc&gt;</a></span><span class="message">er, -a not --all</span></div><div class="line" id="024929"><span class="nick" style="color:#2e2a4a"><a href="#024929" label="[02:49:29]">&lt;vagrantc&gt;</a></span><span class="message">i guess i can bisect the patch that fixes the build :)</span></div><div class="line" id="025000"><span class="nick" style="color:#2e2a4a"><a href="#025000" label="[02:50:00]">&lt;vagrantc&gt;</a></span><span class="message">it's onyl 17 patches...</span></div><div class="line" id="025035"><span class="nick" style="color:#80b1d3"><a href="#025035" label="[02:50:35]">*</a></span><span class="message">vagrantc is never tried a bisect to find the fix before...</span></div><div class="line" id="025150"><span class="nick" style="color:#2e2a4a"><a href="#025150" label="[02:51:50]">&lt;vagrantc&gt;</a></span><span class="message">thanks, and ...</span></div><div class="line" id="025152"><span class="nick" style="color:#80b1d3"><a href="#025152" label="[02:51:52]">*</a></span><span class="message">vagrantc waves</span></div><div class="line" id="025536"><span class="nick" style="color:#8dd3c7"><a href="#025536" label="[02:55:36]">&lt;OriansJ&gt;</a></span><span class="message">also the makefile has bin instead of | bin and the kaem makefile doesn't appear to be waiting for ../bin either</span></div><div class="line" id="025739"><span class="nick" style="color:#8dd3c7"><a href="#025739" label="[02:57:39]">&lt;OriansJ&gt;</a></span><span class="message">So if the build system added more cores, the kaem build could complete before bin was created</span></div><div class="line" id="034045"><span class="nick" style="color:#6d2462"><a href="#034045" label="[03:40:45]">&lt;lfam&gt;</a></span><span class="message">Hey OriansJ</span></div><div class="line" id="034118"><span class="nick" style="color:#6d2462"><a href="#034118" label="[03:41:18]">&lt;lfam&gt;</a></span><span class="message">I'm still running the VM I used to try reproducing your '?' bug, if you want me to try anything else, or look something up</span></div><div class="line" id="121651"><span class="nick" style="color:#8dd3c7"><a href="#121651" label="[12:16:51]">&lt;OriansJ&gt;</a></span><span class="message">lfam: that is the thing. If we have (approximately) identicial setups; running the same binaries on the same source code, the behavior *shouldn't* be different but it is; so I am left with the question of why.</span></div><div class="line" id="121818"><span class="nick" style="color:#8dd3c7"><a href="#121818" label="[12:18:18]">&lt;OriansJ&gt;</a></span><span class="message">So I have no choice but to try to reduce the possible differences further; using gemu and alot of patience.</span></div><br /></div></body></html>

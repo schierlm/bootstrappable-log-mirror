@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-07-11.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="020053"><span class="nick" style="color:#389600"><a href="#020053" label="[02:00:53]">&lt;fossy&gt;</a></span><span class="message">ummmm</span></div><div class="line" id="020200"><span class="nick" style="color:#8dd3c7"><a href="#020200" label="[02:02:00]">&lt;stikonas&gt;</a></span><span class="message">yeah, I've now idea what is happening...</span></div><div class="line" id="020209"><span class="nick" style="color:#8dd3c7"><a href="#020209" label="[02:02:09]">&lt;stikonas&gt;</a></span><span class="message">but I haven't tested it</span></div><div class="line" id="020257"><span class="nick" style="color:#389600"><a href="#020257" label="[02:02:57]">&lt;fossy&gt;</a></span><span class="message">doras: can you confirm that this is the GCC 13 built _by_ live-bootstrap</span></div><div class="line" id="020308"><span class="nick" style="color:#389600"><a href="#020308" label="[02:03:08]">&lt;fossy&gt;</a></span><span class="message">as far as i can see it is, but just want to double check</span></div><div class="line" id="020706"><span class="nick" style="color:#8dd3c7"><a href="#020706" label="[02:07:06]">&lt;stikonas&gt;</a></span><span class="message">mescc fix for x86_64 32-bit integers turning to be negative is quite simple...</span></div><div class="line" id="020717"><span class="nick" style="color:#8dd3c7"><a href="#020717" label="[02:07:17]">&lt;stikonas&gt;</a></span><span class="message">though I should still write the test</span></div><div class="line" id="020737"><span class="nick" style="color:#8dd3c7"><a href="#020737" label="[02:07:37]">&lt;stikonas&gt;</a></span><span class="message">(which will also help us to test riscv64... But I now expect riscv64 to just work)</span></div><div class="line" id="020755"><span class="nick" style="color:#8dd3c7"><a href="#020755" label="[02:07:55]">&lt;stikonas&gt;</a></span><span class="message">that was all it took to fix it <a rel="nofollow" href="https://paste.debian.net/1285552/">https://paste.debian.net/1285552/</a> </span></div><div class="line" id="064813"><span class="nick" style="color:#2e2a4a"><a href="#064813" label="[06:48:13]">&lt;janneke&gt;</a></span><span class="message">stikonas: ooh...</span></div><div class="line" id="065104"><span class="nick" style="color:#2e2a4a"><a href="#065104" label="[06:51:04]">&lt;janneke&gt;</a></span><span class="message">seems there are more instances of that meme in x86_64/as.scm</span></div><div class="line" id="073124"><span class="nick" style="color:#6b8072"><a href="#073124" label="[07:31:24]">&lt;doras&gt;</a></span><span class="message">fossy: it is with gcc 13.1 built by live-bootstrap, yes. At that point of the bootstrap the only component we built ourselves is gnu-config. So the only inputs to the build are live-bootstrap + our own gnu-config + package sources.</span></div><div class="line" id="073508"><span class="nick" style="color:#6b8072"><a href="#073508" label="[07:35:08]">&lt;doras&gt;</a></span><span class="message">fossy: this one line is the entire diff that results in binaries that crash: <a rel="nofollow" href="https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/merge_requests/57/diffs">https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/merge_requests/57/diffs</a> </span></div><div class="line" id="074141"><span class="nick" style="color:#389600"><a href="#074141" label="[07:41:41]">&lt;fossy&gt;</a></span><span class="message">doras: thanks :)</span></div><div class="line" id="074146"><span class="nick" style="color:#6b8072"><a href="#074146" label="[07:41:46]">&lt;doras&gt;</a></span><span class="message">It's our own after.sh that gets run at the end of sysc's bootstrap. It installs a selection of packages from live-bootstrap to create a subset of sysc. We currently install the latest version of every package built by live-bootstrap.</span></div><div class="line" id="193544"><span class="nick" style="color:#80b1d3"><a href="#193544" label="[19:35:44]">&lt;vagrantc&gt;</a></span><span class="message">i'd like to compile a list of the various active bootstrapping project and their rough status ... any suggestions?</span></div><div class="line" id="193642"><span class="nick" style="color:#80b1d3"><a href="#193642" label="[19:36:42]">&lt;vagrantc&gt;</a></span><span class="message">i'm familiar with mes and hex0 and all that ... there's an EFI bootstrap path ... and live-bootstrap ...</span></div><div class="line" id="193649"><span class="nick" style="color:#80b1d3"><a href="#193649" label="[19:36:49]">&lt;vagrantc&gt;</a></span><span class="message">was there something using fiwix as a kernel?</span></div><div class="line" id="193716"><span class="nick" style="color:#80b1d3"><a href="#193716" label="[19:37:16]">&lt;vagrantc&gt;</a></span><span class="message">stage0 on bare metal ...</span></div><div class="line" id="201538"><span class="nick" style="color:#6d2462"><a href="#201538" label="[20:15:38]">&lt;stikonas[m]&gt;</a></span><span class="message">vagrantc: fiwix is integrated in live-bootsteap</span></div><div class="line" id="201601"><span class="nick" style="color:#6d2462"><a href="#201601" label="[20:16:01]">&lt;stikonas[m]&gt;</a></span><span class="message">EFI is only stage0 stuff, no mes support</span></div><div class="line" id="201836"><span class="nick" style="color:#6d2462"><a href="#201836" label="[20:18:36]">&lt;stikonas[m]&gt;</a></span><span class="message">So live-bootstrap can start with builder-hex0 then build fiwix and Linux</span></div><div class="line" id="203136"><span class="nick" style="color:#80b1d3"><a href="#203136" label="[20:31:36]">&lt;vagrantc&gt;</a></span><span class="message">stikonas[m]: thanks!</span></div><div class="line" id="203241"><span class="nick" style="color:#80b1d3"><a href="#203241" label="[20:32:41]">&lt;vagrantc&gt;</a></span><span class="message">is the final product of live-bootstrap generally bit-for-bit reproducible?</span></div><div class="line" id="203354"><span class="nick" style="color:#80b1d3"><a href="#203354" label="[20:33:54]">&lt;vagrantc&gt;</a></span><span class="message">have a talk on while i will be highlighting reproducible builds and bootstrappable ... though i'm a little weaker on the status of various bootstrapping efforts</span></div><div class="line" id="204130"><span class="nick" style="color:#6d2462"><a href="#204130" label="[20:41:30]">&lt;stikonas[m]&gt;</a></span><span class="message">vagrantc: yes, it is bit by but reproducible</span></div><div class="line" id="204155"><span class="nick" style="color:#6d2462"><a href="#204155" label="[20:41:55]">&lt;stikonas[m]&gt;</a></span><span class="message">Build script checks checksum after the build</span></div><div class="line" id="204213"><span class="nick" style="color:#6d2462"><a href="#204213" label="[20:42:13]">&lt;stikonas[m]&gt;</a></span><span class="message">Which is committed into the repo</span></div><div class="line" id="204244"><span class="nick" style="color:#6d2462"><a href="#204244" label="[20:42:44]">&lt;stikonas[m]&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/sysa/SHA256SUMS.pkgs">https://github.com/fosslinux/live-bootstrap/blob/master/sysa/SHA256SUMS.pkgs</a> </span></div><div class="line" id="204320"><span class="nick" style="color:#6d2462"><a href="#204320" label="[20:43:20]">&lt;stikonas[m]&gt;</a></span><span class="message">In general you get reproducible builds in live-bootstrap almost for free</span></div><div class="line" id="204425"><span class="nick" style="color:#6d2462"><a href="#204425" label="[20:44:25]">&lt;stikonas[m]&gt;</a></span><span class="message">Because 1.we have no initial toolchain that might introduce non reproducibility</span></div><div class="line" id="204456"><span class="nick" style="color:#6d2462"><a href="#204456" label="[20:44:56]">&lt;stikonas[m]&gt;</a></span><span class="message">2. Install paths in live-bootstrap are fixed (we use /usr)</span></div><div class="line" id="204724"><span class="nick" style="color:#6d2462"><a href="#204724" label="[20:47:24]">&lt;stikonas[m]&gt;</a></span><span class="message">so non reproducibility mostly comes when software explicitly tries to use current date or time</span></div><div class="line" id="204735"><span class="nick" style="color:#6d2462"><a href="#204735" label="[20:47:35]">&lt;stikonas[m]&gt;</a></span><span class="message">which doesn't happen too frequently and we patch it out</span></div><div class="line" id="204800"><span class="nick" style="color:#6d2462"><a href="#204800" label="[20:48:00]">&lt;stikonas[m]&gt;</a></span><span class="message">or we just remove stuff we don't care about, i.e. sometimes we just remove docs/manpages)</span></div><div class="line" id="204914"><span class="nick" style="color:#8dd3c7"><a href="#204914" label="[20:49:14]">&lt;stikonas&gt;</a></span><span class="message">vagrantc: live-bootstrap though is x86 only for now (especially with kernel bootstrapping)</span></div><div class="line" id="204927"><span class="nick" style="color:#8dd3c7"><a href="#204927" label="[20:49:27]">&lt;stikonas&gt;</a></span><span class="message">well, all full system bootstrapping is x86 only</span></div><div class="line" id="204946"><span class="nick" style="color:#8dd3c7"><a href="#204946" label="[20:49:46]">&lt;stikonas&gt;</a></span><span class="message">though we are not too far from bootstrapping tcc on x86_64</span></div><div class="line" id="205248"><span class="nick" style="color:#80b1d3"><a href="#205248" label="[20:52:48]">&lt;vagrantc&gt;</a></span><span class="message">ah, keep forgetting about x86 only</span></div><div class="line" id="205339"><span class="nick" style="color:#80b1d3"><a href="#205339" label="[20:53:39]">&lt;vagrantc&gt;</a></span><span class="message">i think the guix bootstrap bootstraps an x86 toolchain and then presumably cross-compiles an x86_64 toolchain from that ...</span></div><div class="line" id="205614"><span class="nick" style="color:#6d2462"><a href="#205614" label="[20:56:14]">&lt;stikonas[m]&gt;</a></span><span class="message">Indeed</span></div><div class="line" id="222206"><span class="nick" style="color:#8dd3c7"><a href="#222206" label="[22:22:06]">&lt;stikonas&gt;</a></span><span class="message">janneke: is there an easy way to force make check in mes to use mescc?</span></div><div class="line" id="222210"><span class="nick" style="color:#8dd3c7"><a href="#222210" label="[22:22:10]">&lt;stikonas&gt;</a></span><span class="message">it seems to use gcc for me</span></div><div class="line" id="222615"><span class="nick" style="color:#2e2a4a"><a href="#222615" label="[22:26:15]">&lt;janneke&gt;</a></span><span class="message">stikonas; if gcc is available, it will use gcc</span></div><div class="line" id="222727"><span class="nick" style="color:#2e2a4a"><a href="#222727" label="[22:27:27]">&lt;janneke&gt;</a></span><span class="message">...but it's pretty easy to edit ./check.sh and comment-out/disable the</span></div><div class="line" id="222731"><span class="nick" style="color:#2e2a4a"><a href="#222731" label="[22:27:31]">&lt;janneke&gt;</a></span><span class="message">if test $compiler = gcc; then [...]</span></div><div class="line" id="222732"><span class="nick" style="color:#2e2a4a"><a href="#222732" label="[22:27:32]">&lt;janneke&gt;</a></span><span class="message">bit</span></div><div class="line" id="223025"><span class="nick" style="color:#6d2462"><a href="#223025" label="[22:30:25]">&lt;stikonas[m]&gt;</a></span><span class="message">OK. It's just that M1 overflow test is useless with gcc</span></div><br /></div></body></html>

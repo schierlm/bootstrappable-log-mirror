@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-09-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="042051"><span class="nick" style="color:#389600"><a href="#042051" label="[04:20:51]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;emilytrau&gt; wow fml. i have wasted over a week stubbornly trying to get glibc 2.16.0 to build. i finally give up and musl builds in 5 minutes</span></div><div class="line" id="042209"><span class="nick" style="color:#389600"><a href="#042209" label="[04:22:09]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;emilytrau&gt; so much effort trying to get a glibc bootstrap to work when i could just not do that -_-</span></div><div class="line" id="042359"><span class="nick" style="color:#8dd3c7"><a href="#042359" label="[04:23:59]">&lt;muurkha&gt;</a></span><span class="message">I feel like if I say &quot;congratulations&quot; you might think I was being sarcastic</span></div><div class="line" id="042428"><span class="nick" style="color:#8dd3c7"><a href="#042428" label="[04:24:28]">&lt;muurkha&gt;</a></span><span class="message">but an awful lot of problems in programming end up being like that</span></div><div class="line" id="042504"><span class="nick" style="color:#8dd3c7"><a href="#042504" label="[04:25:04]">&lt;muurkha&gt;</a></span><span class="message">and ultimately that combination of persistence and flexibility is a great virtue</span></div><div class="line" id="045848"><span class="nick" style="color:#8dd3c7"><a href="#045848" label="[04:58:48]">&lt;muurkha&gt;</a></span><span class="message">I was looking at small libcs the other night because I wanted to see how little space PARI/GP can run in</span></div><div class="line" id="045920"><span class="nick" style="color:#8dd3c7"><a href="#045920" label="[04:59:20]">&lt;muurkha&gt;</a></span><span class="message">the ones I found, aside from musl, are klibc, newlib, picolibc, and of course dietlibc</span></div><div class="line" id="045951"><span class="nick" style="color:#8dd3c7"><a href="#045951" label="[04:59:51]">&lt;muurkha&gt;</a></span><span class="message">I think klibc doesn't support floating point?</span></div><div class="line" id="050047"><span class="nick" style="color:#8dd3c7"><a href="#050047" label="[05:00:47]">&lt;muurkha&gt;</a></span><span class="message">with glibc I couldn't start a minimal program linked with libpari in less than ulimit -d 2048</span></div><div class="line" id="074106"><span class="nick" style="color:#2e2a4a"><a href="#074106" label="[07:41:06]">&lt;fossy&gt;</a></span><span class="message">emilytrau: it is rather remarkable, I was very surprised at how easy musl is to build!</span></div><div class="line" id="095358"><span class="nick" style="color:#389600"><a href="#095358" label="[09:53:58]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; That's exactly the reason why we used musl in live-bootstrap</span></div><div class="line" id="095420"><span class="nick" style="color:#389600"><a href="#095420" label="[09:54:20]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; It's far simpler but still compatible with most stuff</span></div><div class="line" id="095739"><span class="nick" style="color:#389600"><a href="#095739" label="[09:57:39]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; And no other small libc had a nice build system either</span></div><div class="line" id="112405"><span class="nick" style="color:#6b8072"><a href="#112405" label="[11:24:05]">&lt;janneke&gt;</a></span><span class="message">one day we'll have our own amazing libc</span></div><div class="line" id="132847"><span class="nick" style="color:#80b1d3"><a href="#132847" label="[13:28:47]">&lt;oriansj&gt;</a></span><span class="message">janneke: yeah, M2libc is still a work in progress and its ultimate goal is only a few dozen functions away.</span></div><br /></div></body></html>

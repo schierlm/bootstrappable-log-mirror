@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-12-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000022"><span class="nick" style="color:#389600"><a href="#000022" label="[00:00:22]">&lt;duplexsystem94&gt;</a></span><span class="message">ah that makes sense</span></div><div class="line" id="000056"><span class="nick" style="color:#8dd3c7"><a href="#000056" label="[00:00:56]">&lt;rickmasters&gt;</a></span><span class="message">I just got Fiwix to build linux on Dec 9, with this list of caveats: <a rel="nofollow" href="https://gist.github.com/rick-masters/54204c0b6b369748b4a1aaf2a4da22cf">https://gist.github.com/rick-masters/54204c0b6b369748b4a1aaf2a4da22cf</a> </span></div><div class="line" id="000223"><span class="nick" style="color:#8dd3c7"><a href="#000223" label="[00:02:23]">&lt;rickmasters&gt;</a></span><span class="message">Ultimately, boot2now will probably merge into live-bootstrap directly and won't exist independently</span></div><div class="line" id="000258"><span class="nick" style="color:#389600"><a href="#000258" label="[00:02:58]">&lt;duplexsystem94&gt;</a></span><span class="message">so how does this compare to something like tccboot (presumably tcc can compile tccboot but I haven't checked that)</span></div><div class="line" id="000328"><span class="nick" style="color:#8dd3c7"><a href="#000328" label="[00:03:28]">&lt;rickmasters&gt;</a></span><span class="message">boot2now has been pretty volatile and hacky so I've kept it separate from the live-bootstrap repo until it works.</span></div><div class="line" id="000349"><span class="nick" style="color:#8dd3c7"><a href="#000349" label="[00:03:49]">&lt;rickmasters&gt;</a></span><span class="message">tccboot is an alternative strategy that I spent some time on</span></div><div class="line" id="000417"><span class="nick" style="color:#389600"><a href="#000417" label="[00:04:17]">&lt;duplexsystem94&gt;</a></span><span class="message">boot2now worked for me on first clone so I'd say that's pretty good progress</span></div><div class="line" id="000511"><span class="nick" style="color:#8dd3c7"><a href="#000511" label="[00:05:11]">&lt;rickmasters&gt;</a></span><span class="message">ultimately I gave up on tccboot because the build process is undocumented and uses a lot of tools that would have to be bootstrapped. And its a pretty old Linux.</span></div><div class="line" id="000549"><span class="nick" style="color:#389600"><a href="#000549" label="[00:05:49]">&lt;duplexsystem94&gt;</a></span><span class="message">ah so what version of linux is fiwix targeting to build?</span></div><div class="line" id="000622"><span class="nick" style="color:#2e2a4a"><a href="#000622" label="[00:06:22]">&lt;stikonas_&gt;</a></span><span class="message">duplexsystem94: same as live-bootstrap</span></div><div class="line" id="000627"><span class="nick" style="color:#8dd3c7"><a href="#000627" label="[00:06:27]">&lt;rickmasters&gt;</a></span><span class="message">Fiwix builds 4.9.10 which is what live-bootstrap builds and transitions to</span></div><div class="line" id="000658"><span class="nick" style="color:#8dd3c7"><a href="#000658" label="[00:06:58]">&lt;rickmasters&gt;</a></span><span class="message">You can read more about the tccboot and Fiwix discussion here: <a rel="nofollow" href="https://logs.guix.gnu.org/bootstrappable/2022-10-17.log">https://logs.guix.gnu.org/bootstrappable/2022-10-17.log</a> </span></div><div class="line" id="000700"><span class="nick" style="color:#389600"><a href="#000700" label="[00:07:00]">&lt;duplexsystem94&gt;</a></span><span class="message">ah yeah that is significantly newer than what tccboot builds (2.4 or something iirc)</span></div><div class="line" id="000717"><span class="nick" style="color:#2e2a4a"><a href="#000717" label="[00:07:17]">&lt;stikonas_&gt;</a></span><span class="message">fossy's comment in parts.rst says that newer versions have higher requirements on make, gcc and binutils</span></div><div class="line" id="001114"><span class="nick" style="color:#6b8072"><a href="#001114" label="[00:11:14]">&lt;stikonas&gt;</a></span><span class="message">I suspect make and binutils is not too hard to upgrade if we need</span></div><div class="line" id="001130"><span class="nick" style="color:#6b8072"><a href="#001130" label="[00:11:30]">&lt;stikonas&gt;</a></span><span class="message">gcc is probably harder as it has more dependencies</span></div><div class="line" id="001152"><span class="nick" style="color:#6b8072"><a href="#001152" label="[00:11:52]">&lt;stikonas&gt;</a></span><span class="message">but 4.9.10 should be good enough for a while</span></div><div class="line" id="001202"><span class="nick" style="color:#389600"><a href="#001202" label="[00:12:02]">&lt;duplexsystem94&gt;</a></span><span class="message">anyways my current goal is to build a self-bootstrapping linux os that will fit on a DVD so I will be eyeing these repos</span></div><div class="line" id="001223"><span class="nick" style="color:#389600"><a href="#001223" label="[00:12:23]">&lt;duplexsystem94&gt;</a></span><span class="message">why a DVD? because I have 100s of them and I want something to do with them</span></div><div class="line" id="001325"><span class="nick" style="color:#6b8072"><a href="#001325" label="[00:13:25]">&lt;stikonas&gt;</a></span><span class="message">live-bootstrap is about the size of CDat the moment</span></div><div class="line" id="001335"><span class="nick" style="color:#6b8072"><a href="#001335" label="[00:13:35]">&lt;stikonas&gt;</a></span><span class="message">and we could reduce it more</span></div><div class="line" id="001406"><span class="nick" style="color:#6b8072"><a href="#001406" label="[00:14:06]">&lt;stikonas&gt;</a></span><span class="message">right now we ship two linux tarballs 4.9.10 and 5.10.41</span></div><div class="line" id="001422"><span class="nick" style="color:#6b8072"><a href="#001422" label="[00:14:22]">&lt;stikonas&gt;</a></span><span class="message">so DVD should have plenty of space</span></div><div class="line" id="001930"><span class="nick" style="color:#389600"><a href="#001930" label="[00:19:30]">&lt;duplexsystem94&gt;</a></span><span class="message">well I want to get up to sway so that's a lot more src that needs to fit and I also don't have any blank CDs</span></div><div class="line" id="005558"><span class="nick" style="color:#8dd3c7"><a href="#005558" label="[00:55:58]">&lt;rickmasters&gt;</a></span><span class="message">duplexsystems94: you're in the right place. oriansj is very active here to answer questions on compilers from hex0 to M2-planet (also stikonas especially on UEFI)</span></div><div class="line" id="005645"><span class="nick" style="color:#8dd3c7"><a href="#005645" label="[00:56:45]">&lt;rickmasters&gt;</a></span><span class="message">stikonas and fossy are active on live-bootstrap which goes from mes library and C compiler to build linux and gcc</span></div><div class="line" id="005703"><span class="nick" style="color:#8dd3c7"><a href="#005703" label="[00:57:03]">&lt;rickmasters&gt;</a></span><span class="message">and I've been working on the kernel bootstrapping</span></div><div class="line" id="005742"><span class="nick" style="color:#8dd3c7"><a href="#005742" label="[00:57:42]">&lt;rickmasters&gt;</a></span><span class="message">Lot's of other smart and knowledgeable folks hang out here to help on many topics</span></div><div class="line" id="010728"><span class="nick" style="color:#6b8072"><a href="#010728" label="[01:07:28]">&lt;stikonas&gt;</a></span><span class="message">and janneke should be able to answer questions on mes</span></div><div class="line" id="010806"><span class="nick" style="color:#6b8072"><a href="#010806" label="[01:08:06]">&lt;stikonas&gt;</a></span><span class="message">and he also works on bootstrap chains in GNU Guix</span></div><div class="line" id="033223"><span class="nick" style="color:#80b1d3"><a href="#033223" label="[03:32:23]">&lt;oriansj&gt;</a></span><span class="message">duplexsystem94: well if you wanted something consume a good deal of DVDs, backing up guix source tarballs could certainly do that</span></div><div class="line" id="033314"><span class="nick" style="color:#80b1d3"><a href="#033314" label="[03:33:14]">&lt;oriansj&gt;</a></span><span class="message">although you would probably need tracking software to find specific tarballs with exact checksums</span></div><div class="line" id="033407"><span class="nick" style="color:#80b1d3"><a href="#033407" label="[03:34:07]">&lt;oriansj&gt;</a></span><span class="message">and probably look at software for generating parity files to deal with the likely bit-rot (unless you went for one of the more exotic DVD filesystems)</span></div><br /></div></body></html>

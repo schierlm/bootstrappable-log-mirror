@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-12-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002246"><span class="nick" style="color:#389600"><a href="#002246" label="[00:22:46]">&lt;fossy&gt;</a></span><span class="message">Googulator: yeah i'm already aware why initramfs generation is failing, i think initramfs generation is working now locally but not kexec, i'm working on it now</span></div><div class="line" id="004742"><span class="nick" style="color:#8dd3c7"><a href="#004742" label="[00:47:42]">&lt;Googulator&gt;</a></span><span class="message">that's interesting as I had kexec working already</span></div><div class="line" id="004810"><span class="nick" style="color:#8dd3c7"><a href="#004810" label="[00:48:10]">&lt;Googulator&gt;</a></span><span class="message">(with broken initramfs, so Linux dies trying to start userspace, but good enough that I got penguins on the screen on bare metal)</span></div><div class="line" id="004908"><span class="nick" style="color:#8dd3c7"><a href="#004908" label="[00:49:08]">&lt;Googulator&gt;</a></span><span class="message">what's your kexec size (defined, confusingly, in kexec-fiwix)?</span></div><div class="line" id="004941"><span class="nick" style="color:#8dd3c7"><a href="#004941" label="[00:49:41]">&lt;Googulator&gt;</a></span><span class="message">I run with this:</span></div><div class="line" id="004941"><span class="nick" style="color:#8dd3c7"><a href="#004941" label="[00:49:41]">&lt;Googulator&gt;</a></span><span class="message">#define INITRD_MB 1280</span></div><div class="line" id="004942"><span class="nick" style="color:#8dd3c7"><a href="#004942" label="[00:49:42]">&lt;Googulator&gt;</a></span><span class="message">#define KEXEC_MB 256</span></div><div class="line" id="005015"><span class="nick" style="color:#8dd3c7"><a href="#005015" label="[00:50:15]">&lt;Googulator&gt;</a></span><span class="message">(kexec-fiwix originally hardcodes KEXEC_MB, I made it a define for easier tweaking)</span></div><div class="line" id="005933"><span class="nick" style="color:#389600"><a href="#005933" label="[00:59:33]">&lt;fossy&gt;</a></span><span class="message">oh, kexec in and of itself works, the boot just does not complete</span></div><div class="line" id="011748"><span class="nick" style="color:#8dd3c7"><a href="#011748" label="[01:17:48]">&lt;Googulator&gt;</a></span><span class="message">where does it break?</span></div><div class="line" id="011803"><span class="nick" style="color:#8dd3c7"><a href="#011803" label="[01:18:03]">&lt;Googulator&gt;</a></span><span class="message">does it get to where it's looking for init?</span></div><div class="line" id="015253"><span class="nick" style="color:#2e2a4a"><a href="#015253" label="[01:52:53]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Googulator: somewhat confusingly tcc 0.9.26 in live bootstrap is not 0.9.26</span></div><div class="line" id="015317"><span class="nick" style="color:#8dd3c7"><a href="#015317" label="[01:53:17]">&lt;Googulator&gt;</a></span><span class="message">Is 0.9.27 really 0.9.27 though?</span></div><div class="line" id="015324"><span class="nick" style="color:#2e2a4a"><a href="#015324" label="[01:53:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yes</span></div><div class="line" id="015335"><span class="nick" style="color:#8dd3c7"><a href="#015335" label="[01:53:35]">&lt;Googulator&gt;</a></span><span class="message">Cosinusoidally now has it working (to an extent)</span></div><div class="line" id="015345"><span class="nick" style="color:#8dd3c7"><a href="#015345" label="[01:53:45]">&lt;Googulator&gt;</a></span><span class="message">Testing/hacking on it right now</span></div><div class="line" id="015352"><span class="nick" style="color:#2e2a4a"><a href="#015352" label="[01:53:52]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; And &quot;0.9.26&quot; is about 8 months or so before</span></div><div class="line" id="015408"><span class="nick" style="color:#2e2a4a"><a href="#015408" label="[01:54:08]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Rather than 5 years</span></div><div class="line" id="015602"><span class="nick" style="color:#2e2a4a"><a href="#015602" label="[01:56:02]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; It's nice to have alternative bootstrap path</span></div><div class="line" id="015616"><span class="nick" style="color:#2e2a4a"><a href="#015616" label="[01:56:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Thou it is really x86 only :(</span></div><div class="line" id="021257"><span class="nick" style="color:#8dd3c7"><a href="#021257" label="[02:12:57]">&lt;Googulator&gt;</a></span><span class="message">isn't tcc x86-only in general?</span></div><div class="line" id="024405"><span class="nick" style="color:#8dd3c7"><a href="#024405" label="[02:44:05]">&lt;Googulator&gt;</a></span><span class="message">Maybe it's sacrilegious for some, but another platform where bootstrap now works with my builder-hex0 PRs is Hyper-V: <a rel="nofollow" href="https://github.com/ironmeld/builder-hex0/assets/16308406/71da451b-2ac7-4b6c-b38b-23c7c7dac77c">https://github.com/ironmeld/builder-hex0/assets/16308406/71da451b-2ac7-4b6c-b38b-23c7c7dac77c</a> </span></div><div class="line" id="024523"><span class="nick" style="color:#8dd3c7"><a href="#024523" label="[02:45:23]">&lt;Googulator&gt;</a></span><span class="message">this would previously black screen in stage1, just like my Asus board in IDE mode</span></div><div class="line" id="025128"><span class="nick" style="color:#8dd3c7"><a href="#025128" label="[02:51:28]">&lt;Googulator&gt;</a></span><span class="message">It still fails when trying to get into Fiwix</span></div><div class="line" id="025203"><span class="nick" style="color:#8dd3c7"><a href="#025203" label="[02:52:03]">&lt;Googulator&gt;</a></span><span class="message">&quot;Starting fiwix.ext2 at addr 0xf0002000&quot;</span></div><div class="line" id="025209"><span class="nick" style="color:#8dd3c7"><a href="#025209" label="[02:52:09]">&lt;Googulator&gt;</a></span><span class="message">that address doesn't look right...</span></div><div class="line" id="055132"><span class="nick" style="color:#389600"><a href="#055132" label="[05:51:32]">&lt;fossy&gt;</a></span><span class="message">&quot;where it breaks&quot; is currently continually changing, as i go through the cycle of testing and fixing</span></div><div class="line" id="063703"><span class="nick" style="color:#8dd3c7"><a href="#063703" label="[06:37:03]">&lt;Googulator&gt;</a></span><span class="message">I'm currently testing with this: <a rel="nofollow" href="https://gist.github.com/Googulator/3a8b84b29dfe4c2601ffd92f48d69c6f">https://gist.github.com/Googulator/3a8b84b29dfe4c2601ffd92f48d69c6f</a> </span></div><div class="line" id="063802"><span class="nick" style="color:#8dd3c7"><a href="#063802" label="[06:38:02]">&lt;Googulator&gt;</a></span><span class="message">I also changed the kernel file name in linux's build sh file to match the usual convention of /boot/vmlinuz-$(uname -r)</span></div><div class="line" id="063912"><span class="nick" style="color:#8dd3c7"><a href="#063912" label="[06:39:12]">&lt;Googulator&gt;</a></span><span class="message">added move_disk.sh since that's modified too</span></div><div class="line" id="070149"><span class="nick" style="color:#389600"><a href="#070149" label="[07:01:49]">&lt;fossy&gt;</a></span><span class="message">i have a bit of a different solution in the works, skipping the use of gen_initramfs_list.sh entirely because on my system at least it is particularly slow and can be replaced with a few find commands at least in our case...</span></div><div class="line" id="070301"><span class="nick" style="color:#389600"><a href="#070301" label="[07:03:01]">&lt;fossy&gt;</a></span><span class="message">i've also modified kexec-linux to allow an argument to be execution of a command (ie, reading from a pipe), which avoids writing the initramfs to ramdisk, further decreasing the required RAM space</span></div><div class="line" id="070620"><span class="nick" style="color:#389600"><a href="#070620" label="[07:06:20]">&lt;fossy&gt;</a></span><span class="message">i appreciate your testing &amp; enthusiasm but as i've said a few times i am currently working on the exact same issues with the PR, and i'm not really having any issues solving these problems, they're pretty straightforward, so we're kind of duplicating work right now - which is totally fine if you want to do that, it just might not produce any changes to the tree</span></div><div class="line" id="092142"><span class="nick" style="color:#2e2a4a"><a href="#092142" label="[09:21:42]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Googulator: tcc supports at least x86, x86_64 and risc64</span></div><div class="line" id="100330"><span class="nick" style="color:#2e2a4a"><a href="#100330" label="[10:03:30]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; well, riscv64 support is more limitted</span></div><div class="line" id="100352"><span class="nick" style="color:#2e2a4a"><a href="#100352" label="[10:03:52]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; it is only supported in tcc mob and bootstrappable tinycc, but right now not on 0.9.27</span></div><div class="line" id="100422"><span class="nick" style="color:#2e2a4a"><a href="#100422" label="[10:04:22]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; but live-bootstrap on ricv64 can run all the way till tcc 0.9.27 step (and then of course it fails)</span></div><div class="line" id="105315"><span class="nick" style="color:#389600"><a href="#105315" label="[10:53:15]">&lt;fossy&gt;</a></span><span class="message">no arm?</span></div><div class="line" id="105402"><span class="nick" style="color:#389600"><a href="#105402" label="[10:54:02]">&lt;fossy&gt;</a></span><span class="message">also, gotta say it's a little bit funny that stikonas managed to get the matrix_bridge nick :P</span></div><div class="line" id="112058"><span class="nick" style="color:#6b8072"><a href="#112058" label="[11:20:58]">&lt;oriansj&gt;</a></span><span class="message">I think that is just a side effect of the matrx bridge itself, I don't think it has anything to do with the fact that stikonas is the one maintaining the bridge</span></div><div class="line" id="112419"><span class="nick" style="color:#389600"><a href="#112419" label="[11:24:19]">&lt;fossy&gt;</a></span><span class="message">mes 0.26, nice, looks like we are getting module uspport</span></div><div class="line" id="112429"><span class="nick" style="color:#8dd3c7"><a href="#112429" label="[11:24:29]">&lt;Googulator&gt;</a></span><span class="message">Is the build of mes-tcc supposed to be super memory bandwidth intensive?</span></div><div class="line" id="112536"><span class="nick" style="color:#8dd3c7"><a href="#112536" label="[11:25:36]">&lt;Googulator&gt;</a></span><span class="message">I noticed it's more than an order of magnitude slower on my Core 2 Duo/Quad bare metal systems than in qemu on a Zen 4</span></div><div class="line" id="112556"><span class="nick" style="color:#8dd3c7"><a href="#112556" label="[11:25:56]">&lt;Googulator&gt;</a></span><span class="message">Linux kernel build is only about 2x slower on the same system</span></div><div class="line" id="112635"><span class="nick" style="color:#8dd3c7"><a href="#112635" label="[11:26:35]">&lt;Googulator&gt;</a></span><span class="message">The only thing with such a massive difference between the two seems to be RAM</span></div><div class="line" id="112708"><span class="nick" style="color:#8dd3c7"><a href="#112708" label="[11:27:08]">&lt;Googulator&gt;</a></span><span class="message">10 vs 90GB/s bandwidth</span></div><div class="line" id="112729"><span class="nick" style="color:#8dd3c7"><a href="#112729" label="[11:27:29]">&lt;Googulator&gt;</a></span><span class="message">(and core count of course, but there's no SMP in builder-hex0 to take advantage of that)</span></div><div class="line" id="112755"><span class="nick" style="color:#8dd3c7"><a href="#112755" label="[11:27:55]">&lt;Googulator&gt;</a></span><span class="message">Clock/IPC difference explains the Linux build time, but not mes-tcc</span></div><div class="line" id="112806"><span class="nick" style="color:#389600"><a href="#112806" label="[11:28:06]">&lt;fossy&gt;</a></span><span class="message">i do believe the build of mes-tcc is highly memory intensive, yes</span></div><div class="line" id="112812"><span class="nick" style="color:#389600"><a href="#112812" label="[11:28:12]">&lt;fossy&gt;</a></span><span class="message">not sure why though :)</span></div><div class="line" id="112833"><span class="nick" style="color:#389600"><a href="#112833" label="[11:28:33]">&lt;fossy&gt;</a></span><span class="message">might just be a side effect of mes</span></div><div class="line" id="112834"><span class="nick" style="color:#8dd3c7"><a href="#112834" label="[11:28:34]">&lt;Googulator&gt;</a></span><span class="message">Seems to not just use a lot of allocated RAM, but also do a lot of memory IO</span></div><div class="line" id="115140"><span class="nick" style="color:#8dd3c7"><a href="#115140" label="[11:51:40]">&lt;Googulator&gt;</a></span><span class="message">How does Fiwix decide where to allocate ram1 (the kexec ramdisk)?</span></div><div class="line" id="115147"><span class="nick" style="color:#8dd3c7"><a href="#115147" label="[11:51:47]">&lt;Googulator&gt;</a></span><span class="message">I have this in the log: ram1      0xc44b7700-0xd44b7700 RAMdisk of 262144KB size, 1KB blocksize</span></div><div class="line" id="115211"><span class="nick" style="color:#8dd3c7"><a href="#115211" label="[11:52:11]">&lt;Googulator&gt;</a></span><span class="message">Seems to work OK for me, but that's potentially MMIO address space</span></div><div class="line" id="115949"><span class="nick" style="color:#80b1d3"><a href="#115949" label="[11:59:49]">&lt;Mikaku&gt;</a></span><span class="message">Googulator: the memory layout of the Fiwix kernel is explained in the file 'docs/kmem_layout.txt', but I'm not sure if your patched kernel matches with that file</span></div><div class="line" id="163539"><span class="nick" style="color:#8dd3c7"><a href="#163539" label="[16:35:39]">&lt;Googulator&gt;</a></span><span class="message">Alright, got to a fully booted Linux kernel, and successfully built curl using the new codebase - only to die of a stupid error (I accidentally inserted the &quot;create swap&quot; code in 2 different locations, and they conflicted)</span></div><div class="line" id="194725"><span class="nick" style="color:#6d2462"><a href="#194725" label="[19:47:25]">&lt;janneke&gt;</a></span><span class="message">snuik: later tell artimist: just learnt about your aarch64 work for mes, you'll want to rebase onto mes branch version-0.25 which has quite some 64bit fixes (because of riscv64)</span></div><div class="line" id="194829"><span class="nick" style="color:#6d2462"><a href="#194829" label="[19:48:29]">&lt;janneke&gt;</a></span><span class="message">snuik: later tell artimist: just learnt about your aarch64 work for mes, you'll want to rebase onto mes branch version-0.25 which has quite some 64bit fixes (because of riscv64)</span></div><div class="line" id="194829"><span class="nick" style="color:#234e69"><a href="#194829" label="[19:48:29]">&lt;snuik&gt;</a></span><span class="message">janneke, you have 2 messages</span></div><div class="line" id="194830"><span class="nick" style="color:#234e69"><a href="#194830" label="[19:48:30]">&lt;snuik&gt;</a></span><span class="message">janneke, ekaitz says: truncate-shift might be garbage</span></div><div class="line" id="194830"><span class="nick" style="color:#234e69"><a href="#194830" label="[19:48:30]">&lt;snuik&gt;</a></span><span class="message">janneke, ekaitz says: setjmp... you have to talk with stikonas for that</span></div><div class="line" id="194830"><span class="nick" style="color:#234e69"><a href="#194830" label="[19:48:30]">&lt;snuik&gt;</a></span><span class="message">Will do.</span></div><div class="line" id="194851"><span class="nick" style="color:#6d2462"><a href="#194851" label="[19:48:51]">&lt;janneke&gt;</a></span><span class="message">snuik: botsnack</span></div><div class="line" id="194852"><span class="nick" style="color:#234e69"><a href="#194852" label="[19:48:52]">&lt;snuik&gt;</a></span><span class="message">:)</span></div><div class="line" id="194858"><span class="nick" style="color:#6c3d55"><a href="#194858" label="[19:48:58]">&lt;ekaitz&gt;</a></span><span class="message">old messages janneke</span></div><div class="line" id="194902"><span class="nick" style="color:#6c3d55"><a href="#194902" label="[19:49:02]">&lt;ekaitz&gt;</a></span><span class="message">but still true</span></div><div class="line" id="194905"><span class="nick" style="color:#6d2462"><a href="#194905" label="[19:49:05]">&lt;janneke&gt;</a></span><span class="message">hmm, it seems /me has been too quiet for some time :)</span></div><div class="line" id="194908"><span class="nick" style="color:#6c3d55"><a href="#194908" label="[19:49:08]">&lt;ekaitz&gt;</a></span><span class="message">:)</span></div><div class="line" id="194913"><span class="nick" style="color:#6c3d55"><a href="#194913" label="[19:49:13]">&lt;ekaitz&gt;</a></span><span class="message">busy with 0.26</span></div><div class="line" id="194916"><span class="nick" style="color:#6d2462"><a href="#194916" label="[19:49:16]">&lt;janneke&gt;</a></span><span class="message">yeah</span></div><div class="line" id="194921"><span class="nick" style="color:#6d2462"><a href="#194921" label="[19:49:21]">&lt;janneke&gt;</a></span><span class="message">phew</span></div><div class="line" id="194936"><span class="nick" style="color:#6d2462"><a href="#194936" label="[19:49:36]">&lt;janneke&gt;</a></span><span class="message">i didn't know about this aarch64 effort!</span></div><div class="line" id="195008"><span class="nick" style="color:#6c3d55"><a href="#195008" label="[19:50:08]">&lt;ekaitz&gt;</a></span><span class="message">:)</span></div><div class="line" id="195141"><span class="nick" style="color:#6d2462"><a href="#195141" label="[19:51:41]">&lt;janneke&gt;</a></span><span class="message">people just start to work on mes without even thinking to ping me...</span></div><div class="line" id="195153"><span class="nick" style="color:#6d2462"><a href="#195153" label="[19:51:53]">&lt;janneke&gt;</a></span><span class="message">mes is starting to mature, i guess</span></div><br /></div></body></html>

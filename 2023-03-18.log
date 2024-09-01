@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-03-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="025124"><span class="nick" style="color:#389600"><a href="#025124" label="[02:51:24]">&lt;fossy&gt;</a></span><span class="message">Mikaku: is it correct that fiwix runs on a single core (no SMP)? (this is not a problem at all, just need to know whether to enable multi-core builds in sysa) (doesn't really matter anyways cause sysa is comparatively very fast)</span></div><div class="line" id="025555"><span class="nick" style="color:#8dd3c7"><a href="#025555" label="[02:55:55]">&lt;stikonas&gt;</a></span><span class="message">fossy: well, you could speed up sysc a bit with optimization CFLAGS...</span></div><div class="line" id="025651"><span class="nick" style="color:#8dd3c7"><a href="#025651" label="[02:56:51]">&lt;stikonas&gt;</a></span><span class="message">CFLAGS=&quot;-O0&quot; would probably make gcc as fast as tcc</span></div><div class="line" id="025709"><span class="nick" style="color:#8dd3c7"><a href="#025709" label="[02:57:09]">&lt;stikonas&gt;</a></span><span class="message">probably all programs would slow down a bit</span></div><div class="line" id="025720"><span class="nick" style="color:#8dd3c7"><a href="#025720" label="[02:57:20]">&lt;stikonas&gt;</a></span><span class="message">but I think in general sysc would finish significantly faster</span></div><div class="line" id="030034"><span class="nick" style="color:#8dd3c7"><a href="#030034" label="[03:00:34]">&lt;stikonas&gt;</a></span><span class="message">most consumers would probably use live-bootstrap output to build their toolchain anyway (rather than consuming live-bootstrap binaries directly). At least freedesktop-sdk does so</span></div><div class="line" id="030725"><span class="nick" style="color:#389600"><a href="#030725" label="[03:07:25]">&lt;fossy&gt;</a></span><span class="message">i was just considering parallelism right now, not going to enable it on sysa if fiwix doesn't support it</span></div><div class="line" id="030730"><span class="nick" style="color:#389600"><a href="#030730" label="[03:07:30]">&lt;fossy&gt;</a></span><span class="message">but yes, we can look at that too</span></div><div class="line" id="030908"><span class="nick" style="color:#389600"><a href="#030908" label="[03:09:08]">&lt;fossy&gt;</a></span><span class="message">i suspect building gcc with a gcc that was compiled with -O0 is overall slower than building gcc with a gcc that was compiled with -O2 however</span></div><div class="line" id="031024"><span class="nick" style="color:#2e2a4a"><a href="#031024" label="[03:10:24]">&lt;stikonas[m]&gt;</a></span><span class="message">I would be surprised if that is true...</span></div><div class="line" id="031114"><span class="nick" style="color:#2e2a4a"><a href="#031114" label="[03:11:14]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, tgat's something to test</span></div><div class="line" id="031159"><span class="nick" style="color:#2e2a4a"><a href="#031159" label="[03:11:59]">&lt;stikonas[m]&gt;</a></span><span class="message">Your parallelism work probably makes testing other flags too</span></div><div class="line" id="031339"><span class="nick" style="color:#2e2a4a"><a href="#031339" label="[03:13:39]">&lt;stikonas[m]&gt;</a></span><span class="message">Still, some limited -O0 is guaranteed to be faster, e.g. python builds</span></div><div class="line" id="031358"><span class="nick" style="color:#2e2a4a"><a href="#031358" label="[03:13:58]">&lt;stikonas[m]&gt;</a></span><span class="message">Almost no time is spent running python itself</span></div><div class="line" id="031616"><span class="nick" style="color:#2e2a4a"><a href="#031616" label="[03:16:16]">&lt;stikonas[m]&gt;</a></span><span class="message">So in the worst case everything except toolchain with -0O should work</span></div><div class="line" id="041134"><span class="nick" style="color:#389600"><a href="#041134" label="[04:11:34]">&lt;fossy&gt;</a></span><span class="message">true</span></div><div class="line" id="083707"><span class="nick" style="color:#6b8072"><a href="#083707" label="[08:37:07]">&lt;Mikaku&gt;</a></span><span class="message">fossy: yes, there is no SMP support on Fiwix, sorry for that</span></div><div class="line" id="115732"><span class="nick" style="color:#389600"><a href="#115732" label="[11:57:32]">&lt;fossy&gt;</a></span><span class="message">Mikaku: no worries, th ank you for letting me now :D</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-10-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000008"><span class="nick" style="color:#389600"><a href="#000008" label="[00:00:08]">&lt;stikonas&gt;</a></span><span class="message">hmm...</span></div><div class="line" id="000031"><span class="nick" style="color:#389600"><a href="#000031" label="[00:00:31]">&lt;stikonas&gt;</a></span><span class="message">yeah, initially I was surprised that so many hashes have changed...</span></div><div class="line" id="000130"><span class="nick" style="color:#389600"><a href="#000130" label="[00:01:30]">&lt;stikonas&gt;</a></span><span class="message">hmm, did I actually update kaem-optional-seed hash in docs</span></div><div class="line" id="000223"><span class="nick" style="color:#389600"><a href="#000223" label="[00:02:23]">&lt;stikonas&gt;</a></span><span class="message">ok, maybe it's not mentioned anywhere in docs of mescc-tools-seed...</span></div><div class="line" id="000228"><span class="nick" style="color:#8dd3c7"><a href="#000228" label="[00:02:28]">&lt;OriansJ&gt;</a></span><span class="message">however changing comments can't change binaries in M2-Planet</span></div><div class="line" id="000346"><span class="nick" style="color:#8dd3c7"><a href="#000346" label="[00:03:46]">&lt;OriansJ&gt;</a></span><span class="message">changing error messages should change the hash (as is seen in cc_x86*, lisp.s and M2-Planet)</span></div><div class="line" id="000417"><span class="nick" style="color:#8dd3c7"><a href="#000417" label="[00:04:17]">&lt;OriansJ&gt;</a></span><span class="message">but kaem.c doesn't have it in anything other than a comment</span></div><div class="line" id="000500"><span class="nick" style="color:#389600"><a href="#000500" label="[00:05:00]">&lt;stikonas&gt;</a></span><span class="message">OriansJ: hmm, M0 has changed...</span></div><div class="line" id="000505"><span class="nick" style="color:#389600"><a href="#000505" label="[00:05:05]">&lt;stikonas&gt;</a></span><span class="message">can it change kaem?\</span></div><div class="line" id="000509"><span class="nick" style="color:#8dd3c7"><a href="#000509" label="[00:05:09]">&lt;OriansJ&gt;</a></span><span class="message">and there is a 732byte difference, so it isn't a replace</span></div><div class="line" id="000512"><span class="nick" style="color:#8dd3c7"><a href="#000512" label="[00:05:12]">&lt;OriansJ&gt;</a></span><span class="message">No</span></div><div class="line" id="000535"><span class="nick" style="color:#8dd3c7"><a href="#000535" label="[00:05:35]">&lt;OriansJ&gt;</a></span><span class="message">M0 does not put anything in binaries that isn't directly in the source</span></div><div class="line" id="000547"><span class="nick" style="color:#8dd3c7"><a href="#000547" label="[00:05:47]">&lt;OriansJ&gt;</a></span><span class="message">nor does M2-Planet nor hex2</span></div><div class="line" id="000627"><span class="nick" style="color:#8dd3c7"><a href="#000627" label="[00:06:27]">&lt;OriansJ&gt;</a></span><span class="message">So even with major changes in M2-Planet or M* or Hex*, the binaries must remain the same if none of the source changed</span></div><div class="line" id="000720"><span class="nick" style="color:#8dd3c7"><a href="#000720" label="[00:07:20]">&lt;OriansJ&gt;</a></span><span class="message">// Lines in M2-Planet however are code (see // CONSTANT foo 4, etc)</span></div><div class="line" id="000736"><span class="nick" style="color:#389600"><a href="#000736" label="[00:07:36]">&lt;stikonas&gt;</a></span><span class="message">oh yes, I noticed that before</span></div><div class="line" id="000743"><span class="nick" style="color:#389600"><a href="#000743" label="[00:07:43]">&lt;stikonas&gt;</a></span><span class="message">only /* */ are comments</span></div><div class="line" id="000800"><span class="nick" style="color:#8dd3c7"><a href="#000800" label="[00:08:00]">&lt;OriansJ&gt;</a></span><span class="message">and # are line comments in M2-Planet</span></div><div class="line" id="000812"><span class="nick" style="color:#8dd3c7"><a href="#000812" label="[00:08:12]">&lt;OriansJ&gt;</a></span><span class="message">so #define and #includes are ignored</span></div><div class="line" id="000840"><span class="nick" style="color:#389600"><a href="#000840" label="[00:08:40]">&lt;stikonas&gt;</a></span><span class="message">hmm, kaem has sha256sum of here 04dd8ea2ea9eefdd7bfb2f375bd6d352cb2a2229d7efdc47c37f16f835dd5c81</span></div><div class="line" id="000848"><span class="nick" style="color:#389600"><a href="#000848" label="[00:08:48]">&lt;stikonas&gt;</a></span><span class="message">somehow it's the same as kaem-optional-seed on my system</span></div><div class="line" id="001002"><span class="nick" style="color:#389600"><a href="#001002" label="[00:10:02]">&lt;stikonas&gt;</a></span><span class="message">was it not the same before?</span></div><div class="line" id="001002"><span class="nick" style="color:#8dd3c7"><a href="#001002" label="[00:10:02]">&lt;OriansJ&gt;</a></span><span class="message">hmmm as mine is 6b29c69b626ed687d635202e9017a5b8a8959c7548c941c4255a35712385c996</span></div><div class="line" id="001112"><span class="nick" style="color:#389600"><a href="#001112" label="[00:11:12]">&lt;stikonas&gt;</a></span><span class="message">in mescc-tools-seed repo?</span></div><div class="line" id="001114"><span class="nick" style="color:#389600"><a href="#001114" label="[00:11:14]">&lt;stikonas&gt;</a></span><span class="message">hmm, strange</span></div><div class="line" id="001133"><span class="nick" style="color:#8dd3c7"><a href="#001133" label="[00:11:33]">&lt;OriansJ&gt;</a></span><span class="message">prior to your 676128e54d210921fd45f172e4fe0eed720b0cfc commit</span></div><div class="line" id="001142"><span class="nick" style="color:#8dd3c7"><a href="#001142" label="[00:11:42]">&lt;OriansJ&gt;</a></span><span class="message">and my c266436df65f7708e39824a1982e8d1fbfe5e62f merge</span></div><div class="line" id="001153"><span class="nick" style="color:#8dd3c7"><a href="#001153" label="[00:11:53]">&lt;OriansJ&gt;</a></span><span class="message">you should have a 001e20a2f8a9ddf4634f312a29b42a85c681c146</span></div><div class="line" id="001206"><span class="nick" style="color:#389600"><a href="#001206" label="[00:12:06]">&lt;stikonas&gt;</a></span><span class="message">hmm, strange</span></div><div class="line" id="001219"><span class="nick" style="color:#8dd3c7"><a href="#001219" label="[00:12:19]">&lt;OriansJ&gt;</a></span><span class="message">which with git log --show-signature</span></div><div class="line" id="001234"><span class="nick" style="color:#8dd3c7"><a href="#001234" label="[00:12:34]">&lt;OriansJ&gt;</a></span><span class="message">should show a good signature from CA1132DD2BA1E81AC10C95D35410E91C14959E87</span></div><div class="line" id="001254"><span class="nick" style="color:#8dd3c7"><a href="#001254" label="[00:12:54]">&lt;OriansJ&gt;</a></span><span class="message">Primary key fingerprint: CA11 32DD 2BA1 E81A C10C  95D3 5410 E91C 1495 9E87</span></div><div class="line" id="001345"><span class="nick" style="color:#8dd3c7"><a href="#001345" label="[00:13:45]">&lt;OriansJ&gt;</a></span><span class="message">Do you have that in your git history?</span></div><div class="line" id="001353"><span class="nick" style="color:#389600"><a href="#001353" label="[00:13:53]">&lt;stikonas&gt;</a></span><span class="message">checking</span></div><div class="line" id="001406"><span class="nick" style="color:#389600"><a href="#001406" label="[00:14:06]">&lt;stikonas&gt;</a></span><span class="message">mescc-tools-seed?\</span></div><div class="line" id="001420"><span class="nick" style="color:#8dd3c7"><a href="#001420" label="[00:14:20]">&lt;OriansJ&gt;</a></span><span class="message">correct</span></div><div class="line" id="001508"><span class="nick" style="color:#389600"><a href="#001508" label="[00:15:08]">&lt;stikonas&gt;</a></span><span class="message">OriansJ: oh, I think I am one commit ahead</span></div><div class="line" id="001600"><span class="nick" style="color:#389600"><a href="#001600" label="[00:16:00]">&lt;stikonas&gt;</a></span><span class="message">I do have 001e20a2f8a9ddf4634f312a29b42a85c681c146 though</span></div><div class="line" id="001604"><span class="nick" style="color:#8dd3c7"><a href="#001604" label="[00:16:04]">&lt;OriansJ&gt;</a></span><span class="message">???</span></div><div class="line" id="001606"><span class="nick" style="color:#389600"><a href="#001606" label="[00:16:06]">&lt;stikonas&gt;</a></span><span class="message">with that gpg signature</span></div><div class="line" id="001615"><span class="nick" style="color:#389600"><a href="#001615" label="[00:16:15]">&lt;stikonas&gt;</a></span><span class="message">my last commit is 8d34733436244f4d2e33bdd19f089d55ef84c51f</span></div><div class="line" id="001638"><span class="nick" style="color:#389600"><a href="#001638" label="[00:16:38]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/mescc-tools-seed/pull/3/commits/8d34733436244f4d2e33bdd19f089d55ef84c51f">https://github.com/oriansj/mescc-tools-seed/pull/3/commits/8d34733436244f4d2e33bdd19f089d55ef84c51f</a> </span></div><div class="line" id="001643"><span class="nick" style="color:#389600"><a href="#001643" label="[00:16:43]">&lt;stikonas&gt;</a></span><span class="message">do you have this one?</span></div><div class="line" id="001731"><span class="nick" style="color:#8dd3c7"><a href="#001731" label="[00:17:31]">&lt;OriansJ&gt;</a></span><span class="message">that is the one where I am trying to figure out the change in the kaem-optional-seed</span></div><div class="line" id="001739"><span class="nick" style="color:#389600"><a href="#001739" label="[00:17:39]">&lt;stikonas&gt;</a></span><span class="message">oh sorry, I misunderstood</span></div><div class="line" id="001756"><span class="nick" style="color:#389600"><a href="#001756" label="[00:17:56]">&lt;stikonas&gt;</a></span><span class="message">let me try to compile again before my commit, and after</span></div><div class="line" id="002044"><span class="nick" style="color:#389600"><a href="#002044" label="[00:20:44]">&lt;stikonas&gt;</a></span><span class="message">oh tyes, it was 6b29c69b626ed687d635202e9017a5b8a8959c7548c941c4255a35712385c996</span></div><div class="line" id="002146"><span class="nick" style="color:#389600"><a href="#002146" label="[00:21:46]">&lt;stikonas&gt;</a></span><span class="message">OriansJ: argh, it might be my fault</span></div><div class="line" id="002209"><span class="nick" style="color:#389600"><a href="#002209" label="[00:22:09]">&lt;stikonas&gt;</a></span><span class="message">I probably coppied it manually somehow from some older version</span></div><div class="line" id="002223"><span class="nick" style="color:#389600"><a href="#002223" label="[00:22:23]">&lt;stikonas&gt;</a></span><span class="message">and accidentally added with git add to commit</span></div><div class="line" id="002316"><span class="nick" style="color:#389600"><a href="#002316" label="[00:23:16]">&lt;stikonas&gt;</a></span><span class="message">sorry about that, I almost forgot about it myself</span></div><div class="line" id="002326"><span class="nick" style="color:#389600"><a href="#002326" label="[00:23:26]">&lt;stikonas&gt;</a></span><span class="message">kaem has the right checksum</span></div><div class="line" id="002332"><span class="nick" style="color:#389600"><a href="#002332" label="[00:23:32]">&lt;stikonas&gt;</a></span><span class="message">if I build it</span></div><div class="line" id="002416"><span class="nick" style="color:#389600"><a href="#002416" label="[00:24:16]">&lt;stikonas&gt;</a></span><span class="message">strange</span></div><div class="line" id="002416"><span class="nick" style="color:#8dd3c7"><a href="#002416" label="[00:24:16]">&lt;OriansJ&gt;</a></span><span class="message">stikonas: the kaem-optional-binary was a hand checked binary; that I haven't updated in a while (Because I don't want anyone to trust it)</span></div><div class="line" id="002449"><span class="nick" style="color:#389600"><a href="#002449" label="[00:24:49]">&lt;stikonas&gt;</a></span><span class="message">I'm still unsure how kaem-optional-binary got into my commit...</span></div><div class="line" id="002516"><span class="nick" style="color:#389600"><a href="#002516" label="[00:25:16]">&lt;stikonas&gt;</a></span><span class="message">oh, maybe it changed earlier?</span></div><div class="line" id="002525"><span class="nick" style="color:#389600"><a href="#002525" label="[00:25:25]">&lt;stikonas&gt;</a></span><span class="message">not by my commit</span></div><div class="line" id="002534"><span class="nick" style="color:#8dd3c7"><a href="#002534" label="[00:25:34]">&lt;OriansJ&gt;</a></span><span class="message">no harm done, we caught it prior to a merge</span></div><div class="line" id="002539"><span class="nick" style="color:#389600"><a href="#002539" label="[00:25:39]">&lt;stikonas&gt;</a></span><span class="message">well, yes</span></div><div class="line" id="002543"><span class="nick" style="color:#389600"><a href="#002543" label="[00:25:43]">&lt;stikonas&gt;</a></span><span class="message">I can undo that file</span></div><div class="line" id="002654"><span class="nick" style="color:#389600"><a href="#002654" label="[00:26:54]">&lt;stikonas&gt;</a></span><span class="message">ok, pushed a new review request</span></div><div class="line" id="002706"><span class="nick" style="color:#389600"><a href="#002706" label="[00:27:06]">&lt;stikonas&gt;</a></span><span class="message">well, just removed that file from my commit</span></div><div class="line" id="002719"><span class="nick" style="color:#8dd3c7"><a href="#002719" label="[00:27:19]">&lt;OriansJ&gt;</a></span><span class="message">stikonas: thank you</span></div><div class="line" id="003425"><span class="nick" style="color:#8dd3c7"><a href="#003425" label="[00:34:25]">&lt;OriansJ&gt;</a></span><span class="message">which reminds me, I still need to write kaem in assembly to reduce the optional-binary size down and simplify the audit</span></div><div class="line" id="004135"><span class="nick" style="color:#8dd3c7"><a href="#004135" label="[00:41:35]">&lt;OriansJ&gt;</a></span><span class="message">stikonas: one detail is that kaem-optional-binary isn't actually required by mescc-tools-seed as one can run kaem.run with any shell or simply execute the commands manually</span></div><div class="line" id="004220"><span class="nick" style="color:#389600"><a href="#004220" label="[00:42:20]">&lt;stikonas&gt;</a></span><span class="message">well, I was just running commands manually</span></div><div class="line" id="004226"><span class="nick" style="color:#389600"><a href="#004226" label="[00:42:26]">&lt;stikonas&gt;</a></span><span class="message">to get kaem</span></div><div class="line" id="004231"><span class="nick" style="color:#389600"><a href="#004231" label="[00:42:31]">&lt;stikonas&gt;</a></span><span class="message">I am aware of that...</span></div><div class="line" id="004240"><span class="nick" style="color:#389600"><a href="#004240" label="[00:42:40]">&lt;stikonas&gt;</a></span><span class="message">possibly later I coppied that file to kaem-optional-binary</span></div><div class="line" id="004240"><span class="nick" style="color:#8dd3c7"><a href="#004240" label="[00:42:40]">&lt;OriansJ&gt;</a></span><span class="message">cool</span></div><div class="line" id="004249"><span class="nick" style="color:#389600"><a href="#004249" label="[00:42:49]">&lt;stikonas&gt;</a></span><span class="message">and then it got into my &quot;git commit -a&quot;</span></div><div class="line" id="004324"><span class="nick" style="color:#389600"><a href="#004324" label="[00:43:24]">&lt;stikonas&gt;</a></span><span class="message">well, it still needs some kind OS or shell...</span></div><div class="line" id="004330"><span class="nick" style="color:#8dd3c7"><a href="#004330" label="[00:43:30]">&lt;OriansJ&gt;</a></span><span class="message">I probably should add to .gitignore so that when people build their own trusted kaem binary; it doesn't accidentially show up</span></div><div class="line" id="004357"><span class="nick" style="color:#389600"><a href="#004357" label="[00:43:57]">&lt;stikonas&gt;</a></span><span class="message">yeah, that would be good to add</span></div><div class="line" id="004400"><span class="nick" style="color:#8dd3c7"><a href="#004400" label="[00:44:00]">&lt;OriansJ&gt;</a></span><span class="message">actually no, with knight hardware in fpga and a couple paper tape readers</span></div><div class="line" id="004427"><span class="nick" style="color:#8dd3c7"><a href="#004427" label="[00:44:27]">&lt;OriansJ&gt;</a></span><span class="message">and M2-Planet + mescc-tools as submodules so people can get it all at once</span></div><div class="line" id="004455"><span class="nick" style="color:#8dd3c7"><a href="#004455" label="[00:44:55]">&lt;OriansJ&gt;</a></span><span class="message">No OS required for M2-Planet builds</span></div><div class="line" id="004501"><span class="nick" style="color:#389600"><a href="#004501" label="[00:45:01]">&lt;stikonas&gt;</a></span><span class="message">hmm, so when I played with knight VM, I was able to get cc_x86</span></div><div class="line" id="004514"><span class="nick" style="color:#389600"><a href="#004514" label="[00:45:14]">&lt;stikonas&gt;</a></span><span class="message">but isn't that x86 crosscompiler</span></div><div class="line" id="004522"><span class="nick" style="color:#389600"><a href="#004522" label="[00:45:22]">&lt;stikonas&gt;</a></span><span class="message">how do I build M2-Planet which runs on Knight?</span></div><div class="line" id="004630"><span class="nick" style="color:#389600"><a href="#004630" label="[00:46:30]">&lt;stikonas&gt;</a></span><span class="message">hmm, I probably just need to pick the right defs file for M0, is that right?</span></div><div class="line" id="004649"><span class="nick" style="color:#8dd3c7"><a href="#004649" label="[00:46:49]">&lt;OriansJ&gt;</a></span><span class="message">actually I haven't written the cc_knight.S yet</span></div><div class="line" id="004706"><span class="nick" style="color:#389600"><a href="#004706" label="[00:47:06]">&lt;stikonas&gt;</a></span><span class="message">oh ok</span></div><div class="line" id="004710"><span class="nick" style="color:#8dd3c7"><a href="#004710" label="[00:47:10]">&lt;OriansJ&gt;</a></span><span class="message">it would be only a 112 line diff from the current cc_x86.S</span></div><div class="line" id="004745"><span class="nick" style="color:#8dd3c7"><a href="#004745" label="[00:47:45]">&lt;OriansJ&gt;</a></span><span class="message">simply change out some strings and a few minor differences in behavior as outlined in M2-Planet's Knight generator and boom done</span></div><div class="line" id="011246"><span class="nick" style="color:#8dd3c7"><a href="#011246" label="[01:12:46]">&lt;OriansJ&gt;</a></span><span class="message">I guess I have been putting this clean up off long enough</span></div><div class="line" id="021952"><span class="nick" style="color:#389600"><a href="#021952" label="[02:19:52]">&lt;stikonas&gt;</a></span><span class="message">well, I guess mes-m2 was higher priority...</span></div><div class="line" id="114128"><span class="nick" style="color:#6b8072"><a href="#114128" label="[11:41:28]">&lt;oriansj&gt;</a></span><span class="message">morning</span></div><div class="line" id="133130"><span class="nick" style="color:#80b1d3"><a href="#133130" label="[13:31:30]">&lt;xentrac&gt;</a></span><span class="message">morning jeremiah</span></div><div class="line" id="234426"><span class="nick" style="color:#6b8072"><a href="#234426" label="[23:44:26]">&lt;oriansj&gt;</a></span><span class="message">in fun news mescc-tools-seed has gotten a makeover</span></div><div class="line" id="234616"><span class="nick" style="color:#389600"><a href="#234616" label="[23:46:16]">&lt;stikonas&gt;</a></span><span class="message">yeah, git submodules</span></div><div class="line" id="234629"><span class="nick" style="color:#6b8072"><a href="#234629" label="[23:46:29]">&lt;oriansj&gt;</a></span><span class="message">and once I remembered that M0 in AMD64 is touchy about hex numbers (doesn't like 0x3c but does 0x3C fine)</span></div><div class="line" id="234718"><span class="nick" style="color:#6b8072"><a href="#234718" label="[23:47:18]">&lt;oriansj&gt;</a></span><span class="message">The upcoming patch will enable a full AMD64 bootstrap in mescc-tools-seed</span></div><div class="line" id="235354"><span class="nick" style="color:#6b8072"><a href="#235354" label="[23:53:54]">&lt;oriansj&gt;</a></span><span class="message">and patches are up ^_^</span></div><div class="line" id="235529"><span class="nick" style="color:#6b8072"><a href="#235529" label="[23:55:29]">&lt;oriansj&gt;</a></span><span class="message">now here comes a hard style question; should I move the NASM ports of mescc-tools into mescc-tools-seed/</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-05-10.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="035205"><span class="nick" style="color:#389600"><a href="#035205" label="[03:52:05]">&lt;oriansj&gt;</a></span><span class="message">well I do like the idea of improving the security situation of git workflows, git namespaces make me wonder about potential security exploits that can be hidden inside of them.</span></div><div class="line" id="042524"><span class="nick" style="color:#8dd3c7"><a href="#042524" label="[04:25:24]">&lt;fossy&gt;</a></span><span class="message">Googulator, stikonas: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/new/fix-preseed">https://github.com/fosslinux/live-bootstrap/pull/new/fix-preseed</a>  small fix. would like CI to run in case it breaks something later (i didn't run a full bootstrap)</span></div><div class="line" id="042528"><span class="nick" style="color:#8dd3c7"><a href="#042528" label="[04:25:28]">&lt;fossy&gt;</a></span><span class="message">oops wrong link</span></div><div class="line" id="042531"><span class="nick" style="color:#8dd3c7"><a href="#042531" label="[04:25:31]">&lt;fossy&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/467">https://github.com/fosslinux/live-bootstrap/pull/467</a> </span></div><div class="line" id="071550"><span class="nick" style="color:#2e2a4a"><a href="#071550" label="[07:15:50]">&lt;janneke&gt;</a></span><span class="message"> <a rel="nofollow" href="https://guix.gnu.org/en/blog/2024/authenticate-your-git-checkouts/">https://guix.gnu.org/en/blog/2024/authenticate-your-git-checkouts/</a> </span></div><div class="line" id="071924"><span class="nick" style="color:#6b8072"><a href="#071924" label="[07:19:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; fossy: yeah, I noticed missing libdir in heirloom too</span></div><div class="line" id="072044"><span class="nick" style="color:#6b8072"><a href="#072044" label="[07:20:44]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Also byacc uses different convention for makefile (in files and not in mk/)</span></div><div class="line" id="072246"><span class="nick" style="color:#6b8072"><a href="#072246" label="[07:22:46]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But early preseed is at least redistributable now, no more cddl+GPL issue...</span></div><div class="line" id="094605"><span class="nick" style="color:#8dd3c7"><a href="#094605" label="[09:46:05]">&lt;fossy&gt;</a></span><span class="message">:D</span></div><div class="line" id="140544"><span class="nick" style="color:#389600"><a href="#140544" label="[14:05:44]">&lt;oriansj&gt;</a></span><span class="message">janneke: excellent point</span></div><div class="line" id="154146"><span class="nick" style="color:#80b1d3"><a href="#154146" label="[15:41:46]">&lt;kpcyrd&gt;</a></span><span class="message">question regarding ruby: it seems there's this tarball <a rel="nofollow" href="https://whatsrc.org/artifact/sha256:1c3b21d372fdbcc5a4d3a53cbddd2b3ce1b88aefa278c79ecb368256a06e909a">https://whatsrc.org/artifact/sha256:1c3b21d372fdbcc5a4d3a53cbddd2b3ce1b88aefa278c79ecb368256a06e909a</a>  that allows building ruby without having ruby as a build dependency, but going from `git -&gt; dist-tarball` seems to require ruby - how does #bootstrappable feel about this?</span></div><div class="line" id="154443"><span class="nick" style="color:#6d2462"><a href="#154443" label="[15:44:43]">&lt;stikonas&gt;</a></span><span class="message">well, for #live-bootstrap we need to build from source</span></div><div class="line" id="154453"><span class="nick" style="color:#6d2462"><a href="#154453" label="[15:44:53]">&lt;stikonas&gt;</a></span><span class="message">without using pregenerated files</span></div><div class="line" id="154455"><span class="nick" style="color:#8dd3c7"><a href="#154455" label="[15:44:55]">&lt;fossy&gt;</a></span><span class="message">would depend a bit. what is git-&gt;dist-tarball doing</span></div><div class="line" id="154458"><span class="nick" style="color:#8dd3c7"><a href="#154458" label="[15:44:58]">&lt;fossy&gt;</a></span><span class="message">is it generating files?</span></div><div class="line" id="154509"><span class="nick" style="color:#8dd3c7"><a href="#154509" label="[15:45:09]">&lt;fossy&gt;</a></span><span class="message">or is it just packaging it up into a tarball?</span></div><div class="line" id="154512"><span class="nick" style="color:#6d2462"><a href="#154512" label="[15:45:12]">&lt;stikonas&gt;</a></span><span class="message">I would assume so</span></div><div class="line" id="154516"><span class="nick" style="color:#6d2462"><a href="#154516" label="[15:45:16]">&lt;stikonas&gt;</a></span><span class="message">and probably using ruby?</span></div><div class="line" id="154526"><span class="nick" style="color:#6d2462"><a href="#154526" label="[15:45:26]">&lt;stikonas&gt;</a></span><span class="message">but yeah, hard to tell without more details</span></div><div class="line" id="154609"><span class="nick" style="color:#6d2462"><a href="#154609" label="[15:46:09]">&lt;stikonas&gt;</a></span><span class="message">i assume all distros just use tarball, so they don't need ruby</span></div><div class="line" id="154825"><span class="nick" style="color:#80b1d3"><a href="#154825" label="[15:48:25]">&lt;kpcyrd&gt;</a></span><span class="message">fossy: it's generating files, otherwise it'd be a non-issue (and `git archive` doesn't require ruby) :)</span></div><div class="line" id="154852"><span class="nick" style="color:#6d2462"><a href="#154852" label="[15:48:52]">&lt;stikonas&gt;</a></span><span class="message">yeah, so that's not good enough for live-bootstrap</span></div><div class="line" id="154918"><span class="nick" style="color:#6d2462"><a href="#154918" label="[15:49:18]">&lt;stikonas&gt;</a></span><span class="message">that's why we bootstrap flex, bison, perl and autoconf the long way</span></div><div class="line" id="154922"><span class="nick" style="color:#6d2462"><a href="#154922" label="[15:49:22]">&lt;stikonas&gt;</a></span><span class="message">and probably many other things</span></div><div class="line" id="154952"><span class="nick" style="color:#6d2462"><a href="#154952" label="[15:49:52]">&lt;stikonas&gt;</a></span><span class="message">python too does quite a few rebuilds, starting from 2.4</span></div><div class="line" id="155051"><span class="nick" style="color:#6d2462"><a href="#155051" label="[15:50:51]">&lt;stikonas&gt;</a></span><span class="message">perhaps ruby can also be done this way</span></div><div class="line" id="155109"><span class="nick" style="color:#6d2462"><a href="#155109" label="[15:51:09]">&lt;stikonas&gt;</a></span><span class="message">does ruby 3.0 need ruby as well?</span></div><div class="line" id="155128"><span class="nick" style="color:#80b1d3"><a href="#155128" label="[15:51:28]">&lt;kpcyrd&gt;</a></span><span class="message">stikonas: Arch Linux is trying to avoid pre-processed source code (post Jia Tan) and prefer building from git snapshots, that's how the topic came up :)</span></div><div class="line" id="155205"><span class="nick" style="color:#6d2462"><a href="#155205" label="[15:52:05]">&lt;stikonas&gt;</a></span><span class="message">how do they deal with bison/flex/python then/</span></div><div class="line" id="155214"><span class="nick" style="color:#6d2462"><a href="#155214" label="[15:52:14]">&lt;stikonas&gt;</a></span><span class="message">or they haven't noticed it yet</span></div><div class="line" id="155358"><span class="nick" style="color:#6d2462"><a href="#155358" label="[15:53:58]">&lt;stikonas&gt;</a></span><span class="message">anyway, the easies suggestion is to go via older versions...</span></div><div class="line" id="155527"><span class="nick" style="color:#80b1d3"><a href="#155527" label="[15:55:27]">&lt;kpcyrd&gt;</a></span><span class="message">bison: <a rel="nofollow" href="https://whatsrc.org/artifact/sha256:315fd9a80a9a9b4aa36a2ee2ba16c68762dd340d70d4d75223bb4a66b557f3d3">https://whatsrc.org/artifact/sha256:315fd9a80a9a9b4aa36a2ee2ba16c68762dd340d70d4d75223bb4a66b557f3d3</a> </span></div><div class="line" id="155532"><span class="nick" style="color:#80b1d3"><a href="#155532" label="[15:55:32]">&lt;kpcyrd&gt;</a></span><span class="message">flex: <a rel="nofollow" href="https://whatsrc.org/artifact/sha256:8efb99e0cf260f842e4b9b0e7d5a94e0009df18af60d3c9306eb92b0f0119259">https://whatsrc.org/artifact/sha256:8efb99e0cf260f842e4b9b0e7d5a94e0009df18af60d3c9306eb92b0f0119259</a> </span></div><div class="line" id="155538"><span class="nick" style="color:#80b1d3"><a href="#155538" label="[15:55:38]">&lt;kpcyrd&gt;</a></span><span class="message">python: <a rel="nofollow" href="https://whatsrc.org/artifact/sha256:8802bb76247347f4e59707972526e0c26a7260b69f900dfcfd908c58dc665bdf">https://whatsrc.org/artifact/sha256:8802bb76247347f4e59707972526e0c26a7260b69f900dfcfd908c58dc665bdf</a> </span></div><div class="line" id="155622"><span class="nick" style="color:#80b1d3"><a href="#155622" label="[15:56:22]">&lt;kpcyrd&gt;</a></span><span class="message">(all of them are flagged as autotools pre-processed)</span></div><div class="line" id="155704"><span class="nick" style="color:#6d2462"><a href="#155704" label="[15:57:04]">&lt;stikonas&gt;</a></span><span class="message">well, they are also bison/flex processed</span></div><div class="line" id="155733"><span class="nick" style="color:#6d2462"><a href="#155733" label="[15:57:33]">&lt;stikonas&gt;</a></span><span class="message">e.g. they include both bison-3.8.2/src/scan-gram.l and bison-3.8.2/src/scan-gram.c</span></div><div class="line" id="155744"><span class="nick" style="color:#6d2462"><a href="#155744" label="[15:57:44]">&lt;stikonas&gt;</a></span><span class="message">scan-gram.c is not genuine source...</span></div><div class="line" id="155756"><span class="nick" style="color:#6d2462"><a href="#155756" label="[15:57:56]">&lt;stikonas&gt;</a></span><span class="message">though might be more readable than autotools...</span></div><div class="line" id="155949"><span class="nick" style="color:#80b1d3"><a href="#155949" label="[15:59:49]">&lt;kpcyrd&gt;</a></span><span class="message">the annotation I do is kinda makeshift, hopefully people have a better understanding of &quot;true source code&quot; in a few years and this kind of heuristic annotation won't be necessary anymore</span></div><div class="line" id="160154"><span class="nick" style="color:#6d2462"><a href="#160154" label="[16:01:54]">&lt;stikonas&gt;</a></span><span class="message">well, in live-bootstrap we spend quite a bit figuring out all those pregenerated files... More than anywhere else...</span></div><div class="line" id="160209"><span class="nick" style="color:#6d2462"><a href="#160209" label="[16:02:09]">&lt;stikonas&gt;</a></span><span class="message">though generally upstreams were not receptive...</span></div><div class="line" id="160441"><span class="nick" style="color:#8dd3c7"><a href="#160441" label="[16:04:41]">&lt;fossy&gt;</a></span><span class="message">yes, people tended to not be particularly interested in the pregenerated files issue, so we've been kind of chugging along doing it by ourselves over here</span></div><div class="line" id="160451"><span class="nick" style="color:#8dd3c7"><a href="#160451" label="[16:04:51]">&lt;fossy&gt;</a></span><span class="message">perhaps there is more interest nowdays?</span></div><div class="line" id="160607"><span class="nick" style="color:#8dd3c7"><a href="#160607" label="[16:06:07]">&lt;fossy&gt;</a></span><span class="message">wrt to this specific ruby situation i would personally say that does not suffice, as you're just kinda adding an extra step in the cycle that obscures the cycle</span></div><div class="line" id="161301"><span class="nick" style="color:#6d2462"><a href="#161301" label="[16:13:01]">&lt;stikonas&gt;</a></span><span class="message">ruby 1.8 might be buidlable without ruby</span></div><div class="line" id="161553"><span class="nick" style="color:#6d2462"><a href="#161553" label="[16:15:53]">&lt;stikonas&gt;</a></span><span class="message">miniruby at least...</span></div><div class="line" id="171141"><span class="nick" style="color:#6b8072"><a href="#171141" label="[17:11:41]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I've added annother alternative bootstrap path to my tcc_bootstrap_alt project. Alt bootstrap path is hex0 -&gt; hex1 -&gt; hex2 -&gt; M0 -&gt; M2_simple_asm.M1 -&gt; M2_simple_asm.c -&gt; M2_tcc_js_simple.c (less a cut down version of M2) -&gt; tcc_js -&gt; .... -&gt; tcc-0.9.27 . tldr I am able to bootstrap without depending on cc_x86.M1</span></div><div class="line" id="171248"><span class="nick" style="color:#6b8072"><a href="#171248" label="[17:12:48]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; this alt path depends on glibc and bash though</span></div><div class="line" id="181000"><span class="nick" style="color:#389600"><a href="#181000" label="[18:10:00]">&lt;oriansj&gt;</a></span><span class="message">cosinusoidally: a binary glibc and bash or a built one?</span></div><div class="line" id="181942"><span class="nick" style="color:#234e69"><a href="#181942" label="[18:19:42]">&lt;Googulator&gt;</a></span><span class="message">cosinusoidally: what's the point of avoiding cc_x86?</span></div><div class="line" id="182131"><span class="nick" style="color:#234e69"><a href="#182131" label="[18:21:31]">&lt;Googulator&gt;</a></span><span class="message">Why not hex0 -&gt; hex1 -&gt; hex2 -&gt; M0 -&gt; cc_x86 -&gt; M2-Planet (bootstrap version) -&gt; full M2-Planet -&gt; M2-Mesoplanet -&gt; mescc-tools -&gt; mescc-tools-extra (up to this point, this is just stage0) -&gt; tcc_js -&gt; .... -&gt; tcc-0.9.27?</span></div><div class="line" id="182900"><span class="nick" style="color:#389600"><a href="#182900" label="[18:29:00]">&lt;oriansj&gt;</a></span><span class="message">well it does create an alternate path which could be used to detect if something was slipped into stage0's later stages.</span></div><div class="line" id="183223"><span class="nick" style="color:#389600"><a href="#183223" label="[18:32:23]">&lt;oriansj&gt;</a></span><span class="message">and I am assuming cosinusoidally is enjoying that work and it could provide some ideas for anyone wanting to go from M2-Mesoplanet to TCC directly (providing another potential path early in the chain)</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-26.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004456"><span class="nick" style="color:#389600"><a href="#004456" label="[00:44:56]">&lt;stikonas&gt;</a></span><span class="message">Googulator36: you added https here <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blame/master/steps/libtool-2.4.7/sources">https://github.com/fosslinux/live-bootstrap/blame/master/steps/libtool-2.4.7/sources</a> </span></div><div class="line" id="004532"><span class="nick" style="color:#389600"><a href="#004532" label="[00:45:32]">&lt;stikonas&gt;</a></span><span class="message">this will not work with early curl...</span></div><div class="line" id="004538"><span class="nick" style="color:#389600"><a href="#004538" label="[00:45:38]">&lt;stikonas&gt;</a></span><span class="message">(cc fossy)</span></div><div class="line" id="004613"><span class="nick" style="color:#389600"><a href="#004613" label="[00:46:13]">&lt;stikonas&gt;</a></span><span class="message">we probably should build bearssl early...</span></div><div class="line" id="010817"><span class="nick" style="color:#389600"><a href="#010817" label="[01:08:17]">&lt;stikonas&gt;</a></span><span class="message">oh, that is only used if savannah is down...</span></div><div class="line" id="010824"><span class="nick" style="color:#389600"><a href="#010824" label="[01:08:24]">&lt;stikonas&gt;</a></span><span class="message">so maybe not a release blocker</span></div><div class="line" id="011935"><span class="nick" style="color:#8dd3c7"><a href="#011935" label="[01:19:35]">&lt;aggi&gt;</a></span><span class="message">greetings... made a little progress bisecting tcc-versions/kernel-versions and related issues</span></div><div class="line" id="012013"><span class="nick" style="color:#8dd3c7"><a href="#012013" label="[01:20:13]">&lt;aggi&gt;</a></span><span class="message">last time when i moved the whole linux-2.4 bootstrapping setup onto slackware11 buildhost i could reproduce various test-cases with a kernel booting without crashes</span></div><div class="line" id="012102"><span class="nick" style="color:#8dd3c7"><a href="#012102" label="[01:21:02]">&lt;aggi&gt;</a></span><span class="message">however, wasn't satisfied what had caused the crashes before... and today i found a first hint which is a little concerning and seems to affect all kernel versions and tcc-versions i tested</span></div><div class="line" id="012125"><span class="nick" style="color:#8dd3c7"><a href="#012125" label="[01:21:25]">&lt;aggi&gt;</a></span><span class="message">meaning, moving onto slackware11 buildhost was merely a lucky hit</span></div><div class="line" id="012239"><span class="nick" style="color:#8dd3c7"><a href="#012239" label="[01:22:39]">&lt;aggi&gt;</a></span><span class="message">to summarize: tcc got issues linking linux-2.4 kernel (related to some FASTCALL macro, the dummy_syms.c introduced by bellard, see for yourself what was done on the original tccboot.iso)</span></div><div class="line" id="012323"><span class="nick" style="color:#8dd3c7"><a href="#012323" label="[01:23:23]">&lt;aggi&gt;</a></span><span class="message">those linking-issues seem unspecific to kernel, it's just those are triggered under specific circuumstances, which i am tracking down currently</span></div><div class="line" id="012355"><span class="nick" style="color:#8dd3c7"><a href="#012355" label="[01:23:55]">&lt;aggi&gt;</a></span><span class="message">for example, it makes a difference if (kernel) objects are compiled/linked in one step, or if compilation and linking are separated into two steps</span></div><div class="line" id="012417"><span class="nick" style="color:#8dd3c7"><a href="#012417" label="[01:24:17]">&lt;aggi&gt;</a></span><span class="message">the former seems to succeed, the later doesn't report any issue while linking, but kernel crashes regardless</span></div><div class="line" id="012510"><span class="nick" style="color:#8dd3c7"><a href="#012510" label="[01:25:10]">&lt;aggi&gt;</a></span><span class="message">which raises principle concerns over the status of tcc-toolchain, and relying upon it, for either kernel-bootstrapping, and, depending on QA criteria, too #bootstrappable itself</span></div><div class="line" id="012541"><span class="nick" style="color:#8dd3c7"><a href="#012541" label="[01:25:41]">&lt;aggi&gt;</a></span><span class="message">since someone recently reported a broken #bootstrappable release with an updated tcc-version involved</span></div><div class="line" id="012609"><span class="nick" style="color:#8dd3c7"><a href="#012609" label="[01:26:09]">&lt;aggi&gt;</a></span><span class="message">to me this seems a lucky hit and miss, not necessarily related to any specific tcc-version, but how symbols are resolved/linked etc.</span></div><div class="line" id="012649"><span class="nick" style="color:#8dd3c7"><a href="#012649" label="[01:26:49]">&lt;aggi&gt;</a></span><span class="message">because i had spotted merely a lucky hit, to reproduce tccboot and/or linux-kernel bootstrapping AoT</span></div><div class="line" id="013557"><span class="nick" style="color:#2e2a4a"><a href="#013557" label="[01:35:57]">&lt;Googulator36&gt;</a></span><span class="message">stikonas: good catch (even if it's only a backup)</span></div><div class="line" id="013626"><span class="nick" style="color:#389600"><a href="#013626" label="[01:36:26]">&lt;stikonas&gt;</a></span><span class="message">well, I didn't catch it myself personally, just my run failed</span></div><div class="line" id="013636"><span class="nick" style="color:#6b8072"><a href="#013636" label="[01:36:36]">&lt;Googulator&gt;</a></span><span class="message">oriansj: can you enable plain HTTP access to files.bootstrap.world (or do you have it already)?</span></div><div class="line" id="013645"><span class="nick" style="color:#6b8072"><a href="#013645" label="[01:36:45]">&lt;Googulator&gt;</a></span><span class="message">files.bootstrapping.world that is</span></div><div class="line" id="142129"><span class="nick" style="color:#80b1d3"><a href="#142129" label="[14:21:29]">&lt;fossy&gt;</a></span><span class="message">Googulator: yeah, it doesn't have it at the moment</span></div><div class="line" id="150417"><span class="nick" style="color:#6d2462"><a href="#150417" label="[15:04:17]">&lt;pabs3&gt;</a></span><span class="message">TIL Rust is potentially becoming mandatory for building qemu <a rel="nofollow" href="https://lore.kernel.org/qemu-devel/ZnmkN2PL3r-2sxqe@redhat.com/">https://lore.kernel.org/qemu-devel/ZnmkN2PL3r-2sxqe@redhat.com/</a> </span></div><div class="line" id="151515"><span class="nick" style="color:#234e69"><a href="#151515" label="[15:15:15]">&lt;civodul&gt;</a></span><span class="message">ouch</span></div><div class="line" id="151533"><span class="nick" style="color:#234e69"><a href="#151533" label="[15:15:33]">&lt;civodul&gt;</a></span><span class="message">i already noticed that virtiofs support relies on a separate Rust daemon</span></div><div class="line" id="151547"><span class="nick" style="color:#80b1d3"><a href="#151547" label="[15:15:47]">&lt;fossy&gt;</a></span><span class="message">i think we are going to see a fair bit more of this direction</span></div><div class="line" id="151616"><span class="nick" style="color:#80b1d3"><a href="#151616" label="[15:16:16]">&lt;fossy&gt;</a></span><span class="message">thankfully at least in my mind, qemu is a fairly user-facing application, rather than a core system thing that we care loads about in bootstrapping</span></div><div class="line" id="151632"><span class="nick" style="color:#80b1d3"><a href="#151632" label="[15:16:32]">&lt;fossy&gt;</a></span><span class="message">qemu is already a large codebase with many indirect dependencies</span></div><div class="line" id="152025"><span class="nick" style="color:#6c3d55"><a href="#152025" label="[15:20:25]">&lt;lanodan&gt;</a></span><span class="message">And by default has bios/uefi/… blobs included.</span></div><div class="line" id="195443"><span class="nick" style="color:#d9d9d9"><a href="#195443" label="[19:54:43]">&lt;oriansj&gt;</a></span><span class="message">Googulator: files.bootstrapping.world can be downloaded by any method you desire (I just need to set it up) (It exists to make your lives easier)</span></div><br /></div></body></html>

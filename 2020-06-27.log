@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-06-27.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="160721"><span class="nick" style="color:#8dd3c7"><a href="#160721" label="[16:07:21]">&lt;OriansJ`&gt;</a></span><span class="message">clemens3: well FORTHs tend to be interpreted, unless they are also written in FORTH. Then bootstrapping them can be quite a circular dependency pain. Best bet, try earlier versions of Gforth.</span></div><div class="line" id="160840"><span class="nick" style="color:#8dd3c7"><a href="#160840" label="[16:08:40]">&lt;OriansJ`&gt;</a></span><span class="message">One could say, we now know it is harder to bootstrap a simple FORTH than a simple Lisp but it is harder to bootstrap a simple lisp than a simple C compiler.</span></div><div class="line" id="160923"><span class="nick" style="color:#8dd3c7"><a href="#160923" label="[16:09:23]">&lt;OriansJ`&gt;</a></span><span class="message">although a fully standards compliant scheme is a pain in the syntax-case to bootstrap.</span></div><div class="line" id="163708"><span class="nick" style="color:#8dd3c7"><a href="#163708" label="[16:37:08]">&lt;OriansJ`&gt;</a></span><span class="message">But I guess that is the nature of Lisp; S-expression parsing and even basic evaluation is trivial. It is just when you get into the more hairy pieces (lazy macros, syntax-case, etc) that you eventually hit a wall</span></div><div class="line" id="192851"><span class="nick" style="color:#2e2a4a"><a href="#192851" label="[19:28:51]">&lt;clemens3&gt;</a></span><span class="message">yeah, just i simply want to compile the thing, not do a minimal bootstrap.. and as I aim for linux, c++ should be kinda ok.. I am on linux from scratch, so assembler and c/c++ kinda the only option for me by now..</span></div><div class="line" id="192913"><span class="nick" style="color:#2e2a4a"><a href="#192913" label="[19:29:13]">&lt;clemens3&gt;</a></span><span class="message">c++=c/c++</span></div><div class="line" id="192931"><span class="nick" style="color:#2e2a4a"><a href="#192931" label="[19:29:31]">&lt;clemens3&gt;</a></span><span class="message">so going for the old version of gforth is what I might do..</span></div><div class="line" id="203543"><span class="nick" style="color:#6b8072"><a href="#203543" label="[20:35:43]">&lt;mihi&gt;</a></span><span class="message">clemens3, start with 0.5.0, which should be compilable without any older versions. Then 0.6.2 (which needs 0.5.0) then 0.7.x (which needs 0.6.2), and I think that's the latest version. I've heard that 0.5.0 may have trouble compiling on some 64-bit architectures, but I don't know what arch you are on...</span></div><br /></div></body></html>

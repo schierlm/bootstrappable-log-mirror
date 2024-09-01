@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-09-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004519"><span class="nick" style="color:#8dd3c7"><a href="#004519" label="[00:45:19]">&lt;stikonas[m]&gt;</a></span><span class="message">hmm, I wonder if miniyacc can replace heirloom yacc in bison bootstrap</span></div><div class="line" id="004935"><span class="nick" style="color:#2e2a4a"><a href="#004935" label="[00:49:35]">&lt;stikonas&gt;</a></span><span class="message">I guess even if it is usable, we still need lex to bootstrap it...</span></div><div class="line" id="031234"><span class="nick" style="color:#6b8072"><a href="#031234" label="[03:12:34]">&lt;markjenkinssksp&gt;</a></span><span class="message">thanks rickmaster I have seen c9x.me miniyacc before, that web page is a good source of documentation, belongs in my REFERENCES if not there already</span></div><div class="line" id="031336"><span class="nick" style="color:#6b8072"><a href="#031336" label="[03:13:36]">&lt;markjenkinssksp&gt;</a></span><span class="message">looking at <a rel="nofollow" href="https://bootstrapping.miraheze.org/wiki/Live-bootstrap">https://bootstrapping.miraheze.org/wiki/Live-bootstrap</a>,  looks like hierloom yacc is built there with tcc 0.9.27</span></div><div class="line" id="031412"><span class="nick" style="color:#6b8072"><a href="#031412" label="[03:14:12]">&lt;markjenkinssksp&gt;</a></span><span class="message">so miniyacc possibly need some porting to the same C variant, a much shorter path than my approach no doubt</span></div><div class="line" id="031443"><span class="nick" style="color:#6b8072"><a href="#031443" label="[03:14:43]">&lt;markjenkinssksp&gt;</a></span><span class="message">also looking at miniyacc as one of many sources for the C output skeleton</span></div><div class="line" id="031815"><span class="nick" style="color:#6b8072"><a href="#031815" label="[03:18:15]">&lt;markjenkinssksp&gt;</a></span><span class="message">I appreciate the reminder stikonas that lex is also a licensing problem to work around, this had slipped my mind</span></div><div class="line" id="032141"><span class="nick" style="color:#6b8072"><a href="#032141" label="[03:21:41]">&lt;markjenkinssksp&gt;</a></span><span class="message">miniyacc's C skeleton also needs to be made compatible with bash  2.05b or bash adapted if they're not already compatible</span></div><div class="line" id="032503"><span class="nick" style="color:#2e2a4a"><a href="#032503" label="[03:25:03]">&lt;stikonas&gt;</a></span><span class="message">markjenkinssksp: oh actually that's a good point, if we can build bash, that's should workaround licensing problem</span></div><div class="line" id="032532"><span class="nick" style="color:#2e2a4a"><a href="#032532" label="[03:25:32]">&lt;stikonas&gt;</a></span><span class="message">if you can build bash with miniyacc, then we build musl and then heirloom yacc/lex</span></div><div class="line" id="032539"><span class="nick" style="color:#2e2a4a"><a href="#032539" label="[03:25:39]">&lt;stikonas&gt;</a></span><span class="message">no licensing problem then</span></div><div class="line" id="032620"><span class="nick" style="color:#2e2a4a"><a href="#032620" label="[03:26:20]">&lt;stikonas&gt;</a></span><span class="message">or maybe at some point gash will be ready and run on mes</span></div><div class="line" id="032638"><span class="nick" style="color:#2e2a4a"><a href="#032638" label="[03:26:38]">&lt;stikonas&gt;</a></span><span class="message">I think it's not too far, there is some wip code</span></div><div class="line" id="063757"><span class="nick" style="color:#80b1d3"><a href="#063757" label="[06:37:57]">&lt;aggi&gt;</a></span><span class="message">Hagfish: most RISC-V probably will require latest compiler and kernel versions</span></div><div class="line" id="063828"><span class="nick" style="color:#80b1d3"><a href="#063828" label="[06:38:28]">&lt;aggi&gt;</a></span><span class="message">i don't consider this any progress with minimum acceptance criteria compliance and bootstrapping</span></div><div class="line" id="075644"><span class="nick" style="color:#80b1d3"><a href="#075644" label="[07:56:44]">&lt;aggi&gt;</a></span><span class="message">anyway, got a linking problem with ncurses when it was compiled with tcc-toolchain it is missing the acs_map symbol</span></div><div class="line" id="082052"><span class="nick" style="color:#80b1d3"><a href="#082052" label="[08:20:52]">&lt;aggi&gt;</a></span><span class="message">found it, the (n)curses.h header generated for either gcc47 or tcc differ with the #define NCURSES_BROKEN_LINKER</span></div><div class="line" id="084429"><span class="nick" style="color:#80b1d3"><a href="#084429" label="[08:44:29]">&lt;aggi&gt;</a></span><span class="message">reminds me of oasis-linux which replaced ncurses with curses library from BSD</span></div><div class="line" id="085050"><span class="nick">***</span><span class="message notice">silver.libera.chat sets mode: +ooo ChanServ oriansj janneke</span></div><div class="line" id="085648"><span class="nick">***</span><span class="message notice">silver.libera.chat sets mode: +ooo ChanServ oriansj janneke</span></div><div class="line" id="085800"><span class="nick">***</span><span class="message notice">silver.libera.chat sets mode: +oo janneke oriansj</span></div><div class="line" id="085800"><span class="nick">***</span><span class="message notice">silver.libera.chat sets mode: +o ChanServ</span></div><div class="line" id="125402"><span class="nick" style="color:#80b1d3"><a href="#125402" label="[12:54:02]">&lt;aggi&gt;</a></span><span class="message">almost freaking out over ncurses</span></div><div class="line" id="125414"><span class="nick" style="color:#80b1d3"><a href="#125414" label="[12:54:14]">&lt;aggi&gt;</a></span><span class="message">just another reminder, to freeze, archive, and terminate all project work</span></div><div class="line" id="125521"><span class="nick" style="color:#80b1d3"><a href="#125521" label="[12:55:21]">&lt;aggi&gt;</a></span><span class="message">almost everyone and everything uses ncurses library... seems noone bothered yet with a clean configure.ac for this</span></div><div class="line" id="125610"><span class="nick" style="color:#80b1d3"><a href="#125610" label="[12:56:10]">&lt;aggi&gt;</a></span><span class="message">the one which is shipped with ncurses touched at the wrong place, and configure/compilation freak out all over the place</span></div><div class="line" id="125650"><span class="nick" style="color:#80b1d3"><a href="#125650" label="[12:56:50]">&lt;aggi&gt;</a></span><span class="message">tcc-toolchain causing linking problems with ncurses is just a secondary side-effect</span></div><div class="line" id="125721"><span class="nick" style="color:#80b1d3"><a href="#125721" label="[12:57:21]">&lt;aggi&gt;</a></span><span class="message">i have no idea, how such could have ever passed minimum acceptance testing anywhere, the configure.in script alone is reason enough to reject ncurses</span></div><div class="line" id="125935"><span class="nick" style="color:#80b1d3"><a href="#125935" label="[12:59:35]">&lt;aggi&gt;</a></span><span class="message">already pulled 300 ebuilds into my overlay, to cope with such problems</span></div><div class="line" id="205140"><span class="nick">***</span><span class="message notice">civodul` is now known as civodul</span></div><div class="line" id="214227"><span class="nick" style="color:#6d2462"><a href="#214227" label="[21:42:27]">&lt;doras&gt;</a></span><span class="message">stikonas: I opened a PR to fix the CI failure. We can rebase my binutils PR after it's merged: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/192">https://github.com/fosslinux/live-bootstrap/pull/192</a> </span></div><div class="line" id="214551"><span class="nick" style="color:#2e2a4a"><a href="#214551" label="[21:45:51]">&lt;stikonas&gt;</a></span><span class="message">doras: thanks, merged</span></div><div class="line" id="214633"><span class="nick" style="color:#2e2a4a"><a href="#214633" label="[21:46:33]">&lt;stikonas&gt;</a></span><span class="message">I'm flying home tomorrow evening, so hopefully can look a bit more at your binutils patch this weekend</span></div><div class="line" id="214800"><span class="nick" style="color:#6d2462"><a href="#214800" label="[21:48:00]">&lt;doras&gt;</a></span><span class="message">stikonas: great :)</span></div><br /></div></body></html>

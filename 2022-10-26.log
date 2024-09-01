@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-10-26.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001640"><span class="nick" style="color:#8dd3c7"><a href="#001640" label="[00:16:40]">&lt;stikonas&gt;</a></span><span class="message">new DEFINES in AMD64 are already done</span></div><div class="line" id="001652"><span class="nick" style="color:#8dd3c7"><a href="#001652" label="[00:16:52]">&lt;stikonas&gt;</a></span><span class="message">well, in cc_amd64.M1 and above</span></div><div class="line" id="001726"><span class="nick" style="color:#8dd3c7"><a href="#001726" label="[00:17:26]">&lt;stikonas&gt;</a></span><span class="message">older defines are only used in earlier development prototypes (hex0 to M0)</span></div><div class="line" id="002100"><span class="nick" style="color:#8dd3c7"><a href="#002100" label="[00:21:00]">&lt;stikonas&gt;</a></span><span class="message">and given that cc_amd64 is vastly bigger, switching the rest to new defines shouldn't be hard</span></div><div class="line" id="002117"><span class="nick" style="color:#8dd3c7"><a href="#002117" label="[00:21:17]">&lt;stikonas&gt;</a></span><span class="message">anyway, that's early stage0-posix stuff without M2libc</span></div><div class="line" id="005708"><span class="nick" style="color:#8dd3c7"><a href="#005708" label="[00:57:08]">&lt;stikonas&gt;</a></span><span class="message">yes, rbp offsets rather than rsp offset work much better for asm functions in UEFI</span></div><div class="line" id="005731"><span class="nick" style="color:#8dd3c7"><a href="#005731" label="[00:57:31]">&lt;stikonas&gt;</a></span><span class="message">one reason is that we need to do some stack pushes in UEFI calling convention, which messes rsp offsets up but does not affect rbp offsets</span></div><div class="line" id="005810"><span class="nick" style="color:#8dd3c7"><a href="#005810" label="[00:58:10]">&lt;stikonas&gt;</a></span><span class="message">and secondly, rbp offets go from first argument to last, so maybe tiny bit more readable than reverse order...</span></div><div class="line" id="013914"><span class="nick" style="color:#8dd3c7"><a href="#013914" label="[01:39:14]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/pull/43">https://github.com/oriansj/M2-Planet/pull/43</a> </span></div><div class="line" id="025233"><span class="nick" style="color:#2e2a4a"><a href="#025233" label="[02:52:33]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged, thank you</span></div><div class="line" id="053910"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="092210"><span class="nick" style="color:#6b8072"><a href="#092210" label="[09:22:10]">&lt;USA-RedDragon&gt;</a></span><span class="message">Hello! I recently made an issue in the fosslinux/live-bootstrap repo expressing interest in working on AArch64 support. My usecase is that I'm unenthused by the state of bootstrapping toolchains (and to a larger extent a Linux distribution) and would like to apply this towards a personal Raspberry Pi CM4 project. Bootstrapping remains difficult, so I would like to put effort in where it can matter (i.e. extending this</span></div><div class="line" id="092211"><span class="nick" style="color:#6b8072"><a href="#092211" label="[09:22:11]">&lt;USA-RedDragon&gt;</a></span><span class="message">project if possible) rather than waste the effort on yet another fragile or self-dependent bootstrap.</span></div><div class="line" id="092403"><span class="nick" style="color:#6b8072"><a href="#092403" label="[09:24:03]">&lt;USA-RedDragon&gt;</a></span><span class="message">I've gotten to the point of mescc-tools-extra getting compiled, but I fail with `cp` throwing a SIGSEGV trying to copy $arch/bin/blood-elf to /usr/bin. It seems to be during the fputc/fgetc while loop of copy_file</span></div><div class="line" id="092450"><span class="nick" style="color:#6b8072"><a href="#092450" label="[09:24:50]">&lt;USA-RedDragon&gt;</a></span><span class="message">If I knew how to hook into this process with gdb or the likes, it'd be a lot simpler than my awful `fputs` to stdout debugging</span></div><div class="line" id="092806"><span class="nick" style="color:#6b8072"><a href="#092806" label="[09:28:06]">&lt;USA-RedDragon&gt;</a></span><span class="message">Also, love the effort put in so far. Wonderful project!</span></div><div class="line" id="100332"><span class="nick" style="color:#80b1d3"><a href="#100332" label="[10:03:32]">&lt;stikonas[m]&gt;</a></span><span class="message">USA-RedDragon: throw in some bad command before cp and then run cp manually with gdb</span></div><div class="line" id="103046"><span class="nick" style="color:#6d2462"><a href="#103046" label="[10:30:46]">&lt;fossy&gt;</a></span><span class="message">USA-RedDragon: hey! you can run the bootstrap with ./rootfs.py -cp (chroot mode, preserve the chroot after exit). once something goes wrong, you can peruse the binaries (inc w gdb) to your will.</span></div><div class="line" id="103153"><span class="nick" style="color:#6d2462"><a href="#103153" label="[10:31:53]">&lt;fossy&gt;</a></span><span class="message">i assume you have ensured that cp works with gcc? you can compile mescc-tools-extra from outside live-bootstrap. (i  *highly* doubt that it wouldn't, but good to check anyways)</span></div><div class="line" id="103218"><span class="nick" style="color:#6d2462"><a href="#103218" label="[10:32:18]">&lt;fossy&gt;</a></span><span class="message">when debugging live-bootstrap it's usually best in the early stages to do the majority of debugging on the broken binaries from outside the live-bootstrap environment</span></div><div class="line" id="103659"><span class="nick" style="color:#80b1d3"><a href="#103659" label="[10:36:59]">&lt;stikonas[m]&gt;</a></span><span class="message">And does catm work?</span></div><div class="line" id="103714"><span class="nick" style="color:#80b1d3"><a href="#103714" label="[10:37:14]">&lt;stikonas[m]&gt;</a></span><span class="message">cp a b should be the same as catm b a</span></div><div class="line" id="113727"><span class="nick" style="color:#6b8072"><a href="#113727" label="[11:37:27]">&lt;USA-RedDragon&gt;</a></span><span class="message">Thanks for the help, y'all. I'm switching over to my RPI to use chroot. For some reason binfmt isn't playing nicely with chroot on my main host, and I think even the RPI's bare metal should be faster than qemu was.</span></div><div class="line" id="114509"><span class="nick" style="color:#80b1d3"><a href="#114509" label="[11:45:09]">&lt;stikonas[m]&gt;</a></span><span class="message">USA-RedDragon: probably misconfigured binfmt... It works for me for all arches that stage0-posix supports</span></div><div class="line" id="114514"><span class="nick" style="color:#80b1d3"><a href="#114514" label="[11:45:14]">&lt;stikonas[m]&gt;</a></span><span class="message">But yes, baremetal should be much faster</span></div><div class="line" id="114620"><span class="nick" style="color:#80b1d3"><a href="#114620" label="[11:46:20]">&lt;stikonas[m]&gt;</a></span><span class="message">On qemu stage0-posix takes about 2 min for me, but native build on rockpro64 is much faster, maybe 20s</span></div><div class="line" id="114711"><span class="nick" style="color:#80b1d3"><a href="#114711" label="[11:47:11]">&lt;stikonas[m]&gt;</a></span><span class="message">And live-bootsrap will need some changes go support multi arch</span></div><div class="line" id="114738"><span class="nick" style="color:#80b1d3"><a href="#114738" label="[11:47:38]">&lt;stikonas[m]&gt;</a></span><span class="message">I have made some early ones (I think for amd64)</span></div><div class="line" id="114808"><span class="nick" style="color:#80b1d3"><a href="#114808" label="[11:48:08]">&lt;stikonas[m]&gt;</a></span><span class="message">So that at least ARCH variable is exposed and you can run conditional code</span></div><div class="line" id="115741"><span class="nick" style="color:#6b8072"><a href="#115741" label="[11:57:41]">&lt;USA-RedDragon&gt;</a></span><span class="message">Update: cp doesn't work, catm does. Gonna dig into it with GDB tomorrow</span></div><div class="line" id="115951"><span class="nick" style="color:#6b8072"><a href="#115951" label="[11:59:51]">&lt;USA-RedDragon&gt;</a></span><span class="message">fgetc seems to be the function causing the SIGSEGV</span></div><div class="line" id="120946"><span class="nick" style="color:#80b1d3"><a href="#120946" label="[12:09:46]">&lt;stikonas[m]&gt;</a></span><span class="message">That is strange, they both should be using fgetc to read and fputc to write</span></div><div class="line" id="121026"><span class="nick" style="color:#80b1d3"><a href="#121026" label="[12:10:26]">&lt;stikonas[m]&gt;</a></span><span class="message">Also as fossy, said worth trying to check GCC/glibc compiled cp from mescc-tools-extra</span></div><div class="line" id="121112"><span class="nick" style="color:#80b1d3"><a href="#121112" label="[12:11:12]">&lt;stikonas[m]&gt;</a></span><span class="message">If you can reproduce crash there, then it might be easier to debug in gdb</span></div><div class="line" id="195641"><span class="nick" style="color:#6b8072"><a href="#195641" label="[19:56:41]">&lt;USA-RedDragon&gt;</a></span><span class="message">AArch64 `cp` issue update: It's the chroot environment that's causing the failure. The destination directory (`/usr/bin`) isn't being created by `mkdir`. I have a suspicion that this `mkdir` might be hitting the no-op `sys/stat.h` `mkdir` function, as there is no error logged by the return code</span></div><div class="line" id="195911"><span class="nick" style="color:#6b8072"><a href="#195911" label="[19:59:11]">&lt;USA-RedDragon&gt;</a></span><span class="message">Hrm so running that mkdir outside of the chroot can't make directories either. It errors if I try to `mkdir DIRNAME` with 'Could not create directory', but with `-p` no directory is created, but the error is swallowed</span></div><div class="line" id="200316"><span class="nick" style="color:#6b8072"><a href="#200316" label="[20:03:16]">&lt;USA-RedDragon&gt;</a></span><span class="message">`-p` swallowing the error/exit code is a logic issue in the `mkdir` impl. Not the root cause of the failure though</span></div><div class="line" id="200320"><span class="nick" style="color:#8dd3c7"><a href="#200320" label="[20:03:20]">&lt;stikonas&gt;</a></span><span class="message">USA-RedDragon: possibly syscall not implemented</span></div><div class="line" id="200334"><span class="nick" style="color:#8dd3c7"><a href="#200334" label="[20:03:34]">&lt;stikonas&gt;</a></span><span class="message">I think stage0-posix-aarch64 builds mkdir but does not use it</span></div><div class="line" id="200423"><span class="nick" style="color:#8dd3c7"><a href="#200423" label="[20:04:23]">&lt;stikonas&gt;</a></span><span class="message">USA-RedDragon: hmm, though it seems to have code for it</span></div><div class="line" id="200437"><span class="nick" style="color:#6b8072"><a href="#200437" label="[20:04:37]">&lt;USA-RedDragon&gt;</a></span><span class="message">Yeah, I'm vetting that syscall now</span></div><div class="line" id="200524"><span class="nick" style="color:#8dd3c7"><a href="#200524" label="[20:05:24]">&lt;stikonas&gt;</a></span><span class="message">and aarch64 uses not those older style DEFINES, might be a bit unfamiliar to those who used GAS syntax...</span></div><div class="line" id="200726"><span class="nick" style="color:#8dd3c7"><a href="#200726" label="[20:07:26]">&lt;stikonas&gt;</a></span><span class="message">oriansj: can you review/merge <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/16">https://github.com/oriansj/M2libc/pull/16</a>  ?</span></div><div class="line" id="200921"><span class="nick" style="color:#8dd3c7"><a href="#200921" label="[20:09:21]">&lt;stikonas&gt;</a></span><span class="message">and then we'll have probably the first ever self-hosting compiler running on UEFI</span></div><div class="line" id="213636"><span class="nick">***</span><span class="message notice">pgreco_ is now known as pgreco</span></div><div class="line" id="214214"><span class="nick" style="color:#6b8072"><a href="#214214" label="[21:42:14]">&lt;USA-RedDragon&gt;</a></span><span class="message">I'm thinking the syscall number is wrong. Was getting set as dec 1030, whereas dec 34 is appropriate for arm64.</span></div><div class="line" id="221456"><span class="nick" style="color:#8dd3c7"><a href="#221456" label="[22:14:56]">&lt;stikonas&gt;</a></span><span class="message">hmm, it's SET_X8_TO_SYS_MKDIR</span></div><div class="line" id="221509"><span class="nick" style="color:#8dd3c7"><a href="#221509" label="[22:15:09]">&lt;stikonas&gt;</a></span><span class="message">what does it decode to...</span></div><div class="line" id="221647"><span class="nick" style="color:#8dd3c7"><a href="#221647" label="[22:16:47]">&lt;stikonas&gt;</a></span><span class="message">USA-RedDragon: 34 is mkdir_at for aarch64</span></div><div class="line" id="221740"><span class="nick" style="color:#8dd3c7"><a href="#221740" label="[22:17:40]">&lt;stikonas&gt;</a></span><span class="message">which is probably the one we should use</span></div><div class="line" id="221747"><span class="nick" style="color:#8dd3c7"><a href="#221747" label="[22:17:47]">&lt;stikonas&gt;</a></span><span class="message">especially given that SET_X0_TO_FCNTL_H_AT_FDCWD</span></div><div class="line" id="221924"><span class="nick" style="color:#8dd3c7"><a href="#221924" label="[22:19:24]">&lt;stikonas&gt;</a></span><span class="message">yes, mkdir itself is not available on arm64...</span></div><div class="line" id="222545"><span class="nick" style="color:#8dd3c7"><a href="#222545" label="[22:25:45]">&lt;stikonas&gt;</a></span><span class="message">USA-RedDragon: indeed, I've just check with strace, I get the following</span></div><div class="line" id="222548"><span class="nick" style="color:#8dd3c7"><a href="#222548" label="[22:25:48]">&lt;stikonas&gt;</a></span><span class="message">syscall_0x406(0xffffffffffffff9c, 0x7ffe0d1ff2, 0x1ed, 0, 0, 0) = -1 ENOSYS</span></div><div class="line" id="222559"><span class="nick" style="color:#8dd3c7"><a href="#222559" label="[22:25:59]">&lt;stikonas&gt;</a></span><span class="message">USA-RedDragon: could you fix this and make a PR?</span></div><div class="line" id="222705"><span class="nick" style="color:#8dd3c7"><a href="#222705" label="[22:27:05]">&lt;stikonas&gt;</a></span><span class="message">USA-RedDragon: rm is also b0rked</span></div><div class="line" id="222710"><span class="nick" style="color:#8dd3c7"><a href="#222710" label="[22:27:10]">&lt;stikonas&gt;</a></span><span class="message">also wrong syscall</span></div><div class="line" id="230011"><span class="nick" style="color:#6b8072"><a href="#230011" label="[23:00:11]">&lt;USA-RedDragon&gt;</a></span><span class="message">I can do that. I have a question about what's going on before the syscall. It seems to be taking parameters and putting them in the right registers, but it keeps bringing them to X0, then to the destination register. Is there some calling convention I'm missing here? This is the original asm &lt;<a rel="nofollow" href="https://gist.github.com/USA-RedDragon/09e9b2a6cd5ae06a0aee813ec85b136a">https://gist.github.com/USA-RedDragon/09e9b2a6cd5ae06a0aee813ec85b136a</a>&gt;,  and this is what I'm using to sanity check, which does work,</span></div><div class="line" id="230016"><span class="nick" style="color:#6b8072"><a href="#230016" label="[23:00:16]">&lt;USA-RedDragon&gt;</a></span><span class="message">but I'm linking to it in pure ASM rather than a C wrapper: &lt;<a rel="nofollow" href="https://gist.github.com/USA-RedDragon/8888da4df1550e0b03c93e1473bf7b01">https://gist.github.com/USA-RedDragon/8888da4df1550e0b03c93e1473bf7b01</a>&gt; </span></div><div class="line" id="230510"><span class="nick" style="color:#80b1d3"><a href="#230510" label="[23:05:10]">&lt;stikonas[m]&gt;</a></span><span class="message">I'm not too familiar with aarch64 but part of it might be just an attempt to use fewer different instructions</span></div><div class="line" id="230529"><span class="nick" style="color:#80b1d3"><a href="#230529" label="[23:05:29]">&lt;stikonas[m]&gt;</a></span><span class="message">So that DEFINE list is shorter</span></div><div class="line" id="230609"><span class="nick" style="color:#80b1d3"><a href="#230609" label="[23:06:09]">&lt;stikonas[m]&gt;</a></span><span class="message">But in general M2-Planet puts function arguments onto stack</span></div><div class="line" id="230641"><span class="nick" style="color:#80b1d3"><a href="#230641" label="[23:06:41]">&lt;stikonas[m]&gt;</a></span><span class="message">(But theur offsets might differ from arch to arch)</span></div><div class="line" id="230738"><span class="nick" style="color:#80b1d3"><a href="#230738" label="[23:07:38]">&lt;stikonas[m]&gt;</a></span><span class="message">Then you can access those function arguments relative to either base or stack register</span></div><div class="line" id="230839"><span class="nick" style="color:#80b1d3"><a href="#230839" label="[23:08:39]">&lt;stikonas[m]&gt;</a></span><span class="message">This is how M2 planet processes them: <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/blob/master/cc_core.c#L2393">https://github.com/oriansj/M2-Planet/blob/master/cc_core.c#L2393</a> </span></div><div class="line" id="231417"><span class="nick" style="color:#6b8072"><a href="#231417" label="[23:14:17]">&lt;USA-RedDragon&gt;</a></span><span class="message">Really useful, thanks!</span></div><div class="line" id="231611"><span class="nick" style="color:#80b1d3"><a href="#231611" label="[23:16:11]">&lt;stikonas[m]&gt;</a></span><span class="message">I had to look at this just recently myself</span></div><div class="line" id="231651"><span class="nick" style="color:#80b1d3"><a href="#231651" label="[23:16:51]">&lt;stikonas[m]&gt;</a></span><span class="message">If you look at my PR above, I'm also adding those C wrappers around asm (but for amd64)</span></div><div class="line" id="235031"><span class="nick" style="color:#2e2a4a"><a href="#235031" label="[23:50:31]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged</span></div><div class="line" id="235428"><span class="nick" style="color:#2e2a4a"><a href="#235428" label="[23:54:28]">&lt;oriansj&gt;</a></span><span class="message">for aarch64; mkdir is 0x406</span></div><div class="line" id="235609"><span class="nick" style="color:#2e2a4a"><a href="#235609" label="[23:56:09]">&lt;oriansj&gt;</a></span><span class="message">so movz x8, 0x406 should be correct</span></div><div class="line" id="235806"><span class="nick" style="color:#80b1d3"><a href="#235806" label="[23:58:06]">&lt;stikonas[m]&gt;</a></span><span class="message">oriansj: where did you find that mkdir is 0x406</span></div><div class="line" id="235815"><span class="nick" style="color:#2e2a4a"><a href="#235815" label="[23:58:15]">&lt;oriansj&gt;</a></span><span class="message">(here is the list I have for aarch64 syscalls) <a rel="nofollow" href="https://paste.debian.net/1258369/">https://paste.debian.net/1258369/</a> </span></div><div class="line" id="235904"><span class="nick" style="color:#80b1d3"><a href="#235904" label="[23:59:04]">&lt;stikonas[m]&gt;</a></span><span class="message">That's not what I see in <a rel="nofollow" href="https://git.musl-libc.org/cgit/musl/tree/arch/aarch64/bits/syscall.h.in">https://git.musl-libc.org/cgit/musl/tree/arch/aarch64/bits/syscall.h.in</a> </span></div><div class="line" id="235941"><span class="nick" style="color:#80b1d3"><a href="#235941" label="[23:59:41]">&lt;stikonas[m]&gt;</a></span><span class="message">And strace also failed to recognise 0x406</span></div><br /></div></body></html>

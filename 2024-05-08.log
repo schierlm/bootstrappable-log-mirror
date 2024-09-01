@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-05-08.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="143134"><span class="nick" style="color:#389600"><a href="#143134" label="[14:31:34]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; <a rel="nofollow" href="https://gcc.gnu.org/gcc-14/porting_to.html">https://gcc.gnu.org/gcc-14/porting_to.html</a>  &quot;Certain warnings are now errors&quot; ... &quot; Programs that bundle parts of gnulib or autoconf-archive may need to update these sources files from their upstream versions. &quot; . Sounds like they have decided to be less lax about C99 and so breaking a bunch of code.</span></div><div class="line" id="143217"><span class="nick" style="color:#389600"><a href="#143217" label="[14:32:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; &quot; Most Autoconf probes that check for build system features are written in such a way that they trigger a compiler error if a feature is missing. The new errors may cause GCC to fail compiling a probe when it worked before, unrelated to the actual objective of the probe. These failed probes tend to disable program features together with their tests, resulting in silently dropping features. &quot; fun</span></div><div class="line" id="153507"><span class="nick" style="color:#8dd3c7"><a href="#153507" label="[15:35:07]">&lt;FireFly&gt;</a></span><span class="message">._.</span></div><div class="line" id="171356"><span class="nick" style="color:#389600"><a href="#171356" label="[17:13:56]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Presumably gcc14 also will not be able to build M2-Planet without disabling some of these new errors (as I assume typedef void (*FUNCTION) (); from gcc_req.h will trigger an error)</span></div><div class="line" id="171419"><span class="nick" style="color:#389600"><a href="#171419" label="[17:14:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; implicit int args?</span></div><div class="line" id="171640"><span class="nick" style="color:#389600"><a href="#171640" label="[17:16:40]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; obviously that won't impact boostrapping, but you may need flags if you ever want to build M2 under gcc.</span></div><div class="line" id="172708"><span class="nick" style="color:#2e2a4a"><a href="#172708" label="[17:27:08]">&lt;oriansj&gt;</a></span><span class="message">matrix_bridge: gcc14 should be able to build M2-Planet without warnings if not it is a bug I will fix promptly</span></div><div class="line" id="173058"><span class="nick" style="color:#2e2a4a"><a href="#173058" label="[17:30:58]">&lt;oriansj&gt;</a></span><span class="message">and I don't see anything in <a rel="nofollow" href="https://gcc.gnu.org/gcc-14/porting_to.html">https://gcc.gnu.org/gcc-14/porting_to.html</a>  which would indicate any issues</span></div><div class="line" id="173310"><span class="nick" style="color:#2e2a4a"><a href="#173310" label="[17:33:10]">&lt;oriansj&gt;</a></span><span class="message">-Wall and -Wextra show nothing with GCC 13.2.0</span></div><div class="line" id="173334"><span class="nick" style="color:#2e2a4a"><a href="#173334" label="[17:33:34]">&lt;oriansj&gt;</a></span><span class="message">and doing guix pull to see if guix has packaged it yet</span></div><div class="line" id="173619"><span class="nick" style="color:#6b8072"><a href="#173619" label="[17:36:19]">&lt;sam_&gt;</a></span><span class="message">oriansj: if -Wall and -Wextra are fine, you have nothing to worry about</span></div><div class="line" id="173654"><span class="nick" style="color:#6b8072"><a href="#173654" label="[17:36:54]">&lt;sam_&gt;</a></span><span class="message">i also expect stikonas at least would've noticed the problem already if so, as he was aware of the work i've been doing</span></div><div class="line" id="174014"><span class="nick" style="color:#2e2a4a"><a href="#174014" label="[17:40:14]">&lt;oriansj&gt;</a></span><span class="message">well yes, stikonas does excellent work as does the whole live-bootstrap team.</span></div><div class="line" id="174043"><span class="nick" style="color:#6b8072"><a href="#174043" label="[17:40:43]">&lt;sam_&gt;</a></span><span class="message">yes</span></div><div class="line" id="174051"><span class="nick" style="color:#6b8072"><a href="#174051" label="[17:40:51]">&lt;sam_&gt;</a></span><span class="message">but my point is stikonas knows what i've been doing with modern c stuff</span></div><div class="line" id="174100"><span class="nick" style="color:#6b8072"><a href="#174100" label="[17:41:00]">&lt;sam_&gt;</a></span><span class="message">because we intersect in other places</span></div><div class="line" id="174333"><span class="nick" style="color:#80b1d3"><a href="#174333" label="[17:43:33]">&lt;nimaje&gt;</a></span><span class="message">hm, shouldn't   void (*FUNCTION) ()   give a warning, because the parameter list is empty?</span></div><div class="line" id="174350"><span class="nick" style="color:#6b8072"><a href="#174350" label="[17:43:50]">&lt;sam_&gt;</a></span><span class="message">it's only a C23 thing or with -Wstrict-prototypes</span></div><div class="line" id="174354"><span class="nick" style="color:#6b8072"><a href="#174354" label="[17:43:54]">&lt;sam_&gt;</a></span><span class="message">in gcc we have debated what to do about it</span></div><div class="line" id="174400"><span class="nick" style="color:#6b8072"><a href="#174400" label="[17:44:00]">&lt;sam_&gt;</a></span><span class="message">the clang behaviour is different and it warns loudly on it i think</span></div><div class="line" id="174418"><span class="nick" style="color:#2e2a4a"><a href="#174418" label="[17:44:18]">&lt;oriansj&gt;</a></span><span class="message">sam_: if you give me a proper function pointer type, I'd use that instead</span></div><div class="line" id="174855"><span class="nick" style="color:#80b1d3"><a href="#174855" label="[17:48:55]">&lt;nimaje&gt;</a></span><span class="message">hm, I throught c99 said you should always specify the parameter list and the compiler has to assume some fixed, but to it unknown parameter list if the programmer ignored that 'should' for compatibility with c89 (they probably should have used a 'must' there)</span></div><div class="line" id="175024"><span class="nick" style="color:#2e2a4a"><a href="#175024" label="[17:50:24]">&lt;oriansj&gt;</a></span><span class="message">nimaje: ok, now what should they syntax be which there are no passed parameters?</span></div><div class="line" id="175037"><span class="nick" style="color:#2e2a4a"><a href="#175037" label="[17:50:37]">&lt;oriansj&gt;</a></span><span class="message">^they^the^</span></div><div class="line" id="175054"><span class="nick" style="color:#80b1d3"><a href="#175054" label="[17:50:54]">&lt;nimaje&gt;</a></span><span class="message">void (*FUNCTION) (void)</span></div><div class="line" id="175626"><span class="nick" style="color:#6b8072"><a href="#175626" label="[17:56:26]">&lt;sam_&gt;</a></span><span class="message">C23 is the only thing which changed there, not C99</span></div><div class="line" id="175931"><span class="nick" style="color:#2e2a4a"><a href="#175931" label="[17:59:31]">&lt;oriansj&gt;</a></span><span class="message">nimaje: done</span></div><div class="line" id="180038"><span class="nick" style="color:#2e2a4a"><a href="#180038" label="[18:00:38]">&lt;oriansj&gt;</a></span><span class="message">but -Wstrict-prototypes did bring up some things I probably should address</span></div><div class="line" id="180215"><span class="nick" style="color:#2e2a4a"><a href="#180215" label="[18:02:15]">&lt;oriansj&gt;</a></span><span class="message">odd that it is warning about proper function definitions not being prototypes</span></div><div class="line" id="180427"><span class="nick" style="color:#2e2a4a"><a href="#180427" label="[18:04:27]">&lt;oriansj&gt;</a></span><span class="message">ok, I see what it is complaining about</span></div><div class="line" id="180903"><span class="nick" style="color:#389600"><a href="#180903" label="[18:09:03]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I think you overestimate how much I know about your C work</span></div><div class="line" id="180913"><span class="nick" style="color:#6b8072"><a href="#180913" label="[18:09:13]">&lt;sam_&gt;</a></span><span class="message">haha</span></div><div class="line" id="180918"><span class="nick" style="color:#6b8072"><a href="#180918" label="[18:09:18]">&lt;sam_&gt;</a></span><span class="message">maybe I assume I talk about it too much ;)</span></div><div class="line" id="180952"><span class="nick" style="color:#389600"><a href="#180952" label="[18:09:52]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Feel free to talk more</span></div><div class="line" id="181317"><span class="nick" style="color:#389600"><a href="#181317" label="[18:13:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I've been porting a more complete (but still incomplete version of M2) to a simpler dialect of C. I think when I started it compiled cleanly with 0 warns. But now:</span></div><div class="line" id="181320"><span class="nick" style="color:#389600"><a href="#181320" label="[18:13:20]">&lt;matrix_bridge&gt;</a></span><span class="message">tcc_bootstrap_alt/m2min$ gcc -I . -g -m32 -O0 artifacts/M2_tcc_js_simple_full.c -o artifacts/M2_gcc_js_simple.exe  2&gt;&amp;1 |grep warn|wc</span></div><div class="line" id="181322"><span class="nick" style="color:#389600"><a href="#181322" label="[18:13:22]">&lt;matrix_bridge&gt;</a></span><span class="message">    462    6778   69679</span></div><div class="line" id="181354"><span class="nick" style="color:#6b8072"><a href="#181354" label="[18:13:54]">&lt;sam_&gt;</a></span><span class="message">stikonas: ok, I will try to :)</span></div><div class="line" id="184814"><span class="nick" style="color:#2e2a4a"><a href="#184814" label="[18:48:14]">&lt;oriansj&gt;</a></span><span class="message">and now M2-Planet no longer has warnings with -Wstrict-prototypes</span></div><div class="line" id="184901"><span class="nick" style="color:#2e2a4a"><a href="#184901" label="[18:49:01]">&lt;oriansj&gt;</a></span><span class="message">thank you for bringing that to my attention</span></div><div class="line" id="184955"><span class="nick" style="color:#2e2a4a"><a href="#184955" label="[18:49:55]">&lt;oriansj&gt;</a></span><span class="message">(any other strict C compliance things I have missed, please let me know)</span></div><div class="line" id="205337"><span class="nick" style="color:#80b1d3"><a href="#205337" label="[20:53:37]">&lt;nimaje&gt;</a></span><span class="message">hm, you could try with  -std=c99 -Wall -pedantic  but no idea if that brings up any more warnings</span></div><div class="line" id="233854"><span class="nick" style="color:#2e2a4a"><a href="#233854" label="[23:38:54]">&lt;oriansj&gt;</a></span><span class="message">nimaje: it only brings up warning: ISO C99 doesn’t support unnamed structs/unions for the unions in cc.h about the unions in struct token_list</span></div><div class="line" id="234020"><span class="nick" style="color:#2e2a4a"><a href="#234020" label="[23:40:20]">&lt;oriansj&gt;</a></span><span class="message">but cc_* doesn't support named unions</span></div><div class="line" id="234058"><span class="nick" style="color:#2e2a4a"><a href="#234058" label="[23:40:58]">&lt;oriansj&gt;</a></span><span class="message">but we probably could remove union support from cc_* to make it simpler and remove the use of unions in M2-Planet</span></div><div class="line" id="235149"><span class="nick" style="color:#2e2a4a"><a href="#235149" label="[23:51:49]">&lt;oriansj&gt;</a></span><span class="message">it'll waste some memory when M2-Planet runs (triple it to be precise) but shouldn't be an issue</span></div><div class="line" id="235536"><span class="nick" style="color:#2e2a4a"><a href="#235536" label="[23:55:36]">&lt;oriansj&gt;</a></span><span class="message">adding named unions to M2-Planet might be a bit of extra complexity</span></div><div class="line" id="235622"><span class="nick" style="color:#2e2a4a"><a href="#235622" label="[23:56:22]">&lt;oriansj&gt;</a></span><span class="message">that doesn't really add much benefit to making programs leaner or easier to write</span></div><div class="line" id="235931"><span class="nick" style="color:#2e2a4a"><a href="#235931" label="[23:59:31]">&lt;oriansj&gt;</a></span><span class="message">and fix is up</span></div><div class="line" id="235945"><span class="nick" style="color:#2e2a4a"><a href="#235945" label="[23:59:45]">&lt;oriansj&gt;</a></span><span class="message">-pedantic now produces nothing when run on M2-Planet</span></div><br /></div></body></html>

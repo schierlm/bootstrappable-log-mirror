@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-04-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000009"><span class="nick" style="color:#389600"><a href="#000009" label="[00:00:09]">&lt;Googulator&gt;</a></span><span class="message">given the nebulous release date of 0.26.1 (which may or may not include the patch for regenerating Nyacc's files), we might need a 0.25-lb1 or 0.26-lb1</span></div><div class="line" id="000641"><span class="nick" style="color:#8dd3c7"><a href="#000641" label="[00:06:41]">&lt;stikonas&gt;</a></span><span class="message">Googulator: no, there isn't</span></div><div class="line" id="000701"><span class="nick" style="color:#8dd3c7"><a href="#000701" label="[00:07:01]">&lt;stikonas&gt;</a></span><span class="message">and I'm not evne aware of some private patch</span></div><div class="line" id="002444"><span class="nick" style="color:#8dd3c7"><a href="#002444" label="[00:24:44]">&lt;stikonas&gt;</a></span><span class="message">well, 0.26 or 0.26.1 makes it easier to run guile modules there</span></div><div class="line" id="002456"><span class="nick" style="color:#8dd3c7"><a href="#002456" label="[00:24:56]">&lt;stikonas&gt;</a></span><span class="message">but I don't think it solves the problem anyway</span></div><div class="line" id="002522"><span class="nick" style="color:#8dd3c7"><a href="#002522" label="[00:25:22]">&lt;stikonas&gt;</a></span><span class="message">because the current guile method was depending on ppsyntax file</span></div><div class="line" id="002528"><span class="nick" style="color:#8dd3c7"><a href="#002528" label="[00:25:28]">&lt;stikonas&gt;</a></span><span class="message">(which would be pregenerated file in mes)</span></div><div class="line" id="002559"><span class="nick" style="color:#8dd3c7"><a href="#002559" label="[00:25:59]">&lt;stikonas&gt;</a></span><span class="message">otherwise unused in mescc and we delete it</span></div><div class="line" id="004258"><span class="nick" style="color:#389600"><a href="#004258" label="[00:42:58]">&lt;Googulator&gt;</a></span><span class="message">seems like it was Timothy Sample who achieved... something... without psyntax-pp: <a rel="nofollow" href="https://github.com/schierlm/guile-psyntax-bootstrapping/issues/1#issuecomment-1899297115">https://github.com/schierlm/guile-psyntax-bootstrapping/issues/1#issuecomment-1899297115</a> </span></div><div class="line" id="004344"><span class="nick" style="color:#389600"><a href="#004344" label="[00:43:44]">&lt;Googulator&gt;</a></span><span class="message">and I guess the issues he ran into are fixed in 0.26, hence the reference to 0.26 being a requirement for properly bootstrapping Nyacc</span></div><div class="line" id="004508"><span class="nick" style="color:#8dd3c7"><a href="#004508" label="[00:45:08]">&lt;stikonas&gt;</a></span><span class="message">oh, yeah, now I seem to remember this comment</span></div><div class="line" id="004517"><span class="nick" style="color:#8dd3c7"><a href="#004517" label="[00:45:17]">&lt;stikonas&gt;</a></span><span class="message">anyway, I don't know any more than in this ticket</span></div><div class="line" id="004620"><span class="nick" style="color:#389600"><a href="#004620" label="[00:46:20]">&lt;Googulator&gt;</a></span><span class="message">he did release <a rel="nofollow" href="https://gist.github.com/samplet/78a2e92d47dd37b17886b26dffa14ffd">https://gist.github.com/samplet/78a2e92d47dd37b17886b26dffa14ffd</a>  - but I'm not sure if this + double-execution fix on top of 0.26 is sufficient</span></div><div class="line" id="004633"><span class="nick" style="color:#389600"><a href="#004633" label="[00:46:33]">&lt;Googulator&gt;</a></span><span class="message">if it is, I'm inclined to roll a 0.26-lb1 release</span></div><div class="line" id="004658"><span class="nick" style="color:#8dd3c7"><a href="#004658" label="[00:46:58]">&lt;stikonas&gt;</a></span><span class="message">well, ask him I guess...</span></div><div class="line" id="004712"><span class="nick" style="color:#8dd3c7"><a href="#004712" label="[00:47:12]">&lt;stikonas&gt;</a></span><span class="message">and you can ask jannekefor 0.26.1</span></div><div class="line" id="005653"><span class="nick" style="color:#389600"><a href="#005653" label="[00:56:53]">&lt;Googulator&gt;</a></span><span class="message">syntax-rules doesn't depend on psyntax-pp, right?</span></div><div class="line" id="005655"><span class="nick" style="color:#389600"><a href="#005655" label="[00:56:55]">&lt;Googulator&gt;</a></span><span class="message">only syntax-case</span></div><div class="line" id="005724"><span class="nick" style="color:#8dd3c7"><a href="#005724" label="[00:57:24]">&lt;stikonas&gt;</a></span><span class="message">no idea :(</span></div><div class="line" id="005727"><span class="nick" style="color:#8dd3c7"><a href="#005727" label="[00:57:27]">&lt;stikonas&gt;</a></span><span class="message">it's scheme</span></div><div class="line" id="010304"><span class="nick" style="color:#8dd3c7"><a href="#010304" label="[01:03:04]">&lt;stikonas&gt;</a></span><span class="message">but most likely you are right</span></div><div class="line" id="020505"><span class="nick" style="color:#2e2a4a"><a href="#020505" label="[02:05:05]">&lt;oriansj&gt;</a></span><span class="message">yeah the mes.c to tcc step is kinda mesccy but nothing should be private in live-bootstrap</span></div><div class="line" id="021458"><span class="nick" style="color:#2e2a4a"><a href="#021458" label="[02:14:58]">&lt;oriansj&gt;</a></span><span class="message">and this <a rel="nofollow" href="https://the-dam.org/docs/explanations/Plan9ListenOnLinux.html">https://the-dam.org/docs/explanations/Plan9ListenOnLinux.html</a>  gave me false hope; because seeing guix on plan 9 would have been a sweet port</span></div><div class="line" id="043335"><span class="nick" style="color:#6b8072"><a href="#043335" label="[04:33:35]">&lt;pabs3&gt;</a></span><span class="message">sam_: personally I would like to see autotools move towards generating multiple tarballs, 1) VCS archive 2) autotools cruft 3) submodules 4) prebuilt docs etc. then users can select the ones they want and combine them themselves</span></div><div class="line" id="043342"><span class="nick" style="color:#6b8072"><a href="#043342" label="[04:33:42]">&lt;pabs3&gt;</a></span><span class="message">ACTION not on the list though</span></div><div class="line" id="043522"><span class="nick" style="color:#6b8072"><a href="#043522" label="[04:35:22]">&lt;pabs3&gt;</a></span><span class="message">Googulator: ^</span></div><div class="line" id="161839"><span class="nick" style="color:#80b1d3"><a href="#161839" label="[16:18:39]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; well, VCS archive + submodules is a useful choice of real source archive</span></div><div class="line" id="161857"><span class="nick" style="color:#80b1d3"><a href="#161857" label="[16:18:57]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; autotools cruft and prebuilt docs is just helping others not to install more dependencies</span></div><div class="line" id="163254"><span class="nick" style="color:#6b8072"><a href="#163254" label="[16:32:54]">&lt;pabs3&gt;</a></span><span class="message">ACTION would separate out the submodules so that people who like multiple copies of code can have that and people who don't (distros) can have that</span></div><div class="line" id="163913"><span class="nick" style="color:#8dd3c7"><a href="#163913" label="[16:39:13]">&lt;stikonas&gt;</a></span><span class="message">yeah, but generally submodules do need to be at specific commit</span></div><div class="line" id="163917"><span class="nick" style="color:#8dd3c7"><a href="#163917" label="[16:39:17]">&lt;stikonas&gt;</a></span><span class="message">e.g. even the same gnulib</span></div><div class="line" id="163931"><span class="nick" style="color:#8dd3c7"><a href="#163931" label="[16:39:31]">&lt;stikonas&gt;</a></span><span class="message">different tools use different gnulib versions and there is no source compatibility</span></div><div class="line" id="223443"><span class="nick" style="color:#6d2462"><a href="#223443" label="[22:34:43]">&lt;mihi&gt;</a></span><span class="message">Googulator &amp; stikonas: samplet's patch is for nyacc, not for mes, and I doubt anybody wants to fork the old nyacc version mes uses to make a new release. So i'd keep the patch out-of-tree (either in mes or in live-bootstrap). And whether syntax-rules (and defmacro) requires psyntax or not depends on how macro support is implemented. In the way how mes do it, they don't need psyntax, in the way Guile does it, they</span></div><div class="line" id="223444"><span class="nick" style="color:#6d2462"><a href="#223444" label="[22:34:44]">&lt;mihi&gt;</a></span><span class="message">do (which made bootstrapping psyntax on Guile slightly harder)</span></div><div class="line" id="225202"><span class="nick" style="color:#389600"><a href="#225202" label="[22:52:02]">&lt;Googulator&gt;</a></span><span class="message">stikonas: nyacc-1.00.2-lb1 time it is, then</span></div><div class="line" id="231302"><span class="nick" style="color:#389600"><a href="#231302" label="[23:13:02]">&lt;Googulator&gt;</a></span><span class="message">janneke: is a bugfix release of mes-0.26 planned in the near future, to fix the double-compilation bug?</span></div><div class="line" id="231349"><span class="nick" style="color:#234e69"><a href="#231349" label="[23:13:49]">&lt;janneke&gt;</a></span><span class="message">Googulator: certainly!</span></div><div class="line" id="231506"><span class="nick" style="color:#389600"><a href="#231506" label="[23:15:06]">&lt;Googulator&gt;</a></span><span class="message">because at this point, the nyacc pregen files are basically *the* blocker for live-bootstrap v1.0 release, and the fix for that depends on 0.26</span></div><div class="line" id="231601"><span class="nick" style="color:#389600"><a href="#231601" label="[23:16:01]">&lt;Googulator&gt;</a></span><span class="message">(although I would like to also prioritize openssl-3.0 now that 1.1.1 has gone EOL)</span></div><div class="line" id="233142"><span class="nick" style="color:#8dd3c7"><a href="#233142" label="[23:31:42]">&lt;stikonas&gt;</a></span><span class="message">GoogulatorMobile: yeah it's hard to patch before patch program</span></div><div class="line" id="233149"><span class="nick" style="color:#8dd3c7"><a href="#233149" label="[23:31:49]">&lt;stikonas&gt;</a></span><span class="message">so separate snapshot is easier</span></div><div class="line" id="234625"><span class="nick" style="color:#389600"><a href="#234625" label="[23:46:25]">&lt;Googulator&gt;</a></span><span class="message">fossy: what's your opinion on the OpenSSL 3 upgrade? It's currently marked optional for 1.0, but the release we currently use (1.1.1) is EOL</span></div><br /></div></body></html>

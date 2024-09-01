@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-05-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="215523"><span class="nick" style="color:#389600"><a href="#215523" label="[21:55:23]">&lt;oriansj&gt;</a></span><span class="message">fossy: reviewed and merged</span></div><div class="line" id="225721"><span class="nick" style="color:#8dd3c7"><a href="#225721" label="[22:57:21]">&lt;Piraty&gt;</a></span><span class="message">ACTION reviews oriansj</span></div><div class="line" id="230847"><span class="nick" style="color:#389600"><a href="#230847" label="[23:08:47]">&lt;oriansj&gt;</a></span><span class="message">ACTION a flower is born to blush unseen.</span></div><div class="line" id="231419"><span class="nick" style="color:#2e2a4a"><a href="#231419" label="[23:14:19]">&lt;roconnor&gt;</a></span><span class="message">What's the difference between hex2 and M0.  The documentation just says that M0 is an archetecture specific version of M1, and that M1 is a cross platform version of &quot;M0&quot;, without saying what either one is.</span></div><div class="line" id="232534"><span class="nick" style="color:#6b8072"><a href="#232534" label="[23:25:34]">&lt;stikonas&gt;</a></span><span class="message">roconnor: hi</span></div><div class="line" id="232552"><span class="nick" style="color:#6b8072"><a href="#232552" label="[23:25:52]">&lt;stikonas&gt;</a></span><span class="message">M0 is assembler,  hex2 is linker</span></div><div class="line" id="232557"><span class="nick" style="color:#6b8072"><a href="#232557" label="[23:25:57]">&lt;stikonas&gt;</a></span><span class="message">there are some readme files with examples</span></div><div class="line" id="232559"><span class="nick" style="color:#6b8072"><a href="#232559" label="[23:25:59]">&lt;stikonas&gt;</a></span><span class="message">let me find it</span></div><div class="line" id="232622"><span class="nick" style="color:#2e2a4a"><a href="#232622" label="[23:26:22]">&lt;roconnor&gt;</a></span><span class="message">oh.  I thought hex2 was an assembler.</span></div><div class="line" id="232628"><span class="nick" style="color:#6b8072"><a href="#232628" label="[23:26:28]">&lt;stikonas&gt;</a></span><span class="message">roconnor: compare <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst#hex2">https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst#hex2</a>  and <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst#hex2">https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst#hex2</a> </span></div><div class="line" id="232649"><span class="nick" style="color:#6b8072"><a href="#232649" label="[23:26:49]">&lt;stikonas&gt;</a></span><span class="message">well, hex assembler is basically a linker in some sense</span></div><div class="line" id="232702"><span class="nick" style="color:#6b8072"><a href="#232702" label="[23:27:02]">&lt;stikonas&gt;</a></span><span class="message">at least in the simple cases of stage0...</span></div><div class="line" id="232804"><span class="nick" style="color:#6b8072"><a href="#232804" label="[23:28:04]">&lt;stikonas&gt;</a></span><span class="message">so hex0 can take pair of hex characters and creates a byte. The main addition in hex2 on top of that is ability to resolve addresses for jumps and branches</span></div><div class="line" id="232813"><span class="nick" style="color:#6b8072"><a href="#232813" label="[23:28:13]">&lt;stikonas&gt;</a></span><span class="message">so it kind of makes it into a simple linker</span></div><div class="line" id="232820"><span class="nick" style="color:#2e2a4a"><a href="#232820" label="[23:28:20]">&lt;roconnor&gt;</a></span><span class="message">oh hex2 has no DEFINE.</span></div><div class="line" id="232842"><span class="nick" style="color:#6b8072"><a href="#232842" label="[23:28:42]">&lt;stikonas&gt;</a></span><span class="message">indeed</span></div><div class="line" id="232914"><span class="nick" style="color:#6b8072"><a href="#232914" label="[23:29:14]">&lt;stikonas&gt;</a></span><span class="message">so you still program using hex sequences (except for references to other labels which hex2 calculates)</span></div><div class="line" id="232921"><span class="nick" style="color:#2e2a4a"><a href="#232921" label="[23:29:21]">&lt;roconnor&gt;</a></span><span class="message">does M0 subsume hex2, i.e. it can operate on .hex2 files and produces the same output that hex2 does?</span></div><div class="line" id="232929"><span class="nick" style="color:#6b8072"><a href="#232929" label="[23:29:29]">&lt;stikonas&gt;</a></span><span class="message">no</span></div><div class="line" id="232931"><span class="nick" style="color:#6b8072"><a href="#232931" label="[23:29:31]">&lt;stikonas&gt;</a></span><span class="message">you chain them</span></div><div class="line" id="232946"><span class="nick" style="color:#6b8072"><a href="#232946" label="[23:29:46]">&lt;stikonas&gt;</a></span><span class="message">so M0 takes file with DEFINES and produces something that hex2 can process</span></div><div class="line" id="232956"><span class="nick" style="color:#2e2a4a"><a href="#232956" label="[23:29:56]">&lt;roconnor&gt;</a></span><span class="message">oh M0 outputs hex2?</span></div><div class="line" id="232959"><span class="nick" style="color:#6b8072"><a href="#232959" label="[23:29:59]">&lt;stikonas&gt;</a></span><span class="message">yes</span></div><div class="line" id="233014"><span class="nick" style="color:#6b8072"><a href="#233014" label="[23:30:14]">&lt;stikonas&gt;</a></span><span class="message">then similarly cc_* and M2-Planet produce something M0 (or later M1) can process</span></div><div class="line" id="233017"><span class="nick" style="color:#2e2a4a"><a href="#233017" label="[23:30:17]">&lt;roconnor&gt;</a></span><span class="message">so M0 mostly just inlines DEFINES?</span></div><div class="line" id="233030"><span class="nick" style="color:#6b8072"><a href="#233030" label="[23:30:30]">&lt;stikonas&gt;</a></span><span class="message">a bit more than that but that's the main addition</span></div><div class="line" id="233038"><span class="nick" style="color:#6b8072"><a href="#233038" label="[23:30:38]">&lt;stikonas&gt;</a></span><span class="message">it can also encode numbers for you</span></div><div class="line" id="233051"><span class="nick" style="color:#2e2a4a"><a href="#233051" label="[23:30:51]">&lt;roconnor&gt;</a></span><span class="message">oh the %2 thing?</span></div><div class="line" id="233051"><span class="nick" style="color:#6b8072"><a href="#233051" label="[23:30:51]">&lt;stikonas&gt;</a></span><span class="message">e.g.  sub_ebx, %2</span></div><div class="line" id="233054"><span class="nick" style="color:#6b8072"><a href="#233054" label="[23:30:54]">&lt;stikonas&gt;</a></span><span class="message">yeah</span></div><div class="line" id="233059"><span class="nick" style="color:#6b8072"><a href="#233059" label="[23:30:59]">&lt;stikonas&gt;</a></span><span class="message">on x86 it will become 02000000</span></div><div class="line" id="233108"><span class="nick" style="color:#6b8072"><a href="#233108" label="[23:31:08]">&lt;stikonas&gt;</a></span><span class="message">on riscv it's far more shuffled</span></div><div class="line" id="233108"><span class="nick" style="color:#2e2a4a"><a href="#233108" label="[23:31:08]">&lt;roconnor&gt;</a></span><span class="message">Good good.</span></div><div class="line" id="233133"><span class="nick" style="color:#6b8072"><a href="#233133" label="[23:31:33]">&lt;stikonas&gt;</a></span><span class="message">so M0 is fairly close to GAS assembler</span></div><div class="line" id="233141"><span class="nick" style="color:#6b8072"><a href="#233141" label="[23:31:41]">&lt;stikonas&gt;</a></span><span class="message">but with somewhat weird syntax</span></div><div class="line" id="233155"><span class="nick" style="color:#6b8072"><a href="#233155" label="[23:31:55]">&lt;stikonas&gt;</a></span><span class="message">in GAS you would have sub ebx, 2</span></div><div class="line" id="233510"><span class="nick" style="color:#6b8072"><a href="#233510" label="[23:35:10]">&lt;stikonas&gt;</a></span><span class="message">so actually even mescc compiler (part of GNU mes project) that you can use after stage0-posix still produces M1 files as output, then you run them through M1 to get hex2 output and then hex2 produces final binary</span></div><div class="line" id="233608"><span class="nick" style="color:#6b8072"><a href="#233608" label="[23:36:08]">&lt;stikonas&gt;</a></span><span class="message">only next stage (tcc) starts producing binutils compatible object files...</span></div><div class="line" id="234023"><span class="nick" style="color:#2e2a4a"><a href="#234023" label="[23:40:23]">&lt;roconnor&gt;</a></span><span class="message">Looks like M1 is the format and M0 and M2 are the assemblers.</span></div><div class="line" id="234157"><span class="nick" style="color:#6b8072"><a href="#234157" label="[23:41:57]">&lt;stikonas&gt;</a></span><span class="message">it's slightly more confusing</span></div><div class="line" id="234211"><span class="nick" style="color:#6b8072"><a href="#234211" label="[23:42:11]">&lt;stikonas&gt;</a></span><span class="message">M0 and M1 are related but M2 is not</span></div><div class="line" id="234242"><span class="nick" style="color:#6b8072"><a href="#234242" label="[23:42:42]">&lt;stikonas&gt;</a></span><span class="message">so M0 is arch specific tool written in hex that processes that file with DEFINES</span></div><div class="line" id="234258"><span class="nick" style="color:#6b8072"><a href="#234258" label="[23:42:58]">&lt;stikonas&gt;</a></span><span class="message">M1 is the C cross-platform version of the same tool</span></div><div class="line" id="234306"><span class="nick" style="color:#6b8072"><a href="#234306" label="[23:43:06]">&lt;stikonas&gt;</a></span><span class="message">but it does support more features too</span></div><div class="line" id="234321"><span class="nick" style="color:#6b8072"><a href="#234321" label="[23:43:21]">&lt;stikonas&gt;</a></span><span class="message">it has far nicer argument praser, so you can specify multiple files, better error checking</span></div><div class="line" id="234332"><span class="nick" style="color:#6b8072"><a href="#234332" label="[23:43:32]">&lt;stikonas&gt;</a></span><span class="message">and also supports woth lowercase and uppercacse hex numbers</span></div><div class="line" id="234342"><span class="nick" style="color:#6b8072"><a href="#234342" label="[23:43:42]">&lt;stikonas&gt;</a></span><span class="message">but generally they work on the same format</span></div><div class="line" id="234400"><span class="nick" style="color:#6b8072"><a href="#234400" label="[23:44:00]">&lt;stikonas&gt;</a></span><span class="message">on the other hand M2 refers to M2-Planet</span></div><div class="line" id="234424"><span class="nick" style="color:#6b8072"><a href="#234424" label="[23:44:24]">&lt;stikonas&gt;</a></span><span class="message">which is the simple C compiler written in an even simpler cc_* dialect</span></div><div class="line" id="234442"><span class="nick" style="color:#6b8072"><a href="#234442" label="[23:44:42]">&lt;stikonas&gt;</a></span><span class="message">in stage0-posix we build it twice</span></div><div class="line" id="234517"><span class="nick" style="color:#6b8072"><a href="#234517" label="[23:45:17]">&lt;stikonas&gt;</a></span><span class="message">first build is compiled using cc_* (e..g. cc_x86) and binary is saved as M2</span></div><div class="line" id="234528"><span class="nick" style="color:#6b8072"><a href="#234528" label="[23:45:28]">&lt;stikonas&gt;</a></span><span class="message">(it also uses simplified version of M2libc)</span></div><div class="line" id="234540"><span class="nick" style="color:#6b8072"><a href="#234540" label="[23:45:40]">&lt;stikonas&gt;</a></span><span class="message">then we build C versions of hex2 and M1</span></div><div class="line" id="234549"><span class="nick" style="color:#6b8072"><a href="#234549" label="[23:45:49]">&lt;stikonas&gt;</a></span><span class="message">and rebuild the whole thing from just C tools</span></div><div class="line" id="234612"><span class="nick" style="color:#6b8072"><a href="#234612" label="[23:46:12]">&lt;stikonas&gt;</a></span><span class="message">i.e. use M2 binary to rebuilt itself from source (but this time using full M2libc library)</span></div><div class="line" id="234619"><span class="nick" style="color:#6b8072"><a href="#234619" label="[23:46:19]">&lt;stikonas&gt;</a></span><span class="message">that binary is then saved as M2-Planet</span></div><div class="line" id="234632"><span class="nick" style="color:#6b8072"><a href="#234632" label="[23:46:32]">&lt;stikonas&gt;</a></span><span class="message">roconnor: hopefully this clarrifies things a bit</span></div><div class="line" id="234643"><span class="nick" style="color:#2e2a4a"><a href="#234643" label="[23:46:43]">&lt;roconnor&gt;</a></span><span class="message">Yep.</span></div><div class="line" id="234803"><span class="nick" style="color:#6b8072"><a href="#234803" label="[23:48:03]">&lt;stikonas&gt;</a></span><span class="message">so we actually have lots of different versions of those early tools (M0_x86, M0_amd64, M0_riscv64...) but just one M1</span></div><div class="line" id="234822"><span class="nick" style="color:#6b8072"><a href="#234822" label="[23:48:22]">&lt;stikonas&gt;</a></span><span class="message">(we even have amd64 version of them for UEFI</span></div><div class="line" id="235207"><span class="nick" style="color:#2e2a4a"><a href="#235207" label="[23:52:07]">&lt;roconnor&gt;</a></span><span class="message">oh I see.  So M1 can cross-compile.</span></div><div class="line" id="235222"><span class="nick" style="color:#2e2a4a"><a href="#235222" label="[23:52:22]">&lt;roconnor&gt;</a></span><span class="message">or something like that.</span></div><div class="line" id="235308"><span class="nick" style="color:#6b8072"><a href="#235308" label="[23:53:08]">&lt;stikonas&gt;</a></span><span class="message">yeah, M2, M1 and C version of hex2 can indeed cross-compile</span></div><div class="line" id="235356"><span class="nick" style="color:#6b8072"><a href="#235356" label="[23:53:56]">&lt;stikonas&gt;</a></span><span class="message">roconnor: and this might be especially useful for bootstrapping on UEFI</span></div><div class="line" id="235412"><span class="nick" style="color:#2e2a4a"><a href="#235412" label="[23:54:12]">&lt;roconnor&gt;</a></span><span class="message">does M1 produce the same output that M0 does on all the inputs that M0 can handle? (when not cross compiling)</span></div><div class="line" id="235417"><span class="nick" style="color:#6b8072"><a href="#235417" label="[23:54:17]">&lt;stikonas&gt;</a></span><span class="message">you start with native UEFI binaries (stage0-uefi) but then mescc has no support for UEFI</span></div><div class="line" id="235426"><span class="nick" style="color:#6b8072"><a href="#235426" label="[23:54:26]">&lt;stikonas&gt;</a></span><span class="message">so you cross-compile POSIX versions</span></div><div class="line" id="235434"><span class="nick" style="color:#6b8072"><a href="#235434" label="[23:54:34]">&lt;stikonas&gt;</a></span><span class="message">and try to continue using some kind of posix emulation</span></div><div class="line" id="235450"><span class="nick" style="color:#6b8072"><a href="#235450" label="[23:54:50]">&lt;stikonas&gt;</a></span><span class="message">roconnor: almost the output</span></div><div class="line" id="235507"><span class="nick" style="color:#6b8072"><a href="#235507" label="[23:55:07]">&lt;stikonas&gt;</a></span><span class="message">I think line endings are different in .hex2 file</span></div><div class="line" id="235516"><span class="nick" style="color:#2e2a4a"><a href="#235516" label="[23:55:16]">&lt;roconnor&gt;</a></span><span class="message">interesting.</span></div><div class="line" id="235523"><span class="nick" style="color:#6b8072"><a href="#235523" label="[23:55:23]">&lt;stikonas&gt;</a></span><span class="message">I think one of them does one token per line</span></div><div class="line" id="235528"><span class="nick" style="color:#6b8072"><a href="#235528" label="[23:55:28]">&lt;stikonas&gt;</a></span><span class="message">and the other multiple</span></div><div class="line" id="235540"><span class="nick" style="color:#6b8072"><a href="#235540" label="[23:55:40]">&lt;stikonas&gt;</a></span><span class="message">but it will result in the same binary once you pass it through hex2</span></div><div class="line" id="235550"><span class="nick" style="color:#2e2a4a"><a href="#235550" label="[23:55:50]">&lt;roconnor&gt;</a></span><span class="message">ah</span></div><div class="line" id="235619"><span class="nick" style="color:#6b8072"><a href="#235619" label="[23:56:19]">&lt;stikonas&gt;</a></span><span class="message">so intermediate output is not exactly the same</span></div><div class="line" id="235624"><span class="nick" style="color:#6b8072"><a href="#235624" label="[23:56:24]">&lt;stikonas&gt;</a></span><span class="message">but final binary should ne</span></div><div class="line" id="235629"><span class="nick" style="color:#6b8072"><a href="#235629" label="[23:56:29]">&lt;stikonas&gt;</a></span><span class="message">should be</span></div><div class="line" id="235744"><span class="nick" style="color:#6b8072"><a href="#235744" label="[23:57:44]">&lt;stikonas&gt;</a></span><span class="message">but I did use those C versions for debugging when working on assembly level tools too</span></div><div class="line" id="235905"><span class="nick" style="color:#2e2a4a"><a href="#235905" label="[23:59:05]">&lt;roconnor&gt;</a></span><span class="message">which C versions?</span></div><br /></div></body></html>

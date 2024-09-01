@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-03-30.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000501"><span class="nick" style="color:#389600"><a href="#000501" label="[00:05:01]">&lt;fossy&gt;</a></span><span class="message">LOLOLOLOLOL</span></div><div class="line" id="000652"><span class="nick" style="color:#389600"><a href="#000652" label="[00:06:52]">&lt;fossy&gt;</a></span><span class="message">i am just reading about this.</span></div><div class="line" id="000755"><span class="nick" style="color:#389600"><a href="#000755" label="[00:07:55]">&lt;fossy&gt;</a></span><span class="message">this is the -exact- type of attack that led me to push so strongly in live-bootstrap for no pregenerated files</span></div><div class="line" id="000812"><span class="nick" style="color:#389600"><a href="#000812" label="[00:08:12]">&lt;fossy&gt;</a></span><span class="message">because configures are entirely unauditable</span></div><div class="line" id="000901"><span class="nick" style="color:#389600"><a href="#000901" label="[00:09:01]">&lt;fossy&gt;</a></span><span class="message">(while live-bootstrap does not care about security issues exactly, more trusting trust backdoors etc, so this precise issue is fairly irrelevant, the idea remains the same)</span></div><div class="line" id="002225"><span class="nick" style="color:#8dd3c7"><a href="#002225" label="[00:22:25]">&lt;stikonas&gt;</a></span><span class="message">fossy: yeah, I'm quite glad we pushed for no pregenerated files</span></div><div class="line" id="002232"><span class="nick" style="color:#8dd3c7"><a href="#002232" label="[00:22:32]">&lt;stikonas&gt;</a></span><span class="message">and quite successfully I would say</span></div><div class="line" id="002308"><span class="nick" style="color:#8dd3c7"><a href="#002308" label="[00:23:08]">&lt;stikonas&gt;</a></span><span class="message">just a few minor things left (only nyacc comes to mind)</span></div><div class="line" id="002329"><span class="nick" style="color:#8dd3c7"><a href="#002329" label="[00:23:29]">&lt;stikonas&gt;</a></span><span class="message">though everything after live-bootstrap then relies on distros that don't have this policy :(</span></div><div class="line" id="004025"><span class="nick" style="color:#389600"><a href="#004025" label="[00:40:25]">&lt;fossy&gt;</a></span><span class="message">yep</span></div><div class="line" id="004101"><span class="nick" style="color:#389600"><a href="#004101" label="[00:41:01]">&lt;fossy&gt;</a></span><span class="message">(to be fair - in this case, we would still be vulnerable because there were extra m4 files in the release tarball compared to the git repo)</span></div><div class="line" id="004115"><span class="nick" style="color:#389600"><a href="#004115" label="[00:41:15]">&lt;fossy&gt;</a></span><span class="message">hm, will have to think about that one a bit</span></div><div class="line" id="005027"><span class="nick" style="color:#2e2a4a"><a href="#005027" label="[00:50:27]">&lt;sam_&gt;</a></span><span class="message">yes, fossy, this is a tricky one</span></div><div class="line" id="005030"><span class="nick" style="color:#2e2a4a"><a href="#005030" label="[00:50:30]">&lt;sam_&gt;</a></span><span class="message">because we can't JUST autoreconf here</span></div><div class="line" id="005041"><span class="nick" style="color:#2e2a4a"><a href="#005041" label="[00:50:41]">&lt;sam_&gt;</a></span><span class="message">what we really need is to, at the least, know when a standard macro is being used or not</span></div><div class="line" id="005045"><span class="nick" style="color:#2e2a4a"><a href="#005045" label="[00:50:45]">&lt;sam_&gt;</a></span><span class="message">even that is a bit of a hack, but..</span></div><div class="line" id="005057"><span class="nick" style="color:#2e2a4a"><a href="#005057" label="[00:50:57]">&lt;sam_&gt;</a></span><span class="message">but i mean it is quite common to see stale versions of such macros</span></div><div class="line" id="012228"><span class="nick" style="color:#6b8072"><a href="#012228" label="[01:22:28]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; did they compromise signed release tarballs too?</span></div><div class="line" id="012533"><span class="nick" style="color:#6b8072"><a href="#012533" label="[01:25:33]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Ah presumably so <a rel="nofollow" href="https://github.com/tukaani-project/xz/releases">https://github.com/tukaani-project/xz/releases</a>  considering the person who pushed these releases is the person who checked in the exploits</span></div><div class="line" id="012631"><span class="nick" style="color:#389600"><a href="#012631" label="[01:26:31]">&lt;fossy&gt;</a></span><span class="message">yep</span></div><div class="line" id="012719"><span class="nick" style="color:#6b8072"><a href="#012719" label="[01:27:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; <a rel="nofollow" href="https://xz.tukaani.org/xz-utils/">https://xz.tukaani.org/xz-utils/</a>  &quot; Versions 5.2.12, 5.4.3 and later have been signed with Jia Tan's OpenPGP key . The older releases have been signed with Lasse Collin's OpenPGP key . &quot;</span></div><div class="line" id="013855"><span class="nick" style="color:#6b8072"><a href="#013855" label="[01:38:55]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I'm not sure what you do if a maintainer goes rogue like this. I suppose there's a lack of secure build/signing infrastructure that allowed them to cut a release that differed from what was in git/would have been generated from code in git.</span></div><div class="line" id="021157"><span class="nick" style="color:#80b1d3"><a href="#021157" label="[02:11:57]">&lt;oriansj&gt;</a></span><span class="message">the problem with going to git commits, is that sha1 isn't going to save us from very targetted attacks from people with a great deal of resources.</span></div><div class="line" id="023114"><span class="nick" style="color:#6d2462"><a href="#023114" label="[02:31:14]">&lt;pabs3&gt;</a></span><span class="message">this isn't a rogue maintainer, this is probably more likely a state actor</span></div><div class="line" id="023128"><span class="nick" style="color:#6d2462"><a href="#023128" label="[02:31:28]">&lt;pabs3&gt;</a></span><span class="message">and probably a team of people</span></div><div class="line" id="023224"><span class="nick" style="color:#6d2462"><a href="#023224" label="[02:32:24]">&lt;pabs3&gt;</a></span><span class="message">and also the bits not in git aren't the backdoor, thats in &quot;test&quot; files checked into git</span></div><div class="line" id="062523"><span class="nick" style="color:#389600"><a href="#062523" label="[06:25:23]">&lt;fossy&gt;</a></span><span class="message">yeah defending against a trusted maintainer is a bit different</span></div><div class="line" id="132438"><span class="nick" style="color:#80b1d3"><a href="#132438" label="[13:24:38]">&lt;oriansj&gt;</a></span><span class="message">fossy: yeah, an evil maintainer is like detecting underhanded C exploits</span></div><br /></div></body></html>

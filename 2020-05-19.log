@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-05-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="100626"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="141008"><span class="nick" style="color:#8dd3c7"><a href="#141008" label="[14:10:08]">&lt;gf&gt;</a></span><span class="message">Hi!</span></div><div class="line" id="141113"><span class="nick" style="color:#8dd3c7"><a href="#141113" label="[14:11:13]">&lt;gf&gt;</a></span><span class="message">rekado, could you help me out on building classpath-0.99 ? I need some suggestions</span></div><div class="line" id="143359"><span class="nick" style="color:#2e2a4a"><a href="#143359" label="[14:33:59]">&lt;rekado_&gt;</a></span><span class="message">gf: have you looked at the definition of ecj-javac-wrapper in java.scm?</span></div><div class="line" id="143905"><span class="nick" style="color:#8dd3c7"><a href="#143905" label="[14:39:05]">&lt;gf&gt;</a></span><span class="message">yes, thats where Im working from.</span></div><div class="line" id="143931"><span class="nick" style="color:#2e2a4a"><a href="#143931" label="[14:39:31]">&lt;rekado_&gt;</a></span><span class="message">that generates the wrapper that you’ll need to use ecj as if it were javac.</span></div><div class="line" id="144208"><span class="nick" style="color:#8dd3c7"><a href="#144208" label="[14:42:08]">&lt;gf&gt;</a></span><span class="message">It appears that it simply removes the -J option, so I wrote a bash script wrapper. configure appears to pass, but make gives me 4 errors on method undefined. So I was wondering if its my script thats bad, or Ive passed the wrong args to configure</span></div><div class="line" id="144242"><span class="nick" style="color:#8dd3c7"><a href="#144242" label="[14:42:42]">&lt;gf&gt;</a></span><span class="message">Here is the log <a rel="nofollow" href="https://pastebin.com/MPLnPxvM">https://pastebin.com/MPLnPxvM</a> </span></div><div class="line" id="144253"><span class="nick" style="color:#2e2a4a"><a href="#144253" label="[14:42:53]">&lt;rekado_&gt;</a></span><span class="message">it separates VM arguments from ECJ arguments</span></div><div class="line" id="144321"><span class="nick" style="color:#2e2a4a"><a href="#144321" label="[14:43:21]">&lt;rekado_&gt;</a></span><span class="message">I suggest either copying the wrapper from Guix or executing the Guile code that generates it.</span></div><div class="line" id="144429"><span class="nick" style="color:#2e2a4a"><a href="#144429" label="[14:44:29]">&lt;rekado_&gt;</a></span><span class="message">you can feed that whole expression starting with (begin …) to Guile after defining a few things like bootcp, ecj, and %build-inputs containing a “jamvm” key.</span></div><div class="line" id="144436"><span class="nick" style="color:#2e2a4a"><a href="#144436" label="[14:44:36]">&lt;rekado_&gt;</a></span><span class="message">oh, and java</span></div><div class="line" id="144447"><span class="nick" style="color:#2e2a4a"><a href="#144447" label="[14:44:47]">&lt;rekado_&gt;</a></span><span class="message">all those things that are preceded by a comma</span></div><div class="line" id="144502"><span class="nick" style="color:#2e2a4a"><a href="#144502" label="[14:45:02]">&lt;rekado_&gt;</a></span><span class="message">that’s just the locations of these packages</span></div><div class="line" id="144909"><span class="nick" style="color:#8dd3c7"><a href="#144909" label="[14:49:09]">&lt;gf&gt;</a></span><span class="message">Ok, will try to run the guile script. Big thanks for your guide, rekado</span></div><div class="line" id="144918"><span class="nick" style="color:#2e2a4a"><a href="#144918" label="[14:49:18]">&lt;rekado_&gt;</a></span><span class="message">good luck!</span></div><div class="line" id="144925"><span class="nick" style="color:#2e2a4a"><a href="#144925" label="[14:49:25]">&lt;rekado_&gt;</a></span><span class="message">gotta go</span></div><br /></div></body></html>

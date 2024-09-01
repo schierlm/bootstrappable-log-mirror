@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-10-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001314"><span class="nick" style="color:#389600"><a href="#001314" label="[00:13:14]">&lt;oriansj&gt;</a></span><span class="message">stikonas: looks like it fixed the bug introduced by 435dc609438f0ca260fd9524e5d88ab743187e3a so merged</span></div><div class="line" id="001427"><span class="nick" style="color:#8dd3c7"><a href="#001427" label="[00:14:27]">&lt;stikonas&gt;</a></span><span class="message">yes, before that commit some exit statuses were ignored, but it broke crash detection...</span></div><div class="line" id="001430"><span class="nick" style="color:#8dd3c7"><a href="#001430" label="[00:14:30]">&lt;stikonas&gt;</a></span><span class="message">now everything should work</span></div><div class="line" id="001714"><span class="nick" style="color:#389600"><a href="#001714" label="[00:17:14]">&lt;oriansj&gt;</a></span><span class="message">glad to see more details are being properly addressed.</span></div><div class="line" id="003404"><span class="nick" style="color:#8dd3c7"><a href="#003404" label="[00:34:04]">&lt;stikonas&gt;</a></span><span class="message">on the other hand, I'm not sure what causes mes-m2 to crash on risc-v...</span></div><div class="line" id="003418"><span class="nick" style="color:#8dd3c7"><a href="#003418" label="[00:34:18]">&lt;stikonas&gt;</a></span><span class="message">somehow malloc fails to reserve memory and returns 0 pointer</span></div><div class="line" id="003424"><span class="nick" style="color:#8dd3c7"><a href="#003424" label="[00:34:24]">&lt;stikonas&gt;</a></span><span class="message">but I don't yet understand why</span></div><div class="line" id="003952"><span class="nick" style="color:#389600"><a href="#003952" label="[00:39:52]">&lt;oriansj&gt;</a></span><span class="message">well mes-m2 is much harder to reason about than all of stage0-posix put together.</span></div><div class="line" id="004017"><span class="nick" style="color:#389600"><a href="#004017" label="[00:40:17]">&lt;oriansj&gt;</a></span><span class="message">as interpreters are harder to reason about than compilers</span></div><div class="line" id="005206"><span class="nick" style="color:#8dd3c7"><a href="#005206" label="[00:52:06]">&lt;stikonas&gt;</a></span><span class="message">in general yes, but this crash happens really early in mes init before any complicated stuff is reached</span></div><div class="line" id="005240"><span class="nick" style="color:#8dd3c7"><a href="#005240" label="[00:52:40]">&lt;stikonas&gt;</a></span><span class="message">but yes, mes-m2 is definitely much more complicated than m2-planet</span></div><div class="line" id="150513"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="185331"><span class="nick" style="color:#6b8072"><a href="#185331" label="[18:53:31]">&lt;muurkha&gt;</a></span><span class="message"> <a rel="nofollow" href="https://raw.githubusercontent.com/mortie/rv32i-logisim-cpu/main/screenshots/cpu.png">https://raw.githubusercontent.com/mortie/rv32i-logisim-cpu/main/screenshots/cpu.png</a>  this is a whole RISC-V CPU design</span></div><div class="line" id="185501"><span class="nick" style="color:#6b8072"><a href="#185501" label="[18:55:01]">&lt;muurkha&gt;</a></span><span class="message">well, maybe it would be fairer to call it a prototype.  it can run programs compiled with clang though</span></div><div class="line" id="201656"><span class="nick" style="color:#8dd3c7"><a href="#201656" label="[20:16:56]">&lt;stikonas&gt;</a></span><span class="message">well, we don't support riscv32 in stage0-posix yet</span></div><div class="line" id="201711"><span class="nick" style="color:#8dd3c7"><a href="#201711" label="[20:17:11]">&lt;stikonas&gt;</a></span><span class="message">somebody has to do it, but should be easy enough</span></div><div class="line" id="211431"><span class="nick" style="color:#80b1d3"><a href="#211431" label="[21:14:31]">&lt;cwebber&gt;</a></span><span class="message">hi hi</span></div><div class="line" id="214705"><span class="nick" style="color:#8dd3c7"><a href="#214705" label="[21:47:05]">&lt;stikonas&gt;</a></span><span class="message">cwebber: hi</span></div><div class="line" id="225618"><span class="nick" style="color:#6d2462"><a href="#225618" label="[22:56:18]">&lt;gbrlwck&gt;</a></span><span class="message">in mes-m2: what is char **envp? it is passed from main to init but seems unused?</span></div><div class="line" id="225709"><span class="nick" style="color:#234e69"><a href="#225709" label="[22:57:09]">&lt;fossy&gt;</a></span><span class="message">envp contains all envars</span></div><div class="line" id="225818"><span class="nick" style="color:#6b8072"><a href="#225818" label="[22:58:18]">&lt;muurkha&gt;</a></span><span class="message">yeah, a few (mostly very old) C programs depend on this way of providing the environment</span></div><div class="line" id="230024"><span class="nick" style="color:#6d2462"><a href="#230024" label="[23:00:24]">&lt;gbrlwck&gt;</a></span><span class="message">huh, thanks!</span></div><div class="line" id="230112"><span class="nick" style="color:#6b8072"><a href="#230112" label="[23:01:12]">&lt;muurkha&gt;</a></span><span class="message">remember that in the early days of C there wasn't much of a standard library.  vi predates malloc()</span></div><div class="line" id="230121"><span class="nick" style="color:#6b8072"><a href="#230121" label="[23:01:21]">&lt;muurkha&gt;</a></span><span class="message">not sure when getenv() and family were born</span></div><div class="line" id="231312"><span class="nick" style="color:#8dd3c7"><a href="#231312" label="[23:13:12]">&lt;stikonas&gt;</a></span><span class="message">do we actually need to support those very old C programs?</span></div><div class="line" id="231353"><span class="nick" style="color:#8dd3c7"><a href="#231353" label="[23:13:53]">&lt;stikonas&gt;</a></span><span class="message">is there something in live-bootstrap that does not use getenv()?</span></div><div class="line" id="231418"><span class="nick" style="color:#6b8072"><a href="#231418" label="[23:14:18]">&lt;muurkha&gt;</a></span><span class="message">probably, because both GCC <a rel="nofollow" href="https://www.gnu.org/s/libc/manual/html_node/Program-Arguments.html">https://www.gnu.org/s/libc/manual/html_node/Program-Arguments.html</a>  and Visual C++ <a rel="nofollow" href="https://docs.microsoft.com/en-us/cpp/c-language/arguments-to-main">https://docs.microsoft.com/en-us/cpp/c-language/arguments-to-main</a>  support them</span></div><div class="line" id="231441"><span class="nick" style="color:#6b8072"><a href="#231441" label="[23:14:41]">&lt;muurkha&gt;</a></span><span class="message">but maybe we don't really care</span></div><div class="line" id="231457"><span class="nick" style="color:#234e69"><a href="#231457" label="[23:14:57]">&lt;fossy&gt;</a></span><span class="message">dosent stage0-POSIX use envp</span></div><div class="line" id="231535"><span class="nick" style="color:#6b8072"><a href="#231535" label="[23:15:35]">&lt;muurkha&gt;</a></span><span class="message">even POSIX doesn't guarantee the envp argument: <a rel="nofollow" href="https://stackoverflow.com/questions/10321435/is-char-envp-as-a-third-argument-to-main-portable">https://stackoverflow.com/questions/10321435/is-char-envp-as-a-third-argument-to-main-portable</a> </span></div><div class="line" id="231700"><span class="nick" style="color:#8dd3c7"><a href="#231700" label="[23:17:00]">&lt;stikonas&gt;</a></span><span class="message">yes, kaem indeed uses envp</span></div><div class="line" id="231812"><span class="nick" style="color:#6b8072"><a href="#231812" label="[23:18:12]">&lt;muurkha&gt;</a></span><span class="message">we could change it if we wanted</span></div><div class="line" id="231817"><span class="nick" style="color:#6d2462"><a href="#231817" label="[23:18:17]">&lt;gbrlwck&gt;</a></span><span class="message">what is the &quot;location&quot; argument used for in try_open_boot?</span></div><div class="line" id="231839"><span class="nick" style="color:#6d2462"><a href="#231839" label="[23:18:39]">&lt;gbrlwck&gt;</a></span><span class="message">what would be the benefit of changing the envp thing?</span></div><div class="line" id="232446"><span class="nick" style="color:#8dd3c7"><a href="#232446" label="[23:24:46]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: where is that try_open_boot?</span></div><div class="line" id="232459"><span class="nick" style="color:#8dd3c7"><a href="#232459" label="[23:24:59]">&lt;stikonas&gt;</a></span><span class="message">oh, that's in mes.c</span></div><div class="line" id="232544"><span class="nick" style="color:#8dd3c7"><a href="#232544" label="[23:25:44]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: I guess directory</span></div><div class="line" id="232555"><span class="nick" style="color:#8dd3c7"><a href="#232555" label="[23:25:55]">&lt;stikonas&gt;</a></span><span class="message">where boot-0.scm is located</span></div><div class="line" id="232600"><span class="nick" style="color:#6d2462"><a href="#232600" label="[23:26:00]">&lt;gbrlwck&gt;</a></span><span class="message">but it's only used in that debugging output</span></div><div class="line" id="232615"><span class="nick" style="color:#8dd3c7"><a href="#232615" label="[23:26:15]">&lt;stikonas&gt;</a></span><span class="message">hmm</span></div><div class="line" id="232620"><span class="nick" style="color:#8dd3c7"><a href="#232620" label="[23:26:20]">&lt;stikonas&gt;</a></span><span class="message">janneke: ?</span></div><div class="line" id="232706"><span class="nick" style="color:#8dd3c7"><a href="#232706" label="[23:27:06]">&lt;stikonas&gt;</a></span><span class="message">oh, I think it has to match paths in open_boot</span></div><div class="line" id="232717"><span class="nick" style="color:#8dd3c7"><a href="#232717" label="[23:27:17]">&lt;stikonas&gt;</a></span><span class="message">so try_open_boot indeed only uses it for debugging</span></div><div class="line" id="232738"><span class="nick" style="color:#8dd3c7"><a href="#232738" label="[23:27:38]">&lt;stikonas&gt;</a></span><span class="message">but if you look at open_boot there are a few invocation of try_open_boot with different arguments</span></div><div class="line" id="232804"><span class="nick" style="color:#8dd3c7"><a href="#232804" label="[23:28:04]">&lt;stikonas&gt;</a></span><span class="message">but with different g_datadir</span></div><div class="line" id="232808"><span class="nick" style="color:#6d2462"><a href="#232808" label="[23:28:08]">&lt;gbrlwck&gt;</a></span><span class="message">yeah, i guess it's just a hint on why a file has been tried</span></div><br /></div></body></html>

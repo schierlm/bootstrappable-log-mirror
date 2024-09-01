@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-09-01.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010727"><span class="nick" style="color:#8dd3c7"><a href="#010727" label="[01:07:27]">&lt;oriansj&gt;</a></span><span class="message">modern software developers in regards to ensuring the language they use is properly bootstrapped: <a rel="nofollow" href="https://paste.debian.net/1252355/">https://paste.debian.net/1252355/</a> </span></div><div class="line" id="042213"><span class="nick" style="color:#2e2a4a"><a href="#042213" label="[04:22:13]">&lt;aggi&gt;</a></span><span class="message">seems there is no way to avoid GNU binutils, besides it's AS required for libc, too RANLIB isn't available with a tcc-toolchain</span></div><div class="line" id="042433"><span class="nick" style="color:#2e2a4a"><a href="#042433" label="[04:24:33]">&lt;aggi&gt;</a></span><span class="message">&quot;archive with such a [ranlib] index speeds up linking to the library&quot;; i'll try to export RANLIB=/bin/true and see what side-effects this has</span></div><div class="line" id="042520"><span class="nick" style="color:#2e2a4a"><a href="#042520" label="[04:25:20]">&lt;aggi&gt;</a></span><span class="message">currently, it is only kernel (gcc), and musl-libc (binutils, gcc), which prevent full removal/replacement of GNU toolchain with tcc-toolchain</span></div><div class="line" id="042653"><span class="nick" style="color:#2e2a4a"><a href="#042653" label="[04:26:53]">&lt;aggi&gt;</a></span><span class="message">i'll test next what is affected by RANLIB</span></div><div class="line" id="042900"><span class="nick" style="color:#2e2a4a"><a href="#042900" label="[04:29:00]">&lt;aggi&gt;</a></span><span class="message">tcc -ar required some tiny wrapper script to avoid problems, otherwise everything seems to compile/link with AR=arm-tcc-ar wrapper too now</span></div><div class="line" id="043024"><span class="nick" style="color:#2e2a4a"><a href="#043024" label="[04:30:24]">&lt;aggi&gt;</a></span><span class="message">and today, i'll boot an aarch32-test.img firmware compiled/linked with arm-tcc toolchain, which contains ~600 builds, and only musl-libc and kernel placed onto exception for GNU-toolchain</span></div><div class="line" id="044836"><span class="nick" style="color:#2e2a4a"><a href="#044836" label="[04:48:36]">&lt;aggi&gt;</a></span><span class="message">stupid me: &quot;ranlib is completely equivalent to executing ar -s&quot;</span></div><div class="line" id="092030"><span class="nick" style="color:#6b8072"><a href="#092030" label="[09:20:30]">&lt;muurkha&gt;</a></span><span class="message">ranlib is pretty obsolete</span></div><div class="line" id="092547"><span class="nick" style="color:#6b8072"><a href="#092547" label="[09:25:47]">&lt;muurkha&gt;</a></span><span class="message">not even sure ar -s matters</span></div><div class="line" id="205744"><span class="nick" style="color:#80b1d3"><a href="#205744" label="[20:57:44]">&lt;stikonas[m]&gt;</a></span><span class="message">oriansj: what's your opinion for hex0 code, inline 24 bytes called twice or have 25 byte function and call it twice (which I guess adds another 10 bytes)?</span></div><div class="line" id="205904"><span class="nick" style="color:#80b1d3"><a href="#205904" label="[20:59:04]">&lt;stikonas[m]&gt;</a></span><span class="message">I think inlining might make sense even if binary is bigger</span></div><div class="line" id="230544"><span class="nick" style="color:#6d2462"><a href="#230544" label="[23:05:44]">&lt;Hagfish&gt;</a></span><span class="message">hmm, i'm interested to hear what oriansj's preference is</span></div><div class="line" id="230556"><span class="nick" style="color:#6d2462"><a href="#230556" label="[23:05:56]">&lt;Hagfish&gt;</a></span><span class="message">(my instinct is that function calls are a familiar way to structure code, but the constraints/aesthetics for hex0 are probably not what i'm used to, and the &quot;rule of 3&quot; would suggest it's not worth adding the extra abstraction of a function call if something is just run twice</span></div><div class="line" id="235859"><span class="nick">***</span><span class="message notice">achaninja_ is now known as achaninja</span></div><div class="line" id="235859"><span class="nick">***</span><span class="message notice">saksophony_ is now known as saksophony</span></div><div class="line" id="235859"><span class="nick">***</span><span class="message notice">alethkit_ is now known as alethkit</span></div><div class="line" id="235859"><span class="nick">***</span><span class="message notice">unmatched-paren_ is now known as unmatched-paren</span></div><div class="line" id="235859"><span class="nick">***</span><span class="message notice">lh_ is now known as lh</span></div><div class="line" id="235900"><span class="nick">***</span><span class="message notice">mateusz1 is now known as mateusz</span></div><div class="line" id="235903"><span class="nick">***</span><span class="message notice">monadgauge_ is now known as monadgauge</span></div><div class="line" id="235930"><span class="nick">***</span><span class="message notice">blockhead_ is now known as blockhead</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-04-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="031506"><span class="nick" style="color:#8dd3c7"><a href="#031506" label="[03:15:06]">&lt;OriansJ`&gt;</a></span><span class="message">well I guess I'm just gonna wing it on the AArch64 upgrades in M2libc sys/stat.h</span></div><div class="line" id="031539"><span class="nick" style="color:#8dd3c7"><a href="#031539" label="[03:15:39]">&lt;OriansJ`&gt;</a></span><span class="message">Hopefully if there is mistakes someone who knows better will fix it.</span></div><div class="line" id="032900"><span class="nick" style="color:#8dd3c7"><a href="#032900" label="[03:29:00]">&lt;OriansJ`&gt;</a></span><span class="message">and prototype sys/stat.h for all architectures is now up in M2libc.</span></div><div class="line" id="032930"><span class="nick" style="color:#8dd3c7"><a href="#032930" label="[03:29:30]">&lt;OriansJ`&gt;</a></span><span class="message">So assuming I didn't screw up too badly, I should be able to convert untar.c into something that M2-Planet can compile with M2libc</span></div><div class="line" id="033218"><span class="nick" style="color:#8dd3c7"><a href="#033218" label="[03:32:18]">&lt;OriansJ`&gt;</a></span><span class="message">looks like I forgot to define mode_t</span></div><div class="line" id="035230"><span class="nick" style="color:#8dd3c7"><a href="#035230" label="[03:52:30]">&lt;OriansJ`&gt;</a></span><span class="message">hmm, I wonder if &quot;wb+&quot; is meaningfully different than &quot;w' in the M2libc context</span></div><div class="line" id="035324"><span class="nick" style="color:#8dd3c7"><a href="#035324" label="[03:53:24]">&lt;OriansJ`&gt;</a></span><span class="message">as there is no difference between wb and w in M2libc</span></div><div class="line" id="035401"><span class="nick" style="color:#8dd3c7"><a href="#035401" label="[03:54:01]">&lt;OriansJ`&gt;</a></span><span class="message">and w just means O_WRONLY | O_CREAT | O_TRUNC and w+ just means O_RDWR | O_CREAT | O_TRUNC</span></div><div class="line" id="035440"><span class="nick" style="color:#8dd3c7"><a href="#035440" label="[03:54:40]">&lt;OriansJ`&gt;</a></span><span class="message">so untar is going to read+write to a file? that seems odd for an unpacker</span></div><div class="line" id="040329"><span class="nick" style="color:#8dd3c7"><a href="#040329" label="[04:03:29]">&lt;OriansJ`&gt;</a></span><span class="message">well let us give it a try and see what happens</span></div><div class="line" id="040506"><span class="nick" style="color:#8dd3c7"><a href="#040506" label="[04:05:06]">&lt;OriansJ`&gt;</a></span><span class="message">guess I need to add a prototype fread and fwrite</span></div><div class="line" id="043940"><span class="nick" style="color:#8dd3c7"><a href="#043940" label="[04:39:40]">&lt;OriansJ`&gt;</a></span><span class="message">here is an extremely rough and probably broken prototype for untar.c in M2-Planet C <a rel="nofollow" href="https://paste.debian.net/1194483/">https://paste.debian.net/1194483/</a> </span></div><div class="line" id="044006"><span class="nick" style="color:#8dd3c7"><a href="#044006" label="[04:40:06]">&lt;OriansJ`&gt;</a></span><span class="message">build with: M2-Planet --architecture amd64 -f sys/types.h -f amd64/Linux/sys/stat.h -f stddef.h -f string.c -f amd64/Linux/unistd.h -f stdlib.c -f amd64/Linux/fcntl.h -f stdio.c -f bootstrappable.c -f untar.c -o foo.M1 --debug &amp;&amp; blood-elf -f foo.M1 --64 -o foo-footer.M1 &amp;&amp; M1 --architecture amd64 --little-endian -f amd64/amd64_defs.M1 -f amd64/libc-full.M1 -f foo.M1 -f foo-footer.M1 -o foo.hex2 &amp;&amp; hex2 --architecture amd64</span></div><div class="line" id="044007"><span class="nick" style="color:#8dd3c7"><a href="#044007" label="[04:40:07]">&lt;OriansJ`&gt;</a></span><span class="message">--little-endian --base-address 0x10000 -f amd64/ELF-amd64-debug.hex2 -f foo.hex2 -o foo &amp;&amp; ./foo example.tar</span></div><div class="line" id="044115"><span class="nick" style="color:#8dd3c7"><a href="#044115" label="[04:41:15]">&lt;OriansJ`&gt;</a></span><span class="message">and the M2libc features required are prototyped and up</span></div><div class="line" id="044323"><span class="nick" style="color:#8dd3c7"><a href="#044323" label="[04:43:23]">&lt;OriansJ`&gt;</a></span><span class="message">The GCC build appears to work fine, the M2-Planet build isn't exactly right but I'll try to iron out those last few details tomorrow (then you can finally get rid of most git submodules)</span></div><div class="line" id="044426"><span class="nick" style="color:#8dd3c7"><a href="#044426" label="[04:44:26]">&lt;OriansJ`&gt;</a></span><span class="message">gcc build instructions are: gcc untar.c bootstrappable.c -o foo</span></div><div class="line" id="044647"><span class="nick" style="color:#8dd3c7"><a href="#044647" label="[04:46:47]">&lt;OriansJ`&gt;</a></span><span class="message">I've probably just made a mistake in the M2libc functions I prototyped in a rush but it shouldn't be anything exotic to get it working now that it builds from M2-Planet and runs just not quite correctly yet.</span></div><div class="line" id="101545"><span class="nick" style="color:#2e2a4a"><a href="#101545" label="[10:15:45]">&lt;gforce_d11977&gt;</a></span><span class="message"> fossy: stikonas: pylint is now happy: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/105">https://github.com/fosslinux/live-bootstrap/pull/105</a>  - i havent tried the 'sync' issue yet but will today</span></div><div class="line" id="101745"><span class="nick" style="color:#2e2a4a"><a href="#101745" label="[10:17:45]">&lt;gforce_d11977&gt;</a></span><span class="message">changes: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/105/commits/7e69dcc926f0b2f9124ba5e17f3e4958d08b512b">https://github.com/fosslinux/live-bootstrap/pull/105/commits/7e69dcc926f0b2f9124ba5e17f3e4958d08b512b</a> </span></div><div class="line" id="101812"><span class="nick" style="color:#6b8072"><a href="#101812" label="[10:18:12]">&lt;stikonas&gt;</a></span><span class="message">ok, thanks. I'll take a look later today</span></div><div class="line" id="111009"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="111011"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><div class="line" id="182108"><span class="nick" style="color:#8dd3c7"><a href="#182108" label="[18:21:08]">&lt;OriansJ`&gt;</a></span><span class="message">looks like I did fread wrong</span></div><div class="line" id="182121"><span class="nick" style="color:#8dd3c7"><a href="#182121" label="[18:21:21]">&lt;OriansJ`&gt;</a></span><span class="message">but great news everyone</span></div><div class="line" id="182244"><span class="nick" style="color:#8dd3c7"><a href="#182244" label="[18:22:44]">&lt;OriansJ`&gt;</a></span><span class="message">untar.c now builds via M2-Planet and M2libc and produces correct output</span></div><div class="line" id="182253"><span class="nick" style="color:#8dd3c7"><a href="#182253" label="[18:22:53]">&lt;OriansJ`&gt;</a></span><span class="message">here is the modified version of untar.c <a rel="nofollow" href="https://paste.debian.net/1194568/">https://paste.debian.net/1194568/</a> </span></div><div class="line" id="182339"><span class="nick" style="color:#6b8072"><a href="#182339" label="[18:23:39]">&lt;stikonas&gt;</a></span><span class="message">nice!</span></div><div class="line" id="182345"><span class="nick" style="color:#6b8072"><a href="#182345" label="[18:23:45]">&lt;stikonas&gt;</a></span><span class="message">which repository is it going to?</span></div><div class="line" id="182352"><span class="nick" style="color:#6b8072"><a href="#182352" label="[18:23:52]">&lt;stikonas&gt;</a></span><span class="message">(probably doesn't matter too much though)</span></div><div class="line" id="182509"><span class="nick" style="color:#8dd3c7"><a href="#182509" label="[18:25:09]">&lt;OriansJ`&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1194569/">https://paste.debian.net/1194569/</a> </span></div><div class="line" id="182540"><span class="nick" style="color:#8dd3c7"><a href="#182540" label="[18:25:40]">&lt;OriansJ`&gt;</a></span><span class="message">stikonas: I figure it belongs as part of the mescc-tools suite that fossy is building</span></div><div class="line" id="182606"><span class="nick" style="color:#8dd3c7"><a href="#182606" label="[18:26:06]">&lt;OriansJ`&gt;</a></span><span class="message">as they are useful bootstrapping tools that M2-Planet can build early in the bootstrapping chain.</span></div><div class="line" id="182651"><span class="nick" style="color:#6b8072"><a href="#182651" label="[18:26:51]">&lt;stikonas&gt;</a></span><span class="message">this allows switching to .tar distributions so much earlier</span></div><div class="line" id="182659"><span class="nick" style="color:#6b8072"><a href="#182659" label="[18:26:59]">&lt;stikonas&gt;</a></span><span class="message">even mes can be distributed as .tar archive now</span></div><div class="line" id="182705"><span class="nick" style="color:#8dd3c7"><a href="#182705" label="[18:27:05]">&lt;OriansJ`&gt;</a></span><span class="message">basically right after stage0-posix</span></div><div class="line" id="182718"><span class="nick" style="color:#6b8072"><a href="#182718" label="[18:27:18]">&lt;stikonas&gt;</a></span><span class="message">although, we migtht have to ask for uncompressed releases...</span></div><div class="line" id="182721"><span class="nick" style="color:#8dd3c7"><a href="#182721" label="[18:27:21]">&lt;OriansJ`&gt;</a></span><span class="message">as I can include this build in stage0-posix build targets</span></div><div class="line" id="182750"><span class="nick" style="color:#6b8072"><a href="#182750" label="[18:27:50]">&lt;stikonas&gt;</a></span><span class="message">at the moment only mes-*.tar.gz is provided ftp://ftp.gnu.org/gnu/mes</span></div><div class="line" id="182757"><span class="nick" style="color:#8dd3c7"><a href="#182757" label="[18:27:57]">&lt;OriansJ`&gt;</a></span><span class="message">until someone finds a good uncompress we can build with M2-Planet</span></div><div class="line" id="182812"><span class="nick" style="color:#8dd3c7"><a href="#182812" label="[18:28:12]">&lt;OriansJ`&gt;</a></span><span class="message">or someone ports unxz to M2-Planet's C subset</span></div><div class="line" id="182830"><span class="nick" style="color:#6b8072"><a href="#182830" label="[18:28:30]">&lt;stikonas&gt;</a></span><span class="message">or gzip is ported to M2-Planet</span></div><div class="line" id="182837"><span class="nick" style="color:#8dd3c7"><a href="#182837" label="[18:28:37]">&lt;OriansJ`&gt;</a></span><span class="message">or just gunzip</span></div><div class="line" id="182941"><span class="nick" style="color:#6b8072"><a href="#182941" label="[18:29:41]">&lt;stikonas&gt;</a></span><span class="message">well, yes, it's basically the same executable anyway</span></div><div class="line" id="182952"><span class="nick" style="color:#6b8072"><a href="#182952" label="[18:29:52]">&lt;stikonas&gt;</a></span><span class="message">I think it just checks for argv[0]</span></div><div class="line" id="183028"><span class="nick" style="color:#6b8072"><a href="#183028" label="[18:30:28]">&lt;stikonas&gt;</a></span><span class="message">but at the moment I only tried building it with tcc</span></div><div class="line" id="201844"><span class="nick" style="color:#2e2a4a"><a href="#201844" label="[20:18:44]">&lt;gforce_d11977&gt;</a></span><span class="message">gunzip looks simple: <a rel="nofollow" href="https://github.com/lentinj/u-boot/blob/master/lib/gunzip.c">https://github.com/lentinj/u-boot/blob/master/lib/gunzip.c</a> </span></div><div class="line" id="204520"><span class="nick" style="color:#6b8072"><a href="#204520" label="[20:45:20]">&lt;stikonas&gt;</a></span><span class="message">that's not the whole source...</span></div><div class="line" id="204532"><span class="nick" style="color:#6b8072"><a href="#204532" label="[20:45:32]">&lt;stikonas&gt;</a></span><span class="message">I think most of it is in u-boot/zlib.h</span></div><div class="line" id="204546"><span class="nick" style="color:#6b8072"><a href="#204546" label="[20:45:46]">&lt;stikonas&gt;</a></span><span class="message">well, I expect gzip to be a bit more complicated than tar</span></div><div class="line" id="204556"><span class="nick" style="color:#6b8072"><a href="#204556" label="[20:45:56]">&lt;stikonas&gt;</a></span><span class="message">after all, tar files are basically human readable</span></div><div class="line" id="204609"><span class="nick" style="color:#6b8072"><a href="#204609" label="[20:46:09]">&lt;stikonas&gt;</a></span><span class="message">it's just concatenation of all files with a bit of extra metadata</span></div><div class="line" id="204853"><span class="nick" style="color:#6b8072"><a href="#204853" label="[20:48:53]">&lt;stikonas&gt;</a></span><span class="message">probably this is somewhat closer <a rel="nofollow" href="https://github.com/richgel999/miniz/blob/master/miniz.c">https://github.com/richgel999/miniz/blob/master/miniz.c</a> </span></div><div class="line" id="204929"><span class="nick" style="color:#6b8072"><a href="#204929" label="[20:49:29]">&lt;stikonas&gt;</a></span><span class="message">although, it might just be simpler to provide a couple of uncompressed tarballs in the bootstrap</span></div><div class="line" id="204945"><span class="nick" style="color:#6b8072"><a href="#204945" label="[20:49:45]">&lt;stikonas&gt;</a></span><span class="message">mes and janneke's patched tcc 0.9.26</span></div><div class="line" id="210757"><span class="nick" style="color:#2e2a4a"><a href="#210757" label="[21:07:57]">&lt;gforce_d11977&gt;</a></span><span class="message">stikonas: after further thinking about it: adding xz or gunzip is a bad idea, untar is more than enough, making things simple is a good idea</span></div><div class="line" id="210832"><span class="nick" style="color:#6b8072"><a href="#210832" label="[21:08:32]">&lt;stikonas&gt;</a></span><span class="message">and luckily gzip is distributed in .tar format too</span></div><div class="line" id="210837"><span class="nick" style="color:#6b8072"><a href="#210837" label="[21:08:37]">&lt;stikonas&gt;</a></span><span class="message">which is already used in live-bootstrap</span></div><div class="line" id="213503"><span class="nick" style="color:#80b1d3"><a href="#213503" label="[21:35:03]">&lt;Hagfish&gt;</a></span><span class="message">yeah, being able to gunzip is nice from a &quot;code golf&quot; point of view, but the early stages of the bootstrap are trivial compared to even the zipped later sources, and human-readability/simplicity seems like a more important goal</span></div><div class="line" id="213531"><span class="nick" style="color:#80b1d3"><a href="#213531" label="[21:35:31]">&lt;Hagfish&gt;</a></span><span class="message">* trivial (in terms of size)</span></div><div class="line" id="215037"><span class="nick" style="color:#6d2462"><a href="#215037" label="[21:50:37]">&lt;xentrac&gt;</a></span><span class="message">if you *really* wanted to reduce the size of the early stages you could use LZW</span></div><div class="line" id="215214"><span class="nick" style="color:#6d2462"><a href="#215214" label="[21:52:14]">&lt;xentrac&gt;</a></span><span class="message">a decompressor is like 40-100 lines of C</span></div><div class="line" id="215806"><span class="nick" style="color:#6b8072"><a href="#215806" label="[21:58:06]">&lt;stikonas&gt;</a></span><span class="message">well, it will have to be in format that mes and  tinycc-0.9.26 (patched for mescc) releases are made in...</span></div><div class="line" id="220040"><span class="nick" style="color:#6b8072"><a href="#220040" label="[22:00:40]">&lt;stikonas&gt;</a></span><span class="message">in any case, even uncompressed tar would only add 5 MB or so to bootstrap sources</span></div><div class="line" id="235345"><span class="nick" style="color:#234e69"><a href="#235345" label="[23:53:45]">&lt;fossy&gt;</a></span><span class="message">it dosent matter too much /what/ compression/archviver is used but what formats things are distributed in</span></div><br /></div></body></html>

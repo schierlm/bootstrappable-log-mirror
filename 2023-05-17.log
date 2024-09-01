@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-05-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="124602"><span class="nick" style="color:#389600"><a href="#124602" label="[12:46:02]">&lt;stikonas[m]&gt;</a></span><span class="message">rickmasters: not for immediate PR but I wonder if we can introduce intermediate bootloader stage that is capable of hex1 or hex2?</span></div><div class="line" id="124633"><span class="nick" style="color:#389600"><a href="#124633" label="[12:46:33]">&lt;stikonas[m]&gt;</a></span><span class="message">So we can build builder-hex0 from .hex1 or .hex2 source?</span></div><div class="line" id="124717"><span class="nick" style="color:#389600"><a href="#124717" label="[12:47:17]">&lt;stikonas[m]&gt;</a></span><span class="message">Perhaps that needs to hardcoding disk sectors other than 2</span></div><div class="line" id="124814"><span class="nick" style="color:#389600"><a href="#124814" label="[12:48:14]">&lt;stikonas[m]&gt;</a></span><span class="message">Or is that too complicated?</span></div><div class="line" id="125014"><span class="nick" style="color:#8dd3c7"><a href="#125014" label="[12:50:14]">&lt;rickmasters&gt;</a></span><span class="message">stikonas[m]: it can be done and I think it makes sense but even the hex2 source has hand calculated offsets</span></div><div class="line" id="125117"><span class="nick" style="color:#8dd3c7"><a href="#125117" label="[12:51:17]">&lt;rickmasters&gt;</a></span><span class="message">stikonas[m]: it would be nice to use more labels but I'm not sure we have an assembler with all the primitives we need</span></div><div class="line" id="125244"><span class="nick" style="color:#389600"><a href="#125244" label="[12:52:44]">&lt;stikonas[m]&gt;</a></span><span class="message">Anyway, that might be some future improvement, you probably want to first take a break anyway</span></div><div class="line" id="125252"><span class="nick" style="color:#8dd3c7"><a href="#125252" label="[12:52:52]">&lt;rickmasters&gt;</a></span><span class="message">stikonas[m]: the disk sectors are not a significant problem, they are relatively easy ways to deal with that</span></div><div class="line" id="125605"><span class="nick" style="color:#8dd3c7"><a href="#125605" label="[12:56:05]">&lt;rickmasters&gt;</a></span><span class="message">stikonas[m]: my priorities are: getting Fiwix to run off disk as fossy wanted although I'd rather it not be a 1.0 requirement,</span></div><div class="line" id="125641"><span class="nick" style="color:#8dd3c7"><a href="#125641" label="[12:56:41]">&lt;rickmasters&gt;</a></span><span class="message">stikonas[m]: and I'd also like to improve comments and documentation</span></div><div class="line" id="130336"><span class="nick" style="color:#8dd3c7"><a href="#130336" label="[13:03:36]">&lt;rickmasters&gt;</a></span><span class="message">But re: hex2 the reality is that I'm now developing in hex2 and converting to hex0 so it would be reasonable to try to retire the hex0 source.</span></div><div class="line" id="132457"><span class="nick" style="color:#8dd3c7"><a href="#132457" label="[13:24:57]">&lt;rickmasters&gt;</a></span><span class="message">stikonas[m]: The PR for bootstrap-seeds had been updated.</span></div><div class="line" id="145146"><span class="nick" style="color:#389600"><a href="#145146" label="[14:51:46]">&lt;stikonas[m]&gt;</a></span><span class="message">rickmasters: does fossy still want it to run from disk?</span></div><div class="line" id="145212"><span class="nick" style="color:#389600"><a href="#145212" label="[14:52:12]">&lt;stikonas[m]&gt;</a></span><span class="message">I don't remember whether that is still requirement...</span></div><div class="line" id="145253"><span class="nick" style="color:#8dd3c7"><a href="#145253" label="[14:52:53]">&lt;rickmasters&gt;</a></span><span class="message">Yeah, it's currently on the roadmap <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/292">https://github.com/fosslinux/live-bootstrap/issues/292</a> </span></div><div class="line" id="145302"><span class="nick" style="color:#389600"><a href="#145302" label="[14:53:02]">&lt;stikonas[m]&gt;</a></span><span class="message">And yes, that hex2 development was one of the reasons why I want to retire hex0 source too</span></div><div class="line" id="145826"><span class="nick" style="color:#389600"><a href="#145826" label="[14:58:26]">&lt;stikonas[m]&gt;</a></span><span class="message">OK, now we need to wait for oriansj to review and merge...</span></div><div class="line" id="150023"><span class="nick" style="color:#8dd3c7"><a href="#150023" label="[15:00:23]">&lt;rickmasters&gt;</a></span><span class="message">stikonas[m]: stage0-posix will also need to be updated.</span></div><div class="line" id="150052"><span class="nick" style="color:#8dd3c7"><a href="#150052" label="[15:00:52]">&lt;rickmasters&gt;</a></span><span class="message">stikonas[m]: And so I'm testing live-bootstrap with updated stage0-posix because it has other changes.</span></div><div class="line" id="150324"><span class="nick" style="color:#8dd3c7"><a href="#150324" label="[15:03:24]">&lt;rickmasters&gt;</a></span><span class="message">stikonas[m]: well, just one update to mescc-tools-extra which pulled in new M2libc which had a ton of changes</span></div><div class="line" id="150446"><span class="nick" style="color:#389600"><a href="#150446" label="[15:04:46]">&lt;stikonas[m]&gt;</a></span><span class="message">Yes, I can update those</span></div><div class="line" id="150454"><span class="nick" style="color:#389600"><a href="#150454" label="[15:04:54]">&lt;stikonas[m]&gt;</a></span><span class="message">But not bootstrap-seeds</span></div><div class="line" id="150701"><span class="nick" style="color:#8dd3c7"><a href="#150701" label="[15:07:01]">&lt;rickmasters&gt;</a></span><span class="message">stikonas[m]: I mean stage0-posix will need to pull in new bootstrap-seeds. My PR can update stage0-posix in live-bootstrap</span></div><div class="line" id="150832"><span class="nick" style="color:#8dd3c7"><a href="#150832" label="[15:08:32]">&lt;rickmasters&gt;</a></span><span class="message">... if it works. If it doesn't perhaps it should be updated separately with adaptations.</span></div><div class="line" id="150917"><span class="nick" style="color:#8dd3c7"><a href="#150917" label="[15:09:17]">&lt;rickmasters&gt;</a></span><span class="message">I'm running test with updated stage0-posix right now.</span></div><div class="line" id="151416"><span class="nick" style="color:#389600"><a href="#151416" label="[15:14:16]">&lt;stikonas[m]&gt;</a></span><span class="message">rickmasters: yes, that's exactly what I meant</span></div><div class="line" id="151509"><span class="nick" style="color:#389600"><a href="#151509" label="[15:15:09]">&lt;stikonas[m]&gt;</a></span><span class="message">I have RW access to stage0-posix</span></div><div class="line" id="151530"><span class="nick" style="color:#389600"><a href="#151530" label="[15:15:30]">&lt;stikonas[m]&gt;</a></span><span class="message">Not sure about mescc-tools-extra</span></div><div class="line" id="153700"><span class="nick" style="color:#8dd3c7"><a href="#153700" label="[15:37:00]">&lt;rickmasters&gt;</a></span><span class="message">well so far updating stage0-posix is working passed Fiwix and gcc-4.0.4 without a checksum change so it looks ok.</span></div><div class="line" id="223319"><span class="nick" style="color:#389600"><a href="#223319" label="[22:33:19]">&lt;stikonas[m]&gt;</a></span><span class="message">rickmasters: oh, actually that M2libc update in mescc-tools-extra is not used in stage0-posix</span></div><div class="line" id="223338"><span class="nick" style="color:#389600"><a href="#223338" label="[22:33:38]">&lt;stikonas[m]&gt;</a></span><span class="message">stage0-posix uses top level m2libc submodule directly</span></div><br /></div></body></html>

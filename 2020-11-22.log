@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-11-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004844"><span class="nick" style="color:#8dd3c7"><a href="#004844" label="[00:48:44]">&lt;fossy&gt;</a></span><span class="message">siraben: regarding binary.lisp, mes-m2 is scheme, not common lisp, so there are some largish changes that will have to be made</span></div><div class="line" id="012500"><span class="nick" style="color:#8dd3c7"><a href="#012500" label="[01:25:00]">&lt;fossy&gt;</a></span><span class="message">and how do we replace lispy with mes-m2?</span></div><div class="line" id="064808"><span class="nick" style="color:#2e2a4a"><a href="#064808" label="[06:48:08]">&lt;siraben&gt;</a></span><span class="message">fossy: yeah don't worry that it looks like common lisp, it was just easier to adapt the parser to accept something looking more like CL</span></div><div class="line" id="065226"><span class="nick" style="color:#2e2a4a"><a href="#065226" label="[06:52:26]">&lt;siraben&gt;</a></span><span class="message">We don't need lispy and below anymore. What I'll do is rewrite binary.lisp to make it self-hosting, then rewrite it to make it Guile compatible, then another rewrite for mes-m2</span></div><div class="line" id="065339"><span class="nick" style="color:#2e2a4a"><a href="#065339" label="[06:53:39]">&lt;siraben&gt;</a></span><span class="message">Actually... I'll rewrite lispy to make it self hosting (binary is the one that adds infix operators, which we don't want for lisp)</span></div><div class="line" id="132006"><span class="nick" style="color:#6b8072"><a href="#132006" label="[13:20:06]">&lt;OriansJ&gt;</a></span><span class="message">siraben: sounds good. I'll work on getting vm.c running properly from the M2-Planet build</span></div><div class="line" id="142750"><span class="nick" style="color:#2e2a4a"><a href="#142750" label="[14:27:50]">&lt;siraben&gt;</a></span><span class="message">Self-hosting and Guile compatible*</span></div><div class="line" id="143010"><span class="nick" style="color:#2e2a4a"><a href="#143010" label="[14:30:10]">&lt;siraben&gt;</a></span><span class="message">Oops I must have confused myself. Self-hosting isn't needed, it just needs to be able to run under Guile. It will take a proto-Haskell program and output ION assembly</span></div><div class="line" id="143422"><span class="nick" style="color:#80b1d3"><a href="#143422" label="[14:34:22]">&lt;rain1&gt;</a></span><span class="message">hi!</span></div><div class="line" id="143618"><span class="nick" style="color:#6d2462"><a href="#143618" label="[14:36:18]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="http://boginjr.com/it/sw/dev/vinyl-boot/">http://boginjr.com/it/sw/dev/vinyl-boot/</a> </span></div><div class="line" id="143940"><span class="nick" style="color:#234e69"><a href="#143940" label="[14:39:40]">&lt;xentrac&gt;</a></span><span class="message">hmm, I don't think we have Guile bootstrapping yet, because of syntax-case</span></div><div class="line" id="144009"><span class="nick" style="color:#234e69"><a href="#144009" label="[14:40:09]">&lt;xentrac&gt;</a></span><span class="message">I mean, we have it bootstrapping in the opposite sense: you need a Scheme to compile Guile</span></div><div class="line" id="144020"><span class="nick" style="color:#234e69"><a href="#144020" label="[14:40:20]">&lt;xentrac&gt;</a></span><span class="message">which is the opposite of what we're after :)</span></div><div class="line" id="144158"><span class="nick" style="color:#80b1d3"><a href="#144158" label="[14:41:58]">&lt;rain1&gt;</a></span><span class="message">things are a bit circular sometimes</span></div><div class="line" id="144225"><span class="nick" style="color:#234e69"><a href="#144225" label="[14:42:25]">&lt;xentrac&gt;</a></span><span class="message">how are you doing, rain1?</span></div><div class="line" id="144232"><span class="nick" style="color:#234e69"><a href="#144232" label="[14:42:32]">&lt;xentrac&gt;</a></span><span class="message">glad to see you!</span></div><div class="line" id="144400"><span class="nick" style="color:#80b1d3"><a href="#144400" label="[14:44:00]">&lt;rain1&gt;</a></span><span class="message">im doing a lot better</span></div><div class="line" id="144530"><span class="nick" style="color:#80b1d3"><a href="#144530" label="[14:45:30]">&lt;rain1&gt;</a></span><span class="message">how are you?</span></div><div class="line" id="144818"><span class="nick" style="color:#234e69"><a href="#144818" label="[14:48:18]">&lt;xentrac&gt;</a></span><span class="message">not dead yet!</span></div><div class="line" id="144921"><span class="nick" style="color:#80b1d3"><a href="#144921" label="[14:49:21]">&lt;rain1&gt;</a></span><span class="message">:)</span></div><div class="line" id="153551"><span class="nick" style="color:#6d2462"><a href="#153551" label="[15:35:51]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://forgefed.peers.community/modeling.html#ticket">https://forgefed.peers.community/modeling.html#ticket</a> </span></div><div class="line" id="153606"><span class="nick" style="color:#6d2462"><a href="#153606" label="[15:36:06]">&lt;Hagfish&gt;</a></span><span class="message">i'm glad that people are thinking about how to have a decentralised issue tracker</span></div><div class="line" id="153632"><span class="nick" style="color:#234e69"><a href="#153632" label="[15:36:32]">&lt;xentrac&gt;</a></span><span class="message">can't you just put the issue data in git?</span></div><div class="line" id="153707"><span class="nick" style="color:#6d2462"><a href="#153707" label="[15:37:07]">&lt;Hagfish&gt;</a></span><span class="message">i think they want a web front-end, and an auth system</span></div><div class="line" id="153828"><span class="nick" style="color:#234e69"><a href="#153828" label="[15:38:28]">&lt;xentrac&gt;</a></span><span class="message">those are reasonable desires</span></div><div class="line" id="153849"><span class="nick" style="color:#234e69"><a href="#153849" label="[15:38:49]">&lt;xentrac&gt;</a></span><span class="message">though how do you reconcile &quot;an auth system&quot; with &quot;decentralized&quot;?</span></div><div class="line" id="153907"><span class="nick" style="color:#6d2462"><a href="#153907" label="[15:39:07]">&lt;Hagfish&gt;</a></span><span class="message">federation</span></div><div class="line" id="153936"><span class="nick" style="color:#6d2462"><a href="#153936" label="[15:39:36]">&lt;Hagfish&gt;</a></span><span class="message">that does mean trusting other servers not to lie about what a user on that server is doing</span></div><div class="line" id="153937"><span class="nick" style="color:#234e69"><a href="#153937" label="[15:39:37]">&lt;xentrac&gt;</a></span><span class="message">so not really decentralized, just distributed</span></div><div class="line" id="153957"><span class="nick" style="color:#6d2462"><a href="#153957" label="[15:39:57]">&lt;Hagfish&gt;</a></span><span class="message">yeah, only as decentralised as email</span></div><div class="line" id="154107"><span class="nick" style="color:#2e2a4a"><a href="#154107" label="[15:41:07]">&lt;siraben&gt;</a></span><span class="message">xentrac: Yeah I'll make sure it runs in Guile, then make sure it runs on mes-m2</span></div><div class="line" id="154120"><span class="nick" style="color:#234e69"><a href="#154120" label="[15:41:20]">&lt;xentrac&gt;</a></span><span class="message">email servers don't trust other servers not to lie about what a user on that server is doing</span></div><div class="line" id="154127"><span class="nick" style="color:#2e2a4a"><a href="#154127" label="[15:41:27]">&lt;siraben&gt;</a></span><span class="message">Just want good debugging all the way</span></div><div class="line" id="154142"><span class="nick" style="color:#234e69"><a href="#154142" label="[15:41:42]">&lt;xentrac&gt;</a></span><span class="message">the users have to trust their own server and the server of whoever they're talking to, that's all</span></div><div class="line" id="154205"><span class="nick" style="color:#6d2462"><a href="#154205" label="[15:42:05]">&lt;Hagfish&gt;</a></span><span class="message">xentrac: don't they?  if you receive an email from alice@gmail.com, do you know that Alice sent it, and not an admin on GMail?</span></div><div class="line" id="154213"><span class="nick" style="color:#234e69"><a href="#154213" label="[15:42:13]">&lt;xentrac&gt;</a></span><span class="message">probably &quot;rely on&quot; is a better term</span></div><div class="line" id="154302"><span class="nick" style="color:#6b8072"><a href="#154302" label="[15:43:02]">&lt;OriansJ&gt;</a></span><span class="message">Hagfish: only if encrypted and signed by the Alice I know</span></div><div class="line" id="154314"><span class="nick" style="color:#234e69"><a href="#154314" label="[15:43:14]">&lt;xentrac&gt;</a></span><span class="message">well, if I as a user on canonical.org choose to rely on Gmail's server, I can then know that Alice sent it.  but my mail server doesn't know and doesn't care</span></div><div class="line" id="154336"><span class="nick" style="color:#234e69"><a href="#154336" label="[15:43:36]">&lt;xentrac&gt;</a></span><span class="message">I'm also relying on my own mail server to tell me that it really came from gmail's server</span></div><div class="line" id="154359"><span class="nick" style="color:#6d2462"><a href="#154359" label="[15:43:59]">&lt;Hagfish&gt;</a></span><span class="message">yeah, if you're running your own server, that's one less entity to have to trust</span></div><div class="line" id="154413"><span class="nick" style="color:#6d2462"><a href="#154413" label="[15:44:13]">&lt;Hagfish&gt;</a></span><span class="message">we're all about removing entities needing trust here :)</span></div><div class="line" id="154435"><span class="nick" style="color:#234e69"><a href="#154435" label="[15:44:35]">&lt;xentrac&gt;</a></span><span class="message">yeah, that's one reason the term &quot;rely on&quot; is a better term</span></div><div class="line" id="154447"><span class="nick" style="color:#234e69"><a href="#154447" label="[15:44:47]">&lt;xentrac&gt;</a></span><span class="message">it explains more clearly what we're trying to achieve</span></div><div class="line" id="154459"><span class="nick" style="color:#234e69"><a href="#154459" label="[15:44:59]">&lt;xentrac&gt;</a></span><span class="message">&quot;trust&quot; sounds like something we want to have more of</span></div><div class="line" id="154509"><span class="nick" style="color:#234e69"><a href="#154509" label="[15:45:09]">&lt;xentrac&gt;</a></span><span class="message">but for example I just got a mail from 110.2.94.103.iconpln.net.id purporting to be from ThomasThomasu@iconpln.net.id</span></div><div class="line" id="154533"><span class="nick" style="color:#234e69"><a href="#154533" label="[15:45:33]">&lt;xentrac&gt;</a></span><span class="message">he says, &quot;Ich wette, du bist ein toller Kerl. Warum triffst du dich nicht mit einem M&lt;E4&gt;dchen wie mir?&quot;</span></div><div class="line" id="154545"><span class="nick" style="color:#6d2462"><a href="#154545" label="[15:45:45]">&lt;Hagfish&gt;</a></span><span class="message">lol</span></div><div class="line" id="154619"><span class="nick" style="color:#234e69"><a href="#154619" label="[15:46:19]">&lt;xentrac&gt;</a></span><span class="message">probably 110.2.94.103.iconpln.net.id is not a server I want to rely on in general</span></div><div class="line" id="154654"><span class="nick" style="color:#6d2462"><a href="#154654" label="[15:46:54]">&lt;Hagfish&gt;</a></span><span class="message">but if you wanted to hear more from Thomas, you'd have to rely on that server to provide those messages</span></div><div class="line" id="154658"><span class="nick" style="color:#234e69"><a href="#154658" label="[15:46:58]">&lt;xentrac&gt;</a></span><span class="message">right</span></div><div class="line" id="154714"><span class="nick" style="color:#6d2462"><a href="#154714" label="[15:47:14]">&lt;Hagfish&gt;</a></span><span class="message">(and rely on it to _not_ send messages which pretend to be from him)</span></div><div class="line" id="154721"><span class="nick" style="color:#234e69"><a href="#154721" label="[15:47:21]">&lt;xentrac&gt;</a></span><span class="message">(except I suspect she may have included a link to her web page with photos of her)</span></div><div class="line" id="154736"><span class="nick" style="color:#234e69"><a href="#154736" label="[15:47:36]">&lt;xentrac&gt;</a></span><span class="message">certainly I wouldn't rely on it to tell me about mail from thaths@gmail.com though</span></div><div class="line" id="154739"><span class="nick" style="color:#234e69"><a href="#154739" label="[15:47:39]">&lt;xentrac&gt;</a></span><span class="message">for example</span></div><div class="line" id="154759"><span class="nick" style="color:#6d2462"><a href="#154759" label="[15:47:59]">&lt;Hagfish&gt;</a></span><span class="message">right, true</span></div><div class="line" id="154959"><span class="nick" style="color:#234e69"><a href="#154959" label="[15:49:59]">&lt;xentrac&gt;</a></span><span class="message">so in that sense my mail server isn't relying on 110.2.94.103.iconpln.net.id, or only to a very limited extent</span></div><div class="line" id="155238"><span class="nick" style="color:#6d2462"><a href="#155238" label="[15:52:38]">&lt;Hagfish&gt;</a></span><span class="message">it's relying on it to at least the extent that you want to communicate with ThomasThomasu@iconpln.net.id</span></div><div class="line" id="155317"><span class="nick" style="color:#6b8072"><a href="#155317" label="[15:53:17]">&lt;OriansJ&gt;</a></span><span class="message">love the vinyl link by the way Hagfish</span></div><div class="line" id="155319"><span class="nick" style="color:#6d2462"><a href="#155319" label="[15:53:19]">&lt;Hagfish&gt;</a></span><span class="message">(modulo the fact that a single email address might have several machines sending/receiving mail for it)</span></div><div class="line" id="155320"><span class="nick" style="color:#234e69"><a href="#155320" label="[15:53:20]">&lt;xentrac&gt;</a></span><span class="message">right</span></div><div class="line" id="155340"><span class="nick" style="color:#6d2462"><a href="#155340" label="[15:53:40]">&lt;Hagfish&gt;</a></span><span class="message">OriansJ: yeah, i thought it might find a favourable audience here :)</span></div><div class="line" id="155342"><span class="nick" style="color:#234e69"><a href="#155342" label="[15:53:42]">&lt;xentrac&gt;</a></span><span class="message">sure, probably 110.2.94.103.iconpln.net.id is not actually an MX, though I haven't looked</span></div><div class="line" id="155518"><span class="nick" style="color:#6b8072"><a href="#155518" label="[15:55:18]">&lt;OriansJ&gt;</a></span><span class="message">Hagfish: makes me wish I could order that vinyl to play with my IBM 5150</span></div><br /></div></body></html>

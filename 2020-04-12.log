@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-04-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013634"><span class="nick" style="color:#8dd3c7"><a href="#013634" label="[01:36:34]">&lt;fossy&gt;</a></span><span class="message">:)</span></div><div class="line" id="073511"><span class="nick" style="color:#8dd3c7"><a href="#073511" label="[07:35:11]">&lt;fossy&gt;</a></span><span class="message">hey guys what's the issue with psyntax.pp?</span></div><div class="line" id="073545"><span class="nick" style="color:#8dd3c7"><a href="#073545" label="[07:35:45]">&lt;fossy&gt;</a></span><span class="message">AFAICT guile 2.0.14 dosen't have the binary so can't we just use guile 2.0.14 to bootstrap 2.2.0's psyntax-pp.go and go from there?</span></div><div class="line" id="091437"><span class="nick" style="color:#2e2a4a"><a href="#091437" label="[09:14:37]">&lt;damo22&gt;</a></span><span class="message">does mes currently rely on having a running gnu/linux system?</span></div><div class="line" id="091538"><span class="nick" style="color:#2e2a4a"><a href="#091538" label="[09:15:38]">&lt;damo22&gt;</a></span><span class="message">im interested in how mes could be used in a coreboot payload as a rescue mechanism from bare metal</span></div><div class="line" id="091728"><span class="nick" style="color:#6b8072"><a href="#091728" label="[09:17:28]">&lt;bauen1&gt;</a></span><span class="message">damo22: as far as i know mes (and the stage0 bootstrap) currently rely on having a unix-like kernel (linux)</span></div><div class="line" id="091800"><span class="nick" style="color:#6b8072"><a href="#091800" label="[09:18:00]">&lt;bauen1&gt;</a></span><span class="message">but you don't really need any other userspace tools apart from a minimal binary seed and the source code of everything else</span></div><div class="line" id="092020"><span class="nick" style="color:#2e2a4a"><a href="#092020" label="[09:20:20]">&lt;damo22&gt;</a></span><span class="message">for example, on a system that has coreboot+seabios in flash, you could easily add another binary that can be chainloaded and selected from the seabios menu... this could enable a full system rescue without needing to have an existing machine that works</span></div><div class="line" id="092310"><span class="nick" style="color:#2e2a4a"><a href="#092310" label="[09:23:10]">&lt;damo22&gt;</a></span><span class="message">or perhaps integrate it as a grub module, which in turn can be loaded into flash on supported boards</span></div><div class="line" id="092311"><span class="nick" style="color:#6b8072"><a href="#092311" label="[09:23:11]">&lt;bauen1&gt;</a></span><span class="message">you can already stuff a linux kernel into an coreboot image, so with a kernel and a minimal initrd you should be able to do that</span></div><div class="line" id="092409"><span class="nick" style="color:#2e2a4a"><a href="#092409" label="[09:24:09]">&lt;damo22&gt;</a></span><span class="message">grub already has filesystem drivers</span></div><div class="line" id="093423"><span class="nick" style="color:#2e2a4a"><a href="#093423" label="[09:34:23]">&lt;damo22&gt;</a></span><span class="message">surely dependence on grub is better than having to trust a whole linux kernel + initrd?</span></div><div class="line" id="093828"><span class="nick" style="color:#6b8072"><a href="#093828" label="[09:38:28]">&lt;bauen1&gt;</a></span><span class="message">it depends, you'll still need a kernel at some point, the toolchain required to compile grub also isn't exactly trivial</span></div><div class="line" id="093837"><span class="nick" style="color:#6b8072"><a href="#093837" label="[09:38:37]">&lt;bauen1&gt;</a></span><span class="message">neither is the toolchain to compile the linux kernel</span></div><div class="line" id="093908"><span class="nick" style="color:#6b8072"><a href="#093908" label="[09:39:08]">&lt;bauen1&gt;</a></span><span class="message">which is why i'm building a posix-ish kernel that can be compiled by just tcc</span></div><div class="line" id="093948"><span class="nick" style="color:#6b8072"><a href="#093948" label="[09:39:48]">&lt;bauen1&gt;</a></span><span class="message">grub in itself is almost like a kernel, but without the benefits</span></div><div class="line" id="094015"><span class="nick" style="color:#2e2a4a"><a href="#094015" label="[09:40:15]">&lt;damo22&gt;</a></span><span class="message">wouldnt you also need to write disk drivers?</span></div><div class="line" id="094028"><span class="nick" style="color:#2e2a4a"><a href="#094028" label="[09:40:28]">&lt;damo22&gt;</a></span><span class="message">for your posix-ish kernel</span></div><div class="line" id="094048"><span class="nick" style="color:#6b8072"><a href="#094048" label="[09:40:48]">&lt;bauen1&gt;</a></span><span class="message">yes</span></div><div class="line" id="094111"><span class="nick" style="color:#6b8072"><a href="#094111" label="[09:41:11]">&lt;bauen1&gt;</a></span><span class="message">grub has _a lot_ of disk drives, which makes it an interesting target</span></div><div class="line" id="094148"><span class="nick" style="color:#2e2a4a"><a href="#094148" label="[09:41:48]">&lt;damo22&gt;</a></span><span class="message">inded</span></div><div class="line" id="094153"><span class="nick" style="color:#2e2a4a"><a href="#094153" label="[09:41:53]">&lt;damo22&gt;</a></span><span class="message">indeed*</span></div><div class="line" id="094223"><span class="nick" style="color:#2e2a4a"><a href="#094223" label="[09:42:23]">&lt;damo22&gt;</a></span><span class="message">what if tcc could compile grub</span></div><div class="line" id="094343"><span class="nick" style="color:#2e2a4a"><a href="#094343" label="[09:43:43]">&lt;damo22&gt;</a></span><span class="message">at some point you have a chicken/egg problem</span></div><div class="line" id="094528"><span class="nick" style="color:#2e2a4a"><a href="#094528" label="[09:45:28]">&lt;damo22&gt;</a></span><span class="message">does mes target a particular architecture only?</span></div><div class="line" id="094547"><span class="nick" style="color:#2e2a4a"><a href="#094547" label="[09:45:47]">&lt;damo22&gt;</a></span><span class="message">like the initial binary needs to be compiled for the target arch right?</span></div><div class="line" id="094621"><span class="nick" style="color:#2e2a4a"><a href="#094621" label="[09:46:21]">&lt;damo22&gt;</a></span><span class="message">i think it makes sense to have that baked into the bios</span></div><div class="line" id="094906"><span class="nick" style="color:#2e2a4a"><a href="#094906" label="[09:49:06]">&lt;damo22&gt;</a></span><span class="message">on most modern machines you have around 3-7MB of flash to play with</span></div><div class="line" id="095134"><span class="nick" style="color:#2e2a4a"><a href="#095134" label="[09:51:34]">&lt;damo22&gt;</a></span><span class="message">coreboot has a filesystem layout as well, its called CBFS, you can burn files into that and its accessible as a disk in grub</span></div><div class="line" id="111444"><span class="nick" style="color:#6b8072"><a href="#111444" label="[11:14:44]">&lt;bauen1&gt;</a></span><span class="message">damo22: mes doesn't exactly target a specific architecture, but you would have to &quot;port&quot; the initial bootstrap to your architecture</span></div><div class="line" id="112208"><span class="nick" style="color:#6b8072"><a href="#112208" label="[11:22:08]">&lt;bauen1&gt;</a></span><span class="message">but i haven't worked with mes / mescc / stage0 so i know little about it</span></div><div class="line" id="113103"><span class="nick" style="color:#80b1d3"><a href="#113103" label="[11:31:03]">&lt;dddddd&gt;</a></span><span class="message">^ OriansJ</span></div><div class="line" id="113113"><span class="nick" style="color:#80b1d3"><a href="#113113" label="[11:31:13]">&lt;dddddd&gt;</a></span><span class="message">hi!</span></div><div class="line" id="113455"><span class="nick" style="color:#6b8072"><a href="#113455" label="[11:34:55]">&lt;bauen1&gt;</a></span><span class="message"> <a rel="nofollow" href="https://news.ycombinator.com/item?id=22846250">https://news.ycombinator.com/item?id=22846250</a>  (also someone posted a link to stage0 in the comments there)</span></div><div class="line" id="131145"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><div class="line" id="134240"><span class="nick" style="color:#6b8072"><a href="#134240" label="[13:42:40]">&lt;bauen1&gt;</a></span><span class="message">and i finally managed to load elf files :)</span></div><div class="line" id="165424"><span class="nick" style="color:#80b1d3"><a href="#165424" label="[16:54:24]">&lt;dddddd&gt;</a></span><span class="message">M1.scm now correctly represents negative numbers in the output.</span></div><div class="line" id="165543"><span class="nick" style="color:#80b1d3"><a href="#165543" label="[16:55:43]">&lt;dddddd&gt;</a></span><span class="message">Now, let's see what's happening with big numbers in octal output...</span></div><div class="line" id="170608"><span class="nick" style="color:#80b1d3"><a href="#170608" label="[17:06:08]">&lt;dddddd&gt;</a></span><span class="message">hmm, it seems a bug in M1-macro.c instead (I was comparing results from both implementations).</span></div><div class="line" id="170802"><span class="nick" style="color:#6d2462"><a href="#170802" label="[17:08:02]">&lt;Hagfish&gt;</a></span><span class="message">great work, bau and d6</span></div><div class="line" id="170850"><span class="nick" style="color:#80b1d3"><a href="#170850" label="[17:08:50]">&lt;dddddd&gt;</a></span><span class="message">For big positive and small negative numbers, M1-macro.c gives incorrect octal representations:</span></div><div class="line" id="171308"><span class="nick" style="color:#80b1d3"><a href="#171308" label="[17:13:08]">&lt;dddddd&gt;</a></span><span class="message">%0xFFFFFFFF -&gt; 777777777777 (instead of 037777777777)</span></div><div class="line" id="171315"><span class="nick" style="color:#80b1d3"><a href="#171315" label="[17:13:15]">&lt;dddddd&gt;</a></span><span class="message">thanks Hagfish (:</span></div><div class="line" id="171606"><span class="nick" style="color:#80b1d3"><a href="#171606" label="[17:16:06]">&lt;dddddd&gt;</a></span><span class="message">!@~ are unaffected AFAICT, it's just the 32b % case.</span></div><div class="line" id="172733"><span class="nick" style="color:#80b1d3"><a href="#172733" label="[17:27:33]">&lt;dddddd&gt;</a></span><span class="message">I'm wondering if a 64bit host mask this problem (I'm running on a 32b arch).</span></div><div class="line" id="175155"><span class="nick" style="color:#80b1d3"><a href="#175155" label="[17:51:55]">&lt;dddddd&gt;</a></span><span class="message">Nope, same bad output.</span></div><div class="line" id="212122"><span class="nick" style="color:#234e69"><a href="#212122" label="[21:21:22]">&lt;OriansJ&gt;</a></span><span class="message">damo22: stage0 doesn't rely on posix until after the M2-Planet stage. At which point we already have a working C compiler and if bauen1 takes the time to make his kernel buildable by M2-Planet then we can just build that posix on bare metal and do a little hand assembly for a bootloader and boom: minimal bootstrap we could easily shove into a coreboot/libreboot image.</span></div><div class="line" id="212333"><span class="nick" style="color:#234e69"><a href="#212333" label="[21:23:33]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: the octal is probably entirely wrong as I never had the time to make it correct (as it would also have to work with hex2's octal, which requires 3chars per byte [including a leading zero] which would make it different than the standard octal input) So as nothing is currently using it we can change both rather easily to work for those who might need octal (or just strip it out entirely)</span></div><div class="line" id="212641"><span class="nick" style="color:#80b1d3"><a href="#212641" label="[21:26:41]">&lt;dddddd&gt;</a></span><span class="message">&lt;dddddd&gt; The other option is to remove binary/octal if we don't want to support it, because unused(?) &lt;OriansJ&gt; Well some architectures much better map to binary and octal &lt;OriansJ&gt; and supporting them is minimal effort</span></div><div class="line" id="212700"><span class="nick" style="color:#80b1d3"><a href="#212700" label="[21:27:00]">&lt;dddddd&gt;</a></span><span class="message">^Feb 16</span></div><div class="line" id="212713"><span class="nick" style="color:#80b1d3"><a href="#212713" label="[21:27:13]">&lt;dddddd&gt;</a></span><span class="message">Remove or not?</span></div><div class="line" id="212727"><span class="nick" style="color:#80b1d3"><a href="#212727" label="[21:27:27]">&lt;dddddd&gt;</a></span><span class="message">(it's working here)</span></div><div class="line" id="212851"><span class="nick" style="color:#80b1d3"><a href="#212851" label="[21:28:51]">&lt;dddddd&gt;</a></span><span class="message">&quot;here&quot; as in the scheme implementation, I mean.</span></div><div class="line" id="214052"><span class="nick" style="color:#80b1d3"><a href="#214052" label="[21:40:52]">&lt;dddddd&gt;</a></span><span class="message">Most of the job is done (and not &quot;enterely wrong&quot; AFAICT, just that corner case). Removing it now feels weird as an option, out of the blue.</span></div><div class="line" id="214449"><span class="nick" style="color:#234e69"><a href="#214449" label="[21:44:49]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: I guess I'll have to fix the mescc-tools versions after you get the slow-utils version working with a few tests I can work off of</span></div><div class="line" id="214832"><span class="nick" style="color:#80b1d3"><a href="#214832" label="[21:48:32]">&lt;dddddd&gt;</a></span><span class="message">One &quot;test&quot; is above, the extreme one, but it happens for &gt; %0x7fffffff</span></div><div class="line" id="215015"><span class="nick" style="color:#80b1d3"><a href="#215015" label="[21:50:15]">&lt;dddddd&gt;</a></span><span class="message">I'm fine removing it all if it's a burden; but reintroducing the feature(s) might be painful.</span></div><div class="line" id="215351"><span class="nick" style="color:#80b1d3"><a href="#215351" label="[21:53:51]">&lt;dddddd&gt;</a></span><span class="message">Honestly, I don't know... Do you really consider it important? I'm getting mixed signals and don't have the general vision you have.</span></div><div class="line" id="220128"><span class="nick" style="color:#80b1d3"><a href="#220128" label="[22:01:28]">&lt;dddddd&gt;</a></span><span class="message">BTW, note that I'm not testing it along hex2, just compating M1 implementation outputs.</span></div><div class="line" id="220134"><span class="nick" style="color:#80b1d3"><a href="#220134" label="[22:01:34]">&lt;dddddd&gt;</a></span><span class="message">*comparing</span></div><div class="line" id="220512"><span class="nick" style="color:#80b1d3"><a href="#220512" label="[22:05:12]">&lt;dddddd&gt;</a></span><span class="message">The leading zeros are in place, every output has 3/6/9/12 chars, for !@~% resp.</span></div><div class="line" id="221235"><span class="nick" style="color:#80b1d3"><a href="#221235" label="[22:12:35]">&lt;dddddd&gt;</a></span><span class="message">The obvious candidate is stringify(), I'd say the shifting.</span></div><div class="line" id="221603"><span class="nick" style="color:#80b1d3"><a href="#221603" label="[22:16:03]">&lt;dddddd&gt;</a></span><span class="message">... maybe not playing nice with the logical and.</span></div><div class="line" id="222045"><span class="nick" style="color:#80b1d3"><a href="#222045" label="[22:20:45]">&lt;dddddd&gt;</a></span><span class="message">... that, and the size/signess of the integer for an odd 3 shift.</span></div><div class="line" id="225126"><span class="nick" style="color:#234e69"><a href="#225126" label="[22:51:26]">&lt;OriansJ&gt;</a></span><span class="message">well octal was invented prior to the invention of the 8bit byte</span></div><div class="line" id="225359"><span class="nick" style="color:#234e69"><a href="#225359" label="[22:53:59]">&lt;OriansJ&gt;</a></span><span class="message">and an (i &amp; 0xC0) &gt;&gt; 6, (i &amp; 0x38) &gt;&gt; 3 and (i &amp; 0x7) should get the octal pieces out nicely</span></div><div class="line" id="225524"><span class="nick" style="color:#80b1d3"><a href="#225524" label="[22:55:24]">&lt;dddddd&gt;</a></span><span class="message">I'm testing stringify() in isolation.</span></div><div class="line" id="225849"><span class="nick" style="color:#80b1d3"><a href="#225849" label="[22:58:49]">&lt;dddddd&gt;</a></span><span class="message">The overall logic seems fine, mirrored in a loop; but the recursive functions gives the weird output.</span></div><div class="line" id="225857"><span class="nick" style="color:#80b1d3"><a href="#225857" label="[22:58:57]">&lt;dddddd&gt;</a></span><span class="message">*function</span></div><div class="line" id="230712"><span class="nick" style="color:#234e69"><a href="#230712" label="[23:07:12]">&lt;OriansJ&gt;</a></span><span class="message">well if the recursion is just walking down the string, switch to iteration and what ever output looks weird is the char of input you need to look closely at.</span></div><div class="line" id="230834"><span class="nick" style="color:#80b1d3"><a href="#230834" label="[23:08:34]">&lt;dddddd&gt;</a></span><span class="message">There's no input char.</span></div><div class="line" id="231920"><span class="nick" style="color:#234e69"><a href="#231920" label="[23:19:20]">&lt;OriansJ&gt;</a></span><span class="message">dddddd: strings are just arrays of chars</span></div><div class="line" id="231944"><span class="nick" style="color:#80b1d3"><a href="#231944" label="[23:19:44]">&lt;dddddd&gt;</a></span><span class="message">The input is not a string.</span></div><div class="line" id="231945"><span class="nick" style="color:#234e69"><a href="#231945" label="[23:19:45]">&lt;OriansJ&gt;</a></span><span class="message">integers are just a packed set of chars</span></div><div class="line" id="232130"><span class="nick" style="color:#234e69"><a href="#232130" label="[23:21:30]">&lt;OriansJ&gt;</a></span><span class="message">(i &amp; 0xFF000000) &gt;&gt; 24, (i&amp; 0xFF0000) &gt;&gt; 16, (i &amp; 0xFF00) &gt;&gt; 8, (i &amp; 0xFF)</span></div><div class="line" id="232505"><span class="nick" style="color:#80b1d3"><a href="#232505" label="[23:25:05]">&lt;dddddd&gt;</a></span><span class="message">One of us is missing the point. Are you looking at the function?</span></div><div class="line" id="233211"><span class="nick" style="color:#80b1d3"><a href="#233211" label="[23:32:11]">&lt;dddddd&gt;</a></span><span class="message">This is some signed/unsigned thing, almost sure.</span></div><div class="line" id="233343"><span class="nick" style="color:#80b1d3"><a href="#233343" label="[23:33:43]">&lt;dddddd&gt;</a></span><span class="message">Notice that starts failing when the msb is one.</span></div><div class="line" id="233428"><span class="nick" style="color:#234e69"><a href="#233428" label="[23:34:28]">&lt;OriansJ&gt;</a></span><span class="message">int stringify(char* s, int digits, int divisor, int value, int shift)</span></div><div class="line" id="233442"><span class="nick" style="color:#80b1d3"><a href="#233442" label="[23:34:42]">&lt;dddddd&gt;</a></span><span class="message">Indeed, my bad... the working loop is using unsigned int.</span></div><div class="line" id="233618"><span class="nick" style="color:#234e69"><a href="#233618" label="[23:36:18]">&lt;OriansJ&gt;</a></span><span class="message">potential sign dragging? with the bit shift?</span></div><div class="line" id="233712"><span class="nick" style="color:#234e69"><a href="#233712" label="[23:37:12]">&lt;OriansJ&gt;</a></span><span class="message">probably in the return (i &gt;&gt; shift);</span></div><div class="line" id="233759"><span class="nick" style="color:#80b1d3"><a href="#233759" label="[23:37:59]">&lt;dddddd&gt;</a></span><span class="message">that was in the table hours ago.</span></div><div class="line" id="233937"><span class="nick" style="color:#80b1d3"><a href="#233937" label="[23:39:37]">&lt;dddddd&gt;</a></span><span class="message">... the odd 3 shift, etc...</span></div><div class="line" id="233953"><span class="nick" style="color:#234e69"><a href="#233953" label="[23:39:53]">&lt;OriansJ&gt;</a></span><span class="message">and if one did a  return ((i &gt;&gt; shift) &amp; (divisor - 1));</span></div><div class="line" id="234334"><span class="nick" style="color:#80b1d3"><a href="#234334" label="[23:43:34]">&lt;dddddd&gt;</a></span><span class="message">worse, of course</span></div><div class="line" id="234421"><span class="nick" style="color:#80b1d3"><a href="#234421" label="[23:44:21]">&lt;dddddd&gt;</a></span><span class="message">that kills &quot;the rest&quot;</span></div><div class="line" id="235202"><span class="nick" style="color:#234e69"><a href="#235202" label="[23:52:02]">&lt;OriansJ&gt;</a></span><span class="message">I probably should just make it iterative</span></div><div class="line" id="235619"><span class="nick" style="color:#80b1d3"><a href="#235619" label="[23:56:19]">&lt;dddddd&gt;</a></span><span class="message">That doesn't fix it. unsigned int is needed, I think.</span></div><div class="line" id="235835"><span class="nick" style="color:#80b1d3"><a href="#235835" label="[23:58:35]">&lt;dddddd&gt;</a></span><span class="message">For example: unsigned int i = value;</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-05-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="162112"><span class="nick" style="color:#8dd3c7"><a href="#162112" label="[16:21:12]">&lt;vagrantc&gt;</a></span><span class="message">janneke: so, new surprise ... something in the debian toolchain started passing --disable-option-checking to ./configure in mes ... haven't figured out what is ... but it breaks the build</span></div><div class="line" id="162250"><span class="nick" style="color:#8dd3c7"><a href="#162250" label="[16:22:50]">&lt;vagrantc&gt;</a></span><span class="message">thinking about patching it to at least be a no-op...</span></div><div class="line" id="162618"><span class="nick" style="color:#8dd3c7"><a href="#162618" label="[16:26:18]">&lt;vagrantc&gt;</a></span><span class="message">trying to test mes building with mescc-tools 1.0.1 ... my best test was to build mes itself :)</span></div><div class="line" id="163612"><span class="nick" style="color:#8dd3c7"><a href="#163612" label="[16:36:12]">&lt;vagrantc&gt;</a></span><span class="message">heh. adding a one-liner no-op appears to be working</span></div><div class="line" id="163749"><span class="nick" style="color:#8dd3c7"><a href="#163749" label="[16:37:49]">&lt;vagrantc&gt;</a></span><span class="message">janneke: my next question is has there been an attempt to build mes with guile 3.x ?</span></div><div class="line" id="171707"><span class="nick" style="color:#8dd3c7"><a href="#171707" label="[17:17:07]">&lt;vagrantc&gt;</a></span><span class="message">yay. still got the same hash for mes-mescc-static, so mescc-tools hasn't broken anything. :)</span></div><div class="line" id="171931"><span class="nick" style="color:#2e2a4a"><a href="#171931" label="[17:19:31]">&lt;janneke&gt;</a></span><span class="message">vagrantc: oh that's...silly; thanks, we need upstream to patch that too</span></div><div class="line" id="171956"><span class="nick" style="color:#2e2a4a"><a href="#171956" label="[17:19:56]">&lt;janneke&gt;</a></span><span class="message">vagrantc: i havent tried with guile-3.x -- could be interesting :-)</span></div><div class="line" id="172108"><span class="nick" style="color:#8dd3c7"><a href="#172108" label="[17:21:08]">&lt;vagrantc&gt;</a></span><span class="message">janneke: i'll submit my one-liner patch :)</span></div><div class="line" id="172126"><span class="nick" style="color:#2e2a4a"><a href="#172126" label="[17:21:26]">&lt;janneke&gt;</a></span><span class="message">great!</span></div><div class="line" id="172239"><span class="nick" style="color:#6b8072"><a href="#172239" label="[17:22:39]">*</a></span><span class="message">vagrantc forgets where to submit patches</span></div><div class="line" id="172539"><span class="nick" style="color:#8dd3c7"><a href="#172539" label="[17:25:39]">&lt;vagrantc&gt;</a></span><span class="message">bug-mes@gnu.org ?</span></div><div class="line" id="173318"><span class="nick" style="color:#2e2a4a"><a href="#173318" label="[17:33:18]">&lt;janneke&gt;</a></span><span class="message">yes, please</span></div><div class="line" id="195221"><span class="nick" style="color:#8dd3c7"><a href="#195221" label="[19:52:21]">&lt;vagrantc&gt;</a></span><span class="message">hrm, mes 0.22 doesn't build with nyacc 1.02.1</span></div><div class="line" id="195257"><span class="nick" style="color:#8dd3c7"><a href="#195257" label="[19:52:57]">&lt;vagrantc&gt;</a></span><span class="message">1.00.2 works fine</span></div><br /></div></body></html>

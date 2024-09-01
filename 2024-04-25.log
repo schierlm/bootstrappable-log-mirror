@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-04-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="023519"><span class="nick" style="color:#389600"><a href="#023519" label="[02:35:19]">&lt;Googulator&gt;</a></span><span class="message">Why do we build guile with --disable-shared in LB?</span></div><div class="line" id="023823"><span class="nick" style="color:#389600"><a href="#023823" label="[02:38:23]">&lt;Googulator&gt;</a></span><span class="message">I'm trying to build guile-gcrypt, and configure is failing on the following test:</span></div><div class="line" id="023838"><span class="nick" style="color:#389600"><a href="#023838" label="[02:38:38]">&lt;Googulator&gt;</a></span><span class="message">guile  -c &quot;(dynamic-func \&quot;gcry_md_hash_buffer\&quot; (dynamic-link \&quot;/usr/lib/libgcrypt\&quot;))&quot;</span></div><div class="line" id="023844"><span class="nick" style="color:#389600"><a href="#023844" label="[02:38:44]">&lt;Googulator&gt;</a></span><span class="message">ERROR: In procedure dlopen:</span></div><div class="line" id="023845"><span class="nick" style="color:#389600"><a href="#023845" label="[02:38:45]">&lt;Googulator&gt;</a></span><span class="message">In procedure dlopen: file &quot;/usr/lib/libgcrypt.so&quot;, message &quot;Dynamic loading not supported&quot;</span></div><div class="line" id="023901"><span class="nick" style="color:#389600"><a href="#023901" label="[02:39:01]">&lt;Googulator&gt;</a></span><span class="message">(I already have libgcrypt built and installed at that location)</span></div><div class="line" id="023956"><span class="nick" style="color:#8dd3c7"><a href="#023956" label="[02:39:56]">&lt;stikonas&gt;</a></span><span class="message">Googulator: juse because we didn't need dynamic library of guile up to now</span></div><div class="line" id="024002"><span class="nick" style="color:#8dd3c7"><a href="#024002" label="[02:40:02]">&lt;stikonas&gt;</a></span><span class="message">if you have a need, switch to shared</span></div><div class="line" id="024006"><span class="nick" style="color:#389600"><a href="#024006" label="[02:40:06]">&lt;Googulator&gt;</a></span><span class="message">it seems like musl has a limitation where dlopen() is not supported in statically linked programs: <a rel="nofollow" href="https://www.openwall.com/lists/musl/2012/12/08/4">https://www.openwall.com/lists/musl/2012/12/08/4</a> </span></div><div class="line" id="024038"><span class="nick" style="color:#389600"><a href="#024038" label="[02:40:38]">&lt;Googulator&gt;</a></span><span class="message">so anything that might need to use dlopen() needs to be shared, even if itself is not used as a shared library</span></div><div class="line" id="024046"><span class="nick" style="color:#8dd3c7"><a href="#024046" label="[02:40:46]">&lt;stikonas&gt;</a></span><span class="message">yeah, some of the python modules would also have issue  with dlopen...</span></div><div class="line" id="024117"><span class="nick" style="color:#8dd3c7"><a href="#024117" label="[02:41:17]">&lt;stikonas&gt;</a></span><span class="message">Googulator: what are you working on though?</span></div><div class="line" id="024123"><span class="nick" style="color:#8dd3c7"><a href="#024123" label="[02:41:23]">&lt;stikonas&gt;</a></span><span class="message">(just curious)</span></div><div class="line" id="024817"><span class="nick" style="color:#389600"><a href="#024817" label="[02:48:17]">&lt;Googulator&gt;</a></span><span class="message">guix bootstrap on top of LB</span></div><div class="line" id="024905"><span class="nick" style="color:#8dd3c7"><a href="#024905" label="[02:49:05]">&lt;stikonas&gt;</a></span><span class="message">oh I see</span></div><div class="line" id="024911"><span class="nick" style="color:#8dd3c7"><a href="#024911" label="[02:49:11]">&lt;stikonas&gt;</a></span><span class="message">that's a big project</span></div><div class="line" id="024928"><span class="nick" style="color:#389600"><a href="#024928" label="[02:49:28]">&lt;Googulator&gt;</a></span><span class="message">I mean, we already have Gentoo</span></div><div class="line" id="032456"><span class="nick" style="color:#8dd3c7"><a href="#032456" label="[03:24:56]">&lt;stikonas&gt;</a></span><span class="message">by the way: unxz does not work on riscv...</span></div><div class="line" id="041254"><span class="nick" style="color:#2e2a4a"><a href="#041254" label="[04:12:54]">&lt;fossy&gt;</a></span><span class="message">we could probably turn on shared libraries for a bunch of stuff now</span></div><div class="line" id="041331"><span class="nick" style="color:#2e2a4a"><a href="#041331" label="[04:13:31]">&lt;fossy&gt;</a></span><span class="message">i still think we probably want static binaries though to allow them to be used outside the rootfs? happy to hear arguments otherwise though</span></div><div class="line" id="041708"><span class="nick" style="color:#389600"><a href="#041708" label="[04:17:08]">&lt;Googulator&gt;</a></span><span class="message">Static binaries are fine for programs that don't need dlopen</span></div><div class="line" id="041724"><span class="nick" style="color:#389600"><a href="#041724" label="[04:17:24]">&lt;Googulator&gt;</a></span><span class="message">libraries are a bit more complicated</span></div><div class="line" id="041747"><span class="nick" style="color:#389600"><a href="#041747" label="[04:17:47]">&lt;Googulator&gt;</a></span><span class="message">e.g. Git is really not meant to be built with static libcurl</span></div><div class="line" id="060542"><span class="nick" style="color:#6b8072"><a href="#060542" label="[06:05:42]">&lt;npcomp&gt;</a></span><span class="message"> /buffer 31</span></div><div class="line" id="060624"><span class="nick" style="color:#6b8072"><a href="#060624" label="[06:06:24]">&lt;npcomp&gt;</a></span><span class="message">le sigh</span></div><div class="line" id="060737"><span class="nick" style="color:#80b1d3"><a href="#060737" label="[06:07:37]">&lt;oriansj&gt;</a></span><span class="message">stikonas</span></div><div class="line" id="060755"><span class="nick" style="color:#80b1d3"><a href="#060755" label="[06:07:55]">&lt;oriansj&gt;</a></span><span class="message">anything more specific about not working that would help trace what exactly is wrong?</span></div><div class="line" id="065833"><span class="nick" style="color:#2e2a4a"><a href="#065833" label="[06:58:33]">&lt;fossy&gt;</a></span><span class="message">Googulator: ya, but we can build static and dynamic libraries side by side, so it's not one or the other thankfully</span></div><div class="line" id="102118"><span class="nick" style="color:#6d2462"><a href="#102118" label="[10:21:18]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; oriansj: segfaults, on trying to unpack anything</span></div><div class="line" id="102130"><span class="nick" style="color:#6d2462"><a href="#102130" label="[10:21:30]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Didn't investigate further</span></div><div class="line" id="141433"><span class="nick" style="color:#80b1d3"><a href="#141433" label="[14:14:33]">&lt;oriansj&gt;</a></span><span class="message">sounds like I need to add some sanity checks in unxz</span></div><div class="line" id="162058"><span class="nick" style="color:#389600"><a href="#162058" label="[16:20:58]">&lt;Googulator&gt;</a></span><span class="message">janneke: in Mes, does psyntax.pp ever get involved with executing syntax-rules macros?</span></div><div class="line" id="162106"><span class="nick" style="color:#389600"><a href="#162106" label="[16:21:06]">&lt;Googulator&gt;</a></span><span class="message">(not syntax-case, but syntax-rules)</span></div><div class="line" id="162225"><span class="nick" style="color:#389600"><a href="#162225" label="[16:22:25]">&lt;Googulator&gt;</a></span><span class="message">right now, we try to ensure that psyntax.pp is not present when we regenerate nyacc's pregen files by just deleting it, but unlink() is only a stub in builder-hex0</span></div><div class="line" id="162252"><span class="nick" style="color:#389600"><a href="#162252" label="[16:22:52]">&lt;Googulator&gt;</a></span><span class="message">so psyntax.pp will actually exist during nyacc regen when doing kernel bootstrap</span></div><div class="line" id="162335"><span class="nick" style="color:#389600"><a href="#162335" label="[16:23:35]">&lt;Googulator&gt;</a></span><span class="message">does this mean we use the psyntax.pp implementation of syntax-rules instead of the Mes-internal one in this case?</span></div><div class="line" id="162925"><span class="nick" style="color:#234e69"><a href="#162925" label="[16:29:25]">&lt;janneke&gt;</a></span><span class="message">Googulator: i've never tried nyacc's regen</span></div><div class="line" id="162950"><span class="nick" style="color:#389600"><a href="#162950" label="[16:29:50]">&lt;Googulator&gt;</a></span><span class="message">It's implemented in latest live-bootstrap</span></div><div class="line" id="162957"><span class="nick" style="color:#234e69"><a href="#162957" label="[16:29:57]">&lt;janneke&gt;</a></span><span class="message">nice</span></div><div class="line" id="163004"><span class="nick" style="color:#234e69"><a href="#163004" label="[16:30:04]">&lt;janneke&gt;</a></span><span class="message">psyntax.pp is (currently) the only (flaky) syntax-rules implementation in mes</span></div><div class="line" id="163018"><span class="nick" style="color:#389600"><a href="#163018" label="[16:30:18]">&lt;Googulator&gt;</a></span><span class="message">hmm...</span></div><div class="line" id="163023"><span class="nick" style="color:#234e69"><a href="#163023" label="[16:30:23]">&lt;janneke&gt;</a></span><span class="message">samplet wants to work on a bootstrappable variant, possibly of syntax-case</span></div><div class="line" id="163049"><span class="nick" style="color:#389600"><a href="#163049" label="[16:30:49]">&lt;Googulator&gt;</a></span><span class="message">in chroot mode, we do remove psyntax.pp, and nyacc regen still works</span></div><div class="line" id="163051"><span class="nick" style="color:#234e69"><a href="#163051" label="[16:30:51]">&lt;janneke&gt;</a></span><span class="message">best you can do is re-roll the mes tarball (or git branch, whatever you dou) without psyntax.pp</span></div><div class="line" id="163057"><span class="nick" style="color:#234e69"><a href="#163057" label="[16:30:57]">&lt;janneke&gt;</a></span><span class="message">ah</span></div><div class="line" id="163103"><span class="nick" style="color:#389600"><a href="#163103" label="[16:31:03]">&lt;Googulator&gt;</a></span><span class="message">(using syntax-rules, without psyntax.pp)</span></div><div class="line" id="163129"><span class="nick" style="color:#389600"><a href="#163129" label="[16:31:29]">&lt;Googulator&gt;</a></span><span class="message">mes/module/mes/syntax.scm contains another syntax-rules implementation</span></div><div class="line" id="163156"><span class="nick" style="color:#389600"><a href="#163156" label="[16:31:56]">&lt;Googulator&gt;</a></span><span class="message">using define-syntax, which in turn is implemented using define-macro, which is AFAIK implemented in mes's C code</span></div><div class="line" id="163156"><span class="nick" style="color:#234e69"><a href="#163156" label="[16:31:56]">&lt;janneke&gt;</a></span><span class="message">Googulator: right, my bad</span></div><div class="line" id="163206"><span class="nick" style="color:#234e69"><a href="#163206" label="[16:32:06]">&lt;janneke&gt;</a></span><span class="message">yes, psyntax.pp is for syntax-case</span></div><div class="line" id="163242"><span class="nick" style="color:#389600"><a href="#163242" label="[16:32:42]">&lt;Googulator&gt;</a></span><span class="message">but psyntax.pp also includes a syntax-rules impl - what I would like to know is which one wins if both are available</span></div><div class="line" id="163247"><span class="nick" style="color:#234e69"><a href="#163247" label="[16:32:47]">&lt;janneke&gt;</a></span><span class="message">mes should be using syntax-rules from syntax.scm</span></div><div class="line" id="163309"><span class="nick" style="color:#234e69"><a href="#163309" label="[16:33:09]">&lt;janneke&gt;</a></span><span class="message">that depends on which module you would include</span></div><div class="line" id="163428"><span class="nick" style="color:#234e69"><a href="#163428" label="[16:34:28]">&lt;janneke&gt;</a></span><span class="message">it looks like</span></div><div class="line" id="163430"><span class="nick" style="color:#234e69"><a href="#163430" label="[16:34:30]">&lt;janneke&gt;</a></span><span class="message">mes/module/mes/quasisyntax.mes:25:(mes-use-module (mes psyntax))</span></div><div class="line" id="163430"><span class="nick" style="color:#234e69"><a href="#163430" label="[16:34:30]">&lt;janneke&gt;</a></span><span class="message">tests/psyntax.test:32:  (mes-use-module (mes psyntax))</span></div><div class="line" id="163437"><span class="nick" style="color:#234e69"><a href="#163437" label="[16:34:37]">&lt;janneke&gt;</a></span><span class="message">only these include psyntax</span></div><div class="line" id="163815"><span class="nick" style="color:#389600"><a href="#163815" label="[16:38:15]">&lt;Googulator&gt;</a></span><span class="message">mes/module/nyacc/lalr.mes also includes it</span></div><div class="line" id="164118"><span class="nick" style="color:#389600"><a href="#164118" label="[16:41:18]">&lt;Googulator&gt;</a></span><span class="message">.mes files only get used with mes-use-module, right?</span></div><div class="line" id="164410"><span class="nick" style="color:#234e69"><a href="#164410" label="[16:44:10]">&lt;janneke&gt;</a></span><span class="message">lalr.mes includes psyntax?</span></div><div class="line" id="164425"><span class="nick" style="color:#389600"><a href="#164425" label="[16:44:25]">&lt;Googulator&gt;</a></span><span class="message">yes</span></div><div class="line" id="164430"><span class="nick" style="color:#389600"><a href="#164430" label="[16:44:30]">&lt;Googulator&gt;</a></span><span class="message">in 0.26</span></div><div class="line" id="164448"><span class="nick" style="color:#389600"><a href="#164448" label="[16:44:48]">&lt;Googulator&gt;</a></span><span class="message">but somehow we're still able to regenerate with psyntax.pp deleted</span></div><div class="line" id="164723"><span class="nick" style="color:#234e69"><a href="#164723" label="[16:47:23]">&lt;janneke&gt;</a></span><span class="message">ah right</span></div><div class="line" id="164739"><span class="nick" style="color:#234e69"><a href="#164739" label="[16:47:39]">&lt;janneke&gt;</a></span><span class="message">its weird, because it also includes</span></div><div class="line" id="164740"><span class="nick" style="color:#234e69"><a href="#164740" label="[16:47:40]">&lt;janneke&gt;</a></span><span class="message">(mes-use-module (srfi srfi-9-psyntax))</span></div><div class="line" id="164744"><span class="nick" style="color:#234e69"><a href="#164744" label="[16:47:44]">&lt;janneke&gt;</a></span><span class="message">which does not exist</span></div><div class="line" id="164803"><span class="nick" style="color:#389600"><a href="#164803" label="[16:48:03]">&lt;Googulator&gt;</a></span><span class="message">I guess lalr.mes never gets used then</span></div><div class="line" id="164829"><span class="nick" style="color:#234e69"><a href="#164829" label="[16:48:29]">&lt;janneke&gt;</a></span><span class="message">it must be dead, let's delete it</span></div><div class="line" id="165031"><span class="nick" style="color:#389600"><a href="#165031" label="[16:50:31]">&lt;Googulator&gt;</a></span><span class="message">probably because nothing ever (mes-use-module (nyacc lalr))</span></div><div class="line" id="165135"><span class="nick" style="color:#389600"><a href="#165135" label="[16:51:35]">&lt;Googulator&gt;</a></span><span class="message">nyacc/lalr.scm is used directly without a mes wrapper, most likely</span></div><div class="line" id="165159"><span class="nick" style="color:#389600"><a href="#165159" label="[16:51:59]">&lt;Googulator&gt;</a></span><span class="message">(not sure if I understand the relationship between .mes and .scm files correctly)</span></div><div class="line" id="170032"><span class="nick" style="color:#234e69"><a href="#170032" label="[17:00:32]">&lt;janneke&gt;</a></span><span class="message">mes-use-module and the .mes suffix are Mes' legacy simplistic module system</span></div><div class="line" id="170104"><span class="nick" style="color:#234e69"><a href="#170104" label="[17:01:04]">&lt;janneke&gt;</a></span><span class="message">since 0.26, Mes groks Guile's (use-modules ..) #:use-module ()</span></div><br /></div></body></html>

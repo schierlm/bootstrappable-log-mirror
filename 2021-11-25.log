@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-11-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000155"><span class="nick" style="color:#389600"><a href="#000155" label="[00:01:55]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I am now able to build M2-Mesoplanet with M2-Planet but something is a bit broken in M2-Mesoplanet and it does not self-host</span></div><div class="line" id="000226"><span class="nick" style="color:#389600"><a href="#000226" label="[00:02:26]">&lt;stikonas&gt;</a></span><span class="message">./bin/M2-Mesoplanet -f ./M2libc/sys/types.h -f ./M2libc/stddef.h -f ./M2libc/$ARCH/Linux/unistd.h -f ./M2libc/$ARCH/Linux/fcntl.h -f M2libc/stdlib.c -f ./M2libc/stdio.c -f ./M2libc/bootstrappable.c -f M2libc/bootstrappable.c  -f M2libc/string.c -f cc.h -f cc_globals.c -f cc_reader.c -f cc_core.c -f cc_macro.c -f cc_env.c -f cc_spawn.c -f cc.c -o M2-Mesoplanet</span></div><div class="line" id="000246"><span class="nick" style="color:#389600"><a href="#000246" label="[00:02:46]">&lt;stikonas&gt;</a></span><span class="message">possibly #includes are badly tokenized</span></div><div class="line" id="001245"><span class="nick" style="color:#2e2a4a"><a href="#001245" label="[00:12:45]">&lt;gbrlwck&gt;</a></span><span class="message">fyi: civodul did a talk at PackagingCon and mentions bootstrappable builds in regard to Guix <a rel="nofollow" href="https://www.youtube.com/watch?v=tcTOkXlE_ac">https://www.youtube.com/watch?v=tcTOkXlE_ac</a>  (bootstrappable topic is around 5'20&quot;)</span></div><div class="line" id="002626"><span class="nick" style="color:#389600"><a href="#002626" label="[00:26:26]">&lt;stikonas&gt;</a></span><span class="message">yes, and also oriansj's lightning talk is also available there</span></div><div class="line" id="012345"><span class="nick">***</span><span class="message notice">sm2n_ is now known as sm2n</span></div><div class="line" id="015115"><span class="nick" style="color:#6b8072"><a href="#015115" label="[01:51:15]">&lt;oriansj&gt;</a></span><span class="message">stikonas: or possibly I broke #include trying to get a rough flag for if stdio.h was listed</span></div><div class="line" id="015614"><span class="nick" style="color:#6b8072"><a href="#015614" label="[01:56:14]">&lt;oriansj&gt;</a></span><span class="message">gbrlwck: thanks for letting me know they finally uploaded it</span></div><div class="line" id="020236"><span class="nick" style="color:#2e2a4a"><a href="#020236" label="[02:02:36]">&lt;gbrlwck&gt;</a></span><span class="message">you're welcome, but that was actually stikonas ;) i was not yet able to locate it! could someone share the link?</span></div><div class="line" id="023039"><span class="nick" style="color:#6b8072"><a href="#023039" label="[02:30:39]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.youtube.com/watch?v=BpRef4U-4sI">https://www.youtube.com/watch?v=BpRef4U-4sI</a> </span></div><div class="line" id="023049"><span class="nick" style="color:#6b8072"><a href="#023049" label="[02:30:49]">&lt;oriansj&gt;</a></span><span class="message">I'm at 8:52</span></div><div class="line" id="023300"><span class="nick" style="color:#6b8072"><a href="#023300" label="[02:33:00]">&lt;oriansj&gt;</a></span><span class="message">to 10:48</span></div><div class="line" id="032213"><span class="nick" style="color:#6b8072"><a href="#032213" label="[03:22:13]">&lt;oriansj&gt;</a></span><span class="message">pity civodul mistook the .5MB Mes.c root with the few hundred byte stage0 root</span></div><div class="line" id="032345"><span class="nick" style="color:#6b8072"><a href="#032345" label="[03:23:45]">&lt;oriansj&gt;</a></span><span class="message">but I guess it could be considered the proper start of Guix once it is able to run Guix.</span></div><div class="line" id="165256"><span class="nick" style="color:#2e2a4a"><a href="#165256" label="[16:52:56]">&lt;gbrlwck&gt;</a></span><span class="message">oriansj: omg you talked fast there!  but honestly: good talk for the little time you had!</span></div><div class="line" id="165434"><span class="nick" style="color:#2e2a4a"><a href="#165434" label="[16:54:34]">&lt;gbrlwck&gt;</a></span><span class="message">so i watched a couple of talks yesterday (including jannekes talks form the previous years) and i wonder: is one of our goals to raise awareness in regard to computing security in general?</span></div><div class="line" id="174717"><span class="nick" style="color:#80b1d3"><a href="#174717" label="[17:47:17]">&lt;Hagfish&gt;</a></span><span class="message">my hope is that the reproducible builds people see the importance of this work (as they are somewhat dependent on it)</span></div><div class="line" id="174735"><span class="nick" style="color:#80b1d3"><a href="#174735" label="[17:47:35]">&lt;Hagfish&gt;</a></span><span class="message">and similarly we can point people to the clear benefits of reproducible builds</span></div><div class="line" id="174825"><span class="nick" style="color:#80b1d3"><a href="#174825" label="[17:48:25]">&lt;Hagfish&gt;</a></span><span class="message">i suppose the third leg to this stool is source auditing / developer reputation</span></div><div class="line" id="174945"><span class="nick" style="color:#80b1d3"><a href="#174945" label="[17:49:45]">&lt;Hagfish&gt;</a></span><span class="message">(and i'm assuming that &quot;bootstrapping&quot; includes auditable hardware too, but maybe that's a strand that needs to grow more)</span></div><div class="line" id="202559"><span class="nick" style="color:#6d2462"><a href="#202559" label="[20:25:59]">&lt;stikonas[m]&gt;</a></span><span class="message">yeah, auditable hardware might also be included in bootstrapping</span></div><div class="line" id="202606"><span class="nick" style="color:#234e69"><a href="#202606" label="[20:26:06]">&lt;riv&gt;</a></span><span class="message">hello</span></div><div class="line" id="202644"><span class="nick" style="color:#2e2a4a"><a href="#202644" label="[20:26:44]">&lt;gbrlwck&gt;</a></span><span class="message">riv: hello</span></div><div class="line" id="202850"><span class="nick" style="color:#2e2a4a"><a href="#202850" label="[20:28:50]">&lt;gbrlwck&gt;</a></span><span class="message">stikonas: you mean verifiable designs or tamper-free devices?</span></div><div class="line" id="203132"><span class="nick" style="color:#389600"><a href="#203132" label="[20:31:32]">&lt;stikonas&gt;</a></span><span class="message">I didn't mean anything in particular...</span></div><div class="line" id="203143"><span class="nick" style="color:#389600"><a href="#203143" label="[20:31:43]">&lt;stikonas&gt;</a></span><span class="message">so it's up to you...</span></div><div class="line" id="203213"><span class="nick" style="color:#389600"><a href="#203213" label="[20:32:13]">&lt;stikonas&gt;</a></span><span class="message">well, one option is FPGA designs which is somewhat like stage0-posix vs stage0 in software bootstrapping</span></div><div class="line" id="203324"><span class="nick" style="color:#234e69"><a href="#203324" label="[20:33:24]">&lt;riv&gt;</a></span><span class="message">what about ben eater's computer</span></div><div class="line" id="203330"><span class="nick" style="color:#234e69"><a href="#203330" label="[20:33:30]">&lt;riv&gt;</a></span><span class="message">he sells a breadboard computer kit</span></div><div class="line" id="203341"><span class="nick" style="color:#234e69"><a href="#203341" label="[20:33:41]">&lt;riv&gt;</a></span><span class="message">so that's something that's relatively easy for people to replicate</span></div><div class="line" id="203359"><span class="nick" style="color:#234e69"><a href="#203359" label="[20:33:59]">&lt;riv&gt;</a></span><span class="message">,maybe it will need more ram though</span></div><div class="line" id="203512"><span class="nick" style="color:#389600"><a href="#203512" label="[20:35:12]">&lt;stikonas&gt;</a></span><span class="message">riv: yeah, that might be good for some early stages of stage0</span></div><div class="line" id="203518"><span class="nick" style="color:#389600"><a href="#203518" label="[20:35:18]">&lt;stikonas&gt;</a></span><span class="message">how much ram does it have?</span></div><div class="line" id="203534"><span class="nick" style="color:#389600"><a href="#203534" label="[20:35:34]">&lt;stikonas&gt;</a></span><span class="message">probably enough for hex0 to hex2</span></div><div class="line" id="203604"><span class="nick" style="color:#389600"><a href="#203604" label="[20:36:04]">&lt;stikonas&gt;</a></span><span class="message">although, it's not one of the supported arches in stage0 yet</span></div><div class="line" id="210108"><span class="nick" style="color:#6d2462"><a href="#210108" label="[21:01:08]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm, Ben eater's computer has only 64 bits of ram...</span></div><div class="line" id="210128"><span class="nick" style="color:#6d2462"><a href="#210128" label="[21:01:28]">&lt;stikonas[m]&gt;</a></span><span class="message">That's probably insufficient</span></div><div class="line" id="213832"><span class="nick" style="color:#6b8072"><a href="#213832" label="[21:38:32]">&lt;oriansj&gt;</a></span><span class="message">well 64bits is enough scratch memory for hex0 but the hex1 table is much to big for that (4-8bytes x 256 entries)</span></div><div class="line" id="214406"><span class="nick" style="color:#6b8072"><a href="#214406" label="[21:44:06]">&lt;oriansj&gt;</a></span><span class="message">gbrlwck: when I speak about bootstrappable hardware, I think about hardware you could make at home with just a little bit of money.</span></div><div class="line" id="214637"><span class="nick" style="color:#2e2a4a"><a href="#214637" label="[21:46:37]">&lt;gbrlwck&gt;</a></span><span class="message">oriansj: hardware powerful enough to replace our current computing stacks?</span></div><div class="line" id="214957"><span class="nick" style="color:#2e2a4a"><a href="#214957" label="[21:49:57]">&lt;gbrlwck&gt;</a></span><span class="message">and... make at home: from microprocessors through die to PCBs?  or just assembling ready-made, trusted PCBs?</span></div><div class="line" id="215339"><span class="nick" style="color:#389600"><a href="#215339" label="[21:53:39]">&lt;stikonas&gt;</a></span><span class="message">gbrlwck: I guess either</span></div><div class="line" id="220150"><span class="nick" style="color:#6c3d55"><a href="#220150" label="[22:01:50]">*</a></span><span class="message">gbrlwck is wishing a nanometer scale solder and etch kit for the holidays</span></div><div class="line" id="221025"><span class="nick" style="color:#2e2a4a"><a href="#221025" label="[22:10:25]">&lt;gbrlwck&gt;</a></span><span class="message">i guess securing the (whole) computing stack is hard, at least as long as it's hard to impossible to verify whether some hardware is exactly what somebody designed (and nothing more).  i read a paper suggesting that it is possible to detect even tiny hardware trojans, but the authors were looking for discrepancies and only checked one single (crypto) chip.</span></div><br /></div></body></html>

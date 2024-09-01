@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-12-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000429"><span class="nick" style="color:#389600"><a href="#000429" label="[00:04:29]">&lt;fosslinux&gt;</a></span><span class="message">is there a way for me to install guix from a already existing system, ie in /guix, without using the binaries?</span></div><div class="line" id="000444"><span class="nick" style="color:#389600"><a href="#000444" label="[00:04:44]">&lt;fosslinux&gt;</a></span><span class="message">without using the binary install*</span></div><div class="line" id="001833"><span class="nick" style="color:#8dd3c7"><a href="#001833" label="[00:18:33]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: well yes, only needs only build the binaries and put them in the correct locations. I believe there is work in generating the shell script that does that</span></div><div class="line" id="001849"><span class="nick" style="color:#389600"><a href="#001849" label="[00:18:49]">&lt;fosslinux&gt;</a></span><span class="message">ok</span></div><div class="line" id="001957"><span class="nick" style="color:#8dd3c7"><a href="#001957" label="[00:19:57]">&lt;oriansj&gt;</a></span><span class="message">right now the bootstrap binary required is guile but that branch isn't yet complete if I remember correctly. (Janneke is pulling everything but it out of the guix bootstrap with the plan on replacing it with mes-m2)</span></div><div class="line" id="002051"><span class="nick" style="color:#8dd3c7"><a href="#002051" label="[00:20:51]">&lt;oriansj&gt;</a></span><span class="message">That way one could simply run kaem --verbose --strict in mescc-tools-seed and generate the guix bootstrap binaries from hex0</span></div><div class="line" id="002118"><span class="nick" style="color:#8dd3c7"><a href="#002118" label="[00:21:18]">&lt;oriansj&gt;</a></span><span class="message">The current process however is a bit more complex and requires a good few more binaries being built if I remember correctly.</span></div><div class="line" id="003603"><span class="nick" style="color:#389600"><a href="#003603" label="[00:36:03]">&lt;fosslinux&gt;</a></span><span class="message">so I'm trying to get rust bootstrapped on void linux</span></div><div class="line" id="003619"><span class="nick" style="color:#389600"><a href="#003619" label="[00:36:19]">&lt;fosslinux&gt;</a></span><span class="message">I keep running into issues with libressl versioning</span></div><div class="line" id="003633"><span class="nick" style="color:#389600"><a href="#003633" label="[00:36:33]">&lt;fosslinux&gt;</a></span><span class="message">how do you guys work with issues with old dependencies being needed</span></div><div class="line" id="003644"><span class="nick" style="color:#389600"><a href="#003644" label="[00:36:44]">&lt;fosslinux&gt;</a></span><span class="message">just package them up?</span></div><div class="line" id="003654"><span class="nick" style="color:#389600"><a href="#003654" label="[00:36:54]">&lt;fosslinux&gt;</a></span><span class="message">especially with core dependencies like this</span></div><div class="line" id="004250"><span class="nick" style="color:#8dd3c7"><a href="#004250" label="[00:42:50]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: unfortunately yes, old packages are sometimes required (like Gcc 4.7.4)</span></div><div class="line" id="004701"><span class="nick" style="color:#8dd3c7"><a href="#004701" label="[00:47:01]">&lt;oriansj&gt;</a></span><span class="message">it is one of the things other distros can leverage guix to deal with (so they can stick with just the packages they care about)</span></div><div class="line" id="010859"><span class="nick" style="color:#6b8072"><a href="#010859" label="[01:08:59]">&lt;stikonas&gt;</a></span><span class="message">fosslinux: do you need old llvm too for rust?</span></div><div class="line" id="010952"><span class="nick" style="color:#6b8072"><a href="#010952" label="[01:09:52]">&lt;stikonas&gt;</a></span><span class="message">or does rust 1.29 build with a fairly recent llvm</span></div><div class="line" id="014238"><span class="nick" style="color:#389600"><a href="#014238" label="[01:42:38]">&lt;fosslinux&gt;</a></span><span class="message">oriansj: yeah, i'm running into issues with libressl</span></div><div class="line" id="014302"><span class="nick" style="color:#389600"><a href="#014302" label="[01:43:02]">&lt;fosslinux&gt;</a></span><span class="message">it wants libressl 2.7, but i cannot figure out how to get that to replace libressl in void linux (since it dosen't have the notion of slots or anything)</span></div><div class="line" id="014326"><span class="nick" style="color:#389600"><a href="#014326" label="[01:43:26]">&lt;fosslinux&gt;</a></span><span class="message">and then it looks like i'll need almost every rust version up to the latest :|</span></div><div class="line" id="015109"><span class="nick" style="color:#8dd3c7"><a href="#015109" label="[01:51:09]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: yep, bootstrapping is still one hell of a messy process. Bootstrapping every language thus far has been one nightmare after another.</span></div><div class="line" id="015135"><span class="nick" style="color:#389600"><a href="#015135" label="[01:51:35]">&lt;fosslinux&gt;</a></span><span class="message">yeah</span></div><div class="line" id="024511"><span class="nick" style="color:#8dd3c7"><a href="#024511" label="[02:45:11]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: those languages left to bootstrap are freaking monsters</span></div><div class="line" id="050146"><span class="nick" style="color:#389600"><a href="#050146" label="[05:01:46]">&lt;fosslinux&gt;</a></span><span class="message">seems like void linux devs are uninterested in bootstrapping rust</span></div><div class="line" id="050338"><span class="nick" style="color:#389600"><a href="#050338" label="[05:03:38]">&lt;fosslinux&gt;</a></span><span class="message">&quot;we don't want to have 10+ versions of rust&quot; essentially</span></div><div class="line" id="050934"><span class="nick" style="color:#8dd3c7"><a href="#050934" label="[05:09:34]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: sounds very common</span></div><div class="line" id="050943"><span class="nick" style="color:#389600"><a href="#050943" label="[05:09:43]">&lt;fosslinux&gt;</a></span><span class="message">yes...</span></div><div class="line" id="050957"><span class="nick" style="color:#389600"><a href="#050957" label="[05:09:57]">&lt;fosslinux&gt;</a></span><span class="message">makes me even more tempted to switch to guix</span></div><div class="line" id="052152"><span class="nick" style="color:#8dd3c7"><a href="#052152" label="[05:21:52]">&lt;oriansj&gt;</a></span><span class="message">fosslinux: guix is not all or nothing, you can bring guix to any distro and keep the advantages of that distro while taking advantage of the features provided by guix</span></div><div class="line" id="052249"><span class="nick" style="color:#8dd3c7"><a href="#052249" label="[05:22:49]">&lt;oriansj&gt;</a></span><span class="message">when and if you want to</span></div><div class="line" id="052452"><span class="nick" style="color:#8dd3c7"><a href="#052452" label="[05:24:52]">&lt;oriansj&gt;</a></span><span class="message">One can extend guix to build packages for any distro; thus reducing the work required for incorporating reproducible/bootstrappable builds into the distro of your choice.</span></div><div class="line" id="062333"><span class="nick" style="color:#389600"><a href="#062333" label="[06:23:33]">&lt;fosslinux&gt;</a></span><span class="message">hrm, interesting</span></div><div class="line" id="065009"><span class="nick" style="color:#389600"><a href="#065009" label="[06:50:09]">&lt;fosslinux&gt;</a></span><span class="message">this is strange:</span></div><div class="line" id="065037"><span class="nick" style="color:#389600"><a href="#065037" label="[06:50:37]">&lt;fosslinux&gt;</a></span><span class="message">trying to compile mes 0.21.... guild (2.0) fails on compile.scm</span></div><div class="line" id="065045"><span class="nick" style="color:#389600"><a href="#065045" label="[06:50:45]">&lt;fosslinux&gt;</a></span><span class="message"> <a rel="nofollow" href="https://ttm.sh/E2b.txt">https://ttm.sh/E2b.txt</a>  &lt;--- output of command that faisl</span></div><div class="line" id="065101"><span class="nick" style="color:#389600"><a href="#065101" label="[06:51:01]">&lt;fosslinux&gt;</a></span><span class="message"> <a rel="nofollow" href="https://ttm.sh/E2i.txt">https://ttm.sh/E2i.txt</a>  &lt;--- build.log</span></div><div class="line" id="065115"><span class="nick" style="color:#389600"><a href="#065115" label="[06:51:15]">&lt;fosslinux&gt;</a></span><span class="message">janneke: ^</span></div><div class="line" id="065928"><span class="nick" style="color:#389600"><a href="#065928" label="[06:59:28]">&lt;fosslinux&gt;</a></span><span class="message">wow, golang is nice and easy to bootstrap</span></div><div class="line" id="065943"><span class="nick" style="color:#389600"><a href="#065943" label="[06:59:43]">&lt;fosslinux&gt;</a></span><span class="message">gccgo and then one version up to 1.13</span></div><div class="line" id="073213"><span class="nick" style="color:#389600"><a href="#073213" label="[07:32:13]">&lt;fosslinux&gt;</a></span><span class="message">also mes error with guild 2.2</span></div><div class="line" id="083712"><span class="nick" style="color:#80b1d3"><a href="#083712" label="[08:37:12]">&lt;janneke&gt;</a></span><span class="message">fosslinux: could it be that mes cannot find nyacc from looking at your GUILE_LOAD_PATH?</span></div><div class="line" id="083804"><span class="nick" style="color:#80b1d3"><a href="#083804" label="[08:38:04]">&lt;janneke&gt;</a></span><span class="message">try something like export GUILE_LOAD_PATH=/usr/share/guile/site/2.2/:...; and reconfigure</span></div><div class="line" id="083821"><span class="nick" style="color:#6d2462"><a href="#083821" label="[08:38:21]">*</a></span><span class="message">janneke will be afk most of the day</span></div><div class="line" id="083852"><span class="nick" style="color:#80b1d3"><a href="#083852" label="[08:38:52]">&lt;janneke&gt;</a></span><span class="message">i just tested with guile 2.0.14 and nyacc-0.99.0, should work</span></div><div class="line" id="084557"><span class="nick" style="color:#389600"><a href="#084557" label="[08:45:57]">&lt;fosslinux&gt;</a></span><span class="message">most likely yes</span></div><div class="line" id="084608"><span class="nick" style="color:#389600"><a href="#084608" label="[08:46:08]">&lt;fosslinux&gt;</a></span><span class="message">I'll try that when I'm back home, thanks</span></div><div class="line" id="144007"><span class="nick" style="color:#8dd3c7"><a href="#144007" label="[14:40:07]">&lt;oriansj&gt;</a></span><span class="message">Morning, I guess I should work on mes-m2 today (tempted to just add conditional execution to kaem)</span></div><div class="line" id="160230"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="215148"><span class="nick" style="color:#389600"><a href="#215148" label="[21:51:48]">&lt;fosslinux&gt;</a></span><span class="message">janneke: thanks it is working now!</span></div><div class="line" id="224942"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><br /></div></body></html>

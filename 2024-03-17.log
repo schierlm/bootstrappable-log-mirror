@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-03-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="023628"><span class="nick" style="color:#389600"><a href="#023628" label="[02:36:28]">&lt;oriansj&gt;</a></span><span class="message">hmm, thinking deeper on RISC-V I am curious why they didn't use R31 instead of R0 and they could have dropped the PC instructions entirely. As it is possible to use loads into R31 as cache prefetch hints (as it would be writing to the zero register); which is zero for all ALU instructions but for load/store if R31 is used as a source register they could be PC relative. and for the case of storing the contents of R31 to RAM, it would</span></div><div class="line" id="023630"><span class="nick" style="color:#389600"><a href="#023630" label="[02:36:30]">&lt;oriansj&gt;</a></span><span class="message">eliminate the need for AUIPC and removes the need to do a jump/link to get the PC into a normal register.</span></div><div class="line" id="030227"><span class="nick" style="color:#389600"><a href="#030227" label="[03:02:27]">&lt;oriansj&gt;</a></span><span class="message">then it would only take a handful of transistors to encode that behavior.</span></div><div class="line" id="131359"><span class="nick" style="color:#389600"><a href="#131359" label="[13:13:59]">&lt;oriansj&gt;</a></span><span class="message">I believe DEC Alpha called it phantom loads and it was the cheapest way to implement prefetching of pages</span></div><div class="line" id="131425"><span class="nick" style="color:#389600"><a href="#131425" label="[13:14:25]">&lt;oriansj&gt;</a></span><span class="message">(as effectively it was a load but had the property of not actually loading into any registers)</span></div><div class="line" id="152955"><span class="nick" style="color:#389600"><a href="#152955" label="[15:29:55]">&lt;oriansj&gt;</a></span><span class="message">correction: the jump behavior to get the PC is an x86 quirk. For RISC-V PC can be obtained by setting the U-immediate field of auipc to 0.</span></div><div class="line" id="153422"><span class="nick" style="color:#389600"><a href="#153422" label="[15:34:22]">&lt;oriansj&gt;</a></span><span class="message">but honestly one only needs the PC for Returns and PC relative loads/stores. Relative jumps don't need to expose the PC.</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-03-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011529"><span class="nick" style="color:#389600"><a href="#011529" label="[01:15:29]">&lt;stikonas&gt;</a></span><span class="message">M0_x86 now also uses GAS style M0 DEFINE statements</span></div><div class="line" id="011554"><span class="nick" style="color:#389600"><a href="#011554" label="[01:15:54]">&lt;stikonas&gt;</a></span><span class="message">so only cc_x86.M0 remains to port</span></div><div class="line" id="011809"><span class="nick" style="color:#389600"><a href="#011809" label="[01:18:09]">&lt;stikonas&gt;</a></span><span class="message">fossy: we should really try to incorportate Fiwix soonish...</span></div><div class="line" id="011833"><span class="nick" style="color:#389600"><a href="#011833" label="[01:18:33]">&lt;stikonas&gt;</a></span><span class="message">otherwise that branch will always have to catch up...</span></div><div class="line" id="024920"><span class="nick" style="color:#8dd3c7"><a href="#024920" label="[02:49:20]">&lt;janus&gt;</a></span><span class="message">rekado: i have been progressing a bit on porting ghc0.96 to nhc</span></div><div class="line" id="024952"><span class="nick" style="color:#8dd3c7"><a href="#024952" label="[02:49:52]">&lt;janus&gt;</a></span><span class="message">now kinda done with the parser. there are mutually dependent modules so i am rewriting hi files by hand in the nhc syntax</span></div><div class="line" id="030002"><span class="nick" style="color:#2e2a4a"><a href="#030002" label="[03:00:02]">&lt;oriansj&gt;</a></span><span class="message"> janus: sweet, glad to hear progresson the haskell front</span></div><div class="line" id="030912"><span class="nick" style="color:#8dd3c7"><a href="#030912" label="[03:09:12]">&lt;janus&gt;</a></span><span class="message">hopefully it will eventually work, it's hard to say how much work is remaining...</span></div><div class="line" id="065934"><span class="nick" style="color:#6b8072"><a href="#065934" label="[06:59:34]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: yes, agreed - i'm waiting for rickmasters' update</span></div><div class="line" id="070004"><span class="nick" style="color:#6b8072"><a href="#070004" label="[07:00:04]">&lt;fossy&gt;</a></span><span class="message">we still need fiwix -&gt; linux kexec though..</span></div><div class="line" id="150208"><span class="nick" style="color:#80b1d3"><a href="#150208" label="[15:02:08]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: regarding kexec(), I guess this will need a proper memory manager that supports allocating large blocks of memory</span></div><div class="line" id="150242"><span class="nick" style="color:#80b1d3"><a href="#150242" label="[15:02:42]">&lt;Mikaku&gt;</a></span><span class="message">this is not possible right now, but I plan its implementation in the next months</span></div><div class="line" id="150325"><span class="nick" style="color:#80b1d3"><a href="#150325" label="[15:03:25]">&lt;Mikaku&gt;</a></span><span class="message">meanwhile you might want to add a hack ini mem_ini() to reserve a fixed memory space to load the kernel during kexec()</span></div><div class="line" id="150357"><span class="nick" style="color:#80b1d3"><a href="#150357" label="[15:03:57]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: anyway, let me know if you want to talk on this or you need any help</span></div><div class="line" id="150440"><span class="nick" style="color:#80b1d3"><a href="#150440" label="[15:04:40]">&lt;Mikaku&gt;</a></span><span class="message">s/ini mem_ini()/in mem_init()/</span></div><div class="line" id="154724"><span class="nick" style="color:#6d2462"><a href="#154724" label="[15:47:24]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: I'll keep that in mind. Honestly I haven't started thinking about it.</span></div><div class="line" id="154803"><span class="nick" style="color:#6d2462"><a href="#154803" label="[15:48:03]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: I'm working on trying to move from ram disk to hard disk for Fiwix work but I've run into problems.</span></div><div class="line" id="154843"><span class="nick" style="color:#6d2462"><a href="#154843" label="[15:48:43]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: I've got I/O errors and lock ups. I'm still trying to narrow it down and might need your help at some point.</span></div><div class="line" id="155106"><span class="nick" style="color:#80b1d3"><a href="#155106" label="[15:51:06]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: make sure you have the latest kernel version as the ATA disk driver has suffered some changes, I still need to push more changes but it is fairly stable right now</span></div><div class="line" id="155142"><span class="nick" style="color:#80b1d3"><a href="#155142" label="[15:51:42]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: I'll push the latest changes in the ATA disk driver tomorrow morning</span></div><div class="line" id="155238"><span class="nick" style="color:#6d2462"><a href="#155238" label="[15:52:38]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: ok, thanks. I'll try out the latest changes when they're ready</span></div><div class="line" id="193901"><span class="nick" style="color:#234e69"><a href="#193901" label="[19:39:01]">&lt;Christoph[m]&gt;</a></span><span class="message">I'm frustrated with the state of VSCode. The sources are there, and they are free, but nobody seems to know how to compile them. Could it be possible to let a computer program play with the repository to see which version is needed to compile which higher version? I imagine that there is a directed graph... (full message at &lt;<a rel="nofollow" href="https://libera.ems.host/_matrix/media/v3/download/libera.chat/a1b030a02919e8e66ae5f51cfec2359a796a06fb">https://libera.ems.host/_matrix/media/v3/download/libera.chat/a1b030a02919e8e66ae5f51cfec2359a796a06fb</a>&gt;) </span></div><div class="line" id="194729"><span class="nick" style="color:#6c3d55"><a href="#194729" label="[19:47:29]">&lt;nektro&gt;</a></span><span class="message">why would you need vscode to compile vscode?</span></div><div class="line" id="210926"><span class="nick" style="color:#d9d9d9"><a href="#210926" label="[21:09:26]">&lt;stikonas[m]&gt;</a></span><span class="message">People do know how to compile vscode, there are some packages</span></div><div class="line" id="211008"><span class="nick" style="color:#d9d9d9"><a href="#211008" label="[21:10:08]">&lt;stikonas[m]&gt;</a></span><span class="message">E.g. see <a rel="nofollow" href="https://github.com/PF4Public/gentoo-overlay/blob/master/app-editors/vscode/vscode-1.76.2.ebuild">https://github.com/PF4Public/gentoo-overlay/blob/master/app-editors/vscode/vscode-1.76.2.ebuild</a> </span></div><div class="line" id="211026"><span class="nick" style="color:#d9d9d9"><a href="#211026" label="[21:10:26]">&lt;stikonas[m]&gt;</a></span><span class="message">That said, I don't use vscode myself...</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-07-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="033711"><span class="nick" style="color:#389600"><a href="#033711" label="[03:37:11]">&lt;pabs3&gt;</a></span><span class="message">indeed</span></div><div class="line" id="145641"><span class="nick" style="color:#8dd3c7"><a href="#145641" label="[14:56:41]">&lt;aggi&gt;</a></span><span class="message">libtool bootstrapping seems trivial, and caused a little headache regardles</span></div><div class="line" id="145722"><span class="nick" style="color:#8dd3c7"><a href="#145722" label="[14:57:22]">&lt;aggi&gt;</a></span><span class="message">replaced libtool with slibtool, and libtool compilation failed with LIBTOOL=slibtool</span></div><div class="line" id="145825"><span class="nick" style="color:#8dd3c7"><a href="#145825" label="[14:58:25]">&lt;aggi&gt;</a></span><span class="message">it is bash scripts, nonetheless libtool desires compilation of some dlopen related helpers</span></div><div class="line" id="145848"><span class="nick" style="color:#8dd3c7"><a href="#145848" label="[14:58:48]">&lt;aggi&gt;</a></span><span class="message">no clue what this is used for, nor how compilation of it failed</span></div><div class="line" id="145955"><span class="nick" style="color:#8dd3c7"><a href="#145955" label="[14:59:55]">&lt;aggi&gt;</a></span><span class="message">concerning &quot;pre-generated files&quot;, that is relying on #gentoo here, i enforced an eautoreconf -if within affected ebuilds</span></div><div class="line" id="150020"><span class="nick" style="color:#8dd3c7"><a href="#150020" label="[15:00:20]">&lt;aggi&gt;</a></span><span class="message">this requires the presence of libtoolize bash script (otherwise slibtool would suffice)</span></div><div class="line" id="150108"><span class="nick" style="color:#8dd3c7"><a href="#150108" label="[15:01:08]">&lt;aggi&gt;</a></span><span class="message">to prevent the compilation errors with slibtool in place, i patched slibtool, and it works now</span></div><div class="line" id="150200"><span class="nick" style="color:#8dd3c7"><a href="#150200" label="[15:02:00]">&lt;aggi&gt;</a></span><span class="message">but i cannot completely remove libtool/libtoolize, as long as GNU buildsystem isn't removed</span></div><div class="line" id="150231"><span class="nick" style="color:#8dd3c7"><a href="#150231" label="[15:02:31]">&lt;aggi&gt;</a></span><span class="message">that's how the ideas differ: instead of bootstrapping GNU buildsystem, i intend to avoid it completely</span></div><div class="line" id="150314"><span class="nick" style="color:#8dd3c7"><a href="#150314" label="[15:03:14]">&lt;aggi&gt;</a></span><span class="message">seems the reasoning behind oasis-linux is the same, since they completely re-integrated binutils for example, with their lua-scripting</span></div><div class="line" id="150553"><span class="nick" style="color:#8dd3c7"><a href="#150553" label="[15:05:53]">&lt;aggi&gt;</a></span><span class="message">anyway, slibtool can be used as drop-in replacement for libtool - without any issues remaining currently</span></div><div class="line" id="214828"><span class="nick" style="color:#2e2a4a"><a href="#214828" label="[21:48:28]">&lt;oriansj&gt;</a></span><span class="message">aggi: thank you for your continued exploration of alternative bootstrapping.</span></div><br /></div></body></html>

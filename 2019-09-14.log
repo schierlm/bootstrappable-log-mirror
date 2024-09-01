@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-09-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000225"><span class="nick" style="color:#389600"><a href="#000225" label="[00:02:25]">&lt;xentrac&gt;</a></span><span class="message">I never implemented ports in Ur-Scheme</span></div><div class="line" id="000259"><span class="nick" style="color:#389600"><a href="#000259" label="[00:02:59]">&lt;xentrac&gt;</a></span><span class="message">actually I never implemented GC either, which is pretty questionable but probably okay for the limited purpose of compiling small programs on modern hardware</span></div><div class="line" id="000359"><span class="nick" style="color:#389600"><a href="#000359" label="[00:03:59]">&lt;xentrac&gt;</a></span><span class="message">and Ur-Scheme does a lot of its allocation on the stack --- not conses, but local variable bindings when nearly the dumbest possible escape analysis shows it to be same</span></div><div class="line" id="000645"><span class="nick" style="color:#2e2a4a"><a href="#000645" label="[00:06:45]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: GC can be rather trivial <a rel="nofollow" href="https://github.com/oriansj/Slow_Lisp/blob/master/lisp_cell.c#L169">https://github.com/oriansj/Slow_Lisp/blob/master/lisp_cell.c#L169</a> </span></div><div class="line" id="002244"><span class="nick" style="color:#2e2a4a"><a href="#002244" label="[00:22:44]">&lt;OriansJ&gt;</a></span><span class="message">well finally got the scheme version of hex2 up to the level of a working hex0; now to add support for pointers</span></div><div class="line" id="002338"><span class="nick" style="color:#2e2a4a"><a href="#002338" label="[00:23:38]">&lt;OriansJ&gt;</a></span><span class="message">For those following intently: <a rel="nofollow" href="https://paste.debian.net/1100644/">https://paste.debian.net/1100644/</a> </span></div><div class="line" id="014642"><span class="nick" style="color:#2e2a4a"><a href="#014642" label="[01:46:42]">&lt;OriansJ&gt;</a></span><span class="message">nckx: ^_^</span></div><div class="line" id="020705"><span class="nick" style="color:#6b8072"><a href="#020705" label="[02:07:05]">*</a></span><span class="message">nckx waves.</span></div><div class="line" id="031954"><span class="nick" style="color:#2e2a4a"><a href="#031954" label="[03:19:54]">&lt;OriansJ&gt;</a></span><span class="message">anyone know how to the the guile version of C's  &quot;unsigned value = displacement;&quot;?</span></div><div class="line" id="032039"><span class="nick" style="color:#2e2a4a"><a href="#032039" label="[03:20:39]">&lt;OriansJ&gt;</a></span><span class="message">aka convert a negative number into its 32/64bit equal representation in binary?</span></div><div class="line" id="032349"><span class="nick" style="color:#2e2a4a"><a href="#032349" label="[03:23:49]">&lt;OriansJ&gt;</a></span><span class="message">well the ugly way of (set! value (logand #xFFFFFFFF displacement)) I guess sorta works</span></div><div class="line" id="033505"><span class="nick" style="color:#2e2a4a"><a href="#033505" label="[03:35:05]">&lt;OriansJ&gt;</a></span><span class="message">Getting real close to done: <a rel="nofollow" href="https://paste.debian.net/1100662/">https://paste.debian.net/1100662/</a> </span></div><div class="line" id="034614"><span class="nick" style="color:#2e2a4a"><a href="#034614" label="[03:46:14]">&lt;OriansJ&gt;</a></span><span class="message">Ok minimal hex2 version is up (now just comes filling in the missing pieces and testing)</span></div><div class="line" id="034711"><span class="nick" style="color:#2e2a4a"><a href="#034711" label="[03:47:11]">&lt;OriansJ&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/slow-utils/blob/master/hex2.scm">https://github.com/oriansj/slow-utils/blob/master/hex2.scm</a> </span></div><div class="line" id="034829"><span class="nick" style="color:#2e2a4a"><a href="#034829" label="[03:48:29]">&lt;OriansJ&gt;</a></span><span class="message">right now it only supports hex input, x86 and AMD64 targets but filling in the rest should be rather mechanical.</span></div><div class="line" id="050135"><span class="nick" style="color:#2e2a4a"><a href="#050135" label="[05:01:35]">&lt;OriansJ&gt;</a></span><span class="message">I must say scheme's lack of return forces some inefficient constructs</span></div><div class="line" id="053933"><span class="nick" style="color:#2e2a4a"><a href="#053933" label="[05:39:33]">&lt;OriansJ&gt;</a></span><span class="message">got basic armv7l and aarch64 support (now just need to add octal and binary)</span></div><div class="line" id="060252"><span class="nick" style="color:#2e2a4a"><a href="#060252" label="[06:02:52]">&lt;OriansJ&gt;</a></span><span class="message">appearently write-byte to a binary port doesn't actually mean write a byte... How fun</span></div><div class="line" id="060639"><span class="nick" style="color:#2e2a4a"><a href="#060639" label="[06:06:39]">&lt;OriansJ&gt;</a></span><span class="message">logand with bitmasks are clearly my best friend into the world of scheme (why would anyone want &quot;#\newline&quot; when writing &quot;\n&quot; to a binary port?)</span></div><div class="line" id="061912"><span class="nick" style="color:#2e2a4a"><a href="#061912" label="[06:19:12]">&lt;OriansJ&gt;</a></span><span class="message">janneke: play with slow-util's hex2 to see if it is good enough (I just finished getting it to feature parity)</span></div><div class="line" id="061921"><span class="nick" style="color:#2e2a4a"><a href="#061921" label="[06:19:21]">&lt;OriansJ&gt;</a></span><span class="message">(commits are up)</span></div><div class="line" id="090850"><span class="nick" style="color:#80b1d3"><a href="#090850" label="[09:08:50]">&lt;janneke&gt;</a></span><span class="message">OriansJ: i'm sure you found out that `write' uses `read' syntax, `display' procudes the actual value; write-char uses actual value too...</span></div><div class="line" id="094112"><span class="nick" style="color:#80b1d3"><a href="#094112" label="[09:41:12]">&lt;janneke&gt;</a></span><span class="message">OriansJ: great to see you're &quot;having fun&quot; with scheme</span></div><div class="line" id="094212"><span class="nick" style="color:#80b1d3"><a href="#094212" label="[09:42:12]">&lt;janneke&gt;</a></span><span class="message">i don't really get the 'lack of return' thing, i thought you're a lisper?</span></div><div class="line" id="094320"><span class="nick" style="color:#80b1d3"><a href="#094320" label="[09:43:20]">&lt;janneke&gt;</a></span><span class="message">a first test run of hex2.scm works beautifully!</span></div><div class="line" id="094910"><span class="nick" style="color:#80b1d3"><a href="#094910" label="[09:49:10]">&lt;janneke&gt;</a></span><span class="message">now for a full mes check</span></div><div class="line" id="154153"><span class="nick" style="color:#2e2a4a"><a href="#154153" label="[15:41:53]">&lt;OriansJ&gt;</a></span><span class="message">janneke: I think 3 years of assembly programming has made me notice wasted steps and duplicated computational effort. I guess hard exposure to all of the low level languages made me language neutral.</span></div><div class="line" id="160710"><span class="nick" style="color:#80b1d3"><a href="#160710" label="[16:07:10]">&lt;janneke&gt;</a></span><span class="message">OriansJ: your `lack of return' remark just puzzled me; esp. as scheme == lisp</span></div><div class="line" id="160734"><span class="nick" style="color:#80b1d3"><a href="#160734" label="[16:07:34]">&lt;janneke&gt;</a></span><span class="message">and i thought you once were a lisper :)</span></div><div class="line" id="160901"><span class="nick" style="color:#80b1d3"><a href="#160901" label="[16:09:01]">&lt;janneke&gt;</a></span><span class="message">maybe you/we want to keep the scheme code mostly identical to its M2 implementation, for review and updates?</span></div><br /></div></body></html>

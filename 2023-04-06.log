@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-04-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000107"><span class="nick" style="color:#389600"><a href="#000107" label="[00:01:07]">&lt;aggi&gt;</a></span><span class="message">obviously tccboot-loader and JIT compilation alter something linking/section/memory-layout related</span></div><div class="line" id="000221"><span class="nick" style="color:#389600"><a href="#000221" label="[00:02:21]">&lt;aggi&gt;</a></span><span class="message">including issues with linux/Documentation/exception.txt ex_table location, and/or memory-mappings</span></div><div class="line" id="000252"><span class="nick" style="color:#389600"><a href="#000252" label="[00:02:52]">&lt;aggi&gt;</a></span><span class="message">anyway, i am close to giving up on this;</span></div><div class="line" id="000318"><span class="nick" style="color:#389600"><a href="#000318" label="[00:03:18]">&lt;aggi&gt;</a></span><span class="message">because, i consider all this symptomatic for more principle issues involved</span></div><div class="line" id="000401"><span class="nick" style="color:#389600"><a href="#000401" label="[00:04:01]">&lt;aggi&gt;</a></span><span class="message">meaning, i am not willing to rely upon compilers/linkers/kernels which i couldn't reliably identify memory-layout/mappings with</span></div><div class="line" id="000447"><span class="nick" style="color:#389600"><a href="#000447" label="[00:04:47]">&lt;aggi&gt;</a></span><span class="message">as a consequence, this rules out: linux, gcc/binutils, since recently tcc-toolchain too, and Fiwix too required a patch to tcc-compiler concerning this</span></div><div class="line" id="000534"><span class="nick" style="color:#389600"><a href="#000534" label="[00:05:34]">&lt;aggi&gt;</a></span><span class="message">and i am not willing to touch llvm/clang either, since it's blocked against the no-c++ policy, besides other reasons (LoC of it etc)</span></div><div class="line" id="000540"><span class="nick" style="color:#8dd3c7"><a href="#000540" label="[00:05:40]">&lt;oriansj&gt;</a></span><span class="message">so you are going to end up making your own linker or have to leverage a non-standard one like mescc-tools</span></div><div class="line" id="000905"><span class="nick" style="color:#8dd3c7"><a href="#000905" label="[00:09:05]">&lt;oriansj&gt;</a></span><span class="message">but if you want one which M2-Planet can build; I have one halfway done: <a rel="nofollow" href="https://github.com/oriansj/M3-Meteoroid">https://github.com/oriansj/M3-Meteoroid</a> </span></div><div class="line" id="001324"><span class="nick" style="color:#389600"><a href="#001324" label="[00:13:24]">&lt;aggi&gt;</a></span><span class="message">oriansj: i haven't got an insight into the work of yours, although i kept various TODO notes linked to your repos already</span></div><div class="line" id="001436"><span class="nick" style="color:#389600"><a href="#001436" label="[00:14:36]">&lt;aggi&gt;</a></span><span class="message">the reasoning here was, to rely upon bootstrappable established the chain-of-trust arriving at tcc-toolchain: which i intended to use as the _only_ system compiler/linker/assembler for entire kernel/userspace</span></div><div class="line" id="001447"><span class="nick" style="color:#8dd3c7"><a href="#001447" label="[00:14:47]">&lt;oriansj&gt;</a></span><span class="message">the M3 work was originally to produce all of the functionality of TCC as separate tools to enable easy replacement</span></div><div class="line" id="001455"><span class="nick" style="color:#389600"><a href="#001455" label="[00:14:55]">&lt;aggi&gt;</a></span><span class="message">i see</span></div><div class="line" id="001549"><span class="nick" style="color:#8dd3c7"><a href="#001549" label="[00:15:49]">&lt;oriansj&gt;</a></span><span class="message">but the work from M2-Planet to mes.c and from mescc to TCC got done first and so it got shelved.</span></div><div class="line" id="001613"><span class="nick" style="color:#389600"><a href="#001613" label="[00:16:13]">&lt;aggi&gt;</a></span><span class="message">ok</span></div><div class="line" id="001644"><span class="nick" style="color:#389600"><a href="#001644" label="[00:16:44]">&lt;aggi&gt;</a></span><span class="message">the acceptance-testing i did recently, with tcc-tooclhain, covered kernel-compilation; with the mentioned outcome</span></div><div class="line" id="001744"><span class="nick" style="color:#389600"><a href="#001744" label="[00:17:44]">&lt;aggi&gt;</a></span><span class="message">however, for several other reasons, Fiwix is highly relevant; but, i intend to develop on and use the system itself, instead of it being an intermediate bootstrapping phase</span></div><div class="line" id="001801"><span class="nick" style="color:#389600"><a href="#001801" label="[00:18:01]">&lt;aggi&gt;</a></span><span class="message">meaning, the idea with linux-2.4/tcc, was a production-ready kernel with decent hardware-support</span></div><div class="line" id="001931"><span class="nick" style="color:#389600"><a href="#001931" label="[00:19:31]">&lt;aggi&gt;</a></span><span class="message">i refrained from Fiwix, because hardware-support is limited, no offense intended at all</span></div><div class="line" id="001959"><span class="nick" style="color:#389600"><a href="#001959" label="[00:19:59]">&lt;aggi&gt;</a></span><span class="message">and the other problem, was the weird patching of tcc to support fiwix compilation with</span></div><div class="line" id="002016"><span class="nick" style="color:#389600"><a href="#002016" label="[00:20:16]">&lt;aggi&gt;</a></span><span class="message">oriansj: could mescc compiler/linker emit a fiwix kernel image?</span></div><div class="line" id="002031"><span class="nick" style="color:#389600"><a href="#002031" label="[00:20:31]">&lt;aggi&gt;</a></span><span class="message">and, besides, an assembler may too be missing...</span></div><div class="line" id="002051"><span class="nick" style="color:#389600"><a href="#002051" label="[00:20:51]">&lt;aggi&gt;</a></span><span class="message">oriansj: i don't know, what M2/M3 contain and are capable of</span></div><div class="line" id="002114"><span class="nick" style="color:#389600"><a href="#002114" label="[00:21:14]">&lt;aggi&gt;</a></span><span class="message">to my understanding, those are used as intermediate utilities, to bootstrap GNU-toolchain (which i am not willing to)</span></div><div class="line" id="002255"><span class="nick" style="color:#389600"><a href="#002255" label="[00:22:55]">&lt;aggi&gt;</a></span><span class="message">currenlty, there is no way around tcc-toolchain, and with this I failed recently, to compile kernel AoT</span></div><div class="line" id="003207"><span class="nick" style="color:#2e2a4a"><a href="#003207" label="[00:32:07]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: do you remember why we disable IPv6 in qemu?</span></div><div class="line" id="013911"><span class="nick" style="color:#8dd3c7"><a href="#013911" label="[01:39:11]">&lt;oriansj&gt;</a></span><span class="message">aggi: simple and predictable compilation of C code; the assembly of the generated M1 assembly output and linking of the hex2 object files</span></div><div class="line" id="014233"><span class="nick" style="color:#389600"><a href="#014233" label="[01:42:33]">&lt;aggi&gt;</a></span><span class="message">oriansj: impressive. yet probably doesn't suffice for linux-2.x or fiwix? anyway, fyi, i sent a mail to bellard, and put you in bcc</span></div><div class="line" id="020717"><span class="nick" style="color:#8dd3c7"><a href="#020717" label="[02:07:17]">&lt;oriansj&gt;</a></span><span class="message">aggi: not without work being done.</span></div><div class="line" id="023021"><span class="nick" style="color:#389600"><a href="#023021" label="[02:30:21]">&lt;aggi&gt;</a></span><span class="message">ok. got no insight yet, how much efforts it is; and what's the more reasonable approach</span></div><div class="line" id="023132"><span class="nick" style="color:#389600"><a href="#023132" label="[02:31:32]">&lt;aggi&gt;</a></span><span class="message">oriansj: in any case, a linux-2.x/fiwix type kernel is required, and neither pass with tcc or mescc currently, without raising fundemental questions</span></div><div class="line" id="023403"><span class="nick" style="color:#389600"><a href="#023403" label="[02:34:03]">&lt;aggi&gt;</a></span><span class="message">that's the bootstrappable path, simplified: mescc-&gt;tcc-&gt;gcc/binutils-&gt;kernel/userspace; while the alternative mescc-&gt;tcc-&gt;kernel/userspace are blocked at tcc failing with kernel-2.x</span></div><div class="line" id="030017"><span class="nick" style="color:#8dd3c7"><a href="#030017" label="[03:00:17]">&lt;oriansj&gt;</a></span><span class="message">aggi: well that is the nice thing about a working path today, it gives you a target to hit tomorrow from a different direction.</span></div><div class="line" id="113541"><span class="nick" style="color:#389600"><a href="#113541" label="[11:35:41]">&lt;aggi&gt;</a></span><span class="message">oriansj: fyi, manged to create a somewhat working tccboot-loader (just changed to CC/LD/AS=tcc-i386 instead of the default gcc, and it launches now)</span></div><div class="line" id="113622"><span class="nick" style="color:#389600"><a href="#113622" label="[11:36:22]">&lt;aggi&gt;</a></span><span class="message">that's probably awesome, because with this i can re-produce and cover various test-cases, including a template to hack together a custom bootloader known to work, if it does</span></div><div class="line" id="113629"><span class="nick" style="color:#389600"><a href="#113629" label="[11:36:29]">&lt;aggi&gt;</a></span><span class="message">need some sleep...</span></div><div class="line" id="113704"><span class="nick" style="color:#389600"><a href="#113704" label="[11:37:04]">&lt;aggi&gt;</a></span><span class="message">hooking into a latest version of tcc-0.9.27 too may need some refactoring, however, it's worth the effort now</span></div><div class="line" id="114216"><span class="nick" style="color:#6b8072"><a href="#114216" label="[11:42:16]">&lt;gforce_de1977&gt;</a></span><span class="message">aggi: thanks for not getting lost and writing a mail to mr. bellard - it would be bad to not ask questions</span></div><div class="line" id="114605"><span class="nick" style="color:#389600"><a href="#114605" label="[11:46:05]">&lt;aggi&gt;</a></span><span class="message">well, the AoT kernel image still crashes; at least now i potentiall can diff/bisect why that is</span></div><div class="line" id="114644"><span class="nick" style="color:#389600"><a href="#114644" label="[11:46:44]">&lt;aggi&gt;</a></span><span class="message">and, as an alternative, if i could not untangle this, then optionally i can rewrite tccboot a little, to load and execute a pre-compiled kernel.img</span></div><div class="line" id="114731"><span class="nick" style="color:#389600"><a href="#114731" label="[11:47:31]">&lt;aggi&gt;</a></span><span class="message">anyway, this was really important steps, because a chain-of-trust against the software supply chain can be re-established now, without gnu-toolchain involved</span></div><div class="line" id="114829"><span class="nick" style="color:#389600"><a href="#114829" label="[11:48:29]">&lt;aggi&gt;</a></span><span class="message">and, if linux-2.4 is finalized with some userspace, this too should be capable to bootstrap the whole GNU with tcc, with a fully capable system and decent hardware support which linux-2.4 got</span></div><div class="line" id="115012"><span class="nick" style="color:#389600"><a href="#115012" label="[11:50:12]">&lt;aggi&gt;</a></span><span class="message">anyway, i got another dozen of test-cases to launch in the next days, so i'll shut up and hack this</span></div><div class="line" id="115025"><span class="nick" style="color:#389600"><a href="#115025" label="[11:50:25]">&lt;aggi&gt;</a></span><span class="message">maybe Bellard got one or another hint too, which would be nice</span></div><div class="line" id="121344"><span class="nick" style="color:#80b1d3"><a href="#121344" label="[12:13:44]">&lt;avih&gt;</a></span><span class="message">aggi: grats :)</span></div><div class="line" id="125412"><span class="nick" style="color:#389600"><a href="#125412" label="[12:54:12]">&lt;aggi&gt;</a></span><span class="message">too early avih</span></div><div class="line" id="142353"><span class="nick" style="color:#80b1d3"><a href="#142353" label="[14:23:53]">&lt;avih&gt;</a></span><span class="message">aggi: ok, so ignore that ;)</span></div><div class="line" id="145400"><span class="nick" style="color:#6d2462"><a href="#145400" label="[14:54:00]">&lt;muurkha&gt;</a></span><span class="message">aggi: it'd be great if he took an interest in the project</span></div><div class="line" id="172555"><span class="nick" style="color:#234e69"><a href="#172555" label="[17:25:55]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: not sure if you're around but I may have a clue on the disk failures.</span></div><div class="line" id="172734"><span class="nick" style="color:#234e69"><a href="#172734" label="[17:27:34]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: I got a &quot;Memory exhausted&quot; error from tar in a place that commonly would hang.</span></div><div class="line" id="172829"><span class="nick" style="color:#234e69"><a href="#172829" label="[17:28:29]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: Its the first time I've seen that. Maybe the disk subsystem uses more memory and we're running out.</span></div><div class="line" id="172943"><span class="nick" style="color:#234e69"><a href="#172943" label="[17:29:43]">&lt;rickmasters&gt;</a></span><span class="message">And most of the time something goes haywire in the kernel but in this one case it just happened to error out properly.</span></div><div class="line" id="174426"><span class="nick" style="color:#6c3d55"><a href="#174426" label="[17:44:26]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: the message 'memory exhausted' seems to come from a user program, not by the kernel. In that case kernel should also show its own 'out of memory' message</span></div><div class="line" id="174520"><span class="nick" style="color:#234e69"><a href="#174520" label="[17:45:20]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: Well kmalloc prints nothing if it returns 0 so I'm wondering what I will see if I add a printk in that case. I'm testing that now.</span></div><div class="line" id="174818"><span class="nick" style="color:#6c3d55"><a href="#174818" label="[17:48:18]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: I always use this simple program to force kernel run out of memory: &lt;<a rel="nofollow" href="https://pastesite.org/view/6773b3e7">https://pastesite.org/view/6773b3e7</a>&gt; </span></div><div class="line" id="175005"><span class="nick" style="color:#6c3d55"><a href="#175005" label="[17:50:05]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: I think your branch of the kernel doesn't cover the changes in get_free_page() and reclaim_buffers() I did recently</span></div><div class="line" id="175120"><span class="nick" style="color:#234e69"><a href="#175120" label="[17:51:20]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: I couldn't test with that due to the Issue I just filed but if the fix works I can start testing the latest code.</span></div><div class="line" id="175620"><span class="nick" style="color:#6c3d55"><a href="#175620" label="[17:56:20]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: I'm just reading the issue #28</span></div><div class="line" id="180323"><span class="nick" style="color:#234e69"><a href="#180323" label="[18:03:23]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: re #28: so using sizeof(struct dirent) in readdir seems to work but just changing the kmalloc back to PAGE_SIZE is probably better.</span></div><div class="line" id="180617"><span class="nick" style="color:#6c3d55"><a href="#180617" label="[18:06:17]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: ack, let's revert 58ca771 then</span></div><div class="line" id="183743"><span class="nick" style="color:#234e69"><a href="#183743" label="[18:37:43]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: I don't see any kmalloc failures associated with the build fails.</span></div><div class="line" id="183752"><span class="nick" style="color:#234e69"><a href="#183752" label="[18:37:52]">&lt;rickmasters&gt;</a></span><span class="message">I'll be away for a couple hours.</span></div><div class="line" id="183850"><span class="nick" style="color:#6c3d55"><a href="#183850" label="[18:38:50]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: ok, thanks</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-01-02.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="075420"><span class="nick" style="color:#8dd3c7"><a href="#075420" label="[07:54:20]">&lt;fossy&gt;</a></span><span class="message">after playing with vars and fixing a weird problem with my shell</span></div><div class="line" id="075422"><span class="nick" style="color:#8dd3c7"><a href="#075422" label="[07:54:22]">&lt;fossy&gt;</a></span><span class="message">assert fail: g_cells[string].type == TSTRING</span></div><div class="line" id="075426"><span class="nick" style="color:#8dd3c7"><a href="#075426" label="[07:54:26]">&lt;fossy&gt;</a></span><span class="message">^ that's what i'm gettin gnow</span></div><div class="line" id="075431"><span class="nick" style="color:#8dd3c7"><a href="#075431" label="[07:54:31]">&lt;fossy&gt;</a></span><span class="message">even with the mescc script</span></div><div class="line" id="075442"><span class="nick" style="color:#8dd3c7"><a href="#075442" label="[07:54:42]">&lt;fossy&gt;</a></span><span class="message">which sets all the env vars afaict</span></div><div class="line" id="081045"><span class="nick" style="color:#2e2a4a"><a href="#081045" label="[08:10:45]">&lt;janneke&gt;</a></span><span class="message">fossy: setting MES_DEBUG=2 may give some information, i figure this is with mes-m2?</span></div><div class="line" id="082646"><span class="nick" style="color:#8dd3c7"><a href="#082646" label="[08:26:46]">&lt;fossy&gt;</a></span><span class="message">nope</span></div><div class="line" id="082701"><span class="nick" style="color:#8dd3c7"><a href="#082701" label="[08:27:01]">&lt;fossy&gt;</a></span><span class="message">janneke: this is with the mes bootstrap binaries from guix</span></div><div class="line" id="082720"><span class="nick" style="color:#8dd3c7"><a href="#082720" label="[08:27:20]">&lt;fossy&gt;</a></span><span class="message">im attempting to go through commencement.scm manually</span></div><div class="line" id="082907"><span class="nick" style="color:#8dd3c7"><a href="#082907" label="[08:29:07]">&lt;fossy&gt;</a></span><span class="message">oh I am stupid</span></div><div class="line" id="082915"><span class="nick" style="color:#8dd3c7"><a href="#082915" label="[08:29:15]">&lt;fossy&gt;</a></span><span class="message">I forgot to do mes rewired</span></div><div class="line" id="082948"><span class="nick" style="color:#8dd3c7"><a href="#082948" label="[08:29:48]">&lt;fossy&gt;</a></span><span class="message">ill do that and trace my way back up and report back</span></div><div class="line" id="083215"><span class="nick" style="color:#2e2a4a"><a href="#083215" label="[08:32:15]">&lt;janneke&gt;</a></span><span class="message">fossy: ah great!</span></div><div class="line" id="083304"><span class="nick" style="color:#2e2a4a"><a href="#083304" label="[08:33:04]">&lt;janneke&gt;</a></span><span class="message">what does manually mean; are you using `guix build' or even more manual, are you on guix at all?</span></div><div class="line" id="083745"><span class="nick" style="color:#2e2a4a"><a href="#083745" label="[08:37:45]">&lt;janneke&gt;</a></span><span class="message">fossy: guix' wip-bootstrap, using %bootstrap-mes-rewired is somewhat complicated; it gets easier when using a newer bootstrap-mes.  we just did not want to update the guix bootstrap binaries.</span></div><div class="line" id="083848"><span class="nick" style="color:#8dd3c7"><a href="#083848" label="[08:38:48]">&lt;fossy&gt;</a></span><span class="message">janneke: no, I am not on guix</span></div><div class="line" id="083904"><span class="nick" style="color:#8dd3c7"><a href="#083904" label="[08:39:04]">&lt;fossy&gt;</a></span><span class="message">janneke: I am following wip-bootstrap</span></div><div class="line" id="083913"><span class="nick" style="color:#8dd3c7"><a href="#083913" label="[08:39:13]">&lt;fossy&gt;</a></span><span class="message">pretty much converting it to shell</span></div><div class="line" id="083924"><span class="nick" style="color:#8dd3c7"><a href="#083924" label="[08:39:24]">&lt;fossy&gt;</a></span><span class="message">and removing the guixisms etc</span></div><div class="line" id="083935"><span class="nick" style="color:#8dd3c7"><a href="#083935" label="[08:39:35]">&lt;fossy&gt;</a></span><span class="message">Im trying to get a feel for the bootstrap process</span></div><div class="line" id="084330"><span class="nick" style="color:#2e2a4a"><a href="#084330" label="[08:43:30]">&lt;janneke&gt;</a></span><span class="message">very nice; you are looking at guix wip-bootstrap branch?</span></div><div class="line" id="084743"><span class="nick" style="color:#2e2a4a"><a href="#084743" label="[08:47:43]">&lt;janneke&gt;</a></span><span class="message">instead of using a binary mes-0.19 as bootstrap seed and then rewire it, you might use a binary mes 0.21-54-g85cadbb2c</span></div><div class="line" id="084813"><span class="nick" style="color:#2e2a4a"><a href="#084813" label="[08:48:13]">&lt;janneke&gt;</a></span><span class="message">that would not need rewiring, only MES_PREFIX needs to be set</span></div><div class="line" id="085023"><span class="nick" style="color:#2e2a4a"><a href="#085023" label="[08:50:23]">&lt;janneke&gt;</a></span><span class="message">fossy: have you made your work available yet?</span></div><div class="line" id="091259"><span class="nick" style="color:#8dd3c7"><a href="#091259" label="[09:12:59]">&lt;fossy&gt;</a></span><span class="message">janneke: oh cool</span></div><div class="line" id="091301"><span class="nick" style="color:#8dd3c7"><a href="#091301" label="[09:13:01]">&lt;fossy&gt;</a></span><span class="message">no I havenr</span></div><div class="line" id="091307"><span class="nick" style="color:#8dd3c7"><a href="#091307" label="[09:13:07]">&lt;fossy&gt;</a></span><span class="message">havent</span></div><div class="line" id="091318"><span class="nick" style="color:#8dd3c7"><a href="#091318" label="[09:13:18]">&lt;fossy&gt;</a></span><span class="message">I plan to once I get tcc in</span></div><div class="line" id="091549"><span class="nick" style="color:#8dd3c7"><a href="#091549" label="[09:15:49]">&lt;fossy&gt;</a></span><span class="message">and I am looking at wip-bootstrap</span></div><div class="line" id="092113"><span class="nick" style="color:#2e2a4a"><a href="#092113" label="[09:21:13]">&lt;janneke&gt;</a></span><span class="message">fossy: also, xwvvvvwx has started porting the mes bootstrap to nix, that might be interesting too</span></div><div class="line" id="092123"><span class="nick" style="color:#8dd3c7"><a href="#092123" label="[09:21:23]">&lt;fossy&gt;</a></span><span class="message">interesting</span></div><div class="line" id="092145"><span class="nick" style="color:#2e2a4a"><a href="#092145" label="[09:21:45]">&lt;janneke&gt;</a></span><span class="message">nix is using busybox in their bootstrap binaries</span></div><div class="line" id="092224"><span class="nick" style="color:#2e2a4a"><a href="#092224" label="[09:22:24]">&lt;janneke&gt;</a></span><span class="message">and so it's undecided yet if nix will be using gash+gash core utils soon in their bootstrap</span></div><div class="line" id="092257"><span class="nick" style="color:#2e2a4a"><a href="#092257" label="[09:22:57]">&lt;janneke&gt;</a></span><span class="message">it might, once mes can run gash...</span></div><div class="line" id="161349"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="172311"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="221703"><span class="nick" style="color:#8dd3c7"><a href="#221703" label="[22:17:03]">&lt;fossy&gt;</a></span><span class="message">janneke: so im putting together seeds for my project</span></div><div class="line" id="221716"><span class="nick" style="color:#8dd3c7"><a href="#221716" label="[22:17:16]">&lt;fossy&gt;</a></span><span class="message">whats the purpose of guile in guix</span></div><div class="line" id="221728"><span class="nick" style="color:#8dd3c7"><a href="#221728" label="[22:17:28]">&lt;fossy&gt;</a></span><span class="message">because removing it will strip a lot off the binary seed</span></div><div class="line" id="221837"><span class="nick" style="color:#2e2a4a"><a href="#221837" label="[22:18:37]">&lt;janneke&gt;</a></span><span class="message">fossy: in guix it has multiple purposes</span></div><div class="line" id="221940"><span class="nick" style="color:#2e2a4a"><a href="#221940" label="[22:19:40]">&lt;janneke&gt;</a></span><span class="message">guile runs the guix build system</span></div><div class="line" id="221957"><span class="nick" style="color:#2e2a4a"><a href="#221957" label="[22:19:57]">&lt;janneke&gt;</a></span><span class="message">guile runs gash and gash core utils</span></div><div class="line" id="222026"><span class="nick" style="color:#2e2a4a"><a href="#222026" label="[22:20:26]">&lt;janneke&gt;</a></span><span class="message">if you don't use guix, guile would only be necessary to run gash and gash core utils</span></div><div class="line" id="222215"><span class="nick" style="color:#2e2a4a"><a href="#222215" label="[22:22:15]">&lt;janneke&gt;</a></span><span class="message">so you could swap guile with eg busybox or equivalent</span></div><div class="line" id="222257"><span class="nick" style="color:#8dd3c7"><a href="#222257" label="[22:22:57]">&lt;fossy&gt;</a></span><span class="message">right</span></div><div class="line" id="222304"><span class="nick" style="color:#8dd3c7"><a href="#222304" label="[22:23:04]">&lt;fossy&gt;</a></span><span class="message">yeah I plan to use busybox</span></div><div class="line" id="222312"><span class="nick" style="color:#8dd3c7"><a href="#222312" label="[22:23:12]">&lt;fossy&gt;</a></span><span class="message">instead of coreutils</span></div><div class="line" id="222319"><span class="nick" style="color:#8dd3c7"><a href="#222319" label="[22:23:19]">&lt;fossy&gt;</a></span><span class="message">to try to make it smaller</span></div><div class="line" id="222348"><span class="nick" style="color:#2e2a4a"><a href="#222348" label="[22:23:48]">&lt;janneke&gt;</a></span><span class="message">in the guix bootstrap, coreutils is built pretty late, guile is built much later even</span></div><div class="line" id="222415"><span class="nick" style="color:#2e2a4a"><a href="#222415" label="[22:24:15]">&lt;janneke&gt;</a></span><span class="message">that's probably going to be the nix route, at least initially</span></div><div class="line" id="222454"><span class="nick" style="color:#2e2a4a"><a href="#222454" label="[22:24:54]">&lt;janneke&gt;</a></span><span class="message">it could be interesting to pursue different routes and verify we get the same outcome/hash for at least mes, tcc</span></div><div class="line" id="222542"><span class="nick" style="color:#8dd3c7"><a href="#222542" label="[22:25:42]">&lt;fossy&gt;</a></span><span class="message">yeah that would be good</span></div><br /></div></body></html>

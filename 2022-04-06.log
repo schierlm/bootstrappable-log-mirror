@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-04-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010129"><span class="nick" style="color:#8dd3c7"><a href="#010129" label="[01:01:29]">&lt;stikonas&gt;</a></span><span class="message">live-bootstrap and linux-from-scratch is only small specific part of software engineering. You can learn some things but that might not be enough for most software engineering jbos</span></div><div class="line" id="010504"><span class="nick" style="color:#2e2a4a"><a href="#010504" label="[01:05:04]">&lt;muurkha&gt;</a></span><span class="message">well, there's an awful lot you have to learn to debug &quot;why doesn't this software compile?&quot; or &quot;why does this software I just got to compile crash on startup?&quot;</span></div><div class="line" id="010641"><span class="nick" style="color:#2e2a4a"><a href="#010641" label="[01:06:41]">&lt;muurkha&gt;</a></span><span class="message">which might be more important in practice than the names of the 7 layers of the OSI model or the asymptotic complexity of heapsort</span></div><div class="line" id="032245"><span class="nick" style="color:#6b8072"><a href="#032245" label="[03:22:45]">&lt;oriansj&gt;</a></span><span class="message">muurkha: the AArch64 and riscv64 port of stage0-posix were each done in about a month. Mind you this included creating the M1/hex2 details, writing ELF-headers and doing *ALL* of the coding including hex0 work.  So I wouldn't consider myself that special of a programmer as everyone else here seems to be just as good if not better by a large margin at various bits.</span></div><div class="line" id="043316"><span class="nick">***</span><span class="message notice">jackhill is now known as jackhill[m]</span></div><div class="line" id="043327"><span class="nick">***</span><span class="message notice">jackhill[m] is now known as jackhill</span></div><div class="line" id="050653"><span class="nick" style="color:#80b1d3"><a href="#050653" label="[05:06:53]">&lt;littlebobeep&gt;</a></span><span class="message">Confused about C# bootstrapping here:</span></div><div class="line" id="050656"><span class="nick" style="color:#80b1d3"><a href="#050656" label="[05:06:56]">&lt;littlebobeep&gt;</a></span><span class="message"> <a rel="nofollow" href="https://bootstrapping.miraheze.org/wiki/Bootstrapping_Specific_Languages">https://bootstrapping.miraheze.org/wiki/Bootstrapping_Specific_Languages</a> </span></div><div class="line" id="050701"><span class="nick" style="color:#80b1d3"><a href="#050701" label="[05:07:01]">&lt;littlebobeep&gt;</a></span><span class="message">&quot;While the runtime of Mono is written in C, the C# compiler of Mono is written in C# itself, and needs a recent version of Mono to bootstrap. &quot;</span></div><div class="line" id="050711"><span class="nick" style="color:#80b1d3"><a href="#050711" label="[05:07:11]">&lt;littlebobeep&gt;</a></span><span class="message">But this site: <a rel="nofollow" href="https://handwiki.org/wiki/Bootstrapping_">https://handwiki.org/wiki/Bootstrapping_</a>(compilers) </span></div><div class="line" id="050724"><span class="nick" style="color:#80b1d3"><a href="#050724" label="[05:07:24]">&lt;littlebobeep&gt;</a></span><span class="message">says C# is bootstrapped</span></div><div class="line" id="050738"><span class="nick" style="color:#80b1d3"><a href="#050738" label="[05:07:38]">&lt;littlebobeep&gt;</a></span><span class="message">how?</span></div><div class="line" id="051119"><span class="nick" style="color:#6b8072"><a href="#051119" label="[05:11:19]">&lt;oriansj&gt;</a></span><span class="message">littlebobeep: well you could look at how it is built: gnu/packages/mono.scm</span></div><div class="line" id="052432"><span class="nick" style="color:#6b8072"><a href="#052432" label="[05:24:32]">&lt;oriansj&gt;</a></span><span class="message">well I don't see the C# mono compiler being built. And looking at the history of Mono: <a rel="nofollow" href="https://www.mono-project.com/docs/about-mono/history/">https://www.mono-project.com/docs/about-mono/history/</a>  it was always written in C# but bootstrapped from the Microsoft C# compiler</span></div><div class="line" id="052718"><span class="nick" style="color:#6b8072"><a href="#052718" label="[05:27:18]">&lt;oriansj&gt;</a></span><span class="message">So there might not be a Libre way to bootstrap C# yet</span></div><div class="line" id="052800"><span class="nick" style="color:#6b8072"><a href="#052800" label="[05:28:00]">&lt;oriansj&gt;</a></span><span class="message">and finding if someone else worked on that problem is complicated by Microsoft using the C# and bootstrap keyword for one of their products</span></div><div class="line" id="053317"><span class="nick" style="color:#6b8072"><a href="#053317" label="[05:33:17]">&lt;oriansj&gt;</a></span><span class="message">ooh; found: <a rel="nofollow" href="https://www.gnu.org/software/dotgnu/pnet.html">https://www.gnu.org/software/dotgnu/pnet.html</a> </span></div><div class="line" id="053351"><span class="nick" style="color:#6d2462"><a href="#053351" label="[05:33:51]">&lt;pabs3&gt;</a></span><span class="message">ISTR Mono is merged into the official Microsoft .NET stuff these days</span></div><div class="line" id="053459"><span class="nick" style="color:#6b8072"><a href="#053459" label="[05:34:59]">&lt;oriansj&gt;</a></span><span class="message">So there is probably a path using pnet to build a version of mono and a chain to the latest C# compiler</span></div><div class="line" id="053856"><span class="nick" style="color:#6b8072"><a href="#053856" label="[05:38:56]">&lt;oriansj&gt;</a></span><span class="message">and the patents didn't quite expire for C# yet, so there is that complication which the FSF <a rel="nofollow" href="https://www.fsf.org/news/dont-depend-on-mono">https://www.fsf.org/news/dont-depend-on-mono</a>  points out</span></div><div class="line" id="054011"><span class="nick" style="color:#80b1d3"><a href="#054011" label="[05:40:11]">&lt;littlebobeep&gt;</a></span><span class="message">Didn't MS promise not to exert patents on projects?</span></div><div class="line" id="054029"><span class="nick" style="color:#6b8072"><a href="#054029" label="[05:40:29]">&lt;oriansj&gt;</a></span><span class="message">it would probably be a weekend (to week long) project figuring out the steps and getting a C# compiler into Guix and then we would have to update our wiki accordingly with the praise for the person who did the work.</span></div><div class="line" id="054101"><span class="nick" style="color:#80b1d3"><a href="#054101" label="[05:41:01]">&lt;littlebobeep&gt;</a></span><span class="message">oriansj: one week sounds shorter than 2 years haha</span></div><div class="line" id="054134"><span class="nick" style="color:#6b8072"><a href="#054134" label="[05:41:34]">&lt;oriansj&gt;</a></span><span class="message">littlebobeep: promises are not legally binding and MicroSoft is a business who will do what makes them more money</span></div><div class="line" id="054331"><span class="nick" style="color:#6b8072"><a href="#054331" label="[05:43:31]">&lt;oriansj&gt;</a></span><span class="message">littlebobeep: well JavaScript requires much more work to detangle than making a package for a single program, finding the newest version of mono it can successfully build (and then self-host) and then walking the chain to latest</span></div><div class="line" id="054500"><span class="nick" style="color:#6b8072"><a href="#054500" label="[05:45:00]">&lt;oriansj&gt;</a></span><span class="message">verse JavaScript being: it downloads arbitrary binary blobs from god knows where and figure out what source code corresponds to those blobs and figure out ....</span></div><div class="line" id="055357"><span class="nick" style="color:#6b8072"><a href="#055357" label="[05:53:57]">&lt;oriansj&gt;</a></span><span class="message">and I updated the wiki to reflect this additional data</span></div><div class="line" id="055731"><span class="nick" style="color:#6b8072"><a href="#055731" label="[05:57:31]">&lt;oriansj&gt;</a></span><span class="message">and it is buildable C</span></div><div class="line" id="055943"><span class="nick" style="color:#6b8072"><a href="#055943" label="[05:59:43]">&lt;oriansj&gt;</a></span><span class="message">so still buckets of bootstrapping work to do; shitload of low hanging fruit for anyone to pick up</span></div><div class="line" id="060358"><span class="nick" style="color:#2e2a4a"><a href="#060358" label="[06:03:58]">&lt;muurkha&gt;</a></span><span class="message">promises are legally binding; sometimes they are called &quot;contracts&quot; or &quot;covenants&quot; in legalese</span></div><div class="line" id="060425"><span class="nick" style="color:#2e2a4a"><a href="#060425" label="[06:04:25]">&lt;muurkha&gt;</a></span><span class="message">most of common law is actually about promises</span></div><div class="line" id="061032"><span class="nick" style="color:#6b8072"><a href="#061032" label="[06:10:32]">&lt;oriansj&gt;</a></span><span class="message">muurkha: perhaps I should have been more legally precise. I have not seen a Microsoft statement which in the court of law would prevent them from enforcing their patent rights against a party doing Free Software Development</span></div><div class="line" id="063447"><span class="nick" style="color:#2e2a4a"><a href="#063447" label="[06:34:47]">&lt;muurkha&gt;</a></span><span class="message">there are various, but none that are as broad as we'd like; <a rel="nofollow" href="https://en.wikipedia.org/wiki/Microsoft_Open_Specification_Promise">https://en.wikipedia.org/wiki/Microsoft_Open_Specification_Promise</a>  was one of the first ones</span></div><div class="line" id="063623"><span class="nick" style="color:#2e2a4a"><a href="#063623" label="[06:36:23]">&lt;muurkha&gt;</a></span><span class="message">they sure do talk a big game though: <a rel="nofollow" href="https://www.microsoft.com/en-us/legal/intellectualproperty/open-source">https://www.microsoft.com/en-us/legal/intellectualproperty/open-source</a> </span></div><div class="line" id="063810"><span class="nick" style="color:#2e2a4a"><a href="#063810" label="[06:38:10]">&lt;muurkha&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.mono-project.com/docs/about-mono/concerns-about-mono/">https://www.mono-project.com/docs/about-mono/concerns-about-mono/</a>  says &quot;At this point we know of no patents that Mono infringes upon. Any knowledge of such patents would be welcome as it may allow us to modify Mono in a way that reduces or eliminates the concern over infringement.&quot;</span></div><div class="line" id="103247"><span class="nick">***</span><span class="message notice">DonRichie2 is now known as DonRichie</span></div><div class="line" id="104548"><span class="nick">***</span><span class="message notice">roptat is now known as Guest8410</span></div><div class="line" id="115653"><span class="nick" style="color:#234e69"><a href="#115653" label="[11:56:53]">&lt;unmatched-paren&gt;</a></span><span class="message">so i'm reading through the asm versions of the stage0 programs, and I'm currently looking at hex0, but i'm not entirely sure how it accesses the command-line arguments?</span></div><div class="line" id="115752"><span class="nick" style="color:#234e69"><a href="#115752" label="[11:57:52]">&lt;unmatched-paren&gt;</a></span><span class="message">I understand that linux initializes the stack to contain argv, followed by a null, then env variables</span></div><div class="line" id="115809"><span class="nick" style="color:#234e69"><a href="#115809" label="[11:58:09]">&lt;unmatched-paren&gt;</a></span><span class="message">    ld a1, 16(sp)         # Input file name</span></div><div class="line" id="115820"><span class="nick" style="color:#234e69"><a href="#115820" label="[11:58:20]">&lt;unmatched-paren&gt;</a></span><span class="message">why here do we use 16(sp) specifically?</span></div><div class="line" id="115940"><span class="nick" style="color:#234e69"><a href="#115940" label="[11:59:40]">&lt;unmatched-paren&gt;</a></span><span class="message">i guess it's to skip argv[0]? but wouldn't that be a 64-bit pointer (which would be skippable with 8(sp))?</span></div><div class="line" id="120029"><span class="nick" style="color:#234e69"><a href="#120029" label="[12:00:29]">&lt;unmatched-paren&gt;</a></span><span class="message">i'll have a look at the c versions</span></div><div class="line" id="120146"><span class="nick" style="color:#234e69"><a href="#120146" label="[12:01:46]">&lt;unmatched-paren&gt;</a></span><span class="message">OH RIGHT</span></div><div class="line" id="120151"><span class="nick" style="color:#234e69"><a href="#120151" label="[12:01:51]">&lt;unmatched-paren&gt;</a></span><span class="message">I forgot about argc!</span></div><div class="line" id="120206"><span class="nick" style="color:#234e69"><a href="#120206" label="[12:02:06]">&lt;unmatched-paren&gt;</a></span><span class="message">makes sense now :)</span></div><div class="line" id="120546"><span class="nick" style="color:#234e69"><a href="#120546" label="[12:05:46]">&lt;unmatched-paren&gt;</a></span><span class="message">so... does the stack look like this?</span></div><div class="line" id="120652"><span class="nick" style="color:#234e69"><a href="#120652" label="[12:06:52]">&lt;unmatched-paren&gt;</a></span><span class="message">long argc (64 bits, 8 bytes), char *argv[] (each pointer is 64 bits, 8 bytes), [however the env variables are represented]</span></div><div class="line" id="124215"><span class="nick" style="color:#234e69"><a href="#124215" label="[12:42:15]">&lt;unmatched-paren&gt;</a></span><span class="message">^ with a NULL between argv and the env vars</span></div><div class="line" id="130138"><span class="nick" style="color:#6b8072"><a href="#130138" label="[13:01:38]">&lt;oriansj&gt;</a></span><span class="message">unmatched-paren: the x86 and AMD64 versions actually do popping of the stack as you would expect</span></div><div class="line" id="233629"><span class="nick" style="color:#8dd3c7"><a href="#233629" label="[23:36:29]">&lt;stikonas&gt;</a></span><span class="message">fossy: after your last PR parts.rst is a bit out of date compared to run.sh files</span></div><br /></div></body></html>

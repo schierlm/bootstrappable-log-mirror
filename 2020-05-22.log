@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-05-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="142400"><span class="nick" style="color:#8dd3c7"><a href="#142400" label="[14:24:00]">&lt;gf&gt;</a></span><span class="message">stikonas: Thanks! Always helps to have multiple base of reference works</span></div><div class="line" id="143552"><span class="nick" style="color:#8dd3c7"><a href="#143552" label="[14:35:52]">&lt;gf&gt;</a></span><span class="message">stikonas: Might be silly question, but Where should I look for this &quot;Then we compile a slightly patched ecj-4.2&quot; patch</span></div><div class="line" id="143703"><span class="nick" style="color:#8dd3c7"><a href="#143703" label="[14:37:03]">&lt;gf&gt;</a></span><span class="message">Is this it ?</span></div><div class="line" id="143740"><span class="nick" style="color:#8dd3c7"><a href="#143740" label="[14:37:40]">&lt;gf&gt;</a></span><span class="message"> <a rel="nofollow" href="https://git.stikonas.eu/andrius/gentoo-bootstrap/src/branch/master/dev-java/eclipse-ecj/files/eclipse-ecj-3.2-build-gentoo.patch">https://git.stikonas.eu/andrius/gentoo-bootstrap/src/branch/master/dev-java/eclipse-ecj/files/eclipse-ecj-3.2-build-gentoo.patch</a> </span></div><div class="line" id="143922"><span class="nick" style="color:#8dd3c7"><a href="#143922" label="[14:39:22]">&lt;gf&gt;</a></span><span class="message">It appears that the patch strips @Override form files, is that it?</span></div><div class="line" id="145114"><span class="nick" style="color:#2e2a4a"><a href="#145114" label="[14:51:14]">&lt;stikonas&gt;</a></span><span class="message">gf: indeed</span></div><div class="line" id="145124"><span class="nick" style="color:#2e2a4a"><a href="#145124" label="[14:51:24]">&lt;stikonas&gt;</a></span><span class="message">that's the only thing that patch does</span></div><div class="line" id="145144"><span class="nick" style="color:#2e2a4a"><a href="#145144" label="[14:51:44]">&lt;stikonas&gt;</a></span><span class="message">the old ecj was not accepting those @Override annotations</span></div><div class="line" id="145205"><span class="nick" style="color:#2e2a4a"><a href="#145205" label="[14:52:05]">&lt;stikonas&gt;</a></span><span class="message">and then ecj-4.2 is enough to immediately go to icedtea-7</span></div><div class="line" id="145215"><span class="nick" style="color:#2e2a4a"><a href="#145215" label="[14:52:15]">&lt;stikonas&gt;</a></span><span class="message">unlike guix path which goes via icedtea-6</span></div><div class="line" id="145417"><span class="nick" style="color:#8dd3c7"><a href="#145417" label="[14:54:17]">&lt;gf&gt;</a></span><span class="message">OK, thats good news to me. Was stuck on icedtea-6 config missing a libxt when its there... Ill try that path</span></div><div class="line" id="145503"><span class="nick" style="color:#2e2a4a"><a href="#145503" label="[14:55:03]">&lt;stikonas&gt;</a></span><span class="message">gf: I was a bit stuck with icedtea-7 and hotspot VM, so I instead went with icedtea-7 and JamVM (which is quite a bit slower)\</span></div><div class="line" id="145603"><span class="nick" style="color:#8dd3c7"><a href="#145603" label="[14:56:03]">&lt;gf&gt;</a></span><span class="message">its bootstrapping so I guess speed is non-issue until we reach openjdk</span></div><div class="line" id="145604"><span class="nick" style="color:#2e2a4a"><a href="#145604" label="[14:56:04]">&lt;stikonas&gt;</a></span><span class="message">anyway, other than that the path is the same as in guix</span></div><div class="line" id="145615"><span class="nick" style="color:#2e2a4a"><a href="#145615" label="[14:56:15]">&lt;stikonas&gt;</a></span><span class="message">yeah, that's why I didn't bother...</span></div><div class="line" id="145658"><span class="nick" style="color:#2e2a4a"><a href="#145658" label="[14:56:58]">&lt;stikonas&gt;</a></span><span class="message">and skipping icedtea-6 basically compensates for jamvm being slower</span></div><div class="line" id="151303"><span class="nick" style="color:#6b8072"><a href="#151303" label="[15:13:03]">&lt;webczat&gt;</a></span><span class="message">Hi, what's up?</span></div><div class="line" id="181117"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="181127"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><br /></div></body></html>

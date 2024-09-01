@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-08-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="015238"><span class="nick" style="color:#8dd3c7"><a href="#015238" label="[01:52:38]">&lt;oriansj&gt;</a></span><span class="message">stikonas: there is a pull request from you on M2libc. Did you want me to merge it or were you still working on it?</span></div><div class="line" id="015418"><span class="nick" style="color:#2e2a4a"><a href="#015418" label="[01:54:18]">&lt;stikonas&gt;</a></span><span class="message">oh, is there, let me check</span></div><div class="line" id="015444"><span class="nick" style="color:#2e2a4a"><a href="#015444" label="[01:54:44]">&lt;stikonas&gt;</a></span><span class="message">oh, elf header</span></div><div class="line" id="015446"><span class="nick" style="color:#2e2a4a"><a href="#015446" label="[01:54:46]">&lt;stikonas&gt;</a></span><span class="message">let's merge it</span></div><div class="line" id="015455"><span class="nick" style="color:#2e2a4a"><a href="#015455" label="[01:54:55]">&lt;stikonas&gt;</a></span><span class="message">I'll add debug header at some point later</span></div><div class="line" id="015505"><span class="nick" style="color:#2e2a4a"><a href="#015505" label="[01:55:05]">&lt;stikonas&gt;</a></span><span class="message">haven't played with debug headers yet</span></div><div class="line" id="015549"><span class="nick" style="color:#8dd3c7"><a href="#015549" label="[01:55:49]">&lt;oriansj&gt;</a></span><span class="message">merged</span></div><div class="line" id="015559"><span class="nick" style="color:#8dd3c7"><a href="#015559" label="[01:55:59]">&lt;oriansj&gt;</a></span><span class="message">debug headers are trivial additions</span></div><div class="line" id="015621"><span class="nick" style="color:#8dd3c7"><a href="#015621" label="[01:56:21]">&lt;oriansj&gt;</a></span><span class="message">the most important part is getting blood-elf output correct for your architecture</span></div><div class="line" id="015729"><span class="nick" style="color:#8dd3c7"><a href="#015729" label="[01:57:29]">&lt;oriansj&gt;</a></span><span class="message">then just add %ELF_section_headers&gt;ELF_base to e_shoff</span></div><div class="line" id="015811"><span class="nick" style="color:#8dd3c7"><a href="#015811" label="[01:58:11]">&lt;oriansj&gt;</a></span><span class="message">(which just simply says where the symbol table is in the file)</span></div><div class="line" id="015852"><span class="nick" style="color:#8dd3c7"><a href="#015852" label="[01:58:52]">&lt;oriansj&gt;</a></span><span class="message">then update e_shnum to 5</span></div><div class="line" id="020019"><span class="nick" style="color:#8dd3c7"><a href="#020019" label="[02:00:19]">&lt;oriansj&gt;</a></span><span class="message">thus far the only architecture specific difference found in blood-elf is between 32bit and 64bit architectures. (hence the --64 flag)</span></div><div class="line" id="020030"><span class="nick" style="color:#2e2a4a"><a href="#020030" label="[02:00:30]">&lt;stikonas&gt;</a></span><span class="message">well, good to know that it's easy</span></div><div class="line" id="020139"><span class="nick" style="color:#8dd3c7"><a href="#020139" label="[02:01:39]">&lt;oriansj&gt;</a></span><span class="message">creating the original elf header is the hardest part of ELF support (unless your architecture does something completely different than expected in regards to dwarf stubs)</span></div><div class="line" id="020311"><span class="nick" style="color:#8dd3c7"><a href="#020311" label="[02:03:11]">&lt;oriansj&gt;</a></span><span class="message">sorting out the dwarf differences between 64bit and 32bit took a couple days to figure out but it looks like all 64bit architectures standardized on the same dwarf format and all of the 32bit architectures standardized on the same dwarf format.</span></div><div class="line" id="020321"><span class="nick" style="color:#8dd3c7"><a href="#020321" label="[02:03:21]">&lt;oriansj&gt;</a></span><span class="message">I just hope RISC-V didn't get creative there.</span></div><div class="line" id="020540"><span class="nick" style="color:#2e2a4a"><a href="#020540" label="[02:05:40]">&lt;stikonas&gt;</a></span><span class="message">hopefully not, but that's just a guess right now until somebody looks at it</span></div><div class="line" id="032841"><span class="nick" style="color:#6b8072"><a href="#032841" label="[03:28:41]">&lt;fossy&gt;</a></span><span class="message">yeah, its unrealted</span></div><div class="line" id="032845"><span class="nick" style="color:#6b8072"><a href="#032845" label="[03:28:45]">&lt;fossy&gt;</a></span><span class="message">but i have a WTF solution</span></div><div class="line" id="032852"><span class="nick" style="color:#6b8072"><a href="#032852" label="[03:28:52]">&lt;fossy&gt;</a></span><span class="message">make /bin/sh not a symlink</span></div><div class="line" id="032858"><span class="nick" style="color:#6b8072"><a href="#032858" label="[03:28:58]">&lt;fossy&gt;</a></span><span class="message">cause i have /bin symlinked to /usr/bin in sysc</span></div><div class="line" id="032914"><span class="nick" style="color:#6b8072"><a href="#032914" label="[03:29:14]">&lt;fossy&gt;</a></span><span class="message">but if i make /usr/bin/sh a copy of /usr/bin/bash rather than a symlink to /usr/bin/bash everything works ?!?!?!?</span></div><div class="line" id="032940"><span class="nick" style="color:#80b1d3"><a href="#032940" label="[03:29:40]">&lt;xentrac&gt;</a></span><span class="message">haa</span></div><div class="line" id="033124"><span class="nick" style="color:#6b8072"><a href="#033124" label="[03:31:24]">&lt;fossy&gt;</a></span><span class="message">not gonna question that lol</span></div><div class="line" id="033218"><span class="nick" style="color:#80b1d3"><a href="#033218" label="[03:32:18]">&lt;xentrac&gt;</a></span><span class="message">hooray it works!</span></div><div class="line" id="124410"><span class="nick" style="color:#2e2a4a"><a href="#124410" label="[12:44:10]">&lt;stikonas&gt;</a></span><span class="message">something is a bit strange with risc-v binaries, they seem to be working but somewhat slow.</span></div><div class="line" id="124437"><span class="nick" style="color:#2e2a4a"><a href="#124437" label="[12:44:37]">&lt;stikonas&gt;</a></span><span class="message">time ./hex2 test.hex2 test gives         real    0m7,181s</span></div><div class="line" id="124501"><span class="nick" style="color:#2e2a4a"><a href="#124501" label="[12:45:01]">&lt;stikonas&gt;</a></span><span class="message">while GAS built binary is much faster:     real    0m0,048s</span></div><div class="line" id="151238"><span class="nick" style="color:#8dd3c7"><a href="#151238" label="[15:12:38]">&lt;oriansj&gt;</a></span><span class="message">stikonas: for that sort of slow down one would be having to throw an exception on every single instruction. Perhaps some sort of instruction alignment issue?</span></div><div class="line" id="151937"><span class="nick" style="color:#8dd3c7"><a href="#151937" label="[15:19:37]">&lt;oriansj&gt;</a></span><span class="message">it certainly would be a clever way to slow down development of trusted bootstrap paths by malware at the kernel level. Figure if the program produces a valid ELF or executable file format as output and upload for inspection and review.</span></div><br /></div></body></html>

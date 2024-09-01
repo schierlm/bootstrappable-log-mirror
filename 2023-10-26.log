@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-10-26.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="044319"><span class="nick" style="color:#389600"><a href="#044319" label="[04:43:19]">&lt;muurkha&gt;</a></span><span class="message">holy shit, did Russ Cox get the historical Thompson attack running? <a rel="nofollow" href="https://research.swtch.com/nih">https://research.swtch.com/nih</a> </span></div><div class="line" id="044454"><span class="nick" style="color:#389600"><a href="#044454" label="[04:44:54]">&lt;muurkha&gt;</a></span><span class="message">because, holy shit, he emailed ken and asked him to please send codez</span></div><div class="line" id="044842"><span class="nick" style="color:#389600"><a href="#044842" label="[04:48:42]">&lt;muurkha&gt;</a></span><span class="message">and it's in the TUHS tapes Ritchey gave Toomey in 01997</span></div><div class="line" id="044957"><span class="nick" style="color:#389600"><a href="#044957" label="[04:49:57]">&lt;muurkha&gt;</a></span><span class="message">&gt; It’s short! When Ken sent me nih.a and I got it running, my immediate reaction was disbelief at the size of the change: 99 lines of code, plus a 20-line shell script. If you already know how to make a program print itself, the biggest surprise is that there are no surprises!</span></div><div class="line" id="045023"><span class="nick" style="color:#389600"><a href="#045023" label="[04:50:23]">&lt;muurkha&gt;</a></span><span class="message">&gt; It’s one thing to say “I know how to do it in theory” and quite another to see how small and straightforward the backdoor is in practice. In particular, hooking into source code reading makes it trivial. Somehow, I’d always imagined some more complex pattern matching on an internal representation in the guts of the compiler, not a textual substitution. Seeing it run, and seeing how tiny</span></div><div class="line" id="045029"><span class="nick" style="color:#389600"><a href="#045029" label="[04:50:29]">&lt;muurkha&gt;</a></span><span class="message">it is, really drives home how easy it would be to make a change like this and how important it is to build from trusted sources using trusted tools.</span></div><div class="line" id="045040"><span class="nick" style="color:#389600"><a href="#045040" label="[04:50:40]">&lt;muurkha&gt;</a></span><span class="message">&gt; I don’t say any of this to put down Ken’s doing it in the first place: it seems easy because he did it and explained it to us. But it’s still very little code for an extremely serious outcome.</span></div><div class="line" id="045129"><span class="nick" style="color:#389600"><a href="#045129" label="[04:51:29]">&lt;muurkha&gt;</a></span><span class="message">There's a bit there about how straightforward it is to bootstrap Golang with a C compiler: <a rel="nofollow" href="https://research.swtch.com/nih#go">https://research.swtch.com/nih#go</a> </span></div><div class="line" id="045135"><span class="nick" style="color:#389600"><a href="#045135" label="[04:51:35]">&lt;muurkha&gt;</a></span><span class="message">perhaps especially relevant here!</span></div><div class="line" id="060030"><span class="nick" style="color:#8dd3c7"><a href="#060030" label="[06:00:30]">&lt;nektro&gt;</a></span><span class="message">funny u mention that because i actually started <a rel="nofollow" href="https://github.com/nektro/go14">https://github.com/nektro/go14</a>  as a testing ground to try and bootstrap go with mes</span></div><div class="line" id="060122"><span class="nick" style="color:#8dd3c7"><a href="#060122" label="[06:01:22]">&lt;nektro&gt;</a></span><span class="message">since i find go and zig easier to grasp i wanted to try an alternative chain route</span></div><div class="line" id="060200"><span class="nick" style="color:#8dd3c7"><a href="#060200" label="[06:02:00]">&lt;nektro&gt;</a></span><span class="message">this was only a couple days ago but i didnt get far outside starting the initial fork since i havent got mes working yet</span></div><div class="line" id="060306"><span class="nick" style="color:#8dd3c7"><a href="#060306" label="[06:03:06]">&lt;nektro&gt;</a></span><span class="message">but its something ill be keeping an eye on</span></div><div class="line" id="073230"><span class="nick" style="color:#2e2a4a"><a href="#073230" label="[07:32:30]">&lt;lanodan&gt;</a></span><span class="message">I'd say Go is trivial to bootstrap, at least I made <a rel="nofollow" href="https://hacktivis.me/git/overlay/file/dev-lang/go/go-1.4_p20171003.ebuild.html">https://hacktivis.me/git/overlay/file/dev-lang/go/go-1.4_p20171003.ebuild.html</a>  years ago (gentoo recipe btw) and from time to time I compile Go's latest compiler with it.</span></div><div class="line" id="073400"><span class="nick" style="color:#2e2a4a"><a href="#073400" label="[07:34:00]">&lt;lanodan&gt;</a></span><span class="message">Another path being possible via GCCGO as well</span></div><div class="line" id="084020"><span class="nick" style="color:#8dd3c7"><a href="#084020" label="[08:40:20]">&lt;nektro&gt;</a></span><span class="message">nice :)</span></div><div class="line" id="084124"><span class="nick" style="color:#8dd3c7"><a href="#084124" label="[08:41:24]">&lt;nektro&gt;</a></span><span class="message">yeah for <a rel="nofollow" href="https://git.sr.ht/~nektro/wifilylinux">https://git.sr.ht/~nektro/wifilylinux</a>  i do go latest &lt;- 1.17 &lt;- 1.4 from source</span></div><div class="line" id="102416"><span class="nick" style="color:#6b8072"><a href="#102416" label="[10:24:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; lanodan: go 1.4 can't build the newest, I made some intermediate version in my gentoo overlay</span></div><div class="line" id="102522"><span class="nick" style="color:#6b8072"><a href="#102522" label="[10:25:22]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Oh I see nektro is already doing that</span></div><div class="line" id="102555"><span class="nick" style="color:#6b8072"><a href="#102555" label="[10:25:55]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Though that path won't work for riscv, I guess we need gccgo then</span></div><div class="line" id="134012"><span class="nick" style="color:#80b1d3"><a href="#134012" label="[13:40:12]">&lt;oriansj&gt;</a></span><span class="message">muurkha: I guess we can safely assume this class of attack has been in the wild since 1997 then and treat all generated code as suspect.</span></div><div class="line" id="134519"><span class="nick" style="color:#80b1d3"><a href="#134519" label="[13:45:19]">&lt;oriansj&gt;</a></span><span class="message">janneke: I think the reason, he didn't mention bootstrappable builds or guix was that he was more concerned about source code published by strangers on the internet than binary blobs.</span></div><div class="line" id="135317"><span class="nick" style="color:#80b1d3"><a href="#135317" label="[13:53:17]">&lt;oriansj&gt;</a></span><span class="message">but then it is strange, that code review signing infrastructure isn't mentioned either.</span></div><div class="line" id="142859"><span class="nick" style="color:#6d2462"><a href="#142859" label="[14:28:59]">&lt;ekaitz&gt;</a></span><span class="message">muurkha: I saw the post this morning! really cool stuff</span></div><div class="line" id="150242"><span class="nick" style="color:#2e2a4a"><a href="#150242" label="[15:02:42]">&lt;lanodan&gt;</a></span><span class="message">RIght, I heard about that but always forgot if they actually went with it, at least it means you can jump from 1.4 to near-latest via go1.14</span></div><div class="line" id="150256"><span class="nick" style="color:#2e2a4a"><a href="#150256" label="[15:02:56]">&lt;lanodan&gt;</a></span><span class="message">s;go1.14;go1.4;</span></div><div class="line" id="164836"><span class="nick" style="color:#234e69"><a href="#164836" label="[16:48:36]">&lt;theruran&gt;</a></span><span class="message">figured this would have been posted here already: <a rel="nofollow" href="https://research.swtch.com/nih">https://research.swtch.com/nih</a>  &quot;Running the “Reflections on Trusting Trust” Compiler&quot; (Posted on Wednesday, October 25, 2023.)</span></div><div class="line" id="171913"><span class="nick" style="color:#6b8072"><a href="#171913" label="[17:19:13]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; It's a pity they don't mention bootstrappable builds</span></div><div class="line" id="180348"><span class="nick" style="color:#234e69"><a href="#180348" label="[18:03:48]">&lt;theruran&gt;</a></span><span class="message">oh. muurkha posted it above :D</span></div><div class="line" id="184251"><span class="nick" style="color:#80b1d3"><a href="#184251" label="[18:42:51]">&lt;oriansj&gt;</a></span><span class="message">theruran: thank you for trying to share ^_^</span></div><div class="line" id="184336"><span class="nick" style="color:#80b1d3"><a href="#184336" label="[18:43:36]">&lt;oriansj&gt;</a></span><span class="message">not everyone is constantly logged into this channel and so they would benefit if they missed out ^_^</span></div><div class="line" id="185104"><span class="nick" style="color:#6c3d55"><a href="#185104" label="[18:51:04]">&lt;pabs3&gt;</a></span><span class="message">HN discussion for it: <a rel="nofollow" href="https://news.ycombinator.com/item?id=38020792">https://news.ycombinator.com/item?id=38020792</a> </span></div><div class="line" id="185309"><span class="nick" style="color:#80b1d3"><a href="#185309" label="[18:53:09]">&lt;oriansj&gt;</a></span><span class="message">the neat compiler's generated C code however just makes me shake my head</span></div><br /></div></body></html>

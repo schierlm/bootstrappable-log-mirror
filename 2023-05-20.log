@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-05-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004220"><span class="nick" style="color:#389600"><a href="#004220" label="[00:42:20]">&lt;stikonas&gt;</a></span><span class="message">oriansj: hmm, I'm still thinking what to do with mescc global variables. While reworking it might be possible but it might need touching large parts of code...</span></div><div class="line" id="004237"><span class="nick" style="color:#389600"><a href="#004237" label="[00:42:37]">&lt;stikonas&gt;</a></span><span class="message">maybe it's worth adding some other modifier to M1 that just spits out hex2 directly</span></div><div class="line" id="004336"><span class="nick" style="color:#389600"><a href="#004336" label="[00:43:36]">&lt;stikonas&gt;</a></span><span class="message">we do have &lt;1 -&gt; 00 or &lt;4 -&gt; 00000000</span></div><div class="line" id="004355"><span class="nick" style="color:#389600"><a href="#004355" label="[00:43:55]">&lt;stikonas&gt;</a></span><span class="message">but mescc sometimes needs to spit out e.g. 03</span></div><div class="line" id="004410"><span class="nick" style="color:#389600"><a href="#004410" label="[00:44:10]">&lt;stikonas&gt;</a></span><span class="message">say we have a global variable var = 3</span></div><div class="line" id="004424"><span class="nick" style="color:#389600"><a href="#004424" label="[00:44:24]">&lt;stikonas&gt;</a></span><span class="message">then mescc internally prepares the following list (3 0 0 0)</span></div><div class="line" id="004444"><span class="nick" style="color:#389600"><a href="#004444" label="[00:44:44]">&lt;stikonas&gt;</a></span><span class="message">and at the moment converts it to !0x03 !0x00 !0x00 !0x00</span></div><div class="line" id="011144"><span class="nick" style="color:#389600"><a href="#011144" label="[01:11:44]">&lt;stikonas&gt;</a></span><span class="message">oh actually I think M1 might already have this feature...</span></div><div class="line" id="011208"><span class="nick" style="color:#389600"><a href="#011208" label="[01:12:08]">&lt;stikonas&gt;</a></span><span class="message">I completely forgot about it...</span></div><div class="line" id="011723"><span class="nick" style="color:#389600"><a href="#011723" label="[01:17:23]">&lt;stikonas&gt;</a></span><span class="message">yep hello world finally works well with mescc after I switched from !0xhex_byte to weird strings</span></div><div class="line" id="011741"><span class="nick" style="color:#389600"><a href="#011741" label="[01:17:41]">&lt;stikonas&gt;</a></span><span class="message">and it's just 2 line change in mescc</span></div><div class="line" id="021219"><span class="nick" style="color:#8dd3c7"><a href="#021219" label="[02:12:19]">&lt;fossy&gt;</a></span><span class="message">rickmasters, stickonas: yeah off disk would still be nice, but im not sure what needs to be done for that to happen - if it is too much im more than happy to drop it from 1.0</span></div><div class="line" id="025227"><span class="nick" style="color:#389600"><a href="#025227" label="[02:52:27]">&lt;stikonas&gt;</a></span><span class="message">well, let's deal with other issues first anyway</span></div><div class="line" id="025956"><span class="nick" style="color:#2e2a4a"><a href="#025956" label="[02:59:56]">&lt;stikonas[m]&gt;</a></span><span class="message">It will probably take some time to solve even other issues...</span></div><div class="line" id="030023"><span class="nick" style="color:#2e2a4a"><a href="#030023" label="[03:00:23]">&lt;stikonas[m]&gt;</a></span><span class="message">Especially since I'm busy with riscv64 port of mescc</span></div><div class="line" id="030501"><span class="nick" style="color:#2e2a4a"><a href="#030501" label="[03:05:01]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: wasn't this fixed <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/291">https://github.com/fosslinux/live-bootstrap/issues/291</a> </span></div><div class="line" id="032506"><span class="nick" style="color:#8dd3c7"><a href="#032506" label="[03:25:06]">&lt;fossy&gt;</a></span><span class="message">yes i forgot to add the &quot;Fixed&quot; to the comimt description</span></div><div class="line" id="045826"><span class="nick" style="color:#6b8072"><a href="#045826" label="[04:58:26]">&lt;emilytrau[m]&gt;</a></span><span class="message">janneke: may i send this `mes` patch your way? :3... (full message at &lt;<a rel="nofollow" href="https://libera.ems.host/_matrix/media/v3/download/libera.chat/f2e00e1457c52d4d9b1caf06c5158388d4009b01">https://libera.ems.host/_matrix/media/v3/download/libera.chat/f2e00e1457c52d4d9b1caf06c5158388d4009b01</a>&gt;) </span></div><div class="line" id="073804"><span class="nick" style="color:#80b1d3"><a href="#073804" label="[07:38:04]">&lt;janneke&gt;</a></span><span class="message">emilytrau[m]: sure, thanks</span></div><div class="line" id="074715"><span class="nick" style="color:#80b1d3"><a href="#074715" label="[07:47:15]">&lt;janneke&gt;</a></span><span class="message">stikonas[m]: \o/</span></div><div class="line" id="075443"><span class="nick" style="color:#80b1d3"><a href="#075443" label="[07:54:43]">&lt;janneke&gt;</a></span><span class="message">emilytrau[m]: just out of interest, what are you building that you need it for?</span></div><div class="line" id="075621"><span class="nick" style="color:#6b8072"><a href="#075621" label="[07:56:21]">&lt;emilytrau[m]&gt;</a></span><span class="message">janneke: sorry should have mentioned that in the first place! it's for gnumake 4.4.1. other than that define it works like a charm :))</span></div><div class="line" id="075632"><span class="nick" style="color:#6b8072"><a href="#075632" label="[07:56:32]">&lt;emilytrau[m]&gt;</a></span><span class="message">* gnumake 4.4.1 (latest). other</span></div><div class="line" id="075700"><span class="nick" style="color:#80b1d3"><a href="#075700" label="[07:57:00]">&lt;janneke&gt;</a></span><span class="message">ok, nice</span></div><div class="line" id="075731"><span class="nick" style="color:#80b1d3"><a href="#075731" label="[07:57:31]">&lt;janneke&gt;</a></span><span class="message">always bleeding edge, these nix folks ;)</span></div><div class="line" id="124359"><span class="nick" style="color:#6d2462"><a href="#124359" label="[12:43:59]">&lt;rickmasters&gt;</a></span><span class="message">fossy: Issue 291 was still not fixed for Qemu with Linux.</span></div><div class="line" id="124459"><span class="nick" style="color:#6d2462"><a href="#124459" label="[12:44:59]">&lt;rickmasters&gt;</a></span><span class="message">fossy: I tracked it down to lib/tmpdir.py:add_disk() needs size=&quot;16G&quot; instead of 8G</span></div><div class="line" id="124621"><span class="nick" style="color:#6d2462"><a href="#124621" label="[12:46:21]">&lt;rickmasters&gt;</a></span><span class="message">fossy: I can submit a PR but I'm traveling and I'm not sure when I'll have time.</span></div><div class="line" id="133445"><span class="nick" style="color:#389600"><a href="#133445" label="[13:34:45]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: I can push the fix then if you think that's it...</span></div><div class="line" id="140115"><span class="nick" style="color:#6d2462"><a href="#140115" label="[14:01:15]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: yes, please. it worked for me. fossy's fix is only relevant to --external-sources</span></div><div class="line" id="140603"><span class="nick" style="color:#389600"><a href="#140603" label="[14:06:03]">&lt;stikonas&gt;</a></span><span class="message">yeah, we have quite a few different modes</span></div><div class="line" id="140625"><span class="nick" style="color:#389600"><a href="#140625" label="[14:06:25]">&lt;stikonas&gt;</a></span><span class="message">it's easy to mix up different fixes</span></div><div class="line" id="140818"><span class="nick" style="color:#6d2462"><a href="#140818" label="[14:08:18]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: thanks!</span></div><div class="line" id="154156"><span class="nick" style="color:#234e69"><a href="#154156" label="[15:41:56]">&lt;oriansj&gt;</a></span><span class="message">stikonas: wow, I am surprised janneke didn't add that C feature. Usually MesCC is way ahead of M2-planet in regards to C language feature support.</span></div><div class="line" id="154318"><span class="nick" style="color:#389600"><a href="#154318" label="[15:43:18]">&lt;stikonas&gt;</a></span><span class="message">oriansj: which one?</span></div><div class="line" id="154349"><span class="nick" style="color:#389600"><a href="#154349" label="[15:43:49]">&lt;stikonas&gt;</a></span><span class="message">global variable sizes?</span></div><div class="line" id="154357"><span class="nick" style="color:#389600"><a href="#154357" label="[15:43:57]">&lt;stikonas&gt;</a></span><span class="message">mescc had it, but it was doing it byte by byte</span></div><div class="line" id="154423"><span class="nick" style="color:#389600"><a href="#154423" label="[15:44:23]">&lt;stikonas&gt;</a></span><span class="message">i.e. !0x03 !0x00 !0x00 !0x00 (if you had var = 3;)</span></div><div class="line" id="154424"><span class="nick" style="color:#234e69"><a href="#154424" label="[15:44:24]">&lt;oriansj&gt;</a></span><span class="message">no &quot;the&quot; &quot;string&quot; &quot;behavior&quot;</span></div><div class="line" id="154438"><span class="nick" style="color:#389600"><a href="#154438" label="[15:44:38]">&lt;stikonas&gt;</a></span><span class="message">well, I've switched it to string behaviour</span></div><div class="line" id="154440"><span class="nick" style="color:#389600"><a href="#154440" label="[15:44:40]">&lt;stikonas&gt;</a></span><span class="message">now, yes...</span></div><div class="line" id="154459"><span class="nick" style="color:#389600"><a href="#154459" label="[15:44:59]">&lt;stikonas&gt;</a></span><span class="message">somehow initially I didn't realize that weird strings are very useful on riscv</span></div><div class="line" id="154516"><span class="nick" style="color:#234e69"><a href="#154516" label="[15:45:16]">&lt;oriansj&gt;</a></span><span class="message">as in fputs(&quot;hello &quot; &quot;world&quot;, stdout); would compile and work correctly</span></div><div class="line" id="154537"><span class="nick" style="color:#389600"><a href="#154537" label="[15:45:37]">&lt;stikonas&gt;</a></span><span class="message">oh that thing...</span></div><div class="line" id="154554"><span class="nick" style="color:#389600"><a href="#154554" label="[15:45:54]">&lt;stikonas&gt;</a></span><span class="message">yeah, I think M2-Planet is ahead here</span></div><div class="line" id="154600"><span class="nick" style="color:#389600"><a href="#154600" label="[15:46:00]">&lt;stikonas&gt;</a></span><span class="message">but mescc has way better macro support</span></div><div class="line" id="154623"><span class="nick" style="color:#389600"><a href="#154623" label="[15:46:23]">&lt;stikonas&gt;</a></span><span class="message">so I could construct required string with macros and syscall number definition in header file</span></div><div class="line" id="154638"><span class="nick" style="color:#389600"><a href="#154638" label="[15:46:38]">&lt;stikonas&gt;</a></span><span class="message">anyway, I'm probably not too far from finishing now</span></div><div class="line" id="154718"><span class="nick" style="color:#389600"><a href="#154718" label="[15:47:18]">&lt;stikonas&gt;</a></span><span class="message">though there might be some problem, a couple of tests in scaffold (global-array and local-static-array) crash...</span></div><div class="line" id="154720"><span class="nick" style="color:#234e69"><a href="#154720" label="[15:47:20]">&lt;oriansj&gt;</a></span><span class="message">it is like a 5 line feature in C but in lisp it would be a single line</span></div><div class="line" id="194916"><span class="nick" style="color:#389600"><a href="#194916" label="[19:49:16]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: by the way, are --external-sources expected not to work?</span></div><div class="line" id="194926"><span class="nick" style="color:#389600"><a href="#194926" label="[19:49:26]">&lt;stikonas&gt;</a></span><span class="message">(in kernel bootstrap mode)</span></div><div class="line" id="195717"><span class="nick" style="color:#6d2462"><a href="#195717" label="[19:57:17]">&lt;rickmasters&gt;</a></span><span class="message">Yes, external sources can't currently work with kernel bootstrap.</span></div><div class="line" id="195743"><span class="nick" style="color:#6d2462"><a href="#195743" label="[19:57:43]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: there may be a way in the future with another disk or partition.</span></div><div class="line" id="205507"><span class="nick" style="color:#389600"><a href="#205507" label="[20:55:07]">&lt;stikonas&gt;</a></span><span class="message">janneke: I've pushed my wip changes to <a rel="nofollow" href="https://git.stikonas.eu/andrius/mes/src/branch/wip-riscv">https://git.stikonas.eu/andrius/mes/src/branch/wip-riscv</a>  though at the moment there are still some (unknown) bugs that prevent it from working</span></div><div class="line" id="205553"><span class="nick" style="color:#389600"><a href="#205553" label="[20:55:53]">&lt;stikonas&gt;</a></span><span class="message">some of them might be tricky...</span></div><div class="line" id="205605"><span class="nick" style="color:#389600"><a href="#205605" label="[20:56:05]">&lt;stikonas&gt;</a></span><span class="message">e.g. some files cause mes-m2 to crash</span></div><div class="line" id="205614"><span class="nick" style="color:#389600"><a href="#205614" label="[20:56:14]">&lt;stikonas&gt;</a></span><span class="message">(though guile copes with them)</span></div><div class="line" id="205627"><span class="nick" style="color:#389600"><a href="#205627" label="[20:56:27]">&lt;stikonas&gt;</a></span><span class="message">and final binary also crashes</span></div><div class="line" id="205645"><span class="nick" style="color:#389600"><a href="#205645" label="[20:56:45]">&lt;stikonas&gt;</a></span><span class="message">which is probably expected given that scaffold/global-array.c also crashes</span></div><div class="line" id="205655"><span class="nick" style="color:#389600"><a href="#205655" label="[20:56:55]">&lt;stikonas&gt;</a></span><span class="message">though quite a few other things in scaffold work fine</span></div><div class="line" id="205704"><span class="nick" style="color:#389600"><a href="#205704" label="[20:57:04]">&lt;stikonas&gt;</a></span><span class="message">including read</span></div><div class="line" id="205802"><span class="nick" style="color:#389600"><a href="#205802" label="[20:58:02]">&lt;stikonas&gt;</a></span><span class="message">I think I've tested argv env hello local-array main and read and they worked</span></div><div class="line" id="205827"><span class="nick" style="color:#389600"><a href="#205827" label="[20:58:27]">&lt;stikonas&gt;</a></span><span class="message">and global-array and local-static-array crashed. Haven't tried the others...</span></div><div class="line" id="220533"><span class="nick" style="color:#80b1d3"><a href="#220533" label="[22:05:33]">&lt;janneke&gt;</a></span><span class="message">stikonas: great; i believe that global-array and local-array are known to crash with M2-Planet (they should work with mescc), i'm not sure -- we should check on x86</span></div><div class="line" id="220758"><span class="nick" style="color:#6c3d55"><a href="#220758" label="[22:07:58]">&lt;stikonas_&gt;</a></span><span class="message">janneke: global-array and local array might work with next M2-Planet</span></div><div class="line" id="220807"><span class="nick" style="color:#6c3d55"><a href="#220807" label="[22:08:07]">&lt;stikonas_&gt;</a></span><span class="message">anyway, current crash is clearly codegen bug</span></div><div class="line" id="220820"><span class="nick" style="color:#6c3d55"><a href="#220820" label="[22:08:20]">&lt;stikonas_&gt;</a></span><span class="message">but mescc crash when building some files is probably a separate issue</span></div><div class="line" id="221032"><span class="nick" style="color:#389600"><a href="#221032" label="[22:10:32]">&lt;stikonas&gt;</a></span><span class="message">I'll probably take a look at global-array crash</span></div><div class="line" id="221048"><span class="nick" style="color:#389600"><a href="#221048" label="[22:10:48]">&lt;stikonas&gt;</a></span><span class="message">but you might be more familiar with mes and what might cause mes itself to crash...</span></div><div class="line" id="221117"><span class="nick" style="color:#389600"><a href="#221117" label="[22:11:17]">&lt;stikonas&gt;</a></span><span class="message">there were quite a few C files that caused this</span></div><div class="line" id="221125"><span class="nick" style="color:#389600"><a href="#221125" label="[22:11:25]">&lt;stikonas&gt;</a></span><span class="message">I think the first one was lib/stdio/fwrite.c</span></div><div class="line" id="222726"><span class="nick" style="color:#80b1d3"><a href="#222726" label="[22:27:26]">&lt;janneke&gt;</a></span><span class="message">sure, i'll have a look tomorrow</span></div><div class="line" id="234836"><span class="nick" style="color:#389600"><a href="#234836" label="[23:48:36]">&lt;stikonas&gt;</a></span><span class="message">janneke: actually I think I've found what caused mes to crash on fwrite.c</span></div><div class="line" id="234849"><span class="nick" style="color:#389600"><a href="#234849" label="[23:48:49]">&lt;stikonas&gt;</a></span><span class="message">there was a copy-paste error</span></div><div class="line" id="234852"><span class="nick" style="color:#389600"><a href="#234852" label="[23:48:52]">&lt;stikonas&gt;</a></span><span class="message">and i haven't renamed variable</span></div><div class="line" id="234954"><span class="nick" style="color:#389600"><a href="#234954" label="[23:49:54]">&lt;stikonas&gt;</a></span><span class="message">but like expected global-array, is unrelated, it still crashes</span></div><div class="line" id="235040"><span class="nick" style="color:#80b1d3"><a href="#235040" label="[23:50:40]">&lt;janneke&gt;</a></span><span class="message">stikonas, those are the best but often so hard to find...</span></div><div class="line" id="235114"><span class="nick" style="color:#389600"><a href="#235114" label="[23:51:14]">&lt;stikonas&gt;</a></span><span class="message">well, I was basically going over my diff and doing self-review...</span></div><div class="line" id="235140"><span class="nick" style="color:#389600"><a href="#235140" label="[23:51:40]">&lt;stikonas&gt;</a></span><span class="message">let's see what happens now if I build the whole me...</span></div><div class="line" id="235152"><span class="nick" style="color:#389600"><a href="#235152" label="[23:51:52]">&lt;stikonas&gt;</a></span><span class="message">previously I had to use guile for more complicated files</span></div><div class="line" id="235207"><span class="nick" style="color:#389600"><a href="#235207" label="[23:52:07]">&lt;stikonas&gt;</a></span><span class="message">maybe now it will at least build, though I still expect bin/mes to crash</span></div><div class="line" id="235217"><span class="nick" style="color:#389600"><a href="#235217" label="[23:52:17]">&lt;stikonas&gt;</a></span><span class="message">but we should be getting fairly close now</span></div><div class="line" id="235325"><span class="nick" style="color:#80b1d3"><a href="#235325" label="[23:53:25]">&lt;janneke&gt;</a></span><span class="message">very nice</span></div><div class="line" id="235402"><span class="nick" style="color:#80b1d3"><a href="#235402" label="[23:54:02]">&lt;janneke&gt;</a></span><span class="message">ACTION -&gt; zZzz</span></div><br /></div></body></html>

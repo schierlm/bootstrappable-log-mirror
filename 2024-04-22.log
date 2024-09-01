@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-04-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="204723"><span class="nick" style="color:#389600"><a href="#204723" label="[20:47:23]">&lt;ekaitz&gt;</a></span><span class="message"> <a rel="nofollow" href="https://infosec.exchange/@harrysintonen/112316330302040506">https://infosec.exchange/@harrysintonen/112316330302040506</a> </span></div><div class="line" id="213537"><span class="nick" style="color:#8dd3c7"><a href="#213537" label="[21:35:37]">&lt;stikonas&gt;</a></span><span class="message">ekaitz: it's probably not easy to wideloy deploy though, you need to somehow get everybody to use that binary</span></div><div class="line" id="213607"><span class="nick" style="color:#8dd3c7"><a href="#213607" label="[21:36:07]">&lt;stikonas&gt;</a></span><span class="message">something like our tcc bug might be more obscure...</span></div><div class="line" id="213623"><span class="nick" style="color:#389600"><a href="#213623" label="[21:36:23]">&lt;ekaitz&gt;</a></span><span class="message">yeah but it's cool to see people talk about our problems</span></div><div class="line" id="214926"><span class="nick" style="color:#8dd3c7"><a href="#214926" label="[21:49:26]">&lt;stikonas&gt;</a></span><span class="message">yeah, it raises awareness</span></div><div class="line" id="225147"><span class="nick" style="color:#2e2a4a"><a href="#225147" label="[22:51:47]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; tcc bug? You could hide so much malicious stuff in tcc as the code is incomprehensible.  If Fabrice Bellard had backdoored the original tcc would anyone know? It also doesn't help that anyone on the internet can push to the main dev branch (mob).</span></div><div class="line" id="225856"><span class="nick" style="color:#2e2a4a"><a href="#225856" label="[22:58:56]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; cosinusoidally: well, on backported risc-v tcc (note that not upstream) ekaitz and I hit a bug that corrupted all subsequent builds</span></div><div class="line" id="225912"><span class="nick" style="color:#2e2a4a"><a href="#225912" label="[22:59:12]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; and all subsequent tcc builds were miscompiling the code (missing some shifts)</span></div><div class="line" id="225930"><span class="nick" style="color:#2e2a4a"><a href="#225930" label="[22:59:30]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; even if the ones built starting from gcc worked</span></div><div class="line" id="230352"><span class="nick" style="color:#389600"><a href="#230352" label="[23:03:52]">&lt;ekaitz&gt;</a></span><span class="message">also the maintainer introduces huge commits with almost no description</span></div><div class="line" id="230358"><span class="nick" style="color:#389600"><a href="#230358" label="[23:03:58]">&lt;ekaitz&gt;</a></span><span class="message">and doesn't make releases</span></div><div class="line" id="230401"><span class="nick" style="color:#389600"><a href="#230401" label="[23:04:01]">&lt;ekaitz&gt;</a></span><span class="message">it's a lot of fun</span></div><div class="line" id="230422"><span class="nick" style="color:#2e2a4a"><a href="#230422" label="[23:04:22]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Ah fair enought. Was the buggy version of tcc able to build itself?</span></div><div class="line" id="230459"><span class="nick" style="color:#389600"><a href="#230459" label="[23:04:59]">&lt;ekaitz&gt;</a></span><span class="message">yes it was</span></div><div class="line" id="230459"><span class="nick" style="color:#2e2a4a"><a href="#230459" label="[23:04:59]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; yes, it was able to build itself</span></div><div class="line" id="230505"><span class="nick" style="color:#2e2a4a"><a href="#230505" label="[23:05:05]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; and evne newer upstream tcc</span></div><div class="line" id="230508"><span class="nick" style="color:#389600"><a href="#230508" label="[23:05:08]">&lt;ekaitz&gt;</a></span><span class="message">and it was able to build many programs</span></div><div class="line" id="230529"><span class="nick" style="color:#2e2a4a"><a href="#230529" label="[23:05:29]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; and they were working alright</span></div><div class="line" id="230532"><span class="nick" style="color:#389600"><a href="#230532" label="[23:05:32]">&lt;ekaitz&gt;</a></span><span class="message">the error appeared in the programs built by the upstream tcc compiled with this one</span></div><div class="line" id="230602"><span class="nick" style="color:#2e2a4a"><a href="#230602" label="[23:06:02]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; (and reuilding upstream tcc with itself didn't remove the bug)</span></div><div class="line" id="230633"><span class="nick" style="color:#389600"><a href="#230633" label="[23:06:33]">&lt;ekaitz&gt;</a></span><span class="message">but our tcc didn't show the same problem</span></div><div class="line" id="230635"><span class="nick" style="color:#389600"><a href="#230635" label="[23:06:35]">&lt;ekaitz&gt;</a></span><span class="message">hehe</span></div><div class="line" id="230652"><span class="nick" style="color:#2e2a4a"><a href="#230652" label="[23:06:52]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; That must have been a pain to debug. gcov might have helped to track it down.</span></div><div class="line" id="230659"><span class="nick" style="color:#389600"><a href="#230659" label="[23:06:59]">&lt;ekaitz&gt;</a></span><span class="message">we don't talk enough about how cool is what we are doing</span></div><div class="line" id="230700"><span class="nick" style="color:#2e2a4a"><a href="#230700" label="[23:07:00]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; we didn't use gcov...</span></div><div class="line" id="230707"><span class="nick" style="color:#2e2a4a"><a href="#230707" label="[23:07:07]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; but yes, it was pain to debug</span></div><div class="line" id="230715"><span class="nick" style="color:#2e2a4a"><a href="#230715" label="[23:07:15]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; adn ekaitz did nice job workarounding the problem</span></div><div class="line" id="230722"><span class="nick" style="color:#2e2a4a"><a href="#230722" label="[23:07:22]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; but backporting newer version of the function</span></div><div class="line" id="230731"><span class="nick" style="color:#389600"><a href="#230731" label="[23:07:31]">&lt;ekaitz&gt;</a></span><span class="message">i could write it again</span></div><div class="line" id="230735"><span class="nick" style="color:#389600"><a href="#230735" label="[23:07:35]">&lt;ekaitz&gt;</a></span><span class="message">i know what the error is</span></div><div class="line" id="230739"><span class="nick" style="color:#389600"><a href="#230739" label="[23:07:39]">&lt;ekaitz&gt;</a></span><span class="message">but i don't want to thing</span></div><div class="line" id="230741"><span class="nick" style="color:#389600"><a href="#230741" label="[23:07:41]">&lt;ekaitz&gt;</a></span><span class="message">think*</span></div><div class="line" id="230753"><span class="nick" style="color:#389600"><a href="#230753" label="[23:07:53]">&lt;ekaitz&gt;</a></span><span class="message">there are many things to solve in that very function</span></div><div class="line" id="230809"><span class="nick" style="color:#389600"><a href="#230809" label="[23:08:09]">&lt;ekaitz&gt;</a></span><span class="message">basically casts didn't work properly</span></div><div class="line" id="230823"><span class="nick" style="color:#2e2a4a"><a href="#230823" label="[23:08:23]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; anyway, this was one of the most annoying issues here</span></div><div class="line" id="230828"><span class="nick" style="color:#2e2a4a"><a href="#230828" label="[23:08:28]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; cause it was not present in the source</span></div><div class="line" id="232127"><span class="nick" style="color:#389600"><a href="#232127" label="[23:21:27]">&lt;ekaitz&gt;</a></span><span class="message">i'm starting to get use to this kind of problems</span></div><div class="line" id="232135"><span class="nick" style="color:#389600"><a href="#232135" label="[23:21:35]">&lt;ekaitz&gt;</a></span><span class="message">after 2 years haha</span></div><div class="line" id="233336"><span class="nick" style="color:#6b8072"><a href="#233336" label="[23:33:36]">&lt;oriansj&gt;</a></span><span class="message">yeah, the secrets are out and now it only gets easier to implement the Thompson attack and harder for us to keep it out.</span></div><div class="line" id="233427"><span class="nick" style="color:#80b1d3"><a href="#233427" label="[23:34:27]">&lt;Googulator&gt;</a></span><span class="message">Thompson's own code was also published a while ago</span></div><div class="line" id="233531"><span class="nick" style="color:#6b8072"><a href="#233531" label="[23:35:31]">&lt;oriansj&gt;</a></span><span class="message">indeed, appearently one needed only to ask.</span></div><div class="line" id="233546"><span class="nick" style="color:#8dd3c7"><a href="#233546" label="[23:35:46]">&lt;stikonas&gt;</a></span><span class="message">well, given bootstrappable builds it's probably easier to keep it out</span></div><div class="line" id="235452"><span class="nick" style="color:#6b8072"><a href="#235452" label="[23:54:52]">&lt;oriansj&gt;</a></span><span class="message">well it is now possible; the hard bit is the exploding world of attack paths.</span></div><div class="line" id="235517"><span class="nick" style="color:#6b8072"><a href="#235517" label="[23:55:17]">&lt;oriansj&gt;</a></span><span class="message">as now there are numerous programs which could be targeted.</span></div><div class="line" id="235529"><span class="nick" style="color:#6b8072"><a href="#235529" label="[23:55:29]">&lt;oriansj&gt;</a></span><span class="message">and we have to protect them all</span></div><br /></div></body></html>

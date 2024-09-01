@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-08-15.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011647"><span class="nick" style="color:#8dd3c7"><a href="#011647" label="[01:16:47]">&lt;aggi&gt;</a></span><span class="message">how could python be bootstrapped without a python interpreter? in comparison i think perl doesn't require a perl interpreter itself for this.</span></div><div class="line" id="011935"><span class="nick" style="color:#2e2a4a"><a href="#011935" label="[01:19:35]">&lt;stikonas[m]&gt;</a></span><span class="message">aggi: python only needs python for rebuilding pregenerated header files</span></div><div class="line" id="011953"><span class="nick" style="color:#2e2a4a"><a href="#011953" label="[01:19:53]">&lt;stikonas[m]&gt;</a></span><span class="message">If you are happy with those, you can just build it</span></div><div class="line" id="012017"><span class="nick" style="color:#2e2a4a"><a href="#012017" label="[01:20:17]">&lt;stikonas[m]&gt;</a></span><span class="message">Otherwise you need to start with python 2.4 or so</span></div><div class="line" id="012029"><span class="nick" style="color:#2e2a4a"><a href="#012029" label="[01:20:29]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy might know more</span></div><div class="line" id="012036"><span class="nick" style="color:#8dd3c7"><a href="#012036" label="[01:20:36]">&lt;aggi&gt;</a></span><span class="message">stikonas[m]: allright, i only checked the gentoo ebuilds and the dependencies noted there, and both pypy2/3 and python2/3 insist on a binary bundle of themselves</span></div><div class="line" id="012105"><span class="nick" style="color:#2e2a4a"><a href="#012105" label="[01:21:05]">&lt;stikonas[m]&gt;</a></span><span class="message">pypy2/3 needs python2, yes</span></div><div class="line" id="012119"><span class="nick" style="color:#8dd3c7"><a href="#012119" label="[01:21:19]">&lt;aggi&gt;</a></span><span class="message">in comparison, with perl, a miniperl interpreter is compiled from C-only, and then this miniperl is proceeded with</span></div><div class="line" id="012124"><span class="nick" style="color:#2e2a4a"><a href="#012124" label="[01:21:24]">&lt;stikonas[m]&gt;</a></span><span class="message">Python 3 shouldn't as far as I remember</span></div><div class="line" id="012143"><span class="nick" style="color:#2e2a4a"><a href="#012143" label="[01:21:43]">&lt;stikonas[m]&gt;</a></span><span class="message">Yes but perl also needs perl for headers</span></div><div class="line" id="012208"><span class="nick" style="color:#2e2a4a"><a href="#012208" label="[01:22:08]">&lt;stikonas[m]&gt;</a></span><span class="message">But we bootstrapped that in live-bootstrap</span></div><div class="line" id="012248"><span class="nick" style="color:#2e2a4a"><a href="#012248" label="[01:22:48]">&lt;stikonas[m]&gt;</a></span><span class="message">So I don't think there is much difference between perl and python</span></div><div class="line" id="012317"><span class="nick" style="color:#2e2a4a"><a href="#012317" label="[01:23:17]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm, unless newer python 3 started using python for more stuff</span></div><div class="line" id="012325"><span class="nick" style="color:#8dd3c7"><a href="#012325" label="[01:23:25]">&lt;aggi&gt;</a></span><span class="message">ok, i want to remove python3 as a build-dependency anyway (gentoo), however i do not want to lock-out python(3) bootstrapping later, because my release won't contain any python anymore</span></div><div class="line" id="012510"><span class="nick" style="color:#8dd3c7"><a href="#012510" label="[01:25:10]">&lt;aggi&gt;</a></span><span class="message">if python3 can be bootstrapped without a binary bundle from C-only with tcc compiler later then this problem is solved too</span></div><div class="line" id="012611"><span class="nick" style="color:#2e2a4a"><a href="#012611" label="[01:26:11]">&lt;stikonas[m]&gt;</a></span><span class="message">Not sure about tcc but GCC should work</span></div><div class="line" id="012640"><span class="nick" style="color:#2e2a4a"><a href="#012640" label="[01:26:40]">&lt;stikonas[m]&gt;</a></span><span class="message">We have only used tcc for some stuff here</span></div><div class="line" id="012657"><span class="nick" style="color:#8dd3c7"><a href="#012657" label="[01:26:57]">&lt;aggi&gt;</a></span><span class="message">i want to rentirely remove GNU-toolchain (gcc/binutils), i don't want to lock-out a bootstrapping of gcc/binutils, but i do not want to depend on this anymore</span></div><div class="line" id="012703"><span class="nick" style="color:#2e2a4a"><a href="#012703" label="[01:27:03]">&lt;stikonas[m]&gt;</a></span><span class="message">You are using it much more</span></div><div class="line" id="012751"><span class="nick" style="color:#8dd3c7"><a href="#012751" label="[01:27:51]">&lt;aggi&gt;</a></span><span class="message">i arrived at huge userspace builds already, including mplayer/ffmpeg and several dozens of libs/dependencies... _all_ of this passed with tcc</span></div><div class="line" id="012758"><span class="nick" style="color:#2e2a4a"><a href="#012758" label="[01:27:58]">&lt;stikonas[m]&gt;</a></span><span class="message">You can't lock-out bootstrapping of GCC/binutils :D</span></div><div class="line" id="012804"><span class="nick" style="color:#2e2a4a"><a href="#012804" label="[01:28:04]">&lt;stikonas[m]&gt;</a></span><span class="message">We can bootstrap it from hex0</span></div><div class="line" id="012845"><span class="nick" style="color:#8dd3c7"><a href="#012845" label="[01:28:45]">&lt;aggi&gt;</a></span><span class="message">well, downgrading back to gcc47 and a c-only toolchain profile was almost one year of work, and bootstrapping gcc47 with arm-tcc again was another few days of hackjob</span></div><div class="line" id="012855"><span class="nick" style="color:#8dd3c7"><a href="#012855" label="[01:28:55]">&lt;aggi&gt;</a></span><span class="message">it's not me who intended to lock out</span></div><div class="line" id="013054"><span class="nick" style="color:#8dd3c7"><a href="#013054" label="[01:30:54]">&lt;aggi&gt;</a></span><span class="message">it is only a handful of ebuilds remaining to repair, including linux kernel and it's Kbuild system</span></div><div class="line" id="013157"><span class="nick" style="color:#8dd3c7"><a href="#013157" label="[01:31:57]">&lt;aggi&gt;</a></span><span class="message">i know with certainty already, this Kbuild system depends on gcc specifics, such as 'gcc -S' to output asm instead, whatever this is good for</span></div><div class="line" id="013225"><span class="nick" style="color:#8dd3c7"><a href="#013225" label="[01:32:25]">&lt;aggi&gt;</a></span><span class="message">not sure yet... some weeks ago i made a first test run with kernel-5.10 and arm64-tcc</span></div><div class="line" id="013411"><span class="nick" style="color:#8dd3c7"><a href="#013411" label="[01:34:11]">&lt;aggi&gt;</a></span><span class="message">current blockers remaining: musl-libc (unsupported aarch32 asm), kernel (kbuild system issue, aarch asm), perl (miniperl compiled with arm-tcc fails during runtime)</span></div><div class="line" id="013501"><span class="nick" style="color:#8dd3c7"><a href="#013501" label="[01:35:01]">&lt;aggi&gt;</a></span><span class="message">it's not that much anymore, and it's feasible (which i didn't know if a tcc-toolchain _only_ is feasible, it is)</span></div><div class="line" id="013619"><span class="nick" style="color:#8dd3c7"><a href="#013619" label="[01:36:19]">&lt;aggi&gt;</a></span><span class="message">on aarch32/64 with uboot loader a nasty dependency graph against python/swig/c++ remains, however x86/64 there isn't</span></div><div class="line" id="013631"><span class="nick" style="color:#2e2a4a"><a href="#013631" label="[01:36:31]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, building modern kernel with tcc won't be easy... Thought it would be a useful knowledge</span></div><div class="line" id="013649"><span class="nick" style="color:#8dd3c7"><a href="#013649" label="[01:36:49]">&lt;aggi&gt;</a></span><span class="message">meaning, i can fully separate the _entire_ distribution from GNU-toolchain and LLVM alike</span></div><div class="line" id="013705"><span class="nick" style="color:#8dd3c7"><a href="#013705" label="[01:37:05]">&lt;aggi&gt;</a></span><span class="message">stikonas[m]: i think it is possible, and feasible, with reasonable efforts</span></div><div class="line" id="013914"><span class="nick" style="color:#8dd3c7"><a href="#013914" label="[01:39:14]">&lt;aggi&gt;</a></span><span class="message">and it is very desireable to do it, given where GNU and LLVM are heading</span></div><div class="line" id="014003"><span class="nick" style="color:#8dd3c7"><a href="#014003" label="[01:40:03]">&lt;aggi&gt;</a></span><span class="message">and, don't underestimate the mountain of problems, in _userspace_, which is done 99% already (except minor issues above mentioned)</span></div><div class="line" id="032837"><span class="nick" style="color:#6b8072"><a href="#032837" label="[03:28:37]">&lt;oriansj&gt;</a></span><span class="message">aggi: well it really always was inevitable. People who create languages only think of their best interest. People who uses languages only think of what makes them happiest. Cultures always die due to their own waste products.</span></div><div class="line" id="034346"><span class="nick" style="color:#8dd3c7"><a href="#034346" label="[03:43:46]">&lt;aggi&gt;</a></span><span class="message">meanwhile, re-verified elfutils and tcc-ar utilties, and it seems GNU buildystems feeds unsupport options into which only AR=gnu-binutils-ar can process</span></div><div class="line" id="034437"><span class="nick" style="color:#8dd3c7"><a href="#034437" label="[03:44:37]">&lt;aggi&gt;</a></span><span class="message">another 30 builds, potentially wrecked by GNU</span></div><div class="line" id="034555"><span class="nick" style="color:#8dd3c7"><a href="#034555" label="[03:45:55]">&lt;aggi&gt;</a></span><span class="message">i mean, such problems can be solved, nonetheless, if anything, i do not want to depend on GNU with anything anymore</span></div><div class="line" id="071740"><span class="nick">***</span><span class="message notice">roptat is now known as Guest8836</span></div><div class="line" id="120916"><span class="nick">***</span><span class="message notice">mateusz is now known as mattx</span></div><div class="line" id="152620"><span class="nick">***</span><span class="message notice">lukedashjr is now known as luke-jr</span></div><br /></div></body></html>

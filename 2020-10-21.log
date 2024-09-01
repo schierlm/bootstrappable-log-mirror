@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-10-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="021524"><span class="nick" style="color:#8dd3c7"><a href="#021524" label="[02:15:24]">&lt;OriansJ&gt;</a></span><span class="message">M1 completed 8hours of fuzzing with no segfaults and one false positive for hanging; I think that is stable enough for end users</span></div><div class="line" id="022123"><span class="nick" style="color:#2e2a4a"><a href="#022123" label="[02:21:23]">&lt;fossy&gt;</a></span><span class="message">+1</span></div><div class="line" id="022514"><span class="nick" style="color:#8dd3c7"><a href="#022514" label="[02:25:14]">&lt;OriansJ&gt;</a></span><span class="message">nothing like 10 times faster and just as stable as ever</span></div><div class="line" id="022601"><span class="nick" style="color:#8dd3c7"><a href="#022601" label="[02:26:01]">&lt;OriansJ&gt;</a></span><span class="message">now I just need to repeast that miracle with hex2 (certainly can't do it with blood-elf)</span></div><div class="line" id="024026"><span class="nick" style="color:#8dd3c7"><a href="#024026" label="[02:40:26]">&lt;OriansJ&gt;</a></span><span class="message">unless anyone looking at this: <a rel="nofollow" href="https://paste.debian.net/1168048/">https://paste.debian.net/1168048/</a>  has a solution to reduce the sub 1/10 second runtime needed to process M2.M1 even further because at this speed profiling tools stop working so well.</span></div><div class="line" id="024406"><span class="nick" style="color:#8dd3c7"><a href="#024406" label="[02:44:06]">&lt;OriansJ&gt;</a></span><span class="message">but the new nyacc release looks fun</span></div><div class="line" id="024421"><span class="nick" style="color:#6b8072"><a href="#024421" label="[02:44:21]">&lt;nimaje&gt;</a></span><span class="message">well, make some bigger example to profile and hope making the bigger example faster helps with the normal usecase or lable it fast enought</span></div><div class="line" id="024846"><span class="nick" style="color:#8dd3c7"><a href="#024846" label="[02:48:46]">&lt;OriansJ&gt;</a></span><span class="message">nimaje: well the biggest example is the largest program MesCC can compile and as a single pass process that ignores everything until it sees a :label and then generates the output and then just dumps it all quickly; the only thing to make it faster is to steal the grep solution to fast pattern matching and I am not sure M2-Planet could build that</span></div><div class="line" id="025303"><span class="nick" style="color:#8dd3c7"><a href="#025303" label="[02:53:03]">&lt;OriansJ&gt;</a></span><span class="message">So right now Disk I/O R/W is the speed limiter; so something to make file_print faster would likely be the optimization possible to implement but I don't see it yet</span></div><div class="line" id="025417"><span class="nick" style="color:#8dd3c7"><a href="#025417" label="[02:54:17]">&lt;OriansJ&gt;</a></span><span class="message">unless the solution is add read/write buffering to M2-Planet (then implement fflush properly)</span></div><div class="line" id="030207"><span class="nick" style="color:#80b1d3"><a href="#030207" label="[03:02:07]">&lt;ericonr&gt;</a></span><span class="message">could you make it run in a tmpfs?</span></div><div class="line" id="064155"><span class="nick" style="color:#2e2a4a"><a href="#064155" label="[06:41:55]">&lt;fossy&gt;</a></span><span class="message">not without much more complex kernel support requirements</span></div><div class="line" id="064212"><span class="nick" style="color:#2e2a4a"><a href="#064212" label="[06:42:12]">&lt;fossy&gt;</a></span><span class="message">not rly a solution anyway</span></div><br /></div></body></html>

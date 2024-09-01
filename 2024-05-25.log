@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-05-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001013"><span class="nick" style="color:#389600"><a href="#001013" label="[00:10:13]">&lt;Googulator&gt;</a></span><span class="message">from what I see on #guix,  folks don't seem very interested in the LB-&gt;Guix bootstrap...</span></div><div class="line" id="004401"><span class="nick" style="color:#8dd3c7"><a href="#004401" label="[00:44:01]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; No, they don't seem to care about baremetal bootstrapping or pregenerated files. They mostly want to have just cleaner</span></div><div class="line" id="004747"><span class="nick" style="color:#8dd3c7"><a href="#004747" label="[00:47:47]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; cleaner package dependency graph</span></div><div class="line" id="013000"><span class="nick" style="color:#389600"><a href="#013000" label="[01:30:00]">&lt;Googulator&gt;</a></span><span class="message">Pregens aren't really the point here, rather it's reducing the binary seed further, which Guix does otherwise seem to care about</span></div><div class="line" id="013049"><span class="nick" style="color:#389600"><a href="#013049" label="[01:30:49]">&lt;Googulator&gt;</a></span><span class="message">right now, the binary seed for Guix is 20-odd MiB, plus the kernel &amp; bootloader, at the very least.</span></div><div class="line" id="041954"><span class="nick" style="color:#2e2a4a"><a href="#041954" label="[04:19:54]">&lt;fossy&gt;</a></span><span class="message">from my limited interactions, many guixers don't seem to think that guile really &quot;counts&quot;, because it's merely a &quot;driver&quot; or something like that</span></div><div class="line" id="042004"><span class="nick" style="color:#2e2a4a"><a href="#042004" label="[04:20:04]">&lt;fossy&gt;</a></span><span class="message">and i think the long term plan is to repalce it with mes</span></div><div class="line" id="042008"><span class="nick" style="color:#2e2a4a"><a href="#042008" label="[04:20:08]">&lt;fossy&gt;</a></span><span class="message">not really sure how that works?</span></div><div class="line" id="042109"><span class="nick" style="color:#2e2a4a"><a href="#042109" label="[04:21:09]">&lt;fossy&gt;</a></span><span class="message">(although, generally #guix seems to have a high rate of unanswered questions)</span></div><div class="line" id="042120"><span class="nick" style="color:#2e2a4a"><a href="#042120" label="[04:21:20]">&lt;fossy&gt;</a></span><span class="message">oriansj: a review at some point would be appreacited :) <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/pull/79">https://github.com/oriansj/stage0-posix/pull/79</a> </span></div><div class="line" id="042133"><span class="nick" style="color:#389600"><a href="#042133" label="[04:21:33]">&lt;Googulator&gt;</a></span><span class="message">Right now, until the very final guile is built, bootstrap-guile is used almost exclusively to execute Scheme/Lisp code</span></div><div class="line" id="042139"><span class="nick" style="color:#389600"><a href="#042139" label="[04:21:39]">&lt;Googulator&gt;</a></span><span class="message">(save for mescc running under Mes)</span></div><div class="line" id="042237"><span class="nick" style="color:#2e2a4a"><a href="#042237" label="[04:22:37]">&lt;fossy&gt;</a></span><span class="message">Yeah</span></div><div class="line" id="042250"><span class="nick" style="color:#2e2a4a"><a href="#042250" label="[04:22:50]">&lt;fossy&gt;</a></span><span class="message">i believe the plan was/is to replace bootstrap-guile with mes</span></div><div class="line" id="042259"><span class="nick" style="color:#2e2a4a"><a href="#042259" label="[04:22:59]">&lt;fossy&gt;</a></span><span class="message">but i don't really understand the logistics of that</span></div><div class="line" id="042307"><span class="nick" style="color:#389600"><a href="#042307" label="[04:23:07]">&lt;Googulator&gt;</a></span><span class="message">AFAIK Mes 0.26 is meant to rectify that, but so far, Guix is still is on 0.24.2 which has no chance of running gash (the primary reason why bootstrap-guile is currently an input of almost every package before the final guile is built)</span></div><div class="line" id="042318"><span class="nick" style="color:#389600"><a href="#042318" label="[04:23:18]">&lt;Googulator&gt;</a></span><span class="message">also, Guix has no &quot;early Bash&quot;</span></div><div class="line" id="042338"><span class="nick" style="color:#389600"><a href="#042338" label="[04:23:38]">&lt;Googulator&gt;</a></span><span class="message">it uses Gash until it can build an &quot;almost-final&quot; Bash</span></div><div class="line" id="042345"><span class="nick" style="color:#2e2a4a"><a href="#042345" label="[04:23:45]">&lt;fossy&gt;</a></span><span class="message">yeah i recall that</span></div><div class="line" id="042354"><span class="nick" style="color:#389600"><a href="#042354" label="[04:23:54]">&lt;Googulator&gt;</a></span><span class="message">(same bash version as the final one, just built with different libs &amp; compiler)</span></div><div class="line" id="042436"><span class="nick" style="color:#389600"><a href="#042436" label="[04:24:36]">&lt;Googulator&gt;</a></span><span class="message">Gash running under bootstrap-guile is terribly memory bandwidth limited btw</span></div><div class="line" id="042454"><span class="nick" style="color:#389600"><a href="#042454" label="[04:24:54]">&lt;Googulator&gt;</a></span><span class="message">even worse than mescc possibly</span></div><div class="line" id="042554"><span class="nick" style="color:#389600"><a href="#042554" label="[04:25:54]">&lt;Googulator&gt;</a></span><span class="message">The same configure scripts that run in a few seconds on my Core 2 bootstrapping rig in LB take tens of minutes in Guix when running under Gash</span></div><div class="line" id="043116"><span class="nick" style="color:#389600"><a href="#043116" label="[04:31:16]">&lt;Googulator&gt;</a></span><span class="message">but overall, bootstrap-guile right now is far more than &quot;just a driver&quot;, considering it is *solely responsible for all shell script execution until a near-final Bash takes over*</span></div><div class="line" id="043159"><span class="nick" style="color:#389600"><a href="#043159" label="[04:31:59]">&lt;Googulator&gt;</a></span><span class="message">all of that power and responsibility delegated to a binary downloaded off the Web, that's not even reproducibly built</span></div><div class="line" id="043232"><span class="nick" style="color:#389600"><a href="#043232" label="[04:32:32]">&lt;Googulator&gt;</a></span><span class="message">(at least it is checksummed, so you can't just MITM the download and inject a malicious version)</span></div><div class="line" id="205922"><span class="nick" style="color:#389600"><a href="#205922" label="[20:59:22]">&lt;Googulator&gt;</a></span><span class="message">Looks like the Python issue is resolved by re-enabling chroot in the Guix daemon after the final Guile is bootstrapped</span></div><div class="line" id="210003"><span class="nick" style="color:#389600"><a href="#210003" label="[21:00:03]">&lt;Googulator&gt;</a></span><span class="message">unfortunately we can only do this on qemu or bare metal, as the daemon has trouble running in a chroot or bwrap environment unless --disable-chroot is used</span></div><div class="line" id="231456"><span class="nick" style="color:#6b8072"><a href="#231456" label="[23:14:56]">&lt;pabs3&gt;</a></span><span class="message">TIL there is a &quot;not even remotely usable&quot; Ada compiler in Scala using LLVM <a rel="nofollow" href="https://github.com/pchapin/augusta">https://github.com/pchapin/augusta</a>  from <a rel="nofollow" href="https://github.com/ohenley/awesome-ada">https://github.com/ohenley/awesome-ada</a> </span></div><div class="line" id="231510"><span class="nick" style="color:#6b8072"><a href="#231510" label="[23:15:10]">&lt;pabs3&gt;</a></span><span class="message">(IIRC Scala isn't bootstrappable either)</span></div><br /></div></body></html>

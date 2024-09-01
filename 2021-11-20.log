@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-11-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="022725"><span class="nick" style="color:#8dd3c7"><a href="#022725" label="[02:27:25]">&lt;oriansj&gt;</a></span><span class="message">stikonas: hmm why not just #define M2_CELL_SIZE 3*sizeof(long)</span></div><div class="line" id="022828"><span class="nick" style="color:#2e2a4a"><a href="#022828" label="[02:28:28]">&lt;stikonas[m]&gt;</a></span><span class="message">We can try...</span></div><div class="line" id="022850"><span class="nick" style="color:#2e2a4a"><a href="#022850" label="[02:28:50]">&lt;stikonas[m]&gt;</a></span><span class="message">Unless it fails due to operator priority</span></div><div class="line" id="022959"><span class="nick" style="color:#2e2a4a"><a href="#022959" label="[02:29:59]">&lt;stikonas[m]&gt;</a></span><span class="message">(And my code is pushed to <a rel="nofollow" href="https://github.com/stikonas/M2-Planet/commits/macro_functions">https://github.com/stikonas/M2-Planet/commits/macro_functions</a>  )</span></div><div class="line" id="032950"><span class="nick" style="color:#8dd3c7"><a href="#032950" label="[03:29:50]">&lt;oriansj&gt;</a></span><span class="message">could we ban #define foo(x) \n so no \n after ) and thus in that case we interpret it as #define foo (x)</span></div><div class="line" id="033248"><span class="nick" style="color:#8dd3c7"><a href="#033248" label="[03:32:48]">&lt;oriansj&gt;</a></span><span class="message">or do you think we need to modify the tokenizer to preserve whitespace characters as well and then strip them after preprocessing?</span></div><div class="line" id="034508"><span class="nick" style="color:#2e2a4a"><a href="#034508" label="[03:45:08]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm, maybe that will work...</span></div><div class="line" id="034551"><span class="nick" style="color:#2e2a4a"><a href="#034551" label="[03:45:51]">&lt;stikonas[m]&gt;</a></span><span class="message">But any of those options would need some adjustments</span></div><div class="line" id="034834"><span class="nick" style="color:#2e2a4a"><a href="#034834" label="[03:48:34]">&lt;stikonas[m]&gt;</a></span><span class="message">But I did think a bit about option 2...</span></div><div class="line" id="034907"><span class="nick" style="color:#2e2a4a"><a href="#034907" label="[03:49:07]">&lt;stikonas[m]&gt;</a></span><span class="message">It doesn't sound super hard either...</span></div><div class="line" id="035406"><span class="nick" style="color:#8dd3c7"><a href="#035406" label="[03:54:06]">&lt;oriansj&gt;</a></span><span class="message">and then your work should be much easier</span></div><div class="line" id="042449"><span class="nick" style="color:#8dd3c7"><a href="#042449" label="[04:24:49]">&lt;oriansj&gt;</a></span><span class="message">here is the code needed for the reader and cc.c: <a rel="nofollow" href="https://paste.debian.net/1220147/">https://paste.debian.net/1220147/</a> </span></div><div class="line" id="042611"><span class="nick" style="color:#8dd3c7"><a href="#042611" label="[04:26:11]">&lt;oriansj&gt;</a></span><span class="message">it produces a bug in the macro preprocessor but I assume you are working on that</span></div><div class="line" id="042719"><span class="nick" style="color:#8dd3c7"><a href="#042719" label="[04:27:19]">&lt;oriansj&gt;</a></span><span class="message">now just to get the preprocessor to become whitespace aware</span></div><div class="line" id="042748"><span class="nick" style="color:#8dd3c7"><a href="#042748" label="[04:27:48]">&lt;oriansj&gt;</a></span><span class="message">and then we can do proper whitespace logic for the macros</span></div><div class="line" id="042817"><span class="nick" style="color:#8dd3c7"><a href="#042817" label="[04:28:17]">&lt;oriansj&gt;</a></span><span class="message">thank you stikonas for helping me reason to this change. hopefully the diff helps you out</span></div><div class="line" id="043431"><span class="nick" style="color:#6b8072"><a href="#043431" label="[04:34:31]">&lt;pabs3&gt;</a></span><span class="message">can someone add <a rel="nofollow" href="https://github.com/ebourg/kotlin-bootstrapping">https://github.com/ebourg/kotlin-bootstrapping</a>  to <a rel="nofollow" href="https://bootstrappable.org/projects/jvm-languages.html">https://bootstrappable.org/projects/jvm-languages.html</a>  ?</span></div><div class="line" id="101526"><span class="nick" style="color:#2e2a4a"><a href="#101526" label="[10:15:26]">&lt;stikonas[m]&gt;</a></span><span class="message">pabs3: if you can, make a patch to git repo and submit it</span></div><div class="line" id="150546"><span class="nick" style="color:#80b1d3"><a href="#150546" label="[15:05:46]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/pull/70">https://github.com/oriansj/stage0-posix/pull/70</a>  (I did riscv64-&gt;riscv32 conversion)</span></div><div class="line" id="150551"><span class="nick" style="color:#80b1d3"><a href="#150551" label="[15:05:51]">&lt;stikonas&gt;</a></span><span class="message">fairly simple...</span></div><div class="line" id="150839"><span class="nick" style="color:#80b1d3"><a href="#150839" label="[15:08:39]">&lt;stikonas&gt;</a></span><span class="message">although I haven't tested it beyond confirming that it compiles</span></div><div class="line" id="193559"><span class="nick" style="color:#8dd3c7"><a href="#193559" label="[19:35:59]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged</span></div><div class="line" id="193629"><span class="nick" style="color:#8dd3c7"><a href="#193629" label="[19:36:29]">&lt;oriansj&gt;</a></span><span class="message">and figured you would be changing the M1 strings later after we add support for RISC-V 32bit in M2-Planet and M2libc</span></div><div class="line" id="203807"><span class="nick" style="color:#80b1d3"><a href="#203807" label="[20:38:07]">&lt;stikonas&gt;</a></span><span class="message">maybe eventually if nobody does it first...</span></div><div class="line" id="203830"><span class="nick" style="color:#80b1d3"><a href="#203830" label="[20:38:30]">&lt;stikonas&gt;</a></span><span class="message">oriansj: you meant M1 strings for M2-Planet?</span></div><div class="line" id="203850"><span class="nick" style="color:#80b1d3"><a href="#203850" label="[20:38:50]">&lt;stikonas&gt;</a></span><span class="message">or which ones?</span></div><div class="line" id="203915"><span class="nick" style="color:#80b1d3"><a href="#203915" label="[20:39:15]">&lt;stikonas&gt;</a></span><span class="message">cc_riscv32 should already have good M1 strings</span></div><div class="line" id="203931"><span class="nick" style="color:#80b1d3"><a href="#203931" label="[20:39:31]">&lt;stikonas&gt;</a></span><span class="message">unless I missed something</span></div><div class="line" id="234621"><span class="nick" style="color:#8dd3c7"><a href="#234621" label="[23:46:21]">&lt;oriansj&gt;</a></span><span class="message">stikonas: the strings in cc_riscv32 that are output as the result of processing C code. As I do not know if any changes will need to be made as you have not shared if you did any testing of running the resulting output. And from your testing are there any changes from RISC-V 64bit to RISC-V 32bit that need to be encoded in hex2, M1 or blood-elf or can we simplify to just riscv for them?</span></div><div class="line" id="235216"><span class="nick" style="color:#2e2a4a"><a href="#235216" label="[23:52:16]">&lt;stikonas[m]&gt;</a></span><span class="message">I didn't test output but I adjusted output strings, e.g. LD-&gt;LW, pointer sizes, etc</span></div><div class="line" id="235243"><span class="nick" style="color:#2e2a4a"><a href="#235243" label="[23:52:43]">&lt;stikonas[m]&gt;</a></span><span class="message">No changes needed for hex2 M1 or blood elf</span></div><div class="line" id="235315"><span class="nick" style="color:#2e2a4a"><a href="#235315" label="[23:53:15]">&lt;stikonas[m]&gt;</a></span><span class="message">Biggest missing pieces are now M2libc and kaem-minimal</span></div><div class="line" id="235511"><span class="nick" style="color:#2e2a4a"><a href="#235511" label="[23:55:11]">&lt;stikonas[m]&gt;</a></span><span class="message">But I didn't test output yet...</span></div><br /></div></body></html>

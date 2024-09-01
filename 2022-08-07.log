@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-08-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011406"><span class="nick" style="color:#8dd3c7"><a href="#011406" label="[01:14:06]">&lt;stikonas&gt;</a></span><span class="message">oriansj: can you pull <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds/pull/27">https://github.com/oriansj/bootstrap-seeds/pull/27</a> </span></div><div class="line" id="043357"><span class="nick" style="color:#2e2a4a"><a href="#043357" label="[04:33:57]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged</span></div><div class="line" id="083609"><span class="nick" style="color:#6b8072"><a href="#083609" label="[08:36:09]">&lt;Andrew&gt;</a></span><span class="message">D</span></div><div class="line" id="132626"><span class="nick" style="color:#8dd3c7"><a href="#132626" label="[13:26:26]">&lt;stikonas&gt;</a></span><span class="message">oriansj: thanks. I've now pushed everything to stage0-uefi repo too, so one can test kaem and hex0 re-building themselves</span></div><div class="line" id="160434"><span class="nick" style="color:#2e2a4a"><a href="#160434" label="[16:04:34]">&lt;oriansj&gt;</a></span><span class="message">stikonas: nice</span></div><div class="line" id="163022"><span class="nick" style="color:#8dd3c7"><a href="#163022" label="[16:30:22]">&lt;stikonas&gt;</a></span><span class="message">well, going further to cc_adm64 should be fairly straightforward now</span></div><div class="line" id="163132"><span class="nick" style="color:#8dd3c7"><a href="#163132" label="[16:31:32]">&lt;stikonas&gt;</a></span><span class="message">though a bit more work would be needed to encode hex1 into hex0. After that it should be just replacing syscalls</span></div><div class="line" id="184455"><span class="nick" style="color:#2e2a4a"><a href="#184455" label="[18:44:55]">&lt;oriansj&gt;</a></span><span class="message">well also moving to PC relative addressing would to be needed to remove the relocation problem</span></div><div class="line" id="194905"><span class="nick" style="color:#8dd3c7"><a href="#194905" label="[19:49:05]">&lt;stikonas&gt;</a></span><span class="message">well yes, but that's only when we have compilers...</span></div><div class="line" id="194923"><span class="nick" style="color:#8dd3c7"><a href="#194923" label="[19:49:23]">&lt;stikonas&gt;</a></span><span class="message">well, ok, a bit for hex and M0 too</span></div><div class="line" id="194934"><span class="nick" style="color:#8dd3c7"><a href="#194934" label="[19:49:34]">&lt;stikonas&gt;</a></span><span class="message">(where we use global variables)</span></div><div class="line" id="195521"><span class="nick" style="color:#2e2a4a"><a href="#195521" label="[19:55:21]">&lt;oriansj&gt;</a></span><span class="message">and cc_* where there are a boatload of labels</span></div><div class="line" id="201845"><span class="nick" style="color:#8dd3c7"><a href="#201845" label="[20:18:45]">&lt;stikonas&gt;</a></span><span class="message">hmm, something is not working file set_position (lseek equivalent)...</span></div><div class="line" id="201853"><span class="nick" style="color:#8dd3c7"><a href="#201853" label="[20:18:53]">&lt;stikonas&gt;</a></span><span class="message">somehow next read immediately returns EOF</span></div><div class="line" id="222508"><span class="nick" style="color:#8dd3c7"><a href="#222508" label="[22:25:08]">&lt;stikonas&gt;</a></span><span class="message">oriansj: is table stuff in hex1 using unreserverd memory?</span></div><div class="line" id="222843"><span class="nick" style="color:#8dd3c7"><a href="#222843" label="[22:28:43]">&lt;stikonas&gt;</a></span><span class="message">though I'm not yet sure if that's causing my bug...</span></div><div class="line" id="222902"><span class="nick" style="color:#8dd3c7"><a href="#222902" label="[22:29:02]">&lt;stikonas&gt;</a></span><span class="message">right now hex1.S that I have can build .hex0 code fine but loops forever on hex1 code</span></div><div class="line" id="224400"><span class="nick" style="color:#8dd3c7"><a href="#224400" label="[22:44:00]">&lt;stikonas&gt;</a></span><span class="message">ok, it was some other bug... I think it's working now</span></div><br /></div></body></html>

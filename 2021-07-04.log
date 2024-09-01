@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001808"><span class="nick" style="color:#8dd3c7"><a href="#001808" label="[00:18:08]">&lt;stikonas&gt;</a></span><span class="message">oh, just noticed that Gentoo ships Autogen with Guile 3.0 patch</span></div><div class="line" id="001827"><span class="nick" style="color:#8dd3c7"><a href="#001827" label="[00:18:27]">&lt;stikonas&gt;</a></span><span class="message">so maybe it's possible to build it</span></div><div class="line" id="001905"><span class="nick" style="color:#8dd3c7"><a href="#001905" label="[00:19:05]">&lt;stikonas&gt;</a></span><span class="message">although Autogen looks really scary, lots of Autogen pre-generated files, not yet sure if they are circular dependencies or not</span></div><div class="line" id="003901"><span class="nick" style="color:#8dd3c7"><a href="#003901" label="[00:39:01]">&lt;stikonas&gt;</a></span><span class="message">fossy: so it looks to me like Autogen has ciruclar dependencies on pre-generated headers</span></div><div class="line" id="003917"><span class="nick" style="color:#8dd3c7"><a href="#003917" label="[00:39:17]">&lt;stikonas&gt;</a></span><span class="message">i.e. some headers are generated with Autogen itself</span></div><div class="line" id="010016"><span class="nick" style="color:#8dd3c7"><a href="#010016" label="[01:00:16]">&lt;stikonas&gt;</a></span><span class="message">so it looks like Autogen is the ultimate boss in the bootstrapping story :(</span></div><div class="line" id="010634"><span class="nick">***</span><span class="message notice">Noisytoot is now known as N7t</span></div><div class="line" id="011012"><span class="nick">***</span><span class="message notice">N7t is now known as Noisytoot</span></div><div class="line" id="014334"><span class="nick" style="color:#2e2a4a"><a href="#014334" label="[01:43:34]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well build systems always tend to be the places where the most build cheating tends to take place. of the 89 parts so far, 39 are just used dealing with bootstrapping the build tools alone.</span></div><div class="line" id="014912"><span class="nick" style="color:#8dd3c7"><a href="#014912" label="[01:49:12]">&lt;stikonas&gt;</a></span><span class="message">yeah, somehow people think build systems are less important, so cheating is more common</span></div><div class="line" id="015005"><span class="nick" style="color:#8dd3c7"><a href="#015005" label="[01:50:05]">&lt;stikonas&gt;</a></span><span class="message">we'll see. Maybe we should contact autogen author (Bruce Korb) for any pointers. He must have done that once but it might be lost now</span></div><div class="line" id="033248"><span class="nick" style="color:#6b8072"><a href="#033248" label="[03:32:48]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: what's up?</span></div><div class="line" id="033456"><span class="nick" style="color:#6b8072"><a href="#033456" label="[03:34:56]">&lt;fossy&gt;</a></span><span class="message">hm. autogen is super annoying</span></div><div class="line" id="033651"><span class="nick" style="color:#6b8072"><a href="#033651" label="[03:36:51]">&lt;fossy&gt;</a></span><span class="message">&lt;stikonas&gt; we'll see. Maybe we should contact autogen author (Bruce Korb) for any pointers. He must have done that once but it might be lost now</span></div><div class="line" id="033709"><span class="nick" style="color:#6b8072"><a href="#033709" label="[03:37:09]">&lt;fossy&gt;</a></span><span class="message">done what? circular pregen header deps?</span></div><div class="line" id="034116"><span class="nick" style="color:#80b1d3"><a href="#034116" label="[03:41:16]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy, kind of... But a lot of it...</span></div><div class="line" id="034228"><span class="nick" style="color:#80b1d3"><a href="#034228" label="[03:42:28]">&lt;stikonas[m]&gt;</a></span><span class="message">I mean he bootstrapped it once (I guess first autogen didn't have those circular deps)</span></div><div class="line" id="042217"><span class="nick" style="color:#2e2a4a"><a href="#042217" label="[04:22:17]">&lt;oriansj&gt;</a></span><span class="message">stikonas: the reason usually for why those circular dependencies are inserted secretly is usually shame in regards to how they were implemented and the aurthor not wanting that sort of mess to be associated with them. So they destroy the transistion code needed and we end up having to pull another bison bootstrap.</span></div><div class="line" id="042436"><span class="nick" style="color:#6d2462"><a href="#042436" label="[04:24:36]">&lt;Hagfish&gt;</a></span><span class="message">even if that's not true, i think that as an industry that should be our default assumption, so that developers take extra care to avoid circular dependencies</span></div><div class="line" id="042651"><span class="nick" style="color:#6d2462"><a href="#042651" label="[04:26:51]">&lt;Hagfish&gt;</a></span><span class="message">i should say that i have a lot of respect for people creating useful Free software, and beggars can't be choosers, but i do want them to correctly value the externality of making their software harder to bootstrap</span></div><div class="line" id="043926"><span class="nick" style="color:#2e2a4a"><a href="#043926" label="[04:39:26]">&lt;oriansj&gt;</a></span><span class="message">Hagfish: well bootstrapping, just like reproduciblity is a value you either have or your don't. And the only way to get people who don't value such things to do such things is to make it easier for them to do so and require them to do so. (Such as Debian's stance on reproducible builds)</span></div><div class="line" id="045328"><span class="nick" style="color:#2e2a4a"><a href="#045328" label="[04:53:28]">&lt;oriansj&gt;</a></span><span class="message">hmm I wonder if ext2 with a 512byte block size is supported</span></div><div class="line" id="045913"><span class="nick" style="color:#2e2a4a"><a href="#045913" label="[04:59:13]">&lt;oriansj&gt;</a></span><span class="message">no, it looks like it only goes down to 1024byte blocks.</span></div><div class="line" id="051531"><span class="nick" style="color:#2e2a4a"><a href="#051531" label="[05:15:31]">&lt;oriansj&gt;</a></span><span class="message">assuming I go with a classical generic MBR that only leaves 446bytes total</span></div><div class="line" id="052600"><span class="nick" style="color:#2e2a4a"><a href="#052600" label="[05:26:00]">&lt;oriansj&gt;</a></span><span class="message">perhaps a subset of the LEAN filesystem? <a rel="nofollow" href="http://freedos-32.sourceforge.net/lean/specification.php">http://freedos-32.sourceforge.net/lean/specification.php</a>  could fit unless I abandon the idea of the root hex0 for stage0-cpm having to create valid filesystem entries</span></div><div class="line" id="142505"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o oriansj</span></div><div class="line" id="162910"><span class="nick" style="color:#2e2a4a"><a href="#162910" label="[16:29:10]">&lt;oriansj&gt;</a></span><span class="message">With a handful of minor tweaks LEAN might actually be something I could fit in 446bytes and still have 30 sectors of bootstrapping tools before I need to write a superblock.</span></div><div class="line" id="182355"><span class="nick" style="color:#6d2462"><a href="#182355" label="[18:23:55]">&lt;Hagfish&gt;</a></span><span class="message">that would be pretty impressive</span></div><div class="line" id="185504"><span class="nick" style="color:#2e2a4a"><a href="#185504" label="[18:55:04]">&lt;oriansj&gt;</a></span><span class="message">Hagfish: well I want to enable a slow ramp up from a BootOS type root to a minimal POSIX on a uniform standard FileSystem (Without ideally having to create my own filesystem)</span></div><div class="line" id="185521"><span class="nick" style="color:#6d2462"><a href="#185521" label="[18:55:21]">&lt;Hagfish&gt;</a></span><span class="message">yeah, that's a worthwhile goal</span></div><div class="line" id="185629"><span class="nick" style="color:#6d2462"><a href="#185629" label="[18:56:29]">&lt;Hagfish&gt;</a></span><span class="message">i thought i'd check what the limits of human memory are for binary, and was pleased to find it being tracked here:</span></div><div class="line" id="185631"><span class="nick" style="color:#6d2462"><a href="#185631" label="[18:56:31]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.recordholders.org/en/list/memory.html#bits-30min">https://www.recordholders.org/en/list/memory.html#bits-30min</a> </span></div><div class="line" id="185718"><span class="nick" style="color:#6d2462"><a href="#185718" label="[18:57:18]">&lt;Hagfish&gt;</a></span><span class="message">783 bytes should be enough for anyone :)</span></div><div class="line" id="185836"><span class="nick" style="color:#2e2a4a"><a href="#185836" label="[18:58:36]">&lt;oriansj&gt;</a></span><span class="message">well x86 MBR can only be 446bytes of bootstrap code (and still be valid or 510bytes to use the entire block)</span></div><div class="line" id="185918"><span class="nick" style="color:#2e2a4a"><a href="#185918" label="[18:59:18]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://wiki.osdev.org/MBR_">https://wiki.osdev.org/MBR_</a>(x86) </span></div><div class="line" id="192538"><span class="nick" style="color:#2e2a4a"><a href="#192538" label="[19:25:38]">&lt;oriansj&gt;</a></span><span class="message">My thought is revise BootOS to just support load and write hex but with a minor twist of specifying start sector and sector count. (as sector 1-30 can be used for the pieces created before LEAN filesystem support is implemented).</span></div><div class="line" id="193111"><span class="nick" style="color:#2e2a4a"><a href="#193111" label="[19:31:11]">&lt;oriansj&gt;</a></span><span class="message">Make the second program be a more powerful loader that supports LEAN (ext2 or some other filesystem properly) that loads programs after itself and passes arguments on the stack to the programs it loads and export a couple syscalls as interrupts (fgetc, fputc and exit)</span></div><div class="line" id="194626"><span class="nick" style="color:#6d2462"><a href="#194626" label="[19:46:26]">&lt;Hagfish&gt;</a></span><span class="message">huh, syscalls as interrupts</span></div><div class="line" id="194720"><span class="nick" style="color:#6d2462"><a href="#194720" label="[19:47:20]">&lt;Hagfish&gt;</a></span><span class="message">i'm not familiar enough with either of those concepts to know how unique that is</span></div><div class="line" id="194745"><span class="nick" style="color:#2e2a4a"><a href="#194745" label="[19:47:45]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/stage0/blob/master/x86/notes.org">https://github.com/oriansj/stage0/blob/master/x86/notes.org</a> </span></div><div class="line" id="194827"><span class="nick" style="color:#2e2a4a"><a href="#194827" label="[19:48:27]">&lt;oriansj&gt;</a></span><span class="message">that is literally what int 0x80 and int 0x21 is in Linux and DOS</span></div><div class="line" id="195256"><span class="nick" style="color:#2e2a4a"><a href="#195256" label="[19:52:56]">&lt;oriansj&gt;</a></span><span class="message">it then uses the argument you put in the register (probably rax/eax/ax) as in index into a syscall table to lookup the address of the implementation of that functionality and then you do a jump into and the iret would return to the interrupt calling address.</span></div><div class="line" id="195325"><span class="nick" style="color:#6d2462"><a href="#195325" label="[19:53:25]">&lt;Hagfish&gt;</a></span><span class="message">huh, yeah, that makes a bit more sense, thanks</span></div><div class="line" id="195802"><span class="nick" style="color:#2e2a4a"><a href="#195802" label="[19:58:02]">&lt;oriansj&gt;</a></span><span class="message">but that effectively means both the initial bootstrap and the loader that follows are both Operating systems. One without a real filesystem (just remember where you put stuff) and the other with any filesystem we want as our base filesystem (possibly flagging blocks in it as bad to prevent use because we needed those blocks before it was implemented)</span></div><div class="line" id="200102"><span class="nick" style="color:#2e2a4a"><a href="#200102" label="[20:01:02]">&lt;oriansj&gt;</a></span><span class="message">So the question quickly becomes given that option is stage0-cpm even a worthwhile idea (worth even the time for me to learn the CP/M or DOS calling conventions and how arguments are passed??) And if so what good reference material exists to minimize the porting time spent?</span></div><div class="line" id="200144"><span class="nick" style="color:#2e2a4a"><a href="#200144" label="[20:01:44]">&lt;oriansj&gt;</a></span><span class="message">As ultimately only FreeDOS exists in that role and has some complex bootstrapping requirements itself.</span></div><div class="line" id="200408"><span class="nick" style="color:#2e2a4a"><a href="#200408" label="[20:04:08]">&lt;oriansj&gt;</a></span><span class="message">as it needs gcc 7.2 along with its C++ compiler.</span></div><div class="line" id="200457"><span class="nick" style="color:#6d2462"><a href="#200457" label="[20:04:57]">&lt;Hagfish&gt;</a></span><span class="message">wow, that is a pity</span></div><div class="line" id="203050"><span class="nick" style="color:#8dd3c7"><a href="#203050" label="[20:30:50]">&lt;stikonas&gt;</a></span><span class="message">older version of FreeDOS?</span></div><div class="line" id="203057"><span class="nick" style="color:#8dd3c7"><a href="#203057" label="[20:30:57]">&lt;stikonas&gt;</a></span><span class="message">can't be that they all require gcc 7.2</span></div><div class="line" id="205605"><span class="nick" style="color:#2e2a4a"><a href="#205605" label="[20:56:05]">&lt;oriansj&gt;</a></span><span class="message">stikonas: you are probably quite right, although that is going to take some digging to discover but it does look like they are all written in C (to be compiled by GCC)</span></div><div class="line" id="210122"><span class="nick" style="color:#8dd3c7"><a href="#210122" label="[21:01:22]">&lt;stikonas&gt;</a></span><span class="message">and I think I fixed non-reproducible build of guile...</span></div><div class="line" id="210134"><span class="nick" style="color:#8dd3c7"><a href="#210134" label="[21:01:34]">&lt;stikonas&gt;</a></span><span class="message">so can add it to PR soon...</span></div><div class="line" id="210146"><span class="nick" style="color:#8dd3c7"><a href="#210146" label="[21:01:46]">&lt;stikonas&gt;</a></span><span class="message">(there was a deliberate injection of timestamp in Makefile.am)</span></div><div class="line" id="210400"><span class="nick" style="color:#8dd3c7"><a href="#210400" label="[21:04:00]">&lt;stikonas&gt;</a></span><span class="message">(not that it would help us to get g++)...</span></div><div class="line" id="210410"><span class="nick" style="color:#8dd3c7"><a href="#210410" label="[21:04:10]">&lt;stikonas&gt;</a></span><span class="message">due to autogen...</span></div><div class="line" id="210513"><span class="nick" style="color:#8dd3c7"><a href="#210513" label="[21:05:13]">&lt;stikonas&gt;</a></span><span class="message">it might even be easier to build some older pre-autogen g++ and then jump to clang, although that's something I would like to avoid...</span></div><div class="line" id="210537"><span class="nick" style="color:#6d2462"><a href="#210537" label="[21:05:37]">&lt;Hagfish&gt;</a></span><span class="message">yeah, that would be wild</span></div><div class="line" id="210558"><span class="nick" style="color:#2e2a4a"><a href="#210558" label="[21:05:58]">&lt;oriansj&gt;</a></span><span class="message">sometimes easier is less fun than what might be harder.</span></div><div class="line" id="210607"><span class="nick" style="color:#6d2462"><a href="#210607" label="[21:06:07]">&lt;Hagfish&gt;</a></span><span class="message">heh, true</span></div><div class="line" id="210612"><span class="nick" style="color:#2e2a4a"><a href="#210612" label="[21:06:12]">&lt;oriansj&gt;</a></span><span class="message">In which case, do what you find more fun.</span></div><div class="line" id="225551"><span class="nick" style="color:#2e2a4a"><a href="#225551" label="[22:55:51]">&lt;oriansj&gt;</a></span><span class="message">Well, since I have done a scheme, a FORTH, an Assembler, a C compiler, and a libc. I guess the next crazy project will probably have to be a kernel. In either assembly or the M2-Planet C subset. (not sure which yet)</span></div><div class="line" id="231140"><span class="nick" style="color:#8dd3c7"><a href="#231140" label="[23:11:40]">&lt;stikonas&gt;</a></span><span class="message">I guess M2-Planet should be easier</span></div><div class="line" id="231338"><span class="nick" style="color:#8dd3c7"><a href="#231338" label="[23:13:38]">&lt;stikonas&gt;</a></span><span class="message">assembly might have some blob size advantages...</span></div><div class="line" id="231356"><span class="nick" style="color:#8dd3c7"><a href="#231356" label="[23:13:56]">&lt;stikonas&gt;</a></span><span class="message">there are probably other pros and cons</span></div><br /></div></body></html>

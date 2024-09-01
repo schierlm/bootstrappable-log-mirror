@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-08-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003714"><span class="nick" style="color:#389600"><a href="#003714" label="[00:37:14]">&lt;oriansj&gt;</a></span><span class="message">as it is probably high time for M1 to gain a few super features over M0</span></div><div class="line" id="004606"><span class="nick" style="color:#8dd3c7"><a href="#004606" label="[00:46:06]">&lt;mihi&gt;</a></span><span class="message">theruran, are you missing information like &lt;<a rel="nofollow" href="https://github.com/oriansj/stage0#m0">https://github.com/oriansj/stage0#m0</a>&gt;  in the stage0-posix repository? Might be a good idea to add that (or point to stage0 repository in the docs).</span></div><div class="line" id="004854"><span class="nick" style="color:#2e2a4a"><a href="#004854" label="[00:48:54]">&lt;theruran&gt;</a></span><span class="message">mihi: ah yeah, that's more info that I was missing</span></div><div class="line" id="005314"><span class="nick" style="color:#8dd3c7"><a href="#005314" label="[00:53:14]">&lt;mihi&gt;</a></span><span class="message">oriansj, when I may wish for super features in M1, I'd wish for a #DEFINEREC or similar which defines a word to multiple words which each are expanded again instead of passed verbatim. But I guess the downside is you cannot use those words in M2-Planet as that one needs to be buildable by M0...</span></div><div class="line" id="011113"><span class="nick" style="color:#389600"><a href="#011113" label="[01:11:13]">&lt;oriansj&gt;</a></span><span class="message">mihi: well we could use them in M2libc but not in the bootstrappable.c or in $arch/$OS/bootstrap.c files</span></div><div class="line" id="045223"><span class="nick" style="color:#6b8072"><a href="#045223" label="[04:52:23]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Can't you already do that with two    passes of M1?</span></div><div class="line" id="133555"><span class="nick" style="color:#8dd3c7"><a href="#133555" label="[13:35:55]">&lt;mihi&gt;</a></span><span class="message">stikonas, in theory you can. In practice you'd need to do lots of quoting since unfortunately running M1 output through M1 again is not idempotent.</span></div><div class="line" id="133654"><span class="nick" style="color:#8dd3c7"><a href="#133654" label="[13:36:54]">&lt;mihi&gt;</a></span><span class="message">so in my experience, in practice it is easier to have a bit of redundancy in M1 defs than having to quote everything to survive a second pass. But maybe I'm missing something easy :)</span></div><div class="line" id="134202"><span class="nick" style="color:#80b1d3"><a href="#134202" label="[13:42:02]">&lt;stikonas&gt;</a></span><span class="message">mihi: yeah, that's probably true...</span></div><div class="line" id="134227"><span class="nick" style="color:#80b1d3"><a href="#134227" label="[13:42:27]">&lt;stikonas&gt;</a></span><span class="message">well, some stuff is simple, just don't use labels starting with numbre</span></div><div class="line" id="134252"><span class="nick" style="color:#80b1d3"><a href="#134252" label="[13:42:52]">&lt;stikonas&gt;</a></span><span class="message">mihi: by the way, what's the usecase for second expansion?</span></div><div class="line" id="134300"><span class="nick" style="color:#80b1d3"><a href="#134300" label="[13:43:00]">&lt;stikonas&gt;</a></span><span class="message">do you want to do more of the arch independent M1?</span></div><div class="line" id="141303"><span class="nick" style="color:#8dd3c7"><a href="#141303" label="[14:13:03]">&lt;mihi&gt;</a></span><span class="message">getting M1 more arch indenpendent would be a nice side effect. I would have liked to make the M2 emitted code more similar between architectures: some constructs compile to a single DEFINE in one architecture and a plethora of them in otheres, making it harder to find bugs in the output in my opinion.</span></div><div class="line" id="141358"><span class="nick" style="color:#8dd3c7"><a href="#141358" label="[14:13:58]">&lt;mihi&gt;</a></span><span class="message">but of course, if in place, one could make M2 use same defines for more architectures more often. But as I said, that is moot point as M2 output needs to work with M0.</span></div><div class="line" id="141410"><span class="nick" style="color:#8dd3c7"><a href="#141410" label="[14:14:10]">&lt;mihi&gt;</a></span><span class="message">so feel free to scrap my idea</span></div><div class="line" id="141515"><span class="nick" style="color:#80b1d3"><a href="#141515" label="[14:15:15]">&lt;stikonas&gt;</a></span><span class="message">mihi: in principle if properly done, multiple constructs is better</span></div><div class="line" id="141608"><span class="nick" style="color:#80b1d3"><a href="#141608" label="[14:16:08]">&lt;stikonas&gt;</a></span><span class="message">i.e. there is only a small number of risc-v defines that I written down from ISA manual (just had to convert binary to hex)</span></div><div class="line" id="141636"><span class="nick" style="color:#80b1d3"><a href="#141636" label="[14:16:36]">&lt;stikonas&gt;</a></span><span class="message">on the other hand, for x86 those defines are basically one big define for the whole assembly line</span></div><div class="line" id="141705"><span class="nick" style="color:#80b1d3"><a href="#141705" label="[14:17:05]">&lt;stikonas&gt;</a></span><span class="message">so we only have those that are used in M1 defs file</span></div><div class="line" id="141717"><span class="nick" style="color:#80b1d3"><a href="#141717" label="[14:17:17]">&lt;stikonas&gt;</a></span><span class="message">and if you add some new code, you often need to add new defines</span></div><div class="line" id="230726"><span class="nick" style="color:#389600"><a href="#230726" label="[23:07:26]">&lt;oriansj&gt;</a></span><span class="message">mihi: that idea is the same as the proposed M3 specializers</span></div><div class="line" id="230944"><span class="nick" style="color:#389600"><a href="#230944" label="[23:09:44]">&lt;oriansj&gt;</a></span><span class="message">basically M3 would be outputing only a single &quot;perfect&quot; architecture's assembly and separate programs (the specializers) would convert it from that to a single normal architecture (like x86, risc-v, etc) and apply archicture specific optimizations and transformations</span></div><div class="line" id="231049"><span class="nick" style="color:#389600"><a href="#231049" label="[23:10:49]">&lt;oriansj&gt;</a></span><span class="message">for example the perfect architecture could have infinite registers and the specializers could determine which values need to be in which registers to make things fast for the architecture in question.</span></div><div class="line" id="231212"><span class="nick" style="color:#80b1d3"><a href="#231212" label="[23:12:12]">&lt;stikonas&gt;</a></span><span class="message">well, basically intermediate representation then</span></div><div class="line" id="231817"><span class="nick" style="color:#389600"><a href="#231817" label="[23:18:17]">&lt;oriansj&gt;</a></span><span class="message">indeed</span></div><div class="line" id="231954"><span class="nick" style="color:#389600"><a href="#231954" label="[23:19:54]">&lt;oriansj&gt;</a></span><span class="message">basically start stealing good design ideas from gcc and clang. Build something good enough to build tcc (or GCC if one wants to shovel a bunch of work in)</span></div><div class="line" id="232416"><span class="nick" style="color:#389600"><a href="#232416" label="[23:24:16]">&lt;oriansj&gt;</a></span><span class="message">just ensure that it is buildable by M2-Planet and just have fun building a C compiler within the constraints</span></div><div class="line" id="232814"><span class="nick" style="color:#80b1d3"><a href="#232814" label="[23:28:14]">&lt;stikonas&gt;</a></span><span class="message">oriansj: also it might be a good idea to steal some command line interface ideas from mescc</span></div><div class="line" id="232838"><span class="nick" style="color:#80b1d3"><a href="#232838" label="[23:28:38]">&lt;stikonas&gt;</a></span><span class="message">i.e. it can create stuff like libc.a (just concatenated hex2 object files)</span></div><div class="line" id="232913"><span class="nick" style="color:#80b1d3"><a href="#232913" label="[23:29:13]">&lt;stikonas&gt;</a></span><span class="message">but then it can link to those libraries with e.g -lc+tcc (automatically includes libc+tcc.a</span></div><div class="line" id="234311"><span class="nick" style="color:#389600"><a href="#234311" label="[23:43:11]">&lt;oriansj&gt;</a></span><span class="message">stikonas: indeed</span></div><div class="line" id="234424"><span class="nick" style="color:#389600"><a href="#234424" label="[23:44:24]">&lt;oriansj&gt;</a></span><span class="message">the original idea was to include binutils compatible assembly and object files</span></div><div class="line" id="235313"><span class="nick" style="color:#80b1d3"><a href="#235313" label="[23:53:13]">&lt;stikonas&gt;</a></span><span class="message">oriansj: while that might be nice, it's probably not easy...</span></div><br /></div></body></html>

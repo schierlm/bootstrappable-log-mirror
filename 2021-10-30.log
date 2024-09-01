@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-10-30.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003650"><span class="nick" style="color:#8dd3c7"><a href="#003650" label="[00:36:50]">&lt;stikonas&gt;</a></span><span class="message">oriansj: looks like I'm getting multiple redefinition errors with gcc11</span></div><div class="line" id="003725"><span class="nick" style="color:#8dd3c7"><a href="#003725" label="[00:37:25]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1217337/">https://paste.debian.net/1217337/</a> </span></div><div class="line" id="014151"><span class="nick" style="color:#2e2a4a"><a href="#014151" label="[01:41:51]">&lt;oriansj&gt;</a></span><span class="message">thank you stikonas, I'll attempt to correct that.</span></div><div class="line" id="014515"><span class="nick" style="color:#2e2a4a"><a href="#014515" label="[01:45:15]">&lt;oriansj&gt;</a></span><span class="message">odd, only vm_globals.c has a definition for tape_01_name and vm.h does extern char* tape_01_name;</span></div><div class="line" id="014618"><span class="nick" style="color:#2e2a4a"><a href="#014618" label="[01:46:18]">&lt;oriansj&gt;</a></span><span class="message">So how could there be multiple definitions?</span></div><div class="line" id="014755"><span class="nick" style="color:#2e2a4a"><a href="#014755" label="[01:47:55]">&lt;oriansj&gt;</a></span><span class="message">stikonas: are you on commit 4fec19dd0d904fd79f66eb1bf7db55d2917c2590</span></div><div class="line" id="015427"><span class="nick" style="color:#6b8072"><a href="#015427" label="[01:54:27]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm, not sure, I'll check tomorrow</span></div><div class="line" id="015718"><span class="nick" style="color:#6b8072"><a href="#015718" label="[01:57:18]">&lt;stikonas[m]&gt;</a></span><span class="message">(Not at my laptop anymore)</span></div><div class="line" id="020214"><span class="nick" style="color:#2e2a4a"><a href="#020214" label="[02:02:14]">&lt;oriansj&gt;</a></span><span class="message">because with GCC 11, I have to go back a few commits before the global reallocation before the build breaks.</span></div><div class="line" id="020315"><span class="nick" style="color:#6b8072"><a href="#020315" label="[02:03:15]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm, maybe I didn't pull, hmm</span></div><div class="line" id="020330"><span class="nick" style="color:#6b8072"><a href="#020330" label="[02:03:30]">&lt;stikonas[m]&gt;</a></span><span class="message">Anyway, let's postpone it till tomorrow</span></div><div class="line" id="030740"><span class="nick">***</span><span class="message notice">opal is now known as keep-ass</span></div><div class="line" id="121232"><span class="nick" style="color:#6b8072"><a href="#121232" label="[12:12:32]">&lt;stikonas[m]&gt;</a></span><span class="message">oh yes, I was on older stage0 commit, sorry for the noise</span></div><div class="line" id="154217"><span class="nick" style="color:#2e2a4a"><a href="#154217" label="[15:42:17]">&lt;oriansj&gt;</a></span><span class="message">stikonas: I'd rather have 10 false problems reported than 1 real problem not reported. Thank you.</span></div><div class="line" id="165545"><span class="nick">***</span><span class="message notice">keep-ass is now known as opal</span></div><div class="line" id="180134"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke_</span></div><div class="line" id="184532"><span class="nick" style="color:#8dd3c7"><a href="#184532" label="[18:45:32]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I have a semi-working riscv64  port of mes-m2 here <a rel="nofollow" href="https://github.com/oriansj/mes-m2/pull/13">https://github.com/oriansj/mes-m2/pull/13</a> </span></div><div class="line" id="184555"><span class="nick" style="color:#8dd3c7"><a href="#184555" label="[18:45:55]">&lt;stikonas&gt;</a></span><span class="message">x86 version seems to work, so no regression there</span></div><div class="line" id="184624"><span class="nick" style="color:#8dd3c7"><a href="#184624" label="[18:46:24]">&lt;stikonas&gt;</a></span><span class="message">but riscv64 often segfauls on startup (somewhere in garbage collector)</span></div><div class="line" id="184645"><span class="nick" style="color:#8dd3c7"><a href="#184645" label="[18:46:45]">&lt;stikonas&gt;</a></span><span class="message">or should we wait until if works reliably before mering?</span></div><div class="line" id="184831"><span class="nick" style="color:#8dd3c7"><a href="#184831" label="[18:48:31]">&lt;stikonas&gt;</a></span><span class="message">s/mering/merging/</span></div><div class="line" id="231845"><span class="nick" style="color:#8dd3c7"><a href="#231845" label="[23:18:45]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I think I've got empty #defines working in M2-Planet <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/pull/26/files">https://github.com/oriansj/M2-Planet/pull/26/files</a> </span></div><div class="line" id="234249"><span class="nick" style="color:#8dd3c7"><a href="#234249" label="[23:42:49]">&lt;stikonas&gt;</a></span><span class="message">oh, and also got #ifdef and #ifndef working...</span></div><div class="line" id="234307"><span class="nick" style="color:#8dd3c7"><a href="#234307" label="[23:43:07]">&lt;stikonas&gt;</a></span><span class="message">small things but might be useful if we want to target mes</span></div><div class="line" id="235955"><span class="nick" style="color:#80b1d3"><a href="#235955" label="[23:59:55]">&lt;Hagfish&gt;</a></span><span class="message">this guy's unstoppable :)</span></div><div class="line" id="235957"><span class="nick" style="color:#80b1d3"><a href="#235957" label="[23:59:57]">&lt;Hagfish&gt;</a></span><span class="message">great work</span></div><br /></div></body></html>

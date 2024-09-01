@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-01-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000518"><span class="nick" style="color:#389600"><a href="#000518" label="[00:05:18]">&lt;nektro&gt;</a></span><span class="message">just had to do the copy myself, was assuming it'd be automatic coming from other build systems</span></div><div class="line" id="022628"><span class="nick" style="color:#8dd3c7"><a href="#022628" label="[02:26:28]">&lt;fossy&gt;</a></span><span class="message">:)</span></div><div class="line" id="022944"><span class="nick" style="color:#2e2a4a"><a href="#022944" label="[02:29:44]">&lt;stikonas&gt;</a></span><span class="message">argh, I wanted to do one last force push</span></div><div class="line" id="022949"><span class="nick" style="color:#2e2a4a"><a href="#022949" label="[02:29:49]">&lt;stikonas&gt;</a></span><span class="message">to remove extra newline</span></div><div class="line" id="023011"><span class="nick" style="color:#2e2a4a"><a href="#023011" label="[02:30:11]">&lt;stikonas&gt;</a></span><span class="message">I'll just push directly</span></div><div class="line" id="023016"><span class="nick" style="color:#2e2a4a"><a href="#023016" label="[02:30:16]">&lt;stikonas&gt;</a></span><span class="message">(not force of course)</span></div><div class="line" id="023129"><span class="nick" style="color:#2e2a4a"><a href="#023129" label="[02:31:29]">&lt;stikonas&gt;</a></span><span class="message">ok, done</span></div><div class="line" id="024750"><span class="nick" style="color:#8dd3c7"><a href="#024750" label="[02:47:50]">&lt;fossy&gt;</a></span><span class="message">oops, sorry about that haha</span></div><div class="line" id="024801"><span class="nick" style="color:#8dd3c7"><a href="#024801" label="[02:48:01]">&lt;fossy&gt;</a></span><span class="message">yeah, i disabled force push to master</span></div><div class="line" id="024815"><span class="nick" style="color:#8dd3c7"><a href="#024815" label="[02:48:15]">&lt;fossy&gt;</a></span><span class="message">so even if you tried by accident it wouldn't go through :P</span></div><div class="line" id="024850"><span class="nick" style="color:#2e2a4a"><a href="#024850" label="[02:48:50]">&lt;stikonas&gt;</a></span><span class="message">fossy: I think a minor issue is here <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/sysa/run.sh#L235">https://github.com/fosslinux/live-bootstrap/blob/master/sysa/run.sh#L235</a> </span></div><div class="line" id="024858"><span class="nick" style="color:#2e2a4a"><a href="#024858" label="[02:48:58]">&lt;stikonas&gt;</a></span><span class="message">should it be ${SOURCES}/after.kaem ?</span></div><div class="line" id="024919"><span class="nick" style="color:#2e2a4a"><a href="#024919" label="[02:49:19]">&lt;stikonas&gt;</a></span><span class="message">yeah, we definitely want branch protection on master</span></div><div class="line" id="024929"><span class="nick" style="color:#2e2a4a"><a href="#024929" label="[02:49:29]">&lt;stikonas&gt;</a></span><span class="message">just to prevent accidents</span></div><div class="line" id="024956"><span class="nick" style="color:#2e2a4a"><a href="#024956" label="[02:49:56]">&lt;stikonas&gt;</a></span><span class="message">i.e. force pushing to origin instead of some other remote</span></div><div class="line" id="025021"><span class="nick" style="color:#8dd3c7"><a href="#025021" label="[02:50:21]">&lt;fossy&gt;</a></span><span class="message">yes, relic that never updated</span></div><div class="line" id="025030"><span class="nick" style="color:#2e2a4a"><a href="#025030" label="[02:50:30]">&lt;stikonas&gt;</a></span><span class="message">maybe just remove?</span></div><div class="line" id="025034"><span class="nick" style="color:#2e2a4a"><a href="#025034" label="[02:50:34]">&lt;stikonas&gt;</a></span><span class="message">it's the last thing in sysa</span></div><div class="line" id="025039"><span class="nick" style="color:#2e2a4a"><a href="#025039" label="[02:50:39]">&lt;stikonas&gt;</a></span><span class="message">so ram is no longer an issue</span></div><div class="line" id="025054"><span class="nick" style="color:#2e2a4a"><a href="#025054" label="[02:50:54]">&lt;stikonas&gt;</a></span><span class="message">oh, actually  there is still linux build</span></div><div class="line" id="025114"><span class="nick" style="color:#2e2a4a"><a href="#025114" label="[02:51:14]">&lt;stikonas&gt;</a></span><span class="message">still, it works even without that thing</span></div><div class="line" id="025120"><span class="nick" style="color:#2e2a4a"><a href="#025120" label="[02:51:20]">&lt;stikonas&gt;</a></span><span class="message">so probably unnecessary</span></div><div class="line" id="025713"><span class="nick" style="color:#2e2a4a"><a href="#025713" label="[02:57:13]">&lt;stikonas&gt;</a></span><span class="message">fossy: any objections if I artificially add bin and lib symlinks to musl package?</span></div><div class="line" id="025916"><span class="nick" style="color:#2e2a4a"><a href="#025916" label="[02:59:16]">&lt;stikonas&gt;</a></span><span class="message">that will allow to just unpack musl, unpack python and run &quot;./lib/ld-musl-i386.so.1 ./bin/python3.11&quot;</span></div><div class="line" id="030207"><span class="nick" style="color:#2e2a4a"><a href="#030207" label="[03:02:07]">&lt;stikonas&gt;</a></span><span class="message">something like <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/229">https://github.com/fosslinux/live-bootstrap/pull/229</a> </span></div><div class="line" id="030314"><span class="nick" style="color:#8dd3c7"><a href="#030314" label="[03:03:14]">&lt;fossy&gt;</a></span><span class="message">stikonas: remove is ok, won't matter at all once new kernel stuff implemented</span></div><div class="line" id="030404"><span class="nick" style="color:#8dd3c7"><a href="#030404" label="[03:04:04]">&lt;fossy&gt;</a></span><span class="message">yeah i think that musl change is ok, it doesn't hurt</span></div><div class="line" id="131005"><span class="nick" style="color:#2e2a4a"><a href="#131005" label="[13:10:05]">&lt;stikonas&gt;</a></span><span class="message">doras: is your live-bootstrap pipeline running in a VM?</span></div><div class="line" id="131028"><span class="nick" style="color:#2e2a4a"><a href="#131028" label="[13:10:28]">&lt;stikonas&gt;</a></span><span class="message">I wonder if that might be the cause for more frequent autoconf/automake intermittent failures</span></div><div class="line" id="131114"><span class="nick" style="color:#6b8072"><a href="#131114" label="[13:11:14]">&lt;doras&gt;</a></span><span class="message">Well... That's a good question. To my understanding it is, yes.</span></div><div class="line" id="131623"><span class="nick" style="color:#2e2a4a"><a href="#131623" label="[13:16:23]">&lt;stikonas&gt;</a></span><span class="message">perhaps that the key to better reproducing it</span></div><div class="line" id="131638"><span class="nick" style="color:#2e2a4a"><a href="#131638" label="[13:16:38]">&lt;stikonas&gt;</a></span><span class="message">I was trying to run it in a VM, once I hit it with automakt 1.15</span></div><div class="line" id="131644"><span class="nick" style="color:#2e2a4a"><a href="#131644" label="[13:16:44]">&lt;stikonas&gt;</a></span><span class="message">then next run even automake 1.11 caused it</span></div><div class="line" id="132618"><span class="nick" style="color:#8dd3c7"><a href="#132618" label="[13:26:18]">&lt;fossy&gt;</a></span><span class="message">stikonas: that's very interesting</span></div><div class="line" id="132713"><span class="nick" style="color:#2e2a4a"><a href="#132713" label="[13:27:13]">&lt;stikonas&gt;</a></span><span class="message">so basically bwrap mode in a VM</span></div><div class="line" id="135032"><span class="nick" style="color:#8dd3c7"><a href="#135032" label="[13:50:32]">&lt;fossy&gt;</a></span><span class="message">stikonas: hmm, i run qubes os on my main dev machine,so everything runs in a &quot;vm&quot;, but that is Xen, rather than QEMU..</span></div><div class="line" id="135043"><span class="nick" style="color:#8dd3c7"><a href="#135043" label="[13:50:43]">&lt;fossy&gt;</a></span><span class="message">and i've experienced it twice/probably 30 or so full builds in the last month</span></div><div class="line" id="135050"><span class="nick" style="color:#8dd3c7"><a href="#135050" label="[13:50:50]">&lt;fossy&gt;</a></span><span class="message">(many more partial builds)</span></div><div class="line" id="135057"><span class="nick" style="color:#8dd3c7"><a href="#135057" label="[13:50:57]">&lt;fossy&gt;</a></span><span class="message">(but those don't include automake 99% of the time)</span></div><div class="line" id="135323"><span class="nick" style="color:#2e2a4a"><a href="#135323" label="[13:53:23]">&lt;stikonas&gt;</a></span><span class="message">I think that VM I was running on and getting failures is also Xen</span></div><div class="line" id="135403"><span class="nick" style="color:#2e2a4a"><a href="#135403" label="[13:54:03]">&lt;stikonas&gt;</a></span><span class="message">again failure with automake 1.11</span></div><div class="line" id="135406"><span class="nick" style="color:#2e2a4a"><a href="#135406" label="[13:54:06]">&lt;stikonas&gt;</a></span><span class="message">CDPATH=&quot;${ZSH_VERSION+.}:&quot; &amp;&amp; cd .. &amp;&amp; autoconf-2.64</span></div><div class="line" id="135408"><span class="nick" style="color:#2e2a4a"><a href="#135408" label="[13:54:08]">&lt;stikonas&gt;</a></span><span class="message">autom4te-2.64: cannot create autom4te.cache: No such file or directory</span></div><div class="line" id="135507"><span class="nick" style="color:#2e2a4a"><a href="#135507" label="[13:55:07]">&lt;stikonas&gt;</a></span><span class="message">and running &quot;make MAKEINFO=true&quot; again caused the same failure once, but rerunning it once again suceeded</span></div><div class="line" id="135550"><span class="nick" style="color:#2e2a4a"><a href="#135550" label="[13:55:50]">&lt;stikonas&gt;</a></span><span class="message">I guess autoconf 2.64 has race conditions</span></div><div class="line" id="135602"><span class="nick" style="color:#2e2a4a"><a href="#135602" label="[13:56:02]">&lt;stikonas&gt;</a></span><span class="message">(make invokes autoreconf there)</span></div><div class="line" id="140017"><span class="nick" style="color:#8dd3c7"><a href="#140017" label="[14:00:17]">&lt;fossy&gt;</a></span><span class="message">interesting</span></div><div class="line" id="140103"><span class="nick" style="color:#2e2a4a"><a href="#140103" label="[14:01:03]">&lt;stikonas&gt;</a></span><span class="message">well, it's a race condition</span></div><div class="line" id="140128"><span class="nick" style="color:#2e2a4a"><a href="#140128" label="[14:01:28]">&lt;stikonas&gt;</a></span><span class="message">so might be quite sensitive to specs and settings</span></div><div class="line" id="140541"><span class="nick" style="color:#2e2a4a"><a href="#140541" label="[14:05:41]">&lt;stikonas&gt;</a></span><span class="message">at least on automake 1.11 it fails building amhello</span></div><div class="line" id="140547"><span class="nick" style="color:#2e2a4a"><a href="#140547" label="[14:05:47]">&lt;stikonas&gt;</a></span><span class="message">which is completely useless for us</span></div><div class="line" id="140812"><span class="nick" style="color:#2e2a4a"><a href="#140812" label="[14:08:12]">&lt;stikonas&gt;</a></span><span class="message">fossy: remove &quot;doc&quot; from SUBDIRS in top-level Makefile.am?</span></div><div class="line" id="141233"><span class="nick" style="color:#8dd3c7"><a href="#141233" label="[14:12:33]">&lt;fossy&gt;</a></span><span class="message">no objections to that</span></div><div class="line" id="141239"><span class="nick" style="color:#8dd3c7"><a href="#141239" label="[14:12:39]">&lt;fossy&gt;</a></span><span class="message">since that appears to be where the race condition is</span></div><div class="line" id="141251"><span class="nick" style="color:#8dd3c7"><a href="#141251" label="[14:12:51]">&lt;fossy&gt;</a></span><span class="message">hopefully it doesn't surface anywhere else...</span></div><div class="line" id="141254"><span class="nick" style="color:#8dd3c7"><a href="#141254" label="[14:12:54]">&lt;fossy&gt;</a></span><span class="message">might have to do a bit more testing</span></div><div class="line" id="141356"><span class="nick" style="color:#2e2a4a"><a href="#141356" label="[14:13:56]">&lt;stikonas&gt;</a></span><span class="message">well, so far I've only seen in various versions of automake</span></div><div class="line" id="141408"><span class="nick" style="color:#2e2a4a"><a href="#141408" label="[14:14:08]">&lt;stikonas&gt;</a></span><span class="message">1.11 and 1.15 I think</span></div><div class="line" id="145500"><span class="nick" style="color:#80b1d3"><a href="#145500" label="[14:55:00]">&lt;oriansj&gt;</a></span><span class="message">So build single threaded to eliminate race condition?</span></div><div class="line" id="152657"><span class="nick" style="color:#389600"><a href="#152657" label="[15:26:57]">&lt;nektro&gt;</a></span><span class="message">just read <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst">https://github.com/fosslinux/live-bootstrap/blob/master/parts.rst</a>  for the first time, really impressive work yall</span></div><div class="line" id="170811"><span class="nick" style="color:#389600"><a href="#170811" label="[17:08:11]">&lt;nektro&gt;</a></span><span class="message">does M0 compile .M1 files?</span></div><div class="line" id="173901"><span class="nick" style="color:#6d2462"><a href="#173901" label="[17:39:01]">&lt;stikonas[m]&gt;</a></span><span class="message">nektro: yes but with some limitations</span></div><div class="line" id="173923"><span class="nick" style="color:#6d2462"><a href="#173923" label="[17:39:23]">&lt;stikonas[m]&gt;</a></span><span class="message">Only uppercase hex numbers are supported</span></div><div class="line" id="174056"><span class="nick" style="color:#6d2462"><a href="#174056" label="[17:40:56]">&lt;stikonas[m]&gt;</a></span><span class="message">And only for native arch</span></div><div class="line" id="174133"><span class="nick" style="color:#6d2462"><a href="#174133" label="[17:41:33]">&lt;stikonas[m]&gt;</a></span><span class="message">E.g. M0_x86 can't build for riscv</span></div><div class="line" id="191223"><span class="nick" style="color:#389600"><a href="#191223" label="[19:12:23]">&lt;nektro&gt;</a></span><span class="message">ah okay, just wanted to double check</span></div><div class="line" id="191238"><span class="nick" style="color:#389600"><a href="#191238" label="[19:12:38]">&lt;nektro&gt;</a></span><span class="message">didnt know if there was an M1 meant to be built by M0 instead</span></div><div class="line" id="191327"><span class="nick" style="color:#389600"><a href="#191327" label="[19:13:27]">&lt;nektro&gt;</a></span><span class="message">oh i see that comes later</span></div><div class="line" id="191955"><span class="nick" style="color:#6d2462"><a href="#191955" label="[19:19:55]">&lt;stikonas[m]&gt;</a></span><span class="message">M1 is just C version of M0 with a bit of extra features</span></div><div class="line" id="192334"><span class="nick" style="color:#2e2a4a"><a href="#192334" label="[19:23:34]">&lt;stikonas&gt;</a></span><span class="message">better commnad line parsing, support for features needed by all architectures, etc...</span></div><div class="line" id="214552"><span class="nick" style="color:#389600"><a href="#214552" label="[21:45:52]">&lt;nektro&gt;</a></span><span class="message">following live-bootstrap parts (but working on my own project of a package manager) i get <a rel="nofollow" href="https://bpa.st/raw/L255W">https://bpa.st/raw/L255W</a> </span></div><div class="line" id="215118"><span class="nick" style="color:#389600"><a href="#215118" label="[21:51:18]">&lt;nektro&gt;</a></span><span class="message">not sure if that'd be a bug in M0 or hex2 from what ive read i think itd be M0, or im calling it wrong</span></div><div class="line" id="215330"><span class="nick" style="color:#2e2a4a"><a href="#215330" label="[21:53:30]">&lt;stikonas&gt;</a></span><span class="message">nektro: yes, that's not correct</span></div><div class="line" id="215338"><span class="nick" style="color:#2e2a4a"><a href="#215338" label="[21:53:38]">&lt;stikonas&gt;</a></span><span class="message">M0 is only macro assembler</span></div><div class="line" id="215345"><span class="nick" style="color:#2e2a4a"><a href="#215345" label="[21:53:45]">&lt;stikonas&gt;</a></span><span class="message">you still need to link resulting file with hex2</span></div><div class="line" id="215612"><span class="nick" style="color:#2e2a4a"><a href="#215612" label="[21:56:12]">&lt;stikonas&gt;</a></span><span class="message">nektro: just look at those kaem files in stage0</span></div><div class="line" id="215728"><span class="nick" style="color:#2e2a4a"><a href="#215728" label="[21:57:28]">&lt;stikonas&gt;</a></span><span class="message">in principle we start here <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/blob/master/kaem.amd64">https://github.com/oriansj/stage0-posix/blob/master/kaem.amd64</a>  but interesting stuff is in <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-amd64/blob/2633ecf626c7ef932f4cad445a1963a1e9e94883/mescc-tools-mini-kaem.kaem">https://github.com/oriansj/stage0-posix-amd64/blob/2633ecf626c7ef932f4cad445a1963a1e9e94883/mescc-tools-mini-kaem.kaem</a> </span></div><div class="line" id="220002"><span class="nick" style="color:#389600"><a href="#220002" label="[22:00:02]">&lt;nektro&gt;</a></span><span class="message">thanks :)</span></div><div class="line" id="220721"><span class="nick" style="color:#2e2a4a"><a href="#220721" label="[22:07:21]">&lt;stikonas&gt;</a></span><span class="message">nektro: we also have stage0 running on UEFI on amd64</span></div><div class="line" id="234455"><span class="nick" style="color:#234e69"><a href="#234455" label="[23:44:55]">&lt;mihi&gt;</a></span><span class="message">probably question for oriansj: Can you give some background about this line in M2-Planet's &quot;weird string&quot; detection logic? <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/blob/ae48dbd6cb824f53d6dda1a374c8e475ea1845e9/cc_strings.c#L77">https://github.com/oriansj/M2-Planet/blob/ae48dbd6cb824f53d6dda1a374c8e475ea1845e9/cc_strings.c#L77</a>  If I understand correctly, a string that contains whitespace followed by a colon is treated as &quot;weird&quot; (i.e. hex encoded in the M1 output). However, in M1's code (mescc-tools) I</span></div><div class="line" id="234455"><span class="nick" style="color:#234e69"><a href="#234455" label="[23:44:55]">&lt;mihi&gt;</a></span><span class="message">cannot find why this might not work. Tracing back history, the functionality (only after newline) was introduced in <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/commit/280b2ade528b5cf9a45e2d33c2755063a240a35e">https://github.com/oriansj/M2-Planet/commit/280b2ade528b5cf9a45e2d33c2755063a240a35e</a>  which talks about »Fixed &quot;\n:foo bug«.</span></div><div class="line" id="234553"><span class="nick" style="color:#234e69"><a href="#234553" label="[23:45:53]">&lt;mihi&gt;</a></span><span class="message">Is this related to one of the platform-specific M0 versions that confused a label inside a string literal?</span></div><div class="line" id="234637"><span class="nick" style="color:#234e69"><a href="#234637" label="[23:46:37]">&lt;mihi&gt;</a></span><span class="message">As it is, it does not cause any bugs (of course; you could always hex-encode all strings) - it just looks weird to me (no pun intended)</span></div><div class="line" id="235014"><span class="nick" style="color:#2e2a4a"><a href="#235014" label="[23:50:14]">&lt;stikonas&gt;</a></span><span class="message">mihi: I guess try removing it and see if anything breaks</span></div><div class="line" id="235031"><span class="nick" style="color:#234e69"><a href="#235031" label="[23:50:31]">&lt;mihi&gt;</a></span><span class="message">in case the code is needed, it *would* have been buggy, though: It checks escaped whitespace but not escaped colons \x3A :)</span></div><div class="line" id="235052"><span class="nick" style="color:#2e2a4a"><a href="#235052" label="[23:50:52]">&lt;stikonas&gt;</a></span><span class="message">there is also weird string code in cc_*</span></div><div class="line" id="235104"><span class="nick" style="color:#2e2a4a"><a href="#235104" label="[23:51:04]">&lt;stikonas&gt;</a></span><span class="message">if you can get tid of that one, it would be even better</span></div><div class="line" id="235126"><span class="nick" style="color:#2e2a4a"><a href="#235126" label="[23:51:26]">&lt;stikonas&gt;</a></span><span class="message">but I think  I saw some  strings were encoded by it</span></div><div class="line" id="235152"><span class="nick" style="color:#234e69"><a href="#235152" label="[23:51:52]">&lt;mihi&gt;</a></span><span class="message">I believe the &quot;weird string&quot; code as such is needed unless you make sure there are no &quot;weird strings&quot; in M2-Planet's source code.</span></div><div class="line" id="235205"><span class="nick" style="color:#234e69"><a href="#235205" label="[23:52:05]">&lt;mihi&gt;</a></span><span class="message">I was only surprised about that special case with whitespace and colon</span></div><div class="line" id="235218"><span class="nick" style="color:#2e2a4a"><a href="#235218" label="[23:52:18]">&lt;stikonas&gt;</a></span><span class="message">e.g. blood-elf-0.M1 has ' 0A 3A 45 4C 46 5F 65 6E 64 0A 00'</span></div><br /></div></body></html>

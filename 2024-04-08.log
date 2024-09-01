@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-04-08.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="161220"><span class="nick" style="color:#389600"><a href="#161220" label="[16:12:20]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Have there been any attempts to get stage0-posix-x86 running under win32? I've managed to get my <a rel="nofollow" href="https://github.com/cosinusoidally/tcc_bootstrap_alt/tree/dev">https://github.com/cosinusoidally/tcc_bootstrap_alt/tree/dev</a>  tcc bootstrap path running on win32 using <a rel="nofollow" href="https://github.com/cosinusoidally/mishmashvm/blob/dev/auxiliary/bootstrap_alt4.bat">https://github.com/cosinusoidally/mishmashvm/blob/dev/auxiliary/bootstrap_alt4.bat</a>  but I currently rely on a JavaScript VM. If I had a win32 version of stage0-posix-x86 I could eliminate the JS VM...</span></div><div class="line" id="161225"><span class="nick" style="color:#389600"><a href="#161225" label="[16:12:25]">&lt;matrix_bridge&gt;</a></span><span class="message">... dependency.</span></div><div class="line" id="185527"><span class="nick" style="color:#389600"><a href="#185527" label="[18:55:27]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; cosinusoidally: No, we don't have it for win32</span></div><div class="line" id="185623"><span class="nick" style="color:#389600"><a href="#185623" label="[18:56:23]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Also you have a big proprietary blob running it anyway</span></div><div class="line" id="215549"><span class="nick" style="color:#389600"><a href="#215549" label="[21:55:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; cosinusoidally: Windows...</span></div><div class="line" id="215611"><span class="nick" style="color:#389600"><a href="#215611" label="[21:56:11]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; i.e. with such big binary blob, startinting from tcc wouldn't be less secure compared to hex0</span></div><div class="line" id="215620"><span class="nick" style="color:#389600"><a href="#215620" label="[21:56:20]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; or at least just minimal difference</span></div><div class="line" id="215632"><span class="nick" style="color:#389600"><a href="#215632" label="[21:56:32]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I guess you could argue things like ReactOS exist...</span></div><div class="line" id="215650"><span class="nick" style="color:#389600"><a href="#215650" label="[21:56:50]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; but anyway, we don't have any stage0-win32</span></div><div class="line" id="221156"><span class="nick" style="color:#389600"><a href="#221156" label="[22:11:56]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; The main reason is that I definiely wouldn't trust any prebuilt win32 tcc binaries that exist in the wild (I've no idea who built them, and/or they are not signed by anyone I trust). I also don't want to be in the business of shipping tcc binaries myself. Users who are on Windows have to trust Microsoft. The extra dependency of trusting Mozilla (for the Spidermonkey JS) is tolerable from my point of...</span></div><div class="line" id="221201"><span class="nick" style="color:#389600"><a href="#221201" label="[22:12:01]">&lt;matrix_bridge&gt;</a></span><span class="message">... view, but Ideally some variant of a stage0-win32 would be useful. I might see what I can do, I could possibly hack something together.</span></div><div class="line" id="225330"><span class="nick" style="color:#389600"><a href="#225330" label="[22:53:30]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; cosinusoidally: well, if you take GAS versions of stage0-posix-x86, you mainly need to adjust syscalls and ELF headers to PE32 headers</span></div><div class="line" id="225349"><span class="nick" style="color:#389600"><a href="#225349" label="[22:53:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; (and we now have some PE32 examples in stage0-uefi)</span></div><br /></div></body></html>

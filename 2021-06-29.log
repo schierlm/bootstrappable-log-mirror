@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-06-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000043"><span class="nick" style="color:#389600"><a href="#000043" label="[00:00:43]">&lt;Hagfish&gt;</a></span><span class="message">&quot;Reproducible builds help counter subverted builds. After that, we can focus on attacks like the trusting trust attack.&quot;</span></div><div class="line" id="000050"><span class="nick" style="color:#389600"><a href="#000050" label="[00:00:50]">&lt;Hagfish&gt;</a></span><span class="message">yeah, that's a little odd</span></div><div class="line" id="000126"><span class="nick" style="color:#8dd3c7"><a href="#000126" label="[00:01:26]">&lt;stikonas&gt;</a></span><span class="message">fossy: I briefly checked guile dependencies, it looks like we'll have to stay with older dependencies for now (I still need to find versions that work)</span></div><div class="line" id="000143"><span class="nick" style="color:#389600"><a href="#000143" label="[00:01:43]">&lt;Hagfish&gt;</a></span><span class="message">depending on what he means by &quot;focus on&quot;, it sounds like he's saying that people shouldn't start tackling &quot;trusting trust&quot; until all software everywhere is reproducible</span></div><div class="line" id="000153"><span class="nick" style="color:#8dd3c7"><a href="#000153" label="[00:01:53]">&lt;stikonas&gt;</a></span><span class="message">trying to build newest versions of dependencies, quickly gets us into the dependency hell</span></div><div class="line" id="000213"><span class="nick" style="color:#8dd3c7"><a href="#000213" label="[00:02:13]">&lt;stikonas&gt;</a></span><span class="message">guile-&gt;pkg-config-&gt;glib-&gt;meson-&gt;python (and then even more)</span></div><div class="line" id="000228"><span class="nick" style="color:#8dd3c7"><a href="#000228" label="[00:02:28]">&lt;stikonas&gt;</a></span><span class="message">I'll try older pkg-config that is written in shell</span></div><div class="line" id="000316"><span class="nick" style="color:#2e2a4a"><a href="#000316" label="[00:03:16]">&lt;civodul&gt;</a></span><span class="message">Hagfish: it's odd because to a large extent we're &quot;after that&quot;, IMO</span></div><div class="line" id="000325"><span class="nick" style="color:#8dd3c7"><a href="#000325" label="[00:03:25]">&lt;stikonas&gt;</a></span><span class="message">well, my reading of that email is basically that you shouldn't be discouraged that trusting trust can still be done in the firmware level and still work on higher levels</span></div><div class="line" id="000401"><span class="nick" style="color:#389600"><a href="#000401" label="[00:04:01]">&lt;Hagfish&gt;</a></span><span class="message">stikonas: that's a very charitable interpretation, thank you</span></div><div class="line" id="000543"><span class="nick" style="color:#389600"><a href="#000543" label="[00:05:43]">&lt;Hagfish&gt;</a></span><span class="message">i agree with civodul, that for most purposes we can consider that reproducibility has been &quot;solved&quot;, it just needs some people to keep maintaining it</span></div><div class="line" id="000617"><span class="nick" style="color:#8dd3c7"><a href="#000617" label="[00:06:17]">&lt;stikonas&gt;</a></span><span class="message">and POSIX bootstrapping is also mostly solved</span></div><div class="line" id="000629"><span class="nick" style="color:#389600"><a href="#000629" label="[00:06:29]">&lt;Hagfish&gt;</a></span><span class="message">what does that cover?</span></div><div class="line" id="000654"><span class="nick" style="color:#8dd3c7"><a href="#000654" label="[00:06:54]">&lt;stikonas&gt;</a></span><span class="message">well, bootstrapping gcc from source given POSIX environment</span></div><div class="line" id="000713"><span class="nick" style="color:#389600"><a href="#000713" label="[00:07:13]">&lt;Hagfish&gt;</a></span><span class="message">right, yeah, from minimal POSIX to maximal POSIX :)</span></div><div class="line" id="000739"><span class="nick" style="color:#389600"><a href="#000739" label="[00:07:39]">&lt;Hagfish&gt;</a></span><span class="message">what would you say is the biggest outstanding piece of work for (software) bootstrapping?</span></div><div class="line" id="000808"><span class="nick" style="color:#389600"><a href="#000808" label="[00:08:08]">&lt;Hagfish&gt;</a></span><span class="message">(outstanding=remaining)</span></div><div class="line" id="000818"><span class="nick" style="color:#8dd3c7"><a href="#000818" label="[00:08:18]">&lt;stikonas&gt;</a></span><span class="message">well, there is maintining bootstrapping on newer arches (e.g. riscv) and also bootstrapping kernel</span></div><div class="line" id="000847"><span class="nick" style="color:#389600"><a href="#000847" label="[00:08:47]">&lt;Hagfish&gt;</a></span><span class="message">i saw someone on HN yesterday complain that tcc doesn't support mipsel, which was interesting</span></div><div class="line" id="000859"><span class="nick" style="color:#389600"><a href="#000859" label="[00:08:59]">&lt;Hagfish&gt;</a></span><span class="message">yeah, good point about the kernel layer</span></div><div class="line" id="000911"><span class="nick" style="color:#8dd3c7"><a href="#000911" label="[00:09:11]">&lt;stikonas&gt;</a></span><span class="message">I think it only supports x86, x86_64, arm,arm64 and maybe riscv in latest git</span></div><div class="line" id="000931"><span class="nick" style="color:#389600"><a href="#000931" label="[00:09:31]">&lt;Hagfish&gt;</a></span><span class="message">someone responded that debian have a fork which supports mipsel</span></div><div class="line" id="001025"><span class="nick" style="color:#8dd3c7"><a href="#001025" label="[00:10:25]">&lt;stikonas&gt;</a></span><span class="message">are there a lot of machines (not counting routers) that support mipsel?</span></div><div class="line" id="001035"><span class="nick" style="color:#8dd3c7"><a href="#001035" label="[00:10:35]">&lt;stikonas&gt;</a></span><span class="message">there was that longstone laptop that rms used...</span></div><div class="line" id="001041"><span class="nick" style="color:#8dd3c7"><a href="#001041" label="[00:10:41]">&lt;stikonas&gt;</a></span><span class="message">but I guess not much more</span></div><div class="line" id="001102"><span class="nick" style="color:#389600"><a href="#001102" label="[00:11:02]">&lt;Hagfish&gt;</a></span><span class="message">i think it was in the context of a toy OS that was targeting an emulated mipsel environment</span></div><div class="line" id="002236"><span class="nick" style="color:#8dd3c7"><a href="#002236" label="[00:22:36]">&lt;stikonas&gt;</a></span><span class="message">yeah, pkgconfig will be a bit annoying... We'll have to go through a few versions...</span></div><div class="line" id="002314"><span class="nick" style="color:#8dd3c7"><a href="#002314" label="[00:23:14]">&lt;stikonas&gt;</a></span><span class="message">0.3.5 from 2003 is the newest we can start with, because newer ones need glib (which needs pkg-config)</span></div><div class="line" id="002712"><span class="nick" style="color:#389600"><a href="#002712" label="[00:27:12]">&lt;Hagfish&gt;</a></span><span class="message">that's an interesting metric, actually:  how many copies of itself does a given piece of software need in order to compile it from nothing</span></div><div class="line" id="002722"><span class="nick" style="color:#389600"><a href="#002722" label="[00:27:22]">&lt;Hagfish&gt;</a></span><span class="message">for some pieces of software, that number will be zero</span></div><div class="line" id="002729"><span class="nick" style="color:#389600"><a href="#002729" label="[00:27:29]">&lt;Hagfish&gt;</a></span><span class="message">for others it might be in the double-digits</span></div><div class="line" id="002803"><span class="nick" style="color:#389600"><a href="#002803" label="[00:28:03]">&lt;Hagfish&gt;</a></span><span class="message">it could be called the Stikonas Bootstrappability Score, or SBS for short :)</span></div><div class="line" id="003252"><span class="nick" style="color:#8dd3c7"><a href="#003252" label="[00:32:52]">&lt;stikonas&gt;</a></span><span class="message">it's not very well defined, it depends on whether you are willing to do some patching (especially build systems, etc...)</span></div><div class="line" id="003423"><span class="nick" style="color:#8dd3c7"><a href="#003423" label="[00:34:23]">&lt;stikonas&gt;</a></span><span class="message">and I think old glibc does not like musl...</span></div><div class="line" id="003430"><span class="nick" style="color:#8dd3c7"><a href="#003430" label="[00:34:30]">&lt;stikonas&gt;</a></span><span class="message">s/glibc/glib/</span></div><div class="line" id="004152"><span class="nick" style="color:#8dd3c7"><a href="#004152" label="[00:41:52]">&lt;stikonas&gt;</a></span><span class="message">strange, guix must have solved this issue...</span></div><div class="line" id="004357"><span class="nick" style="color:#8dd3c7"><a href="#004357" label="[00:43:57]">&lt;stikonas&gt;</a></span><span class="message">oh, there is --with-internal-glib to use vendored glib in pkg-config that doesn't then have circular dependency</span></div><div class="line" id="004708"><span class="nick" style="color:#389600"><a href="#004708" label="[00:47:08]">&lt;Hagfish&gt;</a></span><span class="message">how hacky is a vendored glib?</span></div><div class="line" id="004841"><span class="nick" style="color:#80b1d3"><a href="#004841" label="[00:48:41]">&lt;oriansj&gt;</a></span><span class="message">civodul, Hagfish: my interpretation of David A. Wheeler's email was: the hyper majority of all software isn't even remotely reproducible so much more work is still required before we could consider it done. DDC only works on reproducible build environments after all. So even if we had the bootstrap done, those things couldn't be trusted because we could do DDC on them to establish that trust even with a trusted source and trusted build</span></div><div class="line" id="004842"><span class="nick" style="color:#80b1d3"><a href="#004842" label="[00:48:42]">&lt;oriansj&gt;</a></span><span class="message">system.</span></div><div class="line" id="004940"><span class="nick" style="color:#80b1d3"><a href="#004940" label="[00:49:40]">&lt;oriansj&gt;</a></span><span class="message">So the logical course of action is to help get more software reproducible now, as the bootstrapping group is kicking ass and will be ready when they are ready.</span></div><div class="line" id="005004"><span class="nick" style="color:#80b1d3"><a href="#005004" label="[00:50:04]">&lt;oriansj&gt;</a></span><span class="message">The Microcode problem is the one after bootstrapping is solved not before.</span></div><div class="line" id="005043"><span class="nick" style="color:#80b1d3"><a href="#005043" label="[00:50:43]">&lt;oriansj&gt;</a></span><span class="message">I do however love the idea of software having a: Stikonas Bootstrappability Score</span></div><div class="line" id="005130"><span class="nick" style="color:#8dd3c7"><a href="#005130" label="[00:51:30]">&lt;stikonas&gt;</a></span><span class="message">Hagfish: it's fine. Not any worse than vendored gnulib</span></div><div class="line" id="005156"><span class="nick" style="color:#80b1d3"><a href="#005156" label="[00:51:56]">&lt;oriansj&gt;</a></span><span class="message">Those that could be built by Mes and below get a zero and each additional bootstrap dependency is again point against having a good score.</span></div><div class="line" id="005340"><span class="nick" style="color:#389600"><a href="#005340" label="[00:53:40]">&lt;Hagfish&gt;</a></span><span class="message">interesting, yeah, i like that idea too</span></div><div class="line" id="005513"><span class="nick" style="color:#8dd3c7"><a href="#005513" label="[00:55:13]">&lt;stikonas&gt;</a></span><span class="message">So hopefully something like this would work pkgconfig-0.29.2-&gt;libffi-3.3-&gt;libatomic_ops-7.6.10-&gt;gc-8.0.4-&gt;guile-psyntax-bootstrapping/guile-3.0.7 (hopefully, right now this step fails with compile error)</span></div><div class="line" id="005514"><span class="nick" style="color:#80b1d3"><a href="#005514" label="[00:55:14]">&lt;oriansj&gt;</a></span><span class="message">with software you can't build from source having</span></div><div class="line" id="005536"><span class="nick" style="color:#80b1d3"><a href="#005536" label="[00:55:36]">&lt;oriansj&gt;</a></span><span class="message">infinitely large values.</span></div><div class="line" id="005549"><span class="nick" style="color:#80b1d3"><a href="#005549" label="[00:55:49]">&lt;oriansj&gt;</a></span><span class="message">say busybeaver(128)</span></div><div class="line" id="010033"><span class="nick" style="color:#80b1d3"><a href="#010033" label="[01:00:33]">&lt;oriansj&gt;</a></span><span class="message">if they want a lower score provide the source code under a FSF approved license and after we are able to build it, you'll get a lower score.</span></div><div class="line" id="010533"><span class="nick" style="color:#8dd3c7"><a href="#010533" label="[01:05:33]">&lt;stikonas&gt;</a></span><span class="message">looks like guile 3.0.7 compile errors are due to using C11 features...</span></div><div class="line" id="010613"><span class="nick" style="color:#8dd3c7"><a href="#010613" label="[01:06:13]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1202763/">https://paste.debian.net/1202763/</a> </span></div><div class="line" id="010646"><span class="nick" style="color:#8dd3c7"><a href="#010646" label="[01:06:46]">&lt;stikonas&gt;</a></span><span class="message">well, no chance of --std=c11in gcc 4.0.4</span></div><div class="line" id="014647"><span class="nick" style="color:#6d2462"><a href="#014647" label="[01:46:47]">&lt;fossy&gt;</a></span><span class="message">stikonas: these compile errors, which c11 feature exactly is being used?</span></div><div class="line" id="015756"><span class="nick" style="color:#8dd3c7"><a href="#015756" label="[01:57:56]">&lt;stikonas&gt;</a></span><span class="message">fossy:  Typedef redefinition</span></div><div class="line" id="015828"><span class="nick" style="color:#8dd3c7"><a href="#015828" label="[01:58:28]">&lt;stikonas&gt;</a></span><span class="message">fossy: but maybe the simplest would be to build gcc 4.7.4 using the same hacky approach as gcc 4.0.4</span></div><div class="line" id="015838"><span class="nick" style="color:#8dd3c7"><a href="#015838" label="[01:58:38]">&lt;stikonas&gt;</a></span><span class="message">(just C backend)</span></div><div class="line" id="015945"><span class="nick" style="color:#80b1d3"><a href="#015945" label="[01:59:45]">&lt;oriansj&gt;</a></span><span class="message">well we will not need the c++ framework unless guile needs it (shouldn't)</span></div><div class="line" id="020018"><span class="nick" style="color:#80b1d3"><a href="#020018" label="[02:00:18]">&lt;oriansj&gt;</a></span><span class="message">So in theory one could do GCC C compiler only until we have guile bootstrapped.</span></div><div class="line" id="020209"><span class="nick" style="color:#8dd3c7"><a href="#020209" label="[02:02:09]">&lt;stikonas&gt;</a></span><span class="message">alternatively, somebody needs to patch guile</span></div><div class="line" id="020221"><span class="nick" style="color:#8dd3c7"><a href="#020221" label="[02:02:21]">&lt;stikonas&gt;</a></span><span class="message">but we'll probably need to build gcc 4.7.4 anyway</span></div><div class="line" id="020235"><span class="nick" style="color:#8dd3c7"><a href="#020235" label="[02:02:35]">&lt;stikonas&gt;</a></span><span class="message">gcc 4.0.4 will be too old to go to modern gcc</span></div><div class="line" id="021036"><span class="nick" style="color:#80b1d3"><a href="#021036" label="[02:10:36]">&lt;oriansj&gt;</a></span><span class="message">well scheme interpreters don't pick up C features for no reason. Generally they are picked up for measurable performance improvements.</span></div><div class="line" id="021140"><span class="nick" style="color:#80b1d3"><a href="#021140" label="[02:11:40]">&lt;oriansj&gt;</a></span><span class="message">for example the performance difference between if/elseif/else vs switch/case in scheme can be up to factor of 10.</span></div><div class="line" id="021241"><span class="nick" style="color:#80b1d3"><a href="#021241" label="[02:12:41]">&lt;oriansj&gt;</a></span><span class="message">if/else if/else is trivial to implement in the cc_* C subset, switch is more complex (and I haven't done it yet because it hasn't been a priority need yet.)</span></div><div class="line" id="024657"><span class="nick" style="color:#6d2462"><a href="#024657" label="[02:46:57]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: if you just remove the fixup commit #127 can be merged</span></div><br /></div></body></html>

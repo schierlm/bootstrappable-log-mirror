@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-11-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="020214"><span class="nick" style="color:#389600"><a href="#020214" label="[02:02:14]">&lt;stikonas[m]&gt;</a></span><span class="message">lesson for today: don't forget to initialise variables. I was wondering why malloc on UEFI is resulting in application hanging. Turns out I forgot to call _init_malloc() that initialises linked list...</span></div><div class="line" id="152045"><span class="nick" style="color:#8dd3c7"><a href="#152045" label="[15:20:45]">&lt;rickmasters&gt;</a></span><span class="message">I was able to get fiwix to run live-bootstrap until it failed building tcc-0.9.26 with mes.</span></div><div class="line" id="152121"><span class="nick" style="color:#8dd3c7"><a href="#152121" label="[15:21:21]">&lt;rickmasters&gt;</a></span><span class="message">It may have run out of memory, not sure yet.</span></div><div class="line" id="152334"><span class="nick" style="color:#8dd3c7"><a href="#152334" label="[15:23:34]">&lt;rickmasters&gt;</a></span><span class="message">It said one of the C files was not a valid input file.</span></div><div class="line" id="152349"><span class="nick" style="color:#8dd3c7"><a href="#152349" label="[15:23:49]">&lt;rickmasters&gt;</a></span><span class="message">But it got pretty far, I'm happy with the results so far.</span></div><div class="line" id="152432"><span class="nick" style="color:#8dd3c7"><a href="#152432" label="[15:24:32]">&lt;rickmasters&gt;</a></span><span class="message">I just had to work through some setup issues.</span></div><div class="line" id="152505"><span class="nick" style="color:#8dd3c7"><a href="#152505" label="[15:25:05]">&lt;rickmasters&gt;</a></span><span class="message">Fiwix expects /dev/console to be populated in the ram drive.</span></div><div class="line" id="152541"><span class="nick" style="color:#8dd3c7"><a href="#152541" label="[15:25:41]">&lt;rickmasters&gt;</a></span><span class="message">Fiwix mounts the root ram drive readonly so I had to change a line in the kernel to work around that.</span></div><div class="line" id="152634"><span class="nick" style="color:#8dd3c7"><a href="#152634" label="[15:26:34]">&lt;rickmasters&gt;</a></span><span class="message">It executes /sbin/init by default but live-bootstrap uses /init.</span></div><div class="line" id="152817"><span class="nick" style="color:#8dd3c7"><a href="#152817" label="[15:28:17]">&lt;rickmasters&gt;</a></span><span class="message">The bulk of my time was modifying live-bootstrap to prepare an ext2 ram drive.</span></div><div class="line" id="152954"><span class="nick" style="color:#8dd3c7"><a href="#152954" label="[15:29:54]">&lt;rickmasters&gt;</a></span><span class="message">But I didn't have to change any stage0-posix source. It ran through that just fine.</span></div><div class="line" id="153248"><span class="nick" style="color:#8dd3c7"><a href="#153248" label="[15:32:48]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: you were right about finding issues with an alternative kernel.</span></div><div class="line" id="153411"><span class="nick" style="color:#8dd3c7"><a href="#153411" label="[15:34:11]">&lt;rickmasters&gt;</a></span><span class="message">The missing /dev/console caused the init program (kaem) to not have stdin or stdout and so it opened kaem.x86 as fd 0, but misinterpreted that as an error.</span></div><div class="line" id="153503"><span class="nick" style="color:#8dd3c7"><a href="#153503" label="[15:35:03]">&lt;rickmasters&gt;</a></span><span class="message">When open fails, it returns -1 but kaem is looking for zero as an error. That's a bug.</span></div><div class="line" id="155007"><span class="nick" style="color:#389600"><a href="#155007" label="[15:50:07]">&lt;stikonas[m]&gt;</a></span><span class="message">OK a few issues but it seems that it's not too bad</span></div><div class="line" id="155036"><span class="nick" style="color:#389600"><a href="#155036" label="[15:50:36]">&lt;stikonas[m]&gt;</a></span><span class="message">The first one (possible ran out of memory is slightly worrying)</span></div><div class="line" id="155208"><span class="nick" style="color:#389600"><a href="#155208" label="[15:52:08]">&lt;stikonas[m]&gt;</a></span><span class="message">And in unrelated news, I now have a working malloc in M2libc on UEFI</span></div><div class="line" id="155237"><span class="nick" style="color:#389600"><a href="#155237" label="[15:52:37]">&lt;stikonas[m]&gt;</a></span><span class="message">Including cleaning up all alocated pages on exit</span></div><div class="line" id="155410"><span class="nick" style="color:#389600"><a href="#155410" label="[15:54:10]">&lt;stikonas[m]&gt;</a></span><span class="message">Still a bit more work is needed until i can build rest if stage0-uefi</span></div><div class="line" id="155519"><span class="nick" style="color:#2e2a4a"><a href="#155519" label="[15:55:19]">&lt;deesix&gt;</a></span><span class="message">ACTION puts the bootstrappable work, again, on the table.</span></div><div class="line" id="155535"><span class="nick" style="color:#2e2a4a"><a href="#155535" label="[15:55:35]">&lt;deesix&gt;</a></span><span class="message">But then, there's the hardware trust (none).</span></div><div class="line" id="155726"><span class="nick" style="color:#2e2a4a"><a href="#155726" label="[15:57:26]">&lt;deesix&gt;</a></span><span class="message">Sorry, bad channel :)</span></div><div class="line" id="155758"><span class="nick" style="color:#2e2a4a"><a href="#155758" label="[15:57:58]">&lt;deesix&gt;</a></span><span class="message">ACTION spreading the message, somewhere else.</span></div><div class="line" id="162351"><span class="nick" style="color:#8dd3c7"><a href="#162351" label="[16:23:51]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: congrats on malloc</span></div><div class="line" id="163556"><span class="nick" style="color:#6b8072"><a href="#163556" label="[16:35:56]">&lt;oriansj&gt;</a></span><span class="message">deesix: right channel and honestly people doing hardware bootstrapping is probably the next phase after we get the kernel bit sorted.</span></div><div class="line" id="163623"><span class="nick" style="color:#6b8072"><a href="#163623" label="[16:36:23]">&lt;oriansj&gt;</a></span><span class="message">So people getting started on that now (or ideally a couple years ago) is a very good idea</span></div><div class="line" id="163800"><span class="nick" style="color:#6b8072"><a href="#163800" label="[16:38:00]">&lt;oriansj&gt;</a></span><span class="message">but as always people work on what they think is the correct course forward and I encourage you deesix if you think hardware bootstrapping needs more progress to share more information or perhaps even start something that would solve that in a way you think is best.</span></div><div class="line" id="170857"><span class="nick" style="color:#2e2a4a"><a href="#170857" label="[17:08:57]">&lt;deesix&gt;</a></span><span class="message">Hi, oriansj. It was not the right channel; I was talking with some other people and by mistake typed here (after coming to get the right spelling of the word) those messages. Again, sorry :)</span></div><div class="line" id="171244"><span class="nick" style="color:#6b8072"><a href="#171244" label="[17:12:44]">&lt;oriansj&gt;</a></span><span class="message">no worries deesix easy mistake to make</span></div><div class="line" id="173313"><span class="nick" style="color:#80b1d3"><a href="#173313" label="[17:33:13]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: well, most of the work was already done when I implemented first free fit malloc in stage0-posix</span></div><div class="line" id="220931"><span class="nick" style="color:#6d2462"><a href="#220931" label="[22:09:31]">&lt;Hagfish&gt;</a></span><span class="message">i'm really pleased about how well Fiwix is integrating with bootstrapping, from both a technical and social perspective</span></div><div class="line" id="220946"><span class="nick" style="color:#6d2462"><a href="#220946" label="[22:09:46]">&lt;Hagfish&gt;</a></span><span class="message">messages like this are so wholesome:</span></div><div class="line" id="220949"><span class="nick" style="color:#6d2462"><a href="#220949" label="[22:09:49]">&lt;Hagfish&gt;</a></span><span class="message">&quot;I'm completely astonished to know that Fiwix can be of small help in your bootstrapping projects. I'll do my best to include and fix anything you need for your project.&quot;</span></div><div class="line" id="221731"><span class="nick" style="color:#8dd3c7"><a href="#221731" label="[22:17:31]">&lt;rickmasters&gt;</a></span><span class="message">The problem building tcc-0.9.26 on fiwix was because the maximum number of open files per process (256) was too low.</span></div><div class="line" id="221805"><span class="nick" style="color:#8dd3c7"><a href="#221805" label="[22:18:05]">&lt;rickmasters&gt;</a></span><span class="message">I increased that to 512 and the tcc-0.9.26 build succeeded.</span></div><div class="line" id="221908"><span class="nick" style="color:#8dd3c7"><a href="#221908" label="[22:19:08]">&lt;rickmasters&gt;</a></span><span class="message">It also built make, gzip (with make), tar, sed, patch, bzip2, tcc-0.9.27, coreutils, heirloom-devtools, and bash.</span></div><div class="line" id="221929"><span class="nick" style="color:#8dd3c7"><a href="#221929" label="[22:19:29]">&lt;rickmasters&gt;</a></span><span class="message">Then it failed on flex 2.5.11</span></div><div class="line" id="222104"><span class="nick" style="color:#80b1d3"><a href="#222104" label="[22:21:04]">&lt;stikonas&gt;</a></span><span class="message">ok, that's a good progress</span></div><div class="line" id="223139"><span class="nick" style="color:#8dd3c7"><a href="#223139" label="[22:31:39]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: yeah. still a lot of packages ahead but it's a good start.</span></div><div class="line" id="223218"><span class="nick" style="color:#80b1d3"><a href="#223218" label="[22:32:18]">&lt;stikonas&gt;</a></span><span class="message">I suspect once you get a bit further, things will start looking easier, there shouldn't be too many new kernel features used</span></div><div class="line" id="223242"><span class="nick" style="color:#80b1d3"><a href="#223242" label="[22:32:42]">&lt;stikonas&gt;</a></span><span class="message">is something with bash caused flex build failure?</span></div><div class="line" id="223345"><span class="nick" style="color:#8dd3c7"><a href="#223345" label="[22:33:45]">&lt;rickmasters&gt;</a></span><span class="message">I'm still looking at the flex failure. it's an invalid byte 0x0f in an input file</span></div><div class="line" id="223419"><span class="nick" style="color:#8dd3c7"><a href="#223419" label="[22:34:19]">&lt;rickmasters&gt;</a></span><span class="message">That could be memory corruption which is typically a difficult issue to debug.</span></div><div class="line" id="223502"><span class="nick" style="color:#8dd3c7"><a href="#223502" label="[22:35:02]">&lt;rickmasters&gt;</a></span><span class="message">I think 'make' was running multiple processes simultaneously which I wasn't expecting.</span></div><div class="line" id="223540"><span class="nick" style="color:#80b1d3"><a href="#223540" label="[22:35:40]">&lt;stikonas&gt;</a></span><span class="message">hmm, yes, that's not right... live-bootstrap never runs make with -j</span></div><div class="line" id="223802"><span class="nick" style="color:#8dd3c7"><a href="#223802" label="[22:38:02]">&lt;rickmasters&gt;</a></span><span class="message">I may be wrong, the output isn't clear.</span></div><div class="line" id="223805"><span class="nick" style="color:#80b1d3"><a href="#223805" label="[22:38:05]">&lt;stikonas&gt;</a></span><span class="message">in the meantime I'm trying to get user stack working in M2libc. Looks like implementation that I used in bootstrap M2libc is buggy...</span></div><div class="line" id="223909"><span class="nick" style="color:#80b1d3"><a href="#223909" label="[22:39:09]">&lt;stikonas&gt;</a></span><span class="message">I'm probably overwriting some stuff outside allocated area (probably 64 bits or so before stack)</span></div><div class="line" id="224859"><span class="nick" style="color:#80b1d3"><a href="#224859" label="[22:48:59]">&lt;stikonas&gt;</a></span><span class="message">(and probably solved, I think I was passing the wrong end of allocated memory for stack, since stack grows downwards)</span></div><div class="line" id="231644"><span class="nick" style="color:#80b1d3"><a href="#231644" label="[23:16:44]">&lt;stikonas&gt;</a></span><span class="message">oriansj: do you prefer one big M2libc PR or should I submit smaller ones (for now I just have malloc() and user stack switching working)</span></div><div class="line" id="232040"><span class="nick" style="color:#80b1d3"><a href="#232040" label="[23:20:40]">&lt;stikonas&gt;</a></span><span class="message">looks like remaining things are mostly to do with I/O and launching new processes</span></div><div class="line" id="232317"><span class="nick" style="color:#80b1d3"><a href="#232317" label="[23:23:17]">&lt;stikonas&gt;</a></span><span class="message">oh and I still need to deal with command line arguments and env variables...</span></div><br /></div></body></html>

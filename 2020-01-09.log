@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-01-09.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000009"><span class="nick" style="color:#389600"><a href="#000009" label="[00:00:09]">&lt;stikonas&gt;</a></span><span class="message">but instead of building icedtea 1, I compiled slightly patched ecj 4.2</span></div><div class="line" id="000033"><span class="nick" style="color:#389600"><a href="#000033" label="[00:00:33]">&lt;stikonas&gt;</a></span><span class="message">and then I was able to build icedtea 2 with jamvm as VM</span></div><div class="line" id="000044"><span class="nick" style="color:#389600"><a href="#000044" label="[00:00:44]">&lt;stikonas&gt;</a></span><span class="message">which in turn builds icedtea 3 with hotspot</span></div><div class="line" id="000147"><span class="nick" style="color:#389600"><a href="#000147" label="[00:01:47]">&lt;stikonas&gt;</a></span><span class="message">icedtea 2 with hotspot was failing for some reason in some test although in principle it was functional</span></div><div class="line" id="003337"><span class="nick" style="color:#2e2a4a"><a href="#003337" label="[00:33:37]">&lt;fossy&gt;</a></span><span class="message">oriansj: there is a small issue with mescc-tools-seed regarding seeds</span></div><div class="line" id="003406"><span class="nick" style="color:#2e2a4a"><a href="#003406" label="[00:34:06]">&lt;fossy&gt;</a></span><span class="message">in my attempts to build (your) mescc-tools-seed (not mine) from initramfs, i noted that you have to cd into your appropriate architecture before running kaem</span></div><div class="line" id="003426"><span class="nick" style="color:#2e2a4a"><a href="#003426" label="[00:34:26]">&lt;fossy&gt;</a></span><span class="message">this means that you have to be able to cd which AFAICT requires a shell</span></div><div class="line" id="003634"><span class="nick" style="color:#2e2a4a"><a href="#003634" label="[00:36:34]">&lt;fossy&gt;</a></span><span class="message">unless there's a way to cd using kaem?</span></div><div class="line" id="003731"><span class="nick" style="color:#6b8072"><a href="#003731" label="[00:37:31]">&lt;oriansj&gt;</a></span><span class="message">fossy: not yet but it would be pretty simple to add to kaem</span></div><div class="line" id="003810"><span class="nick" style="color:#2e2a4a"><a href="#003810" label="[00:38:10]">&lt;fossy&gt;</a></span><span class="message">hm how would you go about that</span></div><div class="line" id="003852"><span class="nick" style="color:#6b8072"><a href="#003852" label="[00:38:52]">&lt;oriansj&gt;</a></span><span class="message">change the current working directory</span></div><div class="line" id="003953"><span class="nick" style="color:#2e2a4a"><a href="#003953" label="[00:39:53]">&lt;fossy&gt;</a></span><span class="message">oh yeah use the syscall</span></div><div class="line" id="004052"><span class="nick" style="color:#6b8072"><a href="#004052" label="[00:40:52]">&lt;oriansj&gt;</a></span><span class="message">sys_chdir if I remember correctly</span></div><div class="line" id="004155"><span class="nick" style="color:#6b8072"><a href="#004155" label="[00:41:55]">&lt;oriansj&gt;</a></span><span class="message">then you simply call chdir(path);</span></div><div class="line" id="004300"><span class="nick" style="color:#6b8072"><a href="#004300" label="[00:43:00]">&lt;oriansj&gt;</a></span><span class="message">(I'm really starting to hate GCC's &lt;optimized out&gt; when debugging)</span></div><div class="line" id="015140"><span class="nick" style="color:#80b1d3"><a href="#015140" label="[01:51:40]">&lt;dddddd&gt;</a></span><span class="message">fossy, thanks(!!) for the amazing new mescc-tools-seed's readme file</span></div><div class="line" id="015255"><span class="nick" style="color:#80b1d3"><a href="#015255" label="[01:52:55]">&lt;dddddd&gt;</a></span><span class="message">lovely</span></div><div class="line" id="015929"><span class="nick" style="color:#2e2a4a"><a href="#015929" label="[01:59:29]">&lt;fossy&gt;</a></span><span class="message">haha :D thanks</span></div><div class="line" id="024746"><span class="nick" style="color:#6b8072"><a href="#024746" label="[02:47:46]">&lt;oriansj&gt;</a></span><span class="message">I need a second set of eyes on this: <a rel="nofollow" href="https://paste.debian.net/1125248/">https://paste.debian.net/1125248/</a> </span></div><div class="line" id="024835"><span class="nick" style="color:#6b8072"><a href="#024835" label="[02:48:35]">&lt;oriansj&gt;</a></span><span class="message">It should never get into a loop right?</span></div><div class="line" id="030936"><span class="nick" style="color:#2e2a4a"><a href="#030936" label="[03:09:36]">&lt;fossy&gt;</a></span><span class="message">oriansj: what does struct cell look like</span></div><div class="line" id="031028"><span class="nick" style="color:#2e2a4a"><a href="#031028" label="[03:10:28]">&lt;fossy&gt;</a></span><span class="message">oriansj: also sorry for so many pull requests lol, my testing for this was bad especially on edge cases</span></div><div class="line" id="031359"><span class="nick" style="color:#6b8072"><a href="#031359" label="[03:13:59]">&lt;oriansj&gt;</a></span><span class="message">fossy: I'm drawing that now (no worries about lots of pull requests, it is fine)</span></div><div class="line" id="031537"><span class="nick" style="color:#6b8072"><a href="#031537" label="[03:15:37]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1125250/">https://paste.debian.net/1125250/</a> </span></div><div class="line" id="031612"><span class="nick" style="color:#6b8072"><a href="#031612" label="[03:16:12]">&lt;oriansj&gt;</a></span><span class="message">(I am currently drawing what pieces are used on each time right now for the source code)</span></div><div class="line" id="033809"><span class="nick" style="color:#6b8072"><a href="#033809" label="[03:38:09]">&lt;oriansj&gt;</a></span><span class="message">basically MARKED is the bottom bit of the type and the type NUMBER never involves the bottom 2 bits</span></div><div class="line" id="033832"><span class="nick" style="color:#2e2a4a"><a href="#033832" label="[03:38:32]">&lt;fossy&gt;</a></span><span class="message">oriansj: I don't see why that would loop</span></div><div class="line" id="033901"><span class="nick" style="color:#6b8072"><a href="#033901" label="[03:39:01]">&lt;oriansj&gt;</a></span><span class="message">but yet it is and I have no idea why</span></div><div class="line" id="034007"><span class="nick" style="color:#6b8072"><a href="#034007" label="[03:40:07]">&lt;oriansj&gt;</a></span><span class="message">and provided I included all of the roots, it should also unmark all cells in use</span></div><div class="line" id="034217"><span class="nick" style="color:#6b8072"><a href="#034217" label="[03:42:17]">&lt;oriansj&gt;</a></span><span class="message">for example if I call unmark on a cell down the tree; it will unmark all of the lower bits and when I call unmark higher in the tree; it should stop when it hits the first unmarked cell</span></div><div class="line" id="040339"><span class="nick" style="color:#6b8072"><a href="#040339" label="[04:03:39]">&lt;oriansj&gt;</a></span><span class="message">and here are the inner workings of all CELL types <a rel="nofollow" href="https://paste.debian.net/1125257/">https://paste.debian.net/1125257/</a> </span></div><div class="line" id="040702"><span class="nick" style="color:#6b8072"><a href="#040702" label="[04:07:02]">&lt;oriansj&gt;</a></span><span class="message">minor typeo on the vector | VECTOR | LENGTH | POINTER | NULL | is the correct internals</span></div><div class="line" id="043310"><span class="nick" style="color:#6b8072"><a href="#043310" label="[04:33:10]">&lt;oriansj&gt;</a></span><span class="message">here is the delta I am currently playing with in mes-m2: <a rel="nofollow" href="https://paste.debian.net/1125261/">https://paste.debian.net/1125261/</a> </span></div><div class="line" id="043420"><span class="nick" style="color:#6b8072"><a href="#043420" label="[04:34:20]">&lt;oriansj&gt;</a></span><span class="message">but I am going to stop  and pick this up tomorrow</span></div><div class="line" id="152017"><span class="nick" style="color:#6b8072"><a href="#152017" label="[15:20:17]">&lt;oriansj&gt;</a></span><span class="message">ok this is gonna drive me crazy</span></div><div class="line" id="152044"><span class="nick" style="color:#6b8072"><a href="#152044" label="[15:20:44]">&lt;oriansj&gt;</a></span><span class="message">g_env-&gt;cdr = top_env after a define</span></div><div class="line" id="152135"><span class="nick" style="color:#6b8072"><a href="#152135" label="[15:21:35]">&lt;oriansj&gt;</a></span><span class="message">so how the fuck does unmark(top_env); unmark g_env but NOT g_env-&gt;car?</span></div><div class="line" id="152323"><span class="nick" style="color:#6b8072"><a href="#152323" label="[15:23:23]">&lt;oriansj&gt;</a></span><span class="message">So please, someone anyone tell this great big moron how this keeps happening?</span></div><div class="line" id="152408"><span class="nick" style="color:#6d2462"><a href="#152408" label="[15:24:08]">&lt;janneke&gt;</a></span><span class="message">could it be that the computer does as you says, not what you mean?</span></div><div class="line" id="152410"><span class="nick" style="color:#234e69"><a href="#152410" label="[15:24:10]">*</a></span><span class="message">janneke ducks</span></div><div class="line" id="152431"><span class="nick" style="color:#6d2462"><a href="#152431" label="[15:24:31]">&lt;janneke&gt;</a></span><span class="message">please explain more</span></div><div class="line" id="152457"><span class="nick" style="color:#6b8072"><a href="#152457" label="[15:24:57]">&lt;oriansj&gt;</a></span><span class="message">here is the function that does unmarking: <a rel="nofollow" href="https://paste.debian.net/1125248/">https://paste.debian.net/1125248/</a> </span></div><div class="line" id="152524"><span class="nick" style="color:#6b8072"><a href="#152524" label="[15:25:24]">&lt;oriansj&gt;</a></span><span class="message">g_env is a CONS cell</span></div><div class="line" id="152615"><span class="nick" style="color:#6b8072"><a href="#152615" label="[15:26:15]">&lt;oriansj&gt;</a></span><span class="message">the bottom 2 bits are reserved with the bottom 1 bit for marking</span></div><div class="line" id="152714"><span class="nick" style="color:#6b8072"><a href="#152714" label="[15:27:14]">&lt;oriansj&gt;</a></span><span class="message">So type &amp; MARKED will return 1 if MARKED and 0 if not marked</span></div><div class="line" id="152747"><span class="nick" style="color:#6b8072"><a href="#152747" label="[15:27:47]">&lt;oriansj&gt;</a></span><span class="message">it definitely isn't a LAMBDA so shouldn't do anything in there</span></div><div class="line" id="152824"><span class="nick" style="color:#6b8072"><a href="#152824" label="[15:28:24]">&lt;oriansj&gt;</a></span><span class="message">i-&gt;type == CONS definitely is true and it should unmark_cells(i-&gt;car);</span></div><div class="line" id="152846"><span class="nick" style="color:#6b8072"><a href="#152846" label="[15:28:46]">&lt;oriansj&gt;</a></span><span class="message">which are the cells that it is explicitly not unmarking</span></div><div class="line" id="153158"><span class="nick" style="color:#6b8072"><a href="#153158" label="[15:31:58]">&lt;oriansj&gt;</a></span><span class="message">and when I gdb into garbage_collect; p* g_env shows mark_all_cells() marks g_env</span></div><div class="line" id="153225"><span class="nick" style="color:#6b8072"><a href="#153225" label="[15:32:25]">&lt;oriansj&gt;</a></span><span class="message">and everything else</span></div><div class="line" id="153252"><span class="nick" style="color:#6b8072"><a href="#153252" label="[15:32:52]">&lt;oriansj&gt;</a></span><span class="message">but unmark_cells(top_env); unmarks g_env but nothing below it</span></div><div class="line" id="153830"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="154104"><span class="nick" style="color:#6b8072"><a href="#154104" label="[15:41:04]">&lt;oriansj&gt;</a></span><span class="message">wait</span></div><div class="line" id="154129"><span class="nick" style="color:#234e69"><a href="#154129" label="[15:41:29]">*</a></span><span class="message">janneke is reading the code</span></div><div class="line" id="154215"><span class="nick" style="color:#6b8072"><a href="#154215" label="[15:42:15]">&lt;oriansj&gt;</a></span><span class="message">g_env didn't get marked by mark_all_cells() <a rel="nofollow" href="https://paste.debian.net/1125320/">https://paste.debian.net/1125320/</a> </span></div><div class="line" id="154220"><span class="nick" style="color:#6b8072"><a href="#154220" label="[15:42:20]">&lt;oriansj&gt;</a></span><span class="message">why?</span></div><div class="line" id="160600"><span class="nick" style="color:#6d2462"><a href="#160600" label="[16:06:00]">&lt;janneke&gt;</a></span><span class="message">it's not in the range?</span></div><div class="line" id="161554"><span class="nick" style="color:#6b8072"><a href="#161554" label="[16:15:54]">&lt;oriansj&gt;</a></span><span class="message">nope it is in the range</span></div><div class="line" id="161837"><span class="nick" style="color:#234e69"><a href="#161837" label="[16:18:37]">*</a></span><span class="message">oriansj really hates having to troubleshoot garbage collection</span></div><div class="line" id="162325"><span class="nick" style="color:#6b8072"><a href="#162325" label="[16:23:25]">&lt;oriansj&gt;</a></span><span class="message">ok, I'm just going to pull out all optimizations out and see if that saves me from pain</span></div><div class="line" id="162356"><span class="nick" style="color:#6b8072"><a href="#162356" label="[16:23:56]">&lt;oriansj&gt;</a></span><span class="message">ok that gets me closer (but alot slower)</span></div><div class="line" id="162844"><span class="nick" style="color:#6c3d55"><a href="#162844" label="[16:28:44]">&lt;NieDzejkob&gt;</a></span><span class="message">debugging garbage collection is easy, just get it right the first time ;)</span></div><div class="line" id="163042"><span class="nick" style="color:#6b8072"><a href="#163042" label="[16:30:42]">&lt;oriansj&gt;</a></span><span class="message">NieDzejkob: well feel free to throw some useful code in here ^_-</span></div><div class="line" id="165239"><span class="nick" style="color:#6b8072"><a href="#165239" label="[16:52:39]">&lt;oriansj&gt;</a></span><span class="message">well I try to shake the bugs out of mes-m2</span></div><div class="line" id="165325"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="165330"><span class="nick" style="color:#6b8072"><a href="#165330" label="[16:53:30]">&lt;oriansj&gt;</a></span><span class="message">feel free to tell me all of the wonderful ways in which I am doing things wrong</span></div><div class="line" id="165404"><span class="nick" style="color:#6b8072"><a href="#165404" label="[16:54:04]">&lt;oriansj&gt;</a></span><span class="message">it'll really cut down on my development time (nothing is faster than not having to do the work because better people have done it for you)</span></div><div class="line" id="173918"><span class="nick" style="color:#6b8072"><a href="#173918" label="[17:39:18]">&lt;oriansj&gt;</a></span><span class="message">I keep wishing I wrote better tests on all of the primitives but it turns out most of the primitives needed for testing are deeply connected.</span></div><div class="line" id="174012"><span class="nick" style="color:#6b8072"><a href="#174012" label="[17:40:12]">&lt;oriansj&gt;</a></span><span class="message">basically everything inside of the eval need to be perfect together or endless bugs forever with no way to properly test them</span></div><div class="line" id="174020"><span class="nick" style="color:#6b8072"><a href="#174020" label="[17:40:20]">&lt;oriansj&gt;</a></span><span class="message">(in isolation of course)</span></div><div class="line" id="175030"><span class="nick" style="color:#6b8072"><a href="#175030" label="[17:50:30]">&lt;oriansj&gt;</a></span><span class="message">ok, getting all tests to pass again</span></div><div class="line" id="175040"><span class="nick" style="color:#6b8072"><a href="#175040" label="[17:50:40]">&lt;oriansj&gt;</a></span><span class="message">minus the records one</span></div><div class="line" id="180055"><span class="nick" style="color:#6b8072"><a href="#180055" label="[18:00:55]">&lt;oriansj&gt;</a></span><span class="message">for some reason it thinks setting the last field in the record is amazing and will only do that</span></div><div class="line" id="181717"><span class="nick" style="color:#6d2462"><a href="#181717" label="[18:17:17]">&lt;janneke&gt;</a></span><span class="message">\o/</span></div><div class="line" id="181943"><span class="nick" style="color:#6b8072"><a href="#181943" label="[18:19:43]">&lt;oriansj&gt;</a></span><span class="message">more like: (╯°□°）╯︵ ┻━┻</span></div><div class="line" id="182657"><span class="nick" style="color:#6b8072"><a href="#182657" label="[18:26:57]">&lt;oriansj&gt;</a></span><span class="message">I think that perhaps is so different between compilers and interpreters</span></div><div class="line" id="182736"><span class="nick" style="color:#6b8072"><a href="#182736" label="[18:27:36]">&lt;oriansj&gt;</a></span><span class="message">Once you get past parsing and tokenization in C, the rest is straight down hill</span></div><div class="line" id="182926"><span class="nick" style="color:#6b8072"><a href="#182926" label="[18:29:26]">&lt;oriansj&gt;</a></span><span class="message">but interpreters seems to be an ever increasing ramp, which get harder the more serious programs you wish to run</span></div><div class="line" id="190545"><span class="nick" style="color:#6b8072"><a href="#190545" label="[19:05:45]">&lt;oriansj&gt;</a></span><span class="message">ok I have reduced it a much smaller test</span></div><div class="line" id="190703"><span class="nick" style="color:#6b8072"><a href="#190703" label="[19:07:03]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1125361/">https://paste.debian.net/1125361/</a> </span></div><div class="line" id="192224"><span class="nick" style="color:#6b8072"><a href="#192224" label="[19:22:24]">&lt;oriansj&gt;</a></span><span class="message">anyone wishing to help solve, here is the current diff: <a rel="nofollow" href="https://paste.debian.net/1125365/">https://paste.debian.net/1125365/</a> </span></div><div class="line" id="205126"><span class="nick" style="color:#6b8072"><a href="#205126" label="[20:51:26]">&lt;oriansj&gt;</a></span><span class="message">well atleast I don't have to get ((lambda (a b) (define a b)) 'foo 4) working</span></div><div class="line" id="205753"><span class="nick" style="color:#6b8072"><a href="#205753" label="[20:57:53]">&lt;oriansj&gt;</a></span><span class="message">ok, I've managed to shift the bug from structs to vargs</span></div><div class="line" id="211037"><span class="nick" style="color:#6b8072"><a href="#211037" label="[21:10:37]">&lt;oriansj&gt;</a></span><span class="message">freaking finally</span></div><div class="line" id="211110"><span class="nick" style="color:#6b8072"><a href="#211110" label="[21:11:10]">&lt;oriansj&gt;</a></span><span class="message">┬─┬﻿ ノ( ゜-゜ノ)</span></div><div class="line" id="211652"><span class="nick" style="color:#6b8072"><a href="#211652" label="[21:16:52]">&lt;oriansj&gt;</a></span><span class="message">I turned off alot of optimizations to get here, so it is a bit slow right now</span></div><div class="line" id="211808"><span class="nick" style="color:#2e2a4a"><a href="#211808" label="[21:18:08]">&lt;fossy&gt;</a></span><span class="message">glad you got it sorted</span></div><div class="line" id="211836"><span class="nick" style="color:#6b8072"><a href="#211836" label="[21:18:36]">&lt;oriansj&gt;</a></span><span class="message">patches are up</span></div><div class="line" id="212033"><span class="nick" style="color:#6b8072"><a href="#212033" label="[21:20:33]">&lt;oriansj&gt;</a></span><span class="message">I look forward to the day mes-m2's eval guts are *DONE* and I need only concern myself with adding to the non-maxwell parts of scheme</span></div><div class="line" id="212404"><span class="nick" style="color:#6b8072"><a href="#212404" label="[21:24:04]">&lt;oriansj&gt;</a></span><span class="message">now to once again try to get -e main -s foo 1 2 3 4 working in boot-0.scm</span></div><div class="line" id="221737"><span class="nick" style="color:#6b8072"><a href="#221737" label="[22:17:37]">&lt;oriansj&gt;</a></span><span class="message">oh janneke I think I have a little bit of scheme you are going to love</span></div><div class="line" id="222210"><span class="nick" style="color:#6b8072"><a href="#222210" label="[22:22:10]">&lt;oriansj&gt;</a></span><span class="message">(while #t (begin (free_mem) (display #\newline)))</span></div><div class="line" id="222216"><span class="nick" style="color:#6b8072"><a href="#222216" label="[22:22:16]">&lt;oriansj&gt;</a></span><span class="message">patches are up</span></div><br /></div></body></html>

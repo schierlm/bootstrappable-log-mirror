@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-12-16.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001817"><span class="nick" style="color:#8dd3c7"><a href="#001817" label="[00:18:17]">&lt;ng0&gt;</a></span><span class="message">do the guix contributors in here know about the ninja implementation in C99 and have any use for experimenting with it, if it's of any use ti reduce size of some packages? it's still in earlyy version stages but seems to work so far</span></div><div class="line" id="001848"><span class="nick" style="color:#8dd3c7"><a href="#001848" label="[00:18:48]">&lt;ng0&gt;</a></span><span class="message">i packaged it last week as devel/samurai for pkgsrc</span></div><div class="line" id="013700"><span class="nick" style="color:#2e2a4a"><a href="#013700" label="[01:37:00]">&lt;oriansj`&gt;</a></span><span class="message">janneke: well I can solve that tcc problem</span></div><div class="line" id="014324"><span class="nick" style="color:#2e2a4a"><a href="#014324" label="[01:43:24]">&lt;oriansj`&gt;</a></span><span class="message">but tcc really isn't a step that MesCC will want to support long term. We either need to extend MesCC to build GCC directly or tell me now and I'll figure out an alternative long term solution.</span></div><div class="line" id="014549"><span class="nick" style="color:#2e2a4a"><a href="#014549" label="[01:45:49]">&lt;oriansj`&gt;</a></span><span class="message">also there are some long term design changes that we will need to discuss janneke in MesCC; to ensure better performance, easier porting and easier debugging.</span></div><div class="line" id="015134"><span class="nick">***</span><span class="message notice">oriansj` is now known as oriansj</span></div><div class="line" id="015330"><span class="nick" style="color:#6b8072"><a href="#015330" label="[01:53:30]">&lt;oriansj&gt;</a></span><span class="message">janneke: also we need to work together to get mes-m2 into shape for MesCC and Guix</span></div><div class="line" id="082039"><span class="nick" style="color:#80b1d3"><a href="#082039" label="[08:20:39]">&lt;fosslinux&gt;</a></span><span class="message">oriansj: how about bypassing mescc eventaully and jumping straight from M2-Planet to tcc?</span></div><div class="line" id="082042"><span class="nick" style="color:#80b1d3"><a href="#082042" label="[08:20:42]">&lt;fosslinux&gt;</a></span><span class="message">or even to gcc?</span></div><div class="line" id="102912"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="111316"><span class="nick" style="color:#6d2462"><a href="#111316" label="[11:13:16]">&lt;janneke_&gt;</a></span><span class="message">fosslinux: technically, everything is possible</span></div><div class="line" id="111443"><span class="nick" style="color:#6d2462"><a href="#111443" label="[11:14:43]">&lt;janneke_&gt;</a></span><span class="message">oriansj: yes, exactly.  that's why i started the wip-merge-m2 effort, right when you prove-of-concept built mes-m2 with m2-planet</span></div><div class="line" id="111448"><span class="nick">***</span><span class="message notice">janneke_ is now known as janneke</span></div><div class="line" id="111603"><span class="nick" style="color:#234e69"><a href="#111603" label="[11:16:03]">&lt;janneke&gt;</a></span><span class="message">we will probably need a second (and possibly third) merge effort when your boot and test work in mes-m2 has matured/been finished</span></div><div class="line" id="111907"><span class="nick" style="color:#234e69"><a href="#111907" label="[11:19:07]">&lt;janneke&gt;</a></span><span class="message">oriansj: this branch <a rel="nofollow" href="http://git.savannah.gnu.org/cgit/guix.git/log/?h=wip-full-source-bootstrap">http://git.savannah.gnu.org/cgit/guix.git/log/?h=wip-full-source-bootstrap</a>  prototypes building the mes-m2-&gt;mes merger, bootstrapping from m2-planet; but mes core and the garbage collector need some (lots) work and cloanup before i want to release</span></div><div class="line" id="112036"><span class="nick" style="color:#234e69"><a href="#112036" label="[11:20:36]">&lt;janneke&gt;</a></span><span class="message">i have not been looking at merging any of the big simplifications (reader, etc) you have been working on; that's a next (yet very important) step i would say</span></div><div class="line" id="130526"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="160923"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="174828"><span class="nick" style="color:#6c3d55"><a href="#174828" label="[17:48:28]">&lt;rain1&gt;</a></span><span class="message">hello</span></div><div class="line" id="174930"><span class="nick" style="color:#234e69"><a href="#174930" label="[17:49:30]">&lt;janneke&gt;</a></span><span class="message">hello rain1</span></div><div class="line" id="174934"><span class="nick" style="color:#6c3d55"><a href="#174934" label="[17:49:34]">&lt;rain1&gt;</a></span><span class="message">hey</span></div><div class="line" id="174937"><span class="nick" style="color:#6c3d55"><a href="#174937" label="[17:49:37]">&lt;rain1&gt;</a></span><span class="message">hows it going janneke ?</span></div><div class="line" id="175036"><span class="nick" style="color:#234e69"><a href="#175036" label="[17:50:36]">&lt;janneke&gt;</a></span><span class="message">it's going great, lots of progress; very nice r-b summit in marrakech</span></div><div class="line" id="175053"><span class="nick" style="color:#234e69"><a href="#175053" label="[17:50:53]">&lt;janneke&gt;</a></span><span class="message">how are you, rain1?</span></div><div class="line" id="175141"><span class="nick" style="color:#6c3d55"><a href="#175141" label="[17:51:41]">&lt;rain1&gt;</a></span><span class="message">that's fun i will read up on the rb summit</span></div><div class="line" id="175147"><span class="nick" style="color:#6c3d55"><a href="#175147" label="[17:51:47]">&lt;rain1&gt;</a></span><span class="message">ive been busy things have been hectic</span></div><div class="line" id="175343"><span class="nick" style="color:#234e69"><a href="#175343" label="[17:53:43]">&lt;janneke&gt;</a></span><span class="message">right...</span></div><div class="line" id="175823"><span class="nick" style="color:#234e69"><a href="#175823" label="[17:58:23]">&lt;janneke&gt;</a></span><span class="message">rain1: are you okay right now?</span></div><div class="line" id="175911"><span class="nick" style="color:#6c3d55"><a href="#175911" label="[17:59:11]">&lt;rain1&gt;</a></span><span class="message">yeah</span></div><div class="line" id="175922"><span class="nick" style="color:#6c3d55"><a href="#175922" label="[17:59:22]">&lt;rain1&gt;</a></span><span class="message">thanks for asking!</span></div><div class="line" id="180444"><span class="nick" style="color:#234e69"><a href="#180444" label="[18:04:44]">&lt;janneke&gt;</a></span><span class="message">you have been a great support, especially at times i was frustrated or feeling stuck</span></div><div class="line" id="180544"><span class="nick" style="color:#6c3d55"><a href="#180544" label="[18:05:44]">&lt;rain1&gt;</a></span><span class="message">that's really sweet of you to say, im glad i was supportive</span></div><div class="line" id="180605"><span class="nick" style="color:#d9d9d9"><a href="#180605" label="[18:06:05]">&lt;xentrac&gt;</a></span><span class="message">hi rain1! long time no see!</span></div><div class="line" id="190138"><span class="nick" style="color:#6c3d55"><a href="#190138" label="[19:01:38]">&lt;rain1&gt;</a></span><span class="message">hey xentrac</span></div><div class="line" id="190149"><span class="nick" style="color:#6c3d55"><a href="#190149" label="[19:01:49]">&lt;rain1&gt;</a></span><span class="message">how are you doing?</span></div><div class="line" id="190211"><span class="nick" style="color:#d9d9d9"><a href="#190211" label="[19:02:11]">&lt;xentrac&gt;</a></span><span class="message">not dead yet</span></div><div class="line" id="190234"><span class="nick" style="color:#d9d9d9"><a href="#190234" label="[19:02:34]">&lt;xentrac&gt;</a></span><span class="message">published the last or penultimate version of Dercuano yesterday: <a rel="nofollow" href="http://canonical.org/~kragen/dercuano-20191215.tar.gz">http://canonical.org/~kragen/dercuano-20191215.tar.gz</a> </span></div><div class="line" id="190247"><span class="nick" style="color:#6c3d55"><a href="#190247" label="[19:02:47]">&lt;rain1&gt;</a></span><span class="message">great!</span></div><div class="line" id="190304"><span class="nick" style="color:#d9d9d9"><a href="#190304" label="[19:03:04]">&lt;xentrac&gt;</a></span><span class="message">i'd be very happy to have any feedback</span></div><div class="line" id="190312"><span class="nick" style="color:#d9d9d9"><a href="#190312" label="[19:03:12]">&lt;xentrac&gt;</a></span><span class="message">in case I do one more version</span></div><div class="line" id="190442"><span class="nick" style="color:#d9d9d9"><a href="#190442" label="[19:04:42]">&lt;xentrac&gt;</a></span><span class="message">been thinking more about BubbleOS</span></div><div class="line" id="190454"><span class="nick" style="color:#d9d9d9"><a href="#190454" label="[19:04:54]">&lt;xentrac&gt;</a></span><span class="message">how about you?  I'm glad to hear you're OK!</span></div><div class="line" id="190525"><span class="nick" style="color:#6c3d55"><a href="#190525" label="[19:05:25]">&lt;rain1&gt;</a></span><span class="message">ive been caring for someone who got injured badly</span></div><div class="line" id="190536"><span class="nick" style="color:#d9d9d9"><a href="#190536" label="[19:05:36]">&lt;xentrac&gt;</a></span><span class="message">that can be rough :(</span></div><div class="line" id="190545"><span class="nick" style="color:#d9d9d9"><a href="#190545" label="[19:05:45]">&lt;xentrac&gt;</a></span><span class="message">but thank goodness you can be there for them!</span></div><div class="line" id="190547"><span class="nick" style="color:#d9d9d9"><a href="#190547" label="[19:05:47]">&lt;xentrac&gt;</a></span><span class="message">are they conscious?</span></div><div class="line" id="190551"><span class="nick" style="color:#6c3d55"><a href="#190551" label="[19:05:51]">&lt;rain1&gt;</a></span><span class="message">yeah</span></div><div class="line" id="190557"><span class="nick" style="color:#6c3d55"><a href="#190557" label="[19:05:57]">&lt;rain1&gt;</a></span><span class="message">they hsould make a full recovery</span></div><div class="line" id="190603"><span class="nick" style="color:#d9d9d9"><a href="#190603" label="[19:06:03]">&lt;xentrac&gt;</a></span><span class="message">oh, that's wonderful</span></div><div class="line" id="190622"><span class="nick" style="color:#d9d9d9"><a href="#190622" label="[19:06:22]">&lt;xentrac&gt;</a></span><span class="message">are they grouchy?</span></div><div class="line" id="190858"><span class="nick" style="color:#d9d9d9"><a href="#190858" label="[19:08:58]">&lt;xentrac&gt;</a></span><span class="message">because a lot of times carers bear the brunt of that</span></div><div class="line" id="190917"><span class="nick" style="color:#d9d9d9"><a href="#190917" label="[19:09:17]">&lt;xentrac&gt;</a></span><span class="message">which can be especially hard</span></div><div class="line" id="190948"><span class="nick" style="color:#6c3d55"><a href="#190948" label="[19:09:48]">&lt;rain1&gt;</a></span><span class="message">you make me realize how lucky we really are</span></div><div class="line" id="191154"><span class="nick" style="color:#d9d9d9"><a href="#191154" label="[19:11:54]">&lt;xentrac&gt;</a></span><span class="message">life isn't long, but it is wonderful, despite being full of suffering</span></div><div class="line" id="191231"><span class="nick" style="color:#d9d9d9"><a href="#191231" label="[19:12:31]">&lt;xentrac&gt;</a></span><span class="message">appreciating each other makes it better</span></div><div class="line" id="191255"><span class="nick" style="color:#d9d9d9"><a href="#191255" label="[19:12:55]">&lt;xentrac&gt;</a></span><span class="message">when we can manage it!  we can't always manage it</span></div><div class="line" id="221925"><span class="nick" style="color:#6b8072"><a href="#221925" label="[22:19:25]">&lt;oriansj&gt;</a></span><span class="message">xentrac: reading markdown/forth-assembling; I'd argue that when one is doing an assembler in FORTH shouldn't be doing a minimal assembler but rather as complete assembler as possible.</span></div><div class="line" id="224826"><span class="nick" style="color:#6b8072"><a href="#224826" label="[22:48:26]">&lt;oriansj&gt;</a></span><span class="message">and latest REPL tweak is up and slow_lisp is now merged with master in mes-m2</span></div><div class="line" id="231312"><span class="nick" style="color:#bc80bd"><a href="#231312" label="[23:13:12]">&lt;pder&gt;</a></span><span class="message">oriansj: great news!  I am getting a failure with test007 in mes-m2 and was wondering if it is a known issue.  It seems to fail if M2-Planet is bootstrapped from mescc-tools-seed.  If M2-Planet is compiled with gcc, test 7 passes.</span></div><div class="line" id="233829"><span class="nick" style="color:#d9d9d9"><a href="#233829" label="[23:38:29]">&lt;xentrac&gt;</a></span><span class="message">oriansj: that is certainly plausible, but the question I was trying to answer was not how one should do an assembler in Forth so much as how one should do a minimal assembler</span></div><div class="line" id="234113"><span class="nick" style="color:#d9d9d9"><a href="#234113" label="[23:41:13]">&lt;xentrac&gt;</a></span><span class="message">(it may well be that the best way to kill a drug mule who's double-crossed you is with a Colt 1911, but that surely does not imply that if you have a Colt 1911, you should be using it to execute drug mules)</span></div><div class="line" id="234219"><span class="nick" style="color:#d9d9d9"><a href="#234219" label="[23:42:19]">&lt;xentrac&gt;</a></span><span class="message">that is, it's certainly possible that what I was trying to accomplish is ill-advised, but that wasn't the question I was considering in that essay so much as how to accomplish it</span></div><br /></div></body></html>

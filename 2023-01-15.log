@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-01-15.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="014857"><span class="nick" style="color:#389600"><a href="#014857" label="[01:48:57]">&lt;stikonas&gt;</a></span><span class="message">ok, pushed M0_amd changes to use GAS style defines and position independent code</span></div><div class="line" id="015358"><span class="nick" style="color:#8dd3c7"><a href="#015358" label="[01:53:58]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well the ELF header uses --base-address to set where to put the binary in memory. So not setting it would result in the binary being placed at memory address zero and the first read would result in a page fault</span></div><div class="line" id="015401"><span class="nick" style="color:#389600"><a href="#015401" label="[01:54:01]">&lt;stikonas&gt;</a></span><span class="message">and turnst out it was the last amd64 program in stage0 that had non-position independent code</span></div><div class="line" id="015428"><span class="nick" style="color:#389600"><a href="#015428" label="[01:54:28]">&lt;stikonas&gt;</a></span><span class="message">though kaem, hex0, hex1, hex2 and catm still use old defines in comments)</span></div><div class="line" id="015521"><span class="nick" style="color:#389600"><a href="#015521" label="[01:55:21]">&lt;stikonas&gt;</a></span><span class="message">anyway, now on amd64 --base-address can be almost arbitrary</span></div><div class="line" id="045518"><span class="nick" style="color:#2e2a4a"><a href="#045518" label="[04:55:18]">&lt;fossy&gt;</a></span><span class="message">I haven't kept my eye on RISCV bootstrapping for a little while, but i was very glad to stumble across this today</span></div><div class="line" id="045520"><span class="nick" style="color:#2e2a4a"><a href="#045520" label="[04:55:20]">&lt;fossy&gt;</a></span><span class="message"> <a rel="nofollow" href="https://ekaitz.elenq.tech/tag/bootstrapping-gcc-in-risc-v.html">https://ekaitz.elenq.tech/tag/bootstrapping-gcc-in-risc-v.html</a> </span></div><div class="line" id="134217"><span class="nick" style="color:#6b8072"><a href="#134217" label="[13:42:17]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: unfortunately it's not the same GCC version that live-bootstrap was targeting</span></div><div class="line" id="162358"><span class="nick" style="color:#389600"><a href="#162358" label="[16:23:58]">&lt;stikonas&gt;</a></span><span class="message">and converted catm_amd64 to use GAS style defines too <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-amd64/blob/master/catm_AMD64.hex2">https://github.com/oriansj/stage0-posix-amd64/blob/master/catm_AMD64.hex2</a> </span></div><div class="line" id="170112"><span class="nick" style="color:#80b1d3"><a href="#170112" label="[17:01:12]">&lt;doras&gt;</a></span><span class="message">By the way, we started using the source manifest in freedesktop-sdk-binary-seed. Works great :)</span></div><div class="line" id="170547"><span class="nick" style="color:#80b1d3"><a href="#170547" label="[17:05:47]">&lt;doras&gt;</a></span><span class="message">Relevant BuildStream source plugin, for those interested: <a rel="nofollow" href="https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/blob/main/plugins/sources/live_bootstrap_manifest.py">https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/blob/main/plugins/sources/live_bootstrap_manifest.py</a> </span></div><div class="line" id="171757"><span class="nick" style="color:#389600"><a href="#171757" label="[17:17:57]">&lt;stikonas&gt;</a></span><span class="message">doras: nice! So what are the next steps to get freedesktop-sdk from freedesktop-sdk-binary-seed?</span></div><div class="line" id="172452"><span class="nick" style="color:#80b1d3"><a href="#172452" label="[17:24:52]">&lt;doras&gt;</a></span><span class="message">stikonas @stikonas:libera.chat: next we need this MR merged, which fixes our Docker image publishing: <a rel="nofollow" href="https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/merge_requests/7">https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/merge_requests/7</a> </span></div><div class="line" id="172539"><span class="nick" style="color:#80b1d3"><a href="#172539" label="[17:25:39]">&lt;doras&gt;</a></span><span class="message">As and then we try to use the mage as the binary seed for freedesktop-sdk.</span></div><div class="line" id="172754"><span class="nick" style="color:#389600"><a href="#172754" label="[17:27:54]">&lt;stikonas&gt;</a></span><span class="message">well, hopefully you'll also get python from live-bootstrap soon, so building freedesktop-sdk shouldn't be too hard</span></div><div class="line" id="172811"><span class="nick" style="color:#389600"><a href="#172811" label="[17:28:11]">&lt;stikonas&gt;</a></span><span class="message">and possibly newer GCC, but that will take longer</span></div><div class="line" id="180542"><span class="nick" style="color:#80b1d3"><a href="#180542" label="[18:05:42]">&lt;doras&gt;</a></span><span class="message">Newer GCC would definitely make things easier</span></div><div class="line" id="180936"><span class="nick" style="color:#389600"><a href="#180936" label="[18:09:36]">&lt;stikonas&gt;</a></span><span class="message">well, its best to wait for fossy to finish python work first</span></div><div class="line" id="180947"><span class="nick" style="color:#389600"><a href="#180947" label="[18:09:47]">&lt;stikonas&gt;</a></span><span class="message">I think he said that it's hard to build old pythons with new gcc</span></div><div class="line" id="190723"><span class="nick" style="color:#6d2462"><a href="#190723" label="[19:07:23]">&lt;rillian&gt;</a></span><span class="message">why is it `catm` and not just `cat`?</span></div><div class="line" id="191832"><span class="nick" style="color:#8dd3c7"><a href="#191832" label="[19:18:32]">&lt;oriansj&gt;</a></span><span class="message">rillian: because the shell at that stage doesn't support pipes</span></div><div class="line" id="192004"><span class="nick" style="color:#8dd3c7"><a href="#192004" label="[19:20:04]">&lt;oriansj&gt;</a></span><span class="message">so we need the functionality of cat $file1 $file2 ... $fileN &gt;| $output and thus we created: catm $output $file1 $file2 ... $fileN</span></div><div class="line" id="192112"><span class="nick" style="color:#8dd3c7"><a href="#192112" label="[19:21:12]">&lt;oriansj&gt;</a></span><span class="message">if you want catm to behave like traditional cat, one need only catm /dev/stdout $file1 $file2 ... $fileN | etc</span></div><div class="line" id="192430"><span class="nick" style="color:#6d2462"><a href="#192430" label="[19:24:30]">&lt;rillian&gt;</a></span><span class="message">oh, I see, thanks. Didn't think about the argument syntax being different!</span></div><div class="line" id="200754"><span class="nick" style="color:#6b8072"><a href="#200754" label="[20:07:54]">&lt;stikonas[m]&gt;</a></span><span class="message">catm is also usable to replace cp, but again order is swapped</span></div><div class="line" id="200824"><span class="nick" style="color:#6b8072"><a href="#200824" label="[20:08:24]">&lt;stikonas[m]&gt;</a></span><span class="message">Or you can use it to create an empty file</span></div><div class="line" id="231223"><span class="nick" style="color:#8dd3c7"><a href="#231223" label="[23:12:23]">&lt;oriansj&gt;</a></span><span class="message">basically, we know a good many ways to work around missing tools to get things bootstrapped. Honestly very little is actually needed to get very far on one's bootstrap chain.</span></div><div class="line" id="232410"><span class="nick" style="color:#389600"><a href="#232410" label="[23:24:10]">&lt;stikonas&gt;</a></span><span class="message">well, random small tools are not too bad to write in M2 dialect</span></div><div class="line" id="232421"><span class="nick" style="color:#389600"><a href="#232421" label="[23:24:21]">&lt;stikonas&gt;</a></span><span class="message">it's the larger projects like compilers that are trickier</span></div><br /></div></body></html>

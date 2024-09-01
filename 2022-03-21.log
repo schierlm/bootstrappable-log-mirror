@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-03-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="050944"><span class="nick">***</span><span class="message notice">alMalsamo is now known as lumberjack123</span></div><div class="line" id="064845"><span class="nick">***</span><span class="message notice">janneke_ is now known as janneke</span></div><div class="line" id="072942"><span class="nick" style="color:#8dd3c7"><a href="#072942" label="[07:29:42]">&lt;pabs3&gt;</a></span><span class="message">HN thread (no comments yet) about GHC bootstrap <a rel="nofollow" href="https://news.ycombinator.com/item?id=30734514">https://news.ycombinator.com/item?id=30734514</a> </span></div><div class="line" id="103601"><span class="nick" style="color:#2e2a4a"><a href="#103601" label="[10:36:01]">&lt;fossy&gt;</a></span><span class="message">alright, just need to update M2-Mesoplanet (opened PR), stage0-posix, then PR will be pushed</span></div><div class="line" id="161121"><span class="nick" style="color:#6b8072"><a href="#161121" label="[16:11:21]">&lt;oriansj&gt;</a></span><span class="message">fossy: wouldn't a --temp-directory option give more flexibility?</span></div><div class="line" id="161451"><span class="nick" style="color:#6b8072"><a href="#161451" label="[16:14:51]">&lt;oriansj&gt;</a></span><span class="message">with /tmp just being the default prefix and probably an error message indicating the use of that flag if one is not able to access current prefix target.</span></div><div class="line" id="162035"><span class="nick" style="color:#80b1d3"><a href="#162035" label="[16:20:35]">&lt;nimaje&gt;</a></span><span class="message">isn't the TMPDIR env variable used to make programs use an alternative to /tmp?</span></div><div class="line" id="163529"><span class="nick" style="color:#6b8072"><a href="#163529" label="[16:35:29]">&lt;oriansj&gt;</a></span><span class="message">nimaje: probably, we just haven't included the looking at the env variable in M2-Mesoplanet yet</span></div><div class="line" id="163540"><span class="nick" style="color:#6d2462"><a href="#163540" label="[16:35:40]">&lt;stikonas&gt;</a></span><span class="message">but that can be easily added</span></div><div class="line" id="163622"><span class="nick" style="color:#6d2462"><a href="#163622" label="[16:36:22]">&lt;stikonas&gt;</a></span><span class="message">although what is the right value in live-bootstrap TMPDIR=/ ?</span></div><div class="line" id="163648"><span class="nick" style="color:#6b8072"><a href="#163648" label="[16:36:48]">&lt;oriansj&gt;</a></span><span class="message">indeed and supporting both methods is valid</span></div><div class="line" id="163709"><span class="nick" style="color:#6b8072"><a href="#163709" label="[16:37:09]">&lt;oriansj&gt;</a></span><span class="message">./artifacts ???</span></div><div class="line" id="164511"><span class="nick" style="color:#6b8072"><a href="#164511" label="[16:45:11]">&lt;oriansj&gt;</a></span><span class="message">so I'll merge fossy's patch and then extend it a little bit</span></div><div class="line" id="171931"><span class="nick" style="color:#6b8072"><a href="#171931" label="[17:19:31]">&lt;oriansj&gt;</a></span><span class="message">or just straight . would work as well</span></div><div class="line" id="172047"><span class="nick" style="color:#6b8072"><a href="#172047" label="[17:20:47]">&lt;oriansj&gt;</a></span><span class="message">ok all merged and expanded.</span></div><div class="line" id="172140"><span class="nick" style="color:#6b8072"><a href="#172140" label="[17:21:40]">&lt;oriansj&gt;</a></span><span class="message">now it will first attempt to use TMPDIR env variable and if that doesn't exist it will fallback to /tmp and if one uses --temp-directory it will override and do that</span></div><br /></div></body></html>

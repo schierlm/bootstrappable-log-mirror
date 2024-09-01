@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-08-16.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="021827"><span class="nick" style="color:#389600"><a href="#021827" label="[02:18:27]">&lt;stikonas&gt;</a></span><span class="message">fossy: why do we need to rebuild tar here <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/317">https://github.com/fosslinux/live-bootstrap/pull/317</a>  ?</span></div><div class="line" id="021830"><span class="nick" style="color:#389600"><a href="#021830" label="[02:18:30]">&lt;stikonas&gt;</a></span><span class="message">this came from your roadmap</span></div><div class="line" id="024705"><span class="nick" style="color:#8dd3c7"><a href="#024705" label="[02:47:05]">&lt;fossy&gt;</a></span><span class="message">stikonas: actually, that is an oversight by me, i was looking through for pacakges not rebuilt after musl in sysa and for some reason i put tar down - whoops</span></div><div class="line" id="024721"><span class="nick" style="color:#8dd3c7"><a href="#024721" label="[02:47:21]">&lt;fossy&gt;</a></span><span class="message">removed from roadmap</span></div><div class="line" id="024803"><span class="nick" style="color:#2e2a4a"><a href="#024803" label="[02:48:03]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; OK, thanks</span></div><div class="line" id="024819"><span class="nick" style="color:#2e2a4a"><a href="#024819" label="[02:48:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Will hopefully make that PR simpler</span></div><div class="line" id="024838"><span class="nick" style="color:#2e2a4a"><a href="#024838" label="[02:48:38]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Though it still needs a lot of work to be mergeable</span></div><div class="line" id="190452"><span class="nick" style="color:#6b8072"><a href="#190452" label="[19:04:52]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: thanks for merging recent PRs to Fiwix.</span></div><div class="line" id="190518"><span class="nick" style="color:#6b8072"><a href="#190518" label="[19:05:18]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: With FiwixOS 3.2 libraries/headers do you know if it is possible to do a raw system call from a C program?</span></div><div class="line" id="190718"><span class="nick" style="color:#6b8072"><a href="#190718" label="[19:07:18]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: I can't find a header for syscall() like /usr/include/sys/syscall.h</span></div><div class="line" id="201552"><span class="nick" style="color:#80b1d3"><a href="#201552" label="[20:15:52]">&lt;Mikaku&gt;</a></span><span class="message">rickmasters: no, this is not implemented (yet)</span></div><div class="line" id="201638"><span class="nick" style="color:#80b1d3"><a href="#201638" label="[20:16:38]">&lt;Mikaku&gt;</a></span><span class="message">as a work-around you can create your own Assembly function to call 'int 0x80'</span></div><div class="line" id="201919"><span class="nick" style="color:#80b1d3"><a href="#201919" label="[20:19:19]">&lt;Mikaku&gt;</a></span><span class="message">ACTION bbl</span></div><div class="line" id="202139"><span class="nick" style="color:#6b8072"><a href="#202139" label="[20:21:39]">&lt;rickmasters&gt;</a></span><span class="message">Mikaku: right, I've started using assembly. Thanks!</span></div><br /></div></body></html>

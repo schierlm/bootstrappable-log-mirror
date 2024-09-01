@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2019-09-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001840"><span class="nick" style="color:#8dd3c7"><a href="#001840" label="[00:18:40]">&lt;janneke&gt;</a></span><span class="message">vagrantc: no, XPASS is an uneXpected pass; the test is listed in FAIL_TESTS, but passes</span></div><div class="line" id="001858"><span class="nick" style="color:#8dd3c7"><a href="#001858" label="[00:18:58]">&lt;janneke&gt;</a></span><span class="message">eh, wait lemme double check</span></div><div class="line" id="002105"><span class="nick" style="color:#8dd3c7"><a href="#002105" label="[00:21:05]">&lt;janneke&gt;</a></span><span class="message">yes, that's right.</span></div><div class="line" id="002140"><span class="nick" style="color:#8dd3c7"><a href="#002140" label="[00:21:40]">&lt;janneke&gt;</a></span><span class="message">vagrantc: yes, mes touches to epoch for reproducibility</span></div><div class="line" id="002215"><span class="nick" style="color:#8dd3c7"><a href="#002215" label="[00:22:15]">&lt;janneke&gt;</a></span><span class="message">that's weird, i wonder what #debian-reproducible thinks about that :)</span></div><div class="line" id="003210"><span class="nick" style="color:#2e2a4a"><a href="#003210" label="[00:32:10]">*</a></span><span class="message">janneke -&gt; zZzz</span></div><div class="line" id="003852"><span class="nick" style="color:#6b8072"><a href="#003852" label="[00:38:52]">&lt;vagrantc&gt;</a></span><span class="message">in Debian, packages are built with SOURCE_DATE_EPOCH set to the last debian/changelog version, and maybe even clamps files from the source newer than that.</span></div><div class="line" id="003935"><span class="nick" style="color:#6b8072"><a href="#003935" label="[00:39:35]">&lt;vagrantc&gt;</a></span><span class="message">but guix's habit of making all files have the epoch set to 0 is a bit different approach</span></div><div class="line" id="084530"><span class="nick" style="color:#8dd3c7"><a href="#084530" label="[08:45:30]">&lt;janneke&gt;</a></span><span class="message">vagrantc: ah yes, any fixed date will do.  it's just less work for me to reproducibly calculate date==0 :-)</span></div><div class="line" id="084907"><span class="nick" style="color:#6b8072"><a href="#084907" label="[08:49:07]">&lt;vagrantc&gt;</a></span><span class="message">janneke: agreed.</span></div><div class="line" id="084946"><span class="nick" style="color:#6b8072"><a href="#084946" label="[08:49:46]">&lt;vagrantc&gt;</a></span><span class="message">janneke: Debian also assumes reproducibility of the source tarball as an input where the dates will be set in the tarball already...</span></div><div class="line" id="085019"><span class="nick" style="color:#6b8072"><a href="#085019" label="[08:50:19]">&lt;vagrantc&gt;</a></span><span class="message">janneke: i might have to produce a mangled tarball with the files marked to the date of commit or something.</span></div><div class="line" id="085100"><span class="nick" style="color:#6b8072"><a href="#085100" label="[08:51:00]">&lt;vagrantc&gt;</a></span><span class="message">janneke: e.g. you pass the same tarball every time, so the dates of all the files within the tarball aren't going to vary.</span></div><div class="line" id="092832"><span class="nick" style="color:#8dd3c7"><a href="#092832" label="[09:28:32]">&lt;janneke&gt;</a></span><span class="message">vagrantc: would you like to align that strategy with (thhe debian folks@) #reproducible-builds on oftc?  possibly a naive question may help.</span></div><div class="line" id="092928"><span class="nick" style="color:#6b8072"><a href="#092928" label="[09:29:28]">&lt;vagrantc&gt;</a></span><span class="message">janneke: probably better to post to one of the mailing lists</span></div><div class="line" id="092946"><span class="nick" style="color:#8dd3c7"><a href="#092946" label="[09:29:46]">&lt;janneke&gt;</a></span><span class="message">vagrantc: ah, sure</span></div><div class="line" id="093007"><span class="nick" style="color:#6b8072"><a href="#093007" label="[09:30:07]">&lt;vagrantc&gt;</a></span><span class="message">janneke: are you subscribed to rb-general?</span></div><div class="line" id="203720"><span class="nick" style="color:#8dd3c7"><a href="#203720" label="[20:37:20]">&lt;janneke&gt;</a></span><span class="message">vagrantc: yes, i am on rb-general</span></div><div class="line" id="203909"><span class="nick" style="color:#6b8072"><a href="#203909" label="[20:39:09]">&lt;vagrantc&gt;</a></span><span class="message">janneke: ok, i'll start the timestamps in source tarballs discussion as relates to debian packaging there</span></div><div class="line" id="205346"><span class="nick" style="color:#8dd3c7"><a href="#205346" label="[20:53:46]">&lt;janneke&gt;</a></span><span class="message">vagrantc: nice</span></div><br /></div></body></html>

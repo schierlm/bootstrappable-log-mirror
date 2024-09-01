@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-10-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="021058"><span class="nick" style="color:#8dd3c7"><a href="#021058" label="[02:10:58]">&lt;OriansJ&gt;</a></span><span class="message">ericonr: the only similiar idea I could think of would be to read the whole file in as a single read call (after using fseek and ftell to determine the size of the file) and then use that as an in memory array.</span></div><div class="line" id="021441"><span class="nick" style="color:#8dd3c7"><a href="#021441" label="[02:14:41]">&lt;OriansJ&gt;</a></span><span class="message">then create a massive array to shove the output; buffer it there and then just dump it all in a single write call</span></div><div class="line" id="022022"><span class="nick" style="color:#8dd3c7"><a href="#022022" label="[02:20:22]">&lt;OriansJ&gt;</a></span><span class="message">The write will definitely be more complex but I could minimize that by making <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/blob/master/test/common_x86/functions/file.c">https://github.com/oriansj/M2-Planet/blob/master/test/common_x86/functions/file.c</a>  have a 8MB buffer and not call write until it is full or an fflush is called (which would require fflush to be added to all of the programs to ensure no output is lost)</span></div><div class="line" id="052614"><span class="nick" style="color:#2e2a4a"><a href="#052614" label="[05:26:14]">&lt;deesix&gt;</a></span><span class="message">OriansJ, why is <a rel="nofollow" href="https://paste.debian.net/1167513/">https://paste.debian.net/1167513/</a>  declaring malloc twice? Am I reading it right? Also, what's up with shifting for aarch64?</span></div><div class="line" id="053034"><span class="nick" style="color:#2e2a4a"><a href="#053034" label="[05:30:34]">&lt;deesix&gt;</a></span><span class="message">s/declaring/defining/</span></div><div class="line" id="102544"><span class="nick" style="color:#6b8072"><a href="#102544" label="[10:25:44]">&lt;nimaje&gt;</a></span><span class="message">probably that first malloc should be changed to brk</span></div><div class="line" id="163800"><span class="nick" style="color:#2e2a4a"><a href="#163800" label="[16:38:00]">&lt;deesix&gt;</a></span><span class="message">OK, that seems to be fixed in the commit. Also the SCM usage is changes (which is another thing I was unsure about).</span></div><div class="line" id="163809"><span class="nick" style="color:#2e2a4a"><a href="#163809" label="[16:38:09]">&lt;deesix&gt;</a></span><span class="message">*changed</span></div><div class="line" id="184144"><span class="nick" style="color:#80b1d3"><a href="#184144" label="[18:41:44]">&lt;xentrac&gt;</a></span><span class="message">hmm, can SDCC compile itself?</span></div><div class="line" id="191811"><span class="nick" style="color:#6d2462"><a href="#191811" label="[19:18:11]">&lt;ericonr&gt;</a></span><span class="message">in that it can parse the C it's using&gt;</span></div><div class="line" id="191813"><span class="nick" style="color:#6d2462"><a href="#191813" label="[19:18:13]">&lt;ericonr&gt;</a></span><span class="message">?</span></div><div class="line" id="191848"><span class="nick" style="color:#6d2462"><a href="#191848" label="[19:18:48]">&lt;ericonr&gt;</a></span><span class="message">because otherwise it's a very uC oriented compiler written to run on a hosted system, so I don't think it's at all portable to one of its targets</span></div><div class="line" id="191955"><span class="nick" style="color:#6d2462"><a href="#191955" label="[19:19:55]">&lt;ericonr&gt;</a></span><span class="message">OriansJ`: hmm, I don't think I understand enough about the problem domain, sorry. It was mostly a random suggestion.</span></div><div class="line" id="195424"><span class="nick" style="color:#80b1d3"><a href="#195424" label="[19:54:24]">&lt;xentrac&gt;</a></span><span class="message">ericonr: I was wondering if it had any targets with enough memory space to hold all its code</span></div><div class="line" id="195509"><span class="nick" style="color:#80b1d3"><a href="#195509" label="[19:55:09]">&lt;xentrac&gt;</a></span><span class="message">or some kind of reasonable overlay scheme</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-07-31.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000201"><span class="nick" style="color:#389600"><a href="#000201" label="[00:02:01]">&lt;stikonas&gt;</a></span><span class="message">Magnesium9117: now the website is HTTP 404</span></div><div class="line" id="000212"><span class="nick" style="color:#389600"><a href="#000212" label="[00:02:12]">&lt;stikonas&gt;</a></span><span class="message">I guess guix is slowly bringing back their infrastructure</span></div><div class="line" id="010847"><span class="nick" style="color:#2e2a4a"><a href="#010847" label="[01:08:47]">&lt;Magnesium9117&gt;</a></span><span class="message">nice</span></div><div class="line" id="011525"><span class="nick" style="color:#389600"><a href="#011525" label="[01:15:25]">&lt;stikonas&gt;</a></span><span class="message">but you can probably learn more if you ask questions here rather than looking at website anyway</span></div><div class="line" id="011705"><span class="nick" style="color:#389600"><a href="#011705" label="[01:17:05]">&lt;stikonas&gt;</a></span><span class="message">and I'm getting close to finishing kaem-optional.efi</span></div><div class="line" id="011738"><span class="nick" style="color:#389600"><a href="#011738" label="[01:17:38]">&lt;stikonas&gt;</a></span><span class="message">still need to add a bit of code but it's mostly just linear stuff with no branches, so shouldn't be too hard</span></div><div class="line" id="032816"><span class="nick" style="color:#6b8072"><a href="#032816" label="[03:28:16]">&lt;oriansj&gt;</a></span><span class="message">well the hardest thing to remember about UEFI seems to be make sure everything can be relocated in memory. So cc_* is gonna see a boatload of PC relative addressing being added. I'll probably have to figure out a clean way to do it in M2-Planet</span></div><div class="line" id="073635"><span class="nick" style="color:#80b1d3"><a href="#073635" label="[07:36:35]">&lt;Spawns_Carpeting&gt;</a></span><span class="message">I have a quick question, how would it be best to communicate to somebody that something isn't bootstrappable.org bootstrappable if it relies on auto generated C files that are not human readable</span></div><div class="line" id="073758"><span class="nick" style="color:#6d2462"><a href="#073758" label="[07:37:58]">&lt;pabs3&gt;</a></span><span class="message">a pull request deleting the files and setting up a proper bootstrap :)</span></div><div class="line" id="073851"><span class="nick" style="color:#80b1d3"><a href="#073851" label="[07:38:51]">&lt;Spawns_Carpeting&gt;</a></span><span class="message">lol</span></div><div class="line" id="074029"><span class="nick" style="color:#6d2462"><a href="#074029" label="[07:40:29]">&lt;pabs3&gt;</a></span><span class="message">which project is it?</span></div><div class="line" id="074036"><span class="nick" style="color:#2e2a4a"><a href="#074036" label="[07:40:36]">&lt;Magnesium9117&gt;</a></span><span class="message">what is kaem-optional.efi?</span></div><div class="line" id="074127"><span class="nick" style="color:#80b1d3"><a href="#074127" label="[07:41:27]">&lt;Spawns_Carpeting&gt;</a></span><span class="message">gambit scheme, I am in their gitter channel thing and talking about bootstrapping gambit, but they are claiming that gambit is bootstrappable (but it relies on 100,000s of lines of generated C files)</span></div><div class="line" id="074207"><span class="nick" style="color:#80b1d3"><a href="#074207" label="[07:42:07]">&lt;Spawns_Carpeting&gt;</a></span><span class="message">i would consider massive amounts of autogenerated C source to not count as bootstrappable</span></div><div class="line" id="074315"><span class="nick" style="color:#6d2462"><a href="#074315" label="[07:43:15]">&lt;pabs3&gt;</a></span><span class="message">its definitely not bootstrappable.org bootstrappable, but they might be using some other definition (such as &quot;binaries of it can compile its own source code back to binaries of it&quot;)</span></div><div class="line" id="074344"><span class="nick" style="color:#80b1d3"><a href="#074344" label="[07:43:44]">&lt;Spawns_Carpeting&gt;</a></span><span class="message">i have showed them the website but i dont think they actually looked at it</span></div><div class="line" id="074415"><span class="nick" style="color:#6d2462"><a href="#074415" label="[07:44:15]">&lt;pabs3&gt;</a></span><span class="message">maybe ask them how to make yoghurt like the site does :)</span></div><div class="line" id="075703"><span class="nick" style="color:#234e69"><a href="#075703" label="[07:57:03]">&lt;smlckz&gt;</a></span><span class="message">what would be an easy and simple bootstrapping to do?</span></div><div class="line" id="083331"><span class="nick" style="color:#6c3d55"><a href="#083331" label="[08:33:31]">&lt;stikonas[m]&gt;</a></span><span class="message">Magnesium9117: that's port of kaem-optional seed from POSIX (Linux) to UEFI</span></div><div class="line" id="083427"><span class="nick" style="color:#6c3d55"><a href="#083427" label="[08:34:27]">&lt;stikonas[m]&gt;</a></span><span class="message">smlckz: depends on what you already know and what you want to learn</span></div><div class="line" id="083608"><span class="nick" style="color:#6c3d55"><a href="#083608" label="[08:36:08]">&lt;stikonas[m]&gt;</a></span><span class="message">live-bootstrap is fairly easy to get in with just some bash skills</span></div><div class="line" id="083645"><span class="nick" style="color:#6c3d55"><a href="#083645" label="[08:36:45]">&lt;stikonas[m]&gt;</a></span><span class="message">stage0 stuff is good if you want to learn lower level stuff, e.g. writing simple compiler</span></div><div class="line" id="083819"><span class="nick" style="color:#6c3d55"><a href="#083819" label="[08:38:19]">&lt;stikonas[m]&gt;</a></span><span class="message">Magnesium9117: kaem-optional is kind of simple non-interactive shell that reads a file with list of commands and executes them</span></div><div class="line" id="084136"><span class="nick" style="color:#6c3d55"><a href="#084136" label="[08:41:36]">&lt;stikonas[m]&gt;</a></span><span class="message">smlckz: mes/mescc project is another option, it uses C and Scheme</span></div><div class="line" id="085145"><span class="nick" style="color:#d9d9d9"><a href="#085145" label="[08:51:45]">&lt;Irvise_&gt;</a></span><span class="message">Spawns_Carpeting: I have read your conversation in the Gambit Gitter channel</span></div><div class="line" id="085156"><span class="nick" style="color:#d9d9d9"><a href="#085156" label="[08:51:56]">&lt;Irvise_&gt;</a></span><span class="message">I think this is something you would like to take a look at <a rel="nofollow" href="https://irvise.xyz/Blog/scheme-implementation-comparison.html">https://irvise.xyz/Blog/scheme-implementation-comparison.html</a> </span></div><div class="line" id="085338"><span class="nick" style="color:#234e69"><a href="#085338" label="[08:53:38]">&lt;smlckz&gt;</a></span><span class="message">what is kaem?</span></div><div class="line" id="085811"><span class="nick" style="color:#80b1d3"><a href="#085811" label="[08:58:11]">&lt;Spawns_Carpeting&gt;</a></span><span class="message">Irvise_: thanks for that link!</span></div><div class="line" id="085833"><span class="nick" style="color:#80b1d3"><a href="#085833" label="[08:58:33]">&lt;Spawns_Carpeting&gt;</a></span><span class="message">the main reason i am interested in gambit is for gerbil scheme</span></div><div class="line" id="085910"><span class="nick" style="color:#80b1d3"><a href="#085910" label="[08:59:10]">&lt;Spawns_Carpeting&gt;</a></span><span class="message">gerbil is more like a racket type of scheme than a scheme, it has many extensions and has kind of went off into its own thing</span></div><div class="line" id="085934"><span class="nick" style="color:#80b1d3"><a href="#085934" label="[08:59:34]">&lt;Spawns_Carpeting&gt;</a></span><span class="message">it seems to be fairly niche though so far</span></div><div class="line" id="085936"><span class="nick" style="color:#d9d9d9"><a href="#085936" label="[08:59:36]">&lt;Irvise_&gt;</a></span><span class="message">I see. I just added Gerbil a few minutes ago. I had not added it because it was an Scheme built on top of anoher Scheme, so rather pointless for my list.</span></div><div class="line" id="090000"><span class="nick" style="color:#d9d9d9"><a href="#090000" label="[09:00:00]">&lt;Irvise_&gt;</a></span><span class="message">Yup, it even says it speaks Lisp x)</span></div><div class="line" id="090157"><span class="nick" style="color:#80b1d3"><a href="#090157" label="[09:01:57]">&lt;Spawns_Carpeting&gt;</a></span><span class="message">this website is very handy</span></div><div class="line" id="090223"><span class="nick" style="color:#d9d9d9"><a href="#090223" label="[09:02:23]">&lt;Irvise_&gt;</a></span><span class="message">That is why I built it :P</span></div><div class="line" id="090241"><span class="nick" style="color:#d9d9d9"><a href="#090241" label="[09:02:41]">&lt;Irvise_&gt;</a></span><span class="message">theruran and I are looking into bootstrapping Ada.</span></div><div class="line" id="090253"><span class="nick" style="color:#d9d9d9"><a href="#090253" label="[09:02:53]">&lt;Irvise_&gt;</a></span><span class="message">That was the motivation</span></div><div class="line" id="090258"><span class="nick" style="color:#80b1d3"><a href="#090258" label="[09:02:58]">&lt;Spawns_Carpeting&gt;</a></span><span class="message">thats a very interesting idea</span></div><div class="line" id="090325"><span class="nick" style="color:#80b1d3"><a href="#090325" label="[09:03:25]">&lt;Spawns_Carpeting&gt;</a></span><span class="message">the first step of that would be an ada compiler written in a scheme?</span></div><div class="line" id="091703"><span class="nick" style="color:#80b1d3"><a href="#091703" label="[09:17:03]">&lt;Spawns_Carpeting&gt;</a></span><span class="message">scheme seems like the ultimate language for bootstrapping purposes since it can be implemented in a small amount of code</span></div><div class="line" id="091852"><span class="nick" style="color:#d9d9d9"><a href="#091852" label="[09:18:52]">&lt;Irvise_&gt;</a></span><span class="message">That is our initial idea. I added Jim's TCL and Lua too due to their small size too.</span></div><div class="line" id="091903"><span class="nick" style="color:#6c3d55"><a href="#091903" label="[09:19:03]">&lt;stikonas[m]&gt;</a></span><span class="message">smlckz: kaem is just a simple shell to run other commands and automate things</span></div><div class="line" id="091957"><span class="nick" style="color:#6c3d55"><a href="#091957" label="[09:19:57]">&lt;stikonas[m]&gt;</a></span><span class="message">There are actually two of them</span></div><div class="line" id="092032"><span class="nick" style="color:#6c3d55"><a href="#092032" label="[09:20:32]">&lt;stikonas[m]&gt;</a></span><span class="message">One is with more features, cross platform and written in C</span></div><div class="line" id="092108"><span class="nick" style="color:#6c3d55"><a href="#092108" label="[09:21:08]">&lt;stikonas[m]&gt;</a></span><span class="message">And the smaller version is written in hex0, so needs porting to each platform</span></div><div class="line" id="092134"><span class="nick" style="color:#6c3d55"><a href="#092134" label="[09:21:34]">&lt;stikonas[m]&gt;</a></span><span class="message">And together with hex0 it is one of the two binary seeds</span></div><div class="line" id="092218"><span class="nick" style="color:#6c3d55"><a href="#092218" label="[09:22:18]">&lt;stikonas[m]&gt;</a></span><span class="message">(And kaem is anagram of make)</span></div><div class="line" id="093255"><span class="nick" style="color:#234e69"><a href="#093255" label="[09:32:55]">&lt;smlckz&gt;</a></span><span class="message">ahh</span></div><div class="line" id="130718"><span class="nick">***</span><span class="message notice">bauen1_ is now known as bauen1</span></div><div class="line" id="213620"><span class="nick" style="color:#bc80bd"><a href="#213620" label="[21:36:20]">&lt;jackhill&gt;</a></span><span class="message">Irvise_: *waves* I was talking with theruran in another channel the other day, and am also intersted in bootstrapping Ada (among other interests!)</span></div><div class="line" id="214712"><span class="nick" style="color:#d9d9d9"><a href="#214712" label="[21:47:12]">&lt;Irvise_&gt;</a></span><span class="message">jackhill: he told me about it. It is always nice to see more people interested in what we want to do :)</span></div><div class="line" id="214732"><span class="nick" style="color:#d9d9d9"><a href="#214732" label="[21:47:32]">&lt;Irvise_&gt;</a></span><span class="message">Though it is still in the drawing board...</span></div><div class="line" id="214917"><span class="nick" style="color:#6b8072"><a href="#214917" label="[21:49:17]">&lt;oriansj&gt;</a></span><span class="message">Irvise_: but it is a beautiful drawing so far</span></div><div class="line" id="220013"><span class="nick" style="color:#6b8072"><a href="#220013" label="[22:00:13]">&lt;oriansj&gt;</a></span><span class="message">and it is nice to see people pushing the current bootstrapping boundaries forward.</span></div><div class="line" id="235943"><span class="nick" style="color:#3c5b35"><a href="#235943" label="[23:59:43]">&lt;muurkha&gt;</a></span><span class="message">Spawns_Carpeting: yeah, normally &quot;bootstrapping&quot; means the opposite of what we're doing here</span></div><br /></div></body></html>

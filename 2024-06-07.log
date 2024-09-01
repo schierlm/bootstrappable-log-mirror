@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-06-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="015008"><span class="nick" style="color:#389600"><a href="#015008" label="[01:50:08]">&lt;Googulator&gt;</a></span><span class="message">While waiting for Rust to bootstrap again, I decided to check out Yale Haskell a 2nd time - and noticed something.</span></div><div class="line" id="015258"><span class="nick" style="color:#389600"><a href="#015258" label="[01:52:58]">&lt;Googulator&gt;</a></span><span class="message">The original v2.05 source distribution's README mentions running Yale Haskell under a language named &quot;t&quot; or &quot;T&quot; - although in 2.05 (which is unfortunately the only surviving version I currently know of), it's mentioned to be broken, and the referenced &quot;t-support&quot; directory is missing.</span></div><div class="line" id="015333"><span class="nick" style="color:#389600"><a href="#015333" label="[01:53:33]">&lt;Googulator&gt;</a></span><span class="message">Other sources state that Yale Haskell was originally written in &quot;t, a dialect of Scheme&quot;, and then ported to Common Lisp.</span></div><div class="line" id="015418"><span class="nick" style="color:#8dd3c7"><a href="#015418" label="[01:54:18]">&lt;pabs3&gt;</a></span><span class="message">it happens I recently archived a site related to t/scheme98 or something like that.... let me see</span></div><div class="line" id="015422"><span class="nick" style="color:#389600"><a href="#015422" label="[01:54:22]">&lt;Googulator&gt;</a></span><span class="message">And the vast majority of Yale Haskell's source code (apart from what's in Haskell) uses the &quot;.scm&quot; extension, and reads very much like Scheme, and not Common Lisp.</span></div><div class="line" id="015512"><span class="nick" style="color:#389600"><a href="#015512" label="[01:55:12]">&lt;Googulator&gt;</a></span><span class="message">There's a layer named &quot;mumble&quot; (a pun on &quot;lisp&quot; I guess...) responsible for converting/adapting(?) the &quot;.scm&quot; code to Common Lisp.</span></div><div class="line" id="015547"><span class="nick" style="color:#389600"><a href="#015547" label="[01:55:47]">&lt;Googulator&gt;</a></span><span class="message">But we already have a fully bootstrapped Scheme implementation - in fact, we have 2 of them (Mes and Guile)!</span></div><div class="line" id="015613"><span class="nick" style="color:#8dd3c7"><a href="#015613" label="[01:56:13]">&lt;pabs3&gt;</a></span><span class="message">aha <a rel="nofollow" href="https://mumble.net/~jar/s48/index.html">https://mumble.net/~jar/s48/index.html</a> </span></div><div class="line" id="015626"><span class="nick" style="color:#8dd3c7"><a href="#015626" label="[01:56:26]">&lt;pabs3&gt;</a></span><span class="message"> <a rel="nofollow" href="https://mumble.net/~jar/tproject/index.html">https://mumble.net/~jar/tproject/index.html</a> </span></div><div class="line" id="015849"><span class="nick" style="color:#8dd3c7"><a href="#015849" label="[01:58:49]">&lt;pabs3&gt;</a></span><span class="message">see also <a rel="nofollow" href="https://www.s48.org/">https://www.s48.org/</a>  which I didn't archive yet</span></div><div class="line" id="020731"><span class="nick" style="color:#389600"><a href="#020731" label="[02:07:31]">&lt;Googulator&gt;</a></span><span class="message"> <a rel="nofollow" href="http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/impl/t/src/">http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/scheme/impl/t/src/</a>  has the source code for T version 3.1 - unfortunately it's a compiler that exclusively targets dead architectures</span></div><div class="line" id="020741"><span class="nick" style="color:#389600"><a href="#020741" label="[02:07:41]">&lt;Googulator&gt;</a></span><span class="message">_and_ it's self-hosted too</span></div><div class="line" id="023059"><span class="nick" style="color:#389600"><a href="#023059" label="[02:30:59]">&lt;Googulator&gt;</a></span><span class="message">looks like Lennart Augustsson is still active in the world of Haskell: <a rel="nofollow" href="https://www.youtube.com/watch?v=Zk5SJ79nOnA">https://www.youtube.com/watch?v=Zk5SJ79nOnA</a> </span></div><div class="line" id="023113"><span class="nick" style="color:#389600"><a href="#023113" label="[02:31:13]">&lt;Googulator&gt;</a></span><span class="message">(he's the original author of hbc)</span></div><div class="line" id="023340"><span class="nick" style="color:#389600"><a href="#023340" label="[02:33:40]">&lt;Googulator&gt;</a></span><span class="message">this is also apparently him: <a rel="nofollow" href="https://github.com/augustss">https://github.com/augustss</a> </span></div><div class="line" id="023511"><span class="nick" style="color:#8dd3c7"><a href="#023511" label="[02:35:11]">&lt;pabs3&gt;</a></span><span class="message">the author of MicroHs</span></div><div class="line" id="023719"><span class="nick" style="color:#389600"><a href="#023719" label="[02:37:19]">&lt;Googulator&gt;</a></span><span class="message">seems like he's also the author of hbc and one of the authors of lmlc...</span></div><div class="line" id="023806"><span class="nick" style="color:#389600"><a href="#023806" label="[02:38:06]">&lt;Googulator&gt;</a></span><span class="message">someone from here (who is good at contacting outsiders, i.e. probably not me) should get in touch with him</span></div><div class="line" id="023824"><span class="nick" style="color:#389600"><a href="#023824" label="[02:38:24]">&lt;Googulator&gt;</a></span><span class="message">see if he still has any of the old Haskell source code</span></div><div class="line" id="063157"><span class="nick" style="color:#2e2a4a"><a href="#063157" label="[06:31:57]">&lt;janus&gt;</a></span><span class="message">i wrote Lennart an email about HBC in 2022 and i never got a reply</span></div><div class="line" id="063208"><span class="nick" style="color:#2e2a4a"><a href="#063208" label="[06:32:08]">&lt;janus&gt;</a></span><span class="message">but i get replies for the issues i post about MicroHs and MicroCabal</span></div><div class="line" id="121606"><span class="nick" style="color:#389600"><a href="#121606" label="[12:16:06]">&lt;Googulator&gt;</a></span><span class="message">archived this just in case: <a rel="nofollow" href="https://archive.org/details/ghc-history.tar">https://archive.org/details/ghc-history.tar</a> </span></div><div class="line" id="121741"><span class="nick" style="color:#389600"><a href="#121741" label="[12:17:41]">&lt;Googulator&gt;</a></span><span class="message">I was able to find some old directory listings of a now dead mirror of the Glasgow university FTP, and unfortunately it seems by the time that FTP died, the oldest Haskell it still had a copy of was 0.29 :(</span></div><div class="line" id="121758"><span class="nick" style="color:#389600"><a href="#121758" label="[12:17:58]">&lt;Googulator&gt;</a></span><span class="message">so it's unlikely that any surviving mirror or archive would have pre-0.26 versions</span></div><div class="line" id="121854"><span class="nick" style="color:#389600"><a href="#121854" label="[12:18:54]">&lt;Googulator&gt;</a></span><span class="message">OTOH for some good news, I was able to retrieve a lot of nhc development history, thanks to an old backup of York University's FTP on archive.org</span></div><div class="line" id="123108"><span class="nick" style="color:#389600"><a href="#123108" label="[12:31:08]">&lt;Googulator&gt;</a></span><span class="message">we have nhc12 v0.8, nhc13 versions 971106, 971219, 980212, 980304, 980319, 980320, 980327, 980501, 980624, 980706 and 980501 - as well as C-transpiled code for the last 4 versions</span></div><div class="line" id="123146"><span class="nick" style="color:#389600"><a href="#123146" label="[12:31:46]">&lt;Googulator&gt;</a></span><span class="message">plus, nhc98 versions 1.12, 1.14, 1.14a, 1.16, 1.18 and 1.20</span></div><div class="line" id="123751"><span class="nick" style="color:#389600"><a href="#123751" label="[12:37:51]">&lt;Googulator&gt;</a></span><span class="message">(1.18 and 1.20, as well as 1.22, can also be found on haskell.org)</span></div><div class="line" id="124025"><span class="nick" style="color:#389600"><a href="#124025" label="[12:40:25]">&lt;Googulator&gt;</a></span><span class="message">actually, we have more nhc98 versions in this archive - 1.0pre1 through 1.0pre19, 1.02, 1.04, 1.06, 1.08 and 1.10 are included too, they're just in a separate directory</span></div><div class="line" id="124216"><span class="nick" style="color:#389600"><a href="#124216" label="[12:42:16]">&lt;Googulator&gt;</a></span><span class="message">plus 1.0pre7 and 1.0pre8 C-transpilation</span></div><div class="line" id="124420"><span class="nick" style="color:#389600"><a href="#124420" label="[12:44:20]">&lt;Googulator&gt;</a></span><span class="message">and a previously lost version of lml / hbc, v0.998.3pp</span></div><div class="line" id="124833"><span class="nick" style="color:#6b8072"><a href="#124833" label="[12:48:33]">&lt;oriansj&gt;</a></span><span class="message">and we have <a rel="nofollow" href="https://github.com/blynn/compiler.git">https://github.com/blynn/compiler.git</a>  (which is a haskell subset we can already bootstrap)</span></div><div class="line" id="124935"><span class="nick" style="color:#6b8072"><a href="#124935" label="[12:49:35]">&lt;oriansj&gt;</a></span><span class="message">perhaps if MicroHs's blob was instead built by that, it might start another chain of interest?</span></div><div class="line" id="131507"><span class="nick" style="color:#80b1d3"><a href="#131507" label="[13:15:07]">&lt;Guest84&gt;</a></span><span class="message">&quot;Hi, I wanted to know where the download-distfiles.sh script is obtaining its sources from. Could you clarify this?</span></div><div class="line" id="133623"><span class="nick" style="color:#389600"><a href="#133623" label="[13:36:23]">&lt;Googulator&gt;</a></span><span class="message">It parses the `sources` files under steps/</span></div><div class="line" id="133818"><span class="nick" style="color:#80b1d3"><a href="#133818" label="[13:38:18]">&lt;Guest84&gt;</a></span><span class="message">where does he get the links from?</span></div><div class="line" id="134016"><span class="nick" style="color:#6b8072"><a href="#134016" label="[13:40:16]">&lt;oriansj&gt;</a></span><span class="message">Guest84: do you mean where do we find the links to put in the file? or how the links are parsed out of the file?</span></div><div class="line" id="134039"><span class="nick" style="color:#80b1d3"><a href="#134039" label="[13:40:39]">&lt;Guest84&gt;</a></span><span class="message">yes</span></div><div class="line" id="134100"><span class="nick" style="color:#6b8072"><a href="#134100" label="[13:41:00]">&lt;oriansj&gt;</a></span><span class="message">Guest84: please clarify</span></div><div class="line" id="134142"><span class="nick" style="color:#80b1d3"><a href="#134142" label="[13:41:42]">&lt;Guest84&gt;</a></span><span class="message">I want to know where the source files get the links from</span></div><div class="line" id="134430"><span class="nick" style="color:#6b8072"><a href="#134430" label="[13:44:30]">&lt;oriansj&gt;</a></span><span class="message">Guest84: we pick upstream sources and use a mirror we have.</span></div><div class="line" id="134631"><span class="nick" style="color:#80b1d3"><a href="#134631" label="[13:46:31]">&lt;Guest84&gt;</a></span><span class="message">I want to automate and in many cases it gives problem that's why I want to get rid of those links any solution will you suggest</span></div><div class="line" id="135243"><span class="nick" style="color:#6b8072"><a href="#135243" label="[13:52:43]">&lt;oriansj&gt;</a></span><span class="message">Guest84: well if your goal is automation, I suggest making your own mirror of the files and changing the links to point to your local mirror.</span></div><div class="line" id="140803"><span class="nick" style="color:#80b1d3"><a href="#140803" label="[14:08:03]">&lt;Guest84&gt;</a></span><span class="message">՝</span></div><div class="line" id="140804"><span class="nick" style="color:#80b1d3"><a href="#140804" label="[14:08:04]">&lt;Guest84&gt;</a></span><span class="message">And the rootfs.py link?</span></div><div class="line" id="143236"><span class="nick" style="color:#6d2462"><a href="#143236" label="[14:32:36]">&lt;aggi&gt;</a></span><span class="message">after a year of absence i got back to tccboot for a moment today</span></div><div class="line" id="143320"><span class="nick" style="color:#6d2462"><a href="#143320" label="[14:33:20]">&lt;aggi&gt;</a></span><span class="message">couldn't reproduce a working version of it last time i tried</span></div><div class="line" id="143422"><span class="nick" style="color:#6d2462"><a href="#143422" label="[14:34:22]">&lt;aggi&gt;</a></span><span class="message">out of curiosity: anyone ever succeeded reproducing tccboot from _source_ since when it was first released year 2004?</span></div><div class="line" id="170241"><span class="nick" style="color:#234e69"><a href="#170241" label="[17:02:41]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I don't think anybody did...</span></div><div class="line" id="172454"><span class="nick" style="color:#8dd3c7"><a href="#172454" label="[17:24:54]">&lt;pabs3&gt;</a></span><span class="message">Googulator: btw, if you want anything saved to web.archive.org at the original URLs, let me know and I can get them saved via ArchiveBot. also they have a git archiving project (and there is also SWH for that)</span></div><div class="line" id="173144"><span class="nick" style="color:#389600"><a href="#173144" label="[17:31:44]">&lt;Googulator&gt;</a></span><span class="message">Good to know - although the only one of what I'm archiving now with an &quot;original URL&quot; is GHC, which comes from <a rel="nofollow" href="https://gitlab.haskell.org/ghc/ghc.git">https://gitlab.haskell.org/ghc/ghc.git</a> </span></div><div class="line" id="173316"><span class="nick" style="color:#389600"><a href="#173316" label="[17:33:16]">&lt;Googulator&gt;</a></span><span class="message">I've since also uploaded <a rel="nofollow" href="https://archive.org/details/nhc98-history.tar">https://archive.org/details/nhc98-history.tar</a>  and <a rel="nofollow" href="https://archive.org/details/york-haskell-archive.tar">https://archive.org/details/york-haskell-archive.tar</a>  - but these are repackages by me (nhc98-history is originally a Darcs repo which I converted to Git, while york-haskell-archive is extracted from a much larger FTP dump tarball)</span></div><div class="line" id="173558"><span class="nick" style="color:#389600"><a href="#173558" label="[17:35:58]">&lt;Googulator&gt;</a></span><span class="message">BTW, just hit a potential gold mine: <a rel="nofollow" href="http://web.archive.org/web/19970220060949/http://www.cs.chalmers.se/pub/haskell/">http://web.archive.org/web/19970220060949/http://www.cs.chalmers.se/pub/haskell/</a> </span></div><div class="line" id="173618"><span class="nick" style="color:#389600"><a href="#173618" label="[17:36:18]">&lt;Googulator&gt;</a></span><span class="message">turns out, Chalmers's FTP server also spoke HTTP, just under a different URL</span></div><div class="line" id="173628"><span class="nick" style="color:#389600"><a href="#173628" label="[17:36:28]">&lt;Googulator&gt;</a></span><span class="message">and unlike the FTP version, this one got archived :)</span></div><div class="line" id="174407"><span class="nick" style="color:#389600"><a href="#174407" label="[17:44:07]">&lt;Googulator&gt;</a></span><span class="message">unfortunately no older GHC or HBC releases than what we already have, but quite a few early NHCs :)</span></div><div class="line" id="180740"><span class="nick" style="color:#6c3d55"><a href="#180740" label="[18:07:40]">&lt;civodul&gt;</a></span><span class="message">Googulator: maybe you’ve already seen this, but if not, this may be relevant: <a rel="nofollow" href="https://elephly.net/posts/2017-01-09-bootstrapping-haskell-part-1.html">https://elephly.net/posts/2017-01-09-bootstrapping-haskell-part-1.html</a> </span></div><div class="line" id="180759"><span class="nick" style="color:#389600"><a href="#180759" label="[18:07:59]">&lt;Googulator&gt;</a></span><span class="message">yes, that's where I started :)</span></div><div class="line" id="181039"><span class="nick" style="color:#6c3d55"><a href="#181039" label="[18:10:39]">&lt;civodul&gt;</a></span><span class="message">excellent :-)</span></div><div class="line" id="181053"><span class="nick" style="color:#6c3d55"><a href="#181053" label="[18:10:53]">&lt;civodul&gt;</a></span><span class="message">i hope you can find the next steps!</span></div><div class="line" id="181103"><span class="nick" style="color:#6c3d55"><a href="#181103" label="[18:11:03]">&lt;civodul&gt;</a></span><span class="message">it seems to be quite a journey</span></div><div class="line" id="235209"><span class="nick" style="color:#389600"><a href="#235209" label="[23:52:09]">&lt;Googulator&gt;</a></span><span class="message">Just found Yale Haskell 2.2 sources! (<a rel="nofollow" href="http://web.archive.org/web/19970728140842/http://haskell.cs.yale.edu:80/haskell/yale/oldStuff/haskell-2.2-source.tar.gz">http://web.archive.org/web/19970728140842/http://haskell.cs.yale.edu:80/haskell/yale/oldStuff/haskell-2.2-source.tar.gz</a>  - newer than 2.05, which was already known)</span></div><br /></div></body></html>

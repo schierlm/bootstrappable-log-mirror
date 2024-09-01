@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-02-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000254"><span class="nick" style="color:#389600"><a href="#000254" label="[00:02:54]">&lt;rekado_&gt;</a></span><span class="message">janus: thanks for the confirmation</span></div><div class="line" id="000300"><span class="nick" style="color:#389600"><a href="#000300" label="[00:03:00]">&lt;rekado_&gt;</a></span><span class="message">sadly, there’s more wrong</span></div><div class="line" id="000319"><span class="nick" style="color:#389600"><a href="#000319" label="[00:03:19]">&lt;rekado_&gt;</a></span><span class="message">I’ve been patching file after file, but hugs also doesn’t like tuple definitions</span></div><div class="line" id="000357"><span class="nick" style="color:#389600"><a href="#000357" label="[00:03:57]">&lt;rekado_&gt;</a></span><span class="message">I’m starting with “:load PrelAddr” and fix whatever is reported as broken</span></div><div class="line" id="000415"><span class="nick" style="color:#389600"><a href="#000415" label="[00:04:15]">&lt;rekado_&gt;</a></span><span class="message">now on the seventh file… but it is all about tuples</span></div><div class="line" id="000517"><span class="nick" style="color:#8dd3c7"><a href="#000517" label="[00:05:17]">&lt;janus&gt;</a></span><span class="message">what are you changing them into then?</span></div><div class="line" id="001351"><span class="nick" style="color:#389600"><a href="#001351" label="[00:13:51]">&lt;rekado_&gt;</a></span><span class="message">the tuple stuff?  No idea.</span></div><div class="line" id="001406"><span class="nick" style="color:#389600"><a href="#001406" label="[00:14:06]">&lt;rekado_&gt;</a></span><span class="message">it’s definitions like this: data (,,,,) a b c d e = (,,,,) a b c d e deriving (Eq, Ord)</span></div><div class="line" id="001419"><span class="nick" style="color:#389600"><a href="#001419" label="[00:14:19]">&lt;rekado_&gt;</a></span><span class="message">hugs says “(unexpected comma)”</span></div><div class="line" id="001430"><span class="nick" style="color:#389600"><a href="#001430" label="[00:14:30]">&lt;rekado_&gt;</a></span><span class="message">I feel like this is a dead end</span></div><div class="line" id="001458"><span class="nick" style="color:#389600"><a href="#001458" label="[00:14:58]">&lt;rekado_&gt;</a></span><span class="message">I need way too much of the standard lib to run the compiler, and hugs can’t read most of it</span></div><div class="line" id="001530"><span class="nick" style="color:#389600"><a href="#001530" label="[00:15:30]">&lt;rekado_&gt;</a></span><span class="message">the only reason why I went with GHC 4.08.2 is that it’s the last GHC with a modified hugs that I can build without having built the compiler first</span></div><div class="line" id="001546"><span class="nick" style="color:#389600"><a href="#001546" label="[00:15:46]">&lt;rekado_&gt;</a></span><span class="message">the next release is GHC 5, which comes with ghci.</span></div><div class="line" id="001605"><span class="nick" style="color:#389600"><a href="#001605" label="[00:16:05]">&lt;rekado_&gt;</a></span><span class="message">I’ll look at the GHC 5 code next to see if there’s any way to split up the build</span></div><div class="line" id="001643"><span class="nick" style="color:#389600"><a href="#001643" label="[00:16:43]">&lt;rekado_&gt;</a></span><span class="message">I don’t see how I can get STGhugs from GHC 4 to interpret the GHC 4 standard library or the compiler tools.</span></div><div class="line" id="001659"><span class="nick" style="color:#389600"><a href="#001659" label="[00:16:59]">&lt;rekado_&gt;</a></span><span class="message">though … maybe it could interpret GHC 3</span></div><div class="line" id="002416"><span class="nick" style="color:#389600"><a href="#002416" label="[00:24:16]">&lt;rekado_&gt;</a></span><span class="message">nope, GHC 3.02 also has the same PrelTup.hs which would lead to “unexpected comma”, and it uses # just as often as GHC 4.</span></div><div class="line" id="002652"><span class="nick" style="color:#8dd3c7"><a href="#002652" label="[00:26:52]">&lt;janus&gt;</a></span><span class="message">but at least tuples should be transformable into a different syntax. it's a simple but tedious process</span></div><div class="line" id="002714"><span class="nick" style="color:#8dd3c7"><a href="#002714" label="[00:27:14]">&lt;janus&gt;</a></span><span class="message">if it is parsable using ghc-exactprint it might even be automatable...</span></div><div class="line" id="005707"><span class="nick" style="color:#6b8072"><a href="#005707" label="[00:57:07]">&lt;stikonas&gt;</a></span><span class="message">oh, my build of hugs is probably broken for similar reason that rekado_ inially had. I also have no support for shared libraries...</span></div><div class="line" id="005833"><span class="nick" style="color:#6b8072"><a href="#005833" label="[00:58:33]">&lt;stikonas&gt;</a></span><span class="message">maybe I'll give up for now... since rekado_ seems to be quite a bit ahead</span></div><div class="line" id="013107"><span class="nick" style="color:#8dd3c7"><a href="#013107" label="[01:31:07]">&lt;janus&gt;</a></span><span class="message">did you guys already try with NHC as mentioned in that blog post? because that is probably how it was historically bootstrapped</span></div><div class="line" id="020004"><span class="nick" style="color:#6b8072"><a href="#020004" label="[02:00:04]">&lt;stikonas&gt;</a></span><span class="message">no, I haven't tried...</span></div><div class="line" id="092620"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><div class="line" id="092629"><span class="nick" style="color:#80b1d3"><a href="#092629" label="[09:26:29]">&lt;rekado&gt;</a></span><span class="message">janus: I was going to go back to nhc98, but it doesn’t officially support more than Haskell 98 and GHC has always been non-standard.</span></div><div class="line" id="092656"><span class="nick" style="color:#80b1d3"><a href="#092656" label="[09:26:56]">&lt;rekado&gt;</a></span><span class="message">in my blog post I didn’t get far because I used a more recent toolchain</span></div><div class="line" id="092914"><span class="nick" style="color:#80b1d3"><a href="#092914" label="[09:29:14]">&lt;rekado&gt;</a></span><span class="message">early publications mention HBC, but there are no official releases available any more (I found a copy of a random CVS version on Github) and it has no license.</span></div><div class="line" id="123535"><span class="nick" style="color:#6d2462"><a href="#123535" label="[12:35:35]">&lt;stikonas[m]&gt;</a></span><span class="message">HBC also needs LML compiler, so that's not worth pursuing even if license was GPL2 (which it ought to be because it uses GMP but without it being explicit we can't really tell)</span></div><div class="line" id="125513"><span class="nick" style="color:#80b1d3"><a href="#125513" label="[12:55:13]">&lt;rekado&gt;</a></span><span class="message">nhc98 might be nice to have, but I don’t see a path from there to GHC.  It might be able to compile a few files on the way there, but the GHC standard library and compiler makes heavy use of non-standard Haskell code.</span></div><div class="line" id="125704"><span class="nick" style="color:#80b1d3"><a href="#125704" label="[12:57:04]">&lt;rekado&gt;</a></span><span class="message">GHC 0.29 comes with generated hc files meant for bootstrapping.</span></div><div class="line" id="125939"><span class="nick" style="color:#80b1d3"><a href="#125939" label="[12:59:39]">&lt;rekado&gt;</a></span><span class="message">there’s a chance that GHC 0.29 can be built with NHC, but GHC 0.29 is a dead end.  There are no public source archives for GHC 2, and you need at least GHC 2 to build GHC 3.</span></div><div class="line" id="174501"><span class="nick" style="color:#8dd3c7"><a href="#174501" label="[17:45:01]">&lt;janus&gt;</a></span><span class="message">ooh that is very useful information. i had not considered that an intermediate ghc release would be lost</span></div><div class="line" id="174915"><span class="nick" style="color:#8dd3c7"><a href="#174915" label="[17:49:15]">&lt;janus&gt;</a></span><span class="message">rekado: did you already try asking GHC oldtimers like SPJ if they have a copy of GHC 2?</span></div><div class="line" id="181302"><span class="nick" style="color:#80b1d3"><a href="#181302" label="[18:13:02]">&lt;rekado&gt;</a></span><span class="message">I haven’t asked, but I’d prefer to not need GHC 2</span></div><div class="line" id="181327"><span class="nick" style="color:#80b1d3"><a href="#181327" label="[18:13:27]">&lt;rekado&gt;</a></span><span class="message">GHC 3 sources mention nhc once, so there’s hope that it can be built with NHC</span></div><div class="line" id="181342"><span class="nick" style="color:#8dd3c7"><a href="#181342" label="[18:13:42]">&lt;janus&gt;</a></span><span class="message">i created an issue just for posterity: <a rel="nofollow" href="https://gitlab.haskell.org/ghc/homepage/-/issues/8">https://gitlab.haskell.org/ghc/homepage/-/issues/8</a> </span></div><div class="line" id="181411"><span class="nick" style="color:#80b1d3"><a href="#181411" label="[18:14:11]">&lt;rekado&gt;</a></span><span class="message">I’m still holding out hope that I can make STGhugs from GHC4 understand GHC4 sources.</span></div><div class="line" id="181444"><span class="nick" style="color:#234e69"><a href="#181444" label="[18:14:44]">&lt;muurkha&gt;</a></span><span class="message">it's strange that it doesn't</span></div><div class="line" id="181524"><span class="nick" style="color:#80b1d3"><a href="#181524" label="[18:15:24]">&lt;rekado&gt;</a></span><span class="message">it’s not obvious how to accomplish this; GlaExts is the module that provides support for GHC extensions.</span></div><div class="line" id="181554"><span class="nick" style="color:#80b1d3"><a href="#181554" label="[18:15:54]">&lt;rekado&gt;</a></span><span class="message">but I guess I don’t want to use it because it depends on the standard lib and thus would require heavy patching before I could load it.</span></div><div class="line" id="181616"><span class="nick" style="color:#80b1d3"><a href="#181616" label="[18:16:16]">&lt;rekado&gt;</a></span><span class="message">STGhugs is linked with GHC4 internals, so it should be able to work with at least part of the GHC4 sources</span></div><div class="line" id="181632"><span class="nick" style="color:#80b1d3"><a href="#181632" label="[18:16:32]">&lt;rekado&gt;</a></span><span class="message">maybe I missed something in the build</span></div><div class="line" id="181737"><span class="nick" style="color:#80b1d3"><a href="#181737" label="[18:17:37]">&lt;rekado&gt;</a></span><span class="message">I probably won’t be able to hack on this in the next few days, so my next step is to clean up my patches a little and publish this somewhere</span></div><div class="line" id="181751"><span class="nick" style="color:#80b1d3"><a href="#181751" label="[18:17:51]">&lt;rekado&gt;</a></span><span class="message">a usable STGhugs from GHC4 might be useful to others</span></div><div class="line" id="195450"><span class="nick" style="color:#80b1d3"><a href="#195450" label="[19:54:50]">&lt;rekado&gt;</a></span><span class="message">STGhugs has a mode called “combined” mode.  Naturally, it fails to star, but I think that’s what we want.</span></div><div class="line" id="195806"><span class="nick" style="color:#80b1d3"><a href="#195806" label="[19:58:06]">&lt;rekado&gt;</a></span><span class="message">it loads a different prelude and all that; it’s nowhere defined what exactly it means, but it is referred to as “the combined Hugs-GHC system” elsewhere</span></div><div class="line" id="200149"><span class="nick" style="color:#80b1d3"><a href="#200149" label="[20:01:49]">&lt;rekado&gt;</a></span><span class="message">unfortunately, this seems to require *compiled* Haskell code.  Strace shows it’s looking for all of Prelude.{u_o,u_hi,hs,lhs}, but it only finds the last one and then barfs “Can't find object for module &quot;Prelude&quot;”.</span></div><div class="line" id="200152"><span class="nick" style="color:#6b8072"><a href="#200152" label="[20:01:52]">&lt;stikonas&gt;</a></span><span class="message">well, pushing something out will let others to review/try some ideas...</span></div><div class="line" id="201412"><span class="nick" style="color:#6c3d55"><a href="#201412" label="[20:14:12]">&lt;Hagfish&gt;</a></span><span class="message">nice to see some recent friendly collaboration on fixing this 5 year old reproducibility issue: <a rel="nofollow" href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=864082">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=864082</a> </span></div><div class="line" id="201545"><span class="nick" style="color:#d9d9d9"><a href="#201545" label="[20:15:45]">&lt;bauen1&gt;</a></span><span class="message">Hagfish: amazing that that is still not fixed, i remember running across it when trying to make my debian-cd builds fully reproducible</span></div><div class="line" id="201656"><span class="nick" style="color:#6c3d55"><a href="#201656" label="[20:16:56]">&lt;Hagfish&gt;</a></span><span class="message">i hope it's the last issue standing in the way of that, and similar things</span></div><div class="line" id="201722"><span class="nick" style="color:#6c3d55"><a href="#201722" label="[20:17:22]">&lt;Hagfish&gt;</a></span><span class="message">and i hope that the new patch makes its way into the next stable release</span></div><br /></div></body></html>

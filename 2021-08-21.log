@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-08-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="023912"><span class="nick" style="color:#8dd3c7"><a href="#023912" label="[02:39:12]">&lt;fossy&gt;</a></span><span class="message">ooh, i think i found the problem with our kernel causing all these weird issues... it seems to be a maximum number of arguments.</span></div><div class="line" id="024938"><span class="nick" style="color:#2e2a4a"><a href="#024938" label="[02:49:38]">&lt;Hagfish&gt;</a></span><span class="message">that problem has come up before with other steps, hasn't it?</span></div><div class="line" id="025131"><span class="nick" style="color:#2e2a4a"><a href="#025131" label="[02:51:31]">&lt;Hagfish&gt;</a></span><span class="message">is there a common layer that should be detecting this problem, or is it just a bug pattern that keeps being repeated in disparate projects?</span></div><div class="line" id="041058"><span class="nick" style="color:#8dd3c7"><a href="#041058" label="[04:10:58]">&lt;fossy&gt;</a></span><span class="message">Hagfish: no this is a new problem, the result of the linux kernel compiled inside live-bootstrap</span></div><div class="line" id="093450"><span class="nick" style="color:#6b8072"><a href="#093450" label="[09:34:50]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: that must be unrelated to previous issue</span></div><div class="line" id="093504"><span class="nick" style="color:#6b8072"><a href="#093504" label="[09:35:04]">&lt;stikonas[m]&gt;</a></span><span class="message">We has a bug in mes libc</span></div><div class="line" id="093846"><span class="nick" style="color:#6b8072"><a href="#093846" label="[09:38:46]">&lt;stikonas[m]&gt;</a></span><span class="message">So only binaries built before mes is patched are affected</span></div><div class="line" id="132326"><span class="nick" style="color:#80b1d3"><a href="#132326" label="[13:23:26]">&lt;oriansj&gt;</a></span><span class="message">stikonas: perhaps I didn't parse that last  bit right. Do you mean there is a bug in mes libc; thus only the binaries built with it are affected. Or did the bug spread into the next libc when it was built?</span></div><div class="line" id="132502"><span class="nick" style="color:#6d2462"><a href="#132502" label="[13:25:02]">&lt;stikonas&gt;</a></span><span class="message">programs built with stable mes libc can only take 255 arguments</span></div><div class="line" id="132513"><span class="nick" style="color:#6d2462"><a href="#132513" label="[13:25:13]">&lt;stikonas&gt;</a></span><span class="message">it should not spread into next libc</span></div><div class="line" id="132532"><span class="nick" style="color:#6d2462"><a href="#132532" label="[13:25:32]">&lt;stikonas&gt;</a></span><span class="message">and that's fixed in unreleased mes</span></div><div class="line" id="133300"><span class="nick" style="color:#80b1d3"><a href="#133300" label="[13:33:00]">&lt;oriansj&gt;</a></span><span class="message">ok</span></div><div class="line" id="174730"><span class="nick">***</span><span class="message notice">pgreco_ is now known as pgreco</span></div><br /></div></body></html>

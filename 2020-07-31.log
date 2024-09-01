@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-07-31.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004018"><span class="nick" style="color:#8dd3c7"><a href="#004018" label="[00:40:18]">&lt;OriansJ`&gt;</a></span><span class="message">christianbundy: well looking at the history a little bit <a rel="nofollow" href="https://www.artima.com/scalazine/articles/origins_of_scala.html">https://www.artima.com/scalazine/articles/origins_of_scala.html</a>  it involves Sun Microsystems Java compiler which was proprietary (and those versions were never released under a free license)</span></div><div class="line" id="004045"><span class="nick" style="color:#8dd3c7"><a href="#004045" label="[00:40:45]">&lt;OriansJ`&gt;</a></span><span class="message">or the fact that the very first public version of scala required one to download binary blobs to build <a rel="nofollow" href="https://github.com/scala/scala/blob/d53c0dadb92173a6caeb6a1f31dafa92dcff6833/tools/binary-repo-lib.sh">https://github.com/scala/scala/blob/d53c0dadb92173a6caeb6a1f31dafa92dcff6833/tools/binary-repo-lib.sh</a> </span></div><div class="line" id="004754"><span class="nick" style="color:#2e2a4a"><a href="#004754" label="[00:47:54]">&lt;christianbundy&gt;</a></span><span class="message">OriansJ: thanks! I didn't see that</span></div><div class="line" id="005718"><span class="nick" style="color:#8dd3c7"><a href="#005718" label="[00:57:18]">&lt;OriansJ`&gt;</a></span><span class="message">but mind you that this is me making a guess at the reasoning based on common bootstrapping problems and I easily could have missed many other possible issues that someone more familiar might know about.</span></div><div class="line" id="010155"><span class="nick" style="color:#8dd3c7"><a href="#010155" label="[01:01:55]">&lt;OriansJ`&gt;</a></span><span class="message">it also appears there are scala source files needed to even build the original scala interpreter <a rel="nofollow" href="https://github.com/scala/scala/tree/d53c0dadb92173a6caeb6a1f31dafa92dcff6833/sources/scala">https://github.com/scala/scala/tree/d53c0dadb92173a6caeb6a1f31dafa92dcff6833/sources/scala</a>  but not the original scala compiler (atleast not that I have seen yet)</span></div><div class="line" id="010247"><span class="nick" style="color:#8dd3c7"><a href="#010247" label="[01:02:47]">&lt;OriansJ`&gt;</a></span><span class="message">although</span></div><div class="line" id="010314"><span class="nick" style="color:#8dd3c7"><a href="#010314" label="[01:03:14]">&lt;OriansJ`&gt;</a></span><span class="message">Transformer.java.tmpl in the scala compiler doesn't look like proper java either</span></div><div class="line" id="010324"><span class="nick" style="color:#8dd3c7"><a href="#010324" label="[01:03:24]">&lt;OriansJ`&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/scala/scala/tree/d53c0dadb92173a6caeb6a1f31dafa92dcff6833/sources/scalac/ast">https://github.com/scala/scala/tree/d53c0dadb92173a6caeb6a1f31dafa92dcff6833/sources/scalac/ast</a> </span></div><div class="line" id="010430"><span class="nick" style="color:#8dd3c7"><a href="#010430" label="[01:04:30]">&lt;OriansJ`&gt;</a></span><span class="message">unless {#ExtClasses#} is valid java code but I wouldn't bet on it</span></div><div class="line" id="022147"><span class="nick" style="color:#6b8072"><a href="#022147" label="[02:21:47]">&lt;Hagfish&gt;</a></span><span class="message">an AI was asked to write a story about what happens when Georg Cantor decides to visit Hilbert's hotel</span></div><div class="line" id="022152"><span class="nick" style="color:#6b8072"><a href="#022152" label="[02:21:52]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="http://dailynous.com/wp-content/uploads/2020/07/gpt-3-askell-cantor-hilbert.png">http://dailynous.com/wp-content/uploads/2020/07/gpt-3-askell-cantor-hilbert.png</a> </span></div><div class="line" id="032232"><span class="nick">***</span><span class="message notice">terpri__ is now known as terpri</span></div><div class="line" id="231154"><span class="nick">***</span><span class="message notice">terpri__ is now known as terpri</span></div><br /></div></body></html>

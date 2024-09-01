@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-09-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010256"><span class="nick" style="color:#389600"><a href="#010256" label="[01:02:56]">&lt;oriansj&gt;</a></span><span class="message">muurkha: very easy to do unfortunately</span></div><div class="line" id="010436"><span class="nick" style="color:#389600"><a href="#010436" label="[01:04:36]">&lt;oriansj&gt;</a></span><span class="message">and the erase is not about the SRAM but the flash block written; probably because of residual charge in the cells if a full write or an erase is not done and the impact on the non-updated bits</span></div><div class="line" id="182003"><span class="nick" style="color:#8dd3c7"><a href="#182003" label="[18:20:03]">&lt;muurkha&gt;</a></span><span class="message">oriansj: yeah, I don't know if it's about writing a bit to 0 repeatedly disturbing the nearby bits, or if writing a bit to 0 repeatedly physically damages that bit, or if writing a bit to 1 has some effect (erased bits are all 1, like Dr. Bronner's soap)</span></div><div class="line" id="182050"><span class="nick" style="color:#8dd3c7"><a href="#182050" label="[18:20:50]">&lt;muurkha&gt;</a></span><span class="message">I feel like in the first two possible cases you could solve that problem by only writing the new zeroes</span></div><div class="line" id="215611"><span class="nick" style="color:#2e2a4a"><a href="#215611" label="[21:56:11]">&lt;notgull&gt;</a></span><span class="message">Is hex0 implemented for RISC-V?</span></div><div class="line" id="215825"><span class="nick" style="color:#6b8072"><a href="#215825" label="[21:58:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Jeremiah Orians&gt; Yes and so are all of the steps to M2-Planet and a mescc port is in progress</span></div><div class="line" id="215909"><span class="nick" style="color:#6b8072"><a href="#215909" label="[21:59:09]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Jeremiah Orians&gt; Which with some work will get us to tcc and go</span></div><div class="line" id="215926"><span class="nick" style="color:#6b8072"><a href="#215926" label="[21:59:26]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Jeremiah Orians&gt; ^go^gcc^</span></div><div class="line" id="220308"><span class="nick" style="color:#2e2a4a"><a href="#220308" label="[22:03:08]">&lt;notgull&gt;</a></span><span class="message">Which repo?</span></div><div class="line" id="221119"><span class="nick" style="color:#80b1d3"><a href="#221119" label="[22:11:19]">&lt;ekaitz&gt;</a></span><span class="message">notgull: that part that is missing there is the one I'm trying to fix</span></div><div class="line" id="221701"><span class="nick" style="color:#6b8072"><a href="#221701" label="[22:17:01]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Jeremiah Orians&gt; Well there is <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-riscv32">https://github.com/oriansj/stage0-posix-riscv32</a>  and <a rel="nofollow" href="https://github.com/oriansj/stage0-posix-riscv64">https://github.com/oriansj/stage0-posix-riscv64</a> </span></div><div class="line" id="221702"><span class="nick" style="color:#6b8072"><a href="#221702" label="[22:17:02]">&lt;matrix_bridge&gt;</a></span><span class="message">Depending on if you want 32 or 64 risc-v as they are not 100% compatible</span></div><div class="line" id="221851"><span class="nick" style="color:#2e2a4a"><a href="#221851" label="[22:18:51]">&lt;notgull&gt;</a></span><span class="message">Is there an equivalent to builder-hex0 yet?</span></div><div class="line" id="230528"><span class="nick" style="color:#6d2462"><a href="#230528" label="[23:05:28]">&lt;stikonas_&gt;</a></span><span class="message">notgull: no, there isn't yet\</span></div><div class="line" id="230552"><span class="nick" style="color:#234e69"><a href="#230552" label="[23:05:52]">&lt;stikonas&gt;</a></span><span class="message">notgull: and then again, there are various ways you can approach this problem</span></div><div class="line" id="230720"><span class="nick" style="color:#234e69"><a href="#230720" label="[23:07:20]">&lt;stikonas&gt;</a></span><span class="message">you could say use u-boot that is already installed (some kind of BIOS equivalent then) to load the sources into memory and then do something like builder-hex0 but replace I/O with calls to memory, etc... It will be a bit more work than builder-hex0 but doable</span></div><div class="line" id="230757"><span class="nick" style="color:#234e69"><a href="#230757" label="[23:07:57]">&lt;stikonas&gt;</a></span><span class="message">if you want to avoid u-boot, then it's much harder problem, you need device specific I/O drivers, do boot sequence, etc...</span></div><div class="line" id="230831"><span class="nick" style="color:#234e69"><a href="#230831" label="[23:08:31]">&lt;stikonas&gt;</a></span><span class="message">notgull: but probably the easiest thing to do, would be assume u-boot with UEFI API (which u-boot has) and then port stage0-uefi to riscv</span></div><div class="line" id="230859"><span class="nick" style="color:#234e69"><a href="#230859" label="[23:08:59]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://git.stikonas.eu/andrius/stage0-uefi">https://git.stikonas.eu/andrius/stage0-uefi</a> </span></div><div class="line" id="230941"><span class="nick" style="color:#6b8072"><a href="#230941" label="[23:09:41]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Jeremiah Orians&gt; Or if you have a specific hardware target in mind we can help you port builder-hex0</span></div><div class="line" id="230950"><span class="nick" style="color:#234e69"><a href="#230950" label="[23:09:50]">&lt;stikonas&gt;</a></span><span class="message">and at this stage I think we can call mescc port of riscv working, just unreleased</span></div><div class="line" id="231034"><span class="nick" style="color:#6b8072"><a href="#231034" label="[23:10:34]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; at some point Jeremiah Orians: we need to get you into the same room with janneke to coordinate releases of stage0 and mes</span></div><div class="line" id="231644"><span class="nick" style="color:#234e69"><a href="#231644" label="[23:16:44]">&lt;stikonas&gt;</a></span><span class="message">UEFI route is probably the easiest</span></div><div class="line" id="231709"><span class="nick" style="color:#234e69"><a href="#231709" label="[23:17:09]">&lt;stikonas&gt;</a></span><span class="message">and since it uses u-boot, it's mostly cross-target once you implement it</span></div><div class="line" id="231726"><span class="nick" style="color:#234e69"><a href="#231726" label="[23:17:26]">&lt;stikonas&gt;</a></span><span class="message">actually, my board (visionfive2) also seems to support tianocore <a rel="nofollow" href="https://forum.rvspace.org/t/unlocking-new-possibilities-starfive-visionfive-2-sbc-now-supports-tianocore-edk-ii-uefi/2779">https://forum.rvspace.org/t/unlocking-new-possibilities-starfive-visionfive-2-sbc-now-supports-tianocore-edk-ii-uefi/2779</a> </span></div><div class="line" id="231737"><span class="nick" style="color:#234e69"><a href="#231737" label="[23:17:37]">&lt;stikonas&gt;</a></span><span class="message">haven't tried it yet...</span></div><div class="line" id="232957"><span class="nick" style="color:#6b8072"><a href="#232957" label="[23:29:57]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Jeremiah Orians&gt; Well janneke has my phone number, so he can always just give me a call</span></div><div class="line" id="233032"><span class="nick" style="color:#6b8072"><a href="#233032" label="[23:30:32]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Jeremiah Orians&gt; Heck a bunch of people here should have it</span></div><div class="line" id="233125"><span class="nick" style="color:#234e69"><a href="#233125" label="[23:31:25]">&lt;stikonas&gt;</a></span><span class="message">anyway, I think ekaitz and I might first try to fix our last issue that prevents bootstrapping tcc</span></div><div class="line" id="233138"><span class="nick" style="color:#234e69"><a href="#233138" label="[23:31:38]">&lt;stikonas&gt;</a></span><span class="message">and then we'll know for sure that mes 0.25 won't need any further changes</span></div><div class="line" id="233508"><span class="nick" style="color:#6b8072"><a href="#233508" label="[23:35:08]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Jeremiah Orians&gt; I am also available via: matrix, xmpp and signal</span></div><br /></div></body></html>

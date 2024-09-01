@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-03-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="153943"><span class="nick" style="color:#389600"><a href="#153943" label="[15:39:43]">&lt;pder&gt;</a></span><span class="message">stikonas: I was trying to debug some segfaults with bash and found that if I try to simply run bash from outside the chroot it segfaults in make_variable_value()</span></div><div class="line" id="154202"><span class="nick" style="color:#8dd3c7"><a href="#154202" label="[15:42:02]">&lt;stikonas[m]&gt;</a></span><span class="message">That's C function in bash source?</span></div><div class="line" id="154458"><span class="nick" style="color:#389600"><a href="#154458" label="[15:44:58]">&lt;pder&gt;</a></span><span class="message">yeah</span></div><div class="line" id="154508"><span class="nick" style="color:#389600"><a href="#154508" label="[15:45:08]">&lt;pder&gt;</a></span><span class="message">Program received signal SIGSEGV, Segmentation fault.</span></div><div class="line" id="154510"><span class="nick" style="color:#389600"><a href="#154510" label="[15:45:10]">&lt;pder&gt;</a></span><span class="message">0x08076487 in make_variable_value () at variables.c:3017</span></div><div class="line" id="154533"><span class="nick" style="color:#389600"><a href="#154533" label="[15:45:33]">&lt;pder&gt;</a></span><span class="message">it doesnt launch interactively for me</span></div><div class="line" id="155936"><span class="nick" style="color:#8dd3c7"><a href="#155936" label="[15:59:36]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm, that is strange...</span></div><div class="line" id="204129"><span class="nick" style="color:#8dd3c7"><a href="#204129" label="[20:41:29]">&lt;stikonas[m]&gt;</a></span><span class="message">pder: I just ried running bash 5 outside chroot and it works here</span></div><div class="line" id="204233"><span class="nick" style="color:#389600"><a href="#204233" label="[20:42:33]">&lt;pder&gt;</a></span><span class="message">This is with bash-5.2.15?</span></div><div class="line" id="204433"><span class="nick" style="color:#8dd3c7"><a href="#204433" label="[20:44:33]">&lt;stikonas[m]&gt;</a></span><span class="message">Yes</span></div><div class="line" id="204626"><span class="nick" style="color:#8dd3c7"><a href="#204626" label="[20:46:26]">&lt;stikonas[m]&gt;</a></span><span class="message">I just unpacked that .tar.bz2 binary package and ran it interactively</span></div><div class="line" id="210757"><span class="nick" style="color:#389600"><a href="#210757" label="[21:07:57]">&lt;pder&gt;</a></span><span class="message">interesting, not sure yet whats going on then</span></div><div class="line" id="210855"><span class="nick" style="color:#389600"><a href="#210855" label="[21:08:55]">&lt;pder&gt;</a></span><span class="message">do you see gnulib-tool segfaults with bash?</span></div><div class="line" id="210925"><span class="nick" style="color:#389600"><a href="#210925" label="[21:09:25]">&lt;pder&gt;</a></span><span class="message">if you run in a chroot you should be able to see them running dmesg</span></div><div class="line" id="214557"><span class="nick" style="color:#2e2a4a"><a href="#214557" label="[21:45:57]">&lt;stikonas&gt;</a></span><span class="message">pder: I think I saw something in the logs...</span></div><div class="line" id="215418"><span class="nick" style="color:#2e2a4a"><a href="#215418" label="[21:54:18]">&lt;stikonas&gt;</a></span><span class="message">though somehow everything still works even if gnulib-tool segfaults</span></div><div class="line" id="215421"><span class="nick" style="color:#2e2a4a"><a href="#215421" label="[21:54:21]">&lt;stikonas&gt;</a></span><span class="message">which is a bit strange</span></div><div class="line" id="215439"><span class="nick" style="color:#2e2a4a"><a href="#215439" label="[21:54:39]">&lt;stikonas&gt;</a></span><span class="message">or maybe because of original files in the tarball</span></div><div class="line" id="215449"><span class="nick" style="color:#2e2a4a"><a href="#215449" label="[21:54:49]">&lt;stikonas&gt;</a></span><span class="message">they just don't get regenerated</span></div><div class="line" id="222017"><span class="nick" style="color:#2e2a4a"><a href="#222017" label="[22:20:17]">&lt;stikonas&gt;</a></span><span class="message">pder: yes, I can see stuff like &quot;conftest[92274]: segfault at 0 ip 00000000080486e8 sp 00000000ffc28560 error 4 in conftest[8048000+3000] likely on CPU 0 (core 0, socket 0)&quot; in dmesg</span></div><div class="line" id="225351"><span class="nick" style="color:#389600"><a href="#225351" label="[22:53:51]">&lt;pder&gt;</a></span><span class="message">stikonas: with latest commit in master, I ran ./rootfs.py --chroot --preserve and commented out everything in run.sh after building bash</span></div><div class="line" id="225357"><span class="nick" style="color:#389600"><a href="#225357" label="[22:53:57]">&lt;pder&gt;</a></span><span class="message">f096b8e99ed5a93e350f860af2428e6d4e3ccbcf8133fe06fb2dd5ede52e1005  bash</span></div><div class="line" id="225404"><span class="nick" style="color:#389600"><a href="#225404" label="[22:54:04]">&lt;pder&gt;</a></span><span class="message">thats the sha256sum of bash</span></div><div class="line" id="225425"><span class="nick" style="color:#389600"><a href="#225425" label="[22:54:25]">&lt;pder&gt;</a></span><span class="message">If i try to run it segfaults</span></div><div class="line" id="225649"><span class="nick" style="color:#389600"><a href="#225649" label="[22:56:49]">&lt;pder&gt;</a></span><span class="message">Just to be clear, with no arguments bash segfaults</span></div><div class="line" id="225735"><span class="nick" style="color:#389600"><a href="#225735" label="[22:57:35]">&lt;pder&gt;</a></span><span class="message">I am running it in live-bootstrap/tmp/sysa/usr/bin</span></div><div class="line" id="231018"><span class="nick" style="color:#6b8072"><a href="#231018" label="[23:10:18]">&lt;fossy&gt;</a></span><span class="message">hey, stikonas, when you get time could you please review #258 (no rush of course, just wanna make sure you know it exists)</span></div><div class="line" id="231058"><span class="nick" style="color:#6b8072"><a href="#231058" label="[23:10:58]">&lt;fossy&gt;</a></span><span class="message">pder: i have the same bash and i cannot repro</span></div><div class="line" id="231112"><span class="nick" style="color:#6b8072"><a href="#231112" label="[23:11:12]">&lt;fossy&gt;</a></span><span class="message">what kernel are you running on? can you get a core dump?</span></div><div class="line" id="231131"><span class="nick" style="color:#6b8072"><a href="#231131" label="[23:11:31]">&lt;fossy&gt;</a></span><span class="message">core dump might not be useful if its not compiled with -g</span></div><div class="line" id="231154"><span class="nick" style="color:#6b8072"><a href="#231154" label="[23:11:54]">&lt;fossy&gt;</a></span><span class="message">umm, also try env - live-bootstrap/tmp/sysa/usr/bin</span></div><div class="line" id="231159"><span class="nick" style="color:#6b8072"><a href="#231159" label="[23:11:59]">&lt;fossy&gt;</a></span><span class="message">see if something in your env is breaking</span></div><div class="line" id="231547"><span class="nick" style="color:#8dd3c7"><a href="#231547" label="[23:15:47]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: oh I briefly skimmed through it already. Seemed fine but I wanted to look a bit more carecully and forgot...</span></div><div class="line" id="231709"><span class="nick" style="color:#389600"><a href="#231709" label="[23:17:09]">&lt;pder&gt;</a></span><span class="message">ok so apparently bash doesnt crash with run as root, but as my normal user it does- even though I have execute permissions on it</span></div><div class="line" id="231819"><span class="nick" style="color:#8dd3c7"><a href="#231819" label="[23:18:19]">&lt;stikonas[m]&gt;</a></span><span class="message">And with empty env?</span></div><div class="line" id="231833"><span class="nick" style="color:#8dd3c7"><a href="#231833" label="[23:18:33]">&lt;stikonas[m]&gt;</a></span><span class="message">Something is strange in your environment...</span></div><div class="line" id="233938"><span class="nick" style="color:#2e2a4a"><a href="#233938" label="[23:39:38]">&lt;stikonas&gt;</a></span><span class="message">and id doesn't segfault here either</span></div><div class="line" id="233959"><span class="nick" style="color:#2e2a4a"><a href="#233959" label="[23:39:59]">&lt;stikonas&gt;</a></span><span class="message">though given that is segfaults in live-bootstrap, there must be something buggy in it</span></div><br /></div></body></html>

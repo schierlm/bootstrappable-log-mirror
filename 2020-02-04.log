@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-02-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004657"><span class="nick" style="color:#8dd3c7"><a href="#004657" label="[00:46:57]">&lt;dddddd&gt;</a></span><span class="message">hi!</span></div><div class="line" id="004754"><span class="nick" style="color:#8dd3c7"><a href="#004754" label="[00:47:54]">&lt;dddddd&gt;</a></span><span class="message">let's see if I can fix that wasteful stack...</span></div><div class="line" id="022141"><span class="nick" style="color:#8dd3c7"><a href="#022141" label="[02:21:41]">&lt;dddddd&gt;</a></span><span class="message">It works, using X18 as stack pointer instead of the architectural one. Tomorrow I'll test on the metal and clean it up.</span></div><div class="line" id="022508"><span class="nick" style="color:#8dd3c7"><a href="#022508" label="[02:25:08]">&lt;dddddd&gt;</a></span><span class="message">~18 definitions and pretty much all the libc files are involved.</span></div><div class="line" id="030619"><span class="nick" style="color:#2e2a4a"><a href="#030619" label="[03:06:19]">&lt;oriansj&gt;</a></span><span class="message">fossy: a reduced kaem is a good idea (I'll need it when I go to write a kaem in assembly)</span></div><div class="line" id="030726"><span class="nick" style="color:#2e2a4a"><a href="#030726" label="[03:07:26]">&lt;oriansj&gt;</a></span><span class="message">markjenkinsznc: I can keep the build paths and move the pieces; I'll try to have that done tonight if possible</span></div><div class="line" id="030931"><span class="nick" style="color:#2e2a4a"><a href="#030931" label="[03:09:31]">&lt;oriansj&gt;</a></span><span class="message">dddddd: or you could save yourself some work and just change the definition for the instructions involving the stack register to just be the instruction using X18 and put clarifying details in the definition file. (then just reduce the stack offsets) and no other changes would be required</span></div><div class="line" id="031211"><span class="nick" style="color:#2e2a4a"><a href="#031211" label="[03:12:11]">&lt;oriansj&gt;</a></span><span class="message">The only people who would notice or care are those auditing the inline assembly or writing new libc primitives for M2-Planet</span></div><div class="line" id="031345"><span class="nick" style="color:#2e2a4a"><a href="#031345" label="[03:13:45]">&lt;oriansj&gt;</a></span><span class="message">janneke: I think I have a radical solution to making the porting of MesCC to new architectures alot simpler and possibly help me with an optimization question I had</span></div><div class="line" id="031410"><span class="nick" style="color:#8dd3c7"><a href="#031410" label="[03:14:10]">&lt;dddddd&gt;</a></span><span class="message">That's it, oriansj. The definitions using SP are now using x18 under the hood. I added SUB_* for the new offsets (8 and 24) --this is what triggers the changes in the libc; and added a definition to initialize X18 from SP. Then, cc_core.c changes for the &quot;depth&quot;.</span></div><div class="line" id="031504"><span class="nick" style="color:#2e2a4a"><a href="#031504" label="[03:15:04]">&lt;oriansj&gt;</a></span><span class="message">dddddd: sounds great</span></div><div class="line" id="031608"><span class="nick" style="color:#2e2a4a"><a href="#031608" label="[03:16:08]">&lt;oriansj&gt;</a></span><span class="message">It also means minimal changes for cc_aarch64 too</span></div><div class="line" id="031842"><span class="nick" style="color:#2e2a4a"><a href="#031842" label="[03:18:42]">&lt;oriansj&gt;</a></span><span class="message">tragic that no one on info-gnu@gnu.org, guix-devel@gnu.org, rb-general@lists.reproducible-builds.org or bootstrappable@freelists.org commented on the AArch64 porting news (or at all really)</span></div><div class="line" id="032201"><span class="nick" style="color:#2e2a4a"><a href="#032201" label="[03:22:01]">&lt;oriansj&gt;</a></span><span class="message">hey lfam</span></div><div class="line" id="032232"><span class="nick" style="color:#6b8072"><a href="#032232" label="[03:22:32]">&lt;lfam&gt;</a></span><span class="message">Hi oriansj</span></div><div class="line" id="032301"><span class="nick" style="color:#8dd3c7"><a href="#032301" label="[03:23:01]">&lt;dddddd&gt;</a></span><span class="message">thanks for the announcements, oriansj. They'll react to bigger news, let's hope (:</span></div><div class="line" id="032316"><span class="nick" style="color:#2e2a4a"><a href="#032316" label="[03:23:16]">&lt;oriansj&gt;</a></span><span class="message">lfam: how goes things?</span></div><div class="line" id="032345"><span class="nick" style="color:#6b8072"><a href="#032345" label="[03:23:45]">&lt;lfam&gt;</a></span><span class="message">Pretty good, no news to report :)</span></div><div class="line" id="032347"><span class="nick" style="color:#6b8072"><a href="#032347" label="[03:23:47]">&lt;lfam&gt;</a></span><span class="message">How about you?</span></div><div class="line" id="032500"><span class="nick" style="color:#2e2a4a"><a href="#032500" label="[03:25:00]">&lt;oriansj&gt;</a></span><span class="message">lfam: well we just did 4 major releases in 5 days; Added a whole new architecture and completed a speed run which resulted in 5 compilers written in assembly being completed in 4 hours (with matching C versions too)</span></div><div class="line" id="032521"><span class="nick" style="color:#6b8072"><a href="#032521" label="[03:25:21]">&lt;lfam&gt;</a></span><span class="message">I saw that speed run comment in the release notes, I really liked it</span></div><div class="line" id="032526"><span class="nick" style="color:#6b8072"><a href="#032526" label="[03:25:26]">&lt;lfam&gt;</a></span><span class="message">Sometimes that's the only way it can happen</span></div><div class="line" id="032539"><span class="nick" style="color:#2e2a4a"><a href="#032539" label="[03:25:39]">&lt;oriansj&gt;</a></span><span class="message">dddddd: I don't know how the hell I am going to top this</span></div><div class="line" id="032748"><span class="nick" style="color:#2e2a4a"><a href="#032748" label="[03:27:48]">&lt;oriansj&gt;</a></span><span class="message">lfam: It is just that literally no one commented or responded in anyway. Like they were too busy watching the Superbowl or something to notice</span></div><div class="line" id="032823"><span class="nick" style="color:#6b8072"><a href="#032823" label="[03:28:23]">&lt;lfam&gt;</a></span><span class="message">I think that people don't quite understand the ramifications of your work yet</span></div><div class="line" id="032850"><span class="nick" style="color:#8dd3c7"><a href="#032850" label="[03:28:50]">&lt;dddddd&gt;</a></span><span class="message">oriansj, I'm thinking about the moment when all the pieces are complete. There's also FOSDEM with lots of interesting things.</span></div><div class="line" id="032903"><span class="nick" style="color:#2e2a4a"><a href="#032903" label="[03:29:03]">&lt;oriansj&gt;</a></span><span class="message">I'd say; The Hacker news post got -60 karma</span></div><div class="line" id="032934"><span class="nick" style="color:#6b8072"><a href="#032934" label="[03:29:34]">&lt;lfam&gt;</a></span><span class="message">Hitting on hacker news is really like winning the lottery unless the subject already has a very large audience</span></div><div class="line" id="033019"><span class="nick" style="color:#2e2a4a"><a href="#033019" label="[03:30:19]">&lt;oriansj&gt;</a></span><span class="message">lfam: fair</span></div><div class="line" id="033130"><span class="nick" style="color:#2e2a4a"><a href="#033130" label="[03:31:30]">&lt;oriansj&gt;</a></span><span class="message">plus I am still stuck on figuring out a good guile compatible test for modules for mes-m2 to do</span></div><div class="line" id="033221"><span class="nick" style="color:#2e2a4a"><a href="#033221" label="[03:32:21]">&lt;oriansj&gt;</a></span><span class="message">as it is one of the last major blockers for completing hex0-&gt;GCC</span></div><div class="line" id="033300"><span class="nick" style="color:#2e2a4a"><a href="#033300" label="[03:33:00]">&lt;oriansj&gt;</a></span><span class="message">The rest are trivial primitives that I could do in batches of 50 in a day</span></div><div class="line" id="033509"><span class="nick" style="color:#2e2a4a"><a href="#033509" label="[03:35:09]">&lt;oriansj&gt;</a></span><span class="message">dddddd: oh I forgot to mention your AArch64 work passed 12 hours of fuzzing with flying colors (No hangs or segfaults)</span></div><div class="line" id="033535"><span class="nick" style="color:#8dd3c7"><a href="#033535" label="[03:35:35]">&lt;dddddd&gt;</a></span><span class="message">We'll get there, oriansj. I'll try to help you with that testing of modules, I have to dig a bit into it yet.</span></div><div class="line" id="033614"><span class="nick" style="color:#2e2a4a"><a href="#033614" label="[03:36:14]">&lt;oriansj&gt;</a></span><span class="message">dddddd: your M2-Planet work is more critical (RISC-V)</span></div><div class="line" id="033716"><span class="nick" style="color:#2e2a4a"><a href="#033716" label="[03:37:16]">&lt;oriansj&gt;</a></span><span class="message">plus we need someone with  deep understading of guile modules and where it is going to be in 5-10 years</span></div><div class="line" id="033815"><span class="nick" style="color:#2e2a4a"><a href="#033815" label="[03:38:15]">&lt;oriansj&gt;</a></span><span class="message">as mes-m2 needs to be able to be a drop in replacement for guile to solve the psyntax bootstrap problem and run guix (solving the guix bootstrap problem too)</span></div><div class="line" id="033907"><span class="nick" style="color:#2e2a4a"><a href="#033907" label="[03:39:07]">&lt;oriansj&gt;</a></span><span class="message">Plus the guix team has work on pulling The last remaining c++ pieces left over from nixos (if they haven't finished that while I wasn't looking)</span></div><div class="line" id="034025"><span class="nick" style="color:#2e2a4a"><a href="#034025" label="[03:40:25]">&lt;oriansj&gt;</a></span><span class="message">and the more architectures mescc-tools and M2-Planet support, the more platforms that guix can be effectively bootstrapped on via mes-m2</span></div><div class="line" id="034556"><span class="nick" style="color:#8dd3c7"><a href="#034556" label="[03:45:56]">&lt;dddddd&gt;</a></span><span class="message">I'm sure missing many details; and you know what you're doing. But to me, that idea of a complete reimplementation of (present and future) guile feels... not quite right.</span></div><div class="line" id="034732"><span class="nick" style="color:#2e2a4a"><a href="#034732" label="[03:47:32]">&lt;oriansj&gt;</a></span><span class="message">dddddd: right now guile can't be bootstrapped even with GCC because of psyntax</span></div><div class="line" id="034835"><span class="nick" style="color:#8dd3c7"><a href="#034835" label="[03:48:35]">&lt;dddddd&gt;</a></span><span class="message">I'll review the logs, we talked about this.</span></div><div class="line" id="034859"><span class="nick" style="color:#2e2a4a"><a href="#034859" label="[03:48:59]">&lt;oriansj&gt;</a></span><span class="message">In the previous search we couldn't find a bootstrappable guile version that would allow us to bootstrap psyntax; now there might have been but I don't know about it</span></div><div class="line" id="034934"><span class="nick" style="color:#2e2a4a"><a href="#034934" label="[03:49:34]">&lt;oriansj&gt;</a></span><span class="message">and if there was, I could always throw x months at it; to make it buildable via M2-Planet and be done</span></div><div class="line" id="035004"><span class="nick" style="color:#2e2a4a"><a href="#035004" label="[03:50:04]">&lt;oriansj&gt;</a></span><span class="message">or do M2-Planet v2.x with all of the features it needs to be built and be done</span></div><div class="line" id="035114"><span class="nick" style="color:#2e2a4a"><a href="#035114" label="[03:51:14]">&lt;oriansj&gt;</a></span><span class="message">Then it is about making it be able to run guix and MesCC tools (along with porting to all hardware targets)</span></div><div class="line" id="035124"><span class="nick" style="color:#8dd3c7"><a href="#035124" label="[03:51:24]">&lt;dddddd&gt;</a></span><span class="message">Anyway, most of my focus is on the new targets of M2-Planet.</span></div><div class="line" id="035205"><span class="nick" style="color:#2e2a4a"><a href="#035205" label="[03:52:05]">&lt;oriansj&gt;</a></span><span class="message">good; that is very important to the future of M2-Planet</span></div><div class="line" id="035425"><span class="nick" style="color:#2e2a4a"><a href="#035425" label="[03:54:25]">&lt;oriansj&gt;</a></span><span class="message">part of me is tempted to just hack together a prototype for module support in scheme leveraging keywords and primitive-load (as mes-m2 already has them) and be done with it.</span></div><div class="line" id="035710"><span class="nick" style="color:#2e2a4a"><a href="#035710" label="[03:57:10]">&lt;oriansj&gt;</a></span><span class="message">maybe I just need a good night's sleep and the answer might magically appear before morning.</span></div><div class="line" id="035910"><span class="nick" style="color:#8dd3c7"><a href="#035910" label="[03:59:10]">&lt;dddddd&gt;</a></span><span class="message">good night!</span></div><div class="line" id="043051"><span class="nick" style="color:#80b1d3"><a href="#043051" label="[04:30:51]">&lt;markjenkinsznc&gt;</a></span><span class="message">oriansj, I hear you saying the recent surge of compilers and released has been under recognized. I'm impressed and looking forward to getting knightpies running all those fabulous new cc_* compilers written in knight assembly</span></div><div class="line" id="162907"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="175731"><span class="nick" style="color:#6d2462"><a href="#175731" label="[17:57:31]">&lt;pgreco&gt;</a></span><span class="message">janneke: were you able to check the gcc/ppc64le patches?</span></div><div class="line" id="181709"><span class="nick" style="color:#234e69"><a href="#181709" label="[18:17:09]">&lt;janneke&gt;</a></span><span class="message">pgreco: i can't remember having seen (gcc) patches...</span></div><div class="line" id="184856"><span class="nick" style="color:#6d2462"><a href="#184856" label="[18:48:56]">&lt;pgreco&gt;</a></span><span class="message">janneke: what we talked about using the patches from 4.8.5 from CentOS</span></div><div class="line" id="185307"><span class="nick" style="color:#234e69"><a href="#185307" label="[18:53:07]">&lt;janneke&gt;</a></span><span class="message">pgreco: right, thanks for reminding me</span></div><div class="line" id="185349"><span class="nick" style="color:#234e69"><a href="#185349" label="[18:53:49]">&lt;janneke&gt;</a></span><span class="message">no, we haven't started on power9 yet; but this is certainly worth looking at</span></div><div class="line" id="185422"><span class="nick" style="color:#6d2462"><a href="#185422" label="[18:54:22]">&lt;pgreco&gt;</a></span><span class="message">good, let me know if there is anything I can help with</span></div><div class="line" id="185704"><span class="nick" style="color:#234e69"><a href="#185704" label="[18:57:04]">&lt;janneke&gt;</a></span><span class="message">if you have an url ready, that's always handy</span></div><div class="line" id="185728"><span class="nick" style="color:#234e69"><a href="#185728" label="[18:57:28]">&lt;janneke&gt;</a></span><span class="message">otherwise i've added it to my TODO, for when power9 comes up</span></div><div class="line" id="185833"><span class="nick" style="color:#6d2462"><a href="#185833" label="[18:58:33]">&lt;pgreco&gt;</a></span><span class="message">janneke: <a rel="nofollow" href="https://git.centos.org/rpms/gcc/blob/c7/f/SOURCES">https://git.centos.org/rpms/gcc/blob/c7/f/SOURCES</a> </span></div><div class="line" id="185944"><span class="nick" style="color:#234e69"><a href="#185944" label="[18:59:44]">&lt;janneke&gt;</a></span><span class="message">pgreco: ty!</span></div><div class="line" id="190256"><span class="nick" style="color:#6d2462"><a href="#190256" label="[19:02:56]">&lt;pgreco&gt;</a></span><span class="message"> <a rel="nofollow" href="https://git.centos.org/sources/gcc/c7/500237a6ba14b8a56751f57e5957b40cefa9cb01">https://git.centos.org/sources/gcc/c7/500237a6ba14b8a56751f57e5957b40cefa9cb01</a>  is the base file gcc-4.8.5-20150702.tar.bz2</span></div><div class="line" id="205839"><span class="nick" style="color:#6c3d55"><a href="#205839" label="[20:58:39]">&lt;rain1&gt;</a></span><span class="message">hello</span></div><div class="line" id="212527"><span class="nick" style="color:#d9d9d9"><a href="#212527" label="[21:25:27]">&lt;fossy&gt;</a></span><span class="message">hi rain1</span></div><div class="line" id="212530"><span class="nick" style="color:#d9d9d9"><a href="#212530" label="[21:25:30]">&lt;fossy&gt;</a></span><span class="message">how goes</span></div><br /></div></body></html>

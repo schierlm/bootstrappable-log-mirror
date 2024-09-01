@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-06-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001552"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="001649"><span class="nick" style="color:#8dd3c7"><a href="#001649" label="[00:16:49]">&lt;stikonas&gt;</a></span><span class="message">hmm, there is no mkstemp in meslibc...</span></div><div class="line" id="001755"><span class="nick" style="color:#8dd3c7"><a href="#001755" label="[00:17:55]">&lt;stikonas&gt;</a></span><span class="message">though we do have one in M2libc</span></div><div class="line" id="004101"><span class="nick" style="color:#8dd3c7"><a href="#004101" label="[00:41:01]">&lt;stikonas&gt;</a></span><span class="message">ok, mkstemp is actually not required in coreutils as it has it's own implementation in lib/</span></div><div class="line" id="004229"><span class="nick" style="color:#2e2a4a"><a href="#004229" label="[00:42:29]">&lt;Hagfish&gt;</a></span><span class="message">nice.  (i assume the lib/ implementation is usable in practice)</span></div><div class="line" id="004318"><span class="nick" style="color:#8dd3c7"><a href="#004318" label="[00:43:18]">&lt;stikonas&gt;</a></span><span class="message">it should be, I guess that's automatically picked by configure script if you use that</span></div><div class="line" id="011643"><span class="nick" style="color:#6b8072"><a href="#011643" label="[01:16:43]">&lt;muurkha&gt;</a></span><span class="message">it might not have been tested in 10 years</span></div><div class="line" id="011654"><span class="nick" style="color:#6b8072"><a href="#011654" label="[01:16:54]">&lt;muurkha&gt;</a></span><span class="message">so it's conceivable it's bitrotted</span></div><div class="line" id="035201"><span class="nick" style="color:#80b1d3"><a href="#035201" label="[03:52:01]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well if the functionality is in M2libc, odds are it is probably hard to bitrot unless they tried to be too clever by half</span></div><div class="line" id="040454"><span class="nick" style="color:#6b8072"><a href="#040454" label="[04:04:54]">&lt;muurkha&gt;</a></span><span class="message">oriansj: possibly the coreutils mkstemp() was written in 01998 and is not used on any modern operating systems because all of them have mkstemp() in their standard library now, with the consequence that evolving use of mkstemp() in coreutils may not be adequately tested against coreutils's own implementation in lib/</span></div><div class="line" id="040522"><span class="nick" style="color:#6b8072"><a href="#040522" label="[04:05:22]">&lt;muurkha&gt;</a></span><span class="message">so coreutils's own application in lib/ might have bitrotted.  maybe not</span></div><div class="line" id="040557"><span class="nick" style="color:#6b8072"><a href="#040557" label="[04:05:57]">&lt;muurkha&gt;</a></span><span class="message">I'm not aware of any problems with it, just saying that that's the kind of place where I wouldn't be surprised to hit bugs</span></div><div class="line" id="041320"><span class="nick" style="color:#80b1d3"><a href="#041320" label="[04:13:20]">&lt;oriansj&gt;</a></span><span class="message">muurkha: completely fair</span></div><div class="line" id="041757"><span class="nick" style="color:#80b1d3"><a href="#041757" label="[04:17:57]">&lt;oriansj&gt;</a></span><span class="message">in M2libc it is a 2 function implementation: <a rel="nofollow" href="https://paste.debian.net/1244807/">https://paste.debian.net/1244807/</a>  because many C functions are not supported</span></div><div class="line" id="042011"><span class="nick" style="color:#80b1d3"><a href="#042011" label="[04:20:11]">&lt;oriansj&gt;</a></span><span class="message">So replacing it wouldn't be too hard either</span></div><div class="line" id="042121"><span class="nick" style="color:#80b1d3"><a href="#042121" label="[04:21:21]">&lt;oriansj&gt;</a></span><span class="message">granted thread locking/unlocking might be required should one wish to support multiple threads calling mktemp and to ensure there are no race conditions.</span></div><div class="line" id="043035"><span class="nick" style="color:#6b8072"><a href="#043035" label="[04:30:35]">&lt;muurkha&gt;</a></span><span class="message">does anything linked with M2libc use multiple threads?</span></div><div class="line" id="061613"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke_</span></div><div class="line" id="064742"><span class="nick">***</span><span class="message notice">janneke_ is now known as janneke</span></div><div class="line" id="072526"><span class="nick">***</span><span class="message notice">lukedashjr is now known as luke-jr</span></div><div class="line" id="183009"><span class="nick" style="color:#80b1d3"><a href="#183009" label="[18:30:09]">&lt;oriansj&gt;</a></span><span class="message">muurkha: nope, M2libc is single thread only and we don't even have the standard thread libraries either.</span></div><div class="line" id="183050"><span class="nick" style="color:#6b8072"><a href="#183050" label="[18:30:50]">&lt;muurkha&gt;</a></span><span class="message">well, I guess we don't have to worry about thread locking and unlocking then :)</span></div><div class="line" id="183206"><span class="nick" style="color:#80b1d3"><a href="#183206" label="[18:32:06]">&lt;oriansj&gt;</a></span><span class="message">assuming no one wants to try to build GCC with M2libc</span></div><div class="line" id="183248"><span class="nick" style="color:#80b1d3"><a href="#183248" label="[18:32:48]">&lt;oriansj&gt;</a></span><span class="message">which is definitely not recommended unless one wants to do it for sheer hack value.</span></div><div class="line" id="183437"><span class="nick" style="color:#80b1d3"><a href="#183437" label="[18:34:37]">&lt;oriansj&gt;</a></span><span class="message">kinda like adding strerror to M2libc, it can be done but the obvious mechanisms might be there. (such as switch/case statements) and one would have to do something ugly to work around that (like if/else if/ else chains)</span></div><br /></div></body></html>

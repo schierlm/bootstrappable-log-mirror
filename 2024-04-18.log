@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-04-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005604"><span class="nick" style="color:#389600"><a href="#005604" label="[00:56:04]">&lt;oriansj&gt;</a></span><span class="message">well, I enjoy lisp a good bit myself but a couple years of low level assembly made me appreciate common lisp over scheme</span></div><div class="line" id="010428"><span class="nick" style="color:#389600"><a href="#010428" label="[01:04:28]">&lt;oriansj&gt;</a></span><span class="message">the problem being it is much harder to bootstrap common lisp in assembly than scheme and SBCL requires a real compiler.</span></div><div class="line" id="025850"><span class="nick" style="color:#8dd3c7"><a href="#025850" label="[02:58:50]">&lt;Googulator&gt;</a></span><span class="message">stikonas: I see you again got 0bf613f1f142d53baea81643383b66dcaf38438ee6ba33fb9ed1c135a0be9e47 as the hash for your grub</span></div><div class="line" id="025904"><span class="nick" style="color:#2e2a4a"><a href="#025904" label="[02:59:04]">&lt;stikonas&gt;</a></span><span class="message">yeah...</span></div><div class="line" id="025906"><span class="nick" style="color:#8dd3c7"><a href="#025906" label="[02:59:06]">&lt;Googulator&gt;</a></span><span class="message">Can you upload your grub tar.bz2 (from external/repo) somewhere?</span></div><div class="line" id="025918"><span class="nick" style="color:#8dd3c7"><a href="#025918" label="[02:59:18]">&lt;Googulator&gt;</a></span><span class="message">(hopefully not deleted yet)</span></div><div class="line" id="025928"><span class="nick" style="color:#2e2a4a"><a href="#025928" label="[02:59:28]">&lt;stikonas&gt;</a></span><span class="message">well, deleted, but 2nd run is running now</span></div><div class="line" id="025938"><span class="nick" style="color:#2e2a4a"><a href="#025938" label="[02:59:38]">&lt;stikonas&gt;</a></span><span class="message">(I did the first run with --update-checksums)</span></div><div class="line" id="030009"><span class="nick" style="color:#2e2a4a"><a href="#030009" label="[03:00:09]">&lt;stikonas&gt;</a></span><span class="message">I'll upload it tomorrow</span></div><div class="line" id="030054"><span class="nick" style="color:#8dd3c7"><a href="#030054" label="[03:00:54]">&lt;Googulator&gt;</a></span><span class="message">For merging the PR, you can probably just revert that hash (&amp; then hopefully CI will pass), but I still would like to investigate why you're getting a different hash for grub</span></div><div class="line" id="030106"><span class="nick" style="color:#2e2a4a"><a href="#030106" label="[03:01:06]">&lt;stikonas&gt;</a></span><span class="message">yeah...</span></div><div class="line" id="030107"><span class="nick" style="color:#8dd3c7"><a href="#030107" label="[03:01:07]">&lt;Googulator&gt;</a></span><span class="message">Thanks</span></div><div class="line" id="030110"><span class="nick" style="color:#2e2a4a"><a href="#030110" label="[03:01:10]">&lt;stikonas&gt;</a></span><span class="message">for now I just rebased</span></div><div class="line" id="030120"><span class="nick" style="color:#2e2a4a"><a href="#030120" label="[03:01:20]">&lt;stikonas&gt;</a></span><span class="message">I also want to run it without my commit</span></div><div class="line" id="030124"><span class="nick" style="color:#2e2a4a"><a href="#030124" label="[03:01:24]">&lt;stikonas&gt;</a></span><span class="message">to run diffoscope on it...</span></div><div class="line" id="030219"><span class="nick" style="color:#2e2a4a"><a href="#030219" label="[03:02:19]">&lt;stikonas&gt;</a></span><span class="message">building python now, so won't finish</span></div><div class="line" id="131559"><span class="nick" style="color:#6b8072"><a href="#131559" label="[13:15:59]">&lt;fossy&gt;</a></span><span class="message">Googulator: yeah, the regen stuff is not a guix thing pretty much at all</span></div><div class="line" id="154342"><span class="nick" style="color:#8dd3c7"><a href="#154342" label="[15:43:42]">&lt;Googulator&gt;</a></span><span class="message">stikonas: did you get the &quot;bad&quot; Grub tarball again?</span></div><div class="line" id="154417"><span class="nick" style="color:#2e2a4a"><a href="#154417" label="[15:44:17]">&lt;stikonas&gt;</a></span><span class="message">not yet, just resumed build recently, ar GCC13 now</span></div><div class="line" id="154428"><span class="nick" style="color:#2e2a4a"><a href="#154428" label="[15:44:28]">&lt;stikonas&gt;</a></span><span class="message">do you have an old &quot;grub&quot; tarball to compare?</span></div><div class="line" id="154441"><span class="nick" style="color:#8dd3c7"><a href="#154441" label="[15:44:41]">&lt;Googulator&gt;</a></span><span class="message">yes - basically every CI build produces one</span></div><div class="line" id="154457"><span class="nick" style="color:#8dd3c7"><a href="#154457" label="[15:44:57]">&lt;Googulator&gt;</a></span><span class="message">with the 80... hash</span></div><div class="line" id="154714"><span class="nick" style="color:#2e2a4a"><a href="#154714" label="[15:47:14]">&lt;stikonas&gt;</a></span><span class="message">and how do I download it?</span></div><div class="line" id="154750"><span class="nick" style="color:#8dd3c7"><a href="#154750" label="[15:47:50]">&lt;Googulator&gt;</a></span><span class="message">E.g. &quot;packages&quot; artifact here: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/actions/runs/8730524027?pr=458">https://github.com/fosslinux/live-bootstrap/actions/runs/8730524027?pr=458</a> </span></div><div class="line" id="154840"><span class="nick" style="color:#2e2a4a"><a href="#154840" label="[15:48:40]">&lt;stikonas&gt;</a></span><span class="message">I see</span></div><div class="line" id="221433"><span class="nick" style="color:#2e2a4a"><a href="#221433" label="[22:14:33]">&lt;stikonas&gt;</a></span><span class="message">Googulator: hi, so I've got the diff for grub</span></div><div class="line" id="221505"><span class="nick" style="color:#2e2a4a"><a href="#221505" label="[22:15:05]">&lt;stikonas&gt;</a></span><span class="message">it's pc vs efi</span></div><div class="line" id="223300"><span class="nick" style="color:#2e2a4a"><a href="#223300" label="[22:33:00]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/463">https://github.com/fosslinux/live-bootstrap/issues/463</a> </span></div><br /></div></body></html>

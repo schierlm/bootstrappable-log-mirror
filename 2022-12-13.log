@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-12-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002512"><span class="nick" style="color:#389600"><a href="#002512" label="[00:25:12]">&lt;stikonas&gt;</a></span><span class="message">ok, updated my readme, should now be more user friendly: <a rel="nofollow" href="https://git.stikonas.eu/andrius/stage0-uefi">https://git.stikonas.eu/andrius/stage0-uefi</a> </span></div><div class="line" id="004353"><span class="nick" style="color:#389600"><a href="#004353" label="[00:43:53]">&lt;stikonas&gt;</a></span><span class="message">and tried to advertise it on <a rel="nofollow" href="https://fosstodon.org/@stikonas/109503346922656353">https://fosstodon.org/@stikonas/109503346922656353</a>  (I really need to update my picture though, it's now probably outdated by 10 years...)</span></div><div class="line" id="031148"><span class="nick" style="color:#8dd3c7"><a href="#031148" label="[03:11:48]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well I can make stage0-uefi a git submodule of stage0 and that should make it pretty easy to find and increase the number of people who would see it by default</span></div><div class="line" id="223956"><span class="nick" style="color:#2e2a4a"><a href="#223956" label="[22:39:56]">&lt;duplexsystem&gt;</a></span><span class="message">Hello, I'm noodling around with bootstrapping and I'm looking at <a rel="nofollow" href="https://github.com/ironmeld/boot2now">https://github.com/ironmeld/boot2now</a>  which seems to do what I want (getting to at least tcc from entirely hex files with a bootable image) but I'm a little confused on what exactly is going on. it seems to be building each stage on my host machine and using the binary compiled</span></div><div class="line" id="223957"><span class="nick" style="color:#2e2a4a"><a href="#223957" label="[22:39:57]">&lt;duplexsystem&gt;</a></span><span class="message">previous stage as a base for the next stage. so, the outputted binaries for each step includes binary data other than the original hex seed which seems to defeat the point. Am I missing something or is this what is going on and I've misunderstood the project? Thanks!</span></div><div class="line" id="234955"><span class="nick" style="color:#6b8072"><a href="#234955" label="[23:49:55]">&lt;rickmasters&gt;</a></span><span class="message">duplexsystem: sorry for the delayed reply - yes, the current build process runs in phases but that is just because it is still under development and saves time</span></div><div class="line" id="235054"><span class="nick" style="color:#6b8072"><a href="#235054" label="[23:50:54]">&lt;rickmasters&gt;</a></span><span class="message">duplexsystem: there is no reason why the phases can't be merged together but I just haven't done that yet</span></div><div class="line" id="235435"><span class="nick" style="color:#6b8072"><a href="#235435" label="[23:54:35]">&lt;rickmasters&gt;</a></span><span class="message">duplexsystem94: so, I'm typically working on the last phase and don't want to run each build from the beginning</span></div><div class="line" id="235634"><span class="nick" style="color:#80b1d3"><a href="#235634" label="[23:56:34]">&lt;duplexsystem94&gt;</a></span><span class="message">ah ok that makes sense</span></div><div class="line" id="235639"><span class="nick" style="color:#6b8072"><a href="#235639" label="[23:56:39]">&lt;rickmasters&gt;</a></span><span class="message">this was more of a problem when I was developing in a VM and couldn't use KVM and builds were extremely slow but I moved to bare metal a while back so I should merge the phases</span></div><div class="line" id="235808"><span class="nick" style="color:#80b1d3"><a href="#235808" label="[23:58:08]">&lt;duplexsystem94&gt;</a></span><span class="message">ah cool</span></div><div class="line" id="235904"><span class="nick" style="color:#6b8072"><a href="#235904" label="[23:59:04]">&lt;rickmasters&gt;</a></span><span class="message">boot2now has been on hold for quite a while. I've been working on a new OS that tcc can build (Fiwix) which can now support building Linux.</span></div><div class="line" id="235952"><span class="nick" style="color:#80b1d3"><a href="#235952" label="[23:59:52]">&lt;duplexsystem94&gt;</a></span><span class="message">oh cool! is that published anywhere?</span></div><div class="line" id="235958"><span class="nick" style="color:#6b8072"><a href="#235958" label="[23:59:58]">&lt;rickmasters&gt;</a></span><span class="message">That has been offline because it isn't quite done yet and Fiwix was too unstable to integrate into boot2now.</span></div><br /></div></body></html>

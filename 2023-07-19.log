@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-07-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="212009"><span class="nick" style="color:#389600"><a href="#212009" label="[21:20:09]">&lt;nektro&gt;</a></span><span class="message">TIL the makefile lua uses in their release tarballs is not published anywhere in their source control</span></div><div class="line" id="212029"><span class="nick" style="color:#389600"><a href="#212029" label="[21:20:29]">&lt;nektro&gt;</a></span><span class="message">and its not from configure or anything like that either</span></div><div class="line" id="231713"><span class="nick" style="color:#8dd3c7"><a href="#231713" label="[23:17:13]">&lt;stikonas&gt;</a></span><span class="message">nektro: so it's not <a rel="nofollow" href="https://github.com/lua/lua/blob/master/makefile">https://github.com/lua/lua/blob/master/makefile</a>  ?</span></div><div class="line" id="232036"><span class="nick" style="color:#8dd3c7"><a href="#232036" label="[23:20:36]">&lt;stikonas&gt;</a></span><span class="message">argh, I've upgraded my qemu to version 8.0.3 and now stage0-posix-riscv64 crashes  in hex2</span></div><div class="line" id="232132"><span class="nick" style="color:#389600"><a href="#232132" label="[23:21:32]">&lt;nektro&gt;</a></span><span class="message">nope, ive been talking to the lua groups on irc and discord and the github isnt even updated/all the code</span></div><div class="line" id="232207"><span class="nick" style="color:#389600"><a href="#232207" label="[23:22:07]">&lt;nektro&gt;</a></span><span class="message">the makefile in the git repo doesnt even have an install target or any of the main ones the manual references</span></div><div class="line" id="232950"><span class="nick" style="color:#389600"><a href="#232950" label="[23:29:50]">&lt;nektro&gt;</a></span><span class="message">im also trying to find the right incantation, because so far the tarball one also seems to need an already installed lua to run</span></div><div class="line" id="233335"><span class="nick" style="color:#389600"><a href="#233335" label="[23:33:35]">&lt;nektro&gt;</a></span><span class="message">oh wait no that part is because the build failed</span></div><div class="line" id="234221"><span class="nick" style="color:#8dd3c7"><a href="#234221" label="[23:42:21]">&lt;stikonas&gt;</a></span><span class="message">hmm, it's only stage0-posix-riscv* that crash in qemu but not stage0-posix-aarch64</span></div><div class="line" id="235422"><span class="nick" style="color:#389600"><a href="#235422" label="[23:54:22]">&lt;nektro&gt;</a></span><span class="message">got it, build error was readline needing ncurses</span></div><br /></div></body></html>

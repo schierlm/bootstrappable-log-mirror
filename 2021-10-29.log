@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-10-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013201"><span class="nick" style="color:#8dd3c7"><a href="#013201" label="[01:32:01]">&lt;stikonas&gt;</a></span><span class="message">oriansj: how do you test knight-posix?</span></div><div class="line" id="013430"><span class="nick" style="color:#8dd3c7"><a href="#013430" label="[01:34:30]">&lt;stikonas&gt;</a></span><span class="message">actually, I can just test knight0-native in a vm...</span></div><div class="line" id="014009"><span class="nick" style="color:#8dd3c7"><a href="#014009" label="[01:40:09]">&lt;stikonas&gt;</a></span><span class="message">argh, stage0/vm also failst to build</span></div><div class="line" id="014013"><span class="nick" style="color:#8dd3c7"><a href="#014013" label="[01:40:13]">&lt;stikonas&gt;</a></span><span class="message">probably gcc 11...</span></div><div class="line" id="015539"><span class="nick" style="color:#8dd3c7"><a href="#015539" label="[01:55:39]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I think this should work <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/pull/25">https://github.com/oriansj/M2-Planet/pull/25</a> </span></div><div class="line" id="015557"><span class="nick" style="color:#8dd3c7"><a href="#015557" label="[01:55:57]">&lt;stikonas&gt;</a></span><span class="message">I haven't tested knight and armv7 though</span></div><div class="line" id="015800"><span class="nick" style="color:#8dd3c7"><a href="#015800" label="[01:58:00]">&lt;stikonas&gt;</a></span><span class="message">it probably works because instructions are coppied from &quot;&gt;&quot; instruction</span></div><div class="line" id="031146"><span class="nick" style="color:#2e2a4a"><a href="#031146" label="[03:11:46]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://bestpractices.coreinfrastructure.org/en/criteria">https://bestpractices.coreinfrastructure.org/en/criteria</a>  that's an interesting page</span></div><div class="line" id="031236"><span class="nick" style="color:#2e2a4a"><a href="#031236" label="[03:12:36]">&lt;Hagfish&gt;</a></span><span class="message">it lists reproducible builds as a goal, and signed releases</span></div><div class="line" id="031731"><span class="nick" style="color:#6b8072"><a href="#031731" label="[03:17:31]">&lt;pabs3&gt;</a></span><span class="message">time to get bootstrappable builds listed there?</span></div><div class="line" id="031748"><span class="nick" style="color:#2e2a4a"><a href="#031748" label="[03:17:48]">&lt;Hagfish&gt;</a></span><span class="message">i was thinking that</span></div><div class="line" id="031803"><span class="nick" style="color:#2e2a4a"><a href="#031803" label="[03:18:03]">&lt;Hagfish&gt;</a></span><span class="message">but what would that mean in practice?</span></div><div class="line" id="031823"><span class="nick" style="color:#2e2a4a"><a href="#031823" label="[03:18:23]">&lt;Hagfish&gt;</a></span><span class="message">&quot;there has to be a documented path from Guix to building the latest release of your software?&quot;</span></div><div class="line" id="031857"><span class="nick" style="color:#6b8072"><a href="#031857" label="[03:18:57]">&lt;pabs3&gt;</a></span><span class="message">I'd go with the simpler: &quot;tools used in build processes must be buildable without the tool being built yet&quot;</span></div><div class="line" id="031946"><span class="nick" style="color:#6b8072"><a href="#031946" label="[03:19:46]">&lt;pabs3&gt;</a></span><span class="message">ie isolate the requirements to the individual package</span></div><div class="line" id="032311"><span class="nick" style="color:#2e2a4a"><a href="#032311" label="[03:23:11]">&lt;Hagfish&gt;</a></span><span class="message">yeah, that makes sense</span></div><div class="line" id="032352"><span class="nick" style="color:#2e2a4a"><a href="#032352" label="[03:23:52]">&lt;Hagfish&gt;</a></span><span class="message">there could still be cycles between packages, so i guess the definition of &quot;tool&quot; would have to be understood in a sensible way</span></div><div class="line" id="033331"><span class="nick" style="color:#6b8072"><a href="#033331" label="[03:33:31]">&lt;pabs3&gt;</a></span><span class="message">yeah, Debian has lots of cycles</span></div><div class="line" id="033336"><span class="nick" style="color:#80b1d3"><a href="#033336" label="[03:33:36]">&lt;oriansj&gt;</a></span><span class="message">stikonas: what build problem exists with stage0? I have gcc (GCC) 11.2.0 locally. Can you provide an error message for me to dig into?</span></div><div class="line" id="033405"><span class="nick" style="color:#80b1d3"><a href="#033405" label="[03:34:05]">&lt;oriansj&gt;</a></span><span class="message">make clean test is the standard build and test routine</span></div><div class="line" id="033557"><span class="nick" style="color:#80b1d3"><a href="#033557" label="[03:35:57]">&lt;oriansj&gt;</a></span><span class="message">and merged</span></div><div class="line" id="033710"><span class="nick" style="color:#80b1d3"><a href="#033710" label="[03:37:10]">&lt;oriansj&gt;</a></span><span class="message">and I am doing the armv7l testing right now and the knight-posix testing shortly after</span></div><div class="line" id="033824"><span class="nick" style="color:#80b1d3"><a href="#033824" label="[03:38:24]">&lt;oriansj&gt;</a></span><span class="message">armv7l looks good</span></div><div class="line" id="040013"><span class="nick" style="color:#80b1d3"><a href="#040013" label="[04:00:13]">&lt;oriansj&gt;</a></span><span class="message">knight looks to behave correctly</span></div><div class="line" id="191320"><span class="nick">***</span><span class="message notice">jjardon_ is now known as jjardon</span></div><br /></div></body></html>

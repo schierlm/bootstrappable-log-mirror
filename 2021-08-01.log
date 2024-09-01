@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-08-01.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001041"><span class="nick" style="color:#8dd3c7"><a href="#001041" label="[00:10:41]">&lt;stikonas&gt;</a></span><span class="message">argh, I need to add some dots to define file...</span></div><div class="line" id="001810"><span class="nick" style="color:#8dd3c7"><a href="#001810" label="[00:18:10]">&lt;stikonas&gt;</a></span><span class="message">hmm, probably best to add dots to all commands and then have NULL without dot. So ld a0, 0(sp) turns into  LD RD_A0 RS1_SP ZERO NULL, with DEFINE LD .00003003, DEFINE RD_A1 .00000580 DEFINE RS1_SP .00010000, DEFINE ZERO  .00000000 and DEFINE NULL 00000000</span></div><div class="line" id="125909"><span class="nick">***</span><span class="message notice">rt is now known as robin</span></div><div class="line" id="142301"><span class="nick" style="color:#2e2a4a"><a href="#142301" label="[14:23:01]">&lt;oriansj&gt;</a></span><span class="message">well technically multiplication, division and modulus but they can just be a function made up of more primitive instructions like we did for ARMv7l</span></div><div class="line" id="142437"><span class="nick" style="color:#2e2a4a"><a href="#142437" label="[14:24:37]">&lt;oriansj&gt;</a></span><span class="message">as one can do hex2, M0 and cc_* without them (it just makes a couple functions a little more complicated.</span></div><div class="line" id="144847"><span class="nick" style="color:#2e2a4a"><a href="#144847" label="[14:48:47]">&lt;oriansj&gt;</a></span><span class="message">stikonas: one thing you need to notice is .hex needs to be combined with something other than another .hex block to produce output. So you probably don't want the . leading the instruction as the immediates produced by M1 will likely be of the .hex form and hex2 @$~ also need something to combine with. so that it will probably look like: ~label RD_A0 AUIPC -&gt; ~label .00000500 00000067 -&gt; produce the correct output.</span></div><div class="line" id="145026"><span class="nick" style="color:#2e2a4a"><a href="#145026" label="[14:50:26]">&lt;oriansj&gt;</a></span><span class="message">that way you don't need to have NULL in every M1 statement</span></div><div class="line" id="145137"><span class="nick" style="color:#2e2a4a"><a href="#145137" label="[14:51:37]">&lt;oriansj&gt;</a></span><span class="message">as the .@#~ will all combine with the base provided by the instruction.</span></div><div class="line" id="150327"><span class="nick" style="color:#8dd3c7"><a href="#150327" label="[15:03:27]">&lt;stikonas&gt;</a></span><span class="message">oriansj: hmm, yes I can swap opcode to be the last</span></div><div class="line" id="150343"><span class="nick" style="color:#8dd3c7"><a href="#150343" label="[15:03:43]">&lt;stikonas&gt;</a></span><span class="message">because having NULL for every instruction is a bit annoying...</span></div><div class="line" id="150422"><span class="nick" style="color:#8dd3c7"><a href="#150422" label="[15:04:22]">&lt;stikonas&gt;</a></span><span class="message">I haven't looked at labels and intermediates yet...</span></div><div class="line" id="150542"><span class="nick" style="color:#8dd3c7"><a href="#150542" label="[15:05:42]">&lt;stikonas&gt;</a></span><span class="message">will look at them after I convert other instuctions into M1 format...</span></div><div class="line" id="150701"><span class="nick" style="color:#8dd3c7"><a href="#150701" label="[15:07:01]">&lt;stikonas&gt;</a></span><span class="message">I also found that M1 can nicely deal with some pseudoinstructions</span></div><div class="line" id="150728"><span class="nick" style="color:#8dd3c7"><a href="#150728" label="[15:07:28]">&lt;stikonas&gt;</a></span><span class="message">so might be worth defining them in advance</span></div><div class="line" id="150737"><span class="nick" style="color:#8dd3c7"><a href="#150737" label="[15:07:37]">&lt;stikonas&gt;</a></span><span class="message">e.g. DEFINE NOT FFF04013 # XORI, RD, RS, -1</span></div><div class="line" id="150951"><span class="nick" style="color:#8dd3c7"><a href="#150951" label="[15:09:51]">&lt;stikonas&gt;</a></span><span class="message">not strictly necessary, but makes .M1 more readable</span></div><div class="line" id="152440"><span class="nick" style="color:#6b8072"><a href="#152440" label="[15:24:40]">&lt;NieDzejkob_&gt;</a></span><span class="message">this guy is building a mechanical CPU o_o <a rel="nofollow" href="https://www.youtube.com/watch?v=udCpBsylfIw">https://www.youtube.com/watch?v=udCpBsylfIw</a> </span></div><div class="line" id="153511"><span class="nick" style="color:#80b1d3"><a href="#153511" label="[15:35:11]">&lt;GeDaMo&gt;</a></span><span class="message">&quot;Intro to Rod Logic&quot; <a rel="nofollow" href="http://www.halfbakedmaker.org/blog/58">http://www.halfbakedmaker.org/blog/58</a> </span></div><div class="line" id="154016"><span class="nick" style="color:#80b1d3"><a href="#154016" label="[15:40:16]">&lt;GeDaMo&gt;</a></span><span class="message"> <a rel="nofollow" href="http://megaprocessor.com/">http://megaprocessor.com/</a> </span></div><div class="line" id="154438"><span class="nick" style="color:#80b1d3"><a href="#154438" label="[15:44:38]">&lt;GeDaMo&gt;</a></span><span class="message">&quot;'The Writer' Automaton&quot; <a rel="nofollow" href="https://www.youtube.com/watch?v=laJX0txJc6M">https://www.youtube.com/watch?v=laJX0txJc6M</a> </span></div><div class="line" id="154529"><span class="nick" style="color:#80b1d3"><a href="#154529" label="[15:45:29]">&lt;GeDaMo&gt;</a></span><span class="message">Just some links that came to mind while I was watching NieDzejkob_'s video :P</span></div><div class="line" id="155909"><span class="nick" style="color:#2e2a4a"><a href="#155909" label="[15:59:09]">&lt;oriansj&gt;</a></span><span class="message">NieDzejkob_: that is cool</span></div><br /></div></body></html>

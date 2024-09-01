@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-09-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="133350"><span class="nick">***</span><span class="message notice">dekenevs is now known as kitzman</span></div><div class="line" id="142508"><span class="nick" style="color:#8dd3c7"><a href="#142508" label="[14:25:08]">&lt;theruran&gt;</a></span><span class="message">I am having a problem building mes (master) on Hardened Gentoo</span></div><div class="line" id="142515"><span class="nick" style="color:#8dd3c7"><a href="#142515" label="[14:25:15]">&lt;theruran&gt;</a></span><span class="message">CCLD       lib/linux/x86_64-mes-gcc/hello-mes.S</span></div><div class="line" id="142535"><span class="nick" style="color:#8dd3c7"><a href="#142535" label="[14:25:35]">&lt;theruran&gt;</a></span><span class="message">this step of build.sh gives a warning: creating DT_TEXTREL in a PIE</span></div><div class="line" id="142606"><span class="nick" style="color:#8dd3c7"><a href="#142606" label="[14:26:06]">&lt;theruran&gt;</a></span><span class="message">it causes make to fail even with -k and make check fails all its tests</span></div><div class="line" id="142904"><span class="nick" style="color:#8dd3c7"><a href="#142904" label="[14:29:04]">&lt;theruran&gt;</a></span><span class="message">hello-mes and 0hello-mes run fine though</span></div><div class="line" id="143000"><span class="nick" style="color:#8dd3c7"><a href="#143000" label="[14:30:00]">&lt;theruran&gt;</a></span><span class="message">hmm, tried running ./simple.sh and it fails on function unreadchar</span></div><div class="line" id="143005"><span class="nick" style="color:#8dd3c7"><a href="#143005" label="[14:30:05]">&lt;theruran&gt;</a></span><span class="message">src/posix.c:74:12: error: ‘EOF’ undeclared (first use in this function)</span></div><div class="line" id="153637"><span class="nick" style="color:#2e2a4a"><a href="#153637" label="[15:36:37]">&lt;oriansj&gt;</a></span><span class="message">sounds like a #include is missing since stdio.h is supposed to contain that definition.</span></div><div class="line" id="162517"><span class="nick" style="color:#8dd3c7"><a href="#162517" label="[16:25:17]">&lt;theruran&gt;</a></span><span class="message">in function `__mesabi_div0': /home/mes/lib/mes/div.c:43: undefined reference to `__raise'</span></div><div class="line" id="163042"><span class="nick" style="color:#8dd3c7"><a href="#163042" label="[16:30:42]">&lt;theruran&gt;</a></span><span class="message">is texinfo bootstrapped?</span></div><div class="line" id="172533"><span class="nick" style="color:#6b8072"><a href="#172533" label="[17:25:33]">&lt;Hagfish&gt;</a></span><span class="message">theruran: i don't know if this answers your question, but i see &quot;texinfo 6.7&quot; here: <a rel="nofollow" href="https://github.com/stikonas/live-bootstrap/blob/master/parts.rst#89texinfo-67">https://github.com/stikonas/live-bootstrap/blob/master/parts.rst#89texinfo-67</a> </span></div><div class="line" id="191550"><span class="nick" style="color:#8dd3c7"><a href="#191550" label="[19:15:50]">&lt;theruran&gt;</a></span><span class="message">I thought maybe since it's written in C that once you have GCC you're good. but then maybe it's dependent on some more pieces that are troublesome to bootstrap?</span></div><div class="line" id="191700"><span class="nick" style="color:#8dd3c7"><a href="#191700" label="[19:17:00]">&lt;theruran&gt;</a></span><span class="message">makeinfo sounds like a quick implementation in Bash?</span></div><div class="line" id="191854"><span class="nick" style="color:#2e2a4a"><a href="#191854" label="[19:18:54]">&lt;oriansj&gt;</a></span><span class="message">theruran: very few things tend to keep simple builds over time.</span></div><div class="line" id="192031"><span class="nick" style="color:#8dd3c7"><a href="#192031" label="[19:20:31]">&lt;theruran&gt;</a></span><span class="message">it would have to be an explicit goal</span></div><div class="line" id="200210"><span class="nick" style="color:#80b1d3"><a href="#200210" label="[20:02:10]">&lt;stikonas[m]&gt;</a></span><span class="message">theruran: makeinfo needs new perl, not just C</span></div><div class="line" id="200227"><span class="nick" style="color:#80b1d3"><a href="#200227" label="[20:02:27]">&lt;stikonas[m]&gt;</a></span><span class="message">But that's done in live-bootstrap</span></div><div class="line" id="200251"><span class="nick" style="color:#80b1d3"><a href="#200251" label="[20:02:51]">&lt;stikonas[m]&gt;</a></span><span class="message">Which ATM is x86 only</span></div><br /></div></body></html>

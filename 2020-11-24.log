@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-11-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="032205"><span class="nick" style="color:#8dd3c7"><a href="#032205" label="[03:22:05]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.anandtech.com/show/16269/microsoft-pluton-hardware-security-coming-to-our-cpus-amd-intel-qualcomm">https://www.anandtech.com/show/16269/microsoft-pluton-hardware-security-coming-to-our-cpus-amd-intel-qualcomm</a> </span></div><div class="line" id="032223"><span class="nick" style="color:#8dd3c7"><a href="#032223" label="[03:22:23]">&lt;Hagfish&gt;</a></span><span class="message">just the phrase &quot;chip-to-cloud security&quot; has me feeling sick</span></div><div class="line" id="083820"><span class="nick" style="color:#2e2a4a"><a href="#083820" label="[08:38:20]">&lt;fossy&gt;</a></span><span class="message">OriansJ: i just ensured that kaem builds and tests pass, i pushed it to mescc-tools.</span></div><div class="line" id="083824"><span class="nick" style="color:#2e2a4a"><a href="#083824" label="[08:38:24]">&lt;fossy&gt;</a></span><span class="message">now i will try mescc-tools-seed</span></div><div class="line" id="085738"><span class="nick" style="color:#2e2a4a"><a href="#085738" label="[08:57:38]">&lt;fossy&gt;</a></span><span class="message">OriansJ: ah, i just pulled the latest M2-Planet and now it dosen't build.</span></div><div class="line" id="085813"><span class="nick" style="color:#2e2a4a"><a href="#085813" label="[08:58:13]">&lt;fossy&gt;</a></span><span class="message">commit 57264eb15775f6ff70395931418e6e1dcc85467e is highly problematic for kaem</span></div><div class="line" id="085813"><span class="nick" style="color:#2e2a4a"><a href="#085813" label="[08:58:13]">&lt;fossy&gt;</a></span><span class="message">literally everything is in a loop</span></div><div class="line" id="085819"><span class="nick" style="color:#2e2a4a"><a href="#085819" label="[08:58:19]">&lt;fossy&gt;</a></span><span class="message">so, idk... fuzzing kaem never came across this issue. could we hide this behind a flag or have a way to disable it or smth</span></div><div class="line" id="085832"><span class="nick" style="color:#2e2a4a"><a href="#085832" label="[08:58:32]">&lt;fossy&gt;</a></span><span class="message">i don't rly get the prupose of this either</span></div><div class="line" id="085856"><span class="nick" style="color:#2e2a4a"><a href="#085856" label="[08:58:56]">&lt;fossy&gt;</a></span><span class="message">if there is a legitimate reason i can fix it but it will be quite painful to od</span></div><div class="line" id="090331"><span class="nick" style="color:#2e2a4a"><a href="#090331" label="[09:03:31]">&lt;fossy&gt;</a></span><span class="message">ah, ok, it's not exactly what i though</span></div><div class="line" id="090358"><span class="nick" style="color:#2e2a4a"><a href="#090358" label="[09:03:58]">&lt;fossy&gt;</a></span><span class="message">but it def makes the code less clean</span></div><div class="line" id="090358"><span class="nick" style="color:#2e2a4a"><a href="#090358" label="[09:03:58]">&lt;fossy&gt;</a></span><span class="message">i'll push anyway for now</span></div><div class="line" id="130342"><span class="nick" style="color:#6b8072"><a href="#130342" label="[13:03:42]">&lt;OriansJ&gt;</a></span><span class="message">fossy: thank you for the work; the reason for not allowing the creation of variables inside of loops has to do with how M2-Planet creates variables and when done inside of a loop results in the function returning to something other than the calling function.</span></div><div class="line" id="130436"><span class="nick" style="color:#6b8072"><a href="#130436" label="[13:04:36]">&lt;OriansJ&gt;</a></span><span class="message">Which is one of the primary reasons for M2-Planet binaries segfaulting. Thus it is better to show an easy to fix error to the programmer, then create a hard to debug binary.</span></div><div class="line" id="131435"><span class="nick" style="color:#6b8072"><a href="#131435" label="[13:14:35]">&lt;OriansJ&gt;</a></span><span class="message">and fossy I had to make a minor change to get kaem to build with gcc 10 (Just ignore kaem_globals.h when doing mescc-tools-seed)</span></div><div class="line" id="162921"><span class="nick" style="color:#8dd3c7"><a href="#162921" label="[16:29:21]">&lt;Hagfish&gt;</a></span><span class="message"> <a rel="nofollow" href="http://www.mynor.org/">http://www.mynor.org/</a> </span></div><div class="line" id="162924"><span class="nick" style="color:#8dd3c7"><a href="#162924" label="[16:29:24]">&lt;Hagfish&gt;</a></span><span class="message">the absolute madlad</span></div><div class="line" id="170424"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="204604"><span class="nick" style="color:#2e2a4a"><a href="#204604" label="[20:46:04]">&lt;fossy&gt;</a></span><span class="message">OriansJ: ah, I see</span></div><div class="line" id="204625"><span class="nick" style="color:#2e2a4a"><a href="#204625" label="[20:46:25]">&lt;fossy&gt;</a></span><span class="message">OriansJ: ok, cool, I dont have gcc 10 installed yet</span></div><br /></div></body></html>

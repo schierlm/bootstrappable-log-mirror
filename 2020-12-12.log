@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-12-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="014311"><span class="nick">***</span><span class="message notice">yt is now known as yt_</span></div><div class="line" id="020413"><span class="nick">***</span><span class="message notice">scs is now known as Guest87482</span></div><div class="line" id="031735"><span class="nick" style="color:#8dd3c7"><a href="#031735" label="[03:17:35]">&lt;siraben&gt;</a></span><span class="message">pder: out of curiosity what command did you run to apply the patch?</span></div><div class="line" id="031756"><span class="nick" style="color:#8dd3c7"><a href="#031756" label="[03:17:56]">&lt;siraben&gt;</a></span><span class="message">to lonely.hs</span></div><div class="line" id="031816"><span class="nick" style="color:#2e2a4a"><a href="#031816" label="[03:18:16]">&lt;pder&gt;</a></span><span class="message">I actually just patched it manually</span></div><div class="line" id="031831"><span class="nick" style="color:#2e2a4a"><a href="#031831" label="[03:18:31]">&lt;pder&gt;</a></span><span class="message">Then I made a few more changes on those ffi lines</span></div><div class="line" id="031838"><span class="nick" style="color:#8dd3c7"><a href="#031838" label="[03:18:38]">&lt;siraben&gt;</a></span><span class="message">I see</span></div><div class="line" id="031859"><span class="nick" style="color:#2e2a4a"><a href="#031859" label="[03:18:59]">&lt;pder&gt;</a></span><span class="message">I figured out how to get it to build though.  There were some hints in that site directory</span></div><div class="line" id="031918"><span class="nick" style="color:#8dd3c7"><a href="#031918" label="[03:19:18]">&lt;siraben&gt;</a></span><span class="message">could you send the new diff?</span></div><div class="line" id="032406"><span class="nick" style="color:#2e2a4a"><a href="#032406" label="[03:24:06]">&lt;pder&gt;</a></span><span class="message">Can you fetch from my repo?  I just pushed the modified lonely.hs to the ghc-compat branch</span></div><div class="line" id="032425"><span class="nick" style="color:#2e2a4a"><a href="#032425" label="[03:24:25]">&lt;pder&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/pder/blynn-compiler.git">https://github.com/pder/blynn-compiler.git</a> </span></div><div class="line" id="032527"><span class="nick" style="color:#8dd3c7"><a href="#032527" label="[03:25:27]">&lt;siraben&gt;</a></span><span class="message">nice, it works.</span></div><div class="line" id="032547"><span class="nick" style="color:#8dd3c7"><a href="#032547" label="[03:25:47]">&lt;siraben&gt;</a></span><span class="message">what hints were there in the site folder?</span></div><div class="line" id="032621"><span class="nick" style="color:#2e2a4a"><a href="#032621" label="[03:26:21]">&lt;pder&gt;</a></span><span class="message">I did a git grep ioBind and ioPure</span></div><div class="line" id="032658"><span class="nick" style="color:#8dd3c7"><a href="#032658" label="[03:26:58]">&lt;siraben&gt;</a></span><span class="message">Ah various wrap*.hs files I see</span></div><div class="line" id="032704"><span class="nick" style="color:#2e2a4a"><a href="#032704" label="[03:27:04]">&lt;pder&gt;</a></span><span class="message">and exitSuccess</span></div><div class="line" id="032740"><span class="nick" style="color:#8dd3c7"><a href="#032740" label="[03:27:40]">&lt;siraben&gt;</a></span><span class="message">Ben Lynn must have used these to work with the Haskell files</span></div><div class="line" id="032914"><span class="nick" style="color:#2e2a4a"><a href="#032914" label="[03:29:14]">&lt;pder&gt;</a></span><span class="message">How close is the precisely (the final stage) of blynn-compiler to Haskell?</span></div><div class="line" id="032945"><span class="nick" style="color:#8dd3c7"><a href="#032945" label="[03:29:45]">&lt;siraben&gt;</a></span><span class="message">very close</span></div><div class="line" id="033021"><span class="nick" style="color:#8dd3c7"><a href="#033021" label="[03:30:21]">&lt;siraben&gt;</a></span><span class="message">Modules are missing, though</span></div><div class="line" id="033049"><span class="nick" style="color:#8dd3c7"><a href="#033049" label="[03:30:49]">&lt;siraben&gt;</a></span><span class="message">it's very idiomatic since now he has guards and equations</span></div><div class="line" id="033402"><span class="nick" style="color:#2e2a4a"><a href="#033402" label="[03:34:02]">&lt;pder&gt;</a></span><span class="message">So i wanted to try running lonely in ghci but with redirecting input like &lt; patty.hs.  Do you how I could do that?</span></div><div class="line" id="033521"><span class="nick" style="color:#8dd3c7"><a href="#033521" label="[03:35:21]">&lt;siraben&gt;</a></span><span class="message">use runhaskell to run something in script mode</span></div><div class="line" id="033523"><span class="nick" style="color:#8dd3c7"><a href="#033523" label="[03:35:23]">&lt;siraben&gt;</a></span><span class="message"> echo &quot;main s = s;&quot; | runhaskell lonely.hs</span></div><div class="line" id="040732"><span class="nick" style="color:#2e2a4a"><a href="#040732" label="[04:07:32]">&lt;pder&gt;</a></span><span class="message">I still wanted to have debugging capabilities.  In gdb I would do &quot;set args &lt; patty.hs&quot;</span></div><div class="line" id="041122"><span class="nick" style="color:#8dd3c7"><a href="#041122" label="[04:11:22]">&lt;siraben&gt;</a></span><span class="message">pder: it doesn't appear that lonely.hs read any arguments, so you can just use the REPL exclusively</span></div><div class="line" id="041240"><span class="nick" style="color:#8dd3c7"><a href="#041240" label="[04:12:40]">&lt;siraben&gt;</a></span><span class="message">Type this at the REPL; `do { x &lt;- Prelude.readFile &quot;lonely.hs&quot;; putStr (compile x) }`</span></div><div class="line" id="041538"><span class="nick" style="color:#2e2a4a"><a href="#041538" label="[04:15:38]">&lt;pder&gt;</a></span><span class="message">awesome, thanks</span></div><div class="line" id="042231"><span class="nick" style="color:#8dd3c7"><a href="#042231" label="[04:22:31]">&lt;siraben&gt;</a></span><span class="message">Or equivalently, `Prelude.readFile &quot;lonely.hs&quot; &gt;&gt;= putStr . compile`, heh.</span></div><div class="line" id="085730"><span class="nick">***</span><span class="message notice">scs is now known as Guest87665</span></div><div class="line" id="090756"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado_</span></div><div class="line" id="090758"><span class="nick">***</span><span class="message notice">rekado_ is now known as rekado</span></div><div class="line" id="150312"><span class="nick" style="color:#6b8072"><a href="#150312" label="[15:03:12]">&lt;OriansJ&gt;</a></span><span class="message">nice to see the haskell side of the equation making good progress.</span></div><div class="line" id="150439"><span class="nick" style="color:#6b8072"><a href="#150439" label="[15:04:39]">&lt;OriansJ&gt;</a></span><span class="message">yt: I should be done reviewing later today (assuming no other hardware problems expode in my face today)</span></div><div class="line" id="183355"><span class="nick" style="color:#80b1d3"><a href="#183355" label="[18:33:55]">&lt;yt_&gt;</a></span><span class="message">OriansJ: awesome, I'll put up a pull request for kaem once cc_aarch64 is merged</span></div><div class="line" id="192817"><span class="nick" style="color:#8dd3c7"><a href="#192817" label="[19:28:17]">&lt;siraben&gt;</a></span><span class="message">9732a8852bf92b4097f275da4ceba3b718138a5e16190cbef43bbd4be42a27dd  bin/raw</span></div><div class="line" id="192838"><span class="nick" style="color:#8dd3c7"><a href="#192838" label="[19:28:38]">&lt;siraben&gt;</a></span><span class="message">i built blynn-compiler on my phone running i686 using <a rel="nofollow" href="https://ish.app/">https://ish.app/</a> </span></div><div class="line" id="192906"><span class="nick" style="color:#6d2462"><a href="#192906" label="[19:29:06]">&lt;rain1&gt;</a></span><span class="message">wow!</span></div><div class="line" id="193609"><span class="nick" style="color:#6b8072"><a href="#193609" label="[19:36:09]">&lt;OriansJ&gt;</a></span><span class="message">siraben: prefect reproducibility is the goal</span></div><div class="line" id="194257"><span class="nick" style="color:#6b8072"><a href="#194257" label="[19:42:57]">&lt;OriansJ&gt;</a></span><span class="message">siraben: wait until you discover using M2-Planet and mescc-tools on armv7l/PowerPC/MIPS/etc and the steps inside of go.sh; the generated binaries are identical too</span></div><div class="line" id="194436"><span class="nick" style="color:#6b8072"><a href="#194436" label="[19:44:36]">&lt;OriansJ&gt;</a></span><span class="message">one needs only to use the armv7l or AArch64 bits in M2-Planet to get working binaries  that also produce identical output for bin/raw</span></div><div class="line" id="200755"><span class="nick" style="color:#8dd3c7"><a href="#200755" label="[20:07:55]">&lt;siraben&gt;</a></span><span class="message">nice! I have an armv7l-based tablet i could try</span></div><div class="line" id="204730"><span class="nick" style="color:#6b8072"><a href="#204730" label="[20:47:30]">&lt;OriansJ&gt;</a></span><span class="message">siraben: give me a couple moments and I'll have something special for you</span></div><div class="line" id="210514"><span class="nick" style="color:#6b8072"><a href="#210514" label="[21:05:14]">&lt;OriansJ&gt;</a></span><span class="message"> <a rel="nofollow" href="http://paste.debian.net/1176622/">http://paste.debian.net/1176622/</a> </span></div><div class="line" id="210605"><span class="nick" style="color:#6b8072"><a href="#210605" label="[21:06:05]">&lt;OriansJ&gt;</a></span><span class="message">warning ./bin/vm is *SLOW* (I'll time it later for raspberryPI)</span></div><div class="line" id="210837"><span class="nick" style="color:#6b8072"><a href="#210837" label="[21:08:37]">&lt;OriansJ&gt;</a></span><span class="message">and yes bin/raw will also be 9732a8852bf92b4097f275da4ceba3b718138a5e16190cbef43bbd4be42a27dd</span></div><div class="line" id="211233"><span class="nick" style="color:#6b8072"><a href="#211233" label="[21:12:33]">&lt;OriansJ&gt;</a></span><span class="message">and generated/lonely.c will be b93440e0ee8b01ba173d88f8774717245819512bdf55e48d47f7ac7eb46ea4e4 (identicial to x86 generated output)</span></div><div class="line" id="215429"><span class="nick">***</span><span class="message notice">scs is now known as Guest44764</span></div><div class="line" id="220355"><span class="nick" style="color:#6b8072"><a href="#220355" label="[22:03:55]">&lt;OriansJ&gt;</a></span><span class="message">looks like 8 minutes and 6 seconds to generate bin/raw but in the scheme o things; not half bad</span></div><div class="line" id="220824"><span class="nick" style="color:#6b8072"><a href="#220824" label="[22:08:24]">&lt;OriansJ&gt;</a></span><span class="message">and ./bin/vm -f lonely.hs -l bin/raw run effectively.hs &gt;&gt; generated/lonely.c on raspberryPI is taking just 3minutes and 20 seconds (when built with M2-Planet and mescc-tools)</span></div><div class="line" id="222126"><span class="nick" style="color:#6b8072"><a href="#222126" label="[22:21:26]">&lt;OriansJ&gt;</a></span><span class="message">siraben: a similiar patch will work for AMD64 and AArch64</span></div><div class="line" id="222311"><span class="nick" style="color:#8dd3c7"><a href="#222311" label="[22:23:11]">&lt;siraben&gt;</a></span><span class="message">OriansJ: Thanks! I'll try the patch tomorrow.</span></div><div class="line" id="222405"><span class="nick" style="color:#6b8072"><a href="#222405" label="[22:24:05]">&lt;OriansJ&gt;</a></span><span class="message">yt: finished reviewing the DEFINEs and should be done reviewing in the next couple hours</span></div><div class="line" id="235957"><span class="nick">***</span><span class="message notice">scs is now known as Guest6425</span></div><br /></div></body></html>

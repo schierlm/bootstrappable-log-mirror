@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-05-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="091028"><span class="nick" style="color:#8dd3c7"><a href="#091028" label="[09:10:28]">&lt;janneke&gt;</a></span><span class="message">OriansJ: no! ... wow</span></div><div class="line" id="093924"><span class="nick" style="color:#2e2a4a"><a href="#093924" label="[09:39:24]">&lt;fossy&gt;</a></span><span class="message">OriansJ: this is exciting, is this a M3-? piece?</span></div><div class="line" id="214251"><span class="nick" style="color:#6b8072"><a href="#214251" label="[21:42:51]">&lt;OriansJ&gt;</a></span><span class="message">janneke: ?</span></div><div class="line" id="214445"><span class="nick" style="color:#8dd3c7"><a href="#214445" label="[21:44:45]">&lt;janneke&gt;</a></span><span class="message">=&gt; &quot;&lt;OriansJ&gt; I am writing a linker to enable a much more powerful assembler ...&quot;</span></div><div class="line" id="214446"><span class="nick" style="color:#6b8072"><a href="#214446" label="[21:44:46]">&lt;OriansJ&gt;</a></span><span class="message">fossy: yes, right now I am writing the logic to read the various ELF bits required by the linker and then I'll write the bits to write out the final ELF binary. Then I'll do multiple ports with it. Then I'll work on the assembler</span></div><div class="line" id="214539"><span class="nick" style="color:#8dd3c7"><a href="#214539" label="[21:45:39]">&lt;janneke&gt;</a></span><span class="message">i admire[d] hex2 and M1 for their simplicity, wondering where this goes</span></div><div class="line" id="214544"><span class="nick" style="color:#8dd3c7"><a href="#214544" label="[21:45:44]">&lt;janneke&gt;</a></span><span class="message">sounds exciting</span></div><div class="line" id="214716"><span class="nick" style="color:#6b8072"><a href="#214716" label="[21:47:16]">&lt;OriansJ&gt;</a></span><span class="message">janneke: this goes to making MesCC and M3-Star able to use The Gnu Assembler in development and only the M3 assembler and linker when bootstrapping</span></div><div class="line" id="214956"><span class="nick" style="color:#6b8072"><a href="#214956" label="[21:49:56]">&lt;OriansJ&gt;</a></span><span class="message">It'll also allow us to target aarch64, RISC-V and SPARC-V effectively (as they don't have 8, 16 or 32bit immediates)</span></div><div class="line" id="215404"><span class="nick" style="color:#6b8072"><a href="#215404" label="[21:54:04]">&lt;OriansJ&gt;</a></span><span class="message">plus it'll make seperate segments possible and various other elf  features available to us for the first time as hex2 is quite limited in terms of expressing displacemenets</span></div><div class="line" id="215549"><span class="nick" style="color:#6b8072"><a href="#215549" label="[21:55:49]">&lt;OriansJ&gt;</a></span><span class="message">and assuming MesCC expands to be able to build binutils directly. It then would be able to use binutils directly for the rest of the bootstrap</span></div><div class="line" id="215606"><span class="nick" style="color:#8dd3c7"><a href="#215606" label="[21:56:06]">&lt;janneke&gt;</a></span><span class="message">yeah, terriffic!</span></div><div class="line" id="215743"><span class="nick" style="color:#6b8072"><a href="#215743" label="[21:57:43]">&lt;OriansJ&gt;</a></span><span class="message">hopefully you are ok with my proposed change of plan for MesCC</span></div><div class="line" id="215837"><span class="nick" style="color:#6b8072"><a href="#215837" label="[21:58:37]">&lt;OriansJ&gt;</a></span><span class="message">as any feature in the gnu assembler you end up using, I'll have to end up implementing</span></div><div class="line" id="215938"><span class="nick" style="color:#6b8072"><a href="#215938" label="[21:59:38]">&lt;OriansJ&gt;</a></span><span class="message">and getting MesCC building binutils will be a great half-point mark for getting MesCC tools able to build GCC directly.</span></div><div class="line" id="221136"><span class="nick" style="color:#8dd3c7"><a href="#221136" label="[22:11:36]">&lt;janneke&gt;</a></span><span class="message">you have been doing some pretty crazy things before; go for it!</span></div><div class="line" id="221921"><span class="nick" style="color:#6b8072"><a href="#221921" label="[22:19:21]">&lt;OriansJ&gt;</a></span><span class="message">who knows maybe someone will solve writing a C preprocessor in M2-Planet for me before I get to it. Assuming they do minor tweaks in their output M3-Star's Toeknizer could just be only concerned about whitespace.</span></div><div class="line" id="224141"><span class="nick" style="color:#6b8072"><a href="#224141" label="[22:41:41]">&lt;OriansJ&gt;</a></span><span class="message">one could argue everything I have done in bootstrapping to this point is an example of bats in the belfry wackjob insanity.</span></div><div class="line" id="224423"><span class="nick" style="color:#6b8072"><a href="#224423" label="[22:44:23]">&lt;OriansJ&gt;</a></span><span class="message">What sort of reasonaable person says: hey I am going to bootstrap GCC after wiring up some transistors on a long dead architecture; right after I hand toggle in some bytes to have a hex monitor and write not 1 but more than a dozen C compilers in assembly; because you know a cross-platform C compiler in assembly is fun to write????</span></div><div class="line" id="224602"><span class="nick" style="color:#6b8072"><a href="#224602" label="[22:46:02]">&lt;OriansJ&gt;</a></span><span class="message">Now I</span></div><div class="line" id="224620"><span class="nick" style="color:#8dd3c7"><a href="#224620" label="[22:46:20]">&lt;janneke&gt;</a></span><span class="message">hehe</span></div><div class="line" id="224710"><span class="nick" style="color:#6b8072"><a href="#224710" label="[22:47:10]">&lt;OriansJ&gt;</a></span><span class="message">am going to be injesting hundreds of pages of ELF specifications and architecture specific elf sections to implment something to be used exactly once.</span></div><div class="line" id="224810"><span class="nick" style="color:#6b8072"><a href="#224810" label="[22:48:10]">&lt;OriansJ&gt;</a></span><span class="message">Then I am to write a FULL at&amp;t assembler in C, for not just one architecture but ALL of them</span></div><div class="line" id="224937"><span class="nick" style="color:#6b8072"><a href="#224937" label="[22:49:37]">&lt;OriansJ&gt;</a></span><span class="message">Then go, hey I clearly like pain and write a full C parser by hand with backtracing to implement a full C macro preprocessor that preserves whitespacing to ensure effectively error codes in the C compiler I am going to wring out of TCC</span></div><div class="line" id="225039"><span class="nick" style="color:#6b8072"><a href="#225039" label="[22:50:39]">&lt;OriansJ&gt;</a></span><span class="message">Only to have to get back to mes-m2 and have to figure out how to do syntax-case macros in C</span></div><div class="line" id="225208"><span class="nick" style="color:#6b8072"><a href="#225208" label="[22:52:08]">&lt;OriansJ&gt;</a></span><span class="message">Oh and I have to help bauen1 get a POSIX bootstrapped from nothing to solve the Linux bootstrap problem too</span></div><div class="line" id="225438"><span class="nick" style="color:#6b8072"><a href="#225438" label="[22:54:38]">&lt;OriansJ&gt;</a></span><span class="message">THen I can write a book called &quot;Evidence of my insanity: a bootstrapping journey worthy of Cthulhu level madness&quot;</span></div><div class="line" id="225749"><span class="nick" style="color:#6b8072"><a href="#225749" label="[22:57:49]">&lt;OriansJ&gt;</a></span><span class="message">Then like Lennart Poettering, I can spend the next 20 years listening to people tear me a new asshole; because of all the obvious mistakes I made along the way. Along with the people claiming I work for the CIA/NSA/SHiT and this is all an elaborate way to rootkit Linux.</span></div><div class="line" id="230226"><span class="nick" style="color:#8dd3c7"><a href="#230226" label="[23:02:26]">&lt;janneke&gt;</a></span><span class="message">Sounds like a plan :)</span></div><div class="line" id="230311"><span class="nick" style="color:#6b8072"><a href="#230311" label="[23:03:11]">&lt;OriansJ&gt;</a></span><span class="message">^_^ I am glad we are on the same page</span></div><div class="line" id="230339"><span class="nick" style="color:#8dd3c7"><a href="#230339" label="[23:03:39]">&lt;janneke&gt;</a></span><span class="message">&quot;there was this other person who also said it was a good idea&quot;</span></div><div class="line" id="230442"><span class="nick" style="color:#6b8072"><a href="#230442" label="[23:04:42]">&lt;OriansJ&gt;</a></span><span class="message">Yeah, didn't he once plan on writing a scheme interpreter in hex?</span></div><div class="line" id="230539"><span class="nick" style="color:#6b8072"><a href="#230539" label="[23:05:39]">&lt;OriansJ&gt;</a></span><span class="message">not assembly but like pure hex after seeing a hex assembler written in hex once.</span></div><div class="line" id="230621"><span class="nick" style="color:#6b8072"><a href="#230621" label="[23:06:21]">&lt;OriansJ&gt;</a></span><span class="message">Only to get blind sided by the crazy guy who wrote that hex assembler after he saw the talk</span></div><div class="line" id="230826"><span class="nick" style="color:#6b8072"><a href="#230826" label="[23:08:26]">&lt;OriansJ&gt;</a></span><span class="message">who actually wrote a garbage collecting, compacting lisp in assembly and a FORTH and jumped through all of the suggestions until finally saying &quot;fuck it. how bad can it be to write a C compiler in assembly?&quot;</span></div><div class="line" id="230835"><span class="nick" style="color:#8dd3c7"><a href="#230835" label="[23:08:35]">&lt;janneke&gt;</a></span><span class="message">this cwazee person, like</span></div><div class="line" id="230853"><span class="nick" style="color:#8dd3c7"><a href="#230853" label="[23:08:53]">&lt;janneke&gt;</a></span><span class="message">perfectly sensible engineering</span></div><div class="line" id="231008"><span class="nick" style="color:#6b8072"><a href="#231008" label="[23:10:08]">&lt;OriansJ&gt;</a></span><span class="message">well he certainly had alot of inspiring help, from a scheme programmer who actually got the Guix bootstrap to shrink repeatedly.</span></div><br /></div></body></html>

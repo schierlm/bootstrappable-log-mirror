@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-06-09.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000051"><span class="nick" style="color:#389600"><a href="#000051" label="[00:00:51]">&lt;oriansj&gt;</a></span><span class="message">well I have been maintaining this: <a rel="nofollow" href="https://git.sr.ht/~oriansj/bootstrappable-wiki">https://git.sr.ht/~oriansj/bootstrappable-wiki</a> </span></div><div class="line" id="000256"><span class="nick" style="color:#389600"><a href="#000256" label="[00:02:56]">&lt;oriansj&gt;</a></span><span class="message">i just haven't figured out how to convert markdown into html, gemini and gopher so that our wiki would be available in a more robust fashion.</span></div><div class="line" id="000404"><span class="nick" style="color:#8dd3c7"><a href="#000404" label="[00:04:04]">&lt;theruran&gt;</a></span><span class="message">oriansj: pandoc can do Markdown to HTML and plain text. I am sure there are multiple software for converting from Markdown to Gemtext</span></div><div class="line" id="000524"><span class="nick" style="color:#8dd3c7"><a href="#000524" label="[00:05:24]">&lt;theruran&gt;</a></span><span class="message">just searching GitHub, <a rel="nofollow" href="https://github.com/Azumabashi/markdown2gemtext">https://github.com/Azumabashi/markdown2gemtext</a>  and <a rel="nofollow" href="https://github.com/n0x1m/md2gmi">https://github.com/n0x1m/md2gmi</a> </span></div><div class="line" id="000538"><span class="nick" style="color:#8dd3c7"><a href="#000538" label="[00:05:38]">&lt;theruran&gt;</a></span><span class="message">or you could probably do it with roff macros :D</span></div><div class="line" id="000759"><span class="nick" style="color:#8dd3c7"><a href="#000759" label="[00:07:59]">&lt;theruran&gt;</a></span><span class="message">oh, I think I meant m4</span></div><div class="line" id="001226"><span class="nick" style="color:#389600"><a href="#001226" label="[00:12:26]">&lt;oriansj&gt;</a></span><span class="message">a bit of analysis paralysis I guess but yeah</span></div><div class="line" id="001502"><span class="nick" style="color:#389600"><a href="#001502" label="[00:15:02]">&lt;oriansj&gt;</a></span><span class="message">as I own the <a rel="nofollow" href="https://wiki.bootstrapping.world/">https://wiki.bootstrapping.world/</a>  domain and have a server dedicated to running the wiki; my thought was make the wiki be a git repo and do an automatic git pull on a routine basis and give commit access to the git repo to anyone who productively works on the wiki</span></div><div class="line" id="001549"><span class="nick" style="color:#389600"><a href="#001549" label="[00:15:49]">&lt;oriansj&gt;</a></span><span class="message">that way it would be trivial for anyone to fork the wiki going forward and if I go crazy to set up an alternate quickly</span></div><div class="line" id="001906"><span class="nick" style="color:#389600"><a href="#001906" label="[00:19:06]">&lt;oriansj&gt;</a></span><span class="message">I was thinking ikiwiki as that is what the permacomputing community uses or lowdown as it supports a good few options out of the box (and they are both in guix)</span></div><div class="line" id="020936"><span class="nick" style="color:#2e2a4a"><a href="#020936" label="[02:09:36]">&lt;pabs3&gt;</a></span><span class="message">ikiwiki on branchable.com also has ways to do anonymous git push, which is nice for wikis</span></div><div class="line" id="025310"><span class="nick" style="color:#389600"><a href="#025310" label="[02:53:10]">&lt;oriansj&gt;</a></span><span class="message">honestly as long as the git history is append-only; in theory anyone should be able to commit</span></div><div class="line" id="035200"><span class="nick" style="color:#6b8072"><a href="#035200" label="[03:52:00]">&lt;drakonis&gt;</a></span><span class="message">has anyone actually written an assembler using m4?</span></div><div class="line" id="035319"><span class="nick" style="color:#80b1d3"><a href="#035319" label="[03:53:19]">&lt;muurkha&gt;</a></span><span class="message">not that I know of</span></div><div class="line" id="035406"><span class="nick" style="color:#80b1d3"><a href="#035406" label="[03:54:06]">&lt;muurkha&gt;</a></span><span class="message">bitfields are not its strong point</span></div><div class="line" id="035423"><span class="nick" style="color:#80b1d3"><a href="#035423" label="[03:54:23]">&lt;muurkha&gt;</a></span><span class="message">it's more designed to be used as a front end to a simple assembler</span></div><div class="line" id="035655"><span class="nick" style="color:#6b8072"><a href="#035655" label="[03:56:55]">&lt;drakonis&gt;</a></span><span class="message">i see</span></div><div class="line" id="040611"><span class="nick" style="color:#80b1d3"><a href="#040611" label="[04:06:11]">&lt;muurkha&gt;</a></span><span class="message">it's possible to do I think</span></div><div class="line" id="040646"><span class="nick" style="color:#80b1d3"><a href="#040646" label="[04:06:46]">&lt;muurkha&gt;</a></span><span class="message">Plauger said that one of the worst things he'd done in his life was write a relocating linker in QED, the predecessor to ed</span></div><div class="line" id="040713"><span class="nick" style="color:#80b1d3"><a href="#040713" label="[04:07:13]">&lt;muurkha&gt;</a></span><span class="message">I think that was one of the reasons you can't do that in ed</span></div><div class="line" id="040754"><span class="nick" style="color:#6b8072"><a href="#040754" label="[04:07:54]">&lt;drakonis&gt;</a></span><span class="message">qed?</span></div><div class="line" id="040823"><span class="nick" style="color:#80b1d3"><a href="#040823" label="[04:08:23]">&lt;muurkha&gt;</a></span><span class="message">and the fact that you could, in theory, write an assembler in m4 (or its predecessor m6, an ASCII version of GPM) is I think a major reason the C preprocessor is so limited</span></div><div class="line" id="040824"><span class="nick" style="color:#6b8072"><a href="#040824" label="[04:08:24]">&lt;drakonis&gt;</a></span><span class="message">actually</span></div><div class="line" id="040827"><span class="nick" style="color:#6b8072"><a href="#040827" label="[04:08:27]">&lt;drakonis&gt;</a></span><span class="message">how the heck does that work</span></div><div class="line" id="041008"><span class="nick" style="color:#80b1d3"><a href="#041008" label="[04:10:08]">&lt;muurkha&gt;</a></span><span class="message">which?</span></div><div class="line" id="043255"><span class="nick" style="color:#80b1d3"><a href="#043255" label="[04:32:55]">&lt;muurkha&gt;</a></span><span class="message">what do you mean?</span></div><div class="line" id="050132"><span class="nick" style="color:#6b8072"><a href="#050132" label="[05:01:32]">&lt;drakonis&gt;</a></span><span class="message">ah apologies, how do you do a relocating linker in QED?</span></div><div class="line" id="050424"><span class="nick" style="color:#80b1d3"><a href="#050424" label="[05:04:24]">&lt;muurkha&gt;</a></span><span class="message">well, I've never used QED, so I don't know what the difficulties were</span></div><div class="line" id="050631"><span class="nick" style="color:#80b1d3"><a href="#050631" label="[05:06:31]">&lt;muurkha&gt;</a></span><span class="message">but in general a linker concatenates like segments, composes a merged symbol table by offsetting some input symbol tables, and then iterates over a list of relocations, performing a fixup for each relocation according to the symbol table and the relocation type and value</span></div><div class="line" id="050714"><span class="nick" style="color:#80b1d3"><a href="#050714" label="[05:07:14]">&lt;muurkha&gt;</a></span><span class="message">and usually whatever value is previously at the location the relocation points to</span></div><div class="line" id="051033"><span class="nick" style="color:#80b1d3"><a href="#051033" label="[05:10:33]">&lt;muurkha&gt;</a></span><span class="message"> <a rel="nofollow" href="https://dl.acm.org/doi/10.1145/363848.363863">https://dl.acm.org/doi/10.1145/363848.363863</a>  is the paper describing the original QED.  not sure if the Bell Labs version is better-documented than <a rel="nofollow" href="https://www.bell-labs.com/usr/dmr/www/qed.html">https://www.bell-labs.com/usr/dmr/www/qed.html</a> </span></div><div class="line" id="051055"><span class="nick" style="color:#80b1d3"><a href="#051055" label="[05:10:55]">&lt;muurkha&gt;</a></span><span class="message">but that's probably what Plauger was using, unless my memory is failing me</span></div><div class="line" id="051329"><span class="nick" style="color:#80b1d3"><a href="#051329" label="[05:13:29]">&lt;muurkha&gt;</a></span><span class="message">aha, <a rel="nofollow" href="https://www.bell-labs.com/usr/dmr/www/qedman.html">https://www.bell-labs.com/usr/dmr/www/qedman.html</a>  is the manual</span></div><div class="line" id="051754"><span class="nick" style="color:#80b1d3"><a href="#051754" label="[05:17:54]">&lt;muurkha&gt;</a></span><span class="message">hmm, it's amusing that its &quot;regular expression&quot; facility supported matching arbitrary context-free grammars</span></div><div class="line" id="054600"><span class="nick" style="color:#80b1d3"><a href="#054600" label="[05:46:00]">&lt;muurkha&gt;</a></span><span class="message">the Lampson &amp; Deutsch paper has some amusing things to say about bootstrapping</span></div><div class="line" id="054904"><span class="nick" style="color:#80b1d3"><a href="#054904" label="[05:49:04]">&lt;muurkha&gt;</a></span><span class="message">&quot;One of the fundamental requirements for many computer users is some means of creating and altering text, i.e., strings of characters. Such texts are usually programs (...) The most common means of text handling in the last few years has been the punched card deck. (...) the fact that individual cards can be inserted and deleted manually in the middle of a deck has made the keypunch the most</span></div><div class="line" id="054910"><span class="nick" style="color:#80b1d3"><a href="#054910" label="[05:49:10]">&lt;muurkha&gt;</a></span><span class="message">convenient and popular device for text editing.</span></div><div class="line" id="054912"><span class="nick" style="color:#80b1d3"><a href="#054912" label="[05:49:12]">&lt;muurkha&gt;</a></span><span class="message">&quot;With the appearance of online systems, however, in which text is stored permanently within the system and never appears on external storage media, serious competition to the punched card has arisen. Since the online user has no access to his text except through his console and the computer, a program is needed, however minimal, to allow him to create and modify the text. Such a program is called</span></div><div class="line" id="054918"><span class="nick" style="color:#80b1d3"><a href="#054918" label="[05:49:18]">&lt;muurkha&gt;</a></span><span class="message">an *editor* and presupposes a reasonably large and powerful machine equipped with disk or drum storage. The user therefore gains more convenience than even the most elaborate keypunch can provide.&quot;</span></div><div class="line" id="063750"><span class="nick" style="color:#80b1d3"><a href="#063750" label="[06:37:50]">&lt;muurkha&gt;</a></span><span class="message">&quot;The original version of the system (...) was designed, written, and debugged by one man in less than a week, and the entire program now occupies less than 4000 words of reentrant code.&quot;</span></div><div class="line" id="063833"><span class="nick" style="color:#80b1d3"><a href="#063833" label="[06:38:33]">&lt;muurkha&gt;</a></span><span class="message">which is presumably 4000 instructions, though I could be wrong because I don't recall ever looking at the SDS 930 instruction encoding</span></div><div class="line" id="184018"><span class="nick" style="color:#389600"><a href="#184018" label="[18:40:18]">&lt;oriansj&gt;</a></span><span class="message">4K word leaves plenty of space for a pretty powerful editor as 370 instructions is enough for a basic line editor</span></div><div class="line" id="185718"><span class="nick" style="color:#389600"><a href="#185718" label="[18:57:18]">&lt;oriansj&gt;</a></span><span class="message">(and that is using my *very* bloated assembly code style)</span></div><div class="line" id="185950"><span class="nick" style="color:#389600"><a href="#185950" label="[18:59:50]">&lt;oriansj&gt;</a></span><span class="message">(255 instructions if one uses sloccount)</span></div><div class="line" id="230003"><span class="nick" style="color:#6d2462"><a href="#230003" label="[23:00:03]">&lt;stikonas&gt;</a></span><span class="message">hmm, I can now build tcc 0.9.26 (or to be more precise mes-tcc on riscv64 though it is a bit crashy and is not able to rebuilt itself)</span></div><div class="line" id="232751"><span class="nick" style="color:#6d2462"><a href="#232751" label="[23:27:51]">&lt;stikonas&gt;</a></span><span class="message">and at the very least mes/lib/linux/riscv64-mes-gcc/crt1.c has assembly that tcc doesn't understand</span></div><br /></div></body></html>

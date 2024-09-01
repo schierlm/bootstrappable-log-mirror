@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-08-05.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000027"><span class="nick" style="color:#389600"><a href="#000027" label="[00:00:27]">&lt;stikonas&gt;</a></span><span class="message">ok, I'll check now</span></div><div class="line" id="000254"><span class="nick" style="color:#389600"><a href="#000254" label="[00:02:54]">&lt;stikonas&gt;</a></span><span class="message">it seems better...</span></div><div class="line" id="000313"><span class="nick" style="color:#389600"><a href="#000313" label="[00:03:13]">&lt;stikonas&gt;</a></span><span class="message">there is still something wrong somewhere but it might be my fault...</span></div><div class="line" id="000357"><span class="nick" style="color:#389600"><a href="#000357" label="[00:03:57]">&lt;stikonas&gt;</a></span><span class="message">M1 finished sucessfully, then I appended elf header and hex2 produced binary but that binary dumped core...</span></div><div class="line" id="000449"><span class="nick" style="color:#8dd3c7"><a href="#000449" label="[00:04:49]">&lt;oriansj&gt;</a></span><span class="message">first sanity check, does that elf_header work with a hello world micro-program or exit 42 microprogram?</span></div><div class="line" id="000526"><span class="nick" style="color:#8dd3c7"><a href="#000526" label="[00:05:26]">&lt;oriansj&gt;</a></span><span class="message">(a simple M1 program that puts 42 in the required register and does the exit syscall)</span></div><div class="line" id="000645"><span class="nick" style="color:#8dd3c7"><a href="#000645" label="[00:06:45]">&lt;oriansj&gt;</a></span><span class="message">because there is always the possiblity RISC-V is doing the same sort of thing as PowerPC64le does with e_entry</span></div><div class="line" id="000708"><span class="nick" style="color:#8dd3c7"><a href="#000708" label="[00:07:08]">&lt;oriansj&gt;</a></span><span class="message">(also please share your elf-header so I can check for common mistakes</span></div><div class="line" id="000715"><span class="nick" style="color:#8dd3c7"><a href="#000715" label="[00:07:15]">&lt;oriansj&gt;</a></span><span class="message">)</span></div><div class="line" id="000909"><span class="nick" style="color:#389600"><a href="#000909" label="[00:09:09]">&lt;stikonas&gt;</a></span><span class="message">no, I think it's something with . operation</span></div><div class="line" id="000914"><span class="nick" style="color:#389600"><a href="#000914" label="[00:09:14]">&lt;stikonas&gt;</a></span><span class="message">so M1 produced</span></div><div class="line" id="000920"><span class="nick" style="color:#389600"><a href="#000920" label="[00:09:20]">&lt;stikonas&gt;</a></span><span class="message">.00000500 .00010000 00003003</span></div><div class="line" id="000936"><span class="nick" style="color:#389600"><a href="#000936" label="[00:09:36]">&lt;stikonas&gt;</a></span><span class="message">when assembled with hex2, hexdump shows</span></div><div class="line" id="000940"><span class="nick" style="color:#389600"><a href="#000940" label="[00:09:40]">&lt;stikonas&gt;</a></span><span class="message">0500 0331</span></div><div class="line" id="000952"><span class="nick" style="color:#389600"><a href="#000952" label="[00:09:52]">&lt;stikonas&gt;</a></span><span class="message">but I think we need 3503 0001</span></div><div class="line" id="001015"><span class="nick" style="color:#389600"><a href="#001015" label="[00:10:15]">&lt;stikonas&gt;</a></span><span class="message">my manually encoded .hex2 file had 03 35 01 00</span></div><div class="line" id="001137"><span class="nick" style="color:#389600"><a href="#001137" label="[00:11:37]">&lt;stikonas&gt;</a></span><span class="message">(I took elf header from <a rel="nofollow" href="https://github.com/stikonas/stage0-posix/blob/kaem-minimal_riscv/riscv64/Development/hex1_x86.hex0">https://github.com/stikonas/stage0-posix/blob/kaem-minimal_riscv/riscv64/Development/hex1_x86.hex0</a>) </span></div><div class="line" id="001341"><span class="nick" style="color:#8dd3c7"><a href="#001341" label="[00:13:41]">&lt;oriansj&gt;</a></span><span class="message">yeah you would have wanted .00000500 .00010000 30030000</span></div><div class="line" id="001413"><span class="nick" style="color:#8dd3c7"><a href="#001413" label="[00:14:13]">&lt;oriansj&gt;</a></span><span class="message">as the .hex are reversed but pure hex are kept in order</span></div><div class="line" id="001620"><span class="nick" style="color:#389600"><a href="#001620" label="[00:16:20]">&lt;stikonas&gt;</a></span><span class="message">oh ok</span></div><div class="line" id="001643"><span class="nick" style="color:#389600"><a href="#001643" label="[00:16:43]">&lt;stikonas&gt;</a></span><span class="message">so that's just a matter of reordering M1 defines</span></div><div class="line" id="001645"><span class="nick" style="color:#2e2a4a"><a href="#001645" label="[00:16:45]">&lt;xentrac&gt;</a></span><span class="message">so exciting to see this happening :)</span></div><div class="line" id="002113"><span class="nick" style="color:#389600"><a href="#002113" label="[00:21:13]">&lt;stikonas&gt;</a></span><span class="message">hmm  .00000500 .00010000 30030000 produces 0630 0001 that is strange</span></div><div class="line" id="002218"><span class="nick" style="color:#389600"><a href="#002218" label="[00:22:18]">&lt;stikonas&gt;</a></span><span class="message">oh, it has to be .00000500 .00010000  03300000</span></div><div class="line" id="002226"><span class="nick" style="color:#389600"><a href="#002226" label="[00:22:26]">&lt;stikonas&gt;</a></span><span class="message">this works</span></div><div class="line" id="002924"><span class="nick" style="color:#8dd3c7"><a href="#002924" label="[00:29:24]">&lt;oriansj&gt;</a></span><span class="message">big endian to little endian note: 12345678 -&gt; 78563412</span></div><div class="line" id="003059"><span class="nick" style="color:#389600"><a href="#003059" label="[00:30:59]">&lt;stikonas&gt;</a></span><span class="message">yeah, I figured it out...</span></div><div class="line" id="003113"><span class="nick" style="color:#389600"><a href="#003113" label="[00:31:13]">&lt;stikonas&gt;</a></span><span class="message">although, it was convenient for manual encoding to have them in the same order...</span></div><div class="line" id="003132"><span class="nick" style="color:#8dd3c7"><a href="#003132" label="[00:31:32]">&lt;oriansj&gt;</a></span><span class="message">completely fair</span></div><div class="line" id="003136"><span class="nick" style="color:#389600"><a href="#003136" label="[00:31:36]">&lt;stikonas&gt;</a></span><span class="message">I think I'll add normal order to . registers in the comment</span></div><div class="line" id="003202"><span class="nick" style="color:#389600"><a href="#003202" label="[00:32:02]">&lt;stikonas&gt;</a></span><span class="message">then I can take opcode define and register define from the comment and add them up</span></div><div class="line" id="003253"><span class="nick" style="color:#8dd3c7"><a href="#003253" label="[00:32:53]">&lt;oriansj&gt;</a></span><span class="message">sounds like a good plan</span></div><div class="line" id="004334"><span class="nick" style="color:#389600"><a href="#004334" label="[00:43:34]">&lt;stikonas&gt;</a></span><span class="message">oh, actually I should be fine without comments too</span></div><div class="line" id="004345"><span class="nick" style="color:#389600"><a href="#004345" label="[00:43:45]">&lt;stikonas&gt;</a></span><span class="message">I also need to reverse dotted definitions in M1 def file</span></div><div class="line" id="004808"><span class="nick" style="color:#8dd3c7"><a href="#004808" label="[00:48:08]">&lt;oriansj&gt;</a></span><span class="message">if you also use --little-endian flag</span></div><div class="line" id="004916"><span class="nick" style="color:#8dd3c7"><a href="#004916" label="[00:49:16]">&lt;oriansj&gt;</a></span><span class="message">but in RISC-V's case I am not certain as this is new code that I haven't played too much with.</span></div><div class="line" id="011127"><span class="nick" style="color:#389600"><a href="#011127" label="[01:11:27]">&lt;stikonas&gt;</a></span><span class="message">oriansj: yeah, I think something is still wrong</span></div><div class="line" id="011134"><span class="nick" style="color:#389600"><a href="#011134" label="[01:11:34]">&lt;stikonas&gt;</a></span><span class="message">I suspect immediates have wrong endianness</span></div><div class="line" id="011155"><span class="nick" style="color:#389600"><a href="#011155" label="[01:11:55]">&lt;stikonas&gt;</a></span><span class="message">as instructions without immedites/labels seem fine</span></div><div class="line" id="012128"><span class="nick" style="color:#389600"><a href="#012128" label="[01:21:28]">&lt;stikonas&gt;</a></span><span class="message">oriansj: e.g. for %56 M1 outputs .00008003 when I think it should output .03800000</span></div><div class="line" id="012153"><span class="nick" style="color:#389600"><a href="#012153" label="[01:21:53]">&lt;stikonas&gt;</a></span><span class="message">(so swap endian bytes and reverse order)</span></div><div class="line" id="012218"><span class="nick" style="color:#389600"><a href="#012218" label="[01:22:18]">&lt;stikonas&gt;</a></span><span class="message">well that 12345678 -&gt; 78563412 transformation</span></div><div class="line" id="012559"><span class="nick" style="color:#8dd3c7"><a href="#012559" label="[01:25:59]">&lt;oriansj&gt;</a></span><span class="message">I have an idea that might solve it.</span></div><div class="line" id="012622"><span class="nick" style="color:#389600"><a href="#012622" label="[01:26:22]">&lt;stikonas&gt;</a></span><span class="message">oriansj: also I think I spotted another bug</span></div><div class="line" id="012631"><span class="nick" style="color:#389600"><a href="#012631" label="[01:26:31]">&lt;stikonas&gt;</a></span><span class="message">probably related to why instructions with labels are wrong</span></div><div class="line" id="012642"><span class="nick" style="color:#8dd3c7"><a href="#012642" label="[01:26:42]">&lt;oriansj&gt;</a></span><span class="message">hex2 could read .hex in big-endian order then switch it to little-endian order.</span></div><div class="line" id="012716"><span class="nick" style="color:#8dd3c7"><a href="#012716" label="[01:27:16]">&lt;oriansj&gt;</a></span><span class="message">then it would look right in M1</span></div><div class="line" id="012733"><span class="nick" style="color:#389600"><a href="#012733" label="[01:27:33]">&lt;stikonas&gt;</a></span><span class="message">adding an extra arrays of .00000000 should do nothing</span></div><div class="line" id="012743"><span class="nick" style="color:#389600"><a href="#012743" label="[01:27:43]">&lt;stikonas&gt;</a></span><span class="message">but it changes value of @label</span></div><div class="line" id="012758"><span class="nick" style="color:#389600"><a href="#012758" label="[01:27:58]">&lt;stikonas&gt;</a></span><span class="message">so I think instruction counter is somehow incremented (during first pass?)</span></div><div class="line" id="012905"><span class="nick" style="color:#389600"><a href="#012905" label="[01:29:05]">&lt;stikonas&gt;</a></span><span class="message">anyway, like you said, this is a new code, so will take some time to catch the bugs</span></div><div class="line" id="012953"><span class="nick" style="color:#389600"><a href="#012953" label="[01:29:53]">&lt;stikonas&gt;</a></span><span class="message">I think for now I'll go back to encoding kaem-minimal.hex2...</span></div><div class="line" id="013202"><span class="nick" style="color:#8dd3c7"><a href="#013202" label="[01:32:02]">&lt;oriansj&gt;</a></span><span class="message">yeah DoByte increments by 1 each byte read.</span></div><div class="line" id="013325"><span class="nick" style="color:#389600"><a href="#013325" label="[01:33:25]">&lt;stikonas&gt;</a></span><span class="message">without those . blocks I think it was calculating correctly</span></div><div class="line" id="013405"><span class="nick" style="color:#389600"><a href="#013405" label="[01:34:05]">&lt;stikonas&gt;</a></span><span class="message">I briefly tested with my unfinished kaem-minimal.hex2 and it was reading data from .data area correctly, and branch jumps seemed to work too</span></div><div class="line" id="014008"><span class="nick" style="color:#8dd3c7"><a href="#014008" label="[01:40:08]">&lt;oriansj&gt;</a></span><span class="message">ok fix for .hex ip offset behavior fixed.</span></div><div class="line" id="014114"><span class="nick" style="color:#8dd3c7"><a href="#014114" label="[01:41:14]">&lt;oriansj&gt;</a></span><span class="message">M1 immediates might not be outputting in the order I expected for .hex in hex2</span></div><div class="line" id="014314"><span class="nick" style="color:#8dd3c7"><a href="#014314" label="[01:43:14]">&lt;oriansj&gt;</a></span><span class="message">yeah I am going to have to make .hex behavior relative to --little-endian or --big-endian flag is used.</span></div><div class="line" id="021532"><span class="nick" style="color:#8dd3c7"><a href="#021532" label="[02:15:32]">&lt;oriansj&gt;</a></span><span class="message">stikonas: could you look at this patch <a rel="nofollow" href="https://paste.debian.net/1206611/">https://paste.debian.net/1206611/</a>  to see if it fixes behavior when you use --little-endian on M1 and hex2</span></div><div class="line" id="022448"><span class="nick" style="color:#389600"><a href="#022448" label="[02:24:48]">&lt;stikonas&gt;</a></span><span class="message">hmm, binaries are much closer now, but there are some differences...</span></div><div class="line" id="022458"><span class="nick" style="color:#389600"><a href="#022458" label="[02:24:58]">&lt;stikonas&gt;</a></span><span class="message">but I'll go to sleep now, so will look at it tomorrow</span></div><div class="line" id="022756"><span class="nick" style="color:#389600"><a href="#022756" label="[02:27:56]">&lt;stikonas&gt;</a></span><span class="message">ok, so I think there is still an issue with immediates, those instructions differ</span></div><div class="line" id="022815"><span class="nick" style="color:#389600"><a href="#022815" label="[02:28:15]">&lt;stikonas&gt;</a></span><span class="message">although, at least with your change &quot;.hex&quot; and &quot;hex&quot; have the same order</span></div><div class="line" id="022932"><span class="nick" style="color:#389600"><a href="#022932" label="[02:29:32]">&lt;stikonas&gt;</a></span><span class="message">so convenient for hand-encoding</span></div><div class="line" id="022950"><span class="nick" style="color:#389600"><a href="#022950" label="[02:29:50]">&lt;stikonas&gt;</a></span><span class="message">I literally just need to add M1 defines now, don't even have to reverse the order after that</span></div><div class="line" id="023021"><span class="nick" style="color:#8dd3c7"><a href="#023021" label="[02:30:21]">&lt;oriansj&gt;</a></span><span class="message">it is a small assembly addition for hex2 but it'll take a couple instructions (no jumps or loops needed)</span></div><div class="line" id="023130"><span class="nick" style="color:#389600"><a href="#023130" label="[02:31:30]">&lt;stikonas&gt;</a></span><span class="message">yeah, so not too bad</span></div><div class="line" id="023136"><span class="nick" style="color:#389600"><a href="#023136" label="[02:31:36]">&lt;stikonas&gt;</a></span><span class="message">I think let's push this</span></div><div class="line" id="023142"><span class="nick" style="color:#8dd3c7"><a href="#023142" label="[02:31:42]">&lt;oriansj&gt;</a></span><span class="message">done</span></div><div class="line" id="023208"><span class="nick" style="color:#8dd3c7"><a href="#023208" label="[02:32:08]">&lt;oriansj&gt;</a></span><span class="message">and tomorrow when we are both more clear, we will look at immediates in M1 and see where I screwed up</span></div><div class="line" id="035523"><span class="nick">***</span><span class="message notice">rt is now known as robin</span></div><div class="line" id="220950"><span class="nick" style="color:#389600"><a href="#220950" label="[22:09:50]">&lt;stikonas&gt;</a></span><span class="message">oriansj: so hex2.c seems to work reasonably well now, at least all labels and jumps are calculated correctly in my handwritten .hex2 file</span></div><div class="line" id="221015"><span class="nick" style="color:#389600"><a href="#221015" label="[22:10:15]">&lt;stikonas&gt;</a></span><span class="message">(it does not use all features though, no dots)</span></div><div class="line" id="234438"><span class="nick" style="color:#8dd3c7"><a href="#234438" label="[23:44:38]">&lt;oriansj&gt;</a></span><span class="message">stikonas: nice.</span></div><br /></div></body></html>

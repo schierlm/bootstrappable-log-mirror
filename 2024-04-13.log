@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-04-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004705"><span class="nick" style="color:#389600"><a href="#004705" label="[00:47:05]">&lt;stikonas&gt;</a></span><span class="message">Googulator: that's the thing I added</span></div><div class="line" id="004725"><span class="nick" style="color:#389600"><a href="#004725" label="[00:47:25]">&lt;stikonas&gt;</a></span><span class="message">it probably would just work if we upgrade...</span></div><div class="line" id="004747"><span class="nick" style="color:#389600"><a href="#004747" label="[00:47:47]">&lt;stikonas&gt;</a></span><span class="message">maybe some versions of python would need some adjustment though</span></div><div class="line" id="004758"><span class="nick" style="color:#389600"><a href="#004758" label="[00:47:58]">&lt;stikonas&gt;</a></span><span class="message">(disable ssl for older python's or patch them)</span></div><div class="line" id="025235"><span class="nick" style="color:#8dd3c7"><a href="#025235" label="[02:52:35]">&lt;pabs3&gt;</a></span><span class="message">stikonas: gnulib really needs to become a shared library. embedded code copies are a bad idea <a rel="nofollow" href="https://wiki.debian.org/EmbeddedCopies">https://wiki.debian.org/EmbeddedCopies</a> </span></div><div class="line" id="025318"><span class="nick" style="color:#389600"><a href="#025318" label="[02:53:18]">&lt;stikonas&gt;</a></span><span class="message">well, that would make sense, but I guess you'll have hard time convincing GNU maintainers of that...</span></div><div class="line" id="025342"><span class="nick" style="color:#8dd3c7"><a href="#025342" label="[02:53:42]">&lt;pabs3&gt;</a></span><span class="message">yeah :(</span></div><div class="line" id="025357"><span class="nick" style="color:#389600"><a href="#025357" label="[02:53:57]">&lt;stikonas&gt;</a></span><span class="message">even its website says Gnulib takes a different approach. Its components are intended to be shared at the source level, rather than being a library that gets built, installed, and linked against.</span></div><div class="line" id="025500"><span class="nick" style="color:#8dd3c7"><a href="#025500" label="[02:55:00]">&lt;pabs3&gt;</a></span><span class="message">how much of gnulib code actually gets used in executables on a modern Linux system? I got the impression it was mainly about filling in gaps in older platforms</span></div><div class="line" id="031357"><span class="nick" style="color:#2e2a4a"><a href="#031357" label="[03:13:57]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">Are the different gnulib versions very incompatible?</span></div><div class="line" id="031820"><span class="nick" style="color:#389600"><a href="#031820" label="[03:18:20]">&lt;stikonas&gt;</a></span><span class="message">at the very least it's imported ant built into most gnu packages</span></div><div class="line" id="031839"><span class="nick" style="color:#389600"><a href="#031839" label="[03:18:39]">&lt;stikonas&gt;</a></span><span class="message">perhaps configure does not use some of those on modern systems...</span></div><div class="line" id="031903"><span class="nick" style="color:#389600"><a href="#031903" label="[03:19:03]">&lt;stikonas&gt;</a></span><span class="message">but I think significant part is still used</span></div><div class="line" id="031935"><span class="nick" style="color:#389600"><a href="#031935" label="[03:19:35]">&lt;stikonas&gt;</a></span><span class="message">AwesomeAdam54321: well, something within a few months in the repo might still build</span></div><div class="line" id="031942"><span class="nick" style="color:#389600"><a href="#031942" label="[03:19:42]">&lt;stikonas&gt;</a></span><span class="message">but anything more probably won't</span></div><div class="line" id="032213"><span class="nick" style="color:#6b8072"><a href="#032213" label="[03:22:13]">&lt;Googulator&gt;</a></span><span class="message">looks like we still have time on Linux 4.14 after all: <a rel="nofollow" href="https://github.com/openela/kernel-lts/tree/linux-4.14.y">https://github.com/openela/kernel-lts/tree/linux-4.14.y</a> </span></div><div class="line" id="032603"><span class="nick" style="color:#6b8072"><a href="#032603" label="[03:26:03]">&lt;Googulator&gt;</a></span><span class="message">it would be nice to get in contact with OpenELA (<a rel="nofollow" href="https://openela.org/join/">https://openela.org/join/</a>)  and ask for .tar.xz versions to be provided (they seem to be relying on GitHub's packaging, which provides only .zip and .tar.gz)</span></div><div class="line" id="173334"><span class="nick" style="color:#6b8072"><a href="#173334" label="[17:33:34]">&lt;Googulator&gt;</a></span><span class="message">the diff from v4.14.336 to v4.14.341-openela is only ~650KiB, so it's probably the easiest to just include it as a patch on top of the last official kernel.org release</span></div><div class="line" id="185859"><span class="nick" style="color:#6b8072"><a href="#185859" label="[18:58:59]">&lt;Googulator&gt;</a></span><span class="message">Making progress on the openssl upgrade: 3.3.0 made curl lock up waiting for a futex, but 3.0.13 seems to work perfectly, including Python</span></div><div class="line" id="185907"><span class="nick" style="color:#6b8072"><a href="#185907" label="[18:59:07]">&lt;Googulator&gt;</a></span><span class="message">there's just one annoying detail</span></div><div class="line" id="190026"><span class="nick" style="color:#6b8072"><a href="#190026" label="[19:00:26]">&lt;Googulator&gt;</a></span><span class="message">OpenSSL keeps the current release of each lineage in <a rel="nofollow" href="http://ftp.openssl.org/source/">http://ftp.openssl.org/source/</a>,  but *moves* it to <a rel="nofollow" href="http://ftp.openssl.org/source/old/">http://ftp.openssl.org/source/old/</a>&lt;lineage&gt;/  when it gets superseded</span></div><div class="line" id="190049"><span class="nick" style="color:#6b8072"><a href="#190049" label="[19:00:49]">&lt;Googulator&gt;</a></span><span class="message">so when a new point-release comes out - the existing links break</span></div><div class="line" id="190059"><span class="nick" style="color:#6b8072"><a href="#190059" label="[19:00:59]">&lt;Googulator&gt;</a></span><span class="message">do we have contacts at OpenSSL?</span></div><div class="line" id="190129"><span class="nick" style="color:#6b8072"><a href="#190129" label="[19:01:29]">&lt;Googulator&gt;</a></span><span class="message">maybe we could get them to put a copy of new releases in /old/&lt;lineage&gt; as soon as they drop, to serve as a permalink</span></div><div class="line" id="211353"><span class="nick" style="color:#389600"><a href="#211353" label="[21:13:53]">&lt;stikonas&gt;</a></span><span class="message">Googulator: I don't think we have contacts, but maybe we can ask</span></div><div class="line" id="211415"><span class="nick" style="color:#6b8072"><a href="#211415" label="[21:14:15]">&lt;Googulator&gt;</a></span><span class="message">I posted <a rel="nofollow" href="https://github.com/openssl/openssl/issues/24132">https://github.com/openssl/openssl/issues/24132</a> </span></div><div class="line" id="212159"><span class="nick" style="color:#6b8072"><a href="#212159" label="[21:21:59]">&lt;Googulator&gt;</a></span><span class="message">stikonas, fossy: what are your thoughts on using the OpenELA kernel code?</span></div><div class="line" id="212326"><span class="nick" style="color:#6b8072"><a href="#212326" label="[21:23:26]">&lt;Googulator&gt;</a></span><span class="message">For me, some of the backing entities seem a bit concerning (Oracle, etc.); OTOH they're doing a lot to be transparent, e.g. by listing the source of each backported patch and which higher kernel.org release it came from</span></div><div class="line" id="220146"><span class="nick" style="color:#389600"><a href="#220146" label="[22:01:46]">&lt;stikonas&gt;</a></span><span class="message">hmm, I'm fine either way...</span></div><div class="line" id="220205"><span class="nick" style="color:#389600"><a href="#220205" label="[22:02:05]">&lt;stikonas&gt;</a></span><span class="message">if you decide to update then it's fine</span></div><div class="line" id="220237"><span class="nick" style="color:#389600"><a href="#220237" label="[22:02:37]">&lt;stikonas&gt;</a></span><span class="message">it's unlikely that even Oracle would just backdoor the kernel</span></div><div class="line" id="220305"><span class="nick" style="color:#389600"><a href="#220305" label="[22:03:05]">&lt;stikonas&gt;</a></span><span class="message">there is too much risk of losing business in that case</span></div><div class="line" id="220928"><span class="nick" style="color:#6b8072"><a href="#220928" label="[22:09:28]">&lt;Googulator&gt;</a></span><span class="message">especially since that would also step on CIQ &amp; SUSE's toes</span></div><div class="line" id="221018"><span class="nick" style="color:#6b8072"><a href="#221018" label="[22:10:18]">&lt;Googulator&gt;</a></span><span class="message">one more issue is how we can make a kernel.org-&gt;openela patch REUSE-compliant</span></div><div class="line" id="221127"><span class="nick" style="color:#6b8072"><a href="#221127" label="[22:11:27]">&lt;Googulator&gt;</a></span><span class="message">License is obvious (GPLv2-only, like the kernel in general), but who to credit as the patch copyright owner? Is there a better way than to inspect every commit that goes into the patch, and list every author within?</span></div><div class="line" id="224145"><span class="nick" style="color:#389600"><a href="#224145" label="[22:41:45]">&lt;stikonas&gt;</a></span><span class="message">well, for author info maybe we can just credit &quot;kernel.org contributors&quot;</span></div><div class="line" id="230135"><span class="nick" style="color:#80b1d3"><a href="#230135" label="[23:01:35]">&lt;oriansj&gt;</a></span><span class="message">Companies by default risk too much if they put in a backdoor</span></div><div class="line" id="230159"><span class="nick" style="color:#80b1d3"><a href="#230159" label="[23:01:59]">&lt;oriansj&gt;</a></span><span class="message">the reputation loss alone can cost them billions]</span></div><div class="line" id="230401"><span class="nick" style="color:#6b8072"><a href="#230401" label="[23:04:01]">&lt;Googulator&gt;</a></span><span class="message">yeah, &quot;kernel.org contributors&quot; is fine, together witgh maybe OpenELA themselves</span></div><div class="line" id="230425"><span class="nick" style="color:#6b8072"><a href="#230425" label="[23:04:25]">&lt;Googulator&gt;</a></span><span class="message">unless REUSE requires a strict Name &lt;email&gt; policy</span></div><div class="line" id="230654"><span class="nick" style="color:#80b1d3"><a href="#230654" label="[23:06:54]">&lt;oriansj&gt;</a></span><span class="message">imagine if an active employee at Oracle did put in a backdoor in the kernel, it wouldn't be too long before it is found and then you know Oracle would cut the employee, legal would definitely get involved just to put the losses on that employee as fast as possible.</span></div><div class="line" id="230835"><span class="nick" style="color:#80b1d3"><a href="#230835" label="[23:08:35]">&lt;oriansj&gt;</a></span><span class="message">if it is samsung which hide which employees are responsible for the commits, they'll end up either having to make their internals known or no one will ever trust them again.</span></div><div class="line" id="234616"><span class="nick" style="color:#389600"><a href="#234616" label="[23:46:16]">&lt;stikonas&gt;</a></span><span class="message">openssl3 PR is surprisingly small</span></div><div class="line" id="234806"><span class="nick" style="color:#389600"><a href="#234806" label="[23:48:06]">&lt;stikonas&gt;</a></span><span class="message">we still need to wait for CI though</span></div><br /></div></body></html>

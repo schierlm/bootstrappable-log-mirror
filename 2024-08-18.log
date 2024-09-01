@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-08-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000439"><span class="nick" style="color:#389600"><a href="#000439" label="[00:04:39]">&lt;mid-kid&gt;</a></span><span class="message">scheme's syntax is exacly what makes it so easy to implement</span></div><div class="line" id="000500"><span class="nick" style="color:#389600"><a href="#000500" label="[00:05:00]">&lt;mid-kid&gt;</a></span><span class="message">you can't have everything</span></div><div class="line" id="000940"><span class="nick" style="color:#8dd3c7"><a href="#000940" label="[00:09:40]">&lt;Googulator&gt;</a></span><span class="message">I get the underlying idea, but please, break compatibility with emacs's lisp mode :(</span></div><div class="line" id="001001"><span class="nick" style="color:#8dd3c7"><a href="#001001" label="[00:10:01]">&lt;Googulator&gt;</a></span><span class="message">use anything other than ()</span></div><div class="line" id="001047"><span class="nick" style="color:#8dd3c7"><a href="#001047" label="[00:10:47]">&lt;Googulator&gt;</a></span><span class="message">S-expressions are not the problem, the culture around them is</span></div><div class="line" id="001147"><span class="nick" style="color:#8dd3c7"><a href="#001147" label="[00:11:47]">&lt;Googulator&gt;</a></span><span class="message">tbh, this would be perfectly readable:</span></div><div class="line" id="001148"><span class="nick" style="color:#8dd3c7"><a href="#001148" label="[00:11:48]">&lt;Googulator&gt;</a></span><span class="message">(a (b c) (d</span></div><div class="line" id="001148"><span class="nick" style="color:#8dd3c7"><a href="#001148" label="[00:11:48]">&lt;Googulator&gt;</a></span><span class="message">                  (e f)</span></div><div class="line" id="001149"><span class="nick" style="color:#8dd3c7"><a href="#001149" label="[00:11:49]">&lt;Googulator&gt;</a></span><span class="message">                )</span></div><div class="line" id="001149"><span class="nick" style="color:#8dd3c7"><a href="#001149" label="[00:11:49]">&lt;Googulator&gt;</a></span><span class="message">)</span></div><div class="line" id="001235"><span class="nick" style="color:#8dd3c7"><a href="#001235" label="[00:12:35]">&lt;Googulator&gt;</a></span><span class="message">this isn't:</span></div><div class="line" id="001235"><span class="nick" style="color:#8dd3c7"><a href="#001235" label="[00:12:35]">&lt;Googulator&gt;</a></span><span class="message">(a (b c) (d</span></div><div class="line" id="001236"><span class="nick" style="color:#8dd3c7"><a href="#001236" label="[00:12:36]">&lt;Googulator&gt;</a></span><span class="message">                  (e f)))</span></div><div class="line" id="001248"><span class="nick" style="color:#8dd3c7"><a href="#001248" label="[00:12:48]">&lt;Googulator&gt;</a></span><span class="message">(toy example, so it doesn't really come across)</span></div><div class="line" id="001306"><span class="nick" style="color:#8dd3c7"><a href="#001306" label="[00:13:06]">&lt;Googulator&gt;</a></span><span class="message">imagine a similar scenario where the ending would have 13 parens rather than 3</span></div><div class="line" id="001324"><span class="nick" style="color:#8dd3c7"><a href="#001324" label="[00:13:24]">&lt;Googulator&gt;</a></span><span class="message">and then try to figure out where the form beginning with (d ends</span></div><div class="line" id="001345"><span class="nick" style="color:#8dd3c7"><a href="#001345" label="[00:13:45]">&lt;Googulator&gt;</a></span><span class="message">as in, how many parens do you need to select at the end to correctly copy the form to a different context</span></div><div class="line" id="001359"><span class="nick" style="color:#8dd3c7"><a href="#001359" label="[00:13:59]">&lt;Googulator&gt;</a></span><span class="message">pure pain</span></div><div class="line" id="001421"><span class="nick" style="color:#8dd3c7"><a href="#001421" label="[00:14:21]">&lt;Googulator&gt;</a></span><span class="message">vs if everything were aligned K&amp;R-style: easy</span></div><div class="line" id="043217"><span class="nick" style="color:#2e2a4a"><a href="#043217" label="[04:32:17]">&lt;andydude&gt;</a></span><span class="message">Googulator: you would probably like Wren</span></div><div class="line" id="044051"><span class="nick" style="color:#2e2a4a"><a href="#044051" label="[04:40:51]">&lt;andydude&gt;</a></span><span class="message">Also, you would probably like this <a rel="nofollow" href="https://gist.github.com/andydude/50c81f693cc74c366070be62149aad02">https://gist.github.com/andydude/50c81f693cc74c366070be62149aad02</a> </span></div><div class="line" id="115456"><span class="nick" style="color:#6b8072"><a href="#115456" label="[11:54:56]">&lt;lanodan&gt;</a></span><span class="message">stikonas: Last time I did an strace on tcc it was in fact generating assembly for some reason (and I guess just pipes to itself).</span></div><div class="line" id="115515"><span class="nick" style="color:#80b1d3"><a href="#115515" label="[11:55:15]">&lt;stikonas&gt;</a></span><span class="message">lanodan: no, it really does not</span></div><div class="line" id="115520"><span class="nick" style="color:#80b1d3"><a href="#115520" label="[11:55:20]">&lt;stikonas&gt;</a></span><span class="message">you can easily see it in the source</span></div><div class="line" id="115525"><span class="nick" style="color:#80b1d3"><a href="#115525" label="[11:55:25]">&lt;stikonas&gt;</a></span><span class="message">let me find</span></div><div class="line" id="115550"><span class="nick" style="color:#80b1d3"><a href="#115550" label="[11:55:50]">&lt;stikonas&gt;</a></span><span class="message">e.g. <a rel="nofollow" href="https://repo.or.cz/tinycc.git/blob/HEAD:/i386-gen.c#l822">https://repo.or.cz/tinycc.git/blob/HEAD:/i386-gen.c#l822</a> </span></div><div class="line" id="115557"><span class="nick" style="color:#80b1d3"><a href="#115557" label="[11:55:57]">&lt;stikonas&gt;</a></span><span class="message">but it's full of these, this is just one example</span></div><div class="line" id="115608"><span class="nick" style="color:#80b1d3"><a href="#115608" label="[11:56:08]">&lt;stikonas&gt;</a></span><span class="message">its assembly backend is separate</span></div><div class="line" id="115639"><span class="nick" style="color:#80b1d3"><a href="#115639" label="[11:56:39]">&lt;stikonas&gt;</a></span><span class="message">so there is C-&gt;bin and asm-&gt;bin parts</span></div><div class="line" id="115701"><span class="nick" style="color:#80b1d3"><a href="#115701" label="[11:57:01]">&lt;stikonas&gt;</a></span><span class="message">so there is some duplication...</span></div><div class="line" id="115906"><span class="nick" style="color:#6b8072"><a href="#115906" label="[11:59:06]">&lt;lanodan&gt;</a></span><span class="message">Uh indeed doesn't for at least simple C files, I wonder if I misread strace or was a case of like inline assembly</span></div><div class="line" id="211549"><span class="nick" style="color:#6d2462"><a href="#211549" label="[21:15:49]">&lt;oriansj&gt;</a></span><span class="message">well M2-Planet's output is just a direct 1:1 state machine translation from C to assembly; so we do miss out on many potential optimizations but honestly running at 70% of TCC's compiled output isn't half bad for a self-hosting compiler that can do 1MLoC/second</span></div><div class="line" id="211710"><span class="nick" style="color:#6d2462"><a href="#211710" label="[21:17:10]">&lt;oriansj&gt;</a></span><span class="message">but yeah, fixing TCC's poor readability could take years of work but would give a path forward to making it a much better compiler.</span></div><div class="line" id="212606"><span class="nick" style="color:#2e2a4a"><a href="#212606" label="[21:26:06]">&lt;andydude&gt;</a></span><span class="message">I like improving readability</span></div><div class="line" id="213530"><span class="nick" style="color:#2e2a4a"><a href="#213530" label="[21:35:30]">&lt;andydude&gt;</a></span><span class="message">what is constraint_priority</span></div><div class="line" id="214240"><span class="nick" style="color:#2e2a4a"><a href="#214240" label="[21:42:40]">&lt;andydude&gt;</a></span><span class="message">the phrase &quot;constraint priority&quot; appears zero times in the tcc docs</span></div><div class="line" id="215439"><span class="nick" style="color:#2e2a4a"><a href="#215439" label="[21:54:39]">&lt;andydude&gt;</a></span><span class="message">I found something, but not in the tcc docs, it was in the GCC docs</span></div><div class="line" id="215441"><span class="nick" style="color:#2e2a4a"><a href="#215441" label="[21:54:41]">&lt;andydude&gt;</a></span><span class="message"> <a rel="nofollow" href="https://gcc.gnu.org/onlinedocs/gcc/Simple-Constraints.html">https://gcc.gnu.org/onlinedocs/gcc/Simple-Constraints.html</a> </span></div><div class="line" id="221422"><span class="nick" style="color:#234e69"><a href="#221422" label="[22:14:22]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; tbh I don't think tcc's poor readability will ever be fixed. Unless there is a hard fork under a completely different name.</span></div><div class="line" id="221543"><span class="nick" style="color:#234e69"><a href="#221543" label="[22:15:43]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; The current maintainer of tcc doesn't seem to have the time or motivation to fix the readability issues.</span></div><div class="line" id="221602"><span class="nick" style="color:#234e69"><a href="#221602" label="[22:16:02]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Which is fair enough if they have other priorities.</span></div><div class="line" id="221623"><span class="nick" style="color:#234e69"><a href="#221623" label="[22:16:23]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; (and they are volunteering)</span></div><div class="line" id="221634"><span class="nick" style="color:#234e69"><a href="#221634" label="[22:16:34]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; a volunteer I mean</span></div><div class="line" id="222125"><span class="nick" style="color:#234e69"><a href="#222125" label="[22:21:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Interestingly the pnut devs are working on the ability to compile tcc <a rel="nofollow" href="https://github.com/udem-dlteam/pnut/issues/63#issuecomment-2294154308">https://github.com/udem-dlteam/pnut/issues/63#issuecomment-2294154308</a> </span></div><div class="line" id="222200"><span class="nick" style="color:#234e69"><a href="#222200" label="[22:22:00]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; so that could eventually be another compiler capable of compiling tcc</span></div><div class="line" id="222259"><span class="nick" style="color:#6c3d55"><a href="#222259" label="[22:22:59]">&lt;lrvick&gt;</a></span><span class="message">Has anyone managed to bootstrap haskell yet?</span></div><div class="line" id="222316"><span class="nick" style="color:#6c3d55"><a href="#222316" label="[22:23:16]">&lt;lrvick&gt;</a></span><span class="message">I think it is going to need some mrustc heroics last I checked.</span></div><div class="line" id="222638"><span class="nick" style="color:#6d2462"><a href="#222638" label="[22:26:38]">&lt;oriansj&gt;</a></span><span class="message">lrvick: only a subset of the haskell language thus far (as far as I am aware)</span></div><div class="line" id="222736"><span class="nick" style="color:#6d2462"><a href="#222736" label="[22:27:36]">&lt;oriansj&gt;</a></span><span class="message">with the blynn-compiler being the current leader (but very far from GHC compatibility and able to be used to bootstrap GHC)</span></div><div class="line" id="232834"><span class="nick" style="color:#6c3d55"><a href="#232834" label="[23:28:34]">&lt;lrvick&gt;</a></span><span class="message">Shame. It seems like the only major language we -can't- bootstrap right now.</span></div><div class="line" id="232904"><span class="nick" style="color:#6c3d55"><a href="#232904" label="[23:29:04]">&lt;lrvick&gt;</a></span><span class="message">but we have a hard requirement for bootstrappability/reproducibility in stagex, so will just tell people to file issues with the haskell team, not me. ha ha.</span></div><div class="line" id="233002"><span class="nick" style="color:#6c3d55"><a href="#233002" label="[23:30:02]">&lt;lrvick&gt;</a></span><span class="message">I thought guix had a similar requirement, which is why I was suprised to see it in guix.</span></div><br /></div></body></html>

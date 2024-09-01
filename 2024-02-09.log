@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-02-09.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005410"><span class="nick" style="color:#389600"><a href="#005410" label="[00:54:10]">&lt;oriansj&gt;</a></span><span class="message">stikonas: yeah, I refuse to accept 1[a] when accessing an array. I know it violates the C spec but they can pound sand on that one. Array access and pointers should not be interchanged. Heck arrays should have proper bounds checking by default.</span></div><div class="line" id="005436"><span class="nick" style="color:#8dd3c7"><a href="#005436" label="[00:54:36]">&lt;stikonas&gt;</a></span><span class="message">yaeh, I was not aware of that 1[a] syntax until today...</span></div><div class="line" id="005440"><span class="nick" style="color:#8dd3c7"><a href="#005440" label="[00:54:40]">&lt;stikonas&gt;</a></span><span class="message">it's jus so bizzare</span></div><div class="line" id="005500"><span class="nick" style="color:#8dd3c7"><a href="#005500" label="[00:55:00]">&lt;stikonas&gt;</a></span><span class="message">s/bizzare/bizarre/</span></div><div class="line" id="005533"><span class="nick" style="color:#389600"><a href="#005533" label="[00:55:33]">&lt;oriansj&gt;</a></span><span class="message">to be honest C would be better if arrays were defined as: typedef struct { TYPE _TYPE; u64 len;          POINTER data; } array;</span></div><div class="line" id="011652"><span class="nick" style="color:#389600"><a href="#011652" label="[01:16:52]">&lt;oriansj&gt;</a></span><span class="message">then array foo = heap_array(uint32_t, 42); or array foo = stack_array(uint32_t, 42); foo[i] = 32; can then be checked against i prior to trying to assign to foo[i]; and thus if i &gt;= 42; you can throw an array bounds exception and halt (or if you add exception handling logic, a way to deal with it)</span></div><div class="line" id="011736"><span class="nick" style="color:#2e2a4a"><a href="#011736" label="[01:17:36]">&lt;fossy&gt;</a></span><span class="message">yeah.. with hindsight fat pointers would have been much better</span></div><div class="line" id="011940"><span class="nick" style="color:#8dd3c7"><a href="#011940" label="[01:19:40]">&lt;stikonas&gt;</a></span><span class="message">fat strings are better too</span></div><div class="line" id="011950"><span class="nick" style="color:#8dd3c7"><a href="#011950" label="[01:19:50]">&lt;stikonas&gt;</a></span><span class="message">rather than null terminated...</span></div><div class="line" id="012251"><span class="nick" style="color:#389600"><a href="#012251" label="[01:22:51]">&lt;oriansj&gt;</a></span><span class="message">well null terminated strings are very simple to implement (literally only 2 assembly instructions)</span></div><div class="line" id="012351"><span class="nick" style="color:#389600"><a href="#012351" label="[01:23:51]">&lt;oriansj&gt;</a></span><span class="message">but yes being able to do foo.length on strings and arrays enables certain nice efficient sanity checks.</span></div><div class="line" id="012511"><span class="nick" style="color:#389600"><a href="#012511" label="[01:25:11]">&lt;oriansj&gt;</a></span><span class="message">and it would allow heap garbage collection to be implemented independent within the language (as every object would have a known size at runtime)</span></div><div class="line" id="012547"><span class="nick" style="color:#8dd3c7"><a href="#012547" label="[01:25:47]">&lt;stikonas&gt;</a></span><span class="message">yeah, I understand why we ended up with null terminated strings. In assembly it is indeed easier to work with</span></div><div class="line" id="012553"><span class="nick" style="color:#8dd3c7"><a href="#012553" label="[01:25:53]">&lt;stikonas&gt;</a></span><span class="message">you don't need to keep track of two variables</span></div><div class="line" id="023535"><span class="nick" style="color:#6b8072"><a href="#023535" label="[02:35:35]">&lt;Googulator&gt;</a></span><span class="message">AFAIK even in the standard, 1[a] != a[1] unconditionally</span></div><div class="line" id="023559"><span class="nick" style="color:#6b8072"><a href="#023559" label="[02:35:59]">&lt;Googulator&gt;</a></span><span class="message">because *(1+a) != *(a+1)</span></div><div class="line" id="023805"><span class="nick" style="color:#6b8072"><a href="#023805" label="[02:38:05]">&lt;Googulator&gt;</a></span><span class="message">1+a == ((int) 1 ) +  ((int) a), but a+1 = ((int) a) + (((int) 1) * sizeof(A)), where A is the type of a</span></div><div class="line" id="024527"><span class="nick" style="color:#389600"><a href="#024527" label="[02:45:27]">&lt;oriansj&gt;</a></span><span class="message">ah the joy of a +1 != a + 1</span></div><div class="line" id="024740"><span class="nick" style="color:#389600"><a href="#024740" label="[02:47:40]">&lt;oriansj&gt;</a></span><span class="message">also a++ != a + 1; and 1+a != a+1;</span></div><div class="line" id="025031"><span class="nick" style="color:#80b1d3"><a href="#025031" label="[02:50:31]">&lt;sam_&gt;</a></span><span class="message">I think this came up before already but is the <a rel="nofollow" href="https://fosdem.org/2024/schedule/event/fosdem-2024-2690-build-distribution-for-maintaining-the-famous-gcc-4-7/">https://fosdem.org/2024/schedule/event/fosdem-2024-2690-build-distribution-for-maintaining-the-famous-gcc-4-7/</a>  person involved here at all</span></div><div class="line" id="025034"><span class="nick" style="color:#80b1d3"><a href="#025034" label="[02:50:34]">&lt;sam_&gt;</a></span><span class="message">or is this a parallel effort</span></div><div class="line" id="025637"><span class="nick" style="color:#6b8072"><a href="#025637" label="[02:56:37]">&lt;Googulator&gt;</a></span><span class="message">fossy: submitted <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/436">https://github.com/fosslinux/live-bootstrap/pull/436</a>  as draft for now because it's still building on baremetal, but feel free to review early</span></div><div class="line" id="025727"><span class="nick" style="color:#6b8072"><a href="#025727" label="[02:57:27]">&lt;Googulator&gt;</a></span><span class="message">(early XZ support &amp; usage, reduces bare metal image size to 210MiB)</span></div><div class="line" id="030953"><span class="nick" style="color:#389600"><a href="#030953" label="[03:09:53]">&lt;oriansj&gt;</a></span><span class="message">sam_: looks like a parallel effort; because if it was mentioned here before, I would have had a copy</span></div><div class="line" id="031056"><span class="nick" style="color:#389600"><a href="#031056" label="[03:10:56]">&lt;oriansj&gt;</a></span><span class="message">Googulator: that is about the capacity of a Mini-CD</span></div><div class="line" id="031144"><span class="nick" style="color:#389600"><a href="#031144" label="[03:11:44]">&lt;oriansj&gt;</a></span><span class="message">(80mm CD held 210MB of data)</span></div><div class="line" id="040200"><span class="nick" style="color:#2e2a4a"><a href="#040200" label="[04:02:00]">&lt;fossy&gt;</a></span><span class="message">Googulator thanks will review shortly</span></div><div class="line" id="040352"><span class="nick" style="color:#2e2a4a"><a href="#040352" label="[04:03:52]">&lt;fossy&gt;</a></span><span class="message">sam_: never seen them here</span></div><div class="line" id="040400"><span class="nick" style="color:#2e2a4a"><a href="#040400" label="[04:04:00]">&lt;fossy&gt;</a></span><span class="message">i cannot really understand that project</span></div><div class="line" id="040501"><span class="nick" style="color:#2e2a4a"><a href="#040501" label="[04:05:01]">&lt;fossy&gt;</a></span><span class="message">comparatively their binary seed is huge</span></div><div class="line" id="052201"><span class="nick" style="color:#80b1d3"><a href="#052201" label="[05:22:01]">&lt;sam_&gt;</a></span><span class="message">not a fan of their huge generated build system either</span></div><div class="line" id="052209"><span class="nick" style="color:#80b1d3"><a href="#052209" label="[05:22:09]">&lt;sam_&gt;</a></span><span class="message">the gcc 4.7 work is really orthogonal to that..</span></div><div class="line" id="090100"><span class="nick" style="color:#6b8072"><a href="#090100" label="[09:01:00]">&lt;Googulator&gt;</a></span><span class="message">fossy: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/436">https://github.com/fosslinux/live-bootstrap/pull/436</a>  verified on bare metal and checksums updated, ready for review</span></div><div class="line" id="090343"><span class="nick" style="color:#6b8072"><a href="#090343" label="[09:03:43]">&lt;Googulator&gt;</a></span><span class="message">...I take that back, checksums aren't properly there</span></div><div class="line" id="090914"><span class="nick" style="color:#6b8072"><a href="#090914" label="[09:09:14]">&lt;Googulator&gt;</a></span><span class="message">updated again, this time with the correct checksums</span></div><div class="line" id="091021"><span class="nick" style="color:#6b8072"><a href="#091021" label="[09:10:21]">&lt;Googulator&gt;</a></span><span class="message">snuik: later tell stikonas amd64 and riscv64 checksums might need updating too</span></div><div class="line" id="091022"><span class="nick" style="color:#6d2462"><a href="#091022" label="[09:10:22]">&lt;snuik&gt;</a></span><span class="message">Sure thing.</span></div><div class="line" id="091027"><span class="nick" style="color:#6b8072"><a href="#091027" label="[09:10:27]">&lt;Googulator&gt;</a></span><span class="message">snuik: botsnack</span></div><div class="line" id="091027"><span class="nick" style="color:#6d2462"><a href="#091027" label="[09:10:27]">&lt;snuik&gt;</a></span><span class="message">:)</span></div><div class="line" id="103001"><span class="nick" style="color:#234e69"><a href="#103001" label="[10:30:01]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yeah, those are often broken... Maybe we can update then with future mes 0.26.1 or 0.27</span></div><div class="line" id="122636"><span class="nick" style="color:#389600"><a href="#122636" label="[12:26:36]">&lt;oriansj&gt;</a></span><span class="message">sam_: looking closer to that project, I noticed something odd: &quot;All files are copyright Huawei Cloud Computing Technology Co., Ltd&quot;. So it isn't some individual's project.</span></div><div class="line" id="132559"><span class="nick" style="color:#389600"><a href="#132559" label="[13:25:59]">&lt;oriansj&gt;</a></span><span class="message">and if anyone is of the paranoid sort, the repo was made just 2 months after a US government report suggested bootstrappable toolchains.</span></div><div class="line" id="133114"><span class="nick" style="color:#6b8072"><a href="#133114" label="[13:31:14]">&lt;Googulator&gt;</a></span><span class="message">Does meslibc have an atoi / strtoul / similar function?</span></div><div class="line" id="133139"><span class="nick" style="color:#6b8072"><a href="#133139" label="[13:31:39]">&lt;Googulator&gt;</a></span><span class="message">I'd like to use it for killing the hardcoded INITRD_MB &amp; KEXEC_MB values.</span></div><div class="line" id="133206"><span class="nick" style="color:#389600"><a href="#133206" label="[13:32:06]">&lt;oriansj&gt;</a></span><span class="message">Googulator: grep -iR atoi ; says yes</span></div><div class="line" id="133601"><span class="nick" style="color:#389600"><a href="#133601" label="[13:36:01]">&lt;oriansj&gt;</a></span><span class="message">even M2libc has strtoint</span></div><div class="line" id="134603"><span class="nick" style="color:#6b8072"><a href="#134603" label="[13:46:03]">&lt;Googulator&gt;</a></span><span class="message">good</span></div><div class="line" id="134619"><span class="nick" style="color:#6b8072"><a href="#134619" label="[13:46:19]">&lt;Googulator&gt;</a></span><span class="message">also, does kaem handle quoted parameters correctly?</span></div><div class="line" id="134713"><span class="nick" style="color:#6b8072"><a href="#134713" label="[13:47:13]">&lt;Googulator&gt;</a></span><span class="message">i.e. can I do kexec-fiwix -c &quot;fiwix console=/dev/tty1 root=/dev/ram0 ramdisksize=%d initrd=fiwix.ext2 kexec_proto=linux kexec_size=%d kexec_cmdline=\&quot;init=/init consoleblank=0\&quot;&quot; /boot/fiwix ?</span></div><div class="line" id="134745"><span class="nick" style="color:#6b8072"><a href="#134745" label="[13:47:45]">&lt;Googulator&gt;</a></span><span class="message">(full kaem built from C, not kaem-minimal)</span></div><div class="line" id="155919"><span class="nick" style="color:#234e69"><a href="#155919" label="[15:59:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I doubt that it works...</span></div><div class="line" id="155936"><span class="nick" style="color:#234e69"><a href="#155936" label="[15:59:36]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But best is to try...</span></div><div class="line" id="155948"><span class="nick" style="color:#234e69"><a href="#155948" label="[15:59:48]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; And see what it tries to execute</span></div><div class="line" id="175440"><span class="nick" style="color:#6b8072"><a href="#175440" label="[17:54:40]">&lt;Googulator&gt;</a></span><span class="message">After a few tries - it worked!</span></div><div class="line" id="193934"><span class="nick" style="color:#234e69"><a href="#193934" label="[19:39:34]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; Just noting that I too have now seen the hash mismatch error with savannah.</span></div><div class="line" id="193934"><span class="nick" style="color:#234e69"><a href="#193934" label="[19:39:34]">&lt;matrix_bridge&gt;</a></span><span class="message">&gt; <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/gnulib.git/snapshot/gnulib-7daa86f.tar.gz:">https://git.savannah.gnu.org/cgit/gnulib.git/snapshot/gnulib-7daa86f.tar.gz:</a> </span></div><div class="line" id="193934"><span class="nick" style="color:#234e69"><a href="#193934" label="[19:39:34]">&lt;matrix_bridge&gt;</a></span><span class="message">------</span></div><div class="line" id="193934"><span class="nick" style="color:#234e69"><a href="#193934" label="[19:39:34]">&lt;matrix_bridge&gt;</a></span><span class="message">ERROR: failed to solve: digest mismatch sha256:d9f8d77083bb4b6367eced93e0dcaed23b759a9c3cb12c28ca75c47d8e9272e6: sha256:2d911c2f2ed97b347d6d360b742abdc98aa626d4f8f847ee682c7cde12e90871</span></div><div class="line" id="193936"><span class="nick" style="color:#234e69"><a href="#193936" label="[19:39:36]">&lt;matrix_bridge&gt;</a></span><span class="message">Got the same bad hash 3 times in a row then fetched correctly on the third time. Sadly I don't have a copy of the bad file, but just flagging it.</span></div><div class="line" id="210019"><span class="nick" style="color:#6c3d55"><a href="#210019" label="[21:00:19]">&lt;civodul&gt;</a></span><span class="message">those auto-generated tarballs tend to change over time</span></div><div class="line" id="215359"><span class="nick" style="color:#d9d9d9"><a href="#215359" label="[21:53:59]">&lt;GoogulatorMobile&gt;</a></span><span class="message">Can we perhaps host such problematic tarballs on a GitHub release?</span></div><br /></div></body></html>

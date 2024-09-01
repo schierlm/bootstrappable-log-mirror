@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-10-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004529"><span class="nick" style="color:#8dd3c7"><a href="#004529" label="[00:45:29]">&lt;OriansJ`&gt;</a></span><span class="message">deesix: well SCM is just an alias for unsigned long (one that I haven't added to cc_* yet but would be trivial to do so.</span></div><div class="line" id="004759"><span class="nick" style="color:#2e2a4a"><a href="#004759" label="[00:47:59]">&lt;ericonr&gt;</a></span><span class="message">xentrac: that I don't know. Possibly, with some PIC32? but that's an architecture where C itself is a pain</span></div><div class="line" id="005308"><span class="nick" style="color:#8dd3c7"><a href="#005308" label="[00:53:08]">&lt;OriansJ`&gt;</a></span><span class="message">ericonr: well M2-Planet is only 2335 lines of code and written in the same subset it is able to compile.</span></div><div class="line" id="005414"><span class="nick" style="color:#8dd3c7"><a href="#005414" label="[00:54:14]">&lt;OriansJ`&gt;</a></span><span class="message">essentially think of M2-Planet as the Maxwell core of the C programming language (structs, arrays, inline assembly and a handful of primitives)</span></div><div class="line" id="005503"><span class="nick">***</span><span class="message notice">terpri_ is now known as terpri</span></div><div class="line" id="005527"><span class="nick" style="color:#8dd3c7"><a href="#005527" label="[00:55:27]">&lt;OriansJ`&gt;</a></span><span class="message">with approximately 252 lines of c/inline assembly per architecture supported</span></div><div class="line" id="005936"><span class="nick" style="color:#8dd3c7"><a href="#005936" label="[00:59:36]">&lt;OriansJ`&gt;</a></span><span class="message">deesix: the big question is M2-Planet still working on AArch64 and do all the tests pass or is there something I broke and need to fix</span></div><div class="line" id="010157"><span class="nick" style="color:#8dd3c7"><a href="#010157" label="[01:01:57]">&lt;OriansJ`&gt;</a></span><span class="message">xentrac: what good is a C compiler that can't build itself? Even c500.c (A 500 line C compiler) that can self-host and it can't even support structs.</span></div><div class="line" id="011323"><span class="nick" style="color:#6b8072"><a href="#011323" label="[01:13:23]">&lt;xentrac&gt;</a></span><span class="message">hmm, I haven't tried PIC32; I thought it was a MIPS?</span></div><div class="line" id="011454"><span class="nick" style="color:#6b8072"><a href="#011454" label="[01:14:54]">&lt;xentrac&gt;</a></span><span class="message">OriansJ`: SDCC allows you to program your 8051 in C instead of assembly language, which saves you a lot of time when what you want is to program an 8051</span></div><div class="line" id="011522"><span class="nick" style="color:#6b8072"><a href="#011522" label="[01:15:22]">&lt;xentrac&gt;</a></span><span class="message">especially if you want to use an already existing and validated library routine that happens to be written in C instead of 8051 assembly</span></div><div class="line" id="011644"><span class="nick" style="color:#2e2a4a"><a href="#011644" label="[01:16:44]">&lt;ericonr&gt;</a></span><span class="message">it's also the only oss toolchain for some obscure stuff</span></div><div class="line" id="011730"><span class="nick" style="color:#2e2a4a"><a href="#011730" label="[01:17:30]">&lt;ericonr&gt;</a></span><span class="message">xentrac: apparently it's MIPS <a rel="nofollow" href="https://en.wikipedia.org/wiki/PIC_microcontrollers#PIC32M_MIPS-based_line">https://en.wikipedia.org/wiki/PIC_microcontrollers#PIC32M_MIPS-based_line</a> </span></div><div class="line" id="011734"><span class="nick" style="color:#2e2a4a"><a href="#011734" label="[01:17:34]">&lt;ericonr&gt;</a></span><span class="message">might be doable, then</span></div><div class="line" id="011747"><span class="nick" style="color:#2e2a4a"><a href="#011747" label="[01:17:47]">&lt;ericonr&gt;</a></span><span class="message">idk if sdcc actually supports it as a target, tho</span></div><div class="line" id="011824"><span class="nick" style="color:#6b8072"><a href="#011824" label="[01:18:24]">&lt;xentrac&gt;</a></span><span class="message">don't think so</span></div><div class="line" id="012116"><span class="nick" style="color:#8dd3c7"><a href="#012116" label="[01:21:16]">&lt;OriansJ`&gt;</a></span><span class="message">xentrac: well C has an overhead relative to assembly but I guess if the price for additional flash is cheap enough; it gets accepted because assembly programmers are expensive</span></div><div class="line" id="012155"><span class="nick" style="color:#6b8072"><a href="#012155" label="[01:21:55]">&lt;xentrac&gt;</a></span><span class="message">yeah.  also rewriting code for new platforms is expensive</span></div><div class="line" id="012629"><span class="nick" style="color:#8dd3c7"><a href="#012629" label="[01:26:29]">&lt;OriansJ`&gt;</a></span><span class="message">absolutely true; where to spend the money on hardware or software? only volume knows</span></div><div class="line" id="012743"><span class="nick" style="color:#8dd3c7"><a href="#012743" label="[01:27:43]">&lt;OriansJ`&gt;</a></span><span class="message">ericonr: possibly you were thinking of the AVR32 <a rel="nofollow" href="https://en.wikipedia.org/wiki/AVR32">https://en.wikipedia.org/wiki/AVR32</a>  which at first glimps looks ok but up close is a garbage fire of a design?</span></div><div class="line" id="013052"><span class="nick" style="color:#2e2a4a"><a href="#013052" label="[01:30:52]">&lt;ericonr&gt;</a></span><span class="message">OriansJ`: I only knew PIC32 existed and thought it'd be similar to other PICs</span></div><div class="line" id="013109"><span class="nick" style="color:#2e2a4a"><a href="#013109" label="[01:31:09]">&lt;ericonr&gt;</a></span><span class="message">I had heard of AVR32 as well, never looked into them</span></div><div class="line" id="014859"><span class="nick" style="color:#6b8072"><a href="#014859" label="[01:48:59]">&lt;xentrac&gt;</a></span><span class="message">I think AVR32 is a similar scam to the PIC32</span></div><div class="line" id="015014"><span class="nick" style="color:#6b8072"><a href="#015014" label="[01:50:14]">&lt;xentrac&gt;</a></span><span class="message">hmm, apparently not: <a rel="nofollow" href="https://github.com/torvalds/linux/commit/26202873bb51fafdaa51be3e8de7aab9beb49f70">https://github.com/torvalds/linux/commit/26202873bb51fafdaa51be3e8de7aab9beb49f70</a> </span></div><div class="line" id="015445"><span class="nick" style="color:#2e2a4a"><a href="#015445" label="[01:54:45]">&lt;ericonr&gt;</a></span><span class="message">xentrac: this is the only good linux on avr project: <a rel="nofollow" href="https://dmitry.gr/index.php?r=05.Projects&amp;proj=07.%20Linux%20on%208bit">https://dmitry.gr/index.php?r=05.Projects&amp;proj=07.%20Linux%20on%208bit</a> </span></div><div class="line" id="022340"><span class="nick" style="color:#6b8072"><a href="#022340" label="[02:23:40]">&lt;xentrac&gt;</a></span><span class="message">haha, yeah, that was awesome</span></div><div class="line" id="022356"><span class="nick" style="color:#6b8072"><a href="#022356" label="[02:23:56]">&lt;xentrac&gt;</a></span><span class="message">I was thinking it would be fun to do something like that with those 3-cent Padauk microcontrollers</span></div><div class="line" id="022547"><span class="nick" style="color:#6b8072"><a href="#022547" label="[02:25:47]">&lt;xentrac&gt;</a></span><span class="message">maybe with a piezo beeper audio output and capacitive touch sensing input or something</span></div><div class="line" id="024433"><span class="nick" style="color:#8dd3c7"><a href="#024433" label="[02:44:33]">&lt;OriansJ`&gt;</a></span><span class="message">personally I hoped that someone would just steal DEC PRISM's integer instruction set as it was a surprisingly clean design (Alpha tooks out the limited byte instructions)</span></div><div class="line" id="025404"><span class="nick" style="color:#8dd3c7"><a href="#025404" label="[02:54:04]">&lt;OriansJ`&gt;</a></span><span class="message">it actualy got division half right</span></div><div class="line" id="032851"><span class="nick">***</span><span class="message notice">OriansJ` is now known as OriansJ</span></div><div class="line" id="032915"><span class="nick" style="color:#6b8072"><a href="#032915" label="[03:29:15]">&lt;xentrac&gt;</a></span><span class="message">what was nice about its division?</span></div><div class="line" id="033146"><span class="nick" style="color:#80b1d3"><a href="#033146" label="[03:31:46]">&lt;OriansJ&gt;</a></span><span class="message">it returned exactly the bottom 32bits of the true division result in a specified register</span></div><div class="line" id="033239"><span class="nick" style="color:#80b1d3"><a href="#033239" label="[03:32:39]">&lt;OriansJ&gt;</a></span><span class="message">it also had mult and mulh to get the top and bottom 32bits of a multiply as well</span></div><div class="line" id="035008"><span class="nick" style="color:#6b8072"><a href="#035008" label="[03:50:08]">&lt;xentrac&gt;</a></span><span class="message">why did you like that especially?</span></div><div class="line" id="035036"><span class="nick" style="color:#6b8072"><a href="#035036" label="[03:50:36]">&lt;xentrac&gt;</a></span><span class="message">maybe I don't understand how that's different from what IDIV does.  except that IDIV returns the remainder too</span></div><div class="line" id="145119"><span class="nick" style="color:#80b1d3"><a href="#145119" label="[14:51:19]">&lt;OriansJ&gt;</a></span><span class="message">xentrac: you get to specify where you want the output and there are no implicit registers</span></div><div class="line" id="212332"><span class="nick" style="color:#6b8072"><a href="#212332" label="[21:23:32]">&lt;xentrac&gt;</a></span><span class="message">OriansJ: oh, I see</span></div><div class="line" id="221320"><span class="nick" style="color:#6d2462"><a href="#221320" label="[22:13:20]">&lt;mihi&gt;</a></span><span class="message">fossy, re gigatron.io: I'm pretty sure OriansJ will not like the instruction set (does not have add/sub with carry, no mul/div, not even right shift...)</span></div><br /></div></body></html>

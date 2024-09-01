@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-04-16.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002535"><span class="nick" style="color:#389600"><a href="#002535" label="[00:25:35]">&lt;Googulator&gt;</a></span><span class="message">Pushed riscv64 checksums as well (plus a missing amd64 one)</span></div><div class="line" id="002631"><span class="nick" style="color:#8dd3c7"><a href="#002631" label="[00:26:31]">&lt;stikonas&gt;</a></span><span class="message">ih nice</span></div><div class="line" id="002639"><span class="nick" style="color:#8dd3c7"><a href="#002639" label="[00:26:39]">&lt;stikonas&gt;</a></span><span class="message">that was quite quick</span></div><div class="line" id="002652"><span class="nick" style="color:#8dd3c7"><a href="#002652" label="[00:26:52]">&lt;stikonas&gt;</a></span><span class="message">I think on my system it takes a while to run even in qemu</span></div><div class="line" id="002706"><span class="nick" style="color:#8dd3c7"><a href="#002706" label="[00:27:06]">&lt;stikonas&gt;</a></span><span class="message">(though one idea to significantly speed it up was to create unified-libc for mes stage)</span></div><div class="line" id="002711"><span class="nick" style="color:#389600"><a href="#002711" label="[00:27:11]">&lt;Googulator&gt;</a></span><span class="message">Zen 4 and DDR5 probably help</span></div><div class="line" id="002719"><span class="nick" style="color:#8dd3c7"><a href="#002719" label="[00:27:19]">&lt;stikonas&gt;</a></span><span class="message">that might actually speed up x86 builds too</span></div><div class="line" id="002740"><span class="nick" style="color:#389600"><a href="#002740" label="[00:27:40]">&lt;Googulator&gt;</a></span><span class="message">Especially with the mes-&gt;tcc stage, which is really sensitive to memory bandwidth</span></div><div class="line" id="002831"><span class="nick" style="color:#8dd3c7"><a href="#002831" label="[00:28:31]">&lt;stikonas&gt;</a></span><span class="message">but i think there is some overhead for each mescc invocation too</span></div><div class="line" id="002849"><span class="nick" style="color:#8dd3c7"><a href="#002849" label="[00:28:49]">&lt;stikonas&gt;</a></span><span class="message">so starting it for every small .c file in meslibc slows it down a lot</span></div><div class="line" id="003029"><span class="nick" style="color:#389600"><a href="#003029" label="[00:30:29]">&lt;Googulator&gt;</a></span><span class="message">Anyway, nyacc regen is now ready to merge, only waiting for fossy's review</span></div><div class="line" id="003051"><span class="nick" style="color:#389600"><a href="#003051" label="[00:30:51]">&lt;Googulator&gt;</a></span><span class="message">Successful CI build on <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/commit/5792805741538c569f02e46da0a9c300d9effb63;">https://github.com/fosslinux/live-bootstrap/commit/5792805741538c569f02e46da0a9c300d9effb63;</a>  successful bare metal build on my system</span></div><br /></div></body></html>

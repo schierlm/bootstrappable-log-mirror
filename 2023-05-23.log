@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-05-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010014"><span class="nick" style="color:#389600"><a href="#010014" label="[01:00:14]">&lt;stikonas&gt;</a></span><span class="message">janneke: sigh, so far fairly negative progress today...</span></div><div class="line" id="010040"><span class="nick" style="color:#389600"><a href="#010040" label="[01:00:40]">&lt;stikonas&gt;</a></span><span class="message">after some rebasing I can't even get riscv64 version of mes-m2 to work (it runs and exits with 0 status without doing much...)</span></div><div class="line" id="011709"><span class="nick" style="color:#389600"><a href="#011709" label="[01:17:09]">&lt;stikonas&gt;</a></span><span class="message">ok, found one issue, slightly better now but there is probably another</span></div><div class="line" id="014244"><span class="nick" style="color:#389600"><a href="#014244" label="[01:42:44]">&lt;stikonas&gt;</a></span><span class="message">janneke: anyway, for now I've replaced those ld !-0x10 with ld !-16...</span></div><div class="line" id="014257"><span class="nick" style="color:#389600"><a href="#014257" label="[01:42:57]">&lt;stikonas&gt;</a></span><span class="message">but somehow mes-m2 enters interactive mode after running script</span></div><div class="line" id="014332"><span class="nick" style="color:#389600"><a href="#014332" label="[01:43:32]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1280913/">https://paste.debian.net/1280913/</a> </span></div><div class="line" id="014353"><span class="nick" style="color:#389600"><a href="#014353" label="[01:43:53]">&lt;stikonas&gt;</a></span><span class="message">janneke: and also note that I've completely unified stage0-posix-riscv64 and mes defines</span></div><div class="line" id="014400"><span class="nick" style="color:#389600"><a href="#014400" label="[01:44:00]">&lt;stikonas&gt;</a></span><span class="message">but that means that you need the very latest M2-Planet</span></div><div class="line" id="014417"><span class="nick" style="color:#389600"><a href="#014417" label="[01:44:17]">&lt;stikonas&gt;</a></span><span class="message">(from the last git commit)</span></div><div class="line" id="015640"><span class="nick" style="color:#389600"><a href="#015640" label="[01:56:40]">&lt;stikonas&gt;</a></span><span class="message">hmm, probably something still broken with exit call...</span></div><div class="line" id="020043"><span class="nick" style="color:#389600"><a href="#020043" label="[02:00:43]">&lt;stikonas&gt;</a></span><span class="message">oh, syscall number was incorrect...</span></div><div class="line" id="020105"><span class="nick" style="color:#389600"><a href="#020105" label="[02:01:05]">&lt;stikonas&gt;</a></span><span class="message">ok, I've pushed updated version</span></div><div class="line" id="020110"><span class="nick" style="color:#389600"><a href="#020110" label="[02:01:10]">&lt;stikonas&gt;</a></span><span class="message">so mes-m2 should be functional now...</span></div><div class="line" id="021823"><span class="nick" style="color:#8dd3c7"><a href="#021823" label="[02:18:23]">&lt;theruran&gt;</a></span><span class="message">is amd64 on stage0-posix finished? I am running Release_1.5.0 and it is stuck on:</span></div><div class="line" id="021824"><span class="nick" style="color:#8dd3c7"><a href="#021824" label="[02:18:24]">&lt;theruran&gt;</a></span><span class="message">+&gt; ./AMD64/artifact/cc_amd64 ./AMD64/artifact/M2-0.c ./AMD64/artifact/M2-0.M1</span></div><div class="line" id="021854"><span class="nick" style="color:#8dd3c7"><a href="#021854" label="[02:18:54]">&lt;theruran&gt;</a></span><span class="message">on my other machine which is musl-based, it actually completes but gives me mismatching hashes for several binaries</span></div><div class="line" id="022754"><span class="nick" style="color:#389600"><a href="#022754" label="[02:27:54]">&lt;stikonas&gt;</a></span><span class="message">theruran: it is finished</span></div><div class="line" id="022802"><span class="nick" style="color:#389600"><a href="#022802" label="[02:28:02]">&lt;stikonas&gt;</a></span><span class="message">and none of the musl stuff should matter</span></div><div class="line" id="022806"><span class="nick" style="color:#389600"><a href="#022806" label="[02:28:06]">&lt;stikonas&gt;</a></span><span class="message">none of it is used</span></div><div class="line" id="022817"><span class="nick" style="color:#389600"><a href="#022817" label="[02:28:17]">&lt;stikonas&gt;</a></span><span class="message">theruran: maybe submodules are out of date?</span></div><div class="line" id="022836"><span class="nick" style="color:#389600"><a href="#022836" label="[02:28:36]">&lt;stikonas&gt;</a></span><span class="message">theruran: and in general I suggest running the latest git</span></div><div class="line" id="023230"><span class="nick" style="color:#389600"><a href="#023230" label="[02:32:30]">&lt;stikonas&gt;</a></span><span class="message">still it's a bit strange that it's stuck...</span></div><div class="line" id="023922"><span class="nick" style="color:#8dd3c7"><a href="#023922" label="[02:39:22]">&lt;theruran&gt;</a></span><span class="message">lemme try master HEAD again. yeah, i made sure to update the submodules</span></div><div class="line" id="024629"><span class="nick" style="color:#8dd3c7"><a href="#024629" label="[02:46:29]">&lt;theruran&gt;</a></span><span class="message">and do a ./cleanup.sh</span></div><div class="line" id="032640"><span class="nick" style="color:#8dd3c7"><a href="#032640" label="[03:26:40]">&lt;theruran&gt;</a></span><span class="message">iunno. now it's stuck at +&gt; ./AMD64/artifact/M0 ./AMD64/cc_amd64.M1 ./AMD64/artifact/cc_amd64.hex2</span></div><div class="line" id="034728"><span class="nick" style="color:#2e2a4a"><a href="#034728" label="[03:47:28]">&lt;oriansj&gt;</a></span><span class="message">theruran: well that step is known to be slow (as it is only reading 1 byte per syscall)</span></div><div class="line" id="041909"><span class="nick" style="color:#8dd3c7"><a href="#041909" label="[04:19:09]">&lt;theruran&gt;</a></span><span class="message">OK it has moved on to +&gt; ./AMD64/artifact/cc_amd64 ./AMD64/artifact/M2-0.c ./AMD64/artifact/M2-0.M1</span></div><div class="line" id="065104"><span class="nick" style="color:#6b8072"><a href="#065104" label="[06:51:04]">&lt;janneke&gt;</a></span><span class="message">stikonas[m]: so, some good progress after all, nice</span></div><div class="line" id="094945"><span class="nick" style="color:#80b1d3"><a href="#094945" label="[09:49:45]">&lt;stikonas[m]&gt;</a></span><span class="message">janneke: well, at least I should have umblocked mes-m2 build...</span></div><div class="line" id="095025"><span class="nick" style="color:#80b1d3"><a href="#095025" label="[09:50:25]">&lt;stikonas[m]&gt;</a></span><span class="message">Though for mescc devel, running x86 version is faster</span></div><div class="line" id="095104"><span class="nick" style="color:#80b1d3"><a href="#095104" label="[09:51:04]">&lt;stikonas[m]&gt;</a></span><span class="message">Anyway, scaffold-global array crashes for me...</span></div><div class="line" id="125445"><span class="nick" style="color:#2e2a4a"><a href="#125445" label="[12:54:45]">&lt;oriansj&gt;</a></span><span class="message">theruran: honestly with just a handful of extra functions all of those early programs could be made much faster. But I traded speed for simplicity as auditing another hundred bytes of hex0 is just no fun.</span></div><div class="line" id="145449"><span class="nick" style="color:#80b1d3"><a href="#145449" label="[14:54:49]">&lt;stikonas[m]&gt;</a></span><span class="message">Well, hex2 is written in hex1, so it's a bit better but still...</span></div><div class="line" id="155852"><span class="nick" style="color:#6d2462"><a href="#155852" label="[15:58:52]">&lt;gforce_de1977&gt;</a></span><span class="message">@oriansj - trading speed for simplicity is very wise here</span></div><div class="line" id="175226"><span class="nick" style="color:#80b1d3"><a href="#175226" label="[17:52:26]">&lt;stikonas[m]&gt;</a></span><span class="message">Still it's strange that it takes a long time. On my laptop native (non qemu'd) stage0-posix takes a minute or two, and early stages are just seconds...</span></div><div class="line" id="181951"><span class="nick" style="color:#8dd3c7"><a href="#181951" label="[18:19:51]">&lt;theruran&gt;</a></span><span class="message">it's still moving along, at least. but I swear last time it was stuck overnight</span></div><div class="line" id="183711"><span class="nick" style="color:#80b1d3"><a href="#183711" label="[18:37:11]">&lt;stikonas[m]&gt;</a></span><span class="message">theruran: maybe check what takes so long?</span></div><div class="line" id="183737"><span class="nick" style="color:#80b1d3"><a href="#183737" label="[18:37:37]">&lt;stikonas[m]&gt;</a></span><span class="message">Is it really I/O?</span></div><div class="line" id="183859"><span class="nick" style="color:#80b1d3"><a href="#183859" label="[18:38:59]">&lt;stikonas[m]&gt;</a></span><span class="message">`strace -T` might be useful</span></div><div class="line" id="185150"><span class="nick" style="color:#8dd3c7"><a href="#185150" label="[18:51:50]">&lt;theruran&gt;</a></span><span class="message">stikonas[m]: looks like it is write()'ing 1 byte at a time</span></div><div class="line" id="185244"><span class="nick" style="color:#80b1d3"><a href="#185244" label="[18:52:44]">&lt;stikonas[m]&gt;</a></span><span class="message">theruran: yes, that's true</span></div><div class="line" id="185304"><span class="nick" style="color:#80b1d3"><a href="#185304" label="[18:53:04]">&lt;stikonas[m]&gt;</a></span><span class="message">That's the optimisation oriansj talked about</span></div><div class="line" id="185327"><span class="nick" style="color:#8dd3c7"><a href="#185327" label="[18:53:27]">&lt;theruran&gt;</a></span><span class="message">it was much faster on my Void musl machine. I may have some kernel settings enabled here, in addition to disk encryption and hardened toolchain that may slow it down?</span></div><div class="line" id="185330"><span class="nick" style="color:#80b1d3"><a href="#185330" label="[18:53:30]">&lt;stikonas[m]&gt;</a></span><span class="message">There is no buffering until much later... (M2libc)</span></div><div class="line" id="185411"><span class="nick" style="color:#80b1d3"><a href="#185411" label="[18:54:11]">&lt;stikonas[m]&gt;</a></span><span class="message">I have disk encryption too</span></div><div class="line" id="185416"><span class="nick" style="color:#80b1d3"><a href="#185416" label="[18:54:16]">&lt;stikonas[m]&gt;</a></span><span class="message">Hmm</span></div><div class="line" id="185437"><span class="nick" style="color:#80b1d3"><a href="#185437" label="[18:54:37]">&lt;stikonas[m]&gt;</a></span><span class="message">You can try running it in /dev/shm</span></div><div class="line" id="185446"><span class="nick" style="color:#80b1d3"><a href="#185446" label="[18:54:46]">&lt;stikonas[m]&gt;</a></span><span class="message">(Or any other tmpfs)</span></div><div class="line" id="205048"><span class="nick" style="color:#6b8072"><a href="#205048" label="[20:50:48]">&lt;janneke&gt;</a></span><span class="message">so, on a completetly (?) unrelated note...</span></div><div class="line" id="205050"><span class="nick" style="color:#6b8072"><a href="#205050" label="[20:50:50]">&lt;janneke&gt;</a></span><span class="message"> <a rel="nofollow" href="https://todon.nl/@janneke/110419350822212613">https://todon.nl/@janneke/110419350822212613</a> </span></div><div class="line" id="222425"><span class="nick" style="color:#389600"><a href="#222425" label="[22:24:25]">&lt;stikonas&gt;</a></span><span class="message">what is rumpdisk?</span></div><div class="line" id="222848"><span class="nick" style="color:#6b8072"><a href="#222848" label="[22:28:48]">&lt;janneke&gt;</a></span><span class="message">rumpdisk is a server for the hurd, based on the netbsd rumpkernel</span></div><div class="line" id="222903"><span class="nick" style="color:#6b8072"><a href="#222903" label="[22:29:03]">&lt;janneke&gt;</a></span><span class="message">it brings modern disk support to the hurd</span></div><div class="line" id="222944"><span class="nick" style="color:#6b8072"><a href="#222944" label="[22:29:44]">&lt;janneke&gt;</a></span><span class="message"> <a rel="nofollow" href="https://archive.fosdem.org/2022/schedule/event/dzammit/">https://archive.fosdem.org/2022/schedule/event/dzammit/</a> </span></div><div class="line" id="223018"><span class="nick" style="color:#234e69"><a href="#223018" label="[22:30:18]">&lt;muurkha&gt;</a></span><span class="message">&quot;The figurative sense of &quot;small remnant, tail-end of anything&quot; derives from the notion of &quot;tail&quot; and is recorded from 1640s in reference to the English Rump Parliament (December 1648-April 1653), so called from sitting after the expulsion of the majority of members of the Long Parliament in Pride's Purge. As an adjective from c. 1600.&quot;</span></div><div class="line" id="223049"><span class="nick" style="color:#234e69"><a href="#223049" label="[22:30:49]">&lt;muurkha&gt;</a></span><span class="message">thus we have rump sessions at conferences and rump kernels, I suppose?</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-12-27.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000000"><span class="nick" style="color:#389600"><a href="#000000" label="[00:00:00]">&lt;OriansJ&gt;</a></span><span class="message">I could probably also eliminate the need for lseek if I knew of another way to know a file's size efficiently.</span></div><div class="line" id="000758"><span class="nick" style="color:#8dd3c7"><a href="#000758" label="[00:07:58]">&lt;bauen1&gt;</a></span><span class="message">OriansJ: how many are approximately needed ? read, write, open, exit, mmap, clone/fork ?</span></div><div class="line" id="001244"><span class="nick" style="color:#2e2a4a"><a href="#001244" label="[00:12:44]">&lt;deesix&gt;</a></span><span class="message">Around 15, I think.</span></div><div class="line" id="002001"><span class="nick" style="color:#2e2a4a"><a href="#002001" label="[00:20:01]">&lt;deesix&gt;</a></span><span class="message">From AArch64 M1 definitions: BRK CHDIR CLONE CLOSE EXECVE EXIT FACCESSAT FCHDIR FCHMODAT GETCWD LSEEK OPENAT READ UNAME WAIT4 WRITE</span></div><div class="line" id="002549"><span class="nick" style="color:#389600"><a href="#002549" label="[00:25:49]">&lt;OriansJ&gt;</a></span><span class="message">bauen1: I can tell you exactly: exit (syscall 1 on x86), access(syscall 33 on x86), chdir (syscall 12 on x86), fchdir (syscall 133 on x86), waitpid (syscall 7 on x86), execve (syscall 11 on x86), read (syscall 3 on x86), write (syscall 4 on x86), lseek (syscall 19 on x86), open (syscall 5 on x86), close (syscall 6 on x86), fork (syscall 2 on x86), getcwd (syscall 183 on x86), brk (syscall 45 on x86), chmod (syscall 15 on x86) and uname</span></div><div class="line" id="002549"><span class="nick" style="color:#389600"><a href="#002549" label="[00:25:49]">&lt;OriansJ&gt;</a></span><span class="message">(syscall 109 on x86)</span></div><div class="line" id="002631"><span class="nick" style="color:#389600"><a href="#002631" label="[00:26:31]">&lt;OriansJ&gt;</a></span><span class="message">So exactly 16 syscalls</span></div><div class="line" id="002728"><span class="nick" style="color:#389600"><a href="#002728" label="[00:27:28]">&lt;OriansJ&gt;</a></span><span class="message">(with wait4 on AArch64 and AMD64 instead of waitpid but they are used the same and can easily be harmonized if it makes your job easier)</span></div><div class="line" id="003442"><span class="nick" style="color:#389600"><a href="#003442" label="[00:34:42]">&lt;OriansJ&gt;</a></span><span class="message">absolutely nothing else is used syscall-wise as we don't format the disk or need a proper shell.</span></div><div class="line" id="004147"><span class="nick" style="color:#389600"><a href="#004147" label="[00:41:47]">&lt;OriansJ&gt;</a></span><span class="message">only need the bootstrap kaem as init and we can do the rest from there</span></div><div class="line" id="050344"><span class="nick" style="color:#80b1d3"><a href="#050344" label="[05:03:44]">&lt;fossy&gt;</a></span><span class="message">getcwd can be easily dropped. chmod can be if the kernel has an option to default to executable files,  fchdir and chdir can also be dropped</span></div><div class="line" id="050352"><span class="nick" style="color:#80b1d3"><a href="#050352" label="[05:03:52]">&lt;fossy&gt;</a></span><span class="message">if nessecary</span></div><div class="line" id="055002"><span class="nick" style="color:#6d2462"><a href="#055002" label="[05:50:02]">&lt;plasma41&gt;</a></span><span class="message">fossy: You are correct. I didn't do my due diligence before I commented. Running `checkbashisms -f rootfs.sh` produces this output: <a rel="nofollow" href="https://paste.debian.net/1178461/">https://paste.debian.net/1178461/</a> </span></div><div class="line" id="070714"><span class="nick" style="color:#234e69"><a href="#070714" label="[07:07:14]">&lt;siraben&gt;</a></span><span class="message">OriansJ: with such few syscalls we could do this bootstrap on the MMIX architecture</span></div><div class="line" id="070736"><span class="nick" style="color:#234e69"><a href="#070736" label="[07:07:36]">&lt;siraben&gt;</a></span><span class="message">which GCC targets and newlib implements some syscalls for</span></div><div class="line" id="070816"><span class="nick" style="color:#234e69"><a href="#070816" label="[07:08:16]">&lt;siraben&gt;</a></span><span class="message">fossy: thanks, looks interesting</span></div><div class="line" id="070835"><span class="nick" style="color:#234e69"><a href="#070835" label="[07:08:35]">&lt;siraben&gt;</a></span><span class="message">oh i didn't know we can get rid of the shell dependency as well</span></div><div class="line" id="072109"><span class="nick" style="color:#80b1d3"><a href="#072109" label="[07:21:09]">&lt;fossy&gt;</a></span><span class="message">huh til about push/popd</span></div><div class="line" id="072112"><span class="nick" style="color:#80b1d3"><a href="#072112" label="[07:21:12]">&lt;fossy&gt;</a></span><span class="message">being bashisms</span></div><div class="line" id="072246"><span class="nick" style="color:#234e69"><a href="#072246" label="[07:22:46]">&lt;siraben&gt;</a></span><span class="message">TIL about checkbashisms</span></div><div class="line" id="072313"><span class="nick" style="color:#234e69"><a href="#072313" label="[07:23:13]">&lt;siraben&gt;</a></span><span class="message">nix run nixpkgs.checkbashism -c checkbashisms</span></div><div class="line" id="073231"><span class="nick" style="color:#6d2462"><a href="#073231" label="[07:32:31]">&lt;plasma41&gt;</a></span><span class="message">fossy, siraben: checkbashisms is included in the devscripts package in Debian, btw.</span></div><div class="line" id="073245"><span class="nick" style="color:#80b1d3"><a href="#073245" label="[07:32:45]">&lt;fossy&gt;</a></span><span class="message">cool</span></div><div class="line" id="075103"><span class="nick" style="color:#234e69"><a href="#075103" label="[07:51:03]">&lt;siraben&gt;</a></span><span class="message">Am considering an inline directive for blynn-compiler</span></div><div class="line" id="090645"><span class="nick" style="color:#6c3d55"><a href="#090645" label="[09:06:45]">&lt;pabs3&gt;</a></span><span class="message">shellcheck also does some checking for POSIX sh compliance</span></div><div class="line" id="104042"><span class="nick" style="color:#389600"><a href="#104042" label="[10:40:42]">&lt;OriansJ&gt;</a></span><span class="message">siraben: well yes. The idea is everything in mescc-tools-seed could be done on any arbitrary hardware that supports atleast 1 input and 1 output method. It is only on later stages do things get ugly.</span></div><div class="line" id="105146"><span class="nick" style="color:#8dd3c7"><a href="#105146" label="[10:51:46]">&lt;bauen1&gt;</a></span><span class="message">that is very doable</span></div><div class="line" id="105252"><span class="nick" style="color:#8dd3c7"><a href="#105252" label="[10:52:52]">&lt;bauen1&gt;</a></span><span class="message">i would really prefer to implement the more modern syscalls (i.e. mmap instead of brk, clone instead of fork), but if necessary i can just implement a compatibility later for brk / fork later on</span></div><div class="line" id="105316"><span class="nick" style="color:#8dd3c7"><a href="#105316" label="[10:53:16]">&lt;bauen1&gt;</a></span><span class="message">i just don't really have enough time currently (as always) :(</span></div><div class="line" id="105431"><span class="nick" style="color:#8dd3c7"><a href="#105431" label="[10:54:31]">&lt;bauen1&gt;</a></span><span class="message">fossy: you don't need chmod if you never implement access controls</span></div><div class="line" id="105550"><span class="nick" style="color:#8dd3c7"><a href="#105550" label="[10:55:50]">&lt;bauen1&gt;</a></span><span class="message">i assume that waitpid uses an exact pid and not one of the special (0, -1, ...) values ?</span></div><div class="line" id="151519"><span class="nick" style="color:#389600"><a href="#151519" label="[15:15:19]">&lt;OriansJ&gt;</a></span><span class="message">bauen1: waitpid is currently only used in kaem and mes.c (and future mes-m2) for spawning of a process and waiting for it to complete (then looking at its return code)</span></div><div class="line" id="151733"><span class="nick" style="color:#389600"><a href="#151733" label="[15:17:33]">&lt;OriansJ&gt;</a></span><span class="message">(as MesCC spawns blood-elf, M1 and hex2 depending on the compile options)</span></div><div class="line" id="161230"><span class="nick" style="color:#389600"><a href="#161230" label="[16:12:30]">&lt;OriansJ&gt;</a></span><span class="message">bauen1: we also would be more than happy to use the more modern syscalls if you wouldn't mind assisting us in knowing what needs to be done to switch to them; so that we can update accordingly. (what we don't know, we can't fix)</span></div><div class="line" id="161338"><span class="nick" style="color:#d9d9d9"><a href="#161338" label="[16:13:38]">&lt;janneke&gt;</a></span><span class="message">for example, are these &quot;modern&quot; system calls just as portable as the &quot;old ones&quot;?</span></div><div class="line" id="161348"><span class="nick" style="color:#d9d9d9"><a href="#161348" label="[16:13:48]">&lt;janneke&gt;</a></span><span class="message">think: bsd, the hurd</span></div><div class="line" id="161418"><span class="nick" style="color:#d9d9d9"><a href="#161418" label="[16:14:18]">&lt;janneke&gt;</a></span><span class="message">we probably don't want to go modern if that means supporting *both* old and new?</span></div><div class="line" id="162752"><span class="nick" style="color:#bc80bd"><a href="#162752" label="[16:27:52]">&lt;nimaje&gt;</a></span><span class="message">seems like freebsd implements waitpid via the wait4 syscall</span></div><div class="line" id="163218"><span class="nick" style="color:#389600"><a href="#163218" label="[16:32:18]">&lt;OriansJ&gt;</a></span><span class="message">nimaje: it isn't just FreeBSD; it is *all* POSIX systems. Including those a college student might write for themselves on arbitrary hardware they made for themselves.</span></div><div class="line" id="163259"><span class="nick" style="color:#389600"><a href="#163259" label="[16:32:59]">&lt;OriansJ&gt;</a></span><span class="message">The root of trust needs to be as diverse as theoretically possible.</span></div><div class="line" id="163405"><span class="nick" style="color:#389600"><a href="#163405" label="[16:34:05]">&lt;OriansJ&gt;</a></span><span class="message">and because all of the early stages should be able to cross compile *ALL* other targets; it forces any trusting trust attacker to compromise *EVERY* hardware platform including those made by college students with $300 worth of parts</span></div><div class="line" id="163519"><span class="nick" style="color:#389600"><a href="#163519" label="[16:35:19]">&lt;OriansJ&gt;</a></span><span class="message">When we find MacOSX and Windows Developers; we will have them port the work there as well.</span></div><div class="line" id="163613"><span class="nick" style="color:#389600"><a href="#163613" label="[16:36:13]">&lt;OriansJ&gt;</a></span><span class="message">So unless an attacker compromises *ALL* operating systems on *ALL* hardware platforms; we will detect trusting trust attacks 100% of the time.</span></div><div class="line" id="163652"><span class="nick" style="color:#389600"><a href="#163652" label="[16:36:52]">&lt;OriansJ&gt;</a></span><span class="message">with sub-300 byte roots of trust (that can be verfied in a day)</span></div><div class="line" id="163712"><span class="nick" style="color:#bc80bd"><a href="#163712" label="[16:37:12]">&lt;nimaje&gt;</a></span><span class="message">well, that was an example of a system that doesn't have a waitpid syscall, maybe linux has a special syscall for waitpid or it is also implemented via wait4, but the previous discussion said there was a waitpid syscall and not a normal function</span></div><div class="line" id="163932"><span class="nick" style="color:#389600"><a href="#163932" label="[16:39:32]">&lt;OriansJ&gt;</a></span><span class="message">nimaje: fair and that is one of the reasons why I am starting to engineer <a rel="nofollow" href="https://github.com/oriansj/M2libc">https://github.com/oriansj/M2libc</a> </span></div><div class="line" id="164050"><span class="nick" style="color:#389600"><a href="#164050" label="[16:40:50]">&lt;OriansJ&gt;</a></span><span class="message">To harmonize not only the libc and definitions with MesCC but also provide portable functions that wrap syscalls to make porting easier.</span></div><div class="line" id="164128"><span class="nick" style="color:#389600"><a href="#164128" label="[16:41:28]">&lt;OriansJ&gt;</a></span><span class="message">(I have alot of work ahead of me)</span></div><div class="line" id="164317"><span class="nick" style="color:#bc80bd"><a href="#164317" label="[16:43:17]">&lt;nimaje&gt;</a></span><span class="message">seems like linux has for most of the wait* functions an special syscall instead of implementing the functions in terms of each other</span></div><div class="line" id="164456"><span class="nick" style="color:#234e69"><a href="#164456" label="[16:44:56]">&lt;siraben&gt;</a></span><span class="message">I use macOS but wouldn't be able to do the low level stuff on it</span></div><div class="line" id="164501"><span class="nick" style="color:#389600"><a href="#164501" label="[16:45:01]">&lt;OriansJ&gt;</a></span><span class="message">nimaje: well Linux woman won by making it easier to port to Linux from Commercial Unixes</span></div><div class="line" id="164557"><span class="nick" style="color:#d9d9d9"><a href="#164557" label="[16:45:57]">&lt;janneke&gt;</a></span><span class="message">OriansJ: on mes' wip-m2 branch, the mes c library can be compiled with m2-planet</span></div><div class="line" id="164619"><span class="nick" style="color:#d9d9d9"><a href="#164619" label="[16:46:19]">&lt;janneke&gt;</a></span><span class="message">obviously that is needed to prototype the full source bootstrap</span></div><div class="line" id="164705"><span class="nick" style="color:#d9d9d9"><a href="#164705" label="[16:47:05]">&lt;janneke&gt;</a></span><span class="message">but it's good enough to build mes</span></div><div class="line" id="164751"><span class="nick" style="color:#d9d9d9"><a href="#164751" label="[16:47:51]">&lt;janneke&gt;</a></span><span class="message">(or it was, it may have bitrotten -- i'm planning to resurrect it the coming weeks)</span></div><div class="line" id="164837"><span class="nick" style="color:#bc80bd"><a href="#164837" label="[16:48:37]">&lt;nimaje&gt;</a></span><span class="message">and a linux wait(2) manpage (that I found online) says the clone syscall is unique to linux (&quot;using the Linux-unique clone(2) system call&quot;)</span></div><div class="line" id="165510"><span class="nick" style="color:#3c5b35"><a href="#165510" label="[16:55:10]">&lt;mihi&gt;</a></span><span class="message">if you want it portable, you should replace fork/exec by posix_spawn: <a rel="nofollow" href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/posix_spawn.html.">https://pubs.opengroup.org/onlinepubs/9699919799/functions/posix_spawn.html.</a>  Fork on the Hurd is no syscall but &quot;emulated&quot; by glibc, and posix_spawn is faster. Also modern glibc uses clone or vfork instead of fork syscalls if they are available (Linux 5.3 for clone, Linux 2.2. for vfork). Some non-POSIX systems like MinGW don't implmement fork,</span></div><div class="line" id="165510"><span class="nick" style="color:#3c5b35"><a href="#165510" label="[16:55:10]">&lt;mihi&gt;</a></span><span class="message">but implement posix_spawn (via Win32 CreateProcess API)</span></div><div class="line" id="165759"><span class="nick" style="color:#bc80bd"><a href="#165759" label="[16:57:59]">&lt;nimaje&gt;</a></span><span class="message">pretty sure posix only specifies which functions should be there not how they should be implemented (pretty sure freebsd implements posix_spawn via vfork and exec)</span></div><div class="line" id="165807"><span class="nick" style="color:#3c5b35"><a href="#165807" label="[16:58:07]">&lt;mihi&gt;</a></span><span class="message">main reason why to use vfork or clone on Linux is that it reduces memory/swap requirements when memory overcommitment is disabled (which you want to do on performace critical systems to avoid the dreaded OOM Killer)</span></div><div class="line" id="173337"><span class="nick" style="color:#af8d2f"><a href="#173337" label="[17:33:37]">&lt;rain1&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.reddit.com/r/ProgrammingLanguages/comments/kkrmm9/bootstrapping_case_studies/">https://www.reddit.com/r/ProgrammingLanguages/comments/kkrmm9/bootstrapping_case_studies/</a> </span></div><div class="line" id="173340"><span class="nick" style="color:#af8d2f"><a href="#173340" label="[17:33:40]">&lt;rain1&gt;</a></span><span class="message">just some random chat</span></div><div class="line" id="174454"><span class="nick" style="color:#389600"><a href="#174454" label="[17:44:54]">&lt;OriansJ&gt;</a></span><span class="message">rain1: why don't you karma mine with a link to mescc-tools-seed. As &quot;from hex to cross-platform C compiler, scheme interpreter and Haskell Compiler&quot; should grab some attention.</span></div><div class="line" id="174504"><span class="nick" style="color:#af8d2f"><a href="#174504" label="[17:45:04]">&lt;rain1&gt;</a></span><span class="message">:P</span></div><div class="line" id="174603"><span class="nick" style="color:#389600"><a href="#174603" label="[17:46:03]">&lt;OriansJ&gt;</a></span><span class="message">I don't care to do PR work but someone needs to do it or people will think stage0 is dead or something.</span></div><div class="line" id="174728"><span class="nick" style="color:#389600"><a href="#174728" label="[17:47:28]">&lt;OriansJ&gt;</a></span><span class="message">^PR^Public Relations^</span></div><div class="line" id="174750"><span class="nick" style="color:#389600"><a href="#174750" label="[17:47:50]">&lt;OriansJ&gt;</a></span><span class="message">(I'm happy to deal with Pull Requests)</span></div><br /></div></body></html>

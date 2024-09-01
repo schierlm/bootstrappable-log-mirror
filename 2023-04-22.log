@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-04-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="031600"><span class="nick" style="color:#389600"><a href="#031600" label="[03:16:00]">&lt;roconnor&gt;</a></span><span class="message">coreutil's printf program hold some kind of reference to lib.</span></div><div class="line" id="035021"><span class="nick" style="color:#389600"><a href="#035021" label="[03:50:21]">&lt;roconnor&gt;</a></span><span class="message">Hmm, my bash hash doesn't match.</span></div><div class="line" id="041823"><span class="nick" style="color:#389600"><a href="#041823" label="[04:18:23]">&lt;roconnor&gt;</a></span><span class="message">actually a few programs have diverged.  I'll have to look into that.</span></div><div class="line" id="043219"><span class="nick" style="color:#389600"><a href="#043219" label="[04:32:19]">&lt;roconnor&gt;</a></span><span class="message">oh some of these programs are built mutiple times and only their final checksums are recorded.</span></div><div class="line" id="043236"><span class="nick" style="color:#389600"><a href="#043236" label="[04:32:36]">&lt;roconnor&gt;</a></span><span class="message">I'm just not far enough along.</span></div><div class="line" id="043535"><span class="nick" style="color:#8dd3c7"><a href="#043535" label="[04:35:35]">&lt;muurkha&gt;</a></span><span class="message">ah, they're built with earlier toolchains?</span></div><div class="line" id="043604"><span class="nick" style="color:#389600"><a href="#043604" label="[04:36:04]">&lt;roconnor&gt;</a></span><span class="message">yeah.  I'm only at bash, first pass.</span></div><div class="line" id="043841"><span class="nick" style="color:#389600"><a href="#043841" label="[04:38:41]">&lt;roconnor&gt;</a></span><span class="message">though I can't see when the second pass gets invoked.</span></div><div class="line" id="102619"><span class="nick" style="color:#2e2a4a"><a href="#102619" label="[10:26:19]">&lt;stikonas[m]&gt;</a></span><span class="message">roconnor: all checksums are recorded as far as I'm aware</span></div><div class="line" id="102636"><span class="nick" style="color:#2e2a4a"><a href="#102636" label="[10:26:36]">&lt;stikonas[m]&gt;</a></span><span class="message">Before bash it is individual files</span></div><div class="line" id="102709"><span class="nick" style="color:#2e2a4a"><a href="#102709" label="[10:27:09]">&lt;stikonas[m]&gt;</a></span><span class="message">After bash we create .tar.gz packages of install contents and checksum those</span></div><div class="line" id="140223"><span class="nick" style="color:#389600"><a href="#140223" label="[14:02:23]">&lt;roconnor&gt;</a></span><span class="message">oh hmm.</span></div><div class="line" id="142146"><span class="nick" style="color:#6b8072"><a href="#142146" label="[14:21:46]">&lt;stikonas&gt;</a></span><span class="message">roconnor: anyway, this happens all the time in live-bootstrap due to static linking. Even later programs might be using some older libraries</span></div><div class="line" id="142214"><span class="nick" style="color:#6b8072"><a href="#142214" label="[14:22:14]">&lt;stikonas&gt;</a></span><span class="message">not everything is rebuilt against the newst versions, but there isn't really any need</span></div><div class="line" id="201915"><span class="nick" style="color:#389600"><a href="#201915" label="[20:19:15]">&lt;roconnor&gt;</a></span><span class="message">I see why my bash is likely different.  I don't have /usr/bin in the built-in search path.</span></div><br /></div></body></html>

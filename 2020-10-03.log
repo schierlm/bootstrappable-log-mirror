@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-10-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000618"><span class="nick" style="color:#389600"><a href="#000618" label="[00:06:18]">&lt;OriansJ`&gt;</a></span><span class="message">anyone have an idea of how to shoe horn tail calls into mes-m2?</span></div><div class="line" id="154523"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><div class="line" id="223749"><span class="nick" style="color:#389600"><a href="#223749" label="[22:37:49]">&lt;OriansJ`&gt;</a></span><span class="message">janneke: does mescc absolutely need tail calls?</span></div><div class="line" id="223957"><span class="nick" style="color:#2e2a4a"><a href="#223957" label="[22:39:57]">&lt;janneke&gt;</a></span><span class="message">OriansJ`: if you put it that black and white, then i don't think so</span></div><div class="line" id="224007"><span class="nick" style="color:#2e2a4a"><a href="#224007" label="[22:40:07]">&lt;janneke&gt;</a></span><span class="message">;)</span></div><div class="line" id="224128"><span class="nick" style="color:#389600"><a href="#224128" label="[22:41:28]">&lt;OriansJ`&gt;</a></span><span class="message">janneke: good, since I can't figure out a simple way to do tail calls without making mes-m2 harder to understand</span></div><div class="line" id="224707"><span class="nick" style="color:#389600"><a href="#224707" label="[22:47:07]">&lt;OriansJ`&gt;</a></span><span class="message">since I have perhaps made the requirements for mes-m2 a little too aggressive and am having to pair it back to a core which would enable others to help</span></div><div class="line" id="224708"><span class="nick" style="color:#2e2a4a"><a href="#224708" label="[22:47:08]">&lt;janneke&gt;</a></span><span class="message">OriansJ`: simple is much better, mes is too complex (it's great that &quot;it works&quot;)</span></div><div class="line" id="224922"><span class="nick" style="color:#389600"><a href="#224922" label="[22:49:22]">&lt;OriansJ`&gt;</a></span><span class="message">janneke: true but complexity is unavoidable once one implements a certain level of functionality.</span></div><div class="line" id="225307"><span class="nick" style="color:#389600"><a href="#225307" label="[22:53:07]">&lt;OriansJ`&gt;</a></span><span class="message">The only way to reduce that in MesCC would be to break it into a C preprocessor and a C state machine. Then perhaps integrate the slow-utils scheme implementations of M1 and hex2; thus making MesCC have no external dependencies.</span></div><div class="line" id="225358"><span class="nick" style="color:#389600"><a href="#225358" label="[22:53:58]">&lt;OriansJ`&gt;</a></span><span class="message">but that would be slightly tedious work with only having the marginal benefit of easier to maintain code.</span></div><div class="line" id="231507"><span class="nick" style="color:#6b8072"><a href="#231507" label="[23:15:07]">&lt;yanmaani&gt;</a></span><span class="message">OriansJ`: Couldn't you have a multi-tiered implementation?</span></div><div class="line" id="231521"><span class="nick" style="color:#6b8072"><a href="#231521" label="[23:15:21]">&lt;yanmaani&gt;</a></span><span class="message">So, have a preprocessor, and then have a #ifdef TAILCALLS</span></div><div class="line" id="231535"><span class="nick" style="color:#6b8072"><a href="#231535" label="[23:15:35]">&lt;yanmaani&gt;</a></span><span class="message">and implement the stuff inside the guards without tail calls</span></div><div class="line" id="231551"><span class="nick" style="color:#6b8072"><a href="#231551" label="[23:15:51]">&lt;yanmaani&gt;</a></span><span class="message">to compile it, you build a tailcall-less version, then use it to compile itself</span></div><div class="line" id="232435"><span class="nick" style="color:#389600"><a href="#232435" label="[23:24:35]">&lt;OriansJ`&gt;</a></span><span class="message">yanmaani: in theory yes. however mes-m2 has only 1 (maybe 2) jobs to do: run MesCC well enough to bootstrap GCC (possibly run a scheme capable of bootstrapping guile psyntax.pp)</span></div><div class="line" id="234040"><span class="nick" style="color:#389600"><a href="#234040" label="[23:40:40]">&lt;OriansJ`&gt;</a></span><span class="message">janneke: I still could use your help with the MesCC half of mes-m2</span></div><div class="line" id="234158"><span class="nick" style="color:#389600"><a href="#234158" label="[23:41:58]">&lt;OriansJ`&gt;</a></span><span class="message">specificly getting guile -L module/ -e main -s scripts/mescc.scm -c mes.c -o foo.S to work</span></div><div class="line" id="234746"><span class="nick" style="color:#389600"><a href="#234746" label="[23:47:46]">&lt;OriansJ`&gt;</a></span><span class="message">as I still need a static target to get mes-m2 to run</span></div><br /></div></body></html>

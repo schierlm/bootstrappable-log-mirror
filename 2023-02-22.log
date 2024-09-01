@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-02-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="014002"><span class="nick" style="color:#389600"><a href="#014002" label="[01:40:02]">&lt;stikonas&gt;</a></span><span class="message">fossy: fixed shellcheck in <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/248">https://github.com/fosslinux/live-bootstrap/pull/248</a> </span></div><div class="line" id="014030"><span class="nick" style="color:#389600"><a href="#014030" label="[01:40:30]">&lt;stikonas&gt;</a></span><span class="message">just disabled it as in this particular case it was not helpful</span></div><div class="line" id="014113"><span class="nick" style="color:#389600"><a href="#014113" label="[01:41:13]">&lt;stikonas&gt;</a></span><span class="message">(even if files have -- in their names, it wouldn't be interpreted as command line option as those file names only go to /tmp/filelist.txt)</span></div><div class="line" id="015243"><span class="nick" style="color:#389600"><a href="#015243" label="[01:52:43]">&lt;stikonas&gt;</a></span><span class="message">pder: just trying to understand in your PR, why do we need to copy some files from x86 to arch dir and then also include that dir in -I</span></div><div class="line" id="015309"><span class="nick" style="color:#389600"><a href="#015309" label="[01:53:09]">&lt;stikonas&gt;</a></span><span class="message">(this is probably fine, just making sure I understand the exact reasons)</span></div><div class="line" id="015549"><span class="nick" style="color:#8dd3c7"><a href="#015549" label="[01:55:49]">&lt;pder&gt;</a></span><span class="message">the new arch directory is something new in 0.24.2.  Take a look at simple.sh in the mes tree.  It does a mkdir -p include/arch then copies syscall.h and kernel-stat.h to this directory</span></div><div class="line" id="015629"><span class="nick" style="color:#389600"><a href="#015629" label="[01:56:29]">&lt;stikonas&gt;</a></span><span class="message">ok, I guess it was changing more stuff that what would one expect in bugfix release</span></div><div class="line" id="015709"><span class="nick" style="color:#389600"><a href="#015709" label="[01:57:09]">&lt;stikonas&gt;</a></span><span class="message">oh well, let's not deviate from what mes installer does</span></div><div class="line" id="015749"><span class="nick" style="color:#389600"><a href="#015749" label="[01:57:49]">&lt;stikonas&gt;</a></span><span class="message">hopefully my PR will rebase cleanly on top of yours</span></div><div class="line" id="015817"><span class="nick" style="color:#8dd3c7"><a href="#015817" label="[01:58:17]">&lt;pder&gt;</a></span><span class="message">if not, please feel free to you merge yours first, and I will fix mine up after</span></div><div class="line" id="015839"><span class="nick" style="color:#8dd3c7"><a href="#015839" label="[01:58:39]">&lt;pder&gt;</a></span><span class="message">s/you//</span></div><div class="line" id="020010"><span class="nick" style="color:#8dd3c7"><a href="#020010" label="[02:00:10]">&lt;pder&gt;</a></span><span class="message">i think we both changed the checksum of at least tcc-0.9.27</span></div><div class="line" id="020116"><span class="nick" style="color:#389600"><a href="#020116" label="[02:01:16]">&lt;stikonas&gt;</a></span><span class="message">pder: no, I merged yours</span></div><div class="line" id="020129"><span class="nick" style="color:#389600"><a href="#020129" label="[02:01:29]">&lt;stikonas&gt;</a></span><span class="message">there is one conflict, but I think just because lines were next to each other</span></div><div class="line" id="020141"><span class="nick" style="color:#389600"><a href="#020141" label="[02:01:41]">&lt;stikonas&gt;</a></span><span class="message">I'll rerun my pipeline to double check</span></div><div class="line" id="030044"><span class="nick" style="color:#389600"><a href="#030044" label="[03:00:44]">&lt;stikonas&gt;</a></span><span class="message">oh yes, I changed later versions of tcc too...</span></div><div class="line" id="033151"><span class="nick" style="color:#2e2a4a"><a href="#033151" label="[03:31:51]">&lt;oriansj&gt;</a></span><span class="message">rickmasters: super excited by your news ^_^</span></div><div class="line" id="033236"><span class="nick" style="color:#389600"><a href="#033236" label="[03:32:36]">&lt;stikonas&gt;</a></span><span class="message">yeah, that is nice, I'm looking forward to live-bootstrap integration</span></div><div class="line" id="034305"><span class="nick" style="color:#6b8072"><a href="#034305" label="[03:43:05]">&lt;rickmasters&gt;</a></span><span class="message">stikonas, orianjs: I should have a first pass at integration ready to look at in a few days</span></div><div class="line" id="034437"><span class="nick" style="color:#6b8072"><a href="#034437" label="[03:44:37]">&lt;rickmasters&gt;</a></span><span class="message">If I wasn't playing Elden Ring it would be done already :)</span></div><div class="line" id="034809"><span class="nick" style="color:#2e2a4a"><a href="#034809" label="[03:48:09]">&lt;oriansj&gt;</a></span><span class="message">rickmasters: I understand, my 2 year old demanded I play minetest (the LGPL 2.1+ voxel game that is superior to minecraft in every way I care about) most of saturday and sunday. And Warzone 2100 is still my crack gaming addiction.</span></div><div class="line" id="035017"><span class="nick" style="color:#80b1d3"><a href="#035017" label="[03:50:17]">&lt;muurkha&gt;</a></span><span class="message">minetest is pretty great</span></div><div class="line" id="035025"><span class="nick" style="color:#80b1d3"><a href="#035025" label="[03:50:25]">&lt;muurkha&gt;</a></span><span class="message">I didn't know 2-year-olds could play it though</span></div><div class="line" id="035135"><span class="nick" style="color:#2e2a4a"><a href="#035135" label="[03:51:35]">&lt;oriansj&gt;</a></span><span class="message">well with a game controller; it tends to be more explore the world than anything else</span></div><div class="line" id="035210"><span class="nick" style="color:#2e2a4a"><a href="#035210" label="[03:52:10]">&lt;oriansj&gt;</a></span><span class="message">and have daddy get the character away from the monsters</span></div><div class="line" id="035810"><span class="nick" style="color:#80b1d3"><a href="#035810" label="[03:58:10]">&lt;muurkha&gt;</a></span><span class="message">is it more fun with mobs?  I've played it a lot without mobs, though my girlfriend likes the mobs</span></div><div class="line" id="035951"><span class="nick" style="color:#2e2a4a"><a href="#035951" label="[03:59:51]">&lt;oriansj&gt;</a></span><span class="message">depends on if your goal is excitement or world building.</span></div><div class="line" id="052410"><span class="nick" style="color:#6d2462"><a href="#052410" label="[05:24:10]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: looks good, merging :)</span></div><div class="line" id="052528"><span class="nick" style="color:#6d2462"><a href="#052528" label="[05:25:28]">&lt;fossy&gt;</a></span><span class="message">rickmasters: as in, with fiwix, there is no checksum changes to anything but added pacakges? that is quite impressive!</span></div><div class="line" id="155820"><span class="nick" style="color:#6b8072"><a href="#155820" label="[15:58:20]">&lt;rickmasters&gt;</a></span><span class="message">fossy: No, there are checksum changes. Sorry, I should have clarified.</span></div><div class="line" id="155837"><span class="nick" style="color:#6b8072"><a href="#155837" label="[15:58:37]">&lt;rickmasters&gt;</a></span><span class="message">fossy: I just meant that builder-hex0/Fiwix matches the same package checksums as Linux with the same source.</span></div><div class="line" id="155847"><span class="nick" style="color:#6b8072"><a href="#155847" label="[15:58:47]">&lt;rickmasters&gt;</a></span><span class="message">fossy: The checksum changes are due to some minor patches to mes, tcc, and musl.</span></div><div class="line" id="163441"><span class="nick" style="color:#8dd3c7"><a href="#163441" label="[16:34:41]">&lt;pder&gt;</a></span><span class="message">rickmasters: congrats on your latest progress with the kernel bootstrap.  I made an update to live-bootstrap to update to mes 0.24.2, so some of your patches to mes should no longer be needed</span></div><div class="line" id="163612"><span class="nick" style="color:#389600"><a href="#163612" label="[16:36:12]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: I think fossy meant the same thing as you.</span></div><div class="line" id="163625"><span class="nick" style="color:#389600"><a href="#163625" label="[16:36:25]">&lt;stikonas&gt;</a></span><span class="message">fossy: so far I think I might be able to get binutils 2.19 to build</span></div><div class="line" id="163651"><span class="nick" style="color:#389600"><a href="#163651" label="[16:36:51]">&lt;stikonas&gt;</a></span><span class="message">at least that ld/libtool problem seems to go away then</span></div><div class="line" id="163711"><span class="nick" style="color:#6b8072"><a href="#163711" label="[16:37:11]">&lt;rickmasters&gt;</a></span><span class="message">pder: thanks! I was counting on my hex conversion patch being included, so I could eliminate that patch, hopefully</span></div><div class="line" id="164117"><span class="nick" style="color:#389600"><a href="#164117" label="[16:41:17]">&lt;stikonas&gt;</a></span><span class="message">I'll keep investigating what fixes/hacks I can apply to get newer  version built</span></div><div class="line" id="165334"><span class="nick" style="color:#389600"><a href="#165334" label="[16:53:34]">&lt;stikonas&gt;</a></span><span class="message">and I think I found a way to build libtool 2.2.4 without ld</span></div><div class="line" id="165342"><span class="nick" style="color:#389600"><a href="#165342" label="[16:53:42]">&lt;stikonas&gt;</a></span><span class="message">so that might finally unblock me</span></div><div class="line" id="174210"><span class="nick" style="color:#389600"><a href="#174210" label="[17:42:10]">&lt;stikonas&gt;</a></span><span class="message">argh, and now I can't reproduce...</span></div><div class="line" id="174901"><span class="nick" style="color:#8dd3c7"><a href="#174901" label="[17:49:01]">&lt;pder&gt;</a></span><span class="message">stikonas: what are you trying to reproduce?</span></div><div class="line" id="182016"><span class="nick" style="color:#234e69"><a href="#182016" label="[18:20:16]">&lt;stikonas[m]&gt;</a></span><span class="message">Build of libtool 2.2.4 before binutils</span></div><div class="line" id="182054"><span class="nick" style="color:#234e69"><a href="#182054" label="[18:20:54]">&lt;stikonas[m]&gt;</a></span><span class="message">pder: I was building some intermediate 1.5.x versions for testing</span></div><div class="line" id="182107"><span class="nick" style="color:#234e69"><a href="#182107" label="[18:21:07]">&lt;stikonas[m]&gt;</a></span><span class="message">So perhaps they helped</span></div><div class="line" id="184615"><span class="nick" style="color:#80b1d3"><a href="#184615" label="[18:46:15]">&lt;muurkha&gt;</a></span><span class="message">hooray!</span></div><br /></div></body></html>

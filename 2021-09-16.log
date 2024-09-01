@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-09-16.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003342"><span class="nick" style="color:#8dd3c7"><a href="#003342" label="[00:33:42]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I was comparing M1 and C versions of cc_* and M1 version does not seem to use Address_of. Is it simply not implemented (cause not needed to bootstrap M2-Planet?)</span></div><div class="line" id="003701"><span class="nick" style="color:#2e2a4a"><a href="#003701" label="[00:37:01]">&lt;oriansj&gt;</a></span><span class="message">stikonas: where in M2-Planet do you see &amp;thing ? so no, it isn't needed to bootstrap M2-Planet</span></div><div class="line" id="003900"><span class="nick" style="color:#8dd3c7"><a href="#003900" label="[00:39:00]">&lt;stikonas&gt;</a></span><span class="message">ok, so cc_* C version has a bit more features tha necessary...</span></div><div class="line" id="004021"><span class="nick" style="color:#8dd3c7"><a href="#004021" label="[00:40:21]">&lt;stikonas&gt;</a></span><span class="message">anyway, with Address_of gone I think I can put most global variables into registers on riscv...</span></div><div class="line" id="004035"><span class="nick" style="color:#8dd3c7"><a href="#004035" label="[00:40:35]">&lt;stikonas&gt;</a></span><span class="message">quicker to access and faster on qemu...</span></div><div class="line" id="004541"><span class="nick" style="color:#2e2a4a"><a href="#004541" label="[00:45:41]">&lt;oriansj&gt;</a></span><span class="message">well there aren't that many that really matter. global_token is going to the be huge one on the input side and output_list is the huge one on the output side</span></div><div class="line" id="160318"><span class="nick">***</span><span class="message notice">sm2n_ is now known as sm2n</span></div><div class="line" id="224712"><span class="nick" style="color:#6b8072"><a href="#224712" label="[22:47:12]">&lt;Jeremy_Rand&gt;</a></span><span class="message">Hi!  Any chance whoever runs bootstrappable.org could enable HSTS?  Kind of unfortunate that a security-relevant project doesn't have HSTS enabled in 2021....</span></div><div class="line" id="225030"><span class="nick" style="color:#80b1d3"><a href="#225030" label="[22:50:30]">&lt;civodul&gt;</a></span><span class="message">Jeremy_Rand: hi! the nginx config is at <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/guix/maintenance.git/tree/hydra/nginx/berlin.scm#n824">https://git.savannah.gnu.org/cgit/guix/maintenance.git/tree/hydra/nginx/berlin.scm#n824</a> </span></div><div class="line" id="225038"><span class="nick" style="color:#80b1d3"><a href="#225038" label="[22:50:38]">&lt;civodul&gt;</a></span><span class="message">it'd be great if you could provide a patch</span></div><div class="line" id="225521"><span class="nick" style="color:#6b8072"><a href="#225521" label="[22:55:21]">&lt;Jeremy_Rand&gt;</a></span><span class="message">Hi civodul!  I might be able to do that.  Not familiar with the workflow that Savannah uses (I'm more accustomed to stuff like Gitea / Gogs / GitLab), but it's never a bad time to learn.</span></div><div class="line" id="225656"><span class="nick" style="color:#6d2462"><a href="#225656" label="[22:56:56]">&lt;xentrac&gt;</a></span><span class="message">it's git, so people can pull your patches from any of those</span></div><div class="line" id="225810"><span class="nick" style="color:#6b8072"><a href="#225810" label="[22:58:10]">&lt;Jeremy_Rand&gt;</a></span><span class="message">Ah, that works.  I'll look into pushing a branch to Gogs or something.  Thanks for pointing that out xentrac.</span></div><div class="line" id="230011"><span class="nick" style="color:#6d2462"><a href="#230011" label="[23:00:11]">&lt;xentrac&gt;</a></span><span class="message">not sure what civodul prefers, just saying don't let concerns about the workflow stop you :)</span></div><div class="line" id="230222"><span class="nick" style="color:#8dd3c7"><a href="#230222" label="[23:02:22]">&lt;stikonas&gt;</a></span><span class="message">there isn't much hosted directly on bootstrappable.org...</span></div><div class="line" id="230231"><span class="nick" style="color:#8dd3c7"><a href="#230231" label="[23:02:31]">&lt;stikonas&gt;</a></span><span class="message">somehow most of the code is on github</span></div><div class="line" id="231126"><span class="nick" style="color:#6b8072"><a href="#231126" label="[23:11:26]">&lt;Jeremy_Rand&gt;</a></span><span class="message">civodul: hmm, I am sufficiently new to Scheme that I am hesitant to try to patch this unless I can test my changes easily prior to sending something your way... which I'm not sure is going to be straightforward</span></div><div class="line" id="231322"><span class="nick" style="color:#6b8072"><a href="#231322" label="[23:13:22]">&lt;Jeremy_Rand&gt;</a></span><span class="message">Maybe I'll try again once I'm more familiar with Scheme (which is on my TODO list), unless someone else beats me to it.</span></div><div class="line" id="235638"><span class="nick" style="color:#80b1d3"><a href="#235638" label="[23:56:38]">&lt;civodul&gt;</a></span><span class="message">Jeremy_Rand: yup, don't worry about the workflow nor about the parenthesized version of nginx config</span></div><div class="line" id="235705"><span class="nick" style="color:#80b1d3"><a href="#235705" label="[23:57:05]">&lt;civodul&gt;</a></span><span class="message">you can paste a patch here or send it by email and we'll double check that nothing breaks</span></div><div class="line" id="235738"><span class="nick" style="color:#80b1d3"><a href="#235738" label="[23:57:38]">&lt;civodul&gt;</a></span><span class="message">perhaps it's trivial but i'm not familiar with HSTS config</span></div><br /></div></body></html>

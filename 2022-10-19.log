@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-10-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="024519"><span class="nick" style="color:#8dd3c7"><a href="#024519" label="[02:45:19]">&lt;oriansj&gt;</a></span><span class="message">janneke: The way that is done in M2libc is: #define EOF 0xFFFFFFFF</span></div><div class="line" id="024540"><span class="nick" style="color:#8dd3c7"><a href="#024540" label="[02:45:40]">&lt;oriansj&gt;</a></span><span class="message">as 32bit values are signed extended to 64bit on 64bit architectures</span></div><div class="line" id="024729"><span class="nick" style="color:#8dd3c7"><a href="#024729" label="[02:47:29]">&lt;oriansj&gt;</a></span><span class="message">M2-Planet does support negative literals just fine; just #DEFINE in M2-Planet is a bit hacky</span></div><div class="line" id="024920"><span class="nick" style="color:#8dd3c7"><a href="#024920" label="[02:49:20]">&lt;oriansj&gt;</a></span><span class="message">rickmasters: __M2__ is actually defined in M2-Planet and M2-Mesoplanet in the preprocessor to enable alternate code paths for GCC and M2-Planet (And other C compilers such as MesCC)</span></div><div class="line" id="024957"><span class="nick" style="color:#8dd3c7"><a href="#024957" label="[02:49:57]">&lt;oriansj&gt;</a></span><span class="message">literally line 49 of cc.c</span></div><div class="line" id="025006"><span class="nick" style="color:#8dd3c7"><a href="#025006" label="[02:50:06]">&lt;oriansj&gt;</a></span><span class="message">init_macro_env(&quot;__M2__&quot;, &quot;42&quot;, &quot;__INTERNAL_M2__&quot;, 0); /* Setup __M2__ */</span></div><div class="line" id="025136"><span class="nick" style="color:#8dd3c7"><a href="#025136" label="[02:51:36]">&lt;oriansj&gt;</a></span><span class="message">we do similiar things in later lines; such that if one does --architecture riscv32; we get init_macro_env(&quot;__riscv&quot;, &quot;1&quot;, &quot;--architecture&quot;, env); and init_macro_env(&quot;__riscv_xlen&quot;, &quot;32&quot;, &quot;--architecture&quot;, env + 1);</span></div><div class="line" id="025201"><span class="nick" style="color:#8dd3c7"><a href="#025201" label="[02:52:01]">&lt;oriansj&gt;</a></span><span class="message">enabling architecture specific behavior</span></div><div class="line" id="025655"><span class="nick" style="color:#8dd3c7"><a href="#025655" label="[02:56:55]">&lt;oriansj&gt;</a></span><span class="message">clemens3: any more details about what commands were executed to bring it to exactly that state?</span></div><div class="line" id="065905"><span class="nick" style="color:#2e2a4a"><a href="#065905" label="[06:59:05]">&lt;janneke&gt;</a></span><span class="message">oriansj: ok, thanks</span></div><div class="line" id="065912"><span class="nick" style="color:#2e2a4a"><a href="#065912" label="[06:59:12]">&lt;janneke&gt;</a></span><span class="message">gus</span></div><div class="line" id="065915"><span class="nick" style="color:#2e2a4a"><a href="#065915" label="[06:59:15]">&lt;janneke&gt;</a></span><span class="message">(oops)</span></div><div class="line" id="111652"><span class="nick" style="color:#2e2a4a"><a href="#111652" label="[11:16:52]">&lt;janneke&gt;</a></span><span class="message">oriansj: i created some silly fixes to allow using m2-planet-1.10.0 with stage0-posix-1.4</span></div><div class="line" id="111700"><span class="nick" style="color:#2e2a4a"><a href="#111700" label="[11:17:00]">&lt;janneke&gt;</a></span><span class="message">=&gt; <a rel="nofollow" href="https://gitlab.com/janneke/stage0-posix/-/tree/v1.4">https://gitlab.com/janneke/stage0-posix/-/tree/v1.4</a> </span></div><div class="line" id="111741"><span class="nick" style="color:#6b8072"><a href="#111741" label="[11:17:41]">*</a></span><span class="message">janneke tried to upgrade to stage0-posix-1.5 in Guix, but couldn't get it to build at all</span></div><div class="line" id="115451"><span class="nick" style="color:#80b1d3"><a href="#115451" label="[11:54:51]">&lt;clemens3&gt;</a></span><span class="message">oriansj: ./configure &amp;&amp; make</span></div><div class="line" id="115742"><span class="nick" style="color:#80b1d3"><a href="#115742" label="[11:57:42]">&lt;clemens3&gt;</a></span><span class="message">I can provide versions installed, if I know what to look for, or upload config/log files..</span></div><div class="line" id="140706"><span class="nick" style="color:#8dd3c7"><a href="#140706" label="[14:07:06]">&lt;oriansj&gt;</a></span><span class="message">janneke: all I get is an infinite looping checking your browser prompt; so I guess I'll have to take a look when I get a minute later.</span></div><div class="line" id="140755"><span class="nick" style="color:#8dd3c7"><a href="#140755" label="[14:07:55]">&lt;oriansj&gt;</a></span><span class="message">clemens3: ouch; I am guessing the guile version probably matters</span></div><div class="line" id="143656"><span class="nick" style="color:#6d2462"><a href="#143656" label="[14:36:56]">&lt;ekaitz&gt;</a></span><span class="message">oriansj: I also have issues entering gitlab... it supports just few browsers and it's a pain in the ass</span></div><div class="line" id="171027"><span class="nick" style="color:#234e69"><a href="#171027" label="[17:10:27]">&lt;muurkha&gt;</a></span><span class="message">aggi: your connection is broken and you are flooding the channel with joins and quits</span></div><div class="line" id="171336"><span class="nick" style="color:#6b8072"><a href="#171336" label="[17:13:36]">*</a></span><span class="message">muurkha /ignore aggi join quit</span></div><div class="line" id="185200"><span class="nick" style="color:#6c3d55"><a href="#185200" label="[18:52:00]">&lt;stikonas[m]&gt;</a></span><span class="message">and I'm getting HTTP 404 after signing in for that janneke's fork of stage0-posix</span></div><div class="line" id="185224"><span class="nick" style="color:#d9d9d9"><a href="#185224" label="[18:52:24]">&lt;stikonas&gt;</a></span><span class="message">janneke: any chance you still have error from the latest stage0-posix?</span></div><div class="line" id="224252"><span class="nick" style="color:#bc80bd"><a href="#224252" label="[22:42:52]">&lt;mihi&gt;</a></span><span class="message">fossy, stikonas[m]: zlib update broke live-bootstrap: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/209">https://github.com/fosslinux/live-bootstrap/issues/209</a> </span></div><div class="line" id="230235"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="234829"><span class="nick" style="color:#8dd3c7"><a href="#234829" label="[23:48:29]">&lt;oriansj&gt;</a></span><span class="message">janneke: and thanks for the reminder that I need to finish the stage0-posix port to armv7l</span></div><div class="line" id="235035"><span class="nick" style="color:#3c5b35"><a href="#235035" label="[23:50:35]">&lt;vagrantc&gt;</a></span><span class="message">i am ... a bit confused about the arm and arm64 status of mes ...</span></div><div class="line" id="235133"><span class="nick" style="color:#3c5b35"><a href="#235133" label="[23:51:33]">&lt;vagrantc&gt;</a></span><span class="message">i tried building the debian package on arm64, and i get: platform not supported: aarch64-linux-mes</span></div><div class="line" id="235156"><span class="nick" style="color:#3c5b35"><a href="#235156" label="[23:51:56]">&lt;vagrantc&gt;</a></span><span class="message">but the release announcement for 0.24.1 claims the ARM bootstrap uses aarch64?</span></div><div class="line" id="235251"><span class="nick" style="color:#3c5b35"><a href="#235251" label="[23:52:51]">&lt;vagrantc&gt;</a></span><span class="message">does the gcc build of mes not support it at all?</span></div><div class="line" id="235932"><span class="nick" style="color:#3c5b35"><a href="#235932" label="[23:59:32]">&lt;vagrantc&gt;</a></span><span class="message">janneke: could you help me wrap my head around that stuff? :)</span></div><br /></div></body></html>

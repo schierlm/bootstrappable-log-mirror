@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-12-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002825"><span class="nick" style="color:#389600"><a href="#002825" label="[00:28:25]">&lt;stikonas[m]&gt;</a></span><span class="message">But knight is just one of the arches we support. We support a few others that are 100% not made up</span></div><div class="line" id="002925"><span class="nick" style="color:#389600"><a href="#002925" label="[00:29:25]">&lt;stikonas[m]&gt;</a></span><span class="message">rillian we have knight, x86, amd64, aarch64, riscv32 and riscv64</span></div><div class="line" id="010343"><span class="nick" style="color:#8dd3c7"><a href="#010343" label="[01:03:43]">&lt;stikonas&gt;</a></span><span class="message">rickmasters: so that &quot;memory corruption&quot; issue was something completely stupid and easy to fix, today I spotted and fixed it in 5 minutes</span></div><div class="line" id="010427"><span class="nick" style="color:#8dd3c7"><a href="#010427" label="[01:04:27]">&lt;stikonas&gt;</a></span><span class="message">I called calloc(n) rather than calloc(n, 1)</span></div><div class="line" id="010500"><span class="nick" style="color:#2e2a4a"><a href="#010500" label="[01:05:00]">&lt;rillian&gt;</a></span><span class="message">muurkha: ok, thanks. I couldn't find any likely sounding sources online.</span></div><div class="line" id="010637"><span class="nick" style="color:#2e2a4a"><a href="#010637" label="[01:06:37]">&lt;rillian&gt;</a></span><span class="message">stikonas[m]: sure. but the knight vm has a nybble-aligned instruction coding which I assume makes the M0 header much smaller that in the other archs?</span></div><div class="line" id="010757"><span class="nick" style="color:#8dd3c7"><a href="#010757" label="[01:07:57]">&lt;stikonas&gt;</a></span><span class="message">rillian: by M0 header you mean list of DEFINES?</span></div><div class="line" id="010804"><span class="nick" style="color:#2e2a4a"><a href="#010804" label="[01:08:04]">&lt;rillian&gt;</a></span><span class="message">yes</span></div><div class="line" id="010857"><span class="nick" style="color:#8dd3c7"><a href="#010857" label="[01:08:57]">&lt;stikonas&gt;</a></span><span class="message">possibly, but size of M0 header is not that important...</span></div><div class="line" id="011009"><span class="nick" style="color:#8dd3c7"><a href="#011009" label="[01:10:09]">&lt;stikonas&gt;</a></span><span class="message">but it does map nicer than x86/amd64 to hex</span></div><div class="line" id="011105"><span class="nick" style="color:#8dd3c7"><a href="#011105" label="[01:11:05]">&lt;stikonas&gt;</a></span><span class="message">risc-v has word alight (32-bit) instructions too, which makes early hex stages trickier</span></div><div class="line" id="011116"><span class="nick" style="color:#8dd3c7"><a href="#011116" label="[01:11:16]">&lt;stikonas&gt;</a></span><span class="message">but once we get to M0, it is actually fairly nice</span></div><div class="line" id="011305"><span class="nick" style="color:#8dd3c7"><a href="#011305" label="[01:13:05]">&lt;stikonas&gt;</a></span><span class="message">I guess knight was the first &quot;stage0&quot; arch, so stage0 design was made to work nicely with knight</span></div><div class="line" id="011331"><span class="nick" style="color:#8dd3c7"><a href="#011331" label="[01:13:31]">&lt;stikonas&gt;</a></span><span class="message">and other arches were added later, so we had to extend design as they were added</span></div><div class="line" id="011346"><span class="nick" style="color:#2e2a4a"><a href="#011346" label="[01:13:46]">&lt;rillian&gt;</a></span><span class="message">makes sense</span></div><div class="line" id="011350"><span class="nick" style="color:#8dd3c7"><a href="#011350" label="[01:13:50]">&lt;stikonas&gt;</a></span><span class="message">(though I can only speak for risc-v)</span></div><div class="line" id="011518"><span class="nick" style="color:#2e2a4a"><a href="#011518" label="[01:15:18]">&lt;rillian&gt;</a></span><span class="message">I was just looking at the risc32.M1 source. quite different syntax from the other asm I've seen. Is there a write-up of how to read it somewhere?</span></div><div class="line" id="011835"><span class="nick" style="color:#389600"><a href="#011835" label="[01:18:35]">&lt;stikonas[m]&gt;</a></span><span class="message">Mostly in hex2 and M1 source...</span></div><div class="line" id="011928"><span class="nick" style="color:#8dd3c7"><a href="#011928" label="[01:19:28]">&lt;stikonas&gt;</a></span><span class="message">so in hex2 files . means &quot;merge the hex into the next one&quot;</span></div><div class="line" id="012017"><span class="nick" style="color:#8dd3c7"><a href="#012017" label="[01:20:17]">&lt;stikonas&gt;</a></span><span class="message">i.e. &quot;.00000001 20000000&quot; is 20000001</span></div><div class="line" id="012054"><span class="nick" style="color:#8dd3c7"><a href="#012054" label="[01:20:54]">&lt;stikonas&gt;</a></span><span class="message">that allows to map individual assembly words (like opcodes or registers) into hex</span></div><div class="line" id="012355"><span class="nick" style="color:#2e2a4a"><a href="#012355" label="[01:23:55]">&lt;rillian&gt;</a></span><span class="message">merge like bitwise-or?</span></div><div class="line" id="013558"><span class="nick" style="color:#2e2a4a"><a href="#013558" label="[01:35:58]">&lt;rillian&gt;</a></span><span class="message">stikonas[m]: oh, that's quite clever. do the registers then come first since not all opcodes have registers and you don't want to have to backtrack?</span></div><div class="line" id="015425"><span class="nick" style="color:#6b8072"><a href="#015425" label="[01:54:25]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well if we want to be exact, it is my implementation of what I saw in a magazine ad for a product from a failed computer company from long enough ago that the patents (if they had any) expired and the odds of anyone trying to claim copyright on it is quite minimal.</span></div><div class="line" id="015655"><span class="nick" style="color:#2e2a4a"><a href="#015655" label="[01:56:55]">&lt;rillian&gt;</a></span><span class="message">they put the instruction set in a magazine ad? the 01970's were an amazing time, not not just because of octal!</span></div><div class="line" id="015729"><span class="nick" style="color:#6b8072"><a href="#015729" label="[01:57:29]">&lt;oriansj&gt;</a></span><span class="message">So, I'm not sure of how you feel we should define that.</span></div><div class="line" id="015835"><span class="nick" style="color:#2e2a4a"><a href="#015835" label="[01:58:35]">&lt;rillian&gt;</a></span><span class="message">define an advertisement? an isa? my terrible long-now-octal-calendar joke?</span></div><div class="line" id="015904"><span class="nick" style="color:#6b8072"><a href="#015904" label="[01:59:04]">&lt;oriansj&gt;</a></span><span class="message">Because I don't feel like I deserve credit for it but I'm more than happy to take any blame for flaws and/or defects in my documentation and implementation of it</span></div><div class="line" id="020032"><span class="nick" style="color:#2e2a4a"><a href="#020032" label="[02:00:32]">&lt;rillian&gt;</a></span><span class="message">ok. I was just curious, since I couldn't find any other information on the architecture.</span></div><div class="line" id="020523"><span class="nick" style="color:#2e2a4a"><a href="#020523" label="[02:05:23]">&lt;rillian&gt;</a></span><span class="message">anyway, very cool project!</span></div><div class="line" id="022159"><span class="nick" style="color:#6b8072"><a href="#022159" label="[02:21:59]">&lt;oriansj&gt;</a></span><span class="message">rillian: to be fair, neither could I</span></div><div class="line" id="022544"><span class="nick" style="color:#6b8072"><a href="#022544" label="[02:25:44]">&lt;oriansj&gt;</a></span><span class="message">So it includes a good bit of my guesses</span></div><div class="line" id="022907"><span class="nick" style="color:#80b1d3"><a href="#022907" label="[02:29:07]">&lt;pabs3&gt;</a></span><span class="message">ACTION ponders the implications of &quot;computers aren't single-processor single-ISA single-address-space now&quot; on stage0/bootstrappable <a rel="nofollow" href="https://www.youtube.com/watch?v=36myc8wQhLo">https://www.youtube.com/watch?v=36myc8wQhLo</a> </span></div><div class="line" id="024611"><span class="nick" style="color:#2e2a4a"><a href="#024611" label="[02:46:11]">&lt;rillian&gt;</a></span><span class="message">pabs3: makes cross-checking easier? :)</span></div><div class="line" id="025224"><span class="nick" style="color:#6d2462"><a href="#025224" label="[02:52:24]">&lt;muurkha&gt;</a></span><span class="message">no, it makes it damn near impossible</span></div><div class="line" id="025301"><span class="nick" style="color:#6d2462"><a href="#025301" label="[02:53:01]">&lt;muurkha&gt;</a></span><span class="message">because *all* of those processors have to be running trustworthy code *at* *once* for your check to be secure</span></div><div class="line" id="030105"><span class="nick" style="color:#80b1d3"><a href="#030105" label="[03:01:05]">&lt;pabs3&gt;</a></span><span class="message">and some of these processors are responsible for booting the system and run before the main processor runs</span></div><div class="line" id="030123"><span class="nick" style="color:#80b1d3"><a href="#030123" label="[03:01:23]">&lt;pabs3&gt;</a></span><span class="message">for eg on the RPi, the GPU boots the ARM processor</span></div><div class="line" id="030154"><span class="nick" style="color:#80b1d3"><a href="#030154" label="[03:01:54]">&lt;pabs3&gt;</a></span><span class="message">there is also the issue of RAM, does stage0 run using CPU cache only?</span></div><div class="line" id="030238"><span class="nick" style="color:#80b1d3"><a href="#030238" label="[03:02:38]">&lt;pabs3&gt;</a></span><span class="message">the talk is worth watching to the end btw, inc questions.</span></div><div class="line" id="030248"><span class="nick" style="color:#80b1d3"><a href="#030248" label="[03:02:48]">&lt;pabs3&gt;</a></span><span class="message">I expect most folks here have seen it tho</span></div><div class="line" id="030300"><span class="nick" style="color:#234e69"><a href="#030300" label="[03:03:00]">&lt;AwesomeAdam54321&gt;</a></span><span class="message">the GPU boots the ARM processor &lt;- That sounds ridiculous</span></div><div class="line" id="030317"><span class="nick" style="color:#80b1d3"><a href="#030317" label="[03:03:17]">&lt;pabs3&gt;</a></span><span class="message">it is :)</span></div><div class="line" id="030419"><span class="nick" style="color:#80b1d3"><a href="#030419" label="[03:04:19]">&lt;pabs3&gt;</a></span><span class="message">these folks are working on replacing the proprietary GPU firmware that does the booting: <a rel="nofollow" href="https://github.com/librerpi/">https://github.com/librerpi/</a> </span></div><div class="line" id="030906"><span class="nick" style="color:#6b8072"><a href="#030906" label="[03:09:06]">&lt;oriansj&gt;</a></span><span class="message">pabs3: well stage0 could run in CPU cache (if it was large enough)</span></div><div class="line" id="032305"><span class="nick" style="color:#6b8072"><a href="#032305" label="[03:23:05]">&lt;oriansj&gt;</a></span><span class="message">although one is left with the question of how that data even makes it into the cache in the first place</span></div><div class="line" id="032613"><span class="nick" style="color:#6d2462"><a href="#032613" label="[03:26:13]">&lt;muurkha&gt;</a></span><span class="message">usually the early stages of firmware bringup run from ROM, don't they?  until they've successfully enabled RAM</span></div><div class="line" id="033033"><span class="nick" style="color:#6b8072"><a href="#033033" label="[03:30:33]">&lt;oriansj&gt;</a></span><span class="message">muurkha: or Flash or it is loaded from RAM itself because the variety of RAM used doesn't need training or configuration.</span></div><div class="line" id="033303"><span class="nick" style="color:#6b8072"><a href="#033303" label="[03:33:03]">&lt;oriansj&gt;</a></span><span class="message">vs some DRAM which can take over a billion CPU cycles to train the RAM before you can use it</span></div><div class="line" id="033328"><span class="nick" style="color:#6d2462"><a href="#033328" label="[03:33:28]">&lt;muurkha&gt;</a></span><span class="message">training, eh?</span></div><div class="line" id="033431"><span class="nick" style="color:#6b8072"><a href="#033431" label="[03:34:31]">&lt;oriansj&gt;</a></span><span class="message">well that is what they call it</span></div><div class="line" id="034555"><span class="nick" style="color:#6b8072"><a href="#034555" label="[03:45:55]">&lt;oriansj&gt;</a></span><span class="message">no one knows that that firmware does and it is usually a big fat binary blob</span></div><div class="line" id="034614"><span class="nick" style="color:#6b8072"><a href="#034614" label="[03:46:14]">&lt;oriansj&gt;</a></span><span class="message">^that that^what that^</span></div><div class="line" id="040243"><span class="nick" style="color:#6c3d55"><a href="#040243" label="[04:02:43]">&lt;achaninja&gt;</a></span><span class="message">what would be the best place to follow along with the community developments as a whole?</span></div><div class="line" id="084704"><span class="nick" style="color:#389600"><a href="#084704" label="[08:47:04]">&lt;stikonas[m]&gt;</a></span><span class="message">rillian: precisely, we don't want to backtrack, so we put opcode last as all instructions have it</span></div><div class="line" id="085901"><span class="nick" style="color:#389600"><a href="#085901" label="[08:59:01]">&lt;stikonas[m]&gt;</a></span><span class="message">And the good thing about RISC V M1 defines, is that they are complete, we don't need to edit that list, unlike in amd64 where defines are like mov_rax,rbx (a single define)</span></div><div class="line" id="103210"><span class="nick" style="color:#80b1d3"><a href="#103210" label="[10:32:10]">&lt;pabs3&gt;</a></span><span class="message">achaninja: here and the mailing list too probably</span></div><div class="line" id="133132"><span class="nick" style="color:#6b8072"><a href="#133132" label="[13:31:32]">&lt;oriansj&gt;</a></span><span class="message">pabs3: exactly and we encourage people to share their bootstrapping work on them to help everyone cooperate more effectively.</span></div><div class="line" id="183625"><span class="nick" style="color:#6b8072"><a href="#183625" label="[18:36:25]">&lt;oriansj&gt;</a></span><span class="message">even the I'm new and want to learn messages; allow us to know who needs help and what new interests are joining our community.</span></div><div class="line" id="191430"><span class="nick" style="color:#2e2a4a"><a href="#191430" label="[19:14:30]">&lt;rillian&gt;</a></span><span class="message">stikonas[m]: cool</span></div><div class="line" id="200048"><span class="nick" style="color:#389600"><a href="#200048" label="[20:00:48]">&lt;stikonas[m]&gt;</a></span><span class="message">rillian: we thought it's nicer than ending each instruction with another define such as DOT</span></div><div class="line" id="230935"><span class="nick" style="color:#8dd3c7"><a href="#230935" label="[23:09:35]">&lt;stikonas&gt;</a></span><span class="message">I wonder if this comment written by fossy in 2020 is still valid: <a rel="nofollow" href="https://github.com/oriansj/mescc-tools/blob/master/Kaem/kaem.c#L1278">https://github.com/oriansj/mescc-tools/blob/master/Kaem/kaem.c#L1278</a> </span></div><div class="line" id="230957"><span class="nick" style="color:#8dd3c7"><a href="#230957" label="[23:09:57]">&lt;stikonas&gt;</a></span><span class="message">M2-Planet had quite a few improvements since then</span></div><div class="line" id="231414"><span class="nick" style="color:#8dd3c7"><a href="#231414" label="[23:14:14]">&lt;stikonas&gt;</a></span><span class="message">and after another hour of work I've managed to setup &quot;char** envp&quot; array in UEFI</span></div><div class="line" id="231451"><span class="nick" style="color:#8dd3c7"><a href="#231451" label="[23:14:51]">&lt;stikonas&gt;</a></span><span class="message">now I can set UEFI variables in UEFI shell and they are accessible in e.g. kaem</span></div><div class="line" id="231529"><span class="nick" style="color:#8dd3c7"><a href="#231529" label="[23:15:29]">&lt;stikonas&gt;</a></span><span class="message">though I still need to work on propagating them to spawned processes</span></div><div class="line" id="231601"><span class="nick" style="color:#8dd3c7"><a href="#231601" label="[23:16:01]">&lt;stikonas&gt;</a></span><span class="message">which should be done by kaem (though in practice code will be in M2libc)</span></div><br /></div></body></html>

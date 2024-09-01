@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-31.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000255"><span class="nick" style="color:#389600"><a href="#000255" label="[00:02:55]">&lt;oriansj&gt;</a></span><span class="message">if you have a clean way to support a little endian ASCII char stream in hex2, let me know and then the hex input might match the RISC-V docs (ARMv7l would probably benefit from that as well)</span></div><div class="line" id="000352"><span class="nick" style="color:#8dd3c7"><a href="#000352" label="[00:03:52]">&lt;xentrac&gt;</a></span><span class="message">yeah, I'm not doing very well at... doing things lately</span></div><div class="line" id="000624"><span class="nick" style="color:#389600"><a href="#000624" label="[00:06:24]">&lt;oriansj&gt;</a></span><span class="message">xentrac: I get it. everyone here has only a limited amount of effort they can invest in the work. some only discussion and others running code.</span></div><div class="line" id="002208"><span class="nick" style="color:#389600"><a href="#002208" label="[00:22:08]">&lt;oriansj&gt;</a></span><span class="message">hopefully you are making progress recovering from burnout xentrac (I know I'm at stage 3 of the 13 stages of burnout but working on it)</span></div><div class="line" id="005751"><span class="nick" style="color:#389600"><a href="#005751" label="[00:57:51]">&lt;oriansj&gt;</a></span><span class="message">although I find it odd that big word endian, little byte endian and big bit endian was the combo that seems to have won the architecture war.</span></div><div class="line" id="010208"><span class="nick" style="color:#8dd3c7"><a href="#010208" label="[01:02:08]">&lt;xentrac&gt;</a></span><span class="message">you keep saying that about bit endianness, and I keep explaining to you that you're wrong ;)</span></div><div class="line" id="010228"><span class="nick" style="color:#8dd3c7"><a href="#010228" label="[01:02:28]">&lt;xentrac&gt;</a></span><span class="message">not sure what you mean about big word endianness</span></div><div class="line" id="010731"><span class="nick" style="color:#389600"><a href="#010731" label="[01:07:31]">&lt;oriansj&gt;</a></span><span class="message">word endianess the first instructions start at low addresses and increment up vs first instructions start at high addresses and decrement down.</span></div><div class="line" id="010836"><span class="nick" style="color:#8dd3c7"><a href="#010836" label="[01:08:36]">&lt;xentrac&gt;</a></span><span class="message">are the first instructions supposed to be analogous to more significant words or to less significant words, and in either case, why?</span></div><div class="line" id="010910"><span class="nick" style="color:#6b8072"><a href="#010910" label="[01:09:10]">&lt;stikonas&gt;</a></span><span class="message">well, half of the work is writing low level prototypes...</span></div><div class="line" id="010922"><span class="nick" style="color:#389600"><a href="#010922" label="[01:09:22]">&lt;oriansj&gt;</a></span><span class="message">xentrac: remember the table of hex nybbles to byte endianess I did a while back?</span></div><div class="line" id="011022"><span class="nick" style="color:#6b8072"><a href="#011022" label="[01:10:22]">&lt;stikonas&gt;</a></span><span class="message">so even if hex0 encoding was trivial, it would only speed up .hex0 writing by a bit</span></div><div class="line" id="011032"><span class="nick" style="color:#6b8072"><a href="#011032" label="[01:10:32]">&lt;stikonas&gt;</a></span><span class="message">although, that makes writing hex1.hex0 harder...</span></div><div class="line" id="011053"><span class="nick" style="color:#389600"><a href="#011053" label="[01:10:53]">&lt;oriansj&gt;</a></span><span class="message">the first instruction are analogous to more significant words because they determine instruction flow more than later instructions.</span></div><div class="line" id="011837"><span class="nick" style="color:#8dd3c7"><a href="#011837" label="[01:18:37]">&lt;xentrac&gt;</a></span><span class="message">interesting.  but you know when you actually do multi-precision arithmetic, the first instructions in your multi-precision arithmetic code have to handle the least-significant limbs of the multi-precision number, right?</span></div><div class="line" id="012010"><span class="nick" style="color:#8dd3c7"><a href="#012010" label="[01:20:10]">&lt;xentrac&gt;</a></span><span class="message">so bit-serial processors (which really do have a bit endianness) were invariably designed to process the LSB first.  which is probably why the Datapoint 2200 and its successor amd64 are little-endian too</span></div><div class="line" id="012229"><span class="nick" style="color:#6b8072"><a href="#012229" label="[01:22:29]">&lt;stikonas&gt;</a></span><span class="message">oriansj: do you remember the reason for envp in kaem-optional-seed?</span></div><div class="line" id="012258"><span class="nick" style="color:#6b8072"><a href="#012258" label="[01:22:58]">&lt;stikonas&gt;</a></span><span class="message">I guess that allows to propagate things like PATH but I wonder if we really want that...</span></div><div class="line" id="012724"><span class="nick" style="color:#6b8072"><a href="#012724" label="[01:27:24]">&lt;stikonas&gt;</a></span><span class="message">hmm, live-bootstrap actually uses &quot;sudo env -i PATH=/bin  chroot ...&quot;, so maybe it is needed</span></div><div class="line" id="012725"><span class="nick" style="color:#389600"><a href="#012725" label="[01:27:25]">&lt;oriansj&gt;</a></span><span class="message">stikonas: mes.c can't survive a NULL envp</span></div><div class="line" id="012803"><span class="nick" style="color:#389600"><a href="#012803" label="[01:28:03]">&lt;oriansj&gt;</a></span><span class="message">everything prior to that behaves nicely with a null envp but mes.c explodes</span></div><div class="line" id="012824"><span class="nick" style="color:#6b8072"><a href="#012824" label="[01:28:24]">&lt;stikonas&gt;</a></span><span class="message">hmm, doesn't full kaem.c set various env variables...</span></div><div class="line" id="012840"><span class="nick" style="color:#6b8072"><a href="#012840" label="[01:28:40]">&lt;stikonas&gt;</a></span><span class="message">stuff like MES_ARENA...</span></div><div class="line" id="012913"><span class="nick" style="color:#6b8072"><a href="#012913" label="[01:29:13]">&lt;stikonas&gt;</a></span><span class="message">although, the fact that we had PATH=/bin in live-bootstrap means something consumed it</span></div><div class="line" id="012917"><span class="nick" style="color:#389600"><a href="#012917" label="[01:29:17]">&lt;oriansj&gt;</a></span><span class="message">in theory we could add one at the kaem.c stage but right now it supports setting up an envp</span></div><div class="line" id="013108"><span class="nick" style="color:#6b8072"><a href="#013108" label="[01:31:08]">&lt;stikonas&gt;</a></span><span class="message">well, I was thinking if I write something like kaem-micro that hardcodes some of the early commands, do I need envp there</span></div><div class="line" id="015252"><span class="nick" style="color:#389600"><a href="#015252" label="[01:52:52]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well if we have kaem.c set up one before we run mes.c then it wouldn't be needed.</span></div><div class="line" id="015310"><span class="nick" style="color:#6b8072"><a href="#015310" label="[01:53:10]">&lt;stikonas&gt;</a></span><span class="message">well, I can try to keep it out of riscv's kaem and we'll see</span></div><div class="line" id="015316"><span class="nick" style="color:#6b8072"><a href="#015316" label="[01:53:16]">&lt;stikonas&gt;</a></span><span class="message">in the worse case it can be added later</span></div><div class="line" id="015321"><span class="nick" style="color:#6b8072"><a href="#015321" label="[01:53:21]">&lt;stikonas&gt;</a></span><span class="message">I also kept raw strings out</span></div><div class="line" id="015327"><span class="nick" style="color:#6b8072"><a href="#015327" label="[01:53:27]">&lt;stikonas&gt;</a></span><span class="message">but added escaping with \</span></div><div class="line" id="015341"><span class="nick" style="color:#6b8072"><a href="#015341" label="[01:53:41]">&lt;stikonas&gt;</a></span><span class="message">so that might be enough to get going until kaem.c</span></div><div class="line" id="015401"><span class="nick" style="color:#389600"><a href="#015401" label="[01:54:01]">&lt;oriansj&gt;</a></span><span class="message">probably.</span></div><div class="line" id="015419"><span class="nick" style="color:#389600"><a href="#015419" label="[01:54:19]">&lt;oriansj&gt;</a></span><span class="message">worst case we learn something useful.</span></div><div class="line" id="035734"><span class="nick" style="color:#80b1d3"><a href="#035734" label="[03:57:34]">&lt;fossy&gt;</a></span><span class="message">stikonas[m] oriansj: i pushed a bugfix a few weeks ago surrounding environment variables</span></div><div class="line" id="035749"><span class="nick" style="color:#80b1d3"><a href="#035749" label="[03:57:49]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: it is very acceptable to ignore envp for mini kaem</span></div><div class="line" id="035759"><span class="nick" style="color:#80b1d3"><a href="#035759" label="[03:57:59]">&lt;fossy&gt;</a></span><span class="message">i think that would actually be even preferred as it would reduce the hex0</span></div><div class="line" id="102605"><span class="nick" style="color:#80b1d3"><a href="#102605" label="[10:26:05]">&lt;fossy&gt;</a></span><span class="message">nice looks like this kernel will compile properly now, got over all the asm problems</span></div><div class="line" id="165821"><span class="nick" style="color:#6b8072"><a href="#165821" label="[16:58:21]">&lt;stikonas&gt;</a></span><span class="message">oriansj: just to make sure I'm not mistaken, I need to do little endian conversion when doing M1 DEFINES, don't I?</span></div><div class="line" id="170130"><span class="nick" style="color:#6b8072"><a href="#170130" label="[17:01:30]">&lt;stikonas&gt;</a></span><span class="message">i.e. DEFINE RD_A1   80050000 (A1 is 11th register, 0XB &lt;&lt; 7 = 0x580) where RD is destination register</span></div><div class="line" id="170517"><span class="nick" style="color:#6b8072"><a href="#170517" label="[17:05:17]">&lt;stikonas&gt;</a></span><span class="message">if we do it this way, at least hex2 won't need to do endianness conversion</span></div><div class="line" id="215048"><span class="nick" style="color:#389600"><a href="#215048" label="[21:50:48]">&lt;oriansj&gt;</a></span><span class="message">stikonas: if you do . hex it will push the hex on left to right and pop off the values right to left</span></div><div class="line" id="215305"><span class="nick" style="color:#389600"><a href="#215305" label="[21:53:05]">&lt;oriansj&gt;</a></span><span class="message">so the order needs to be .12 34 56 78 if you want the output to be 78 56 34 12 when it is combined with 00 00 00 00</span></div><div class="line" id="215343"><span class="nick" style="color:#6b8072"><a href="#215343" label="[21:53:43]">&lt;stikonas&gt;</a></span><span class="message">oh I see</span></div><div class="line" id="215353"><span class="nick" style="color:#6b8072"><a href="#215353" label="[21:53:53]">&lt;stikonas&gt;</a></span><span class="message">so I don't need to swap it in defines...</span></div><div class="line" id="220030"><span class="nick" style="color:#389600"><a href="#220030" label="[22:00:30]">&lt;oriansj&gt;</a></span><span class="message">well the output order is defined by the byte write order (little-endian in the RISC-V case)</span></div><div class="line" id="220127"><span class="nick" style="color:#6b8072"><a href="#220127" label="[22:01:27]">&lt;stikonas&gt;</a></span><span class="message">well, that's fine, I just need to make sure I use correct order in M1 defines</span></div><div class="line" id="220153"><span class="nick" style="color:#6b8072"><a href="#220153" label="[22:01:53]">&lt;stikonas&gt;</a></span><span class="message">should be fine now...</span></div><div class="line" id="220154"><span class="nick" style="color:#389600"><a href="#220154" label="[22:01:54]">&lt;oriansj&gt;</a></span><span class="message">stikonas: very easy to sanity check with hex2 as it supports .hex</span></div><div class="line" id="220304"><span class="nick" style="color:#6b8072"><a href="#220304" label="[22:03:04]">&lt;stikonas&gt;</a></span><span class="message">well, . will work, but I guess M1 does not yet support . (I can create .hex2 file manually though)</span></div><div class="line" id="220402"><span class="nick" style="color:#6b8072"><a href="#220402" label="[22:04:02]">&lt;stikonas&gt;</a></span><span class="message">at the moment I was only creating defines at the beginning of the file...</span></div><div class="line" id="220423"><span class="nick" style="color:#6b8072"><a href="#220423" label="[22:04:23]">&lt;stikonas&gt;</a></span><span class="message">haven't converted .S into .M1 yet...</span></div><div class="line" id="220443"><span class="nick" style="color:#6b8072"><a href="#220443" label="[22:04:43]">&lt;stikonas&gt;</a></span><span class="message">but I think it will be much easier to encode into hex this way rather than directly</span></div><div class="line" id="220523"><span class="nick" style="color:#6b8072"><a href="#220523" label="[22:05:23]">&lt;stikonas&gt;</a></span><span class="message">once I have .M1, it's mostly just manually adding . hexes and reversing order</span></div><div class="line" id="220547"><span class="nick" style="color:#389600"><a href="#220547" label="[22:05:47]">&lt;oriansj&gt;</a></span><span class="message">well right now M1 will do the correct thing for DEFINEs</span></div><div class="line" id="220604"><span class="nick" style="color:#389600"><a href="#220604" label="[22:06:04]">&lt;oriansj&gt;</a></span><span class="message">what needs to be done is word support for immediates like @-3</span></div><div class="line" id="220721"><span class="nick" style="color:#6b8072"><a href="#220721" label="[22:07:21]">&lt;stikonas&gt;</a></span><span class="message">yeah, I understand that...</span></div><div class="line" id="220740"><span class="nick" style="color:#389600"><a href="#220740" label="[22:07:40]">&lt;oriansj&gt;</a></span><span class="message">so DEFINE foo .0011223344 will produce the exactly desired result</span></div><div class="line" id="220743"><span class="nick" style="color:#6b8072"><a href="#220743" label="[22:07:43]">&lt;stikonas&gt;</a></span><span class="message">but we are getting there...</span></div><div class="line" id="220759"><span class="nick" style="color:#389600"><a href="#220759" label="[22:07:59]">&lt;oriansj&gt;</a></span><span class="message">indeed.</span></div><div class="line" id="220856"><span class="nick" style="color:#6b8072"><a href="#220856" label="[22:08:56]">&lt;stikonas&gt;</a></span><span class="message">anyway, before that I need to create DEFINE table...</span></div><div class="line" id="220911"><span class="nick" style="color:#6b8072"><a href="#220911" label="[22:09:11]">&lt;stikonas&gt;</a></span><span class="message">which will be useful both for encoding manually and later for M0</span></div><div class="line" id="230601"><span class="nick" style="color:#6b8072"><a href="#230601" label="[23:06:01]">&lt;stikonas&gt;</a></span><span class="message">hmm, there is also a bit of a mess with shift amounts, they are in place of second source register...</span></div><div class="line" id="230651"><span class="nick" style="color:#6b8072"><a href="#230651" label="[23:06:51]">&lt;stikonas&gt;</a></span><span class="message">but at least bits are not mangled</span></div><div class="line" id="230705"><span class="nick" style="color:#6b8072"><a href="#230705" label="[23:07:05]">&lt;stikonas&gt;</a></span><span class="message">so normal intermediate should just work</span></div><div class="line" id="235356"><span class="nick" style="color:#6b8072"><a href="#235356" label="[23:53:56]">&lt;stikonas&gt;</a></span><span class="message">ok, M1 definitions are done: <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/1/files">https://github.com/oriansj/M2libc/pull/1/files</a> </span></div><div class="line" id="235403"><span class="nick" style="color:#8dd3c7"><a href="#235403" label="[23:54:03]">&lt;xentrac&gt;</a></span><span class="message">yay!</span></div><div class="line" id="235644"><span class="nick" style="color:#6b8072"><a href="#235644" label="[23:56:44]">&lt;stikonas&gt;</a></span><span class="message">we might need to add more later... These are just RV32I (minus FENCE) and RV64I</span></div><div class="line" id="235657"><span class="nick" style="color:#6b8072"><a href="#235657" label="[23:56:57]">&lt;stikonas&gt;</a></span><span class="message">I guess at some point we'll want multiplication too</span></div><br /></div></body></html>

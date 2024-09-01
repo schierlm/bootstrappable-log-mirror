@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-02-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001716"><span class="nick" style="color:#389600"><a href="#001716" label="[00:17:16]">&lt;rekado&gt;</a></span><span class="message">Hagfish: hard to say.  The big idea of STGHugs was to combine Hugs with the GHC RTS so that Hugs could load *compiled* GHC modules.</span></div><div class="line" id="001807"><span class="nick" style="color:#389600"><a href="#001807" label="[00:18:07]">&lt;rekado&gt;</a></span><span class="message">the ``…'' syntax is only found in GHC source files, and it’s called a “literal literal” for C code that is to be passed through as is to the C-generating compiler.</span></div><div class="line" id="001819"><span class="nick" style="color:#389600"><a href="#001819" label="[00:18:19]">&lt;rekado&gt;</a></span><span class="message">so it’s not something that Hugs would ever be able to parse anyway</span></div><div class="line" id="001956"><span class="nick" style="color:#389600"><a href="#001956" label="[00:19:56]">&lt;rekado&gt;</a></span><span class="message">there may be a way to change Hugs even further so that it reads the “literal literals” somehow — and in the case of variables looks them up in the RTS</span></div><div class="line" id="002251"><span class="nick" style="color:#389600"><a href="#002251" label="[00:22:51]">&lt;rekado&gt;</a></span><span class="message">so far it looks like literal literals are primarily used for “stderr”, “stdout”, “NULL”, complicated ways of expressing “NULL”, and simple identifiers.</span></div><div class="line" id="002408"><span class="nick" style="color:#389600"><a href="#002408" label="[00:24:08]">&lt;rekado&gt;</a></span><span class="message">I’ll read the Hugs sources some more to see if there’s any kind of escape hatch; or maybe the Hugs FFI extension could be used.</span></div><div class="line" id="002431"><span class="nick" style="color:#389600"><a href="#002431" label="[00:24:31]">&lt;rekado&gt;</a></span><span class="message">in any case, this will require quite a bit of work on STGhugs</span></div><div class="line" id="015344"><span class="nick" style="color:#2e2a4a"><a href="#015344" label="[01:53:44]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well I must say debugging forking code is a real pain, especially under virtualization.</span></div><div class="line" id="015543"><span class="nick" style="color:#6b8072"><a href="#015543" label="[01:55:43]">&lt;stikonas[m]&gt;</a></span><span class="message">Yes, I know :(</span></div><div class="line" id="020037"><span class="nick" style="color:#2e2a4a"><a href="#020037" label="[02:00:37]">&lt;oriansj&gt;</a></span><span class="message">looking at <a rel="nofollow" href="https://sourceware.org/git/?p=glibc.git;a=blob;f=sysdeps/unix/sysv/linux/wait4.c;hb=HEAD">https://sourceware.org/git/?p=glibc.git;a=blob;f=sysdeps/unix/sysv/linux/wait4.c;hb=HEAD</a>  for inspiration; the only thing I can thinkis: <a rel="nofollow" href="https://paste.debian.net/1229860/">https://paste.debian.net/1229860/</a> </span></div><div class="line" id="041727"><span class="nick" style="color:#80b1d3"><a href="#041727" label="[04:17:27]">&lt;Hagfish&gt;</a></span><span class="message">yeah, i like the idea of an escape hatch, and FFI would be a clever way to do that</span></div><div class="line" id="042003"><span class="nick" style="color:#80b1d3"><a href="#042003" label="[04:20:03]">&lt;Hagfish&gt;</a></span><span class="message">hopefully there is a more efficient / simpler path that doesn't need an escape hatch, though</span></div><div class="line" id="120430"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o rekado</span></div><div class="line" id="120449"><span class="nick" style="color:#389600"><a href="#120449" label="[12:04:49]">&lt;rekado&gt;</a></span><span class="message">ghc/interpreter/interface.c might be the key to our problems</span></div><div class="line" id="120501"><span class="nick" style="color:#389600"><a href="#120501" label="[12:05:01]">&lt;rekado&gt;</a></span><span class="message">it keeps a list of symbols that are provided externally, and it has infrastructure to resolve these symbols</span></div><div class="line" id="120518"><span class="nick" style="color:#389600"><a href="#120518" label="[12:05:18]">&lt;rekado&gt;</a></span><span class="message">it’s all in lookupObjName</span></div><div class="line" id="120537"><span class="nick" style="color:#389600"><a href="#120537" label="[12:05:37]">&lt;rekado&gt;</a></span><span class="message">it is only used by the machinery for loading GHC modules, though</span></div><div class="line" id="121002"><span class="nick" style="color:#6d2462"><a href="#121002" label="[12:10:02]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I think that your last paste actually fixes riscv32, so maybe try pushing it</span></div><div class="line" id="184031"><span class="nick" style="color:#234e69"><a href="#184031" label="[18:40:31]">&lt;siraben&gt;</a></span><span class="message">stikonas: just saw your ping from a while ago, I'm not familiar enough with GHC's bootstrapping process</span></div><div class="line" id="185626"><span class="nick" style="color:#6d2462"><a href="#185626" label="[18:56:26]">&lt;stikonas&gt;</a></span><span class="message">well, so far rekado is making some progress...</span></div><div class="line" id="190327"><span class="nick" style="color:#234e69"><a href="#190327" label="[19:03:27]">&lt;siraben&gt;</a></span><span class="message">That's good to hear. I'm currently busy with uni related things, but I'd be happy to replicate the builds if I have time</span></div><br /></div></body></html>

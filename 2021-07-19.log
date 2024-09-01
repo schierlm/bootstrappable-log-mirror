@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2021-07-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005515"><span class="nick" style="color:#389600"><a href="#005515" label="[00:55:15]">&lt;fossy&gt;</a></span><span class="message">stikonas: so, sysa kexecs sysb, which is an initramfs, which purely switch_root's to sysc</span></div><div class="line" id="005524"><span class="nick" style="color:#389600"><a href="#005524" label="[00:55:24]">&lt;fossy&gt;</a></span><span class="message">we do this because we cannot assume sysa's kernel has hard disk support</span></div><div class="line" id="005623"><span class="nick" style="color:#8dd3c7"><a href="#005623" label="[00:56:23]">&lt;stikonas&gt;</a></span><span class="message">oh I see, makes sense</span></div><div class="line" id="005633"><span class="nick" style="color:#8dd3c7"><a href="#005633" label="[00:56:33]">&lt;stikonas&gt;</a></span><span class="message">fossy: do you want me to wait with guile until you merge your changes?</span></div><div class="line" id="005653"><span class="nick" style="color:#389600"><a href="#005653" label="[00:56:53]">&lt;fossy&gt;</a></span><span class="message">preferably :) then we don't need to worry about the ram issue</span></div><div class="line" id="005656"><span class="nick" style="color:#8dd3c7"><a href="#005656" label="[00:56:56]">&lt;stikonas&gt;</a></span><span class="message">I think I've fixed the problems, but I'm concious that you would be playing catch up</span></div><div class="line" id="005708"><span class="nick" style="color:#8dd3c7"><a href="#005708" label="[00:57:08]">&lt;stikonas&gt;</a></span><span class="message">yeah, I only tested it on 64 bit kernel</span></div><div class="line" id="005721"><span class="nick" style="color:#8dd3c7"><a href="#005721" label="[00:57:21]">&lt;stikonas&gt;</a></span><span class="message">can't test whether it's reproducible on 32-bits</span></div><div class="line" id="005747"><span class="nick" style="color:#8dd3c7"><a href="#005747" label="[00:57:47]">&lt;stikonas&gt;</a></span><span class="message">btw, I have a small PR to add trap to bash</span></div><div class="line" id="005753"><span class="nick" style="color:#8dd3c7"><a href="#005753" label="[00:57:53]">&lt;stikonas&gt;</a></span><span class="message">might be useful for debugging</span></div><div class="line" id="005829"><span class="nick" style="color:#8dd3c7"><a href="#005829" label="[00:58:29]">&lt;stikonas&gt;</a></span><span class="message">it might break current CI stop detection thoughbut current CI is broken anyway, we should probably remove run step</span></div><div class="line" id="013917"><span class="nick" style="color:#6b8072"><a href="#013917" label="[01:39:17]">&lt;Hagfish&gt;</a></span><span class="message">switching to sysc via sysb is so elegant</span></div><div class="line" id="070047"><span class="nick">***</span><span class="message notice">cadmium.libera.chat sets mode: +o ChanServ</span></div><div class="line" id="124115"><span class="nick" style="color:#389600"><a href="#124115" label="[12:41:15]">&lt;fossy&gt;</a></span><span class="message">award for easiest-to-remove pregened files thus far goes to the Linux kernel</span></div><div class="line" id="124118"><span class="nick" style="color:#389600"><a href="#124118" label="[12:41:18]">&lt;fossy&gt;</a></span><span class="message">find . -name &quot;*_shipped&quot; -delete</span></div><div class="line" id="130527"><span class="nick" style="color:#8dd3c7"><a href="#130527" label="[13:05:27]">&lt;stikonas&gt;</a></span><span class="message">Linux kernel has other blobs though</span></div><div class="line" id="130535"><span class="nick" style="color:#8dd3c7"><a href="#130535" label="[13:05:35]">&lt;stikonas&gt;</a></span><span class="message">what version  are you using?</span></div><div class="line" id="130555"><span class="nick" style="color:#8dd3c7"><a href="#130555" label="[13:05:55]">&lt;stikonas&gt;</a></span><span class="message">fossy: is it something reasonably newish?</span></div><div class="line" id="131623"><span class="nick" style="color:#8dd3c7"><a href="#131623" label="[13:16:23]">&lt;stikonas&gt;</a></span><span class="message">there are actually more files that are automatically generated, but probably out of scope for live-bootstrap... Especially in drivers</span></div><div class="line" id="131823"><span class="nick" style="color:#8dd3c7"><a href="#131823" label="[13:18:23]">&lt;stikonas&gt;</a></span><span class="message">at least in modern kernel there are hundreds of autogenerated lines of code that we have no means of rebuilding</span></div><div class="line" id="131924"><span class="nick" style="color:#8dd3c7"><a href="#131924" label="[13:19:24]">&lt;stikonas&gt;</a></span><span class="message">e.g. linux/drivers/gpu/drm/amd/include/asic_reg has 164MB of autogenerated defines...</span></div><div class="line" id="135616"><span class="nick" style="color:#80b1d3"><a href="#135616" label="[13:56:16]">&lt;oriansj&gt;</a></span><span class="message">stikonas: what about linux-libre?</span></div><div class="line" id="140458"><span class="nick" style="color:#8dd3c7"><a href="#140458" label="[14:04:58]">&lt;stikonas&gt;</a></span><span class="message">oriansj: well, linux libre removes binary blobs</span></div><div class="line" id="140528"><span class="nick" style="color:#8dd3c7"><a href="#140528" label="[14:05:28]">&lt;stikonas&gt;</a></span><span class="message">there is nothing we can do about other generated files, I think we just have to accept them</span></div><div class="line" id="140610"><span class="nick" style="color:#8dd3c7"><a href="#140610" label="[14:06:10]">&lt;stikonas&gt;</a></span><span class="message">but yes, that's why I asked fossy which kernel is used in his work</span></div><div class="line" id="140620"><span class="nick" style="color:#8dd3c7"><a href="#140620" label="[14:06:20]">&lt;stikonas&gt;</a></span><span class="message">if it's newish, we can use linux-libre</span></div><div class="line" id="150830"><span class="nick" style="color:#6d2462"><a href="#150830" label="[15:08:30]">&lt;clemens3&gt;</a></span><span class="message">yeah, quality is subjective, but bloat, obfuscation, complexity, intended or not, have the same result as binaries and blobs..</span></div><div class="line" id="150941"><span class="nick" style="color:#6d2462"><a href="#150941" label="[15:09:41]">&lt;clemens3&gt;</a></span><span class="message">nobody can follow what is going on.. so simplicity/understandability etc. needs to be a goal.. not just source</span></div><div class="line" id="150953"><span class="nick" style="color:#6d2462"><a href="#150953" label="[15:09:53]">&lt;clemens3&gt;</a></span><span class="message">we are a long way off..</span></div><div class="line" id="193502"><span class="nick" style="color:#234e69"><a href="#193502" label="[19:35:02]">&lt;integfred&gt;</a></span><span class="message">Hi I am author of myixos.org ... I also wrote something else, which is why I'm here regarding Maven Central</span></div><div class="line" id="193531"><span class="nick" style="color:#234e69"><a href="#193531" label="[19:35:31]">&lt;integfred&gt;</a></span><span class="message">I spoke to someone called Julian a long time back on IRC</span></div><div class="line" id="193727"><span class="nick" style="color:#6c3d55"><a href="#193727" label="[19:37:27]">&lt;xentrac&gt;</a></span><span class="message">cool</span></div><div class="line" id="193846"><span class="nick" style="color:#6b8072"><a href="#193846" label="[19:38:46]">&lt;Hagfish&gt;</a></span><span class="message">i don't know what the situation is with Maven Central and reproducibility, but that's an interesting question</span></div><div class="line" id="193914"><span class="nick" style="color:#234e69"><a href="#193914" label="[19:39:14]">&lt;integfred&gt;</a></span><span class="message">So these scripts and program I wrote for maven central, attempts to 1) Recursively download sources given an artifact 2) Reconstruct the Maven software by iterating over the java classes using javac</span></div><div class="line" id="193942"><span class="nick" style="color:#234e69"><a href="#193942" label="[19:39:42]">&lt;integfred&gt;</a></span><span class="message">Reproducibility is v. poor</span></div><div class="line" id="194024"><span class="nick" style="color:#234e69"><a href="#194024" label="[19:40:24]">&lt;integfred&gt;</a></span><span class="message">It's more reconstruction than reproduction.</span></div><div class="line" id="194125"><span class="nick" style="color:#234e69"><a href="#194125" label="[19:41:25]">&lt;integfred&gt;</a></span><span class="message">I also tried to do some auto-patching from disassembled bytecode</span></div><div class="line" id="194138"><span class="nick" style="color:#234e69"><a href="#194138" label="[19:41:38]">&lt;integfred&gt;</a></span><span class="message">It was that bad ;)</span></div><div class="line" id="194149"><span class="nick" style="color:#6b8072"><a href="#194149" label="[19:41:49]">&lt;Hagfish&gt;</a></span><span class="message">auto-patching?  yeah, that sounds nasty</span></div><div class="line" id="194355"><span class="nick" style="color:#234e69"><a href="#194355" label="[19:43:55]">&lt;integfred&gt;</a></span><span class="message">I will post the scripts probably next month, I'll come back here when I've uploaded them to git</span></div><div class="line" id="194604"><span class="nick" style="color:#234e69"><a href="#194604" label="[19:46:04]">&lt;integfred&gt;</a></span><span class="message">They only yield about 10% of the classes. I didn't actually manage to reconstruct a whole piece of software.</span></div><div class="line" id="194620"><span class="nick" style="color:#234e69"><a href="#194620" label="[19:46:20]">&lt;integfred&gt;</a></span><span class="message">But OK for harvesting reusable objects.</span></div><div class="line" id="194918"><span class="nick" style="color:#234e69"><a href="#194918" label="[19:49:18]">&lt;integfred&gt;</a></span><span class="message">.. ok ok, I try uploading now</span></div><div class="line" id="203619"><span class="nick" style="color:#234e69"><a href="#203619" label="[20:36:19]">&lt;integfred&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/publicsite/MavenCentralReconstruction">https://github.com/publicsite/MavenCentralReconstruction</a> </span></div><div class="line" id="203634"><span class="nick" style="color:#234e69"><a href="#203634" label="[20:36:34]">&lt;integfred&gt;</a></span><span class="message">Complete ball ache trying to upload to github, but never mind.</span></div><div class="line" id="203704"><span class="nick" style="color:#6b8072"><a href="#203704" label="[20:37:04]">&lt;Hagfish&gt;</a></span><span class="message">that's a great start, thank you</span></div><div class="line" id="203726"><span class="nick" style="color:#234e69"><a href="#203726" label="[20:37:26]">&lt;integfred&gt;</a></span><span class="message">np</span></div><div class="line" id="203727"><span class="nick" style="color:#6b8072"><a href="#203727" label="[20:37:27]">&lt;Hagfish&gt;</a></span><span class="message">i don't know if that should be mentioned on the bootstrapping wiki or something</span></div><div class="line" id="203801"><span class="nick" style="color:#6b8072"><a href="#203801" label="[20:38:01]">&lt;Hagfish&gt;</a></span><span class="message">it might be the sort of thing that someone else might be desperate to contribute to if they saw it, as it might scratch an itch</span></div><div class="line" id="233654"><span class="nick" style="color:#389600"><a href="#233654" label="[23:36:54]">&lt;fossy&gt;</a></span><span class="message">stikonas: hm. I did forget about thay</span></div><div class="line" id="233658"><span class="nick" style="color:#389600"><a href="#233658" label="[23:36:58]">&lt;fossy&gt;</a></span><span class="message">It 2.6.16.62</span></div><div class="line" id="233701"><span class="nick" style="color:#389600"><a href="#233701" label="[23:37:01]">&lt;fossy&gt;</a></span><span class="message">So not new</span></div><div class="line" id="233823"><span class="nick" style="color:#8dd3c7"><a href="#233823" label="[23:38:23]">&lt;stikonas&gt;</a></span><span class="message">well, ideally we at least get rid of binary blobs...</span></div><div class="line" id="233855"><span class="nick" style="color:#8dd3c7"><a href="#233855" label="[23:38:55]">&lt;stikonas&gt;</a></span><span class="message">driver shipped pregenerated headers with no original source are probably beyond us here...</span></div><div class="line" id="234001"><span class="nick" style="color:#8dd3c7"><a href="#234001" label="[23:40:01]">&lt;stikonas&gt;</a></span><span class="message">I think linux-libre is available since 2.6.27</span></div><div class="line" id="234006"><span class="nick" style="color:#389600"><a href="#234006" label="[23:40:06]">&lt;fossy&gt;</a></span><span class="message">quick looks at history seems that gnewsense did deblobbong around this time of kernel</span></div><div class="line" id="234030"><span class="nick" style="color:#8dd3c7"><a href="#234030" label="[23:40:30]">&lt;stikonas&gt;</a></span><span class="message">or maybe <a rel="nofollow" href="https://linux-libre.fsfla.org/pub/linux-libre/releases/old/gen1/">https://linux-libre.fsfla.org/pub/linux-libre/releases/old/gen1/</a> </span></div><div class="line" id="234035"><span class="nick" style="color:#8dd3c7"><a href="#234035" label="[23:40:35]">&lt;stikonas&gt;</a></span><span class="message">even a bit older</span></div><div class="line" id="234100"><span class="nick" style="color:#8dd3c7"><a href="#234100" label="[23:41:00]">&lt;stikonas&gt;</a></span><span class="message">there is 2.6.21 release of linux-libre in old/gen1 folder</span></div><div class="line" id="234119"><span class="nick" style="color:#8dd3c7"><a href="#234119" label="[23:41:19]">&lt;stikonas&gt;</a></span><span class="message">I guess that's when they took over from gnewsense</span></div><div class="line" id="234215"><span class="nick" style="color:#389600"><a href="#234215" label="[23:42:15]">&lt;fossy&gt;</a></span><span class="message">yeah</span></div><div class="line" id="234225"><span class="nick" style="color:#8dd3c7"><a href="#234225" label="[23:42:25]">&lt;stikonas&gt;</a></span><span class="message">what's the reason for 2.6.16?</span></div><div class="line" id="234228"><span class="nick" style="color:#8dd3c7"><a href="#234228" label="[23:42:28]">&lt;stikonas&gt;</a></span><span class="message">LTS?</span></div><div class="line" id="234258"><span class="nick" style="color:#8dd3c7"><a href="#234258" label="[23:42:58]">&lt;stikonas&gt;</a></span><span class="message">2.6.21 I guess is a bout a year or so newer</span></div><div class="line" id="234308"><span class="nick" style="color:#8dd3c7"><a href="#234308" label="[23:43:08]">&lt;stikonas&gt;</a></span><span class="message">than first release of 2.6.16</span></div><br /></div></body></html>

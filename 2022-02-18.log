@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-02-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="022514"><span class="nick" style="color:#8dd3c7"><a href="#022514" label="[02:25:14]">&lt;oriansj&gt;</a></span><span class="message">siraben: well the problem with brainfuck and other interpreted languages being used early in bootstrapping is they make the easier bits easier but make the hard bits harder.</span></div><div class="line" id="022753"><span class="nick" style="color:#8dd3c7"><a href="#022753" label="[02:27:53]">&lt;oriansj&gt;</a></span><span class="message">for example in M0 the easy bit is figuring out the #DEFINEs you want to use and an interpreter will allow you to skip that step. The hard bit is making sure your logic is correct; an interpreted language actually makes that much harder to ensure it is done correctly.</span></div><div class="line" id="023016"><span class="nick" style="color:#8dd3c7"><a href="#023016" label="[02:30:16]">&lt;oriansj&gt;</a></span><span class="message">that being said if one was willing to be wasteful of bits; I'm sure there is a minimal ISA that could be done in a few hundred instructions.</span></div><div class="line" id="023900"><span class="nick" style="color:#8dd3c7"><a href="#023900" label="[02:39:00]">&lt;oriansj&gt;</a></span><span class="message">say a version of sweet16 with an 8bit opcode and a few additional instructions for handling bytes and 32bit values</span></div><div class="line" id="025941"><span class="nick" style="color:#8dd3c7"><a href="#025941" label="[02:59:41]">&lt;oriansj&gt;</a></span><span class="message">muurkha: the biggest part of any instruction set interpreter is the decode logic</span></div><div class="line" id="030204"><span class="nick" style="color:#8dd3c7"><a href="#030204" label="[03:02:04]">&lt;oriansj&gt;</a></span><span class="message">you see it even in knight: 47298 vm_decode.c vs 46191 vm_instructions.c and that is with an extremely simple decode format for instructions that knight has</span></div><div class="line" id="062315"><span class="nick" style="color:#2e2a4a"><a href="#062315" label="[06:23:15]">&lt;muurkha&gt;</a></span><span class="message">knight is a pretty complicated instruction set</span></div><div class="line" id="062418"><span class="nick" style="color:#2e2a4a"><a href="#062418" label="[06:24:18]">&lt;muurkha&gt;</a></span><span class="message">in my implementation of Chifir the instruction decode and implementation of the instruction set is 20 lines of C</span></div><div class="line" id="062507"><span class="nick" style="color:#2e2a4a"><a href="#062507" label="[06:25:07]">&lt;muurkha&gt;</a></span><span class="message">the other 50 lines include reading in the image, reading the keyboard, etc.</span></div><div class="line" id="062545"><span class="nick" style="color:#2e2a4a"><a href="#062545" label="[06:25:45]">&lt;muurkha&gt;</a></span><span class="message">at some point later I wrote a screen output thing for it which was another 30 lines</span></div><div class="line" id="062611"><span class="nick" style="color:#2e2a4a"><a href="#062611" label="[06:26:11]">&lt;muurkha&gt;</a></span><span class="message">I think Wirth RISC would be similar</span></div><div class="line" id="120105"><span class="nick">***</span><span class="message notice">Guest2562 is now known as roptat</span></div><div class="line" id="132353"><span class="nick" style="color:#8dd3c7"><a href="#132353" label="[13:23:53]">&lt;oriansj&gt;</a></span><span class="message">muurkha: very true; knight has a bunch of instructions which exist to make certain things simpler; a handful of which I never implemented because they were not needed (the pack and unpack instructions for example)</span></div><div class="line" id="133326"><span class="nick" style="color:#8dd3c7"><a href="#133326" label="[13:33:26]">&lt;oriansj&gt;</a></span><span class="message">also having just 16 instructions does make certain problems messier. for example having to do jump 4, the immediate, sub pc, 4 -&gt; r0, load [r0] -&gt; r0 to load a 32bit value, rather than just load immediate -&gt; r0</span></div><div class="line" id="133414"><span class="nick" style="color:#8dd3c7"><a href="#133414" label="[13:34:14]">&lt;oriansj&gt;</a></span><span class="message">or having to do masking instructrions because you don't support byte/half read/writes</span></div><div class="line" id="133639"><span class="nick" style="color:#8dd3c7"><a href="#133639" label="[13:36:39]">&lt;oriansj&gt;</a></span><span class="message">now one certainly could have a complex enough instruction set in 8bits of opcode to be simple and easy to program in. while being tiny enough to be possible to implement in hex0. It is just a sort of exercise in hack value that hasn't been done yet.</span></div><div class="line" id="182939"><span class="nick" style="color:#2e2a4a"><a href="#182939" label="[18:29:39]">&lt;muurkha&gt;</a></span><span class="message">yeah</span></div><div class="line" id="183019"><span class="nick" style="color:#2e2a4a"><a href="#183019" label="[18:30:19]">&lt;muurkha&gt;</a></span><span class="message">Chifir avoids load immediate by virtue of not having architectural registers except the PC; all instructions are memory to memory</span></div><div class="line" id="183128"><span class="nick" style="color:#2e2a4a"><a href="#183128" label="[18:31:28]">&lt;muurkha&gt;</a></span><span class="message">and its memory is 32 bits wide, so while you could pack multiple bytes into a word if you wanted to, usually an easier alternative is to not do that</span></div><div class="line" id="183412"><span class="nick" style="color:#2e2a4a"><a href="#183412" label="[18:34:12]">&lt;muurkha&gt;</a></span><span class="message">Wirth RISC does have load immediate and both byte and word loads and stores</span></div><div class="line" id="183454"><span class="nick" style="color:#2e2a4a"><a href="#183454" label="[18:34:54]">&lt;muurkha&gt;</a></span><span class="message">depending on how you count, it has between 21 and 42 instructions</span></div><div class="line" id="183611"><span class="nick" style="color:#2e2a4a"><a href="#183611" label="[18:36:11]">&lt;muurkha&gt;</a></span><span class="message">because it's designed for RISC implemenation its instructions are 32-bit words, though, not 8-bit bytes</span></div><div class="line" id="183728"><span class="nick" style="color:#6b8072"><a href="#183728" label="[18:37:28]">&lt;bauen1&gt;</a></span><span class="message">rv32i has around 38-40, maybe i miscounted a bit, including load / store byte, word</span></div><div class="line" id="184153"><span class="nick" style="color:#2e2a4a"><a href="#184153" label="[18:41:53]">&lt;muurkha&gt;</a></span><span class="message">yeah, and it's probably more comfortable to program in, but it omits floating point and carry flags</span></div><div class="line" id="184346"><span class="nick" style="color:#2e2a4a"><a href="#184346" label="[18:43:46]">&lt;muurkha&gt;</a></span><span class="message">you could unshuffle the rv32 opcode encoding if you were just trying to make a machine that was easy to program</span></div><div class="line" id="184443"><span class="nick" style="color:#2e2a4a"><a href="#184443" label="[18:44:43]">&lt;muurkha&gt;</a></span><span class="message">I think Wirth RISC is probably a lot more reasonable to write directly in hex though: <a rel="nofollow" href="https://people.inf.ethz.ch/wirth/FPGA-relatedWork/RISC-Arch.pdf">https://people.inf.ethz.ch/wirth/FPGA-relatedWork/RISC-Arch.pdf</a> </span></div><div class="line" id="184456"><span class="nick" style="color:#2e2a4a"><a href="#184456" label="[18:44:56]">&lt;muurkha&gt;</a></span><span class="message">all the bitfields are multiples of 4 bits</span></div><div class="line" id="184506"><span class="nick" style="color:#6b8072"><a href="#184506" label="[18:45:06]">&lt;bauen1&gt;</a></span><span class="message">muurkha: all things considered, i'd rather take the benefit of making it easy to implement in hardware / fpga, as you'll only be touching raw instructions for the first few programs, after that you'll go with macros of some sort</span></div><div class="line" id="184535"><span class="nick" style="color:#6b8072"><a href="#184535" label="[18:45:35]">&lt;bauen1&gt;</a></span><span class="message">muurkha: oh yes, that does look nice indeed</span></div><div class="line" id="184600"><span class="nick" style="color:#2e2a4a"><a href="#184600" label="[18:46:00]">&lt;muurkha&gt;</a></span><span class="message">dunno, I've spent a lot of late nights puzzling over i386 opcodes (often perversely encoded in hex instead of octal)</span></div><div class="line" id="235918"><span class="nick" style="color:#80b1d3"><a href="#235918" label="[23:59:18]">&lt;fossy&gt;</a></span><span class="message">oriansj: stikonas we can just point to the commit if required, we've already had to cd into different dirs etc. it's just a bit annoying westes doesn't understand, but its still workable</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2020-01-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000745"><span class="nick" style="color:#389600"><a href="#000745" label="[00:07:45]">&lt;fossy&gt;</a></span><span class="message">i'm wondering what the best way to implement tests for chdir() would be to check that chdir() actually worked...</span></div><div class="line" id="000751"><span class="nick" style="color:#389600"><a href="#000751" label="[00:07:51]">&lt;fossy&gt;</a></span><span class="message">oriansj: ^</span></div><div class="line" id="000823"><span class="nick" style="color:#389600"><a href="#000823" label="[00:08:23]">&lt;fossy&gt;</a></span><span class="message">was thinking a /usr/bin/ls call but that wont work in the lower stages of the bootstrap</span></div><div class="line" id="001038"><span class="nick" style="color:#389600"><a href="#001038" label="[00:10:38]">&lt;fossy&gt;</a></span><span class="message">also getcwd() will vary from system-to-system.. dont know how to do that one really either. i guess it would probably just be ensuring that it dosent error?</span></div><div class="line" id="001449"><span class="nick" style="color:#8dd3c7"><a href="#001449" label="[00:14:49]">&lt;dddddd&gt;</a></span><span class="message">I was thinking something like: getcwd (note the result) chdir to subdir (we can provide it, already created) note that it changes correctly with another getcwd</span></div><div class="line" id="001504"><span class="nick" style="color:#8dd3c7"><a href="#001504" label="[00:15:04]">&lt;dddddd&gt;</a></span><span class="message">maybe get back and recheck</span></div><div class="line" id="001536"><span class="nick" style="color:#8dd3c7"><a href="#001536" label="[00:15:36]">&lt;dddddd&gt;</a></span><span class="message">just rough idea</span></div><div class="line" id="001959"><span class="nick" style="color:#8dd3c7"><a href="#001959" label="[00:19:59]">&lt;dddddd&gt;</a></span><span class="message">Using the shell commands that call to those syscall, I mean.</span></div><div class="line" id="002918"><span class="nick" style="color:#389600"><a href="#002918" label="[00:29:18]">&lt;fossy&gt;</a></span><span class="message">that's a good idea</span></div><div class="line" id="003300"><span class="nick" style="color:#389600"><a href="#003300" label="[00:33:00]">&lt;fossy&gt;</a></span><span class="message">also does anyone know how the heck you can do pass by reference or pass by pointer in M2-Planet?? trying to do pass by reference int func(int* ptr) { &amp;ptr = 1; } dosen't work... and pass by pointer int func(int&amp; ref) { ref = 1; } dosen't work</span></div><div class="line" id="003326"><span class="nick" style="color:#6b8072"><a href="#003326" label="[00:33:26]">&lt;xentrac&gt;</a></span><span class="message">*ptr = 1</span></div><div class="line" id="003339"><span class="nick" style="color:#6b8072"><a href="#003339" label="[00:33:39]">&lt;xentrac&gt;</a></span><span class="message">&amp;foo isn't an lvalue</span></div><div class="line" id="003443"><span class="nick" style="color:#389600"><a href="#003443" label="[00:34:43]">&lt;fossy&gt;</a></span><span class="message">oh woops</span></div><div class="line" id="003936"><span class="nick" style="color:#389600"><a href="#003936" label="[00:39:36]">&lt;fossy&gt;</a></span><span class="message">file.c:3:Received * in primary_expr</span></div><div class="line" id="003939"><span class="nick" style="color:#389600"><a href="#003939" label="[00:39:39]">&lt;fossy&gt;</a></span><span class="message"> <a rel="nofollow" href="https://ttm.sh/EqW.txt">https://ttm.sh/EqW.txt</a> </span></div><div class="line" id="003946"><span class="nick" style="color:#389600"><a href="#003946" label="[00:39:46]">&lt;fossy&gt;</a></span><span class="message">xentrac: not working...</span></div><div class="line" id="012442"><span class="nick" style="color:#8dd3c7"><a href="#012442" label="[01:24:42]">&lt;dddddd&gt;</a></span><span class="message">I don't think *foo is supported. Neither any t&amp; types.</span></div><div class="line" id="013112"><span class="nick" style="color:#8dd3c7"><a href="#013112" label="[01:31:12]">&lt;dddddd&gt;</a></span><span class="message">I guess I'd pass a struct for the function to change data of the caller. Maybe share a global instead. What's the use-case? M2-Planet is not C.</span></div><div class="line" id="013210"><span class="nick" style="color:#8dd3c7"><a href="#013210" label="[01:32:10]">&lt;dddddd&gt;</a></span><span class="message">just &quot;happens to look and behave enough like C&quot;</span></div><div class="line" id="013839"><span class="nick" style="color:#8dd3c7"><a href="#013839" label="[01:38:39]">&lt;dddddd&gt;</a></span><span class="message">I can think of some asm() trickery, but that's nasty and non-portable.</span></div><div class="line" id="014137"><span class="nick" style="color:#8dd3c7"><a href="#014137" label="[01:41:37]">&lt;dddddd&gt;</a></span><span class="message">nah, I don't think that would work.</span></div><div class="line" id="014304"><span class="nick" style="color:#389600"><a href="#014304" label="[01:43:04]">&lt;fossy&gt;</a></span><span class="message">yeah i'm thinking to just use a global</span></div><div class="line" id="014315"><span class="nick" style="color:#389600"><a href="#014315" label="[01:43:15]">&lt;fossy&gt;</a></span><span class="message">because you're right M2-Planet is a small subset of C</span></div><div class="line" id="014332"><span class="nick" style="color:#389600"><a href="#014332" label="[01:43:32]">&lt;fossy&gt;</a></span><span class="message">oriansj: get_current_dir_name() returns a variable that when referenced segfaults the program</span></div><div class="line" id="015133"><span class="nick" style="color:#80b1d3"><a href="#015133" label="[01:51:33]">&lt;oriansj&gt;</a></span><span class="message">first there is no pass by references in M2-Planet and pass by pointer only works partially because there is no updating the caller from the callee. (aka passing struct foo* bar allows one to update the fields in bar but not change the value of bar in the caller.</span></div><div class="line" id="015434"><span class="nick" style="color:#80b1d3"><a href="#015434" label="[01:54:34]">&lt;oriansj&gt;</a></span><span class="message">it also would be ptr = 1; not *ptr = 1;</span></div><div class="line" id="015639"><span class="nick" style="color:#80b1d3"><a href="#015639" label="[01:56:39]">&lt;oriansj&gt;</a></span><span class="message">as M2-Planet doesn't support *foo = *bar; but it is possible do the same via: foo-&gt;a = bar-&gt;a; foo-&gt;b = bar-&gt;b; ... foo-&gt;N = bar-&gt;N</span></div><div class="line" id="015836"><span class="nick" style="color:#80b1d3"><a href="#015836" label="[01:58:36]">&lt;oriansj&gt;</a></span><span class="message">also, I never bothered to check what the getcwd syscall actually returns in RAX</span></div><div class="line" id="015836"><span class="nick" style="color:#6b8072"><a href="#015836" label="[01:58:36]">&lt;xentrac&gt;</a></span><span class="message">t&amp; types aren't in C</span></div><div class="line" id="020022"><span class="nick" style="color:#80b1d3"><a href="#020022" label="[02:00:22]">&lt;oriansj&gt;</a></span><span class="message">in which case if getcwd works but get_current_dir_name doesn't; I would just have to do char* ret = malloc(MAX_PATH); getcwd(ret, MAX_PATH); return ret;</span></div><div class="line" id="022317"><span class="nick" style="color:#80b1d3"><a href="#022317" label="[02:23:17]">&lt;oriansj&gt;</a></span><span class="message">well this passes as working: <a rel="nofollow" href="https://paste.debian.net/1127972/">https://paste.debian.net/1127972/</a> </span></div><div class="line" id="022444"><span class="nick" style="color:#80b1d3"><a href="#022444" label="[02:24:44]">&lt;oriansj&gt;</a></span><span class="message">buildable with the following:<a rel="nofollow" href="https://paste.debian.net/1127973/">https://paste.debian.net/1127973/</a> </span></div><div class="line" id="022908"><span class="nick" style="color:#80b1d3"><a href="#022908" label="[02:29:08]">&lt;oriansj&gt;</a></span><span class="message">hmmm, it looks like the syscall returns the number of chars in the pathname; rather than the string. Looks like my messy guess was wrong</span></div><div class="line" id="023056"><span class="nick" style="color:#80b1d3"><a href="#023056" label="[02:30:56]">&lt;oriansj&gt;</a></span><span class="message">and I need to change getcwd to return buf if NULL was not returned. Easy to fix.</span></div><div class="line" id="023338"><span class="nick" style="color:#80b1d3"><a href="#023338" label="[02:33:38]">&lt;oriansj&gt;</a></span><span class="message">I'll do that tomorrow if someone else doesn't do it while I sleep. Good night</span></div><div class="line" id="023342"><span class="nick" style="color:#389600"><a href="#023342" label="[02:33:42]">&lt;fossy&gt;</a></span><span class="message">nini</span></div><div class="line" id="101327"><span class="nick" style="color:#80b1d3"><a href="#101327" label="[10:13:27]">&lt;oriansj&gt;</a></span><span class="message">odd that GCC gives me: error: ‘PATH_MAX’ undeclared</span></div><div class="line" id="101436"><span class="nick" style="color:#80b1d3"><a href="#101436" label="[10:14:36]">&lt;oriansj&gt;</a></span><span class="message">oh well, easy to work around</span></div><div class="line" id="102223"><span class="nick" style="color:#80b1d3"><a href="#102223" label="[10:22:23]">&lt;oriansj&gt;</a></span><span class="message">here is the new example case: <a rel="nofollow" href="https://paste.debian.net/1128025/">https://paste.debian.net/1128025/</a> </span></div><div class="line" id="102246"><span class="nick" style="color:#80b1d3"><a href="#102246" label="[10:22:46]">&lt;oriansj&gt;</a></span><span class="message">buildable via gcc with identical output</span></div><div class="line" id="102339"><span class="nick" style="color:#80b1d3"><a href="#102339" label="[10:23:39]">&lt;oriansj&gt;</a></span><span class="message">and the patch will be up shortly</span></div><div class="line" id="102611"><span class="nick" style="color:#80b1d3"><a href="#102611" label="[10:26:11]">&lt;oriansj&gt;</a></span><span class="message">if one uses the previously posted M2-Planet build script with the now up patch, you'll have it all working.</span></div><div class="line" id="103409"><span class="nick" style="color:#80b1d3"><a href="#103409" label="[10:34:09]">&lt;oriansj&gt;</a></span><span class="message">fossy: one minor note: it is int fchdir(int fd); instead of int fchdir(FILE* fd) because FILE is a struct with quite a few fields  (including its file descriptor) and fchdir is just a wrapper for a syscall which knows nothing about that struct and just wants a file descriptor. Other than that it looks good.</span></div><div class="line" id="103741"><span class="nick" style="color:#80b1d3"><a href="#103741" label="[10:37:41]">&lt;oriansj&gt;</a></span><span class="message">and it looks like markjenkinsznc was kicking ass last night; good job</span></div><div class="line" id="123551"><span class="nick" style="color:#8dd3c7"><a href="#123551" label="[12:35:51]">&lt;dddddd&gt;</a></span><span class="message">o/</span></div><div class="line" id="165033"><span class="nick">***</span><span class="message notice">ng0_ is now known as ng0</span></div><div class="line" id="210449"><span class="nick" style="color:#389600"><a href="#210449" label="[21:04:49]">&lt;fossy&gt;</a></span><span class="message">oriansj: ah, I thought it was a mistake</span></div><div class="line" id="210516"><span class="nick" style="color:#389600"><a href="#210516" label="[21:05:16]">&lt;fossy&gt;</a></span><span class="message">oriansj: so how should you pass a FILE* to fchdir then</span></div><div class="line" id="210523"><span class="nick" style="color:#389600"><a href="#210523" label="[21:05:23]">&lt;fossy&gt;</a></span><span class="message">which field does it want?</span></div><br /></div></body></html>

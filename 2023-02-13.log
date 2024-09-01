@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-02-13.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003253"><span class="nick" style="color:#389600"><a href="#003253" label="[00:32:53]">&lt;stikonas[m]&gt;</a></span><span class="message">hmm, building GCC 10 in live-bootstrap really takes quite a while...</span></div><div class="line" id="003307"><span class="nick" style="color:#389600"><a href="#003307" label="[00:33:07]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: I wonder if we can try enabling parallel build for some packages</span></div><div class="line" id="003323"><span class="nick" style="color:#389600"><a href="#003323" label="[00:33:23]">&lt;stikonas[m]&gt;</a></span><span class="message">guile and gcc and python might particularly benefit from it</span></div><div class="line" id="003512"><span class="nick" style="color:#389600"><a href="#003512" label="[00:35:12]">&lt;stikonas[m]&gt;</a></span><span class="message">and GCC 12 will be even worse if we do --enable-bootstrap for rebuild with itself</span></div><div class="line" id="011235"><span class="nick" style="color:#8dd3c7"><a href="#011235" label="[01:12:35]">&lt;stikonas&gt;</a></span><span class="message">fossy: have you tested GCC10?</span></div><div class="line" id="011343"><span class="nick" style="color:#8dd3c7"><a href="#011343" label="[01:13:43]">&lt;stikonas&gt;</a></span><span class="message">I get errors like: &quot;/usr/bin/ld: /usr/lib/i386-unknown-linux-musl/gcc/i386-unknown-linux-musl/10.4.0/libgcc.a: error adding symbols: archive has no index; run ranlib to add one&quot; when trying to build Hello World</span></div><div class="line" id="011637"><span class="nick" style="color:#8dd3c7"><a href="#011637" label="[01:16:37]">&lt;stikonas&gt;</a></span><span class="message">I've created a bug to track this <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/246">https://github.com/fosslinux/live-bootstrap/issues/246</a> </span></div><div class="line" id="071457"><span class="nick" style="color:#2e2a4a"><a href="#071457" label="[07:14:57]">&lt;fossy&gt;</a></span><span class="message">stikonas[m]: i was also thinking abt parallel build, we do need to visit that soon</span></div><div class="line" id="071519"><span class="nick" style="color:#2e2a4a"><a href="#071519" label="[07:15:19]">&lt;fossy&gt;</a></span><span class="message">i didn't test the very very last iteration of GCC. but it got good testing before that - but most of that was in-tree</span></div><div class="line" id="071527"><span class="nick" style="color:#2e2a4a"><a href="#071527" label="[07:15:27]">&lt;fossy&gt;</a></span><span class="message">im sure i tested simple things out of tree...</span></div><div class="line" id="071533"><span class="nick" style="color:#2e2a4a"><a href="#071533" label="[07:15:33]">&lt;fossy&gt;</a></span><span class="message">taking a look now</span></div><div class="line" id="072314"><span class="nick" style="color:#2e2a4a"><a href="#072314" label="[07:23:14]">&lt;fossy&gt;</a></span><span class="message">gah, i bet it's stripping</span></div><div class="line" id="072347"><span class="nick" style="color:#2e2a4a"><a href="#072347" label="[07:23:47]">&lt;fossy&gt;</a></span><span class="message">.. cause in tree, nothing is stripped, and i didn't test out of tree since i added stripping right at the end</span></div><div class="line" id="072404"><span class="nick" style="color:#2e2a4a"><a href="#072404" label="[07:24:04]">&lt;fossy&gt;</a></span><span class="message">might just kill the stripping for now, and apply it globally in a little bit</span></div><div class="line" id="073054"><span class="nick" style="color:#2e2a4a"><a href="#073054" label="[07:30:54]">&lt;fossy&gt;</a></span><span class="message">before gcc 12, gonna take a detour to impl parallelism and global binary stripping</span></div><div class="line" id="150533"><span class="nick" style="color:#389600"><a href="#150533" label="[15:05:33]">&lt;stikonas[m]&gt;</a></span><span class="message">fossy: gentoo. actually uses scanelf from pax-utils for detection</span></div><div class="line" id="150552"><span class="nick" style="color:#389600"><a href="#150552" label="[15:05:52]">&lt;stikonas[m]&gt;</a></span><span class="message">Might be easier to add before python is available</span></div><div class="line" id="184408"><span class="nick" style="color:#6b8072"><a href="#184408" label="[18:44:08]">&lt;Piraty&gt;</a></span><span class="message">ar ftw</span></div><div class="line" id="184540"><span class="nick" style="color:#6b8072"><a href="#184540" label="[18:45:40]">&lt;Piraty&gt;</a></span><span class="message">how big of a donation one must make to the project to be assured nodejs will not be included in bootstrappable chain and thus not be part of $post_nuclear_world ?</span></div><div class="line" id="190106"><span class="nick" style="color:#80b1d3"><a href="#190106" label="[19:01:06]">&lt;oriansj&gt;</a></span><span class="message">Piraty: one needs only not do that work and hope no one else has an idea to address it</span></div><div class="line" id="191228"><span class="nick" style="color:#6b8072"><a href="#191228" label="[19:12:28]">&lt;Piraty&gt;</a></span><span class="message">that thinking is dangerous, as it didn't save us from it in the first place</span></div><div class="line" id="191712"><span class="nick" style="color:#6d2462"><a href="#191712" label="[19:17:12]">&lt;Christoph[m]&gt;</a></span><span class="message">Why is nodejs bad?</span></div><div class="line" id="232639"><span class="nick" style="color:#80b1d3"><a href="#232639" label="[23:26:39]">&lt;oriansj&gt;</a></span><span class="message">Piraty: you seem to be under the mistaken belief that there will only be one true bootstrap chain. The truth is a bit more complex. Who does, decides. Means there are no leaders to bribe, saints to consult or developers to blackmail. No one get the say of what does or does not get developed or how it gets developed, except the very people doing the hard work. You by all means can write checks to each and every single developer here in</span></div><div class="line" id="232639"><span class="nick" style="color:#80b1d3"><a href="#232639" label="[23:26:39]">&lt;oriansj&gt;</a></span><span class="message">exchange for them promising not to do that work but any software developer with a strong desire could build that link. So you ultimately could have written all those checks for nothing. It also means, I don't have to import other people's work and they don't have to import mine either.</span></div><div class="line" id="233251"><span class="nick" style="color:#234e69"><a href="#233251" label="[23:32:51]">&lt;doras&gt;</a></span><span class="message">fossy: I think you forgot to mention file-5.44 in parts.rst</span></div><div class="line" id="233343"><span class="nick" style="color:#80b1d3"><a href="#233343" label="[23:33:43]">&lt;oriansj&gt;</a></span><span class="message">so Piraty if you want a bootstrap chain with none of the node.js work; you need only do the work required (which right now is literally zero work required)</span></div><div class="line" id="233636"><span class="nick" style="color:#80b1d3"><a href="#233636" label="[23:36:36]">&lt;oriansj&gt;</a></span><span class="message">So just working on live-bootstrap is a good start; and if you want to buy even comfort in that live-bootstrap will not add the node.js work. I'm sure fossy and stikonas are more than happy to recieve money on the basis of not including node.js into live-bootstrap (and someone else will probably just create live-bootstrap-node.js that just builds upon live-bootstrap)</span></div><div class="line" id="234313"><span class="nick" style="color:#8dd3c7"><a href="#234313" label="[23:43:13]">&lt;stikonas&gt;</a></span><span class="message">but anybody can bootstrap distro off live-bootstrap</span></div><div class="line" id="234324"><span class="nick" style="color:#8dd3c7"><a href="#234324" label="[23:43:24]">&lt;stikonas&gt;</a></span><span class="message">and most distros definitely package nodejs</span></div><div class="line" id="234614"><span class="nick" style="color:#8dd3c7"><a href="#234614" label="[23:46:14]">&lt;stikonas&gt;</a></span><span class="message">but nodejs doesn't seem to be needed for lower level parts, such as getting to GCC</span></div><div class="line" id="234651"><span class="nick" style="color:#8dd3c7"><a href="#234651" label="[23:46:51]">&lt;stikonas&gt;</a></span><span class="message">doras: if we even going to keep file...</span></div><div class="line" id="234820"><span class="nick" style="color:#8dd3c7"><a href="#234820" label="[23:48:20]">&lt;stikonas&gt;</a></span><span class="message">fossy used file to strip size of gcc 10 but that ended up with broken gcc</span></div><div class="line" id="234912"><span class="nick" style="color:#8dd3c7"><a href="#234912" label="[23:49:12]">&lt;stikonas&gt;</a></span><span class="message">oriansj, Piraty: and javascript is the language that I don't really know, so I wouldn't really use it myself</span></div><div class="line" id="235031"><span class="nick" style="color:#8dd3c7"><a href="#235031" label="[23:50:31]">&lt;stikonas&gt;</a></span><span class="message">I saw this Javascript gem today... <a rel="nofollow" href="https://paste.debian.net/1270633/">https://paste.debian.net/1270633/</a> </span></div><div class="line" id="235104"><span class="nick" style="color:#8dd3c7"><a href="#235104" label="[23:51:04]">&lt;stikonas&gt;</a></span><span class="message">even without knowing the language one could see lack of logic...</span></div><div class="line" id="235301"><span class="nick" style="color:#234e69"><a href="#235301" label="[23:53:01]">&lt;doras&gt;</a></span><span class="message">stikonas: I don't think we'll install it either. I haven't done so, so far: <a rel="nofollow" href="https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/merge_requests/44">https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/merge_requests/44</a> </span></div><div class="line" id="235412"><span class="nick" style="color:#8dd3c7"><a href="#235412" label="[23:54:12]">&lt;stikonas&gt;</a></span><span class="message">well, I'm not opposed to having some stuff in live-bootstrap that is not strictly necessary for bootsrapping</span></div><div class="line" id="235431"><span class="nick" style="color:#8dd3c7"><a href="#235431" label="[23:54:31]">&lt;stikonas&gt;</a></span><span class="message">(if it does not complicate things)</span></div><div class="line" id="235434"><span class="nick" style="color:#8dd3c7"><a href="#235434" label="[23:54:34]">&lt;stikonas&gt;</a></span><span class="message">so we'll see</span></div><div class="line" id="235548"><span class="nick" style="color:#234e69"><a href="#235548" label="[23:55:48]">&lt;doras&gt;</a></span><span class="message">It's not really a &quot;step&quot; in the same sense, I guess.</span></div><div class="line" id="235808"><span class="nick" style="color:#8dd3c7"><a href="#235808" label="[23:58:08]">&lt;stikonas&gt;</a></span><span class="message">we usually list those in parts.rst anyway</span></div><div class="line" id="235819"><span class="nick" style="color:#8dd3c7"><a href="#235819" label="[23:58:19]">&lt;stikonas&gt;</a></span><span class="message">i.e. stuff like makeinfo is completely optional</span></div><br /></div></body></html>

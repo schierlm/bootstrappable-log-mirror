@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-07-27.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005111"><span class="nick" style="color:#389600"><a href="#005111" label="[00:51:11]">&lt;pabs3&gt;</a></span><span class="message">muurkha: thats not actually true about Debian, the ftp-masters require the proper source and require that it be possible to build from source using only binaries in main (but not that it be actually built from source during the build). of course this rule isn't checked for compliance at all</span></div><div class="line" id="005548"><span class="nick" style="color:#8dd3c7"><a href="#005548" label="[00:55:48]">&lt;vagrantc&gt;</a></span><span class="message">pabs3: i suspect muurkha was talking about things like configure shipped alongside the configure.ac or configure.in or similar ...</span></div><div class="line" id="005605"><span class="nick" style="color:#389600"><a href="#005605" label="[00:56:05]">&lt;pabs3&gt;</a></span><span class="message">yeah, we rebuild all those automatically these days</span></div><div class="line" id="005637"><span class="nick" style="color:#8dd3c7"><a href="#005637" label="[00:56:37]">&lt;vagrantc&gt;</a></span><span class="message">in general ... though not always</span></div><div class="line" id="005659"><span class="nick" style="color:#389600"><a href="#005659" label="[00:56:59]">&lt;pabs3&gt;</a></span><span class="message">I guess only packages with old debhelper compat levels, or overrides disabling it?</span></div><div class="line" id="005753"><span class="nick" style="color:#8dd3c7"><a href="#005753" label="[00:57:53]">&lt;vagrantc&gt;</a></span><span class="message">or no debhelper at all</span></div><div class="line" id="005817"><span class="nick" style="color:#8dd3c7"><a href="#005817" label="[00:58:17]">&lt;vagrantc&gt;</a></span><span class="message">there may be other similar-ish files as well ...</span></div><div class="line" id="005904"><span class="nick" style="color:#389600"><a href="#005904" label="[00:59:04]">&lt;pabs3&gt;</a></span><span class="message">there is also linux-firmware in main that isn't rebuilt from source of course :(</span></div><div class="line" id="010105"><span class="nick" style="color:#389600"><a href="#010105" label="[01:01:05]">&lt;pabs3&gt;</a></span><span class="message">might not even be buildable these days as the build-deps get removed</span></div><div class="line" id="011624"><span class="nick" style="color:#6b8072"><a href="#011624" label="[01:16:24]">&lt;stikonas&gt;</a></span><span class="message">pabs3: Debian rarely rebuids pregenerated files</span></div><div class="line" id="011633"><span class="nick" style="color:#6b8072"><a href="#011633" label="[01:16:33]">&lt;stikonas&gt;</a></span><span class="message">configure yes, but not much more...</span></div><div class="line" id="011643"><span class="nick" style="color:#389600"><a href="#011643" label="[01:16:43]">&lt;pabs3&gt;</a></span><span class="message">any examples?</span></div><div class="line" id="011737"><span class="nick" style="color:#6b8072"><a href="#011737" label="[01:17:37]">&lt;stikonas&gt;</a></span><span class="message">I suspect even in corelibs</span></div><div class="line" id="011740"><span class="nick" style="color:#6b8072"><a href="#011740" label="[01:17:40]">&lt;stikonas&gt;</a></span><span class="message">e.g. false.c</span></div><div class="line" id="011755"><span class="nick" style="color:#6b8072"><a href="#011755" label="[01:17:55]">&lt;stikonas&gt;</a></span><span class="message">although that one is human readable</span></div><div class="line" id="011829"><span class="nick" style="color:#6b8072"><a href="#011829" label="[01:18:29]">&lt;stikonas&gt;</a></span><span class="message">well, let me check some debian packages</span></div><div class="line" id="011845"><span class="nick" style="color:#6b8072"><a href="#011845" label="[01:18:45]">&lt;stikonas&gt;</a></span><span class="message">my guess is that bison files are not rebuilt</span></div><div class="line" id="011929"><span class="nick" style="color:#8dd3c7"><a href="#011929" label="[01:19:29]">&lt;vagrantc&gt;</a></span><span class="message">if we had a list of things that would be worth regenerating, we could nudge debian to start actually regenerating more files</span></div><div class="line" id="012057"><span class="nick" style="color:#8dd3c7"><a href="#012057" label="[01:20:57]">&lt;vagrantc&gt;</a></span><span class="message">i know debian moves slowly ... all the more reason to start on things soon :)</span></div><div class="line" id="012145"><span class="nick" style="color:#6b8072"><a href="#012145" label="[01:21:45]">&lt;stikonas&gt;</a></span><span class="message">yeah, I think bison/fles files are usually just taken as is</span></div><div class="line" id="012214"><span class="nick" style="color:#6b8072"><a href="#012214" label="[01:22:14]">&lt;stikonas&gt;</a></span><span class="message">I just checked bison source package and even that one does not attempt to rebuild its parser</span></div><div class="line" id="012243"><span class="nick" style="color:#6b8072"><a href="#012243" label="[01:22:43]">&lt;stikonas&gt;</a></span><span class="message">that said, many other distros don't even do as much as Debian does...</span></div><div class="line" id="012325"><span class="nick" style="color:#8dd3c7"><a href="#012325" label="[01:23:25]">&lt;vagrantc&gt;</a></span><span class="message">like building from source? :)</span></div><div class="line" id="012514"><span class="nick" style="color:#6b8072"><a href="#012514" label="[01:25:14]">&lt;stikonas&gt;</a></span><span class="message">well, I mean Debian does rebuild more than average. A positive example is that perl's configure.sh script is rebuilt (that one is not autotools)</span></div><div class="line" id="012610"><span class="nick" style="color:#8dd3c7"><a href="#012610" label="[01:26:10]">&lt;vagrantc&gt;</a></span><span class="message">i think debian ships it's own configure.sh ... or some wrappeer ... &quot;recently&quot; worked on reproducibility issues in debian's perl packages</span></div><div class="line" id="012708"><span class="nick" style="color:#8dd3c7"><a href="#012708" label="[01:27:08]">&lt;vagrantc&gt;</a></span><span class="message">oh wow, that was a year ago already...</span></div><div class="line" id="012710"><span class="nick" style="color:#6b8072"><a href="#012710" label="[01:27:10]">&lt;stikonas&gt;</a></span><span class="message">yes, I think fossy reused that work in live-bootstrap</span></div><div class="line" id="012740"><span class="nick" style="color:#6b8072"><a href="#012740" label="[01:27:40]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/sysc/perl-5.32.1/perl-5.32.1.sh#L30">https://github.com/fosslinux/live-bootstrap/blob/master/sysc/perl-5.32.1/perl-5.32.1.sh#L30</a> </span></div><div class="line" id="012745"><span class="nick" style="color:#6b8072"><a href="#012745" label="[01:27:45]">&lt;stikonas&gt;</a></span><span class="message">ok, it's called metaconfig</span></div><div class="line" id="015618"><span class="nick" style="color:#389600"><a href="#015618" label="[01:56:18]">&lt;pabs3&gt;</a></span><span class="message">stikonas: I think if you find any issues of generated files being used without rebuilding, please do file bugs about them if you can be bothered :)</span></div><div class="line" id="015647"><span class="nick" style="color:#389600"><a href="#015647" label="[01:56:47]">&lt;pabs3&gt;</a></span><span class="message">(and really those bugs/fixes should go upstream, so all distros rebuild from source)</span></div><div class="line" id="015758"><span class="nick" style="color:#6b8072"><a href="#015758" label="[01:57:58]">&lt;stikonas&gt;</a></span><span class="message">well, the thing is that upstream git is often fine. It's only releases that have them</span></div><div class="line" id="020635"><span class="nick" style="color:#6b8072"><a href="#020635" label="[02:06:35]">&lt;stikonas&gt;</a></span><span class="message">that's one of the reasons why fossy is considering to swithing live-bootstrap to building from git snapshots...</span></div><div class="line" id="023648"><span class="nick" style="color:#389600"><a href="#023648" label="[02:36:48]">&lt;pabs3&gt;</a></span><span class="message">(they left but) I would say that pre-generated files should be removed from even the upstream release tarballs. also the upstream VCS often has pre-generated files, some of them even refuse to delete autocruft when sent patches :(</span></div><div class="line" id="030440"><span class="nick" style="color:#80b1d3"><a href="#030440" label="[03:04:40]">&lt;Hagfish&gt;</a></span><span class="message">yeah, that sounds like upstream are doing some weird things</span></div><div class="line" id="030456"><span class="nick" style="color:#80b1d3"><a href="#030456" label="[03:04:56]">&lt;Hagfish&gt;</a></span><span class="message">the autogen stuff is not in the repo, but is in the release tarballs?</span></div><div class="line" id="030547"><span class="nick" style="color:#80b1d3"><a href="#030547" label="[03:05:47]">&lt;Hagfish&gt;</a></span><span class="message">so their process for releasing their &quot;source&quot; involves generating new code using a script?</span></div><div class="line" id="030555"><span class="nick" style="color:#80b1d3"><a href="#030555" label="[03:05:55]">&lt;Hagfish&gt;</a></span><span class="message">that sounds a lot like compiling</span></div><div class="line" id="032025"><span class="nick" style="color:#389600"><a href="#032025" label="[03:20:25]">&lt;pabs3&gt;</a></span><span class="message">once case where the generated files are in the VCS is e2fsprogs</span></div><div class="line" id="032058"><span class="nick" style="color:#6d2462"><a href="#032058" label="[03:20:58]">&lt;oriansj&gt;</a></span><span class="message">lanodan: yeah, we haven't had anyone interested in doing that work yet but we should probably document it in a way others know about the problem and things that might be of use to solve it.</span></div><div class="line" id="032538"><span class="nick" style="color:#6d2462"><a href="#032538" label="[03:25:38]">&lt;oriansj&gt;</a></span><span class="message">stikonas: your changes have been reviewed and merged</span></div><div class="line" id="032900"><span class="nick" style="color:#6d2462"><a href="#032900" label="[03:29:00]">&lt;oriansj&gt;</a></span><span class="message">theruran: I guess I need to make <a rel="nofollow" href="https://wiki.bootstrapping.world/">https://wiki.bootstrapping.world/</a>  a proper wiki, rather than just a mirror of <a rel="nofollow" href="https://github.com/oriansj/bootstrapping-wiki">https://github.com/oriansj/bootstrapping-wiki</a>  as it appears no one wants to make wiki edits via pull requests (or honestly anyone can have push access if they want)</span></div><div class="line" id="041057"><span class="nick" style="color:#234e69"><a href="#041057" label="[04:10:57]">&lt;theruran&gt;</a></span><span class="message">oriansj: looks like wiki.bootstrapping.world is not responding</span></div><div class="line" id="041144"><span class="nick" style="color:#234e69"><a href="#041144" label="[04:11:44]">&lt;theruran&gt;</a></span><span class="message">GH has a wiki option. I don't think you need to make pull requests to contribute to it, but an account is most likely required</span></div><div class="line" id="041211"><span class="nick" style="color:#234e69"><a href="#041211" label="[04:12:11]">&lt;theruran&gt;</a></span><span class="message">agree that PRs are not as desirable for this use case</span></div><div class="line" id="041925"><span class="nick" style="color:#6c3d55"><a href="#041925" label="[04:19:25]">&lt;muurkha&gt;</a></span><span class="message">pabs3: there's a constant stream of &quot;FTBFS&quot; bugs that package maintainers struggle to fix, and if they fail to do so the package is eventually removed from Debian</span></div><div class="line" id="041952"><span class="nick" style="color:#6c3d55"><a href="#041952" label="[04:19:52]">&lt;muurkha&gt;</a></span><span class="message">pabs3: or did you mean it wasn't true in the opposite direction?</span></div><div class="line" id="042049"><span class="nick" style="color:#6c3d55"><a href="#042049" label="[04:20:49]">&lt;muurkha&gt;</a></span><span class="message">pabs3: by &quot;human-readable pregenerated files&quot; I meant things like how it's okay by Debian lights to bootstrap bison with bison rather than only building it from non-bison parts</span></div><div class="line" id="042121"><span class="nick" style="color:#389600"><a href="#042121" label="[04:21:21]">&lt;pabs3&gt;</a></span><span class="message">FTBFS bugs are about build failures, not about not rebuilding generated files from source. FTBFS bugs are usually just due to library interface churn</span></div><div class="line" id="042131"><span class="nick" style="color:#6c3d55"><a href="#042131" label="[04:21:31]">&lt;muurkha&gt;</a></span><span class="message">yeah</span></div><div class="line" id="042153"><span class="nick" style="color:#6c3d55"><a href="#042153" label="[04:21:53]">&lt;muurkha&gt;</a></span><span class="message">what I meant is that Debian takes failing to build from source seriously</span></div><div class="line" id="042225"><span class="nick" style="color:#389600"><a href="#042225" label="[04:22:25]">&lt;pabs3&gt;</a></span><span class="message">agreed on that, the part I disagree with is the second part</span></div><div class="line" id="042305"><span class="nick" style="color:#6c3d55"><a href="#042305" label="[04:23:05]">&lt;muurkha&gt;</a></span><span class="message">I think there are still autogenerated configure scripts that get treated as &quot;source&quot; sometimes</span></div><div class="line" id="042345"><span class="nick" style="color:#6c3d55"><a href="#042345" label="[04:23:45]">&lt;muurkha&gt;</a></span><span class="message">although as vagrantc pointed out they do try to avoid it, it isn't a fire alarm like an FTBFS bug</span></div><div class="line" id="042349"><span class="nick" style="color:#389600"><a href="#042349" label="[04:23:49]">&lt;pabs3&gt;</a></span><span class="message">please file bugs if you see those, that is definitely not the norm. the defaults in debhelper include rebuilding those from source</span></div><div class="line" id="042440"><span class="nick" style="color:#6c3d55"><a href="#042440" label="[04:24:40]">&lt;muurkha&gt;</a></span><span class="message">stikonas pointed out bison indeed takes the upstream's pregenerated bison parser</span></div><div class="line" id="042459"><span class="nick" style="color:#389600"><a href="#042459" label="[04:24:59]">&lt;pabs3&gt;</a></span><span class="message">is bison bootstrappable?</span></div><div class="line" id="042514"><span class="nick" style="color:#6d2462"><a href="#042514" label="[04:25:14]">&lt;oriansj&gt;</a></span><span class="message">theruran: it should be responding correctly now</span></div><div class="line" id="042528"><span class="nick" style="color:#6d2462"><a href="#042528" label="[04:25:28]">&lt;oriansj&gt;</a></span><span class="message">pabs3: it has been bootstrapped thanks to gio</span></div><div class="line" id="042542"><span class="nick" style="color:#6c3d55"><a href="#042542" label="[04:25:42]">&lt;muurkha&gt;</a></span><span class="message">yeah, and thanks to a lot of other people who laid the groundwork</span></div><div class="line" id="042607"><span class="nick" style="color:#389600"><a href="#042607" label="[04:26:07]">&lt;pabs3&gt;</a></span><span class="message">how does it work without using the pregenerated parser?</span></div><div class="line" id="042612"><span class="nick" style="color:#6c3d55"><a href="#042612" label="[04:26:12]">&lt;muurkha&gt;</a></span><span class="message">but until I think last year the answer was &quot;no, bison can only be bootstrapped, you can't build it from source&quot;</span></div><div class="line" id="043404"><span class="nick" style="color:#234e69"><a href="#043404" label="[04:34:04]">&lt;theruran&gt;</a></span><span class="message">oriansj: it's just spinning <a rel="nofollow" href="https://downforeveryoneorjustme.com/wiki.bootstrapping.world?proto=https">https://downforeveryoneorjustme.com/wiki.bootstrapping.world?proto=https</a> </span></div><div class="line" id="044258"><span class="nick" style="color:#6c3d55"><a href="#044258" label="[04:42:58]">&lt;muurkha&gt;</a></span><span class="message">(&quot;bootstrapped&quot; in the sense of &quot;built with itself&quot;)</span></div><div class="line" id="050229"><span class="nick" style="color:#6d2462"><a href="#050229" label="[05:02:29]">&lt;oriansj&gt;</a></span><span class="message">theruran: odd, it loads up just fine via tor and there isn't much network traffic</span></div><div class="line" id="050349"><span class="nick" style="color:#6d2462"><a href="#050349" label="[05:03:49]">&lt;oriansj&gt;</a></span><span class="message">the entirely site is only 700KB</span></div><div class="line" id="050430"><span class="nick" style="color:#6d2462"><a href="#050430" label="[05:04:30]">&lt;oriansj&gt;</a></span><span class="message">and it is connected to a 100MB pipe and the firewall rules allow all IPs on port 80 and 443</span></div><div class="line" id="102924"><span class="nick" style="color:#d9d9d9"><a href="#102924" label="[10:29:24]">&lt;stikonas[m]&gt;</a></span><span class="message">pabs: we rebuild pregenerated file from bison file before build, it happens in a few stages. First stage uses heirloom yacc and builds simplified parser</span></div><div class="line" id="103139"><span class="nick" style="color:#d9d9d9"><a href="#103139" label="[10:31:39]">&lt;stikonas[m]&gt;</a></span><span class="message">actually first stage is handwritten C parser</span></div><div class="line" id="103159"><span class="nick" style="color:#d9d9d9"><a href="#103159" label="[10:31:59]">&lt;stikonas[m]&gt;</a></span><span class="message">anyway, see the details in <a rel="nofollow" href="https://gitlab.com/giomasce/bison-bootstrap">https://gitlab.com/giomasce/bison-bootstrap</a> </span></div><div class="line" id="103335"><span class="nick" style="color:#d9d9d9"><a href="#103335" label="[10:33:35]">&lt;stikonas[m]&gt;</a></span><span class="message">pabs3 but heirloom yacc and lex can be used for bootstrapping flex which is also used for rebuilding some bison files</span></div><div class="line" id="123248"><span class="nick" style="color:#6d2462"><a href="#123248" label="[12:32:48]">&lt;oriansj&gt;</a></span><span class="message">in short, all bootstrapping problems can be solved by people who care enough to solve them.</span></div><div class="line" id="151947"><span class="nick" style="color:#bc80bd"><a href="#151947" label="[15:19:47]">&lt;rkeene&gt;</a></span><span class="message">So it's hopeless ? ;-)</span></div><div class="line" id="174228"><span class="nick">***</span><span class="message notice">stikonas_ is now known as stikonas</span></div><div class="line" id="195051"><span class="nick" style="color:#6b8072"><a href="#195051" label="[19:50:51]">&lt;stikonas&gt;</a></span><span class="message">oriansj: <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds/pull/24">https://github.com/oriansj/bootstrap-seeds/pull/24</a>  (x86/kaem-optional-seed was made 99 bytes smaller)</span></div><div class="line" id="195141"><span class="nick" style="color:#6b8072"><a href="#195141" label="[19:51:41]">&lt;stikonas&gt;</a></span><span class="message">mostly the same stuff as for hex0, though perhaps not as aggressive</span></div><div class="line" id="195152"><span class="nick" style="color:#6b8072"><a href="#195152" label="[19:51:52]">&lt;stikonas&gt;</a></span><span class="message">i.e. we still use all the same global variables</span></div><div class="line" id="195159"><span class="nick" style="color:#6b8072"><a href="#195159" label="[19:51:59]">&lt;stikonas&gt;</a></span><span class="message">(I did not move any of them to registers)</span></div><div class="line" id="195615"><span class="nick">***</span><span class="message notice">WaxCPU is now known as Andrew</span></div><div class="line" id="203537"><span class="nick">***</span><span class="message notice">Andrew is now known as WaxCPU</span></div><br /></div></body></html>

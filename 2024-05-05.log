@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-05-05.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="234531"><span class="nick" style="color:#389600"><a href="#234531" label="[23:45:31]">&lt;stikonas&gt;</a></span><span class="message">Googulator, fossy: I have a small PR with small cleanups <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/466">https://github.com/fosslinux/live-bootstrap/pull/466</a> </span></div><div class="line" id="234759"><span class="nick" style="color:#8dd3c7"><a href="#234759" label="[23:47:59]">&lt;Googulator&gt;</a></span><span class="message">Looks good overall</span></div><div class="line" id="234856"><span class="nick" style="color:#8dd3c7"><a href="#234856" label="[23:48:56]">&lt;Googulator&gt;</a></span><span class="message">fossy: what are the plans for opening the 1.0 branch?</span></div><div class="line" id="235213"><span class="nick" style="color:#389600"><a href="#235213" label="[23:52:13]">&lt;stikonas&gt;</a></span><span class="message">yeah, this doesn't really have to go to 1.0...</span></div><div class="line" id="235218"><span class="nick" style="color:#389600"><a href="#235218" label="[23:52:18]">&lt;stikonas&gt;</a></span><span class="message">though we haven't branched yet</span></div><div class="line" id="235224"><span class="nick" style="color:#389600"><a href="#235224" label="[23:52:24]">&lt;stikonas&gt;</a></span><span class="message">and this should be fairly safe</span></div><div class="line" id="235403"><span class="nick" style="color:#8dd3c7"><a href="#235403" label="[23:54:03]">&lt;Googulator&gt;</a></span><span class="message">yeah, it's not really RISC-V work per se - keeping patches clean &amp; following good coding standards (&quot;void&quot; isn't really a valid return type for a function that does actually return something) is fine, so long as it doesn't break some other bootstrap path</span></div><div class="line" id="235443"><span class="nick" style="color:#8dd3c7"><a href="#235443" label="[23:54:43]">&lt;Googulator&gt;</a></span><span class="message">but eventually we run the risk of e.g. RISC-V enablement getting in the way of a usable 1.0 release for x86</span></div><div class="line" id="235503"><span class="nick" style="color:#389600"><a href="#235503" label="[23:55:03]">&lt;stikonas&gt;</a></span><span class="message">eventually yes...</span></div><div class="line" id="235508"><span class="nick" style="color:#389600"><a href="#235508" label="[23:55:08]">&lt;stikonas&gt;</a></span><span class="message">we should make 1.0 first</span></div><div class="line" id="235512"><span class="nick" style="color:#8dd3c7"><a href="#235512" label="[23:55:12]">&lt;Googulator&gt;</a></span><span class="message">which is why IMO it's time to start the 1.0 branch</span></div><div class="line" id="235524"><span class="nick" style="color:#389600"><a href="#235524" label="[23:55:24]">&lt;stikonas&gt;</a></span><span class="message">so far I don't have proper post-tcc risc-v work</span></div><div class="line" id="235536"><span class="nick" style="color:#389600"><a href="#235536" label="[23:55:36]">&lt;stikonas&gt;</a></span><span class="message">I was just doing manual testing with injected static bash...</span></div><div class="line" id="235545"><span class="nick" style="color:#389600"><a href="#235545" label="[23:55:45]">&lt;stikonas&gt;</a></span><span class="message">it mostly follows the same path though</span></div><div class="line" id="235609"><span class="nick" style="color:#389600"><a href="#235609" label="[23:56:09]">&lt;stikonas&gt;</a></span><span class="message">but using tcc 0.9.28</span></div><div class="line" id="235626"><span class="nick" style="color:#8dd3c7"><a href="#235626" label="[23:56:26]">&lt;Googulator&gt;</a></span><span class="message">in post-1.0, we'll need to redo the checksum mechanism to consistently use architecture-specific checksum files</span></div><div class="line" id="235703"><span class="nick" style="color:#8dd3c7"><a href="#235703" label="[23:57:03]">&lt;Googulator&gt;</a></span><span class="message">including SHA256SUMS.pkgs</span></div><div class="line" id="235712"><span class="nick" style="color:#389600"><a href="#235712" label="[23:57:12]">&lt;stikonas&gt;</a></span><span class="message">well, that we can do as we build up new chain</span></div><div class="line" id="235724"><span class="nick" style="color:#389600"><a href="#235724" label="[23:57:24]">&lt;stikonas&gt;</a></span><span class="message">it will need some obvious fixes too</span></div><div class="line" id="235737"><span class="nick" style="color:#389600"><a href="#235737" label="[23:57:37]">&lt;stikonas&gt;</a></span><span class="message">like x86-&gt;riscv64</span></div><div class="line" id="235742"><span class="nick" style="color:#8dd3c7"><a href="#235742" label="[23:57:42]">&lt;Googulator&gt;</a></span><span class="message">also I'd like to eventually unify compiler usage</span></div><div class="line" id="235806"><span class="nick" style="color:#8dd3c7"><a href="#235806" label="[23:58:06]">&lt;Googulator&gt;</a></span><span class="message">preferably using ekaitz's GCC for all platforms</span></div><div class="line" id="235819"><span class="nick" style="color:#8dd3c7"><a href="#235819" label="[23:58:19]">&lt;Googulator&gt;</a></span><span class="message">replacing both 4.0.4 and 4.7.4</span></div><div class="line" id="235833"><span class="nick" style="color:#389600"><a href="#235833" label="[23:58:33]">&lt;stikonas&gt;</a></span><span class="message">e.g. here <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/f5eb51c2cc371fe932c6dd7e59a22425335ffb53/steps/tar-1.12/files/stat_override.c#L10">https://github.com/fosslinux/live-bootstrap/blob/f5eb51c2cc371fe932c6dd7e59a22425335ffb53/steps/tar-1.12/files/stat_override.c#L10</a> </span></div><div class="line" id="235843"><span class="nick" style="color:#389600"><a href="#235843" label="[23:58:43]">&lt;stikonas&gt;</a></span><span class="message">yeah, we'll that compiler...</span></div><br /></div></body></html>

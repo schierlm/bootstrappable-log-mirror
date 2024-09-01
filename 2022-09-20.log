@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-09-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011915"><span class="nick" style="color:#8dd3c7"><a href="#011915" label="[01:19:15]">&lt;stikonas&gt;</a></span><span class="message">fossy, doras: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/204">https://github.com/fosslinux/live-bootstrap/pull/204</a> </span></div><div class="line" id="020326"><span class="nick" style="color:#8dd3c7"><a href="#020326" label="[02:03:26]">&lt;stikonas&gt;</a></span><span class="message">mihi: can you pull in <a rel="nofollow" href="https://github.com/schierlm/gnu-autogen-bootstrapping/pull/6">https://github.com/schierlm/gnu-autogen-bootstrapping/pull/6</a> </span></div><div class="line" id="023323"><span class="nick" style="color:#2e2a4a"><a href="#023323" label="[02:33:23]">&lt;oriansj&gt;</a></span><span class="message">stikonas: Nope doing ACCEPT_LICENSE=&quot;-* @FREE&quot; in /etc/portage/make.conf still results in media-fonts/font-bh-ttf having a license issue.</span></div><div class="line" id="024820"><span class="nick" style="color:#6b8072"><a href="#024820" label="[02:48:20]">&lt;sam_&gt;</a></span><span class="message">it would, as FREE is still the default</span></div><div class="line" id="024824"><span class="nick" style="color:#6b8072"><a href="#024824" label="[02:48:24]">&lt;sam_&gt;</a></span><span class="message">can you show me the output?</span></div><div class="line" id="024832"><span class="nick" style="color:#6b8072"><a href="#024832" label="[02:48:32]">&lt;sam_&gt;</a></span><span class="message">i.e. setting that is a noop</span></div><div class="line" id="031707"><span class="nick" style="color:#2e2a4a"><a href="#031707" label="[03:17:07]">&lt;oriansj&gt;</a></span><span class="message">sam_: sure, just let me build pastebinit and I'll have that uploaded shortly after</span></div><div class="line" id="032026"><span class="nick" style="color:#2e2a4a"><a href="#032026" label="[03:20:26]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://paste.debian.net/1254430">https://paste.debian.net/1254430</a> </span></div><div class="line" id="032228"><span class="nick" style="color:#2e2a4a"><a href="#032228" label="[03:22:28]">&lt;oriansj&gt;</a></span><span class="message">and as per usual all steps for system setup to thise state is here: <a rel="nofollow" href="https://git.sr.ht/~oriansj/System_setup/tree/main/item/install%20gentoo.txt">https://git.sr.ht/~oriansj/System_setup/tree/main/item/install%20gentoo.txt</a> </span></div><div class="line" id="032843"><span class="nick" style="color:#6b8072"><a href="#032843" label="[03:28:43]">&lt;sam_&gt;</a></span><span class="message">profiles/license_groups:70:BINARY-REDISTRIBUTABLE @FREE Amazon Atmel AVASYS bh-luxi bonnie Broadcom freedist intel-ucode ipw2100-fw ipw2200-fw ipw3945 ISSL JSON linux-fw-redistributable LSI-tw_cli Mellanox-AS-IS MicroChip-SDCC no-source-code NVIDIA-r1 NVIDIA-r2 qlogic-fibre-channel-firmware shmux SmartLabs unRAR</span></div><div class="line" id="032849"><span class="nick" style="color:#6b8072"><a href="#032849" label="[03:28:49]">&lt;sam_&gt;</a></span><span class="message">i.e. it's not in @FREE</span></div><div class="line" id="032857"><span class="nick" style="color:#6b8072"><a href="#032857" label="[03:28:57]">&lt;sam_&gt;</a></span><span class="message">it's in the @BINARY-REDISTRIBUTABLE licence set</span></div><div class="line" id="032903"><span class="nick" style="color:#6b8072"><a href="#032903" label="[03:29:03]">&lt;sam_&gt;</a></span><span class="message">we have a few options</span></div><div class="line" id="032907"><span class="nick" style="color:#6b8072"><a href="#032907" label="[03:29:07]">&lt;sam_&gt;</a></span><span class="message">we can:</span></div><div class="line" id="032911"><span class="nick" style="color:#6b8072"><a href="#032911" label="[03:29:11]">&lt;sam_&gt;</a></span><span class="message">1. always allow  @BINARY-REDISTRIBUTABLE (I doubt you want this)</span></div><div class="line" id="032919"><span class="nick" style="color:#6b8072"><a href="#032919" label="[03:29:19]">&lt;sam_&gt;</a></span><span class="message">2. allow the 'bh-luxi' licence purely for this package</span></div><div class="line" id="032925"><span class="nick" style="color:#6b8072"><a href="#032925" label="[03:29:25]">&lt;sam_&gt;</a></span><span class="message">3. allow the 'bh-luxi' licence for media-fonts/*</span></div><div class="line" id="032934"><span class="nick" style="color:#6b8072"><a href="#032934" label="[03:29:34]">&lt;sam_&gt;</a></span><span class="message">4. allow @BINARY-REDISTRIBUTABLE (or any) for media-fonts/*</span></div><div class="line" id="032937"><span class="nick" style="color:#6b8072"><a href="#032937" label="[03:29:37]">&lt;sam_&gt;</a></span><span class="message">5. something else I'm forgetting</span></div><div class="line" id="032944"><span class="nick" style="color:#6b8072"><a href="#032944" label="[03:29:44]">&lt;sam_&gt;</a></span><span class="message">which do you prefer?</span></div><div class="line" id="033009"><span class="nick" style="color:#2e2a4a"><a href="#033009" label="[03:30:09]">&lt;oriansj&gt;</a></span><span class="message">is there an option of setting an alternate font?</span></div><div class="line" id="033016"><span class="nick" style="color:#6b8072"><a href="#033016" label="[03:30:16]">&lt;sam_&gt;</a></span><span class="message">good question, was just checking that</span></div><div class="line" id="033033"><span class="nick" style="color:#6b8072"><a href="#033033" label="[03:30:33]">&lt;sam_&gt;</a></span><span class="message">so x11-base/xorg-x11 is a meta package with a USE=fonts which just tries to pull in a bunch of fonts it thinks you'll want</span></div><div class="line" id="033040"><span class="nick" style="color:#6b8072"><a href="#033040" label="[03:30:40]">&lt;sam_&gt;</a></span><span class="message">i.e. they're not real dependencies of something per se</span></div><div class="line" id="033103"><span class="nick" style="color:#2e2a4a"><a href="#033103" label="[03:31:03]">&lt;oriansj&gt;</a></span><span class="message">so any free font will be fine by me</span></div><div class="line" id="033136"><span class="nick" style="color:#2e2a4a"><a href="#033136" label="[03:31:36]">&lt;oriansj&gt;</a></span><span class="message">so how do I strip away the non-free?</span></div><div class="line" id="033216"><span class="nick" style="color:#6b8072"><a href="#033216" label="[03:32:16]">&lt;sam_&gt;</a></span><span class="message">I suspect best option is: 1. set USE=-fonts on xorg-x11 in package.use, then 2. either see what's broken, if anything, or we proactively look for some alternative font now</span></div><div class="line" id="033231"><span class="nick" style="color:#6b8072"><a href="#033231" label="[03:32:31]">&lt;sam_&gt;</a></span><span class="message">(this is an interesting issue we should poke at more, I don't have a chance right now, bu we might be able to make xorg-x11 in future depend on default free stuff instead)</span></div><div class="line" id="033240"><span class="nick" style="color:#6b8072"><a href="#033240" label="[03:32:40]">&lt;sam_&gt;</a></span><span class="message">I suspect you can just live without that font</span></div><div class="line" id="033256"><span class="nick" style="color:#6b8072"><a href="#033256" label="[03:32:56]">&lt;sam_&gt;</a></span><span class="message">as long as you have a provider of virtual/ttf-fonts</span></div><div class="line" id="033541"><span class="nick" style="color:#2e2a4a"><a href="#033541" label="[03:35:41]">&lt;oriansj&gt;</a></span><span class="message">well I haven't setup a virtual/ttf-fonts yet because I didn't know to do so yet</span></div><div class="line" id="033558"><span class="nick" style="color:#6b8072"><a href="#033558" label="[03:35:58]">&lt;sam_&gt;</a></span><span class="message">sorry, what i mean is</span></div><div class="line" id="033603"><span class="nick" style="color:#6b8072"><a href="#033603" label="[03:36:03]">&lt;sam_&gt;</a></span><span class="message">something should depend on it so you should be fine</span></div><div class="line" id="033616"><span class="nick" style="color:#6b8072"><a href="#033616" label="[03:36:16]">&lt;sam_&gt;</a></span><span class="message">so purely setting USE=-fonts on xorg-x11 might be sufficient</span></div><div class="line" id="033723"><span class="nick" style="color:#2e2a4a"><a href="#033723" label="[03:37:23]">&lt;oriansj&gt;</a></span><span class="message">so echo &quot;x11-base/xorg-x11 USE=-fonts&quot; &gt;&gt; /etc/portage/package.use/x11</span></div><div class="line" id="033736"><span class="nick" style="color:#6b8072"><a href="#033736" label="[03:37:36]">&lt;sam_&gt;</a></span><span class="message">s/USE=//</span></div><div class="line" id="033737"><span class="nick" style="color:#6b8072"><a href="#033737" label="[03:37:37]">&lt;sam_&gt;</a></span><span class="message">so</span></div><div class="line" id="033740"><span class="nick" style="color:#6b8072"><a href="#033740" label="[03:37:40]">&lt;sam_&gt;</a></span><span class="message">echo &quot;x11-base/xorg-x11 -fonts&quot; &gt;&gt; /etc/portage/package.use/x11</span></div><div class="line" id="033922"><span class="nick" style="color:#2e2a4a"><a href="#033922" label="[03:39:22]">&lt;oriansj&gt;</a></span><span class="message">got it, my mistake</span></div><div class="line" id="034057"><span class="nick" style="color:#2e2a4a"><a href="#034057" label="[03:40:57]">&lt;oriansj&gt;</a></span><span class="message">and it looks like it solved the issue (the build is starting)</span></div><div class="line" id="034118"><span class="nick" style="color:#2e2a4a"><a href="#034118" label="[03:41:18]">&lt;oriansj&gt;</a></span><span class="message">after that I hopefully can make i3 and see a functional GUI</span></div><div class="line" id="034746"><span class="nick" style="color:#6b8072"><a href="#034746" label="[03:47:46]">&lt;sam_&gt;</a></span><span class="message">\o/</span></div><div class="line" id="034802"><span class="nick" style="color:#6b8072"><a href="#034802" label="[03:48:02]">&lt;sam_&gt;</a></span><span class="message">(and no, you really stumbled on a real issue anyway: it should be harder for users to hit such a problem immediately)</span></div><div class="line" id="034808"><span class="nick" style="color:#6b8072"><a href="#034808" label="[03:48:08]">&lt;sam_&gt;</a></span><span class="message">i'll file a bug for it but c an't poke at it properly atm</span></div><div class="line" id="041017"><span class="nick" style="color:#2e2a4a"><a href="#041017" label="[04:10:17]">&lt;oriansj&gt;</a></span><span class="message">thank you sam_</span></div><div class="line" id="132149"><span class="nick">***</span><span class="message notice">ChanServ sets mode: +o janneke</span></div><div class="line" id="135525"><span class="nick">***</span><span class="message notice">Server sets mode: +cnt </span></div><div class="line" id="155211"><span class="nick" style="color:#80b1d3"><a href="#155211" label="[15:52:11]">&lt;ekaitz&gt;</a></span><span class="message">hi! I have a weird instruction that is not supported by M1 appearing when compiling with mes</span></div><div class="line" id="155222"><span class="nick" style="color:#80b1d3"><a href="#155222" label="[15:52:22]">&lt;ekaitz&gt;</a></span><span class="message">mov____(%rax),%si</span></div><div class="line" id="155312"><span class="nick" style="color:#80b1d3"><a href="#155312" label="[15:53:12]">&lt;ekaitz&gt;</a></span><span class="message">it appears when compiling a function from a modified TCC</span></div><div class="line" id="155327"><span class="nick" style="color:#80b1d3"><a href="#155327" label="[15:53:27]">&lt;ekaitz&gt;</a></span><span class="message">this is the function: <a rel="nofollow" href="https://github.com/ekaitz-zarraga/tcc/blob/mes-package/riscv64-asm.c#L575">https://github.com/ekaitz-zarraga/tcc/blob/mes-package/riscv64-asm.c#L575</a> </span></div><div class="line" id="155342"><span class="nick" style="color:#80b1d3"><a href="#155342" label="[15:53:42]">&lt;ekaitz&gt;</a></span><span class="message">stikonas[m]: do you have any idea about what's going on here?</span></div><div class="line" id="155408"><span class="nick" style="color:#80b1d3"><a href="#155408" label="[15:54:08]">&lt;ekaitz&gt;</a></span><span class="message">I have exactly 0 knowledge about i386 and x84, btw</span></div><div class="line" id="155447"><span class="nick" style="color:#6d2462"><a href="#155447" label="[15:54:47]">&lt;stikonas[m]&gt;</a></span><span class="message">missing M1 define?</span></div><div class="line" id="155502"><span class="nick" style="color:#80b1d3"><a href="#155502" label="[15:55:02]">&lt;ekaitz&gt;</a></span><span class="message">that's one of the options</span></div><div class="line" id="155516"><span class="nick" style="color:#6d2462"><a href="#155516" label="[15:55:16]">&lt;stikonas[m]&gt;</a></span><span class="message">Though I don't know what si is</span></div><div class="line" id="155527"><span class="nick" style="color:#80b1d3"><a href="#155527" label="[15:55:27]">&lt;ekaitz&gt;</a></span><span class="message">me neither, that's my big problem</span></div><div class="line" id="155545"><span class="nick" style="color:#80b1d3"><a href="#155545" label="[15:55:45]">&lt;ekaitz&gt;</a></span><span class="message">is there any way I can use to track where does that exactly come from?</span></div><div class="line" id="155620"><span class="nick" style="color:#80b1d3"><a href="#155620" label="[15:56:20]">&lt;ekaitz&gt;</a></span><span class="message">mov____%si,(%rdi) &lt;--- this one is the only other wrong instruction it generates</span></div><div class="line" id="155626"><span class="nick" style="color:#80b1d3"><a href="#155626" label="[15:56:26]">&lt;ekaitz&gt;</a></span><span class="message">again %si appears</span></div><div class="line" id="155647"><span class="nick" style="color:#80b1d3"><a href="#155647" label="[15:56:47]">&lt;ekaitz&gt;</a></span><span class="message">oh and also two more with %sil</span></div><div class="line" id="155656"><span class="nick" style="color:#80b1d3"><a href="#155656" label="[15:56:56]">&lt;ekaitz&gt;</a></span><span class="message">but looking the same</span></div><div class="line" id="163933"><span class="nick" style="color:#6d2462"><a href="#163933" label="[16:39:33]">&lt;stikonas[m]&gt;</a></span><span class="message">Oh si is just 16-bit truncation of rsi</span></div><div class="line" id="164002"><span class="nick" style="color:#6d2462"><a href="#164002" label="[16:40:02]">&lt;stikonas[m]&gt;</a></span><span class="message">Check if M1 define exists for it</span></div><div class="line" id="170449"><span class="nick" style="color:#80b1d3"><a href="#170449" label="[17:04:49]">&lt;ekaitz&gt;</a></span><span class="message">stikonas[m]: let me take a look (i'm not very used to M1 so it's going to be hard :) )</span></div><div class="line" id="170554"><span class="nick" style="color:#80b1d3"><a href="#170554" label="[17:05:54]">&lt;ekaitz&gt;</a></span><span class="message">the full mov___... is not defined</span></div><div class="line" id="170635"><span class="nick" style="color:#80b1d3"><a href="#170635" label="[17:06:35]">&lt;ekaitz&gt;</a></span><span class="message">but there are some uses of the sil (commented)</span></div><div class="line" id="170637"><span class="nick" style="color:#80b1d3"><a href="#170637" label="[17:06:37]">&lt;ekaitz&gt;</a></span><span class="message">#DEFINE movsbq_%sil,%rsi 480fbef6</span></div><div class="line" id="170932"><span class="nick" style="color:#80b1d3"><a href="#170932" label="[17:09:32]">&lt;ekaitz&gt;</a></span><span class="message">why i don't understand is why is the compilation process generating an instruction it doesn't know, which one is the previous step? why does it do that?</span></div><div class="line" id="173030"><span class="nick" style="color:#6d2462"><a href="#173030" label="[17:30:30]">&lt;stikonas[m]&gt;</a></span><span class="message">Probably somebody added new instruction in emitted code but did not add how it expands</span></div><div class="line" id="173143"><span class="nick" style="color:#6d2462"><a href="#173143" label="[17:31:43]">&lt;stikonas[m]&gt;</a></span><span class="message">Check commit where that line was added with git blame</span></div><div class="line" id="173251"><span class="nick" style="color:#6d2462"><a href="#173251" label="[17:32:51]">&lt;stikonas[m]&gt;</a></span><span class="message">Though I'm a bit confused</span></div><div class="line" id="173308"><span class="nick" style="color:#6d2462"><a href="#173308" label="[17:33:08]">&lt;stikonas[m]&gt;</a></span><span class="message">Are you using tcc to compile into M1?</span></div><div class="line" id="173331"><span class="nick" style="color:#6d2462"><a href="#173331" label="[17:33:31]">&lt;stikonas[m]&gt;</a></span><span class="message">Oh maybe not, it's mes building tcc</span></div><div class="line" id="173344"><span class="nick" style="color:#6d2462"><a href="#173344" label="[17:33:44]">&lt;stikonas[m]&gt;</a></span><span class="message">Anyway, find that instruction is mes</span></div><div class="line" id="173400"><span class="nick" style="color:#6d2462"><a href="#173400" label="[17:34:00]">&lt;stikonas[m]&gt;</a></span><span class="message">Do git blame</span></div><div class="line" id="173416"><span class="nick" style="color:#6d2462"><a href="#173416" label="[17:34:16]">&lt;stikonas[m]&gt;</a></span><span class="message">And see if define was forgotten</span></div><div class="line" id="173533"><span class="nick" style="color:#80b1d3"><a href="#173533" label="[17:35:33]">&lt;ekaitz&gt;</a></span><span class="message">yeah it's mes building tcc</span></div><div class="line" id="174142"><span class="nick" style="color:#80b1d3"><a href="#174142" label="[17:41:42]">&lt;ekaitz&gt;</a></span><span class="message">oh I can't find who generated this instruction</span></div><div class="line" id="180245"><span class="nick" style="color:#6d2462"><a href="#180245" label="[18:02:45]">&lt;stikonas[m]&gt;</a></span><span class="message">But it's not in <a rel="nofollow" href="http://git.savannah.gnu.org/cgit/mes.git/tree/lib/x86_64-mes/x86_64.M1">http://git.savannah.gnu.org/cgit/mes.git/tree/lib/x86_64-mes/x86_64.M1</a> </span></div><div class="line" id="195105"><span class="nick">***</span><span class="message notice">Noisytoot_ is now known as Noisytoot</span></div><div class="line" id="200305"><span class="nick" style="color:#80b1d3"><a href="#200305" label="[20:03:05]">&lt;ekaitz&gt;</a></span><span class="message">stikonas[m]: no, it's not there, but i can't either find it in the generator</span></div><div class="line" id="200321"><span class="nick" style="color:#80b1d3"><a href="#200321" label="[20:03:21]">&lt;ekaitz&gt;</a></span><span class="message">maybe it appears parameterized</span></div><div class="line" id="202257"><span class="nick" style="color:#6d2462"><a href="#202257" label="[20:22:57]">&lt;stikonas[m]&gt;</a></span><span class="message">possibly, search for bits of it, e.g. just %si</span></div><div class="line" id="203342"><span class="nick" style="color:#80b1d3"><a href="#203342" label="[20:33:42]">&lt;ekaitz&gt;</a></span><span class="message">yep</span></div><br /></div></body></html>

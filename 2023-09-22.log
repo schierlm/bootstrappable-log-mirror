@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-09-22.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001532"><span class="nick" style="color:#389600"><a href="#001532" label="[00:15:32]">&lt;muurkha&gt;</a></span><span class="message">stikonas: hooray!</span></div><div class="line" id="003945"><span class="nick" style="color:#8dd3c7"><a href="#003945" label="[00:39:45]">&lt;notgull&gt;</a></span><span class="message">stikonas: I see, thanks</span></div><div class="line" id="004755"><span class="nick" style="color:#2e2a4a"><a href="#004755" label="[00:47:55]">&lt;stikonas&gt;</a></span><span class="message">notgull: if you want to work on one of those options, let us know :)</span></div><div class="line" id="004821"><span class="nick" style="color:#8dd3c7"><a href="#004821" label="[00:48:21]">&lt;notgull&gt;</a></span><span class="message">Sounds good. Im trying to follow the WASM-based bootstrap path I mentioned earlier, to see if it's a viable option</span></div><div class="line" id="004903"><span class="nick" style="color:#8dd3c7"><a href="#004903" label="[00:49:03]">&lt;notgull&gt;</a></span><span class="message">But I'm in a rabbit hole and was wondering if Risc-V could host my WASM-based OS</span></div><div class="line" id="005037"><span class="nick" style="color:#6b8072"><a href="#005037" label="[00:50:37]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Jeremiah Orians&gt; Yes it can</span></div><div class="line" id="005050"><span class="nick" style="color:#2e2a4a"><a href="#005050" label="[00:50:50]">&lt;stikonas&gt;</a></span><span class="message">but wasm is probably one of the intermediate stages...</span></div><div class="line" id="005057"><span class="nick" style="color:#2e2a4a"><a href="#005057" label="[00:50:57]">&lt;stikonas&gt;</a></span><span class="message">might be too complex for early stuff</span></div><div class="line" id="005116"><span class="nick" style="color:#2e2a4a"><a href="#005116" label="[00:51:16]">&lt;stikonas&gt;</a></span><span class="message">it's somewhere between M0 and cc_*</span></div><div class="line" id="005135"><span class="nick" style="color:#8dd3c7"><a href="#005135" label="[00:51:35]">&lt;notgull&gt;</a></span><span class="message">I think I can get to a WASM VM from M0. Then I can use that to bootstrap up to C</span></div><div class="line" id="005140"><span class="nick" style="color:#2e2a4a"><a href="#005140" label="[00:51:40]">&lt;stikonas&gt;</a></span><span class="message">in RISC-V you really want to get through hex0 to M0 stages as soon as possible</span></div><div class="line" id="005148"><span class="nick" style="color:#2e2a4a"><a href="#005148" label="[00:51:48]">&lt;stikonas&gt;</a></span><span class="message">yeah, that is reasonable</span></div><div class="line" id="005203"><span class="nick" style="color:#2e2a4a"><a href="#005203" label="[00:52:03]">&lt;stikonas&gt;</a></span><span class="message">once you have M0, RISC-V is quite alright to work with</span></div><div class="line" id="005204"><span class="nick" style="color:#6b8072"><a href="#005204" label="[00:52:04]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Jeremiah Orians&gt; I suggest you prototype your wasm interpreter in a high level language and then rewrite it in c and we can help/do the assembly version</span></div><div class="line" id="005206"><span class="nick" style="color:#8dd3c7"><a href="#005206" label="[00:52:06]">&lt;notgull&gt;</a></span><span class="message">The issue I'm trying to solve is to try to establish a secure chain of custody as early into the build as possible</span></div><div class="line" id="005231"><span class="nick" style="color:#8dd3c7"><a href="#005231" label="[00:52:31]">&lt;notgull&gt;</a></span><span class="message">Jeremiah: that was my current plan. So far I've been prototyping in C in POSIX</span></div><div class="line" id="005301"><span class="nick" style="color:#8dd3c7"><a href="#005301" label="[00:53:01]">&lt;notgull&gt;</a></span><span class="message">It'll be a weird WASM machine, since it needs access to more outside resources than a WASM machine usually provides in order to actually do anything usefuk</span></div><div class="line" id="005308"><span class="nick" style="color:#8dd3c7"><a href="#005308" label="[00:53:08]">&lt;notgull&gt;</a></span><span class="message">s/usefuk/useful</span></div><div class="line" id="005420"><span class="nick" style="color:#6b8072"><a href="#005420" label="[00:54:20]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Jeremiah Orians&gt; Well file in and file out are unavoidable unless you define them as memory mapped by default</span></div><div class="line" id="005553"><span class="nick" style="color:#8dd3c7"><a href="#005553" label="[00:55:53]">&lt;notgull&gt;</a></span><span class="message">Yeah. I was thinking that I could eventually bootstrap my way to a WASI interface, which is not only pretty safe but also there's a libc implementation that wraps it</span></div><div class="line" id="005617"><span class="nick" style="color:#8dd3c7"><a href="#005617" label="[00:56:17]">&lt;notgull&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/WebAssembly/wasi-libc">https://github.com/WebAssembly/wasi-libc</a> </span></div><div class="line" id="015917"><span class="nick" style="color:#389600"><a href="#015917" label="[01:59:17]">&lt;muurkha&gt;</a></span><span class="message">stikonas: because the instruction encoding is so hard to read?</span></div><div class="line" id="015946"><span class="nick" style="color:#389600"><a href="#015946" label="[01:59:46]">&lt;muurkha&gt;</a></span><span class="message">notgull: I don't know if there's a good WASM implementation for RISC-V yet</span></div><div class="line" id="020005"><span class="nick" style="color:#389600"><a href="#020005" label="[02:00:05]">&lt;muurkha&gt;</a></span><span class="message">I wonder if you can start with some very small subset of wasm</span></div><div class="line" id="031503"><span class="nick" style="color:#2e2a4a"><a href="#031503" label="[03:15:03]">&lt;stikonas&gt;</a></span><span class="message">muurkha: kind of</span></div><div class="line" id="031519"><span class="nick" style="color:#2e2a4a"><a href="#031519" label="[03:15:19]">&lt;stikonas&gt;</a></span><span class="message">in particular immediate constants are encoded in nasty formats</span></div><div class="line" id="031628"><span class="nick" style="color:#2e2a4a"><a href="#031628" label="[03:16:28]">&lt;stikonas&gt;</a></span><span class="message">it's not just little endian</span></div><div class="line" id="031638"><span class="nick" style="color:#2e2a4a"><a href="#031638" label="[03:16:38]">&lt;stikonas&gt;</a></span><span class="message">there are those I J B S formats</span></div><div class="line" id="031837"><span class="nick" style="color:#2e2a4a"><a href="#031837" label="[03:18:37]">&lt;stikonas&gt;</a></span><span class="message">and not just immediate constants</span></div><div class="line" id="031935"><span class="nick" style="color:#2e2a4a"><a href="#031935" label="[03:19:35]">&lt;stikonas&gt;</a></span><span class="message">but on the other hand, I think riscv is done from a bit lower level than x86</span></div><div class="line" id="031956"><span class="nick" style="color:#2e2a4a"><a href="#031956" label="[03:19:56]">&lt;stikonas&gt;</a></span><span class="message">e.g. x86 let's say we have mov rax,rbx</span></div><div class="line" id="032009"><span class="nick" style="color:#2e2a4a"><a href="#032009" label="[03:20:09]">&lt;stikonas&gt;</a></span><span class="message">and people tend to look it up how it is encoded</span></div><div class="line" id="032013"><span class="nick" style="color:#2e2a4a"><a href="#032013" label="[03:20:13]">&lt;stikonas&gt;</a></span><span class="message">so it's a single M1 define</span></div><div class="line" id="032113"><span class="nick" style="color:#2e2a4a"><a href="#032113" label="[03:21:13]">&lt;stikonas&gt;</a></span><span class="message">on the other hand, on risc-v we construct addi x1, x2, x3 from bits that represent addi, x1, x2 and x3 separately</span></div><div class="line" id="032507"><span class="nick" style="color:#8dd3c7"><a href="#032507" label="[03:25:07]">&lt;notgull&gt;</a></span><span class="message">muurkha: WASM is a bit more structured than normal assembly, so it doesn't really have the bootstrapping properties of FORTH</span></div><div class="line" id="032535"><span class="nick" style="color:#8dd3c7"><a href="#032535" label="[03:25:35]">&lt;notgull&gt;</a></span><span class="message">Although that does get the noggin joggin': could I make a WASM machine that's malleable like FORTH is, and then &quot;freeze&quot; it once it's up to speed with WASI?</span></div><div class="line" id="032918"><span class="nick" style="color:#2e2a4a"><a href="#032918" label="[03:29:18]">&lt;stikonas&gt;</a></span><span class="message">notgull: but you also need WASM compiler, don't you?</span></div><div class="line" id="032953"><span class="nick" style="color:#2e2a4a"><a href="#032953" label="[03:29:53]">&lt;stikonas&gt;</a></span><span class="message">i.e. people would probably write wasm text form...</span></div><div class="line" id="033229"><span class="nick" style="color:#8dd3c7"><a href="#033229" label="[03:32:29]">&lt;notgull&gt;</a></span><span class="message">stikonas: My current plan is to write the text form compiler in M0 assembly, but with the defines compiling to WASM</span></div><div class="line" id="033310"><span class="nick" style="color:#6b8072"><a href="#033310" label="[03:33:10]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yeah, that makes sense</span></div><div class="line" id="033513"><span class="nick" style="color:#8dd3c7"><a href="#033513" label="[03:35:13]">&lt;notgull&gt;</a></span><span class="message">Then I bootstrap from WAT to... some other higher level language, I suppose, to write better drivers in</span></div><div class="line" id="033523"><span class="nick" style="color:#8dd3c7"><a href="#033523" label="[03:35:23]">&lt;notgull&gt;</a></span><span class="message">Probably C or Scheme, my brain is too smol for forth</span></div><div class="line" id="043200"><span class="nick" style="color:#80b1d3"><a href="#043200" label="[04:32:00]">&lt;oriansj&gt;</a></span><span class="message">notgull: well forth only is a reasonable language if your target architecture's assembly is garbage or if you lack 64KB of RAM needed to run a C compiler or Lisp Interpreter.</span></div><div class="line" id="043228"><span class="nick" style="color:#8dd3c7"><a href="#043228" label="[04:32:28]">&lt;notgull&gt;</a></span><span class="message">Yeah I was reading the wiki and I saw people trash talking FORTH. Is it really that bad?</span></div><div class="line" id="043308"><span class="nick" style="color:#80b1d3"><a href="#043308" label="[04:33:08]">&lt;oriansj&gt;</a></span><span class="message">it isn't bad; it just works best in certain working conditions.</span></div><div class="line" id="043334"><span class="nick" style="color:#8dd3c7"><a href="#043334" label="[04:33:34]">&lt;notgull&gt;</a></span><span class="message">Hmm, so like if im trying to bootstrap from a TI-83?</span></div><div class="line" id="043409"><span class="nick" style="color:#80b1d3"><a href="#043409" label="[04:34:09]">&lt;oriansj&gt;</a></span><span class="message">well a TI-83 has a z80 processor and its assembly is quite good</span></div><div class="line" id="043451"><span class="nick" style="color:#8dd3c7"><a href="#043451" label="[04:34:51]">&lt;notgull&gt;</a></span><span class="message">Oh, neat</span></div><div class="line" id="043520"><span class="nick" style="color:#80b1d3"><a href="#043520" label="[04:35:20]">&lt;oriansj&gt;</a></span><span class="message">same for 6502 systems like the VIC-20 or Commadore 64</span></div><div class="line" id="043542"><span class="nick" style="color:#8dd3c7"><a href="#043542" label="[04:35:42]">&lt;notgull&gt;</a></span><span class="message">Cool, so you can bootstrap from there?</span></div><div class="line" id="043550"><span class="nick" style="color:#80b1d3"><a href="#043550" label="[04:35:50]">&lt;oriansj&gt;</a></span><span class="message">or 6809 systems.</span></div><div class="line" id="043613"><span class="nick" style="color:#80b1d3"><a href="#043613" label="[04:36:13]">&lt;oriansj&gt;</a></span><span class="message">notgull: you can bootstrap from any 8bit processor still available for sale.</span></div><div class="line" id="043632"><span class="nick" style="color:#80b1d3"><a href="#043632" label="[04:36:32]">&lt;oriansj&gt;</a></span><span class="message">or even one you make yourself if you really wanted.</span></div><div class="line" id="043715"><span class="nick" style="color:#8dd3c7"><a href="#043715" label="[04:37:15]">&lt;notgull&gt;</a></span><span class="message">Hmm, I just think that it would be hard to bootstrap to anything higher level or with significant memory requirements</span></div><div class="line" id="043805"><span class="nick" style="color:#80b1d3"><a href="#043805" label="[04:38:05]">&lt;oriansj&gt;</a></span><span class="message">well memory requirements can be replaced by disk storage if one runs a virtual machine. (or the hardware has an MMU)</span></div><div class="line" id="043849"><span class="nick" style="color:#80b1d3"><a href="#043849" label="[04:38:49]">&lt;oriansj&gt;</a></span><span class="message">and even VIC-20 systems can be connected to 1TB media these days</span></div><div class="line" id="043859"><span class="nick" style="color:#8dd3c7"><a href="#043859" label="[04:38:59]">&lt;notgull&gt;</a></span><span class="message">Almost makes me want to scavenge in my garage for the DVD player I have in there</span></div><div class="line" id="044012"><span class="nick" style="color:#80b1d3"><a href="#044012" label="[04:40:12]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.c64-wiki.com/wiki/SD2IEC">https://www.c64-wiki.com/wiki/SD2IEC</a> </span></div><div class="line" id="045007"><span class="nick" style="color:#80b1d3"><a href="#045007" label="[04:50:07]">&lt;oriansj&gt;</a></span><span class="message">and there are rather cute options: <a rel="nofollow" href="https://github.com/rossumur/littleatari810">https://github.com/rossumur/littleatari810</a> </span></div><div class="line" id="144620"><span class="nick" style="color:#6b8072"><a href="#144620" label="[14:46:20]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;emilytrau&gt; has anyone ever experienced gnu tar exiting successfully but not unpacking any files? (1.17-1.35, musl 1.1-ish)</span></div><div class="line" id="161346"><span class="nick" style="color:#6b8072"><a href="#161346" label="[16:13:46]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; No, I don't think I saw anything like that</span></div><div class="line" id="161944"><span class="nick" style="color:#6b8072"><a href="#161944" label="[16:19:44]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Maybe worth strace'ing it?</span></div><div class="line" id="162213"><span class="nick" style="color:#6d2462"><a href="#162213" label="[16:22:13]">&lt;janneke&gt;</a></span><span class="message">emilytrau: i believe i saw something like that when there was a bug in mes c library's seek function (i've got no experience with musl)</span></div><div class="line" id="162724"><span class="nick" style="color:#389600"><a href="#162724" label="[16:27:24]">&lt;muurkha&gt;</a></span><span class="message">stikonas: that makes sense</span></div><div class="line" id="162750"><span class="nick" style="color:#389600"><a href="#162750" label="[16:27:50]">&lt;muurkha&gt;</a></span><span class="message">notgull: I agree that WASM is more structured than normal assembly</span></div><div class="line" id="162834"><span class="nick" style="color:#389600"><a href="#162834" label="[16:28:34]">&lt;muurkha&gt;</a></span><span class="message">people did use Forth a lot on Z80s and 6502s</span></div><div class="line" id="162856"><span class="nick" style="color:#389600"><a href="#162856" label="[16:28:56]">&lt;muurkha&gt;</a></span><span class="message">I think the biggest problem with Forth is that it tempts you to be clever</span></div><div class="line" id="162949"><span class="nick" style="color:#389600"><a href="#162949" label="[16:29:49]">&lt;muurkha&gt;</a></span><span class="message"> <a rel="nofollow" href="https://blog.plover.com/prog/Java.html">https://blog.plover.com/prog/Java.html</a>  describes Java as the antithesis of this</span></div><div class="line" id="163143"><span class="nick" style="color:#389600"><a href="#163143" label="[16:31:43]">&lt;muurkha&gt;</a></span><span class="message">if you can resist the temptation to use the stack for local variables, it becomes just a slightly worse language than C with a much better interactive programming environment</span></div><br /></div></body></html>

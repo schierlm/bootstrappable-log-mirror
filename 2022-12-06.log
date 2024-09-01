@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-12-06.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002736"><span class="nick" style="color:#389600"><a href="#002736" label="[00:27:36]">&lt;stikonas[m]&gt;</a></span><span class="message">I wonder if we skip checksumming, will we get the same error while untarring</span></div><div class="line" id="002908"><span class="nick" style="color:#389600"><a href="#002908" label="[00:29:08]">&lt;stikonas[m]&gt;</a></span><span class="message">rickmasters: and yes, good progress! And good that we were able to go from bison to GCC with very few problems</span></div><div class="line" id="004909"><span class="nick" style="color:#389600"><a href="#004909" label="[00:49:09]">&lt;stikonas[m]&gt;</a></span><span class="message">You'll probably finish bootstrapping Linux before I'm even able to finish stage0-uefi</span></div><div class="line" id="014450"><span class="nick" style="color:#8dd3c7"><a href="#014450" label="[01:44:50]">&lt;stikonas&gt;</a></span><span class="message">yeah, kaem.efi will have to do some of the things that kernel normally does</span></div><div class="line" id="014500"><span class="nick" style="color:#8dd3c7"><a href="#014500" label="[01:45:00]">&lt;stikonas&gt;</a></span><span class="message">it looks like UEFI has no concept of current working directory</span></div><div class="line" id="014526"><span class="nick" style="color:#8dd3c7"><a href="#014526" label="[01:45:26]">&lt;stikonas&gt;</a></span><span class="message">so I'll have to implement it inside M2libc</span></div><div class="line" id="015118"><span class="nick" style="color:#8dd3c7"><a href="#015118" label="[01:51:18]">&lt;stikonas&gt;</a></span><span class="message">I guess I can just prefix cwd when e.g. opening files</span></div><div class="line" id="160101"><span class="nick" style="color:#2e2a4a"><a href="#160101" label="[16:01:01]">&lt;Hagfish&gt;</a></span><span class="message">&quot;ten packages away from building Linux.&quot;</span></div><div class="line" id="160105"><span class="nick" style="color:#2e2a4a"><a href="#160105" label="[16:01:05]">&lt;Hagfish&gt;</a></span><span class="message">that's so exciting</span></div><div class="line" id="160150"><span class="nick" style="color:#2e2a4a"><a href="#160150" label="[16:01:50]">&lt;Hagfish&gt;</a></span><span class="message">personally, if i was experiencing a problem with checksumming large files, i'd be tempted to just split the file into chunks and provide checksums for the chunks</span></div><div class="line" id="160320"><span class="nick" style="color:#2e2a4a"><a href="#160320" label="[16:03:20]">&lt;Hagfish&gt;</a></span><span class="message">that's an ugly hack that probably breaks the consistency of the rest of the process, though</span></div><div class="line" id="161804"><span class="nick" style="color:#6b8072"><a href="#161804" label="[16:18:04]">&lt;rickmasters&gt;</a></span><span class="message">HagFish: There was a bug in Fiwix's ext2 filesystem for files &gt; 64MB that I tracked down this morning.</span></div><div class="line" id="161917"><span class="nick" style="color:#6b8072"><a href="#161917" label="[16:19:17]">&lt;rickmasters&gt;</a></span><span class="message">I was able to get past the checksum but now I'm running into a tar error.</span></div><div class="line" id="162017"><span class="nick" style="color:#6b8072"><a href="#162017" label="[16:20:17]">&lt;rickmasters&gt;</a></span><span class="message">tar seems to be trying to create a directory before creating the parents first.</span></div><div class="line" id="164437"><span class="nick" style="color:#389600"><a href="#164437" label="[16:44:37]">&lt;stikonas[m]&gt;</a></span><span class="message">Gnu tar?</span></div><div class="line" id="165629"><span class="nick" style="color:#6b8072"><a href="#165629" label="[16:56:29]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: yes gnu tar</span></div><div class="line" id="165831"><span class="nick" style="color:#6b8072"><a href="#165831" label="[16:58:31]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: it must be a kernel issue because I can extract the file system and run the same tar binary on the same tar file and it works fine</span></div><div class="line" id="174943"><span class="nick" style="color:#389600"><a href="#174943" label="[17:49:43]">&lt;stikonas[m]&gt;</a></span><span class="message">Yes, makes sense.</span></div><div class="line" id="184526"><span class="nick" style="color:#80b1d3"><a href="#184526" label="[18:45:26]">&lt;oriansj&gt;</a></span><span class="message">or you discovered another lazy thing  in Linux</span></div><div class="line" id="190844"><span class="nick" style="color:#6b8072"><a href="#190844" label="[19:08:44]">&lt;rickmasters&gt;</a></span><span class="message">oriansj: i'm comparing with linux and offhand it looks like linux is creating the parent directories but that doesn't seem right...</span></div><div class="line" id="191029"><span class="nick" style="color:#6b8072"><a href="#191029" label="[19:10:29]">&lt;rickmasters&gt;</a></span><span class="message">or someone is...</span></div><div class="line" id="191512"><span class="nick" style="color:#389600"><a href="#191512" label="[19:15:12]">&lt;stikonas[m]&gt;</a></span><span class="message">That is a bit strange. I don't think normal writes on Linux create parent dirs</span></div><div class="line" id="191520"><span class="nick" style="color:#6b8072"><a href="#191520" label="[19:15:20]">&lt;rickmasters&gt;</a></span><span class="message">oh nevermind, its probably tar creating the parents but only if it gets a specific error code, I think.</span></div><div class="line" id="191719"><span class="nick" style="color:#6b8072"><a href="#191719" label="[19:17:19]">&lt;rickmasters&gt;</a></span><span class="message">it looks like linux returns ENOENT but fiwix is returning ENOTDIR when the parent does not exist</span></div><div class="line" id="191933"><span class="nick" style="color:#6b8072"><a href="#191933" label="[19:19:33]">&lt;rickmasters&gt;</a></span><span class="message">yes that fixed it!</span></div><div class="line" id="192252"><span class="nick" style="color:#389600"><a href="#192252" label="[19:22:52]">&lt;stikonas[m]&gt;</a></span><span class="message">Good!</span></div><div class="line" id="192336"><span class="nick" style="color:#389600"><a href="#192336" label="[19:23:36]">&lt;stikonas[m]&gt;</a></span><span class="message">Is this linux-headers package?</span></div><div class="line" id="193012"><span class="nick" style="color:#6b8072"><a href="#193012" label="[19:30:12]">&lt;rickmasters&gt;</a></span><span class="message">stikonas: yes, linux-headers</span></div><div class="line" id="200318"><span class="nick" style="color:#6b8072"><a href="#200318" label="[20:03:18]">&lt;rickmasters&gt;</a></span><span class="message">ok, got past linux-headers and musl-1.2.3. Now rebooting on gcc-4.0.4 pass2.</span></div><div class="line" id="200424"><span class="nick" style="color:#6b8072"><a href="#200424" label="[20:04:24]">&lt;rickmasters&gt;</a></span><span class="message">Eight packages to go before linux.</span></div><div class="line" id="200547"><span class="nick" style="color:#6b8072"><a href="#200547" label="[20:05:47]">&lt;rickmasters&gt;</a></span><span class="message">I bet I also need to patch out set_thread_area from musl-1.2.3 ...</span></div><div class="line" id="202956"><span class="nick" style="color:#389600"><a href="#202956" label="[20:29:56]">&lt;stikonas[m]&gt;</a></span><span class="message">hopefully that's similar to older musl</span></div><div class="line" id="203008"><span class="nick" style="color:#389600"><a href="#203008" label="[20:30:08]">&lt;stikonas[m]&gt;</a></span><span class="message">and in the worst case, we can actually stay with older musl</span></div><div class="line" id="223944"><span class="nick" style="color:#8dd3c7"><a href="#223944" label="[22:39:44]">&lt;stikonas&gt;</a></span><span class="message">oriansj: I think I now have a fix for a[0].b construct in M2-Planet</span></div><div class="line" id="224452"><span class="nick" style="color:#8dd3c7"><a href="#224452" label="[22:44:52]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/pull/49">https://github.com/oriansj/M2-Planet/pull/49</a> </span></div><div class="line" id="224556"><span class="nick" style="color:#8dd3c7"><a href="#224556" label="[22:45:56]">&lt;stikonas&gt;</a></span><span class="message">I guess I still need to implement signed/unsigned load_value and more cleanup with loading values in general...</span></div><div class="line" id="225117"><span class="nick" style="color:#8dd3c7"><a href="#225117" label="[22:51:17]">&lt;stikonas&gt;</a></span><span class="message">it was an easy to overlook initially when I just tried to implement structs but the fix is almost trivial</span></div><div class="line" id="225156"><span class="nick" style="color:#8dd3c7"><a href="#225156" label="[22:51:56]">&lt;stikonas&gt;</a></span><span class="message">we already have a check not to do dereferencing of arrays when assigning, so just extended the check to also include dot operator</span></div><div class="line" id="225849"><span class="nick" style="color:#80b1d3"><a href="#225849" label="[22:58:49]">&lt;oriansj&gt;</a></span><span class="message">good work</span></div><div class="line" id="230514"><span class="nick" style="color:#80b1d3"><a href="#230514" label="[23:05:14]">&lt;oriansj&gt;</a></span><span class="message">and merged</span></div><div class="line" id="233132"><span class="nick" style="color:#8dd3c7"><a href="#233132" label="[23:31:32]">&lt;stikonas&gt;</a></span><span class="message">well, still more work to do to clean up those new features...</span></div><div class="line" id="233159"><span class="nick" style="color:#8dd3c7"><a href="#233159" label="[23:31:59]">&lt;stikonas&gt;</a></span><span class="message">but let's test it in kaem and see if I can remove that hack</span></div><div class="line" id="233542"><span class="nick" style="color:#8dd3c7"><a href="#233542" label="[23:35:42]">&lt;stikonas&gt;</a></span><span class="message">no, doesn't work...</span></div><div class="line" id="233651"><span class="nick" style="color:#8dd3c7"><a href="#233651" label="[23:36:51]">&lt;stikonas&gt;</a></span><span class="message">maybe wrong type size (for calculating offset) is used in &quot;device_path[1].type&quot; case</span></div><br /></div></body></html>

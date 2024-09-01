@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-11-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="035405"><span class="nick" style="color:#389600"><a href="#035405" label="[03:54:05]">&lt;oriansj&gt;</a></span><span class="message">well there certainly are a good few build your own CPUs and computers with bootstrap potential</span></div><div class="line" id="145341"><span class="nick" style="color:#389600"><a href="#145341" label="[14:53:41]">&lt;oriansj&gt;</a></span><span class="message">but they either are 8bit (or smaller) or span a half dozen boards or end up using microcode</span></div><div class="line" id="145438"><span class="nick" style="color:#8dd3c7"><a href="#145438" label="[14:54:38]">&lt;muurkha&gt;</a></span><span class="message">oriansj: all of those are reasonable options</span></div><div class="line" id="145539"><span class="nick" style="color:#8dd3c7"><a href="#145539" label="[14:55:39]">&lt;muurkha&gt;</a></span><span class="message">even if it would be nicer to have a CPU that didn't have those disadvantages, yet was still auditable</span></div><div class="line" id="150726"><span class="nick" style="color:#389600"><a href="#150726" label="[15:07:26]">&lt;oriansj&gt;</a></span><span class="message">well those using microcde would be the cheapest and could have an implementation spanning multiple boards (ah la IBM 360) but I don't know of an option which satisfies that</span></div><div class="line" id="150815"><span class="nick" style="color:#8dd3c7"><a href="#150815" label="[15:08:15]">&lt;muurkha&gt;</a></span><span class="message">satisfies what?</span></div><div class="line" id="150908"><span class="nick" style="color:#389600"><a href="#150908" label="[15:09:08]">&lt;oriansj&gt;</a></span><span class="message">a single consistent architecture available as a lean microcode design and a microcode free design.</span></div><div class="line" id="151105"><span class="nick" style="color:#389600"><a href="#151105" label="[15:11:05]">&lt;oriansj&gt;</a></span><span class="message">RISC-V has potential but none of the designs seem to cover the exact same ISA options; unless we just assumed only the core instructions.</span></div><div class="line" id="152506"><span class="nick" style="color:#8dd3c7"><a href="#152506" label="[15:25:06]">&lt;muurkha&gt;</a></span><span class="message">RV32I is more than adequate for self-hosting</span></div><div class="line" id="154229"><span class="nick" style="color:#389600"><a href="#154229" label="[15:42:29]">&lt;oriansj&gt;</a></span><span class="message">well no</span></div><div class="line" id="154327"><span class="nick" style="color:#389600"><a href="#154327" label="[15:43:27]">&lt;oriansj&gt;</a></span><span class="message">one either needs syscall support or some standard (like bios) for dealing with I/O</span></div><div class="line" id="155319"><span class="nick" style="color:#8dd3c7"><a href="#155319" label="[15:53:19]">&lt;muurkha&gt;</a></span><span class="message">you can invoke subroutines for dealing with I/O; that's what RTOSes do</span></div><div class="line" id="155350"><span class="nick" style="color:#8dd3c7"><a href="#155350" label="[15:53:50]">&lt;muurkha&gt;</a></span><span class="message">syscall support is for privilege separation and fault isolation</span></div><div class="line" id="155504"><span class="nick" style="color:#8dd3c7"><a href="#155504" label="[15:55:04]">&lt;muurkha&gt;</a></span><span class="message">but you can totally just call into a VDSO for your I/O</span></div><div class="line" id="161422"><span class="nick" style="color:#389600"><a href="#161422" label="[16:14:22]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well those subroutines would need to be in ROM with a standard routine table; otherwise we would need to customize the early steps to each and every different implementation. Unless we hard code an I/O memory map of sorts</span></div><div class="line" id="173749"><span class="nick" style="color:#8dd3c7"><a href="#173749" label="[17:37:49]">&lt;muurkha&gt;</a></span><span class="message">yeah, you could use standard addresses, or a single standard address with a register that selects which routine to call, or a standard address with a symbol table, or whatever</span></div><div class="line" id="213650"><span class="nick" style="color:#2e2a4a"><a href="#213650" label="[21:36:50]">&lt;vagrantc&gt;</a></span><span class="message">ACTION hopes the sunshine lasts long enough to build mes on riscv64 today :)</span></div><div class="line" id="215512"><span class="nick" style="color:#389600"><a href="#215512" label="[21:55:12]">&lt;oriansj&gt;</a></span><span class="message">vagrantc: going solarpunk?</span></div><div class="line" id="215643"><span class="nick" style="color:#389600"><a href="#215643" label="[21:56:43]">&lt;oriansj&gt;</a></span><span class="message">muurkha: well RISC-V systems are starting to adopt the UEFI standard but that is far from a minimal bootstrap for hardware</span></div><div class="line" id="223522"><span class="nick" style="color:#2e2a4a"><a href="#223522" label="[22:35:22]">&lt;vagrantc&gt;</a></span><span class="message">oriansj: heh. kindasorta</span></div><div class="line" id="224831"><span class="nick" style="color:#6b8072"><a href="#224831" label="[22:48:31]">&lt;stikonas&gt;</a></span><span class="message">well, u-boot   implements  enough UEFI for bootstrapping...</span></div><div class="line" id="224858"><span class="nick" style="color:#6b8072"><a href="#224858" label="[22:48:58]">&lt;stikonas&gt;</a></span><span class="message">you don't even need something as big as EDK2</span></div><div class="line" id="225604"><span class="nick" style="color:#389600"><a href="#225604" label="[22:56:04]">&lt;oriansj&gt;</a></span><span class="message">vagrantc: nice.</span></div><div class="line" id="225801"><span class="nick" style="color:#389600"><a href="#225801" label="[22:58:01]">&lt;oriansj&gt;</a></span><span class="message">stikonas: I only need a BIOS with read block, write block, read key and a memory address where I can do VGA style output.</span></div><div class="line" id="225830"><span class="nick" style="color:#389600"><a href="#225830" label="[22:58:30]">&lt;oriansj&gt;</a></span><span class="message">everything else we can device tree in Linux after the bootstrap</span></div><div class="line" id="230759"><span class="nick" style="color:#2e2a4a"><a href="#230759" label="[23:07:59]">&lt;vagrantc&gt;</a></span><span class="message">my little riscv64 board is a meek little solar powered space heater that happens to also be able to compile code :)</span></div><div class="line" id="231123"><span class="nick" style="color:#6b8072"><a href="#231123" label="[23:11:23]">&lt;stikonas&gt;</a></span><span class="message">which board do you have?</span></div><div class="line" id="231133"><span class="nick" style="color:#2e2a4a"><a href="#231133" label="[23:11:33]">&lt;vagrantc&gt;</a></span><span class="message">unmatched</span></div><div class="line" id="231212"><span class="nick" style="color:#2e2a4a"><a href="#231212" label="[23:12:12]">&lt;vagrantc&gt;</a></span><span class="message">not the fastest processor, but 16gb of ram and an nvme disk partly make up for that :)</span></div><div class="line" id="231221"><span class="nick" style="color:#6b8072"><a href="#231221" label="[23:12:21]">&lt;stikonas&gt;</a></span><span class="message">well, but mes will be slow...</span></div><div class="line" id="231236"><span class="nick" style="color:#6b8072"><a href="#231236" label="[23:12:36]">&lt;stikonas&gt;</a></span><span class="message">it takes days on my visionfive2</span></div><div class="line" id="231302"><span class="nick" style="color:#2e2a4a"><a href="#231302" label="[23:13:02]">&lt;vagrantc&gt;</a></span><span class="message">yes, it manages to use approximately exactly 25% of the available CPU (e.g. 1 core at full steam)</span></div><div class="line" id="231302"><span class="nick" style="color:#6b8072"><a href="#231302" label="[23:13:02]">&lt;stikonas&gt;</a></span><span class="message">though tcc and especially gcc are faster</span></div><div class="line" id="231338"><span class="nick" style="color:#2e2a4a"><a href="#231338" label="[23:13:38]">&lt;vagrantc&gt;</a></span><span class="message">i wish suspend worked on it ... then i could suspend at night, resume the next day :)</span></div><div class="line" id="231457"><span class="nick" style="color:#2e2a4a"><a href="#231457" label="[23:14:57]">&lt;vagrantc&gt;</a></span><span class="message">having some sort of progress indicator with mess would be nice</span></div><div class="line" id="231516"><span class="nick" style="color:#2e2a4a"><a href="#231516" label="[23:15:16]">&lt;vagrantc&gt;</a></span><span class="message">got as far as: + /&lt;&lt;PKGBUILDDIR&gt;&gt;/bin/mes --no-auto-compile -e main -L /usr/share/guile/site/3.0 -C /usr/lib/guile/3.0/site-ccache /&lt;&lt;PKGBUILDDIR&gt;&gt;/scripts/mescc.scm -- -m 64 -c -D HAVE_CONFIG_H=1 -I ../lib -I ../include -I ../include -I include -v -static -nostdinc -nostdlib -fno-builtin -o lib-stdlib-puts.o ../lib/stdlib/puts.c</span></div><div class="line" id="231559"><span class="nick" style="color:#6b8072"><a href="#231559" label="[23:15:59]">&lt;stikonas&gt;</a></span><span class="message">ok, so it's doing something then</span></div><div class="line" id="231613"><span class="nick" style="color:#6b8072"><a href="#231613" label="[23:16:13]">&lt;stikonas&gt;</a></span><span class="message">still, that's much faster then building tcc</span></div><div class="line" id="231621"><span class="nick" style="color:#6b8072"><a href="#231621" label="[23:16:21]">&lt;stikonas&gt;</a></span><span class="message">that one is without any progress at all</span></div><div class="line" id="231625"><span class="nick" style="color:#2e2a4a"><a href="#231625" label="[23:16:25]">&lt;vagrantc&gt;</a></span><span class="message">ouch</span></div><div class="line" id="231639"><span class="nick" style="color:#6b8072"><a href="#231639" label="[23:16:39]">&lt;stikonas&gt;</a></span><span class="message">well, over a few days it prints a few warnings in the middle</span></div><div class="line" id="231701"><span class="nick" style="color:#6b8072"><a href="#231701" label="[23:17:01]">&lt;stikonas&gt;</a></span><span class="message">and for 1 day or so at the end I can watch the size of output file (tcc.s)</span></div><br /></div></body></html>

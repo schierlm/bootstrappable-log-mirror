@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2023-07-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000132"><span class="nick" style="color:#389600"><a href="#000132" label="[00:01:32]">&lt;oriansj&gt;</a></span><span class="message">kerravon: well the echo in the reader would effectively echo the source code being built. And if one is paranoid of the stability of one's media: yes plastic and metal strips are options</span></div><div class="line" id="000253"><span class="nick" style="color:#389600"><a href="#000253" label="[00:02:53]">&lt;oriansj&gt;</a></span><span class="message">as there are actual printers one can connect to the echo of the program (line wrapping might take a couple extra instructions though)</span></div><div class="line" id="000426"><span class="nick" style="color:#389600"><a href="#000426" label="[00:04:26]">&lt;oriansj&gt;</a></span><span class="message">sam_: I am glad to hear that the qemu group figured out that exact same bug first.</span></div><div class="line" id="015633"><span class="nick" style="color:#389600"><a href="#015633" label="[01:56:33]">&lt;oriansj&gt;</a></span><span class="message">well the last bugs in M1 that needed fixing are resolved and release 1.5.0 of mescc-tools is now out</span></div><div class="line" id="020959"><span class="nick" style="color:#8dd3c7"><a href="#020959" label="[02:09:59]">&lt;sam_&gt;</a></span><span class="message">oriansj: I live to give bug references to people :)</span></div><div class="line" id="021121"><span class="nick" style="color:#389600"><a href="#021121" label="[02:11:21]">&lt;oriansj&gt;</a></span><span class="message">sam_: I live to learn about bugs in my software, so that I can make it even better for everyone ^_^</span></div><div class="line" id="021141"><span class="nick" style="color:#8dd3c7"><a href="#021141" label="[02:11:41]">&lt;sam_&gt;</a></span><span class="message">:)</span></div><div class="line" id="022348"><span class="nick" style="color:#389600"><a href="#022348" label="[02:23:48]">&lt;oriansj&gt;</a></span><span class="message">and as a reminder this is a mescc-tools major release and the one we are scheduled to drop support for the flags: --BigEndian, --LittleEndian, --exec_enable and --BaseAddress</span></div><div class="line" id="024009"><span class="nick" style="color:#389600"><a href="#024009" label="[02:40:09]">&lt;oriansj&gt;</a></span><span class="message">and as it has been nearly 2 years and 2 Major releases (with warnings) hopefully everyone converted to the current standard flags (if not: --BigEndian -&gt; --big-endian ; --LittleEndian -&gt; --little-endian ; --exec_enable -&gt; no longer needed ; --BaseAddress -&gt; --base-address )</span></div><div class="line" id="083312"><span class="nick" style="color:#2e2a4a"><a href="#083312" label="[08:33:12]">&lt;stikonas[m]&gt;</a></span><span class="message">oriansj: thanks!</span></div><div class="line" id="150134"><span class="nick" style="color:#6b8072"><a href="#150134" label="[15:01:34]">&lt;pder&gt;</a></span><span class="message">doras: I updated my gcc 13 branch to also disable default pie in addition to ssp.  Could you test your build to see if there is an improvement?</span></div><div class="line" id="150143"><span class="nick" style="color:#6b8072"><a href="#150143" label="[15:01:43]">&lt;pder&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/pder/live-bootstrap/tree/gcc-13-disable-ssp">https://github.com/pder/live-bootstrap/tree/gcc-13-disable-ssp</a> </span></div><div class="line" id="150438"><span class="nick" style="color:#2e2a4a"><a href="#150438" label="[15:04:38]">&lt;stikonas[m]&gt;</a></span><span class="message">pder: is that ready now?</span></div><div class="line" id="150443"><span class="nick" style="color:#2e2a4a"><a href="#150443" label="[15:04:43]">&lt;stikonas[m]&gt;</a></span><span class="message">Maybe make a PR</span></div><div class="line" id="150640"><span class="nick" style="color:#6b8072"><a href="#150640" label="[15:06:40]">&lt;pder&gt;</a></span><span class="message">From what I can tell, gcc-13 is working fine within the live-bootstrap environment, but doras was running into issues when he moved this toolchain into his system</span></div><div class="line" id="150823"><span class="nick" style="color:#6b8072"><a href="#150823" label="[15:08:23]">&lt;pder&gt;</a></span><span class="message">I disabled ssp and pie- ssp was causing the segfaults on all binaries.  From what I have read enabling default pie can break other stuff including some tests in gcc's test suite</span></div><div class="line" id="151231"><span class="nick" style="color:#80b1d3"><a href="#151231" label="[15:12:31]">&lt;doras&gt;</a></span><span class="message">pder: I haven't tried with `--enable-default-pie` disabled yet, but removing `--enable-default-ssp` definitely solved some of the segmentation faults.</span></div><div class="line" id="151255"><span class="nick" style="color:#80b1d3"><a href="#151255" label="[15:12:55]">&lt;doras&gt;</a></span><span class="message">I can try with this new commit and report.</span></div><div class="line" id="151541"><span class="nick" style="color:#80b1d3"><a href="#151541" label="[15:15:41]">&lt;doras&gt;</a></span><span class="message">This is the commit that I had tested, where most (but not all) of the segmentation faults were solved: <a rel="nofollow" href="https://github.com/pder/live-bootstrap/commit/73ac2eb57c0fe8caad3c22ffe0641cd129b7f7ab">https://github.com/pder/live-bootstrap/commit/73ac2eb57c0fe8caad3c22ffe0641cd129b7f7ab</a> </span></div><div class="line" id="151635"><span class="nick" style="color:#6b8072"><a href="#151635" label="[15:16:35]">&lt;pder&gt;</a></span><span class="message">doras: I am not familiar with how you use the output of live-bootstrap in your build</span></div><div class="line" id="151657"><span class="nick" style="color:#6b8072"><a href="#151657" label="[15:16:57]">&lt;pder&gt;</a></span><span class="message">do you extact the tarball packages generated onto a different system?</span></div><div class="line" id="151821"><span class="nick" style="color:#6b8072"><a href="#151821" label="[15:18:21]">&lt;pder&gt;</a></span><span class="message">Also, do you use gcc-13 from live-bootstrap to build a new x64 toolchain?</span></div><div class="line" id="151914"><span class="nick" style="color:#80b1d3"><a href="#151914" label="[15:19:14]">&lt;doras&gt;</a></span><span class="message">pder: I extract the tarballs into an empty directory and effectively chroot (using bwrap) into that with additional source files to build more projects, or the same projects with different configuration (glibc, gawk, file, binutils, gcc).</span></div><div class="line" id="152239"><span class="nick" style="color:#80b1d3"><a href="#152239" label="[15:22:39]">&lt;doras&gt;</a></span><span class="message">pder: the first step is to build a cross-compilation toolchain that uses x86 binaries provided by live-bootstrap (+ a few more we build) and can produce binaries for a few architectures (x86_64, aarch64, ppcle64, riscv64). The next step is to use these toolchains to cross-compile a native toolchain for each architecture.</span></div><div class="line" id="152254"><span class="nick" style="color:#80b1d3"><a href="#152254" label="[15:22:54]">&lt;doras&gt;</a></span><span class="message">We're getting segfaults in the first step already.</span></div><div class="line" id="153038"><span class="nick" style="color:#80b1d3"><a href="#153038" label="[15:30:38]">&lt;doras&gt;</a></span><span class="message">pder: I started CI with the new commit: <a rel="nofollow" href="https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/jobs/4708661166">https://gitlab.com/freedesktop-sdk/freedesktop-sdk-binary-seed/-/jobs/4708661166</a> </span></div><div class="line" id="153123"><span class="nick" style="color:#80b1d3"><a href="#153123" label="[15:31:23]">&lt;doras&gt;</a></span><span class="message">Again, it will mostly be silent for about 7 hours unless a build error comes up (caused by a segmentation fault or otherwise).</span></div><div class="line" id="153240"><span class="nick" style="color:#80b1d3"><a href="#153240" label="[15:32:40]">&lt;doras&gt;</a></span><span class="message">This time I kept the checksum verification enabled.</span></div><div class="line" id="201226"><span class="nick" style="color:#6b8072"><a href="#201226" label="[20:12:26]">&lt;pder&gt;</a></span><span class="message">doras: I just had a checksum error with musl, so likely your build will also fail</span></div><div class="line" id="201247"><span class="nick" style="color:#80b1d3"><a href="#201247" label="[20:12:47]">&lt;doras&gt;</a></span><span class="message">Yes, it just did.</span></div><div class="line" id="201416"><span class="nick" style="color:#6b8072"><a href="#201416" label="[20:14:16]">&lt;pder&gt;</a></span><span class="message">musl-1.2.4_2.tar.bz2 specifically</span></div><div class="line" id="201450"><span class="nick" style="color:#6b8072"><a href="#201450" label="[20:14:50]">&lt;pder&gt;</a></span><span class="message">I will fix that as soon as I can</span></div><br /></div></body></html>

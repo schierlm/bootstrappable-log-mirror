@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-07-01.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004221"><span class="nick" style="color:#8dd3c7"><a href="#004221" label="[00:42:21]">&lt;oriansj&gt;</a></span><span class="message">mihi: well having a documented and stable ABI is both a good and bad thing, depending on your goals.</span></div><div class="line" id="004408"><span class="nick" style="color:#8dd3c7"><a href="#004408" label="[00:44:08]">&lt;oriansj&gt;</a></span><span class="message">for example if your libc is part of your operating system and you have the belief that people should be building from source and not using binary files, then it is a simple way to ensure binaries break on every updated version</span></div><div class="line" id="004638"><span class="nick" style="color:#8dd3c7"><a href="#004638" label="[00:46:38]">&lt;oriansj&gt;</a></span><span class="message">if your goal is to encourage a large library of software that works regardless of the changes in your kernel, then having a documented and stable ABI is a very good thing. Otherwise could you imagine trying to get all of the third party libc to use the new syscall numbers with each new release...</span></div><div class="line" id="100153"><span class="nick" style="color:#2e2a4a"><a href="#100153" label="[10:01:53]">&lt;stikonas&gt;</a></span><span class="message">fossy: hmm, I think I now find --external-sources (or at least description of it) a bit confusing</span></div><div class="line" id="100209"><span class="nick" style="color:#2e2a4a"><a href="#100209" label="[10:02:09]">&lt;stikonas&gt;</a></span><span class="message">it might not be immediately clear whether we are downloading or using cache</span></div><div class="line" id="104358"><span class="nick">***</span><span class="message notice">attila_lendvai_ is now known as attila_lendvai</span></div><div class="line" id="111118"><span class="nick" style="color:#6b8072"><a href="#111118" label="[11:11:18]">&lt;fossy&gt;</a></span><span class="message">stikonas: hmm, do you mean by the wording?</span></div><div class="line" id="111156"><span class="nick" style="color:#6b8072"><a href="#111156" label="[11:11:56]">&lt;fossy&gt;</a></span><span class="message"> /go 25</span></div><div class="line" id="111158"><span class="nick" style="color:#6b8072"><a href="#111158" label="[11:11:58]">&lt;fossy&gt;</a></span><span class="message">oops</span></div><div class="line" id="112442"><span class="nick" style="color:#2e2a4a"><a href="#112442" label="[11:24:42]">&lt;stikonas&gt;</a></span><span class="message">fossy: well, I mean we should be more clear whether --external-sources downloads stuff before bootstrap</span></div><div class="line" id="112445"><span class="nick" style="color:#2e2a4a"><a href="#112445" label="[11:24:45]">&lt;stikonas&gt;</a></span><span class="message">or during bootstrap</span></div><div class="line" id="112507"><span class="nick" style="color:#2e2a4a"><a href="#112507" label="[11:25:07]">&lt;stikonas&gt;</a></span><span class="message">possibly just be more explicit in --help message</span></div><div class="line" id="112627"><span class="nick" style="color:#2e2a4a"><a href="#112627" label="[11:26:27]">&lt;stikonas&gt;</a></span><span class="message">fossy: and on the different note, I'm making autotools more explicit, so that we run e.g. autoconf-2.64 rather than autoconf and then I'll remove those symlinks autoconf-&gt;autoconf-*</span></div><div class="line" id="112632"><span class="nick" style="color:#2e2a4a"><a href="#112632" label="[11:26:32]">&lt;stikonas&gt;</a></span><span class="message">though maybe not for the latest autoconf</span></div><div class="line" id="113802"><span class="nick" style="color:#2e2a4a"><a href="#113802" label="[11:38:02]">&lt;stikonas&gt;</a></span><span class="message">fossy: oh also another question. Do you think it's worth specifying package dependencies explicitly and then writing dependency resolver? So that e.g. build_all package will run all require build steps?</span></div><div class="line" id="113908"><span class="nick" style="color:#2e2a4a"><a href="#113908" label="[11:39:08]">&lt;stikonas&gt;</a></span><span class="message">after coreutils that should be fairly simple</span></div><div class="line" id="113919"><span class="nick" style="color:#2e2a4a"><a href="#113919" label="[11:39:19]">&lt;stikonas&gt;</a></span><span class="message">(if we want that)</span></div><div class="line" id="121849"><span class="nick" style="color:#6b8072"><a href="#121849" label="[12:18:49]">&lt;fossy&gt;</a></span><span class="message">stikonas: oh, sure</span></div><div class="line" id="121903"><span class="nick" style="color:#6b8072"><a href="#121903" label="[12:19:03]">&lt;fossy&gt;</a></span><span class="message">(re external-sources)</span></div><div class="line" id="121932"><span class="nick" style="color:#6b8072"><a href="#121932" label="[12:19:32]">&lt;fossy&gt;</a></span><span class="message">do you mean that build_all xyz would also build all packages it needs to build itself?</span></div><div class="line" id="121932"><span class="nick" style="color:#2e2a4a"><a href="#121932" label="[12:19:32]">&lt;stikonas&gt;</a></span><span class="message">and that last point (dependency resolver) I'm not yet sure if we want or not</span></div><div class="line" id="122035"><span class="nick" style="color:#2e2a4a"><a href="#122035" label="[12:20:35]">&lt;stikonas&gt;</a></span><span class="message">e.g. if you order let's say build of binutils-2.14, it will first build it's dependencies, before that autoconf-2.12 libtool-1.4 automake-1.4-p6...</span></div><div class="line" id="122111"><span class="nick" style="color:#2e2a4a"><a href="#122111" label="[12:21:11]">&lt;stikonas&gt;</a></span><span class="message">or is it better to keep everything explicit</span></div><div class="line" id="122247"><span class="nick" style="color:#2e2a4a"><a href="#122247" label="[12:22:47]">&lt;stikonas&gt;</a></span><span class="message">i.e. if we put DEPS=&quot;...&quot; variable in those build scripts it might be possible to figure out the order in which packages have to be built</span></div><div class="line" id="122327"><span class="nick" style="color:#2e2a4a"><a href="#122327" label="[12:23:27]">&lt;stikonas&gt;</a></span><span class="message">(coreutils includes dependency solver)</span></div><div class="line" id="130403"><span class="nick" style="color:#6b8072"><a href="#130403" label="[13:04:03]">&lt;fossy&gt;</a></span><span class="message">i'll have to give that one some thought</span></div><div class="line" id="130447"><span class="nick" style="color:#6b8072"><a href="#130447" label="[13:04:47]">&lt;fossy&gt;</a></span><span class="message">i'm not certain of the usecase for that - it would be a ncie-to-have in terms of build ordering but then again i do like the really transparent and visible nature of the builds</span></div><div class="line" id="132934"><span class="nick" style="color:#2e2a4a"><a href="#132934" label="[13:29:34]">&lt;stikonas&gt;</a></span><span class="message">yeah, that's why I'm not sure yet</span></div><div class="line" id="132959"><span class="nick" style="color:#2e2a4a"><a href="#132959" label="[13:29:59]">&lt;stikonas&gt;</a></span><span class="message">it might be useful if we add extra optional packages (or maybe some distro bootstrapping branches)</span></div><div class="line" id="133040"><span class="nick" style="color:#2e2a4a"><a href="#133040" label="[13:30:40]">&lt;stikonas&gt;</a></span><span class="message">it's either transparent boot ordering or a bit more explicit dependencies</span></div><div class="line" id="133610"><span class="nick" style="color:#2e2a4a"><a href="#133610" label="[13:36:10]">&lt;stikonas&gt;</a></span><span class="message">fossy: here is some example how tsort works <a rel="nofollow" href="https://paste.debian.net/1245840/">https://paste.debian.net/1245840/</a> </span></div><div class="line" id="133624"><span class="nick" style="color:#2e2a4a"><a href="#133624" label="[13:36:24]">&lt;stikonas&gt;</a></span><span class="message">again I'm not necesserily saying that we should switch to it</span></div><div class="line" id="133652"><span class="nick" style="color:#2e2a4a"><a href="#133652" label="[13:36:52]">&lt;stikonas&gt;</a></span><span class="message">I'm not sure myself, but some discussion might be useful</span></div><div class="line" id="135636"><span class="nick" style="color:#6b8072"><a href="#135636" label="[13:56:36]">&lt;fossy&gt;</a></span><span class="message">yeah, it would be useful for distro bootstrapping branches</span></div><div class="line" id="135648"><span class="nick" style="color:#6b8072"><a href="#135648" label="[13:56:48]">&lt;fossy&gt;</a></span><span class="message">although, those would all build on some common base, and we're not quite up to that yet</span></div><div class="line" id="200410"><span class="nick">***</span><span class="message notice">kitzman_ is now known as kitzman</span></div><div class="line" id="221345"><span class="nick">***</span><span class="message notice">civodul` is now known as civodul</span></div><br /></div></body></html>

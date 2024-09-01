@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2022-10-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="033807"><span class="nick" style="color:#8dd3c7"><a href="#033807" label="[03:38:07]">&lt;oriansj&gt;</a></span><span class="message">stikonas: well dereferencing pointers shouldn't be needed for M2-Planet or M2libc</span></div><div class="line" id="094408"><span class="nick" style="color:#2e2a4a"><a href="#094408" label="[09:44:08]">&lt;stikonas&gt;</a></span><span class="message">oriansj: well, later we'll need to pass arguments with &amp; to UEFI functions i.e. read(file, &amp;size, &amp;c)</span></div><div class="line" id="094418"><span class="nick" style="color:#2e2a4a"><a href="#094418" label="[09:44:18]">&lt;stikonas&gt;</a></span><span class="message">but in bootstrap.c I'll just use inline asm</span></div><div class="line" id="094639"><span class="nick" style="color:#2e2a4a"><a href="#094639" label="[09:46:39]">&lt;stikonas&gt;</a></span><span class="message">but as far as I remember, that needs M2</span></div><div class="line" id="094749"><span class="nick" style="color:#2e2a4a"><a href="#094749" label="[09:47:49]">&lt;stikonas&gt;</a></span><span class="message">hmm, though even with M2 we probably need inline asm for extra allocation of  shadow stack space...</span></div><div class="line" id="095030"><span class="nick" style="color:#2e2a4a"><a href="#095030" label="[09:50:30]">&lt;stikonas&gt;</a></span><span class="message">anyway, yesterday I've got something working, can build Hello World now</span></div><div class="line" id="095110"><span class="nick" style="color:#2e2a4a"><a href="#095110" label="[09:51:10]">&lt;stikonas&gt;</a></span><span class="message">but I still need sort out command line arguments</span></div><div class="line" id="095118"><span class="nick" style="color:#2e2a4a"><a href="#095118" label="[09:51:18]">&lt;stikonas&gt;</a></span><span class="message">and probably file names...</span></div><div class="line" id="142931"><span class="nick" style="color:#8dd3c7"><a href="#142931" label="[14:29:31]">&lt;oriansj&gt;</a></span><span class="message">stikonas: or we could make our lives simpler and cheat off of meslibc and just create the globals __argc, __argv, __envp and __UEFI_arguments and then we have no need for dereferencing for arguments. just have the libc.M1 set the __UEFI_arguments to the address of the argument string and we populate everything in the C code then libc.M1 can just push them onto the stack and call main</span></div><div class="line" id="144726"><span class="nick" style="color:#8dd3c7"><a href="#144726" label="[14:47:26]">&lt;oriansj&gt;</a></span><span class="message">and for bonus fun that can all be self-contained</span></div><div class="line" id="180116"><span class="nick" style="color:#2e2a4a"><a href="#180116" label="[18:01:16]">&lt;stikonas&gt;</a></span><span class="message">oriansj: no, but it's not just main, we need to put everything in the correct registers also when we do e.g. writes to file (or to screen)</span></div><div class="line" id="180358"><span class="nick" style="color:#2e2a4a"><a href="#180358" label="[18:03:58]">&lt;stikonas&gt;</a></span><span class="message">in any case, everything will be contained in C library</span></div><div class="line" id="180421"><span class="nick" style="color:#2e2a4a"><a href="#180421" label="[18:04:21]">&lt;stikonas&gt;</a></span><span class="message">I'm even thinking that we should replace \ with / in paths...</span></div><div class="line" id="180439"><span class="nick" style="color:#2e2a4a"><a href="#180439" label="[18:04:39]">&lt;stikonas&gt;</a></span><span class="message">but maybe once I get to non-bootstrap M2libc</span></div><div class="line" id="180446"><span class="nick" style="color:#2e2a4a"><a href="#180446" label="[18:04:46]">&lt;stikonas&gt;</a></span><span class="message">I still need to sort out bootstrap part</span></div><div class="line" id="185019"><span class="nick" style="color:#8dd3c7"><a href="#185019" label="[18:50:19]">&lt;oriansj&gt;</a></span><span class="message">well we don't have any hardcoded paths in mescc-tools or mescc-tools-extra do we?</span></div><div class="line" id="185052"><span class="nick" style="color:#8dd3c7"><a href="#185052" label="[18:50:52]">&lt;oriansj&gt;</a></span><span class="message">and only untar would need tweaks potentially</span></div><div class="line" id="185140"><span class="nick" style="color:#8dd3c7"><a href="#185140" label="[18:51:40]">&lt;oriansj&gt;</a></span><span class="message">(potentially mkdir too)</span></div><div class="line" id="185608"><span class="nick" style="color:#8dd3c7"><a href="#185608" label="[18:56:08]">&lt;oriansj&gt;</a></span><span class="message">and the details of the syscalls has always been specific to the architecture and isolated into separate functions to enable easy porting (and if need be prefunctions calling _special_functions to do the bits that require specific values in registers or special stack manipulation)</span></div><div class="line" id="190013"><span class="nick" style="color:#8dd3c7"><a href="#190013" label="[19:00:13]">&lt;oriansj&gt;</a></span><span class="message">^architecture^architecture/Operating System^</span></div><div class="line" id="223754"><span class="nick" style="color:#2e2a4a"><a href="#223754" label="[22:37:54]">&lt;stikonas&gt;</a></span><span class="message">oriansj: no, we don't have hardcoded paths</span></div><div class="line" id="223812"><span class="nick" style="color:#2e2a4a"><a href="#223812" label="[22:38:12]">&lt;stikonas&gt;</a></span><span class="message">though if I replaca \ with POSIX type /</span></div><div class="line" id="223817"><span class="nick" style="color:#2e2a4a"><a href="#223817" label="[22:38:17]">&lt;stikonas&gt;</a></span><span class="message">I can reuse \ for line breaks</span></div><div class="line" id="223818"><span class="nick" style="color:#2e2a4a"><a href="#223818" label="[22:38:18]">&lt;stikonas&gt;</a></span><span class="message">hmm</span></div><div class="line" id="223836"><span class="nick" style="color:#2e2a4a"><a href="#223836" label="[22:38:36]">&lt;stikonas&gt;</a></span><span class="message">or I can use some other line break character</span></div><div class="line" id="223907"><span class="nick" style="color:#2e2a4a"><a href="#223907" label="[22:39:07]">&lt;stikonas&gt;</a></span><span class="message">anyway, we'll see how it goes when I reach those parts</span></div><div class="line" id="232025"><span class="nick" style="color:#2e2a4a"><a href="#232025" label="[23:20:25]">&lt;stikonas&gt;</a></span><span class="message">I think I have an idea for malloc in UEFI version of M2libc...</span></div><div class="line" id="232025"><span class="nick" style="color:#2e2a4a"><a href="#232025" label="[23:20:25]">&lt;stikonas&gt;</a></span><span class="message">though I'll not bother with it in bootstrap.c</span></div><div class="line" id="232032"><span class="nick" style="color:#2e2a4a"><a href="#232032" label="[23:20:32]">&lt;stikonas&gt;</a></span><span class="message">it can wait till full M2libc</span></div><div class="line" id="232051"><span class="nick" style="color:#2e2a4a"><a href="#232051" label="[23:20:51]">&lt;stikonas&gt;</a></span><span class="message">for bootstrap.c I'll just have a static allocation of 64 MiB</span></div><div class="line" id="232140"><span class="nick" style="color:#2e2a4a"><a href="#232140" label="[23:21:40]">&lt;stikonas&gt;</a></span><span class="message">and later I can allocate let's say 4 MiB blocks</span></div><div class="line" id="232140"><span class="nick" style="color:#2e2a4a"><a href="#232140" label="[23:21:40]">&lt;stikonas&gt;</a></span><span class="message">if we run out, we allocate another block</span></div><div class="line" id="232140"><span class="nick" style="color:#2e2a4a"><a href="#232140" label="[23:21:40]">&lt;stikonas&gt;</a></span><span class="message">and add it to linked list</span></div><div class="line" id="232150"><span class="nick" style="color:#2e2a4a"><a href="#232150" label="[23:21:50]">&lt;stikonas&gt;</a></span><span class="message">quite simple, but I think that would work</span></div><div class="line" id="232157"><span class="nick" style="color:#2e2a4a"><a href="#232157" label="[23:21:57]">&lt;stikonas&gt;</a></span><span class="message">and allows for cleanup on shutdown</span></div><br /></div></body></html>
