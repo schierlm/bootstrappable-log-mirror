@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-12-01.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="004905"><span class="nick" style="color:#389600"><a href="#004905" label="[00:49:05]">&lt;fossy_&gt;</a></span><span class="message">strong agree with stikonas that we should be ELF standards compliant</span></div><div class="line" id="004927"><span class="nick" style="color:#389600"><a href="#004927" label="[00:49:27]">&lt;fossy_&gt;</a></span><span class="message">(with hex0-seed), esp now that we care a lot about kernel bootstrap etc</span></div><div class="line" id="004934"><span class="nick" style="color:#8dd3c7"><a href="#004934" label="[00:49:34]">&lt;stikonas&gt;</a></span><span class="message">fossy_: well, oriansj was probably pointing out my last hack in hex0-seed</span></div><div class="line" id="004937"><span class="nick" style="color:#8dd3c7"><a href="#004937" label="[00:49:37]">&lt;stikonas&gt;</a></span><span class="message">have you seen it?</span></div><div class="line" id="004949"><span class="nick" style="color:#8dd3c7"><a href="#004949" label="[00:49:49]">&lt;stikonas&gt;</a></span><span class="message">but I think it is still compliant</span></div><div class="line" id="004958"><span class="nick" style="color:#8dd3c7"><a href="#004958" label="[00:49:58]">&lt;stikonas&gt;</a></span><span class="message">I've overlapped parts of elf header</span></div><div class="line" id="005039"><span class="nick" style="color:#8dd3c7"><a href="#005039" label="[00:50:39]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds/blob/master/POSIX/x86/hex0_x86.hex0#L38">https://github.com/oriansj/bootstrap-seeds/blob/master/POSIX/x86/hex0_x86.hex0#L38</a>  and <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds/blob/master/POSIX/x86/hex0_x86.hex0#L46">https://github.com/oriansj/bootstrap-seeds/blob/master/POSIX/x86/hex0_x86.hex0#L46</a>  (note the comment)</span></div><div class="line" id="005141"><span class="nick" style="color:#8dd3c7"><a href="#005141" label="[00:51:41]">&lt;stikonas&gt;</a></span><span class="message">so oriansj was a bit worried here</span></div><div class="line" id="005223"><span class="nick" style="color:#389600"><a href="#005223" label="[00:52:23]">&lt;fossy_&gt;</a></span><span class="message">hm, why does this work?</span></div><div class="line" id="005325"><span class="nick" style="color:#8dd3c7"><a href="#005325" label="[00:53:25]">&lt;stikonas&gt;</a></span><span class="message">well, because the address of program header table is another entry in elf header file <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds/blob/cedec6b8066d1db229b6c77d42d120a23c6980ed/POSIX/x86/hex0_x86.hex0#L25">https://github.com/oriansj/bootstrap-seeds/blob/cedec6b8066d1db229b6c77d42d120a23c6980ed/POSIX/x86/hex0_x86.hex0#L25</a> </span></div><div class="line" id="005327"><span class="nick" style="color:#8dd3c7"><a href="#005327" label="[00:53:27]">&lt;stikonas&gt;</a></span><span class="message">a bit earlier</span></div><div class="line" id="005346"><span class="nick" style="color:#8dd3c7"><a href="#005346" label="[00:53:46]">&lt;stikonas&gt;</a></span><span class="message">and I noticed that 8 bytes are identical data</span></div><div class="line" id="005410"><span class="nick" style="color:#389600"><a href="#005410" label="[00:54:10]">&lt;fossy_&gt;</a></span><span class="message">Oh, I see</span></div><div class="line" id="005417"><span class="nick" style="color:#389600"><a href="#005417" label="[00:54:17]">&lt;fossy_&gt;</a></span><span class="message">ok, that's fine</span></div><div class="line" id="005418"><span class="nick" style="color:#8dd3c7"><a href="#005418" label="[00:54:18]">&lt;stikonas&gt;</a></span><span class="message">so if we &quot;move&quot; program header table back to overlap it with some other data from elf header</span></div><div class="line" id="005432"><span class="nick" style="color:#8dd3c7"><a href="#005432" label="[00:54:32]">&lt;stikonas&gt;</a></span><span class="message">things should still work</span></div><div class="line" id="005441"><span class="nick" style="color:#8dd3c7"><a href="#005441" label="[00:54:41]">&lt;stikonas&gt;</a></span><span class="message">and I've tested it on both linux and builder-hex0</span></div><div class="line" id="005443"><span class="nick" style="color:#389600"><a href="#005443" label="[00:54:43]">&lt;fossy_&gt;</a></span><span class="message">yes, there is no functional difference</span></div><div class="line" id="005458"><span class="nick" style="color:#8dd3c7"><a href="#005458" label="[00:54:58]">&lt;stikonas&gt;</a></span><span class="message">well, none of them hardcode elf headers, they parse the required bits</span></div><div class="line" id="005500"><span class="nick" style="color:#389600"><a href="#005500" label="[00:55:00]">&lt;fossy_&gt;</a></span><span class="message">i can't see any reason an elf loader/interpreter wouldn't like that</span></div><div class="line" id="005513"><span class="nick" style="color:#389600"><a href="#005513" label="[00:55:13]">&lt;fossy_&gt;</a></span><span class="message">exactly</span></div><div class="line" id="010928"><span class="nick" style="color:#8dd3c7"><a href="#010928" label="[01:09:28]">&lt;stikonas&gt;</a></span><span class="message">fossy_: while you are here, should we now close this issue <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/483">https://github.com/fosslinux/live-bootstrap/issues/483</a>  ?</span></div><div class="line" id="011016"><span class="nick" style="color:#8dd3c7"><a href="#011016" label="[01:10:16]">&lt;stikonas&gt;</a></span><span class="message">I've mentioned it might be failing due to non /usr prefix there</span></div><div class="line" id="011023"><span class="nick" style="color:#8dd3c7"><a href="#011023" label="[01:10:23]">&lt;stikonas&gt;</a></span><span class="message">but it's not a bug in live-bootstrap itself anyway</span></div><div class="line" id="014558"><span class="nick" style="color:#389600"><a href="#014558" label="[01:45:58]">&lt;fossy_&gt;</a></span><span class="message">yeah</span></div><div class="line" id="014702"><span class="nick" style="color:#389600"><a href="#014702" label="[01:47:02]">&lt;fossy_&gt;</a></span><span class="message">stikonas: closed it</span></div><div class="line" id="134031"><span class="nick" style="color:#2e2a4a"><a href="#134031" label="[13:40:31]">&lt;oriansj&gt;</a></span><span class="message">stikonas: rasm gave me wrong information on instruction encoding regarding the shift instruction (sorry about that) but we might be able to shrink kaem by adding a bss section and dropping the malloc function entirely. as a 1+MB BSS section could probably hold everything the bootstrap-seed kaem would need as we build a different kaem pretty early on.</span></div><div class="line" id="134614"><span class="nick" style="color:#8dd3c7"><a href="#134614" label="[13:46:14]">&lt;stikonas&gt;</a></span><span class="message">yeah, that might work</span></div><div class="line" id="134628"><span class="nick" style="color:#8dd3c7"><a href="#134628" label="[13:46:28]">&lt;stikonas&gt;</a></span><span class="message">well, most of the current size / algorithm optimizations went to hex0</span></div><div class="line" id="134654"><span class="nick" style="color:#8dd3c7"><a href="#134654" label="[13:46:54]">&lt;stikonas&gt;</a></span><span class="message">so there are probably still quite a bit of things that can be optimized in kaem</span></div><div class="line" id="180902"><span class="nick" style="color:#6b8072"><a href="#180902" label="[18:09:02]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Is there a danger you code golf too much an end up with hex0 and kaem being harder for humans to audit?</span></div><div class="line" id="192032"><span class="nick" style="color:#2e2a4a"><a href="#192032" label="[19:20:32]">&lt;oriansj&gt;</a></span><span class="message">cosinusoidally: yes. And one of the reasons why we have a warning with the bootstrap-seeds. &quot;*NEVER TRUST ANYTHING IN HERE*&quot;</span></div><div class="line" id="192139"><span class="nick" style="color:#2e2a4a"><a href="#192139" label="[19:21:39]">&lt;oriansj&gt;</a></span><span class="message">the seeds can never *grow* in terms of functionality; only shrink, that way the effort of someone else to make their own seeds will get easier over time.</span></div><div class="line" id="192233"><span class="nick" style="color:#2e2a4a"><a href="#192233" label="[19:22:33]">&lt;oriansj&gt;</a></span><span class="message">and the bits in stage0* should always prefer comprehension over all other factors</span></div><div class="line" id="192322"><span class="nick" style="color:#2e2a4a"><a href="#192322" label="[19:23:22]">&lt;oriansj&gt;</a></span><span class="message">(pull requests for better comments are also always welcome)</span></div><div class="line" id="201944"><span class="nick" style="color:#6b8072"><a href="#201944" label="[20:19:44]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; yes, there is some danger that code can get complicated...</span></div><div class="line" id="202024"><span class="nick" style="color:#6b8072"><a href="#202024" label="[20:20:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; but at lot of optimizations are not really that hard to follow</span></div><div class="line" id="202025"><span class="nick" style="color:#6b8072"><a href="#202025" label="[20:20:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; probaby the biggest optimization was slightly different algorithm by goldstein</span></div><div class="line" id="202220"><span class="nick" style="color:#6b8072"><a href="#202220" label="[20:22:20]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; as part of that all function calls were either converted to jumps or moved into the required location</span></div><div class="line" id="202221"><span class="nick" style="color:#6b8072"><a href="#202221" label="[20:22:21]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; still, reading 181 byte is far simpler than 357 bytes that we had a few years ago</span></div><div class="line" id="202221"><span class="nick" style="color:#6b8072"><a href="#202221" label="[20:22:21]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; it's basically halved</span></div><div class="line" id="203954"><span class="nick" style="color:#80b1d3"><a href="#203954" label="[20:39:54]">&lt;unmush&gt;</a></span><span class="message">hmm, I'm trying to fix up some old C code and it has a macro that it seems to want to use as both an lvalue and rvalue, but it includes a cast</span></div><div class="line" id="220211"><span class="nick" style="color:#6d2462"><a href="#220211" label="[22:02:11]">&lt;lilyp&gt;</a></span><span class="message">if it's a cast to a pointer type, that ought to work</span></div><div class="line" id="223607"><span class="nick" style="color:#2e2a4a"><a href="#223607" label="[22:36:07]">&lt;oriansj&gt;</a></span><span class="message">unmush: you can use gcc -E to figure out the expansion if it seems extremely complex or badly written.</span></div><div class="line" id="223813"><span class="nick" style="color:#80b1d3"><a href="#223813" label="[22:38:13]">&lt;unmush&gt;</a></span><span class="message">it's of the form #define MACRO1(X) (type1) MACRO2(X)</span></div><div class="line" id="223850"><span class="nick" style="color:#80b1d3"><a href="#223850" label="[22:38:50]">&lt;unmush&gt;</a></span><span class="message">and it's used as an lvalue - not as a pointer</span></div><div class="line" id="223932"><span class="nick" style="color:#80b1d3"><a href="#223932" label="[22:39:32]">&lt;unmush&gt;</a></span><span class="message">what I've gone with for now is #define MACRO1(X) (* ((type1*) &amp;MACRO2(X)))</span></div><div class="line" id="224019"><span class="nick" style="color:#80b1d3"><a href="#224019" label="[22:40:19]">&lt;unmush&gt;</a></span><span class="message">so far gcc seems to be going along with it</span></div><div class="line" id="224100"><span class="nick" style="color:#2e2a4a"><a href="#224100" label="[22:41:00]">&lt;oriansj&gt;</a></span><span class="message">unmush: oh, unxz.c previously had those sorts of macros before; I hate them. (I rewrite whole sections to eliminate them)</span></div><div class="line" id="224123"><span class="nick" style="color:#80b1d3"><a href="#224123" label="[22:41:23]">&lt;unmush&gt;</a></span><span class="message">makes me yearn for common lisp's generalized places</span></div><div class="line" id="224330"><span class="nick" style="color:#2e2a4a"><a href="#224330" label="[22:43:30]">&lt;oriansj&gt;</a></span><span class="message">makes me wish C started out with better types, CONSTANTS and didn't include macros at all</span></div><br /></div></body></html>

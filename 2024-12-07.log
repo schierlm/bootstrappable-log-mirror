@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-12-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="063159"><span class="nick" style="color:#389600"><a href="#063159" label="[06:31:59]">&lt;aggi&gt;</a></span><span class="message">argh, shrinked tinycc-devutils.squashfs for support with isolinux, that happily loads it into ram</span></div><div class="line" id="063226"><span class="nick" style="color:#389600"><a href="#063226" label="[06:32:26]">&lt;aggi&gt;</a></span><span class="message">however ~700MiB seems to much still, because kernel copies over /dev/initrd to /dev/ram0, and this gets stuck indefinitely</span></div><div class="line" id="063313"><span class="nick" style="color:#389600"><a href="#063313" label="[06:33:13]">&lt;aggi&gt;</a></span><span class="message">3GiG RAM available, and there's no documentation which the maximum initrd size would be with linux-2.4</span></div><div class="line" id="063356"><span class="nick" style="color:#389600"><a href="#063356" label="[06:33:56]">&lt;aggi&gt;</a></span><span class="message">because, i wanted to avoid a two-phase rootfs setup, and directly hook into root=/dev/ram0 with devutils.squahsfs below</span></div><div class="line" id="063409"><span class="nick" style="color:#389600"><a href="#063409" label="[06:34:09]">&lt;aggi&gt;</a></span><span class="message">which does work, up to a certain size, but i don't know how much</span></div><div class="line" id="063503"><span class="nick" style="color:#389600"><a href="#063503" label="[06:35:03]">&lt;aggi&gt;</a></span><span class="message">it's ok, i will do a two-stage root transition, with a minimal.sqashfs re-mounting a full rootfs</span></div><div class="line" id="063507"><span class="nick" style="color:#389600"><a href="#063507" label="[06:35:07]">&lt;aggi&gt;</a></span><span class="message">but it's annoying</span></div><div class="line" id="063610"><span class="nick" style="color:#389600"><a href="#063610" label="[06:36:10]">&lt;aggi&gt;</a></span><span class="message">and otherwise, for christmas i salvaged an ancient thinkpad t40, which is in very good condition, except battery, need to replace both the big battery and the cmos one</span></div><div class="line" id="063707"><span class="nick" style="color:#389600"><a href="#063707" label="[06:37:07]">&lt;aggi&gt;</a></span><span class="message">this thinkpad t40 will be may tinycc distribution playground, it got 1 single-core clocked to lowest, and 512MiB RAM (which i'll upgrade to 2GiB for 5Euros_</span></div><div class="line" id="063709"><span class="nick" style="color:#389600"><a href="#063709" label="[06:37:09]">&lt;aggi&gt;</a></span><span class="message">)</span></div><div class="line" id="064103"><span class="nick" style="color:#389600"><a href="#064103" label="[06:41:03]">&lt;aggi&gt;</a></span><span class="message">some documentation suggest 0x37FFFFFF was some maximum address for initrd, that would be ~900MiB, my squashfs is 700MiB, no clue why kernel gets stuck while</span></div><div class="line" id="064109"><span class="nick" style="color:#389600"><a href="#064109" label="[06:41:09]">&lt;aggi&gt;</a></span><span class="message">copying /dev/initrd to /dev/ram0</span></div><div class="line" id="064148"><span class="nick" style="color:#389600"><a href="#064148" label="[06:41:48]">&lt;aggi&gt;</a></span><span class="message">this doesn't happen when a small 32MiB initrd is hooked into</span></div><div class="line" id="064240"><span class="nick" style="color:#389600"><a href="#064240" label="[06:42:40]">&lt;aggi&gt;</a></span><span class="message">no error message, nothing, kernel just stucks, anyway, i got a workaround</span></div><div class="line" id="070210"><span class="nick" style="color:#389600"><a href="#070210" label="[07:02:10]">&lt;aggi&gt;</a></span><span class="message">no need to buy a thinkpad t40, my tinycc distro will work just fine on most modern hardware</span></div><div class="line" id="070245"><span class="nick" style="color:#389600"><a href="#070245" label="[07:02:45]">&lt;aggi&gt;</a></span><span class="message">it's just fascinating, a 20year old laptop remains rather useful</span></div><div class="line" id="070343"><span class="nick" style="color:#389600"><a href="#070343" label="[07:03:43]">&lt;aggi&gt;</a></span><span class="message">it got a tiny LED lamp which can illuminate the keyboard in darknes, the display brightness is controlled independent from BIOS/ACPI, and it can be dimmed very low which i enjoy</span></div><div class="line" id="070630"><span class="nick" style="color:#389600"><a href="#070630" label="[07:06:30]">&lt;aggi&gt;</a></span><span class="message">time for breakfast</span></div><div class="line" id="070904"><span class="nick" style="color:#389600"><a href="#070904" label="[07:09:04]">&lt;aggi&gt;</a></span><span class="message">btw. fiwix is a nice kernel, it's just better if this wasn't cluttered, and usb/ioapic etc aren't trivial to implement and keeping such a kernel sane and simple</span></div><div class="line" id="150902"><span class="nick" style="color:#8dd3c7"><a href="#150902" label="[15:09:02]">&lt;lanodan&gt;</a></span><span class="message">What do you have in tinycc-devutils.squashfs ? With <a rel="nofollow" href="https://hacktivis.me/git/bootstrap-initrd/">https://hacktivis.me/git/bootstrap-initrd/</a>  I get 48M uncompressed, 37MB gzip-9 compressed. And with disabling the extra tarballs, 9MB uncompressed, 2.9MB gzip-9, which I use for booting with FAT12 (somehow syslinux didn't like FAT32…).</span></div><div class="line" id="153324"><span class="nick" style="color:#389600"><a href="#153324" label="[15:33:24]">&lt;aggi&gt;</a></span><span class="message">lanodan: almost everything that i could salvage, for support with tinycc toolchain</span></div><div class="line" id="153428"><span class="nick" style="color:#389600"><a href="#153428" label="[15:34:28]">&lt;aggi&gt;</a></span><span class="message">since it's all statically linked, mplayer and ffmpeg accumulate 100MiB uncompressed each</span></div><div class="line" id="153510"><span class="nick" style="color:#389600"><a href="#153510" label="[15:35:10]">&lt;aggi&gt;</a></span><span class="message">i'll just have to hack some initrd stuff for a two-stage rootfs transition during system boot, that's all</span></div><div class="line" id="153556"><span class="nick" style="color:#389600"><a href="#153556" label="[15:35:56]">&lt;aggi&gt;</a></span><span class="message">and otherwise it's trivial to emit a minimal.iso flavor, to contain gdb,tinycc and a few other things needed</span></div><div class="line" id="153620"><span class="nick" style="color:#8dd3c7"><a href="#153620" label="[15:36:20]">&lt;lanodan&gt;</a></span><span class="message">Ah makes sense, here only tcc+musl are compiled (and dynamic, simply because musl's libc.a is much bigger than libc.so).</span></div><div class="line" id="153647"><span class="nick" style="color:#389600"><a href="#153647" label="[15:36:47]">&lt;aggi&gt;</a></span><span class="message">but i want to retain the complete package set variant too, and this complicates things a little because linux-2.4 can't handle an initrd.squashfs 700MiB in size</span></div><br /></div></body></html>

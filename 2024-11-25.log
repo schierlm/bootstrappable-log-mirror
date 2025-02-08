@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-11-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005309"><span class="nick" style="color:#389600"><a href="#005309" label="[00:53:09]">&lt;kpcyrd&gt;</a></span><span class="message">sam_: how come people care tho? if I made my own proprietary unix I wouldn't expect to be able to sway anything</span></div><div class="line" id="005352"><span class="nick" style="color:#8dd3c7"><a href="#005352" label="[00:53:52]">&lt;sam_&gt;</a></span><span class="message">the guy has been around in the git community a pretty long time and isn't just a rando</span></div><div class="line" id="005402"><span class="nick" style="color:#8dd3c7"><a href="#005402" label="[00:54:02]">&lt;sam_&gt;</a></span><span class="message">i guess that's why</span></div><div class="line" id="005415"><span class="nick" style="color:#8dd3c7"><a href="#005415" label="[00:54:15]">&lt;sam_&gt;</a></span><span class="message">also just that git sort of relies on this ubiquity and so anything which affects that matters</span></div><div class="line" id="010146"><span class="nick" style="color:#389600"><a href="#010146" label="[01:01:46]">&lt;kpcyrd&gt;</a></span><span class="message">I guess 🤷 other projects approach this by having optional rust implementations of certain features, like &quot;use the basic C implementation or opt into some fancy optimized Rust implementation&quot; (that happens to be memory safe too)</span></div><div class="line" id="010233"><span class="nick" style="color:#389600"><a href="#010233" label="[01:02:33]">&lt;kpcyrd&gt;</a></span><span class="message">git is something you really want to be memory safe, but the gix alternative is kinda going overboard with the amount of libraries they split their code into</span></div><div class="line" id="010508"><span class="nick" style="color:#8dd3c7"><a href="#010508" label="[01:05:08]">&lt;sam_&gt;</a></span><span class="message">right, that part was discussed in the article</span></div><div class="line" id="051123"><span class="nick" style="color:#2e2a4a"><a href="#051123" label="[05:11:23]">&lt;unmush&gt;</a></span><span class="message">I am pleased to report that I have bootstrapped my way to mono-6.12.0.206, which is the last tagged release I could find from <a rel="nofollow" href="https://gitlab.winehq.org/mono/mono.git">https://gitlab.winehq.org/mono/mono.git</a> </span></div><div class="line" id="051431"><span class="nick" style="color:#2e2a4a"><a href="#051431" label="[05:14:31]">&lt;unmush&gt;</a></span><span class="message">it helped a LOT to just cherry pick commits touching mcs/mcs and apply them to an older version</span></div><div class="line" id="051641"><span class="nick" style="color:#2e2a4a"><a href="#051641" label="[05:16:41]">&lt;unmush&gt;</a></span><span class="message">the full path I used: pnet-git@0.8.0-0.3baf947 -&gt; mono@1.2.6 -&gt; mono@1.9.1 -&gt; mono@2.4.2.3 -&gt; mono@2.6.4 -&gt; mono@2.11.4 -&gt; mono@3.0.12 -&gt; mono@3.12.1 -&gt; mono@4.9.0 -&gt; mono@5.0.1 -&gt; mono@5.1.0 -&gt; mono@5.2.0.224 -&gt; mono@5.4.0.212 -&gt; mono@5.4.0.201-0.d0f51b4 -&gt; mono@5.8.0.129 -&gt; mono@5.8.0.129-0.3e9d7d6 -&gt; mono@5.10.0.179 -&gt; mono@6.12.0.206</span></div><div class="line" id="051720"><span class="nick" style="color:#2e2a4a"><a href="#051720" label="[05:17:20]">&lt;unmush&gt;</a></span><span class="message">it seems like standard practice in mono was to start depending on a feature in their standard library, then several months later get around to implementing it in their compiler</span></div><div class="line" id="051933"><span class="nick" style="color:#2e2a4a"><a href="#051933" label="[05:19:33]">&lt;unmush&gt;</a></span><span class="message">this laziness being possible because after the microsoft acquisition they added a git submodule called roslyn-binaries and copied those as-is in the install step</span></div><br /></div></body></html>

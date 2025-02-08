@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-12-10.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="053706"><span class="nick" style="color:#389600"><a href="#053706" label="[05:37:06]">&lt;homo&gt;</a></span><span class="message">reading <a rel="nofollow" href="https://augustss.blogspot.com/2014/12/a-commentary-on-24-days-of-ghc.html">https://augustss.blogspot.com/2014/12/a-commentary-on-24-days-of-ghc.html</a>  <a rel="nofollow" href="https://blog.ocharles.org.uk/blog/pages/2014-12-01-24-days-of-ghc-extensions.html">https://blog.ocharles.org.uk/blog/pages/2014-12-01-24-days-of-ghc-extensions.html</a>  while it's questionable whether they belong in haskell or in separate language, it's strange to make bootstrapping harder by using them to implement compiler</span></div><div class="line" id="053857"><span class="nick" style="color:#8dd3c7"><a href="#053857" label="[05:38:57]">&lt;jackdk&gt;</a></span><span class="message">If you care about bootstrapping, I think it strange to have self-hosted compilers at all. If you care about using more powerful languages to solve problems, depending on extensions is not really that different to depending on the language you're implementing, IMHO.</span></div><div class="line" id="054329"><span class="nick" style="color:#389600"><a href="#054329" label="[05:43:29]">&lt;homo&gt;</a></span><span class="message">self-hosted with bootstrap path is not a problem at all</span></div><div class="line" id="054750"><span class="nick" style="color:#8dd3c7"><a href="#054750" label="[05:47:50]">&lt;jackdk&gt;</a></span><span class="message">technically no, but practically it's tempting to lean into the language in ways that sever it from its bootstrap path - look at what happened to Zig.</span></div><div class="line" id="054916"><span class="nick" style="color:#389600"><a href="#054916" label="[05:49:16]">&lt;homo&gt;</a></span><span class="message">never heard of zig other than its name</span></div><div class="line" id="055110"><span class="nick" style="color:#8dd3c7"><a href="#055110" label="[05:51:10]">&lt;jackdk&gt;</a></span><span class="message">They had a compiler written in C++ maintained, and for a while it was maintained in parallel with the self-hosted version. They now compile the compiler to WASM, compress and commit that to the repo, and &quot;bootstrap&quot; the compiler by using the system C compiler to build a tiny WASM runtime that can run that Zig compiler blob. Very cool but very not a true bootstrap.</span></div><div class="line" id="055603"><span class="nick" style="color:#389600"><a href="#055603" label="[05:56:03]">&lt;homo&gt;</a></span><span class="message">I'm surprised there are over 100 extensions, but I'm not using any of those when writing in haskell</span></div><div class="line" id="062636"><span class="nick" style="color:#2e2a4a"><a href="#062636" label="[06:26:36]">&lt;unmush&gt;</a></span><span class="message">jackdk: sounds like mono.</span></div><div class="line" id="062800"><span class="nick" style="color:#2e2a4a"><a href="#062800" label="[06:28:00]">&lt;unmush&gt;</a></span><span class="message">except that mono didn't even check their monolite blobs into version control to my knowledge, they just download them from mono-project.com at build-time</span></div><div class="line" id="062905"><span class="nick" style="color:#2e2a4a"><a href="#062905" label="[06:29:05]">&lt;unmush&gt;</a></span><span class="message">anyway, as long as bootstrappable versions exist, and no version relies on features exclusive to unbootstrappable versions, the worst that can happen should be that the bootstrap chain gets really long</span></div><div class="line" id="063831"><span class="nick" style="color:#389600"><a href="#063831" label="[06:38:31]">&lt;homo&gt;</a></span><span class="message">considering there are so many extensions, it seems like maintainers of other implementations got overwhelmed by the amount needed to implement, kinda like why there is no interest in having more independent web browsers</span></div><br /></div></body></html>

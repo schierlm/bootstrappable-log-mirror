@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-11-15.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="103441"><span class="nick" style="color:#389600"><a href="#103441" label="[10:34:41]">&lt;unmush&gt;</a></span><span class="message">anyone have any advice on bootstrapping microsoft's .NET runtime, library, C# compiler, or msbuild? I'm working on building the mono-5.0 series right now, but not sure where to go once it gets sufficiently new</span></div><div class="line" id="120556"><span class="nick" style="color:#8dd3c7"><a href="#120556" label="[12:05:56]">&lt;lanodan&gt;</a></span><span class="message">Sure you're doing it with the various DLLs and other binaries removed from mono? Like for example with 6.12.0.122 &lt;<a rel="nofollow" href="https://hacktivis.me/notes/mono-6.12.0.122_deblob.log">https://hacktivis.me/notes/mono-6.12.0.122_deblob.log</a>&gt;  and Guix also noted blobs in their old version: <a rel="nofollow" href="https://issues.guix.gnu.org/55026">https://issues.guix.gnu.org/55026</a> </span></div><div class="line" id="122502"><span class="nick" style="color:#389600"><a href="#122502" label="[12:25:02]">&lt;unmush&gt;</a></span><span class="message">yes, I'm sure, because I've gone all the way from pnet and deleted every blob I found at every step</span></div><div class="line" id="122727"><span class="nick" style="color:#389600"><a href="#122727" label="[12:27:27]">&lt;unmush&gt;</a></span><span class="message">current chain: pnet --&gt; mono-1.2.6 --&gt; mono-1.9.1 --&gt; mono-2.4.2.3 --&gt; mono-2.6.4 --&gt; mono-2.11.4 --&gt; mono-3.0.12 --&gt; mono-3.12.1 --&gt; mono-4.9.0 --&gt; mono-5.0.1</span></div><div class="line" id="123948"><span class="nick" style="color:#8dd3c7"><a href="#123948" label="[12:39:48]">&lt;lanodan&gt;</a></span><span class="message">Oooh nice!</span></div><div class="line" id="124035"><span class="nick" style="color:#389600"><a href="#124035" label="[12:40:35]">&lt;unmush&gt;</a></span><span class="message">the initial attempt at using pnet 0.8.0 to bootstrap mono 1.2.6 was pretty miserable</span></div><div class="line" id="124136"><span class="nick" style="color:#389600"><a href="#124136" label="[12:41:36]">&lt;unmush&gt;</a></span><span class="message">because in what I like to imagine was an incredible inspired moment of language-lawyering, pnet 0.8.0 doesn't recognize += or -= as valid with pointer operands</span></div><div class="line" id="124315"><span class="nick" style="color:#389600"><a href="#124315" label="[12:43:15]">&lt;unmush&gt;</a></span><span class="message">after eventually getting that working with a 2000-line patch, I discovered that development of pnet had continued for a fair bit of time after 0.8.0, and many of the most sorely-lacking things were fixed in the latest git version</span></div><div class="line" id="124502"><span class="nick" style="color:#389600"><a href="#124502" label="[12:45:02]">&lt;unmush&gt;</a></span><span class="message">so I prepared a second patch set using pnet-git that only came out to around 600 lines</span></div><div class="line" id="193549"><span class="nick" style="color:#2e2a4a"><a href="#193549" label="[19:35:49]">&lt;aggi&gt;</a></span><span class="message">fyi, <a rel="nofollow" href="https://lists.gnu.org/archive/html/tinycc-devel/2024-11/msg00016.html">https://lists.gnu.org/archive/html/tinycc-devel/2024-11/msg00016.html</a> </span></div><br /></div></body></html>

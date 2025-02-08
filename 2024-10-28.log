@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-10-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000351"><span class="nick" style="color:#389600"><a href="#000351" label="[00:03:51]">&lt;lanodan&gt;</a></span><span class="message">Reminds me of wondering how mescc can be so painfully slow</span></div><div class="line" id="001037"><span class="nick" style="color:#8dd3c7"><a href="#001037" label="[00:10:37]">&lt;Googulator&gt;</a></span><span class="message">It's extremely sensitive to memory bandwidth</span></div><div class="line" id="001113"><span class="nick" style="color:#8dd3c7"><a href="#001113" label="[00:11:13]">&lt;Googulator&gt;</a></span><span class="message">Probably comparable to running AI models on the CPU</span></div><div class="line" id="001142"><span class="nick" style="color:#8dd3c7"><a href="#001142" label="[00:11:42]">&lt;Googulator&gt;</a></span><span class="message">I wonder how fast mescc would be on an AMD MI300A...</span></div><div class="line" id="001204"><span class="nick" style="color:#8dd3c7"><a href="#001204" label="[00:12:04]">&lt;Googulator&gt;</a></span><span class="message">5.3TB/s memory bandwidth available to the CPU cores</span></div><div class="line" id="002826"><span class="nick" style="color:#2e2a4a"><a href="#002826" label="[00:28:26]">&lt;notgull&gt;</a></span><span class="message">Imagine if we needed to use a GPU to run MesCC</span></div><div class="line" id="003101"><span class="nick" style="color:#6b8072"><a href="#003101" label="[00:31:01]">&lt;stikonas&gt;</a></span><span class="message">well, on x86_64 mescc is not super slow, probably 10 minutes to rebuild itself and another 10 minutes to build tcc</span></div><div class="line" id="003121"><span class="nick" style="color:#6b8072"><a href="#003121" label="[00:31:21]">&lt;stikonas&gt;</a></span><span class="message">on my riscv64 board (visionfive2), it is painfully slow</span></div><div class="line" id="003126"><span class="nick" style="color:#6b8072"><a href="#003126" label="[00:31:26]">&lt;stikonas&gt;</a></span><span class="message">perhaps as slow as a week to build to tcc</span></div><div class="line" id="003130"><span class="nick" style="color:#6b8072"><a href="#003130" label="[00:31:30]">&lt;stikonas&gt;</a></span><span class="message"> at least with the current build script which I admit might not be efficient</span></div><div class="line" id="003133"><span class="nick" style="color:#6b8072"><a href="#003133" label="[00:31:33]">&lt;stikonas&gt;</a></span><span class="message">we should probably create unified-libc.c when building meslibc</span></div><div class="line" id="003200"><span class="nick" style="color:#6b8072"><a href="#003200" label="[00:32:00]">&lt;stikonas&gt;</a></span><span class="message">I think visionfive2 is very memory bandwidth limited though</span></div><div class="line" id="003219"><span class="nick" style="color:#6b8072"><a href="#003219" label="[00:32:19]">&lt;stikonas&gt;</a></span><span class="message">later, once it reaches tcc and gcc, things work reasonably fast</span></div><div class="line" id="003225"><span class="nick" style="color:#6b8072"><a href="#003225" label="[00:32:25]">&lt;stikonas&gt;</a></span><span class="message">at least as fast as you can expect from riscv64</span></div><div class="line" id="223529"><span class="nick" style="color:#80b1d3"><a href="#223529" label="[22:35:29]">&lt;nore&gt;</a></span><span class="message">hi, I wanted to share this project I was working on: <a rel="nofollow" href="https://github.com/Ekdohibs/subleq/blob/main/run.subleq">https://github.com/Ekdohibs/subleq/blob/main/run.subleq</a>  . It is a bootstrap of a (currently very small) Forth kernel for a subleq machine, without any binary seed</span></div><div class="line" id="223619"><span class="nick" style="color:#80b1d3"><a href="#223619" label="[22:36:19]">&lt;nore&gt;</a></span><span class="message">(the first ~120 bytes of the file are the closest to binary, but they are pure printable ASCII characters and extensively documented, used to bootstrap the rest of the file)</span></div><div class="line" id="225032"><span class="nick" style="color:#6b8072"><a href="#225032" label="[22:50:32]">&lt;stikonas&gt;</a></span><span class="message">so does it run in some kind of emulator?</span></div><div class="line" id="225107"><span class="nick" style="color:#6b8072"><a href="#225107" label="[22:51:07]">&lt;stikonas&gt;</a></span><span class="message">since I guess there is no real subleq hardware</span></div><div class="line" id="225116"><span class="nick" style="color:#6b8072"><a href="#225116" label="[22:51:16]">&lt;stikonas&gt;</a></span><span class="message">I guess one can do a soft core on fpga</span></div><div class="line" id="225227"><span class="nick" style="color:#80b1d3"><a href="#225227" label="[22:52:27]">&lt;nore&gt;</a></span><span class="message">yes, there's an emulator in the repo</span></div><div class="line" id="225313"><span class="nick" style="color:#80b1d3"><a href="#225313" label="[22:53:13]">&lt;nore&gt;</a></span><span class="message">the file populates the initial memory (one character = one memory location), the execution starts at location 0</span></div><div class="line" id="225458"><span class="nick" style="color:#80b1d3"><a href="#225458" label="[22:54:58]">&lt;nore&gt;</a></span><span class="message">real subleq hardware would be nice and not too difficult to build I'd hope, since it would use only a few gates besides the memory</span></div><div class="line" id="225510"><span class="nick" style="color:#6b8072"><a href="#225510" label="[22:55:10]">&lt;stikonas&gt;</a></span><span class="message">yeah, it's just one instruction...</span></div><div class="line" id="225528"><span class="nick" style="color:#80b1d3"><a href="#225528" label="[22:55:28]">&lt;nore&gt;</a></span><span class="message">yep, so no instruction decoding to do at all</span></div><div class="line" id="225649"><span class="nick" style="color:#6b8072"><a href="#225649" label="[22:56:49]">&lt;stikonas&gt;</a></span><span class="message">maybe evne not too hard to build out of discrete components...</span></div><div class="line" id="230200"><span class="nick" style="color:#80b1d3"><a href="#230200" label="[23:02:00]">&lt;nore&gt;</a></span><span class="message">that's what I would hope, yes!</span></div><br /></div></body></html>

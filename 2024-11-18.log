@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-11-18.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="103758"><span class="nick" style="color:#389600"><a href="#103758" label="[10:37:58]">&lt;rekado&gt;</a></span><span class="message">hello there, the bootstrappable.org domain lease is expiring soon and I don't know if I should renew it myself.  Would someone like to take over the domain name from me?</span></div><div class="line" id="112414"><span class="nick" style="color:#8dd3c7"><a href="#112414" label="[11:24:14]">&lt;jackdk&gt;</a></span><span class="message">It should absolutely be renewed</span></div><div class="line" id="114800"><span class="nick" style="color:#2e2a4a"><a href="#114800" label="[11:48:00]">&lt;fossy&gt;</a></span><span class="message">stikonas: gentoo rust has got a fairly significant update (virtual/rust got removed, rust is now slotted) that significantly breaks gentoo rust bootstrap. looks very painful to fix unfortunately :(</span></div><div class="line" id="114802"><span class="nick" style="color:#2e2a4a"><a href="#114802" label="[11:48:02]">&lt;fossy&gt;</a></span><span class="message">just fyi</span></div><div class="line" id="114820"><span class="nick" style="color:#2e2a4a"><a href="#114820" label="[11:48:20]">&lt;fossy&gt;</a></span><span class="message">i'm sure you have better/more fun things to do than fix that</span></div><div class="line" id="114851"><span class="nick" style="color:#6b8072"><a href="#114851" label="[11:48:51]">&lt;sam_&gt;</a></span><span class="message">note that it will also make life significantly easier</span></div><div class="line" id="114924"><span class="nick" style="color:#6b8072"><a href="#114924" label="[11:49:24]">&lt;sam_&gt;</a></span><span class="message">(in particular, but not only, making it very easy for us to have a proper bootstrap chain in ::gentoo)</span></div><div class="line" id="115523"><span class="nick" style="color:#2e2a4a"><a href="#115523" label="[11:55:23]">&lt;fossy&gt;</a></span><span class="message">oh i'd agree, just means most of the old ebuilds need to be redone</span></div><div class="line" id="115534"><span class="nick" style="color:#2e2a4a"><a href="#115534" label="[11:55:34]">&lt;fossy&gt;</a></span><span class="message">the virtual/rust thing was a pain lol</span></div><div class="line" id="115616"><span class="nick" style="color:#6b8072"><a href="#115616" label="[11:56:16]">&lt;sam_&gt;</a></span><span class="message">yes definitely</span></div><div class="line" id="115631"><span class="nick" style="color:#6b8072"><a href="#115631" label="[11:56:31]">&lt;sam_&gt;</a></span><span class="message">we also did agonise over a way to do it incrementally and decided we couldn't in this instance :(</span></div><div class="line" id="115635"><span class="nick" style="color:#6b8072"><a href="#115635" label="[11:56:35]">&lt;sam_&gt;</a></span><span class="message">one very interesting thing is</span></div><div class="line" id="115650"><span class="nick" style="color:#6b8072"><a href="#115650" label="[11:56:50]">&lt;sam_&gt;</a></span><span class="message">we also split the binary fetching out of dev-lang/rust, so all binaries are now always in dev-lang/rust-bin</span></div><div class="line" id="115658"><span class="nick" style="color:#2e2a4a"><a href="#115658" label="[11:56:58]">&lt;fossy&gt;</a></span><span class="message">oooh okay</span></div><div class="line" id="115705"><span class="nick" style="color:#2e2a4a"><a href="#115705" label="[11:57:05]">&lt;fossy&gt;</a></span><span class="message">that is very good</span></div><div class="line" id="115714"><span class="nick" style="color:#6b8072"><a href="#115714" label="[11:57:14]">&lt;sam_&gt;</a></span><span class="message">this is a good thing for various reasons, but it's also made people aware that the binaries *are* being used, and it's led to a lot of people realising rust is written in rust and not being so happy about it :)</span></div><div class="line" id="115734"><span class="nick" style="color:#2e2a4a"><a href="#115734" label="[11:57:34]">&lt;fossy&gt;</a></span><span class="message">:D</span></div><div class="line" id="120307"><span class="nick" style="color:#80b1d3"><a href="#120307" label="[12:03:07]">&lt;lanodan&gt;</a></span><span class="message">I guess a similar *-bin split for dev-lang/ghc could be nice, at least part of me wishes non *-bin packages wouldn't fetch binaries.</span></div><div class="line" id="120626"><span class="nick" style="color:#6b8072"><a href="#120626" label="[12:06:26]">&lt;sam_&gt;</a></span><span class="message">agreed</span></div><div class="line" id="120647"><span class="nick" style="color:#6b8072"><a href="#120647" label="[12:06:47]">&lt;sam_&gt;</a></span><span class="message">I would like to see it for ghc too but: a) I'm not involved with haskell (just give armchair advice); b) other priorities once Rust is all sorted (Go next)</span></div><div class="line" id="120659"><span class="nick" style="color:#6b8072"><a href="#120659" label="[12:06:59]">&lt;sam_&gt;</a></span><span class="message">that said, I did suggest it the other day, and will nudge in that direction</span></div><div class="line" id="120715"><span class="nick" style="color:#6b8072"><a href="#120715" label="[12:07:15]">&lt;sam_&gt;</a></span><span class="message">there's other nice arguments which help too, as it e.g. means you can simplify the ebuild a lot</span></div><div class="line" id="122923"><span class="nick" style="color:#8dd3c7"><a href="#122923" label="[12:29:23]">&lt;jackdk&gt;</a></span><span class="message">nobody knows how to bootstrap ghc, unfortunately</span></div><div class="line" id="123849"><span class="nick" style="color:#6d2462"><a href="#123849" label="[12:38:49]">&lt;Googulator&gt;</a></span><span class="message">jackdk: bootstrapping is one thing, but we can't even jump the gap from 7.4 to 7.6...</span></div><div class="line" id="123904"><span class="nick" style="color:#8dd3c7"><a href="#123904" label="[12:39:04]">&lt;jackdk&gt;</a></span><span class="message">As in building 7.6 from 7.4?</span></div><div class="line" id="125129"><span class="nick" style="color:#6d2462"><a href="#125129" label="[12:51:29]">&lt;Googulator&gt;</a></span><span class="message">yes - technically 7.4 can build 7.6, but the resulting binary can't recompile itself</span></div><div class="line" id="125156"><span class="nick" style="color:#6d2462"><a href="#125156" label="[12:51:56]">&lt;Googulator&gt;</a></span><span class="message">7.6 built with 7.4 segfaults when building 7.6</span></div><div class="line" id="125212"><span class="nick" style="color:#6d2462"><a href="#125212" label="[12:52:12]">&lt;Googulator&gt;</a></span><span class="message">same for 7.8 built with 7.4</span></div><div class="line" id="125221"><span class="nick" style="color:#6d2462"><a href="#125221" label="[12:52:21]">&lt;Googulator&gt;</a></span><span class="message">or 7.6 built with 7.2</span></div><div class="line" id="125341"><span class="nick" style="color:#6d2462"><a href="#125341" label="[12:53:41]">&lt;Googulator&gt;</a></span><span class="message">which is why Guix &quot;bootstraps&quot; 4.x from C &quot;sources&quot;, propagates the chain up to 7.0 (trivially extendable to 7.4) - and then throws it all away and downloads a binary of 7.8 for building 7.10</span></div><div class="line" id="125805"><span class="nick" style="color:#80b1d3"><a href="#125805" label="[12:58:05]">&lt;lanodan&gt;</a></span><span class="message">Heh beautiful, but well even without bootstrapping having a split it probably worth it</span></div><div class="line" id="125915"><span class="nick" style="color:#6b8072"><a href="#125915" label="[12:59:15]">&lt;sam_&gt;</a></span><span class="message">yes, it makes the distinction clearer, makes the problem obvious too</span></div><div class="line" id="130020"><span class="nick" style="color:#234e69"><a href="#130020" label="[13:00:20]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; fossy: yeah, I saw it</span></div><div class="line" id="130040"><span class="nick" style="color:#234e69"><a href="#130040" label="[13:00:40]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Perhaps I can fix it when mrustc switched to 1.74...</span></div><div class="line" id="130116"><span class="nick" style="color:#234e69"><a href="#130116" label="[13:01:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But yes, it should work better afterwards</span></div><div class="line" id="130254"><span class="nick" style="color:#80b1d3"><a href="#130254" label="[13:02:54]">&lt;lanodan&gt;</a></span><span class="message">Also just pure curiosity as I don't use it, but doesn't guix have some kind of policy against binaries?</span></div><div class="line" id="130424"><span class="nick" style="color:#6d2462"><a href="#130424" label="[13:04:24]">&lt;Googulator&gt;</a></span><span class="message">It has an absolute ban on closed-source binaries, but unbootstrappable open-source binaries are used when there is no alternative</span></div><div class="line" id="130515"><span class="nick" style="color:#6d2462"><a href="#130515" label="[13:05:15]">&lt;Googulator&gt;</a></span><span class="message">and unfortunately, Haskell is required these days for building a basic desktop environment</span></div><div class="line" id="130536"><span class="nick" style="color:#6d2462"><a href="#130536" label="[13:05:36]">&lt;Googulator&gt;</a></span><span class="message">because of pandoc mainly</span></div><div class="line" id="130553"><span class="nick" style="color:#6b8072"><a href="#130553" label="[13:05:53]">&lt;sam_&gt;</a></span><span class="message">i'm not sure i agree with that conclusion</span></div><div class="line" id="130559"><span class="nick" style="color:#6b8072"><a href="#130559" label="[13:05:59]">&lt;sam_&gt;</a></span><span class="message">none of my very full-featured gentoo desktop systems have it</span></div><div class="line" id="130611"><span class="nick" style="color:#6b8072"><a href="#130611" label="[13:06:11]">&lt;sam_&gt;</a></span><span class="message">it's also pretty rare for our users to have it installed, anecdotally</span></div><div class="line" id="130757"><span class="nick" style="color:#6d2462"><a href="#130757" label="[13:07:57]">&lt;Googulator&gt;</a></span><span class="message">It's not part of the final system, but it's required for building tools required for building tools required for ... required for building the final system.</span></div><div class="line" id="130844"><span class="nick" style="color:#6b8072"><a href="#130844" label="[13:08:44]">&lt;sam_&gt;</a></span><span class="message">certainly isn't here, though</span></div><div class="line" id="130857"><span class="nick" style="color:#6b8072"><a href="#130857" label="[13:08:57]">&lt;sam_&gt;</a></span><span class="message">it is definitely avoidable and is not some sort of fundamental DE requirement</span></div><div class="line" id="130859"><span class="nick" style="color:#80b1d3"><a href="#130859" label="[13:08:59]">&lt;lanodan&gt;</a></span><span class="message">Well it is pulled by quite a lot of things: <a rel="nofollow" href="https://packages.gentoo.org/packages/virtual/pandoc/reverse-dependencies">https://packages.gentoo.org/packages/virtual/pandoc/reverse-dependencies</a> </span></div><div class="line" id="130910"><span class="nick" style="color:#6b8072"><a href="#130910" label="[13:09:10]">&lt;sam_&gt;</a></span><span class="message">that list is really not that big</span></div><div class="line" id="130933"><span class="nick" style="color:#234e69"><a href="#130933" label="[13:09:33]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yeah, I don't have either GHC or Ruby</span></div><div class="line" id="130947"><span class="nick" style="color:#234e69"><a href="#130947" label="[13:09:47]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Must be some USE flags that you selected</span></div><div class="line" id="131018"><span class="nick" style="color:#6b8072"><a href="#131018" label="[13:10:18]">&lt;sam_&gt;</a></span><span class="message">in fact it is so uncommon on our users systems that whenever someone introduces a dep on pandoc, you end up with riots and it ends up fixed quickly ;)</span></div><div class="line" id="131035"><span class="nick" style="color:#6b8072"><a href="#131035" label="[13:10:35]">&lt;sam_&gt;</a></span><span class="message">now, i am sure you have something which does need it, but it is in no way unavoidable</span></div><div class="line" id="131110"><span class="nick" style="color:#234e69"><a href="#131110" label="[13:11:10]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Though shellcheck also needs GHC :(</span></div><div class="line" id="131124"><span class="nick" style="color:#6b8072"><a href="#131124" label="[13:11:24]">&lt;sam_&gt;</a></span><span class="message">:(</span></div><div class="line" id="131136"><span class="nick" style="color:#234e69"><a href="#131136" label="[13:11:36]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But this is devtool, so normal users can live without it</span></div><div class="line" id="131139"><span class="nick" style="color:#80b1d3"><a href="#131139" label="[13:11:39]">&lt;lanodan&gt;</a></span><span class="message">Well I don't have pandoc, after all I guess I'm part of the anti-pandoc rioters :)</span></div><div class="line" id="133809"><span class="nick" style="color:#389600"><a href="#133809" label="[13:38:09]">&lt;rekado&gt;</a></span><span class="message">Googulator: we don't &quot;throw it all away&quot;.  I started the build chain from 4.x up to 6 or 7 well after the GHC binaries had been added.</span></div><div class="line" id="133846"><span class="nick" style="color:#389600"><a href="#133846" label="[13:38:46]">&lt;rekado&gt;</a></span><span class="message">I stopped working on it for various reasons and nobody else has continued the work.</span></div><div class="line" id="133922"><span class="nick" style="color:#389600"><a href="#133922" label="[13:39:22]">&lt;rekado&gt;</a></span><span class="message">there is no causal link between stopping the work on building up the chain and using a binary GHC.</span></div><div class="line" id="134017"><span class="nick" style="color:#6d2462"><a href="#134017" label="[13:40:17]">&lt;Googulator&gt;</a></span><span class="message">I'm referring to my experiments extending the chain - I got 7.2 and 7.4 to build, but anything beyond that segfaults when not built with its own binary.</span></div><div class="line" id="134203"><span class="nick" style="color:#6d2462"><a href="#134203" label="[13:42:03]">&lt;Googulator&gt;</a></span><span class="message">We have the full development history in Git repository form from that era, but I'm not proficient enough in Scheme to figure out how to build  intermediate versions from Git revisions</span></div><div class="line" id="134246"><span class="nick" style="color:#6d2462"><a href="#134246" label="[13:42:46]">&lt;Googulator&gt;</a></span><span class="message">(hopefully there is a sequence of intermediates that can bridge the gap from 7.4 to 7.6, as opposed to some big-bang commit that depends on its own code)</span></div><div class="line" id="202627"><span class="nick" style="color:#8dd3c7"><a href="#202627" label="[20:26:27]">&lt;jackdk&gt;</a></span><span class="message">The one that really makes me sad is that I can't use guix at all if I turn off substituters because openssl 1.1.1l fails in checkPhase due to all the certs having expired and I can't seem to get anyone to care.</span></div><div class="line" id="212620"><span class="nick" style="color:#6c3d55"><a href="#212620" label="[21:26:20]">&lt;unmush&gt;</a></span><span class="message">if you're not using substitutes you could just apply a package transformation that replaces every package with its replacement if it exists (&quot;un-grafting&quot;) or modify the check phase to use faketime, it's all going to have to be built from scratch anyway</span></div><div class="line" id="214429"><span class="nick" style="color:#d9d9d9"><a href="#214429" label="[21:44:29]">&lt;stikonas&gt;</a></span><span class="message">unmush: yeah, but if some package is known to fail check phase after a certain time, shouldn't it just be officially built without tests</span></div><div class="line" id="214516"><span class="nick" style="color:#6c3d55"><a href="#214516" label="[21:45:16]">&lt;unmush&gt;</a></span><span class="message">my understanding is that there's disagreement on the subject between packagers and upstream</span></div><div class="line" id="214723"><span class="nick" style="color:#6c3d55"><a href="#214723" label="[21:47:23]">&lt;unmush&gt;</a></span><span class="message">on the one hand you have the idea that running the tests is a good way to know that it basically has the proper dependencies, so a dumb time bomb is something to be worked around, and on the other hand if upstream isn't going to bother to make good tests there isn't much point in running them or basing anything on their results</span></div><div class="line" id="214925"><span class="nick" style="color:#6c3d55"><a href="#214925" label="[21:49:25]">&lt;unmush&gt;</a></span><span class="message">IMO upstream should either conditionally disable the date-based tests based on the current time or set the certificate expiration dates at build-time</span></div><div class="line" id="215008"><span class="nick" style="color:#d9d9d9"><a href="#215008" label="[21:50:08]">&lt;stikonas&gt;</a></span><span class="message">perhaps, but the thing is that most distros don't fail package if tests fail, it's just a warning</span></div><div class="line" id="215016"><span class="nick" style="color:#d9d9d9"><a href="#215016" label="[21:50:16]">&lt;stikonas&gt;</a></span><span class="message">but on Guix it is a hard failure</span></div><div class="line" id="215028"><span class="nick" style="color:#d9d9d9"><a href="#215028" label="[21:50:28]">&lt;stikonas&gt;</a></span><span class="message">so it's harder to convince upstream to do something when it is just a one distro</span></div><div class="line" id="215107"><span class="nick" style="color:#6c3d55"><a href="#215107" label="[21:51:07]">&lt;unmush&gt;</a></span><span class="message">yeah, the proper solution for a &quot;reproducibility-first&quot; distro like guix is probably to use faketime, and it's just painful until we identify everywhere that needs to happen</span></div><div class="line" id="215143"><span class="nick" style="color:#6c3d55"><a href="#215143" label="[21:51:43]">&lt;unmush&gt;</a></span><span class="message">I've personally modified quite a few packages in my local repository to use faketime</span></div><div class="line" id="233438"><span class="nick" style="color:#8dd3c7"><a href="#233438" label="[23:34:38]">&lt;jackdk&gt;</a></span><span class="message">I agree that these are things that I could do, but it makes me very sad that the package manager/system distribution that has a full source bootstrap makes that bootstrap functionally unusable in general</span></div><div class="line" id="234359"><span class="nick" style="color:#bc80bd"><a href="#234359" label="[23:43:59]">&lt;fossy_&gt;</a></span><span class="message">are tests really unskippable on guix?</span></div><div class="line" id="235611"><span class="nick" style="color:#6c3d55"><a href="#235611" label="[23:56:11]">&lt;unmush&gt;</a></span><span class="message">tests are skippable, the issue is that them being unskippable is a property of the package build, and changing the package build means now that package and everything that depends on it needs to be rebuilt</span></div><br /></div></body></html>

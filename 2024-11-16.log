@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-11-16.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="022352"><span class="nick" style="color:#389600"><a href="#022352" label="[02:23:52]">&lt;aggi&gt;</a></span><span class="message">spotted yet, another, third regression in tcc</span></div><div class="line" id="022420"><span class="nick" style="color:#389600"><a href="#022420" label="[02:24:20]">&lt;aggi&gt;</a></span><span class="message">which i think, it's almost impossible this couldn't have passed unnoticed</span></div><div class="line" id="022824"><span class="nick" style="color:#389600"><a href="#022824" label="[02:28:24]">&lt;aggi&gt;</a></span><span class="message">situation is this, while #bootstrappable may prefer to stay at a stable release tagged for tcc</span></div><div class="line" id="022857"><span class="nick" style="color:#389600"><a href="#022857" label="[02:28:57]">&lt;aggi&gt;</a></span><span class="message">i rather keep the option to sync with latest git HEAD of it, while regression-testing tcc against the i486-tcc-linux-musl.iso system profile that i got</span></div><div class="line" id="023006"><span class="nick" style="color:#389600"><a href="#023006" label="[02:30:06]">&lt;aggi&gt;</a></span><span class="message">but i am loosing days and weeks and month bisecting through different versions and branches for several hundred builds i intend to keep on maintenance for this</span></div><div class="line" id="024957"><span class="nick" style="color:#389600"><a href="#024957" label="[02:49:57]">&lt;aggi&gt;</a></span><span class="message">as of now, some regression got introduced into assembly parser of tcc that causes it to error out inside #comment sections within .S assembly files</span></div><div class="line" id="025013"><span class="nick" style="color:#389600"><a href="#025013" label="[02:50:13]">&lt;aggi&gt;</a></span><span class="message">and another one that potentiall gets tcc stuck inside an endless loop while parsing options</span></div><div class="line" id="025058"><span class="nick" style="color:#389600"><a href="#025058" label="[02:50:58]">&lt;aggi&gt;</a></span><span class="message">no big deal, but i am a little worried tcc branch becomes destabilized</span></div><div class="line" id="025144"><span class="nick" style="color:#389600"><a href="#025144" label="[02:51:44]">&lt;aggi&gt;</a></span><span class="message">and I am not sure if all this belongs onto tinycc-devel mailing list nor into #bootstrappable channel</span></div><div class="line" id="050339"><span class="nick" style="color:#8dd3c7"><a href="#050339" label="[05:03:39]">&lt;lanodan&gt;</a></span><span class="message">Well might make sense to push for something like a stable tcc branch and have that be the HEAD given how mob works</span></div><div class="line" id="051853"><span class="nick" style="color:#389600"><a href="#051853" label="[05:18:53]">&lt;aggi&gt;</a></span><span class="message">the last release tag made for tcc is 7 years old, and i fear since then a few instabilities got introduced, which weren't spotted by regression testing</span></div><div class="line" id="051929"><span class="nick" style="color:#389600"><a href="#051929" label="[05:19:29]">&lt;aggi&gt;</a></span><span class="message">that is since then, who knows, almost 200 commits to diff/bisect, if anytime 0.9.28 got tagged, and all regressions hit at once</span></div><div class="line" id="052338"><span class="nick" style="color:#389600"><a href="#052338" label="[05:23:38]">&lt;aggi&gt;</a></span><span class="message">good news is, it seems possible still, on latest git head of tcc mob branch, to compile ~500 ebuilds with it, and linux-2.4.37.11 kernel</span></div><div class="line" id="052554"><span class="nick" style="color:#389600"><a href="#052554" label="[05:25:54]">&lt;aggi&gt;</a></span><span class="message">i'll have to do a notable amount of cleanup tasks, then backporting stuff to linux-2.4 that i need</span></div><div class="line" id="052638"><span class="nick" style="color:#389600"><a href="#052638" label="[05:26:38]">&lt;aggi&gt;</a></span><span class="message">because, i want to work and develop with such a pure tcc-linux system myself all day long, that's necessary for testing</span></div><div class="line" id="053211"><span class="nick" style="color:#389600"><a href="#053211" label="[05:32:11]">&lt;aggi&gt;</a></span><span class="message">ideally, the &quot;kernel bootstrapping&quot; can be addressed, hence i'll keep tccboot in the test-matrix, although i wouldn't need a JiT/tccboot kernel</span></div><div class="line" id="153309"><span class="nick" style="color:#2e2a4a"><a href="#153309" label="[15:33:09]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Interesting, Slackware 12 (2.6 kernel) massively outperforms Slackware 15 (5.15 kernel) when running live-bootstrap in chroot mode. From 0 to gawk takes less than 2 mins when running my tcc_bootstrap_alt mode on the 2.6 kernel. It takes around 9 mins on the 5.15 kernel. The mescc mode takes around 21 mins on a 2.6 kernel. This is on an old i5.</span></div><div class="line" id="153431"><span class="nick" style="color:#2e2a4a"><a href="#153431" label="[15:34:31]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I still need to look at updating my live-bootstrap PR for mes-0.27, but I'm not sure when I will get around to that. I'm currently playing around with building things in tcc under fiwix.</span></div><div class="line" id="153506"><span class="nick" style="color:#2e2a4a"><a href="#153506" label="[15:35:06]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; That is slackware under qemu</span></div><div class="line" id="154037"><span class="nick" style="color:#2e2a4a"><a href="#154037" label="[15:40:37]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; bare metal mode under qemu takes around 20 mins for tcc_bootstrap_alt mode and 46 mins for mescc mode. I also need to look at optimising tcc_bootstrap_alt under bare metal mode.</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-11-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="084144"><span class="nick" style="color:#389600"><a href="#084144" label="[08:41:44]">&lt;pabs3&gt;</a></span><span class="message">adding Rust to git <a rel="nofollow" href="https://lwn.net/SubscriberLink/998115/1c2a7dd6c8607fd0/">https://lwn.net/SubscriberLink/998115/1c2a7dd6c8607fd0/</a> </span></div><div class="line" id="140617"><span class="nick" style="color:#8dd3c7"><a href="#140617" label="[14:06:17]">&lt;janus&gt;</a></span><span class="message">it's interesting that .NET appeared after Java and still it seems less bootstrappable</span></div><div class="line" id="144437"><span class="nick" style="color:#2e2a4a"><a href="#144437" label="[14:44:37]">&lt;lilyp&gt;</a></span><span class="message">it does seem like &quot;modern&quot; software cares less about bootstrappability than older one – consider kotlin, scala, etc. vs java for example</span></div><div class="line" id="153032"><span class="nick" style="color:#6b8072"><a href="#153032" label="[15:30:32]">&lt;stikonas&gt;</a></span><span class="message">well, java was not always like this</span></div><div class="line" id="153040"><span class="nick" style="color:#6b8072"><a href="#153040" label="[15:30:40]">&lt;stikonas&gt;</a></span><span class="message">it was not even free software initially</span></div><div class="line" id="153100"><span class="nick" style="color:#6b8072"><a href="#153100" label="[15:31:00]">&lt;stikonas&gt;</a></span><span class="message">which meant people were trying to write some alternative free implementations</span></div><div class="line" id="153126"><span class="nick" style="color:#6b8072"><a href="#153126" label="[15:31:26]">&lt;stikonas&gt;</a></span><span class="message">and those were very helpful for bootrapping</span></div><div class="line" id="153423"><span class="nick" style="color:#2e2a4a"><a href="#153423" label="[15:34:23]">&lt;lilyp&gt;</a></span><span class="message">same with dotnet ironically</span></div><div class="line" id="195016"><span class="nick" style="color:#80b1d3"><a href="#195016" label="[19:50:16]">&lt;kpcyrd&gt;</a></span><span class="message">pabs3: I'm confused why the entire article seems to be written around some proprietary operating system I've never heard of</span></div><div class="line" id="211037"><span class="nick" style="color:#6d2462"><a href="#211037" label="[21:10:37]">&lt;sam_&gt;</a></span><span class="message">because that was the main point of opposition</span></div><div class="line" id="215916"><span class="nick" style="color:#234e69"><a href="#215916" label="[21:59:16]">&lt;aggi&gt;</a></span><span class="message">x86 kernel bootstrapping and 16bit real-mode isn't bootstrappable</span></div><div class="line" id="220001"><span class="nick" style="color:#234e69"><a href="#220001" label="[22:00:01]">&lt;aggi&gt;</a></span><span class="message">in particular 16bit real-mode assembly</span></div><div class="line" id="220115"><span class="nick" style="color:#234e69"><a href="#220115" label="[22:01:15]">&lt;aggi&gt;</a></span><span class="message">to distinguish this further, it is two options available for this</span></div><div class="line" id="220213"><span class="nick" style="color:#234e69"><a href="#220213" label="[22:02:13]">&lt;aggi&gt;</a></span><span class="message">tccboot/jit (bellard) or linux-2.4/aot (not considering the tiny staging kernels/loaders of bootstrappable)</span></div><div class="line" id="220248"><span class="nick" style="color:#234e69"><a href="#220248" label="[22:02:48]">&lt;aggi&gt;</a></span><span class="message">either need 16bit bootcode, that's implemented with GNU assembly</span></div><div class="line" id="220419"><span class="nick" style="color:#234e69"><a href="#220419" label="[22:04:19]">&lt;aggi&gt;</a></span><span class="message">tcc itself fails with .code16, and even if it fully supported it, a circular dependency remained for itself</span></div><div class="line" id="220640"><span class="nick" style="color:#234e69"><a href="#220640" label="[22:06:40]">&lt;aggi&gt;</a></span><span class="message">with linux-2.4, SMP support introduces another piece of 16bit asm (trampoline.S), hence SMP would NOT be available with tccboot</span></div><div class="line" id="220725"><span class="nick" style="color:#234e69"><a href="#220725" label="[22:07:25]">&lt;aggi&gt;</a></span><span class="message">hence, smp/ioapic/usb may not be available with a bootstrappable kernel (whichever this would be)</span></div><div class="line" id="220814"><span class="nick" style="color:#234e69"><a href="#220814" label="[22:08:14]">&lt;aggi&gt;</a></span><span class="message">anyway, for linux2.4 i succeeded to salvage an almost complete kconfig, including smp/ioapic/usb</span></div><div class="line" id="220913"><span class="nick" style="color:#234e69"><a href="#220913" label="[22:09:13]">&lt;aggi&gt;</a></span><span class="message">but all 16bit asm remains dependent on binutils-as still</span></div><div class="line" id="220948"><span class="nick" style="color:#234e69"><a href="#220948" label="[22:09:48]">&lt;aggi&gt;</a></span><span class="message">nonetheless linux-2.4 can be supported with tcc</span></div><div class="line" id="221126"><span class="nick" style="color:#234e69"><a href="#221126" label="[22:11:26]">&lt;aggi&gt;</a></span><span class="message">with a few exceptions, a recent package set of ~500ebuilds too compiled/linked with tcc, against linux-2.4 api headers since recently</span></div><div class="line" id="221300"><span class="nick" style="color:#234e69"><a href="#221300" label="[22:13:00]">&lt;aggi&gt;</a></span><span class="message">i'll backport/re-integrate squashfs support into linux-2.4 today, to throw i486-tcc-musl-rootfs.squashfs at linux-2.4/tcc kernel</span></div><div class="line" id="221419"><span class="nick" style="color:#234e69"><a href="#221419" label="[22:14:19]">&lt;aggi&gt;</a></span><span class="message">AoT-compiled</span></div><div class="line" id="221514"><span class="nick" style="color:#234e69"><a href="#221514" label="[22:15:14]">&lt;aggi&gt;</a></span><span class="message">tccboot/JiT would provide a decent approach to bootstrapping, but it would exclude smp/ioapic/usb support for those x86 systems that need it</span></div><div class="line" id="221632"><span class="nick" style="color:#234e69"><a href="#221632" label="[22:16:32]">&lt;aggi&gt;</a></span><span class="message">depends where 16bit asm sneaks into the dependency graph, which options remain then, in practice</span></div><div class="line" id="221821"><span class="nick" style="color:#234e69"><a href="#221821" label="[22:18:21]">&lt;aggi&gt;</a></span><span class="message">and 16bit real-mode assembler was needed at two places: outside tcc for bootcode.S parts, and within kernel (trampoline.S) if smp/ioapic/usb was required (in practice, to access storage and peripheral i/o)</span></div><div class="line" id="222857"><span class="nick" style="color:#234e69"><a href="#222857" label="[22:28:57]">&lt;aggi&gt;</a></span><span class="message">earlier linux-2.x kernels implemented their 16bit asm differently, which was not GNU as syntax</span></div><div class="line" id="223011"><span class="nick" style="color:#234e69"><a href="#223011" label="[22:30:11]">&lt;aggi&gt;</a></span><span class="message">besides, fiwix certainly would need 16bit boot code too</span></div><div class="line" id="223124"><span class="nick" style="color:#234e69"><a href="#223124" label="[22:31:24]">&lt;aggi&gt;</a></span><span class="message">tcc itself gave up many years ago: <a rel="nofollow" href="https://repo.or.cz/tinycc.git/commitdiff/55bd08c5">https://repo.or.cz/tinycc.git/commitdiff/55bd08c5</a> </span></div><div class="line" id="223200"><span class="nick" style="color:#234e69"><a href="#223200" label="[22:32:00]">&lt;aggi&gt;</a></span><span class="message">although a 16bit assembler separated from tcc would be needed (to avoid circular dependency)</span></div><div class="line" id="223257"><span class="nick" style="color:#234e69"><a href="#223257" label="[22:32:57]">&lt;aggi&gt;</a></span><span class="message">to my understanding, bootstrappable approached this by avoiding the need of such an assembler with hex0 loaders/kernel/utils</span></div><div class="line" id="223325"><span class="nick" style="color:#234e69"><a href="#223325" label="[22:33:25]">&lt;aggi&gt;</a></span><span class="message">*for</span></div><div class="line" id="223738"><span class="nick" style="color:#234e69"><a href="#223738" label="[22:37:38]">&lt;aggi&gt;</a></span><span class="message">realistically, a kernel bootstrapping path could be (simplified speaking) hex0 -&gt; assembler needed for 16bit bootcode, compiler needed for tccboot/tcc and some userspace</span></div><div class="line" id="223829"><span class="nick" style="color:#234e69"><a href="#223829" label="[22:38:29]">&lt;aggi&gt;</a></span><span class="message">i don't see a realistic chance to fully support 16bit asm with tcc, hence any kernel compiled with it may not support smp/ioapic/usb</span></div><div class="line" id="223856"><span class="nick" style="color:#234e69"><a href="#223856" label="[22:38:56]">&lt;aggi&gt;</a></span><span class="message">which in practice, would exclude rather many real x86 hardware and it's peripheral i/o</span></div><br /></div></body></html>

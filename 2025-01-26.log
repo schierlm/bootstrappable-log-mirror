@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2025-01-26.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011946"><span class="nick" style="color:#389600"><a href="#011946" label="[01:19:46]">&lt;mihi&gt;</a></span><span class="message">homo, portable Makefile. Hmm. Yes, today it is quite easy, as there are not too many C compilers that do not follow standards (basically I have not seen anything other than gcc, clang, msvc and tinycc to be used lately). Still I am curious if you can write a portable Makefile that does automatic include tracking and works with gcc, clang and possibly MSVC.</span></div><div class="line" id="012058"><span class="nick" style="color:#389600"><a href="#012058" label="[01:20:58]">&lt;mihi&gt;</a></span><span class="message">e.g. you have main.c, util.c and core.c which include an unknown and changing number of .h files. Compile each individually and then link the result. Rebuild should only rebuild the needed parts.</span></div><div class="line" id="012219"><span class="nick" style="color:#389600"><a href="#012219" label="[01:22:19]">&lt;mihi&gt;</a></span><span class="message">but you have to take into account that those projects are quite old, and at that time standard header files were not as standardized as they are today.</span></div><div class="line" id="012718"><span class="nick" style="color:#8dd3c7"><a href="#012718" label="[01:27:18]">&lt;stikonas&gt;</a></span><span class="message">oriansj: good news from gtker: <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/pull/66">https://github.com/oriansj/M2-Planet/pull/66</a> </span></div><div class="line" id="012739"><span class="nick" style="color:#8dd3c7"><a href="#012739" label="[01:27:39]">&lt;stikonas&gt;</a></span><span class="message">though probably will need some fixes before it properly works</span></div><div class="line" id="012831"><span class="nick" style="color:#8dd3c7"><a href="#012831" label="[01:28:31]">&lt;stikonas&gt;</a></span><span class="message">(gtker haven't tested on non-x86 arches)</span></div><div class="line" id="074822"><span class="nick" style="color:#2e2a4a"><a href="#074822" label="[07:48:22]">&lt;panorain&gt;</a></span><span class="message">hi</span></div><div class="line" id="221513"><span class="nick" style="color:#8dd3c7"><a href="#221513" label="[22:15:13]">&lt;stikonas&gt;</a></span><span class="message">rkeene: hi, I've noticed that mescc-tools-extra fails to build untar...</span></div><div class="line" id="221522"><span class="nick" style="color:#8dd3c7"><a href="#221522" label="[22:15:22]">&lt;stikonas&gt;</a></span><span class="message">when building with GCC...</span></div><div class="line" id="221524"><span class="nick" style="color:#8dd3c7"><a href="#221524" label="[22:15:24]">&lt;stikonas&gt;</a></span><span class="message">untar.c:268:47: error: implicit declaration of function ‘symlink’ [-Wimplicit-function-declaration]</span></div><div class="line" id="221531"><span class="nick" style="color:#8dd3c7"><a href="#221531" label="[22:15:31]">&lt;stikonas&gt;</a></span><span class="message">we might need to include something</span></div><div class="line" id="233416"><span class="nick" style="color:#8dd3c7"><a href="#233416" label="[23:34:16]">&lt;stikonas&gt;</a></span><span class="message">janneke: hi</span></div><div class="line" id="233441"><span class="nick" style="color:#8dd3c7"><a href="#233441" label="[23:34:41]">&lt;stikonas&gt;</a></span><span class="message">just wanted to give you some advance notice that M2-Planet's pointer arithmetic might be fixed soon</span></div><div class="line" id="233448"><span class="nick" style="color:#8dd3c7"><a href="#233448" label="[23:34:48]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/pull/66">https://github.com/oriansj/M2-Planet/pull/66</a> </span></div><div class="line" id="233519"><span class="nick" style="color:#8dd3c7"><a href="#233519" label="[23:35:19]">&lt;stikonas&gt;</a></span><span class="message">so likely we'll need to undo some #ifdef __M2__ hacks in mes</span></div><br /></div></body></html>

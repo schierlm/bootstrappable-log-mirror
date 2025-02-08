@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-11-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="025930"><span class="nick" style="color:#389600"><a href="#025930" label="[02:59:30]">&lt;aggi&gt;</a></span><span class="message">i pulled a revert patch and rebased this onto several intermediate checkpoints on the mob branch of tcc (which is a pain)</span></div><div class="line" id="030027"><span class="nick" style="color:#389600"><a href="#030027" label="[03:00:27]">&lt;aggi&gt;</a></span><span class="message">some time in the beginning of year 2024 reverting the mentioned patch does not suffice anylonger, and something else is breaking kernel compilation/linking further</span></div><div class="line" id="030100"><span class="nick" style="color:#389600"><a href="#030100" label="[03:01:00]">&lt;aggi&gt;</a></span><span class="message">that's where I stop once and for all, and consider tcc mob branch broken with regards to linux-2.4 kernel compilation</span></div><div class="line" id="030158"><span class="nick" style="color:#389600"><a href="#030158" label="[03:01:58]">&lt;aggi&gt;</a></span><span class="message">long term this has significant consequences, that is tcc may not be relied upon for bootstrapping any architecture (in particular riscv64)</span></div><div class="line" id="030236"><span class="nick" style="color:#389600"><a href="#030236" label="[03:02:36]">&lt;aggi&gt;</a></span><span class="message">i consider this kernel compilation test case highly relevant to evaluate tcc stability</span></div><div class="line" id="030619"><span class="nick" style="color:#389600"><a href="#030619" label="[03:06:19]">&lt;aggi&gt;</a></span><span class="message">as a consequence, in the long term future tcc may not be relied upon anylonger, it's just too much to diff/bisect, and this problem must have been addressed explicitely with some CI testing by the developers who had broken it</span></div><div class="line" id="054057"><span class="nick" style="color:#389600"><a href="#054057" label="[05:40:57]">&lt;aggi&gt;</a></span><span class="message">managed to rebase the tcc revert-diff up until october-2024, at that point almost all hunks fail at once</span></div><div class="line" id="054148"><span class="nick" style="color:#389600"><a href="#054148" label="[05:41:48]">&lt;aggi&gt;</a></span><span class="message">i'll have to communicate this on tcc mailing list, given it's one month, there's a chance remaining to stabilize mob with the linux kernel compilation test case</span></div><div class="line" id="054444"><span class="nick" style="color:#389600"><a href="#054444" label="[05:44:44]">&lt;aggi&gt;</a></span><span class="message">revisions 8e860702e44ca1279098e0fc2142ad579774b1d2...c21576f8a32715ab439690d18184b0e02022bbbd (2022-05-28 first broken ... 2024-10-10 last possible revert-diff rebase)</span></div><div class="line" id="054629"><span class="nick" style="color:#389600"><a href="#054629" label="[05:46:29]">&lt;aggi&gt;</a></span><span class="message">ideally, if anyone knows grischka, he might have an idea what wrong with the change introduced may 2022, to repair the commit instead of a back-out</span></div><div class="line" id="054720"><span class="nick" style="color:#389600"><a href="#054720" label="[05:47:20]">&lt;aggi&gt;</a></span><span class="message">for kernel-bootstrapping - however much that was affected</span></div><div class="line" id="055351"><span class="nick" style="color:#389600"><a href="#055351" label="[05:53:51]">&lt;aggi&gt;</a></span><span class="message">stikonas: there's something else i can't comprehend with tcc</span></div><div class="line" id="055442"><span class="nick" style="color:#389600"><a href="#055442" label="[05:54:42]">&lt;aggi&gt;</a></span><span class="message">because Bellard himself had introduced linux-2.4 kernel compilation as a most relevant test-case for tcc, 20 years ago, with tccboot, that's a missing piece for kernel-bootstrapping</span></div><div class="line" id="055529"><span class="nick" style="color:#389600"><a href="#055529" label="[05:55:29]">&lt;aggi&gt;</a></span><span class="message">another developer who was active on mob branch, seyko2, contribted further patches to support a more recent linux-2.4 kernel version</span></div><div class="line" id="055540"><span class="nick" style="color:#389600"><a href="#055540" label="[05:55:40]">&lt;aggi&gt;</a></span><span class="message">again, to re-assert linux kernel compilation with tcc</span></div><div class="line" id="055624"><span class="nick" style="color:#389600"><a href="#055624" label="[05:56:24]">&lt;aggi&gt;</a></span><span class="message">next one susematz, again, contributed to tcc, to support linux kernel (his linux-4.6 test case)</span></div><div class="line" id="055719"><span class="nick" style="color:#389600"><a href="#055719" label="[05:57:19]">&lt;aggi&gt;</a></span><span class="message">up until may 2022, and all of the sudden noone had noticed linux-2.4 cannot be compiled with tcc, a bug unresolved for more than 2 years?</span></div><div class="line" id="080929"><span class="nick" style="color:#8dd3c7"><a href="#080929" label="[08:09:29]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Something that could potentially be adapted to compile the Linux kernel is sparse <a rel="nofollow" href="https://sparse.docs.kernel.org/en/latest/">https://sparse.docs.kernel.org/en/latest/</a>  . It's a compiler frontend originally written Linus Torvalds that is intended to be able to parse and analyse the Linux kernel. It is mainly intended as a frontend, but it does have some toy backends. Probably a non-trivial amount of work to flesh out the backends though.</span></div><div class="line" id="091556"><span class="nick" style="color:#389600"><a href="#091556" label="[09:15:56]">&lt;aggi&gt;</a></span><span class="message">cosinusoidally, interesting, thanks.</span></div><div class="line" id="091625"><span class="nick" style="color:#389600"><a href="#091625" label="[09:16:25]">&lt;aggi&gt;</a></span><span class="message">this doesn't answer the question however. linux kernel could be compiled with tcc, for almost 20 years, that was one principle idea of it</span></div><div class="line" id="091646"><span class="nick" style="color:#389600"><a href="#091646" label="[09:16:46]">&lt;aggi&gt;</a></span><span class="message">then, all of the sudden, mob branch breaks it, and doesn't notice for more than two years.</span></div><div class="line" id="100533"><span class="nick" style="color:#8dd3c7"><a href="#100533" label="[10:05:33]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I think it's because there's no coordinated test process for tcc. If it's not being actively tested things will break.</span></div><div class="line" id="100637"><span class="nick" style="color:#8dd3c7"><a href="#100637" label="[10:06:37]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I've no insight into how grischka tests it, but I'd guess he doesn't regularly build a Linux kernel with it..</span></div><div class="line" id="103528"><span class="nick" style="color:#8dd3c7"><a href="#103528" label="[10:35:28]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; tbh I'm not even sure if grischka considers himself as the maintainer.</span></div><div class="line" id="104124"><span class="nick" style="color:#8dd3c7"><a href="#104124" label="[10:41:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I think nominally he is, but only sporadically. Might just be an availability issue. I did raise a bootstrapping issue a few months back on the mailing list and he fixed it pretty quickly (at the time it wasn't possible to build mob with a stock 2017 tcc-0.9.27 build).</span></div><div class="line" id="104210"><span class="nick" style="color:#8dd3c7"><a href="#104210" label="[10:42:10]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; He didn't actually mention on the mailing list that he had fixed it, but I saw he pushed a fix and I checked it worked.</span></div><div class="line" id="193528"><span class="nick" style="color:#389600"><a href="#193528" label="[19:35:28]">&lt;aggi&gt;</a></span><span class="message">i'm just a little worried, since linux-2.x seems a decent option for bare-metal booting, long-term stable</span></div><div class="line" id="193610"><span class="nick" style="color:#389600"><a href="#193610" label="[19:36:10]">&lt;aggi&gt;</a></span><span class="message">besides the (somewhat severe) regression in tcc that's blocking it, too Intel began phasing out CSM boot which is needed</span></div><div class="line" id="193800"><span class="nick" style="color:#389600"><a href="#193800" label="[19:38:00]">&lt;aggi&gt;</a></span><span class="message">assuming if i'm not in error with my judgement about the importance of tccboot/tcc/linux-2.4 as the only practically relevant option for decent hardware support while kernel-bootstrapping, mentioned problems potentially block both compiling and booting such a kernel</span></div><div class="line" id="194026"><span class="nick" style="color:#389600"><a href="#194026" label="[19:40:26]">&lt;aggi&gt;</a></span><span class="message">hence i was bug hunting the tcc regression for several month</span></div><br /></div></body></html>

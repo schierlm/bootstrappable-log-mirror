@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2025-01-27.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="020916"><span class="nick" style="color:#389600"><a href="#020916" label="[02:09:16]">&lt;jleightcap&gt;</a></span><span class="message">hey all, having fun poking through the bootstrapping sequence</span></div><div class="line" id="020938"><span class="nick" style="color:#389600"><a href="#020938" label="[02:09:38]">&lt;jleightcap&gt;</a></span><span class="message">I'm sure maybe a reductive question, but what arches are &quot;fully&quot; supported?</span></div><div class="line" id="021009"><span class="nick" style="color:#389600"><a href="#021009" label="[02:10:09]">&lt;jleightcap&gt;</a></span><span class="message">cc_x86 makes me wonder what the state of e.g. knight and rv32 are</span></div><div class="line" id="021312"><span class="nick" style="color:#389600"><a href="#021312" label="[02:13:12]">&lt;jleightcap&gt;</a></span><span class="message">cc_x86 is incredible to read through btw, miraculous on its own</span></div><div class="line" id="021856"><span class="nick" style="color:#8dd3c7"><a href="#021856" label="[02:18:56]">&lt;Googulator&gt;</a></span><span class="message">live-bootstrap only supports 32-bit x86 for now</span></div><div class="line" id="021933"><span class="nick" style="color:#8dd3c7"><a href="#021933" label="[02:19:33]">&lt;Googulator&gt;</a></span><span class="message">Guix supports 32-bit and 64-bit x86 (with a cross-compiling step to go from 32- to 64-bit) officially, with riscv64 being worked on</span></div><div class="line" id="021951"><span class="nick" style="color:#8dd3c7"><a href="#021951" label="[02:19:51]">&lt;Googulator&gt;</a></span><span class="message">(Guix has no kernel bootstrap)</span></div><div class="line" id="022031"><span class="nick" style="color:#8dd3c7"><a href="#022031" label="[02:20:31]">&lt;Googulator&gt;</a></span><span class="message">Other archs are only supported within stage0, but not the larger bootstrapping projects building on them</span></div><div class="line" id="022149"><span class="nick" style="color:#389600"><a href="#022149" label="[02:21:49]">&lt;jleightcap&gt;</a></span><span class="message">ah I see, it makes sense Guix is the reference target, thanks!</span></div><div class="line" id="022222"><span class="nick" style="color:#389600"><a href="#022222" label="[02:22:22]">&lt;jleightcap&gt;</a></span><span class="message">my curiosity in asking is for poking at the below-firmware work</span></div><div class="line" id="022304"><span class="nick" style="color:#389600"><a href="#022304" label="[02:23:04]">&lt;jleightcap&gt;</a></span><span class="message">i386, emulated or hardware, is out of my reach unfortunately</span></div><div class="line" id="030158"><span class="nick" style="color:#2e2a4a"><a href="#030158" label="[03:01:58]">&lt;oriansj&gt;</a></span><span class="message">stikonas: we might have to add a version macro into M2-Planet's build so that mescc could do something like #ifdef __M2__ #if __version__ &gt; 1.8 sort of thing</span></div><div class="line" id="030415"><span class="nick" style="color:#2e2a4a"><a href="#030415" label="[03:04:15]">&lt;oriansj&gt;</a></span><span class="message">homo: nice to hear</span></div><div class="line" id="030537"><span class="nick" style="color:#6b8072"><a href="#030537" label="[03:05:37]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; jleightcap: i386 code can run on x86_64 machines too</span></div><div class="line" id="030548"><span class="nick" style="color:#2e2a4a"><a href="#030548" label="[03:05:48]">&lt;oriansj&gt;</a></span><span class="message">jleightcap: no architectures are &quot;fully supported&quot; (x86 tends to get the most testing because that is something what everyone has)</span></div><div class="line" id="030645"><span class="nick" style="color:#6b8072"><a href="#030645" label="[03:06:45]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; riscv and amd64 just have some bugs in the middle layers</span></div><div class="line" id="030654"><span class="nick" style="color:#2e2a4a"><a href="#030654" label="[03:06:54]">&lt;oriansj&gt;</a></span><span class="message">basically if you care about an architecture enough to report bugs, it'll probably keep working just fine. (If no one cares enough about an architecture to report regressions, it'll stop being supported)</span></div><div class="line" id="030707"><span class="nick" style="color:#80b1d3"><a href="#030707" label="[03:07:07]">&lt;fosslinux&gt;</a></span><span class="message">where is riscv broken?</span></div><div class="line" id="030709"><span class="nick" style="color:#6b8072"><a href="#030709" label="[03:07:09]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; No reason we can't support bootstrap there, at least userspace</span></div><div class="line" id="030735"><span class="nick" style="color:#6d2462"><a href="#030735" label="[03:07:35]">&lt;fossy&gt;</a></span><span class="message">amd64 is broken in mescc-&gt;tcc step</span></div><div class="line" id="030741"><span class="nick" style="color:#6b8072"><a href="#030741" label="[03:07:41]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; @irc_libera_fosslinux:stikonas.eu: need tinycc build that has support for both riscv and x86</span></div><div class="line" id="030751"><span class="nick" style="color:#6d2462"><a href="#030751" label="[03:07:51]">&lt;fossy&gt;</a></span><span class="message">ah, ofc</span></div><div class="line" id="030804"><span class="nick" style="color:#6b8072"><a href="#030804" label="[03:08:04]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; If not that, it should work all the wau</span></div><div class="line" id="030900"><span class="nick" style="color:#6b8072"><a href="#030900" label="[03:09:00]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; See <a rel="nofollow" href="https://gitlab.com/janneke/tinycc/-/commit/ea3900f6d5e71776c5cfabcabee317652e3a19ee">https://gitlab.com/janneke/tinycc/-/commit/ea3900f6d5e71776c5cfabcabee317652e3a19ee</a> </span></div><div class="line" id="030910"><span class="nick" style="color:#6b8072"><a href="#030910" label="[03:09:10]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; It's just one commit</span></div><div class="line" id="030924"><span class="nick" style="color:#6b8072"><a href="#030924" label="[03:09:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; amd64 us more broken</span></div><div class="line" id="030948"><span class="nick" style="color:#6b8072"><a href="#030948" label="[03:09:48]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; (sorry for typos, writing from phone)</span></div><div class="line" id="031001"><span class="nick" style="color:#6d2462"><a href="#031001" label="[03:10:01]">&lt;fossy&gt;</a></span><span class="message">i still understand you, all good ;)</span></div><div class="line" id="031005"><span class="nick" style="color:#6d2462"><a href="#031005" label="[03:10:05]">&lt;fossy&gt;</a></span><span class="message">gotcha</span></div><div class="line" id="031055"><span class="nick" style="color:#6b8072"><a href="#031055" label="[03:10:55]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; riscv could be progressed by conditionally applying that patch I guess</span></div><div class="line" id="031118"><span class="nick" style="color:#6b8072"><a href="#031118" label="[03:11:18]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Though it would be nicer to have unified codebase</span></div><div class="line" id="034516"><span class="nick" style="color:#389600"><a href="#034516" label="[03:45:16]">&lt;jleightcap&gt;</a></span><span class="message">ah i386/x64 make total practical sense</span></div><div class="line" id="034555"><span class="nick" style="color:#389600"><a href="#034555" label="[03:45:55]">&lt;jleightcap&gt;</a></span><span class="message">cross-compiling from 32 onto 64 is clever! does that come for free?</span></div><div class="line" id="074913"><span class="nick" style="color:#234e69"><a href="#074913" label="[07:49:13]">&lt;janneke&gt;</a></span><span class="message">snuik: later tell stikonas: oh that's great news!</span></div><div class="line" id="074913"><span class="nick" style="color:#6c3d55"><a href="#074913" label="[07:49:13]">&lt;snuik&gt;</a></span><span class="message">Will do.</span></div><div class="line" id="074920"><span class="nick" style="color:#234e69"><a href="#074920" label="[07:49:20]">&lt;janneke&gt;</a></span><span class="message">snuik: botsnack!</span></div><div class="line" id="074921"><span class="nick" style="color:#6c3d55"><a href="#074921" label="[07:49:21]">&lt;snuik&gt;</a></span><span class="message">:)</span></div><div class="line" id="092506"><span class="nick" style="color:#d9d9d9"><a href="#092506" label="[09:25:06]">&lt;malina&gt;</a></span><span class="message">ye did that , as i think amd64 does'nt bootstrap yet or does it now?</span></div><div class="line" id="111007"><span class="nick" style="color:#6b8072"><a href="#111007" label="[11:10:07]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; amd64 has bugs (probably in mescc)</span></div><div class="line" id="111046"><span class="nick" style="color:#6b8072"><a href="#111046" label="[11:10:46]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; It can build tcc-mes binary on amd64</span></div><div class="line" id="111135"><span class="nick" style="color:#6b8072"><a href="#111135" label="[11:11:35]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; And that binary can build some C files but crashes on some other files and hence can't rebuild 2nd tcc binary</span></div><div class="line" id="111217"><span class="nick" style="color:#6b8072"><a href="#111217" label="[11:12:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Nobody is actively looking at it right no as far as I know</span></div><div class="line" id="111230"><span class="nick" style="color:#6b8072"><a href="#111230" label="[11:12:30]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; So feel free to investigate and debug</span></div><div class="line" id="111439"><span class="nick" style="color:#234e69"><a href="#111439" label="[11:14:39]">&lt;janneke&gt;</a></span><span class="message">stikonas, yeah guess that ekaitz (and efraim?) have been looking at that a bit while doing their riscv work</span></div><div class="line" id="111504"><span class="nick" style="color:#234e69"><a href="#111504" label="[11:15:04]">&lt;janneke&gt;</a></span><span class="message">but i believe this is still a know problem, it feels like &quot;almost there&quot;</span></div><div class="line" id="111628"><span class="nick" style="color:#bc80bd"><a href="#111628" label="[11:16:28]">&lt;ekaitz&gt;</a></span><span class="message">we have to make it better</span></div><div class="line" id="111634"><span class="nick" style="color:#bc80bd"><a href="#111634" label="[11:16:34]">&lt;ekaitz&gt;</a></span><span class="message">but i'm very busy :(</span></div><div class="line" id="114835"><span class="nick" style="color:#6b8072"><a href="#114835" label="[11:48:35]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yeah, I do think that it is almost there too</span></div><div class="line" id="114849"><span class="nick" style="color:#6b8072"><a href="#114849" label="[11:48:49]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I'm quite busy too though</span></div><div class="line" id="114942"><span class="nick" style="color:#6b8072"><a href="#114942" label="[11:49:42]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Still behind with reviews for fossy...</span></div><br /></div></body></html>

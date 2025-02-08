@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-12-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002301"><span class="nick" style="color:#389600"><a href="#002301" label="[00:23:01]">&lt;fossy&gt;</a></span><span class="message">who runs files.bootstrapping.world?</span></div><div class="line" id="002428"><span class="nick" style="color:#8dd3c7"><a href="#002428" label="[00:24:28]">&lt;stikonas_&gt;</a></span><span class="message">fossy: oriansj</span></div><div class="line" id="002438"><span class="nick" style="color:#2e2a4a"><a href="#002438" label="[00:24:38]">&lt;stikonas&gt;</a></span><span class="message">oh you need to add new files there?</span></div><div class="line" id="003015"><span class="nick" style="color:#389600"><a href="#003015" label="[00:30:15]">&lt;fossy&gt;</a></span><span class="message">nah, was just wondering if we could get http (non-https) access?</span></div><div class="line" id="003026"><span class="nick" style="color:#389600"><a href="#003026" label="[00:30:26]">&lt;fossy&gt;</a></span><span class="message">because atm it 403s http to https</span></div><div class="line" id="003049"><span class="nick" style="color:#2e2a4a"><a href="#003049" label="[00:30:49]">&lt;stikonas&gt;</a></span><span class="message">oh yeah, that's common advice in all configurations these days</span></div><div class="line" id="003104"><span class="nick" style="color:#389600"><a href="#003104" label="[00:31:04]">&lt;fossy&gt;</a></span><span class="message">yea, unfortunately not exactly ideal for us lol</span></div><div class="line" id="003109"><span class="nick" style="color:#2e2a4a"><a href="#003109" label="[00:31:09]">&lt;stikonas&gt;</a></span><span class="message">yeah...</span></div><div class="line" id="003120"><span class="nick" style="color:#2e2a4a"><a href="#003120" label="[00:31:20]">&lt;stikonas&gt;</a></span><span class="message">upstreams are also moving to https only...</span></div><div class="line" id="003154"><span class="nick" style="color:#2e2a4a"><a href="#003154" label="[00:31:54]">&lt;stikonas&gt;</a></span><span class="message">well, we do need to download over https when developing (adding / upgrading packages), even if we commit http url to sources</span></div><div class="line" id="003203"><span class="nick" style="color:#2e2a4a"><a href="#003203" label="[00:32:03]">&lt;stikonas&gt;</a></span><span class="message">but yes, http would be nice to have</span></div><div class="line" id="003217"><span class="nick" style="color:#2e2a4a"><a href="#003217" label="[00:32:17]">&lt;stikonas&gt;</a></span><span class="message">especially since later the process is checksummed</span></div><div class="line" id="004339"><span class="nick" style="color:#2e2a4a"><a href="#004339" label="[00:43:39]">&lt;stikonas&gt;</a></span><span class="message">well, having our own mirror network would workaround this https only issue</span></div><div class="line" id="004816"><span class="nick" style="color:#6b8072"><a href="#004816" label="[00:48:16]">&lt;jackdk&gt;</a></span><span class="message"> <a rel="nofollow" href="https://scotthelme.co.uk/we-dont-do-https-for-backwards-compatibility/">https://scotthelme.co.uk/we-dont-do-https-for-backwards-compatibility/</a>  What about `Content-Security-Policy: upgrade-insecure-requests` and configure the 301+HSTS only if the client sends `Upgrade-Insecure-Requests: 1`? Seems like a good blend of best practice and not shutting out HTTP clients</span></div><div class="line" id="004956"><span class="nick" style="color:#2e2a4a"><a href="#004956" label="[00:49:56]">&lt;stikonas&gt;</a></span><span class="message">jackdk: but some upstreams are very against any http support</span></div><div class="line" id="005003"><span class="nick" style="color:#2e2a4a"><a href="#005003" label="[00:50:03]">&lt;stikonas&gt;</a></span><span class="message">e.g. openssl was one of them</span></div><div class="line" id="005021"><span class="nick" style="color:#2e2a4a"><a href="#005021" label="[00:50:21]">&lt;stikonas&gt;</a></span><span class="message">perhaps unsurprising</span></div><div class="line" id="005034"><span class="nick" style="color:#2e2a4a"><a href="#005034" label="[00:50:34]">&lt;stikonas&gt;</a></span><span class="message">just as compilers often want to depend on their own language</span></div><div class="line" id="005407"><span class="nick" style="color:#6b8072"><a href="#005407" label="[00:54:07]">&lt;jackdk&gt;</a></span><span class="message">Yeah, that's about what I'd expect from them. But it does look like a reasonable configuration to use for any mirrors we stand up, and something to lobby for that doesn't stop modern clients from upgrading</span></div><div class="line" id="005642"><span class="nick" style="color:#80b1d3"><a href="#005642" label="[00:56:42]">&lt;homo&gt;</a></span><span class="message">alternatively it's possible to have proxy that strips s out of https...</span></div><div class="line" id="005739"><span class="nick" style="color:#2e2a4a"><a href="#005739" label="[00:57:39]">&lt;stikonas&gt;</a></span><span class="message">or that alternative p2p mirror network that we discussed...</span></div><div class="line" id="005747"><span class="nick" style="color:#2e2a4a"><a href="#005747" label="[00:57:47]">&lt;stikonas&gt;</a></span><span class="message">though that's quite a bit more work</span></div><div class="line" id="011829"><span class="nick" style="color:#6b8072"><a href="#011829" label="[01:18:29]">&lt;jackdk&gt;</a></span><span class="message">I argued on the github thread that HTTP mirrors are easiest and we can then use them at web seeds for torrents if we want to go P2P later</span></div><div class="line" id="013915"><span class="nick" style="color:#6d2462"><a href="#013915" label="[01:39:15]">&lt;aggi&gt;</a></span><span class="message">https/ssl protocol was broken before with the TLS transition excluding protocol versions/ciphers/hashes etc</span></div><div class="line" id="014126"><span class="nick" style="color:#6d2462"><a href="#014126" label="[01:41:26]">&lt;aggi&gt;</a></span><span class="message">another example, recently i tried to access codeberg with dbclient ssh and got rejected due to some server side protocol implementation flaw</span></div><div class="line" id="014515"><span class="nick" style="color:#6d2462"><a href="#014515" label="[01:45:15]">&lt;aggi&gt;</a></span><span class="message">various distfiles vanish quickly from gentoo mirrors, gladly gentoo is keeping many(!) hashes/checksums inside their portage tree</span></div><div class="line" id="014553"><span class="nick" style="color:#6d2462"><a href="#014553" label="[01:45:53]">&lt;aggi&gt;</a></span><span class="message">but i've spotted mismatches once or twice with some tar.gz fetched from github.com already</span></div><div class="line" id="014727"><span class="nick" style="color:#6d2462"><a href="#014727" label="[01:47:27]">&lt;aggi&gt;</a></span><span class="message">too gentoo got a separate portage tree archive, for distfiles up until year 2013 with manifest/hashes</span></div><div class="line" id="014825"><span class="nick" style="color:#6d2462"><a href="#014825" label="[01:48:25]">&lt;aggi&gt;</a></span><span class="message">sometimes it's not easy to spot specific versions with git log, nonetheless they probably hashed almost each and every single distfile version that existed</span></div><div class="line" id="015137"><span class="nick" style="color:#6d2462"><a href="#015137" label="[01:51:37]">&lt;aggi&gt;</a></span><span class="message">redhat/fedora/centos bundles variou source-dvd.iso with various releases</span></div><div class="line" id="015359"><span class="nick" style="color:#6d2462"><a href="#015359" label="[01:53:59]">&lt;aggi&gt;</a></span><span class="message">i downloaded the redhat9,fedora7,centos6; and i quit syncing gentoo distfiles year 2022 when my 1.5TiB raid hit out-of-space with it</span></div><div class="line" id="015530"><span class="nick" style="color:#6d2462"><a href="#015530" label="[01:55:30]">&lt;aggi&gt;</a></span><span class="message">a day ago, i tried to find various versions of iptables/iputils/networking-utils that matched linux-2.x abi</span></div><div class="line" id="015605"><span class="nick" style="color:#6d2462"><a href="#015605" label="[01:56:05]">&lt;aggi&gt;</a></span><span class="message">some of this already vanished from official mirrors, but i could find what was needed</span></div><div class="line" id="015856"><span class="nick" style="color:#6d2462"><a href="#015856" label="[01:58:56]">&lt;aggi&gt;</a></span><span class="message">currently i am backporting yet another patch to linux-2.4, that redhat missed for full unicode support for linux console</span></div><div class="line" id="015938"><span class="nick" style="color:#6d2462"><a href="#015938" label="[01:59:38]">&lt;aggi&gt;</a></span><span class="message">since i've begun runtime-testing of i486-tcc-linux-musl.iso distribution</span></div><div class="line" id="020351"><span class="nick" style="color:#6d2462"><a href="#020351" label="[02:03:51]">&lt;aggi&gt;</a></span><span class="message">i need to backport nilfs2 to linux-2.4 soon, seeing to this does work, because to my knowledge this is the only filesystem with 64bit timestamps that linux-2.4 may support</span></div><div class="line" id="020517"><span class="nick" style="color:#6d2462"><a href="#020517" label="[02:05:17]">&lt;aggi&gt;</a></span><span class="message">while ago i've written a tiny fsck/valseg utility for nilfs2, that verifies all segment crc, which greatly raises confidence into what was stored for archival</span></div><div class="line" id="021316"><span class="nick" style="color:#6d2462"><a href="#021316" label="[02:13:16]">&lt;aggi&gt;</a></span><span class="message">i gained a little insight into nilfs2 administration, from a practical standpoint</span></div><div class="line" id="021504"><span class="nick" style="color:#6d2462"><a href="#021504" label="[02:15:04]">&lt;aggi&gt;</a></span><span class="message">if the snapshot/checkpoint feature was desireable, which it is, the garbage-collector must be activated, with a long protection-period, which mustn't be altered</span></div><div class="line" id="021607"><span class="nick" style="color:#6d2462"><a href="#021607" label="[02:16:07]">&lt;aggi&gt;</a></span><span class="message">i still need to do a little forensics, why some linux-5.10 with a nilfs2 rootfs is leaking disk-space continously</span></div><div class="line" id="021627"><span class="nick" style="color:#6d2462"><a href="#021627" label="[02:16:27]">&lt;aggi&gt;</a></span><span class="message">that's something which isn't noticable with any other filesystem</span></div><div class="line" id="021705"><span class="nick" style="color:#6d2462"><a href="#021705" label="[02:17:05]">&lt;aggi&gt;</a></span><span class="message">ideally i can fully fully transition my development host back onto linux-2.x soon</span></div><div class="line" id="171452"><span class="nick" style="color:#234e69"><a href="#171452" label="[17:14:52]">&lt;mid-kid&gt;</a></span><span class="message">Trying to update the gentoo bootstrap, building gcc:14 using the supplied gcc:13 isn't going so well</span></div><div class="line" id="171530"><span class="nick" style="color:#234e69"><a href="#171530" label="[17:15:30]">&lt;mid-kid&gt;</a></span><span class="message">wonder if anyone has tried building gcc 14 on live-bootstrap yet</span></div><div class="line" id="171556"><span class="nick" style="color:#234e69"><a href="#171556" label="[17:15:56]">&lt;mid-kid&gt;</a></span><span class="message">something about dynamic relocations in a read-only segment</span></div><div class="line" id="171613"><span class="nick" style="color:#234e69"><a href="#171613" label="[17:16:13]">&lt;mid-kid&gt;</a></span><span class="message">I assume something hasn't been properly compiled with -fPIC when it should've</span></div><div class="line" id="171949"><span class="nick" style="color:#2e2a4a"><a href="#171949" label="[17:19:49]">&lt;stikonas&gt;</a></span><span class="message">no, I haven't tried building GCC 14 there</span></div><div class="line" id="172017"><span class="nick" style="color:#2e2a4a"><a href="#172017" label="[17:20:17]">&lt;stikonas&gt;</a></span><span class="message">I guess as a short term workaround you could try to build Gentoo with gcc:13</span></div><div class="line" id="172029"><span class="nick" style="color:#2e2a4a"><a href="#172029" label="[17:20:29]">&lt;stikonas&gt;</a></span><span class="message">and then use gentoo scripts to update to GCC 14...</span></div><div class="line" id="172146"><span class="nick" style="color:#234e69"><a href="#172146" label="[17:21:46]">&lt;mid-kid&gt;</a></span><span class="message">yeah I was thinking of something like that but eh</span></div><div class="line" id="172159"><span class="nick" style="color:#234e69"><a href="#172159" label="[17:21:59]">&lt;mid-kid&gt;</a></span><span class="message">I'll look into it for a bit</span></div><div class="line" id="172217"><span class="nick" style="color:#234e69"><a href="#172217" label="[17:22:17]">&lt;mid-kid&gt;</a></span><span class="message">but my uncle is complaining about the computer's noise so I'll have to resume after the holidays</span></div><div class="line" id="172340"><span class="nick" style="color:#2e2a4a"><a href="#172340" label="[17:23:40]">&lt;stikonas&gt;</a></span><span class="message">yeah, that's fine...</span></div><div class="line" id="230650"><span class="nick" style="color:#234e69"><a href="#230650" label="[23:06:50]">&lt;mid-kid&gt;</a></span><span class="message">.fave</span></div><div class="line" id="230655"><span class="nick" style="color:#234e69"><a href="#230655" label="[23:06:55]">&lt;mid-kid&gt;</a></span><span class="message">wrong channel</span></div><div class="line" id="231635"><span class="nick" style="color:#6c3d55"><a href="#231635" label="[23:16:35]">&lt;Googulator&gt;</a></span><span class="message">mid-kid: Merry Christmas! :)</span></div><br /></div></body></html>

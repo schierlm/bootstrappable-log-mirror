@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-10-23.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001436"><span class="nick" style="color:#389600"><a href="#001436" label="[00:14:36]">&lt;mihi&gt;</a></span><span class="message">stikonas, the main difference between &quot;jecxz&quot; and &quot;cmp ecx, 0; je&quot; (or more often &quot;or ecx, ecx; jz&quot;) is that the former does not clobber the flags. Looking at the code, assuming that __sigsetjmp is entry point of sigsetjump function, I don't see why that would be needed.</span></div><div class="line" id="001543"><span class="nick" style="color:#8dd3c7"><a href="#001543" label="[00:15:43]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; mihi: well, it was tcc failing to compile it</span></div><div class="line" id="001548"><span class="nick" style="color:#8dd3c7"><a href="#001548" label="[00:15:48]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Not sure why</span></div><div class="line" id="001550"><span class="nick" style="color:#389600"><a href="#001550" label="[00:15:50]">&lt;mihi&gt;</a></span><span class="message">aggi, most likely the segfault is caused by the previous instruction which reads an argument from the stack.</span></div><div class="line" id="001612"><span class="nick" style="color:#8dd3c7"><a href="#001612" label="[00:16:12]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But these patches are from very early times in live bootstrap</span></div><div class="line" id="001638"><span class="nick" style="color:#8dd3c7"><a href="#001638" label="[00:16:38]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; There were more but I cleaned up at least one hack already</span></div><div class="line" id="002017"><span class="nick" style="color:#389600"><a href="#002017" label="[00:20:17]">&lt;mihi&gt;</a></span><span class="message">aggi, the &quot;1f&quot; does not refer to the hex value, it is a &quot;forward label&quot;, jump to the next label 1 that is found forward in the code..</span></div><div class="line" id="002037"><span class="nick" style="color:#389600"><a href="#002037" label="[00:20:37]">&lt;mihi&gt;</a></span><span class="message">it allows to use the same label more than once in the full assembly code.</span></div><div class="line" id="002128"><span class="nick" style="color:#389600"><a href="#002128" label="[00:21:28]">&lt;mihi&gt;</a></span><span class="message">the label is in line 13 here (assuming the source being the same: <a rel="nofollow" href="http://nsz.repo.hu/git/?p=musl;a=blob;f=src/signal/i386/sigsetjmp.s;h=0e7eefb09530caddbad28c947b9e334cafda62f9;hb=0b44a0315b47dd8eced9f3b7f31580cf14bbfc01#l13">http://nsz.repo.hu/git/?p=musl;a=blob;f=src/signal/i386/sigsetjmp.s;h=0e7eefb09530caddbad28c947b9e334cafda62f9;hb=0b44a0315b47dd8eced9f3b7f31580cf14bbfc01#l13</a>) </span></div><div class="line" id="002518"><span class="nick" style="color:#389600"><a href="#002518" label="[00:25:18]">&lt;mihi&gt;</a></span><span class="message">stikonas, I'm pretty sure your fix is correct. And I assume that the problem is that jecxz is not available with wider relative offset than 8 bit, so if the code between the jump and the label ends up to be more than 128 bytes, there is no way to correctly assemble it. Or maybe tcc miscalculated the jump. je, on the other hand, is available in all &quot;widths&quot;.</span></div><div class="line" id="013557"><span class="nick" style="color:#2e2a4a"><a href="#013557" label="[01:35:57]">&lt;stikonas&gt;</a></span><span class="message">well, that jump should be fairly short</span></div><div class="line" id="013601"><span class="nick" style="color:#2e2a4a"><a href="#013601" label="[01:36:01]">&lt;stikonas&gt;</a></span><span class="message">it's just a few assembly lines</span></div><div class="line" id="013820"><span class="nick" style="color:#2e2a4a"><a href="#013820" label="[01:38:20]">&lt;stikonas&gt;</a></span><span class="message">at least with gcc, it's a jump from 0x4 to 0x2a</span></div><div class="line" id="153042"><span class="nick" style="color:#6b8072"><a href="#153042" label="[15:30:42]">&lt;aggi&gt;</a></span><span class="message">stikonas: i've found the problem and the solution to sigsetjump.patch for musl-libc-1.x</span></div><div class="line" id="153054"><span class="nick" style="color:#6b8072"><a href="#153054" label="[15:30:54]">&lt;aggi&gt;</a></span><span class="message">it's almost trivial</span></div><div class="line" id="153128"><span class="nick" style="color:#6b8072"><a href="#153128" label="[15:31:28]">&lt;aggi&gt;</a></span><span class="message">however, i have no clue how this bug couldn't have been triggered before, with the patch applied, to support tcc with musl-libc</span></div><div class="line" id="153155"><span class="nick" style="color:#6b8072"><a href="#153155" label="[15:31:55]">&lt;aggi&gt;</a></span><span class="message">all of the sudden i'm encountering runtime segfaults, while maintaining ~500ebuilds for support with tcc-toolchain</span></div><div class="line" id="153258"><span class="nick" style="color:#6b8072"><a href="#153258" label="[15:32:58]">&lt;aggi&gt;</a></span><span class="message">that's a problem, because i have to prioritize time and effort for each individual ebuild</span></div><div class="line" id="153358"><span class="nick" style="color:#6b8072"><a href="#153358" label="[15:33:58]">&lt;aggi&gt;</a></span><span class="message">which raises the question, how such a libc patch could have passed, because it reliably segfaulted bash and oksh</span></div><div class="line" id="153436"><span class="nick" style="color:#6b8072"><a href="#153436" label="[15:34:36]">&lt;aggi&gt;</a></span><span class="message">anyway</span></div><div class="line" id="170315"><span class="nick" style="color:#8dd3c7"><a href="#170315" label="[17:03:15]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Well, it didn't segfault on bash scripts that were run on live bootstrap</span></div><div class="line" id="170323"><span class="nick" style="color:#8dd3c7"><a href="#170323" label="[17:03:23]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I guess we don't run that much</span></div><div class="line" id="170413"><span class="nick" style="color:#8dd3c7"><a href="#170413" label="[17:04:13]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Anyway, we still don't know what the issue was unless you share your fix</span></div><div class="line" id="170920"><span class="nick" style="color:#6b8072"><a href="#170920" label="[17:09:20]">&lt;aggi&gt;</a></span><span class="message">stikonas: cmp $0,%ecx</span></div><div class="line" id="171423"><span class="nick" style="color:#6b8072"><a href="#171423" label="[17:14:23]">&lt;aggi&gt;</a></span><span class="message">anyway, i got ~500ebuilds passed compile-time with tcc-toolchain statically linked (except kernel, except whatever would segfault run-time)</span></div><div class="line" id="171502"><span class="nick" style="color:#6b8072"><a href="#171502" label="[17:15:02]">&lt;aggi&gt;</a></span><span class="message">including monstrosities such as mplayer, mutt mailer, and a few development utilities</span></div><div class="line" id="171538"><span class="nick" style="color:#6b8072"><a href="#171538" label="[17:15:38]">&lt;aggi&gt;</a></span><span class="message">i think, i486-tcc-linux-musl.iso is feasible, to utilize that as development host, including whatever bootstrappable was interested in</span></div><div class="line" id="171623"><span class="nick" style="color:#6b8072"><a href="#171623" label="[17:16:23]">&lt;aggi&gt;</a></span><span class="message">sadly, this is what i'll continue with next, i can't statically link python and perl with tcc, not yet</span></div><div class="line" id="172006"><span class="nick" style="color:#6b8072"><a href="#172006" label="[17:20:06]">&lt;aggi&gt;</a></span><span class="message">replacing ncurses with netbsd-curses, another one</span></div><div class="line" id="172210"><span class="nick" style="color:#6b8072"><a href="#172210" label="[17:22:10]">&lt;aggi&gt;</a></span><span class="message">maybe the hotfix too was related to dynamic /lib/ld-linux.so loader segfaulting</span></div><div class="line" id="172241"><span class="nick" style="color:#6b8072"><a href="#172241" label="[17:22:41]">&lt;aggi&gt;</a></span><span class="message">don't know yet, but if i got back dynamic linking support, i too can salvage perl/python/portage/autotools</span></div><div class="line" id="172408"><span class="nick" style="color:#6b8072"><a href="#172408" label="[17:24:08]">&lt;aggi&gt;</a></span><span class="message">ssl.h sucks too, to keep it leightweight and comprehensible</span></div><div class="line" id="172424"><span class="nick" style="color:#6b8072"><a href="#172424" label="[17:24:24]">&lt;aggi&gt;</a></span><span class="message">but that's outside the realm of interest of bootstrappable</span></div><div class="line" id="172450"><span class="nick" style="color:#8dd3c7"><a href="#172450" label="[17:24:50]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Oh it was comparing address 0</span></div><div class="line" id="172453"><span class="nick" style="color:#8dd3c7"><a href="#172453" label="[17:24:53]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Hmm</span></div><div class="line" id="172512"><span class="nick" style="color:#8dd3c7"><a href="#172512" label="[17:25:12]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I can't understand how anything could have worked there then</span></div><div class="line" id="172619"><span class="nick" style="color:#8dd3c7"><a href="#172619" label="[17:26:19]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Even if we don't run much</span></div><div class="line" id="172640"><span class="nick" style="color:#8dd3c7"><a href="#172640" label="[17:26:40]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Unless we never used sigsetjmp function...</span></div><div class="line" id="172706"><span class="nick" style="color:#6b8072"><a href="#172706" label="[17:27:06]">&lt;aggi&gt;</a></span><span class="message">gdb-7.12 compiled/linked with tcc segfaulted too, maybe that's gone too now ... i don't want to miss gdb</span></div><div class="line" id="172708"><span class="nick" style="color:#8dd3c7"><a href="#172708" label="[17:27:08]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Oh, bash was built before musl</span></div><div class="line" id="172716"><span class="nick" style="color:#8dd3c7"><a href="#172716" label="[17:27:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; So that's plausible</span></div><div class="line" id="173036"><span class="nick" style="color:#6b8072"><a href="#173036" label="[17:30:36]">&lt;aggi&gt;</a></span><span class="message">i'll launch another crossdev, with the patch applied, seeing to what happens next</span></div><div class="line" id="173106"><span class="nick" style="color:#6b8072"><a href="#173106" label="[17:31:06]">&lt;aggi&gt;</a></span><span class="message">fyi, i patched tcc itself, to sanitize header/lib search paths for cross-compilation, to ensure 100% nothing is leaking from host into target</span></div><div class="line" id="173210"><span class="nick" style="color:#6b8072"><a href="#173210" label="[17:32:10]">&lt;aggi&gt;</a></span><span class="message">which is what disclosed a few more irregularities, including the sigsetjmp, because host libc linkaged leaked into target before</span></div><div class="line" id="173244"><span class="nick" style="color:#6b8072"><a href="#173244" label="[17:32:44]">&lt;aggi&gt;</a></span><span class="message">while i can ensure linkage against a 100% sanitized tcc crossdev-root</span></div><div class="line" id="173957"><span class="nick" style="color:#6b8072"><a href="#173957" label="[17:39:57]">&lt;aggi&gt;</a></span><span class="message">Your IP address &lt;***&gt; has been blocked for violating the dpaste.com Terms of Service... wtf</span></div><div class="line" id="173959"><span class="nick" style="color:#6b8072"><a href="#173959" label="[17:39:59]">&lt;aggi&gt;</a></span><span class="message"> <a rel="nofollow" href="http://dpaste.com/DAFD6DYW4">http://dpaste.com/DAFD6DYW4</a> </span></div><div class="line" id="174108"><span class="nick" style="color:#6b8072"><a href="#174108" label="[17:41:08]">&lt;aggi&gt;</a></span><span class="message">^ with this you can override CPATH and LIBRARAY_PATH to ensure nothing leaked from HOST into TARGET</span></div><div class="line" id="174135"><span class="nick" style="color:#6b8072"><a href="#174135" label="[17:41:35]">&lt;aggi&gt;</a></span><span class="message">assuming you knew what you were doing while testing your patches</span></div><div class="line" id="174233"><span class="nick" style="color:#6b8072"><a href="#174233" label="[17:42:33]">&lt;aggi&gt;</a></span><span class="message">because, i had hit the sigsetjump segfault when the tcc crossdev-root was fully sanitized to prevent leakage</span></div><div class="line" id="174247"><span class="nick" style="color:#6b8072"><a href="#174247" label="[17:42:47]">&lt;aggi&gt;</a></span><span class="message">before, chances were, host libc was linked against instead of target libc</span></div><div class="line" id="174254"><span class="nick" style="color:#6b8072"><a href="#174254" label="[17:42:54]">&lt;aggi&gt;</a></span><span class="message">stikonas: maybe that's why ?</span></div><div class="line" id="184215"><span class="nick" style="color:#8dd3c7"><a href="#184215" label="[18:42:15]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; No, there is no way host libc was used  in live bootstrap</span></div><div class="line" id="184225"><span class="nick" style="color:#8dd3c7"><a href="#184225" label="[18:42:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; We were testing it in qemu</span></div><div class="line" id="184258"><span class="nick" style="color:#8dd3c7"><a href="#184258" label="[18:42:58]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; So bare kernel and just initramfs with bootstrap seeds and sources</span></div><div class="line" id="234047"><span class="nick" style="color:#6b8072"><a href="#234047" label="[23:40:47]">&lt;aggi&gt;</a></span><span class="message">with the minor change to sigsetjump, a gdb-7.12 statically compiled/linked with tcc too works it seems, no more segfault</span></div><div class="line" id="234317"><span class="nick" style="color:#6b8072"><a href="#234317" label="[23:43:17]">&lt;aggi&gt;</a></span><span class="message">i have to see, maybe musl libc.so dynamic loader won't segfault anymore either, and i got back dynamic linking/loading support then</span></div><br /></div></body></html>

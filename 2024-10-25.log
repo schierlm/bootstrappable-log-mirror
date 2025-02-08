@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-10-25.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000138"><span class="nick" style="color:#389600"><a href="#000138" label="[00:01:38]">&lt;aggi&gt;</a></span><span class="message">i did check live-bootstrap tree for perl too, but i keep ~500ebuilds in maintenance here and ocassionally missed one or another spot</span></div><div class="line" id="000407"><span class="nick" style="color:#389600"><a href="#000407" label="[00:04:07]">&lt;aggi&gt;</a></span><span class="message">seems the python-3.8.16 pass1.sh bothers with lib-dynload, which wouldn't be supported by tcc/static, besides tcc-assembler couldn't digest some mnemonics that python uses</span></div><div class="line" id="000413"><span class="nick" style="color:#389600"><a href="#000413" label="[00:04:13]">&lt;aggi&gt;</a></span><span class="message">libffi iirc</span></div><div class="line" id="000502"><span class="nick" style="color:#389600"><a href="#000502" label="[00:05:02]">&lt;aggi&gt;</a></span><span class="message">thing is, i'm less concerned about python/portage, that's not too challenging, but i scripted my whole workflow around gentoo crossdev</span></div><div class="line" id="000550"><span class="nick" style="color:#389600"><a href="#000550" label="[00:05:50]">&lt;aggi&gt;</a></span><span class="message">and that's one i will be missing</span></div><div class="line" id="000635"><span class="nick" style="color:#389600"><a href="#000635" label="[00:06:35]">&lt;aggi&gt;</a></span><span class="message">my focus is a full transition towards a tcc-toolchain only system (plus binutils required for 16bit real-mode asm)</span></div><div class="line" id="000700"><span class="nick" style="color:#389600"><a href="#000700" label="[00:07:00]">&lt;aggi&gt;</a></span><span class="message">and this one is x86-exclusive anyway</span></div><div class="line" id="000734"><span class="nick" style="color:#389600"><a href="#000734" label="[00:07:34]">&lt;aggi&gt;</a></span><span class="message">even when risc-v progress is made with tcc, i don't see a chance to compile any recent linux-5.x/6.x kernel version with tcc ever that risc-v would need</span></div><div class="line" id="000837"><span class="nick" style="color:#389600"><a href="#000837" label="[00:08:37]">&lt;aggi&gt;</a></span><span class="message">hence the python/portage/crossdev issue isn't critical, since there isn't any supported target other than x86 to transition to anyway</span></div><div class="line" id="000841"><span class="nick" style="color:#389600"><a href="#000841" label="[00:08:41]">&lt;aggi&gt;</a></span><span class="message">with tcc that is</span></div><div class="line" id="001034"><span class="nick" style="color:#389600"><a href="#001034" label="[00:10:34]">&lt;aggi&gt;</a></span><span class="message">however, maybe the best approach would be, to spawn the full live-bootstrap seeding from i486-tcc-linux-musl.iso</span></div><div class="line" id="001105"><span class="nick" style="color:#389600"><a href="#001105" label="[00:11:05]">&lt;aggi&gt;</a></span><span class="message">and reastablishing a gentoo-crossdev atop of that, with a verified/clean bootstrapping process for it</span></div><div class="line" id="001222"><span class="nick" style="color:#389600"><a href="#001222" label="[00:12:22]">&lt;aggi&gt;</a></span><span class="message">because i don't want to loose the flexibility to transition to arm/risc whatever, and this is what crossdev is good at</span></div><div class="line" id="001308"><span class="nick" style="color:#389600"><a href="#001308" label="[00:13:08]">&lt;aggi&gt;</a></span><span class="message">so, i'll get perl with tcc/statick back on board this week, since it is known-good among #bootstrappable i can trust</span></div><div class="line" id="001422"><span class="nick" style="color:#389600"><a href="#001422" label="[00:14:22]">&lt;aggi&gt;</a></span><span class="message">and then, back to kernel+tcc, the linux-2.4 hackjob, don't know yet if musl-libc interacts with this kernel version</span></div><div class="line" id="001626"><span class="nick" style="color:#389600"><a href="#001626" label="[00:16:26]">&lt;aggi&gt;</a></span><span class="message">another question: to my knowledge a gentoo/portage bootstrap was feasible with live-bootstrap</span></div><div class="line" id="001700"><span class="nick" style="color:#8dd3c7"><a href="#001700" label="[00:17:00]">&lt;daddy&gt;</a></span><span class="message">stikonas: interesting, we had a dead mirror in stagex for openssl 1.1.1.</span></div><div class="line" id="001716"><span class="nick" style="color:#2e2a4a"><a href="#001716" label="[00:17:16]">&lt;stikonas&gt;</a></span><span class="message">proably just moved to different url</span></div><div class="line" id="001721"><span class="nick" style="color:#8dd3c7"><a href="#001721" label="[00:17:21]">&lt;daddy&gt;</a></span><span class="message">stikonas: might be related to the archive.org outage. does princeton's mirror have 3.whatever? <a rel="nofollow" href="https://codeberg.org/stagex/stagex/commit/02f339cbc9decb9d56db9b48a5734fc4b4744da6">https://codeberg.org/stagex/stagex/commit/02f339cbc9decb9d56db9b48a5734fc4b4744da6</a> </span></div><div class="line" id="001723"><span class="nick" style="color:#2e2a4a"><a href="#001723" label="[00:17:23]">&lt;stikonas&gt;</a></span><span class="message">like old.openssl.org</span></div><div class="line" id="001913"><span class="nick" style="color:#389600"><a href="#001913" label="[00:19:13]">&lt;aggi&gt;</a></span><span class="message">however, i haven't got python itself with tcc/static-linking, and live-bootstrap relies upon python</span></div><div class="line" id="001917"><span class="nick" style="color:#8dd3c7"><a href="#001917" label="[00:19:17]">&lt;daddy&gt;</a></span><span class="message">going to openssl.org points to openssl-libary.org which points to github archives</span></div><div class="line" id="002548"><span class="nick" style="color:#389600"><a href="#002548" label="[00:25:48]">&lt;aggi&gt;</a></span><span class="message">python is problematic (cross-compilation, static linking, tcc), it's not a showstopper such as perl/autotools would have been</span></div><div class="line" id="002614"><span class="nick" style="color:#389600"><a href="#002614" label="[00:26:14]">&lt;aggi&gt;</a></span><span class="message">gladly there seems not much that is written in python for live-bootstrap</span></div><div class="line" id="003308"><span class="nick" style="color:#389600"><a href="#003308" label="[00:33:08]">&lt;aggi&gt;</a></span><span class="message">as far as libre/openssl are concerned, i did a test-run against wolfssl last week, but this can't avoid the ssl.h api related issues</span></div><div class="line" id="003357"><span class="nick" style="color:#389600"><a href="#003357" label="[00:33:57]">&lt;aggi&gt;</a></span><span class="message">as soon as there's an #include &lt;ssl.h&gt; fun begins, with any libre/open/wolfssl, but this is what most pkgs need</span></div><div class="line" id="003445"><span class="nick" style="color:#389600"><a href="#003445" label="[00:34:45]">&lt;aggi&gt;</a></span><span class="message">bearssl is much easier to handle, but it doesn't implement the entire ssl.h api, that's why it's much simpler</span></div><div class="line" id="003544"><span class="nick" style="color:#389600"><a href="#003544" label="[00:35:44]">&lt;aggi&gt;</a></span><span class="message">but i don't see a realistic chance to avoid ssl.h, although curl supports bearssl for example, there's several dozen other pkgs that would need extensive re-write for a clean tls api/library such as bearssl</span></div><div class="line" id="003934"><span class="nick" style="color:#389600"><a href="#003934" label="[00:39:34]">&lt;aggi&gt;</a></span><span class="message">so far this question is answered, i'll have to avoid python when focussing on the tcc/static system-profile</span></div><div class="line" id="004019"><span class="nick" style="color:#389600"><a href="#004019" label="[00:40:19]">&lt;aggi&gt;</a></span><span class="message">python can be bootstrapped, but it's not self-hosting with tcc/static itself, ok.</span></div><div class="line" id="004206"><span class="nick" style="color:#389600"><a href="#004206" label="[00:42:06]">&lt;aggi&gt;</a></span><span class="message">so, the most realistic approach to spawn i486-tcc-linux-musl.iso atop/with live-bootstrap is re-writing the python-scripting (rootfs.py)</span></div><div class="line" id="004209"><span class="nick" style="color:#389600"><a href="#004209" label="[00:42:09]">&lt;aggi&gt;</a></span><span class="message">which is feasible</span></div><div class="line" id="004242"><span class="nick" style="color:#389600"><a href="#004242" label="[00:42:42]">&lt;aggi&gt;</a></span><span class="message">the biggest show-stopper is linux-2.x/tcc still</span></div><div class="line" id="010253"><span class="nick" style="color:#2e2a4a"><a href="#010253" label="[01:02:53]">&lt;stikonas&gt;</a></span><span class="message">as for building python with gcc, I don't have much insight here...</span></div><div class="line" id="010304"><span class="nick" style="color:#2e2a4a"><a href="#010304" label="[01:03:04]">&lt;stikonas&gt;</a></span><span class="message">s/gcc/tcc/</span></div><div class="line" id="010313"><span class="nick" style="color:#2e2a4a"><a href="#010313" label="[01:03:13]">&lt;stikonas&gt;</a></span><span class="message">haven't tried for more than a few minutes</span></div><div class="line" id="010405"><span class="nick" style="color:#2e2a4a"><a href="#010405" label="[01:04:05]">&lt;stikonas&gt;</a></span><span class="message">and python really needs dynamic linking for some stuff</span></div><div class="line" id="041348"><span class="nick" style="color:#389600"><a href="#041348" label="[04:13:48]">&lt;aggi&gt;</a></span><span class="message">README.rst &quot;Without using Python&quot;, well, ok.</span></div><div class="line" id="041400"><span class="nick" style="color:#389600"><a href="#041400" label="[04:14:00]">&lt;aggi&gt;</a></span><span class="message">my mistake</span></div><div class="line" id="041723"><span class="nick" style="color:#389600"><a href="#041723" label="[04:17:23]">&lt;aggi&gt;</a></span><span class="message">to my understanding this part is sufficiently stable and completed by #bootstrappable</span></div><div class="line" id="041954"><span class="nick" style="color:#389600"><a href="#041954" label="[04:19:54]">&lt;aggi&gt;</a></span><span class="message">and it's an almost trivial fork to stop at a working tcc-toolchain emitted; so i can skip the gcc related parts completely, and proceed with my i486-tcc_static-linux-musl.iso scripting</span></div><div class="line" id="042025"><span class="nick" style="color:#389600"><a href="#042025" label="[04:20:25]">&lt;aggi&gt;</a></span><span class="message">this however, i have to rewrite, because i did the whole tracking with gentoo-crossdev and python is gone indefinitely</span></div><div class="line" id="042036"><span class="nick" style="color:#389600"><a href="#042036" label="[04:20:36]">&lt;aggi&gt;</a></span><span class="message">no big issue</span></div><div class="line" id="042116"><span class="nick" style="color:#389600"><a href="#042116" label="[04:21:16]">&lt;aggi&gt;</a></span><span class="message">then this yields a BUILDHOST with tcc, and this one can bootstrapp gcc/binutils/python/crossdev towards any desireable target</span></div><div class="line" id="042240"><span class="nick" style="color:#389600"><a href="#042240" label="[04:22:40]">&lt;aggi&gt;</a></span><span class="message">except a bootable linux-2.x/tcc kernel (or any later although i have doubts this is feasible, others failed before)</span></div><div class="line" id="042947"><span class="nick" style="color:#389600"><a href="#042947" label="[04:29:47]">&lt;aggi&gt;</a></span><span class="message">fyi, i just did git-commit and tag tcc-toolchain for the complete set of ~500 ebuilds i was tracking, i already got a root.squashfs for this</span></div><div class="line" id="043031"><span class="nick" style="color:#389600"><a href="#043031" label="[04:30:31]">&lt;aggi&gt;</a></span><span class="message">but i can't boot this with a kernel that compiled/linked with tcc, not yet</span></div><div class="line" id="043228"><span class="nick" style="color:#389600"><a href="#043228" label="[04:32:28]">&lt;aggi&gt;</a></span><span class="message">that's two big tasks remaining mainly for me: 1) rewriting the crossdev/portage scripting, that's not an all at once so i can do this gradually for those ~500 ebuilds beginning with crucial development utils, even gdb-7.12 compiled/linked with tcc seems to work now, since the cmp $0 patch was applied</span></div><div class="line" id="043259"><span class="nick" style="color:#389600"><a href="#043259" label="[04:32:59]">&lt;aggi&gt;</a></span><span class="message">and 2) thats a total show-stopper currently, linux-2.x/tcc</span></div><div class="line" id="043327"><span class="nick" style="color:#389600"><a href="#043327" label="[04:33:27]">&lt;aggi&gt;</a></span><span class="message">if and once this is completed, there's a candidate for a bootstrappable tcc distro</span></div><div class="line" id="043530"><span class="nick" style="color:#389600"><a href="#043530" label="[04:35:30]">&lt;aggi&gt;</a></span><span class="message">something which was missing for decades</span></div><div class="line" id="192647"><span class="nick" style="color:#2e2a4a"><a href="#192647" label="[19:26:47]">&lt;stikonas&gt;</a></span><span class="message">Googulator27: any thoughts about what to do with openssl?</span></div><div class="line" id="192657"><span class="nick" style="color:#2e2a4a"><a href="#192657" label="[19:26:57]">&lt;stikonas&gt;</a></span><span class="message">archive.org link is not working...</span></div><div class="line" id="193117"><span class="nick" style="color:#6b8072"><a href="#193117" label="[19:31:17]">&lt;Googulator&gt;</a></span><span class="message">hmm...</span></div><div class="line" id="193122"><span class="nick" style="color:#6b8072"><a href="#193122" label="[19:31:22]">&lt;Googulator&gt;</a></span><span class="message">what version do we need now?</span></div><div class="line" id="193545"><span class="nick" style="color:#80b1d3"><a href="#193545" label="[19:35:45]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; 3.0.13</span></div><div class="line" id="193554"><span class="nick" style="color:#2e2a4a"><a href="#193554" label="[19:35:54]">&lt;stikonas&gt;</a></span><span class="message">the link was <a rel="nofollow" href="http://web.archive.org/web/20240213065706im_/https://www.openssl.org/source/openssl-3.0.13.tar.gz">http://web.archive.org/web/20240213065706im_/https://www.openssl.org/source/openssl-3.0.13.tar.gz</a> </span></div><div class="line" id="193811"><span class="nick" style="color:#2e2a4a"><a href="#193811" label="[19:38:11]">&lt;stikonas&gt;</a></span><span class="message">but I guess that's flexible...</span></div><div class="line" id="193831"><span class="nick" style="color:#2e2a4a"><a href="#193831" label="[19:38:31]">&lt;stikonas&gt;</a></span><span class="message">See <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/481">https://github.com/fosslinux/live-bootstrap/pull/481</a>  for failed CI...</span></div><div class="line" id="194925"><span class="nick" style="color:#6d2462"><a href="#194925" label="[19:49:25]">&lt;lanodan&gt;</a></span><span class="message">3.0.13 should be available on <a rel="nofollow" href="https://distfiles.gentoo.org/distfiles/c0/openssl-3.0.13.tar.gz">https://distfiles.gentoo.org/distfiles/c0/openssl-3.0.13.tar.gz</a>  for a bit at least, does openssl not keep archived versions?</span></div><div class="line" id="195134"><span class="nick" style="color:#6d2462"><a href="#195134" label="[19:51:34]">&lt;lanodan&gt;</a></span><span class="message">Same hash as <a rel="nofollow" href="https://github.com/openssl/openssl/releases/download/openssl-3.0.13/openssl-3.0.13.tar.gz">https://github.com/openssl/openssl/releases/download/openssl-3.0.13/openssl-3.0.13.tar.gz</a>  (found on <a rel="nofollow" href="https://openssl-library.org/source/old/3.0/index.html">https://openssl-library.org/source/old/3.0/index.html</a>  )</span></div><div class="line" id="202625"><span class="nick" style="color:#2e2a4a"><a href="#202625" label="[20:26:25]">&lt;stikonas&gt;</a></span><span class="message">lanodan: that's https link</span></div><div class="line" id="202634"><span class="nick" style="color:#2e2a4a"><a href="#202634" label="[20:26:34]">&lt;stikonas&gt;</a></span><span class="message">we can jus as well download from github...</span></div><div class="line" id="202652"><span class="nick" style="color:#2e2a4a"><a href="#202652" label="[20:26:52]">&lt;stikonas&gt;</a></span><span class="message">oh, http works too there</span></div><div class="line" id="202722"><span class="nick" style="color:#2e2a4a"><a href="#202722" label="[20:27:22]">&lt;stikonas&gt;</a></span><span class="message">Googulator: shall we switch to distfiles gentoo for now?</span></div><div class="line" id="203240"><span class="nick" style="color:#6d2462"><a href="#203240" label="[20:32:40]">&lt;lanodan&gt;</a></span><span class="message">btw <a rel="nofollow" href="https://gitweb.gentoo.org/repo/gentoo.git/atom/dev-libs/openssl/Manifest?h=master">https://gitweb.gentoo.org/repo/gentoo.git/atom/dev-libs/openssl/Manifest?h=master</a>  for a feed to see when it'll eventually get removed</span></div><div class="line" id="203345"><span class="nick" style="color:#2e2a4a"><a href="#203345" label="[20:33:45]">&lt;stikonas&gt;</a></span><span class="message">hmm, maybe that's not too ideal either</span></div><div class="line" id="203349"><span class="nick" style="color:#2e2a4a"><a href="#203349" label="[20:33:49]">&lt;stikonas&gt;</a></span><span class="message">hm</span></div><div class="line" id="203831"><span class="nick" style="color:#2e2a4a"><a href="#203831" label="[20:38:31]">&lt;stikonas&gt;</a></span><span class="message">wolfssl is potentially buildable very early</span></div><div class="line" id="204119"><span class="nick" style="color:#6d2462"><a href="#204119" label="[20:41:19]">&lt;lanodan&gt;</a></span><span class="message">I picked bearssl on my side, at least curl (and so git as well) can use it.</span></div><div class="line" id="204504"><span class="nick" style="color:#2e2a4a"><a href="#204504" label="[20:45:04]">&lt;stikonas&gt;</a></span><span class="message">it has far more dependencies thoguh</span></div><div class="line" id="204528"><span class="nick" style="color:#2e2a4a"><a href="#204528" label="[20:45:28]">&lt;stikonas&gt;</a></span><span class="message">ior maybe not</span></div><div class="line" id="204530"><span class="nick" style="color:#2e2a4a"><a href="#204530" label="[20:45:30]">&lt;stikonas&gt;</a></span><span class="message">still C</span></div><div class="line" id="204651"><span class="nick" style="color:#2e2a4a"><a href="#204651" label="[20:46:51]">&lt;stikonas&gt;</a></span><span class="message">though again, does it have http only downloads...</span></div><div class="line" id="204651"><span class="nick" style="color:#2e2a4a"><a href="#204651" label="[20:46:51]">&lt;stikonas&gt;</a></span><span class="message">maybe it doesn't matter that much, it's much smaller</span></div><div class="line" id="204651"><span class="nick" style="color:#2e2a4a"><a href="#204651" label="[20:46:51]">&lt;stikonas&gt;</a></span><span class="message">so can be included in early image</span></div><div class="line" id="205205"><span class="nick" style="color:#234e69"><a href="#205205" label="[20:52:05]">&lt;deesix&gt;</a></span><span class="message">Maybe... <a rel="nofollow" href="http://deb.debian.org/debian/pool/main/o/openssl/openssl_3.0.13.orig.tar.gz">http://deb.debian.org/debian/pool/main/o/openssl/openssl_3.0.13.orig.tar.gz</a> </span></div><div class="line" id="205511"><span class="nick" style="color:#6d2462"><a href="#205511" label="[20:55:11]">&lt;lanodan&gt;</a></span><span class="message">Oh wow yeah, 15M for OpenSSL 3.0.13 (and 18M for 3.3.2) vs 748K for bearssl</span></div><div class="line" id="205639"><span class="nick" style="color:#234e69"><a href="#205639" label="[20:56:39]">&lt;deesix&gt;</a></span><span class="message">Also around here, for example (they keep all) snapshot.debian.org/archive/debian/20240325T091329Z/pool/main/o/openssl/openssl_3.0.13.orig.tar.gz</span></div><div class="line" id="205731"><span class="nick" style="color:#6d2462"><a href="#205731" label="[20:57:31]">&lt;lanodan&gt;</a></span><span class="message">Oh yeah snapshot.debian.org is probably a good idea</span></div><div class="line" id="205801"><span class="nick" style="color:#234e69"><a href="#205801" label="[20:58:01]">&lt;deesix&gt;</a></span><span class="message">Not downloading would be better ;)</span></div><br /></div></body></html>

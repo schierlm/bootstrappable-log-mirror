@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-10-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010402"><span class="nick" style="color:#389600"><a href="#010402" label="[01:04:02]">&lt;oriansj&gt;</a></span><span class="message">I really should add SET to mescc-tools-extra as a default text editor (as right now the end state doesn't include any editors)</span></div><div class="line" id="010423"><span class="nick" style="color:#389600"><a href="#010423" label="[01:04:23]">&lt;oriansj&gt;</a></span><span class="message">(unless someone thinks I should do an ed port ??)</span></div><div class="line" id="010658"><span class="nick" style="color:#8dd3c7"><a href="#010658" label="[01:06:58]">&lt;nikolar&gt;</a></span><span class="message">ed is the standard editor after all</span></div><div class="line" id="011925"><span class="nick" style="color:#389600"><a href="#011925" label="[01:19:25]">&lt;oriansj&gt;</a></span><span class="message">nikolar: fair</span></div><div class="line" id="011948"><span class="nick" style="color:#8dd3c7"><a href="#011948" label="[01:19:48]">&lt;nikolar&gt;</a></span><span class="message">i imagine more people are familiar with ed</span></div><div class="line" id="020926"><span class="nick" style="color:#2e2a4a"><a href="#020926" label="[02:09:26]">&lt;pabs3&gt;</a></span><span class="message">from #reproducible-builds &lt;kpcyrd&gt; there's a new javascript runtime written in Zig called `bun` that unfortunately needs a compiled binary of itself to build <a rel="nofollow" href="https://github.com/oven-sh/bun/issues/6887">https://github.com/oven-sh/bun/issues/6887</a> </span></div><div class="line" id="032841"><span class="nick" style="color:#389600"><a href="#032841" label="[03:28:41]">&lt;oriansj&gt;</a></span><span class="message">pabs3: I'm not saying people suck but this is getting crazy.</span></div><div class="line" id="034351"><span class="nick" style="color:#6b8072"><a href="#034351" label="[03:43:51]">&lt;Googulator&gt;</a></span><span class="message">oriansj: which one is easier to use for auditing purposes, SET or ed?</span></div><div class="line" id="034445"><span class="nick" style="color:#6b8072"><a href="#034445" label="[03:44:45]">&lt;Googulator&gt;</a></span><span class="message">pabs3: please tell me it's not built from source code named &quot;dough&quot;</span></div><div class="line" id="035112"><span class="nick" style="color:#389600"><a href="#035112" label="[03:51:12]">&lt;oriansj&gt;</a></span><span class="message">well SET.c 311 lines of C code and ed is about 2,508 lines of C code; they both can print lines of text so reading code ed is a little easier but writing code it would be a bunch better.</span></div><div class="line" id="035318"><span class="nick" style="color:#389600"><a href="#035318" label="[03:53:18]">&lt;oriansj&gt;</a></span><span class="message">ed also requires a regex library and has some pretty ugly macros for disabling interrupts in its code.</span></div><div class="line" id="035609"><span class="nick" style="color:#6b8072"><a href="#035609" label="[03:56:09]">&lt;Googulator&gt;</a></span><span class="message">ouch</span></div><div class="line" id="035743"><span class="nick" style="color:#6b8072"><a href="#035743" label="[03:57:43]">&lt;Googulator&gt;</a></span><span class="message">my idea is to optionally break into an interactive(-ish) shell as soon as it's possible, and give the user a chance to review source code before proceeding to compile it - before the compiled code has a chance to subvert attempts to review its source</span></div><div class="line" id="040033"><span class="nick" style="color:#6b8072"><a href="#040033" label="[04:00:33]">&lt;Googulator&gt;</a></span><span class="message">anything before that point (where the interactive shell can be spawned) will need to be automatically printed to console when the FS is being loaded (I have a prototype for this in builder-hex0), but that means, ideally, we need to minimize the amount of source code needed to compile this first shell</span></div><div class="line" id="040218"><span class="nick" style="color:#389600"><a href="#040218" label="[04:02:18]">&lt;oriansj&gt;</a></span><span class="message">well reviewing code can be done with a more/less clone which would only be about 100 lines of C code</span></div><div class="line" id="040338"><span class="nick" style="color:#389600"><a href="#040338" label="[04:03:38]">&lt;oriansj&gt;</a></span><span class="message">combine with sha256sum (which we already have); you gain the ability to using a large body of humans do an effective source code review and cheaply hash to know the code is good</span></div><div class="line" id="084219"><span class="nick" style="color:#80b1d3"><a href="#084219" label="[08:42:19]">&lt;lanodan&gt;</a></span><span class="message">I guess QED instead of ed(1) wouldn't have the regexes and it doesn't seems like ed from BusyBox supports regexes. (it's sed also doesn't for addresses…)</span></div><div class="line" id="113231"><span class="nick" style="color:#6d2462"><a href="#113231" label="[11:32:31]">&lt;ismael&gt;</a></span><span class="message">sc/23</span></div><div class="line" id="131317"><span class="nick" style="color:#389600"><a href="#131317" label="[13:13:17]">&lt;oriansj&gt;</a></span><span class="message">ismael: well I hear they have reproducibility talks (assuming you are referring to the conference)</span></div><div class="line" id="134701"><span class="nick" style="color:#389600"><a href="#134701" label="[13:47:01]">&lt;oriansj&gt;</a></span><span class="message">lanodan: well I found a qed which is only 1319 lines of code. (Could possibly trim that down a little)</span></div><div class="line" id="151605"><span class="nick" style="color:#389600"><a href="#151605" label="[15:16:05]">&lt;oriansj&gt;</a></span><span class="message">well, I just got nerd sniped by dercuano's bytecode interpreters for tiny computers into the smallest possible vm I could make which would have all of the functionality required to self-host and bootstrap GCC</span></div><div class="line" id="151746"><span class="nick" style="color:#8dd3c7"><a href="#151746" label="[15:17:46]">&lt;nikolar&gt;</a></span><span class="message">link?</span></div><div class="line" id="152057"><span class="nick" style="color:#389600"><a href="#152057" label="[15:20:57]">&lt;oriansj&gt;</a></span><span class="message"> <a rel="nofollow" href="https://dercuano.github.io/notes/tiny-interpreters-for-microcontrollers.html">https://dercuano.github.io/notes/tiny-interpreters-for-microcontrollers.html</a> </span></div><div class="line" id="152156"><span class="nick" style="color:#389600"><a href="#152156" label="[15:21:56]">&lt;oriansj&gt;</a></span><span class="message">well worth mirroring the whole set: git clone <a rel="nofollow" href="https://gitlab.com/kragen/dercuano.git">https://gitlab.com/kragen/dercuano.git</a> </span></div><div class="line" id="153314"><span class="nick" style="color:#8dd3c7"><a href="#153314" label="[15:33:14]">&lt;nikolar&gt;</a></span><span class="message">interesting</span></div><br /></div></body></html>

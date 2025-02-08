@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-09-26.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002652"><span class="nick" style="color:#389600"><a href="#002652" label="[00:26:52]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; Has anyone tried implementing FPGA gateware that boots and produces a seed from source?</span></div><div class="line" id="002930"><span class="nick" style="color:#8dd3c7"><a href="#002930" label="[00:29:30]">&lt;aggi&gt;</a></span><span class="message">ao486 project... hasn't got no known USB nor ethernet support; seabios and IDE boot are documented</span></div><div class="line" id="003642"><span class="nick" style="color:#389600"><a href="#003642" label="[00:36:42]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Lance R. Vick: so basically hex0 implemented in FPGA?</span></div><div class="line" id="003652"><span class="nick" style="color:#389600"><a href="#003652" label="[00:36:52]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I don't think anybody has that</span></div><div class="line" id="010213"><span class="nick" style="color:#389600"><a href="#010213" label="[01:02:13]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; of course, then you have to actually compile the verilog...</span></div><div class="line" id="010247"><span class="nick" style="color:#389600"><a href="#010247" label="[01:02:47]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; but would be at least one more implementation</span></div><div class="line" id="010610"><span class="nick" style="color:#8dd3c7"><a href="#010610" label="[01:06:10]">&lt;aggi&gt;</a></span><span class="message">in practice FPGA deployments to bootstrap x86 have little benefit, because the complete supply chain is proprietary and stuffed with vendor malice</span></div><div class="line" id="010629"><span class="nick" style="color:#389600"><a href="#010629" label="[01:06:29]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; That used to be the case</span></div><div class="line" id="010644"><span class="nick" style="color:#389600"><a href="#010644" label="[01:06:44]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; but there are open source fpga toolchains now</span></div><div class="line" id="010657"><span class="nick" style="color:#389600"><a href="#010657" label="[01:06:57]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; the OpenFPGA project has come a long way</span></div><div class="line" id="010734"><span class="nick" style="color:#8dd3c7"><a href="#010734" label="[01:07:34]">&lt;aggi&gt;</a></span><span class="message">appreciated, nonetheless i have difficulties with the design rationale behind the software-engineering involved, that those toolchains rely upon</span></div><div class="line" id="010836"><span class="nick" style="color:#8dd3c7"><a href="#010836" label="[01:08:36]">&lt;aggi&gt;</a></span><span class="message">don't intend to be rude, as a sidenote, that touches the whole c++ and GNU toolchain on the software side, to compile all the GNU/GTK/... stuff</span></div><div class="line" id="010953"><span class="nick" style="color:#389600"><a href="#010953" label="[01:09:53]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance R. Vick&gt; Yeah its turtles all the way down. Who knows what toolchains make the CPUs we are using to bootstrap from? At the end of the day, you are trusting a CPU made by a factory somewhere that may or may not have backdoors, that could know about your use case in advance and tamper with it, or you get a device which is raw gates, and use an open toolchain to assemble those gates into the electron paths you...</span></div><div class="line" id="010958"><span class="nick" style="color:#389600"><a href="#010958" label="[01:09:58]">&lt;matrix_bridge&gt;</a></span><span class="message">... want at runtime, so the manufacturer in advance has no means to tamper with a particular high security use case.</span></div><div class="line" id="011212"><span class="nick" style="color:#2e2a4a"><a href="#011212" label="[01:12:12]">&lt;lrvick&gt;</a></span><span class="message">Ideally the FPGA path matches the same binaries/results that a traditional amd/intel cpu path gets and we continue to stack trust.</span></div><div class="line" id="011257"><span class="nick" style="color:#8dd3c7"><a href="#011257" label="[01:12:57]">&lt;aggi&gt;</a></span><span class="message">simple question, since i haven't played with VHDL/Verilog etc...</span></div><div class="line" id="011304"><span class="nick" style="color:#2e2a4a"><a href="#011304" label="[01:13:04]">&lt;lrvick&gt;</a></span><span class="message">My favorite talk on this topic that I wish I had given a year earlier when I was doing the same research: <a rel="nofollow" href="https://media.ccc.de/v/36c3-10690-open_source_is_insufficient_to_solve_trust_problems_in_hardware">https://media.ccc.de/v/36c3-10690-open_source_is_insufficient_to_solve_trust_problems_in_hardware</a> </span></div><div class="line" id="011321"><span class="nick" style="color:#8dd3c7"><a href="#011321" label="[01:13:21]">&lt;aggi&gt;</a></span><span class="message">was there some deployment tooling which didn't need any c++?</span></div><div class="line" id="011358"><span class="nick" style="color:#8dd3c7"><a href="#011358" label="[01:13:58]">&lt;aggi&gt;</a></span><span class="message">such as, you could write Verilog/VHDL with vi-editor, and any other software to compile Verilog/VHDL and flashing was written in C?</span></div><div class="line" id="011407"><span class="nick" style="color:#8dd3c7"><a href="#011407" label="[01:14:07]">&lt;aggi&gt;</a></span><span class="message">to do such work at the terminal console?</span></div><div class="line" id="011417"><span class="nick" style="color:#8dd3c7"><a href="#011417" label="[01:14:17]">&lt;aggi&gt;</a></span><span class="message">or would i need an Eclipse IDE type of thing?</span></div><div class="line" id="011512"><span class="nick" style="color:#2e2a4a"><a href="#011512" label="[01:15:12]">&lt;lrvick&gt;</a></span><span class="message">it is all simple CLI tools now, of which the open implementations can get the same results as the proprietray toolchains now afaict, though more implementatinos would be ideal.</span></div><div class="line" id="011545"><span class="nick" style="color:#8dd3c7"><a href="#011545" label="[01:15:45]">&lt;aggi&gt;</a></span><span class="message">excellent</span></div><div class="line" id="011554"><span class="nick" style="color:#2e2a4a"><a href="#011554" label="[01:15:54]">&lt;lrvick&gt;</a></span><span class="message">you end up with the gateware seed, and then you have a totally alternative path to bootstrap that, gaining control of the CPU itself</span></div><div class="line" id="011556"><span class="nick" style="color:#2e2a4a"><a href="#011556" label="[01:15:56]">&lt;lrvick&gt;</a></span><span class="message">one layer deeper</span></div><div class="line" id="011632"><span class="nick" style="color:#8dd3c7"><a href="#011632" label="[01:16:32]">&lt;aggi&gt;</a></span><span class="message">i wouldn't believe it until i had not tried myself to deploy any free/open x86 SoC (such as ao486) myself</span></div><div class="line" id="011718"><span class="nick" style="color:#8dd3c7"><a href="#011718" label="[01:17:18]">&lt;aggi&gt;</a></span><span class="message">or any other SoC, even when it was some 16bit 6502/z80/tiny-risc whatever</span></div><div class="line" id="011804"><span class="nick" style="color:#2e2a4a"><a href="#011804" label="[01:18:04]">&lt;lrvick&gt;</a></span><span class="message">Plenty of open source architecture designs. Trouble is proving the chip in front of you actually implements one faithfully.</span></div><div class="line" id="011813"><span class="nick" style="color:#2e2a4a"><a href="#011813" label="[01:18:13]">&lt;lrvick&gt;</a></span><span class="message">today FPGAs with open toolchains are kind of the only solution that exists</span></div><div class="line" id="011827"><span class="nick" style="color:#2e2a4a"><a href="#011827" label="[01:18:27]">&lt;lrvick&gt;</a></span><span class="message">short of soldering together a primitive CPU yourself</span></div><div class="line" id="011834"><span class="nick" style="color:#2e2a4a"><a href="#011834" label="[01:18:34]">&lt;lrvick&gt;</a></span><span class="message">which friends have done, but, I don't have -that- much patience</span></div><div class="line" id="012128"><span class="nick" style="color:#8dd3c7"><a href="#012128" label="[01:21:28]">&lt;aggi&gt;</a></span><span class="message">well, much patience was required already, 30years since when i486 was introduced, to see some free/open SoC such as ao486</span></div><div class="line" id="012240"><span class="nick" style="color:#8dd3c7"><a href="#012240" label="[01:22:40]">&lt;aggi&gt;</a></span><span class="message">which is too problematic for the tooling required to compile/deploy SeaBIOS (tcc-toolchain probably wouldn't suffice, hence the whole GNU binutils/gcc needed)</span></div><div class="line" id="012401"><span class="nick" style="color:#8dd3c7"><a href="#012401" label="[01:24:01]">&lt;aggi&gt;</a></span><span class="message">GNU toolchain is great, but i think it's problematic when relying upon it early in the whole bootstrapping path (too with hardware development utilities and BIOS stuff)</span></div><div class="line" id="012408"><span class="nick" style="color:#2e2a4a"><a href="#012408" label="[01:24:08]">&lt;lrvick&gt;</a></span><span class="message">Yeah it is non trivial. I full-source-bootstrapped qemu, seabios, and all required firmware last week to get to a bootable OS... that will now do it all over again and ideally get the same result</span></div><div class="line" id="012554"><span class="nick" style="color:#8dd3c7"><a href="#012554" label="[01:25:54]">&lt;aggi&gt;</a></span><span class="message">historically, i386 was bootstrapped from 16bit systems</span></div><div class="line" id="012710"><span class="nick" style="color:#8dd3c7"><a href="#012710" label="[01:27:10]">&lt;aggi&gt;</a></span><span class="message">those are the ones you could actually solder yourself onto breadboard; not saying anyone should, and it's not feasible nowadays, to re-confirm the transition from 16bit towards 32bit with a free/open supply chain</span></div><div class="line" id="012757"><span class="nick" style="color:#8dd3c7"><a href="#012757" label="[01:27:57]">&lt;aggi&gt;</a></span><span class="message">besides trust, it's the basis of the entire supply chain that raises concerns</span></div><div class="line" id="012835"><span class="nick" style="color:#2e2a4a"><a href="#012835" label="[01:28:35]">&lt;lrvick&gt;</a></span><span class="message">Well, you -could- breadboard a 16 bit CPU that can convert hex0 to a binary for another platform...</span></div><div class="line" id="012856"><span class="nick" style="color:#2e2a4a"><a href="#012856" label="[01:28:56]">&lt;lrvick&gt;</a></span><span class="message">getting seeds from handmade hardware would be pretty badass, and maybe doable</span></div><div class="line" id="012923"><span class="nick" style="color:#8dd3c7"><a href="#012923" label="[01:29:23]">&lt;aggi&gt;</a></span><span class="message">with limitations</span></div><div class="line" id="012946"><span class="nick" style="color:#6b8072"><a href="#012946" label="[01:29:46]">&lt;nikolar&gt;</a></span><span class="message">realistically, you can breadboard the i386 too</span></div><div class="line" id="013109"><span class="nick" style="color:#8dd3c7"><a href="#013109" label="[01:31:09]">&lt;aggi&gt;</a></span><span class="message">realistically you had to re-implement the original IBM PC, which gives you a VT100 type of terminal</span></div><div class="line" id="013112"><span class="nick" style="color:#2e2a4a"><a href="#013112" label="[01:31:12]">&lt;lrvick&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.yosyshq.com/open-source">https://www.yosyshq.com/open-source</a>  is the place to start looking btw</span></div><div class="line" id="013130"><span class="nick" style="color:#2e2a4a"><a href="#013130" label="[01:31:30]">&lt;lrvick&gt;</a></span><span class="message">bootstrapping some of these tools, could mean bootstrapping a slightly more modern CPU we can trust to bootstrap everything else</span></div><div class="line" id="013226"><span class="nick" style="color:#2e2a4a"><a href="#013226" label="[01:32:26]">&lt;lrvick&gt;</a></span><span class="message">we need to bootstrap hex0 with provably correct electron paths in the metal :D</span></div><div class="line" id="013303"><span class="nick" style="color:#6b8072"><a href="#013303" label="[01:33:03]">&lt;nikolar&gt;</a></span><span class="message">well isn't that tricky :P</span></div><div class="line" id="013352"><span class="nick" style="color:#2e2a4a"><a href="#013352" label="[01:33:52]">&lt;lrvick&gt;</a></span><span class="message">for my own threat model, and that of my clients, bootstrapping our entire distro from hex0 up on a wide diversity of hardware, and getting the same results, is good enough for me</span></div><div class="line" id="013409"><span class="nick" style="color:#2e2a4a"><a href="#013409" label="[01:34:09]">&lt;lrvick&gt;</a></span><span class="message">but it is a lot to coordinate and reason about. simple baremetal paths would be nice</span></div><div class="line" id="013941"><span class="nick" style="color:#2e2a4a"><a href="#013941" label="[01:39:41]">&lt;lrvick&gt;</a></span><span class="message">something like punchcards with verilog we can inspect on paper, fed into a hand-soldered verilog to bitstream converter hardwrare, that outputs a RISC-V core, microkernel, and hex0, that can kick off something like live-bootstrap</span></div><div class="line" id="014010"><span class="nick" style="color:#2e2a4a"><a href="#014010" label="[01:40:10]">&lt;lrvick&gt;</a></span><span class="message">This might be the only room in the world where I could type that and hit enter with a straight face.</span></div><div class="line" id="014635"><span class="nick" style="color:#8dd3c7"><a href="#014635" label="[01:46:35]">&lt;aggi&gt;</a></span><span class="message">i'll continue with tcc-toolchain system-integration, to avoid GNU toolchain</span></div><div class="line" id="014723"><span class="nick" style="color:#8dd3c7"><a href="#014723" label="[01:47:23]">&lt;aggi&gt;</a></span><span class="message">two weeks ago, the system-profile of ~500 ebuilds fully passed, no more binutils/gcc required at all</span></div><div class="line" id="014811"><span class="nick" style="color:#8dd3c7"><a href="#014811" label="[01:48:11]">&lt;aggi&gt;</a></span><span class="message">i required two weeks break, will review all the emerge logs, because i'll loose python/portage and autools/perl - hence have to re-integrate _everything_ to keep it self-hosting with tcc-toolchain</span></div><div class="line" id="014907"><span class="nick" style="color:#8dd3c7"><a href="#014907" label="[01:49:07]">&lt;aggi&gt;</a></span><span class="message">the re-integration _without_ perl/autotools and python/portage is alot of work, but it's highly benefitial to do it regardless</span></div><div class="line" id="014936"><span class="nick" style="color:#8dd3c7"><a href="#014936" label="[01:49:36]">&lt;aggi&gt;</a></span><span class="message">and it is not blocking some other task i will pick-up again: full support for linux-2.4 with tcc-toolchain</span></div><div class="line" id="015118"><span class="nick" style="color:#8dd3c7"><a href="#015118" label="[01:51:18]">&lt;aggi&gt;</a></span><span class="message">it is good gcc and binutils can be bootstrapped optionally (i re-confirmed it works, outside bootstrappeble and with gentoo-crossdev tooling instead)</span></div><div class="line" id="015315"><span class="nick" style="color:#8dd3c7"><a href="#015315" label="[01:53:15]">&lt;aggi&gt;</a></span><span class="message">tcc has a huge benefit: it's very fast, compile-times are almost irelevant in comparison to gcc, hence i can work much faster with much less fatigue while waiting</span></div><div class="line" id="015350"><span class="nick" style="color:#8dd3c7"><a href="#015350" label="[01:53:50]">&lt;aggi&gt;</a></span><span class="message">and it is a high priority, to keep gcc/binutils _optional_, and too keeping gentoo/python and perl/autotools optional</span></div><div class="line" id="015415"><span class="nick" style="color:#8dd3c7"><a href="#015415" label="[01:54:15]">&lt;aggi&gt;</a></span><span class="message">because, such toolchain and system-integration utilities are a huge burden</span></div><div class="line" id="104109"><span class="nick" style="color:#389600"><a href="#104109" label="[10:41:09]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; lrvick: well, going from userspace bootstrap to bootstrap on top of FW (BIOS/UEFI, etc...) is definitely doable and is only marginally harder</span></div><div class="line" id="104229"><span class="nick" style="color:#389600"><a href="#104229" label="[10:42:29]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; anything lower is far more labour intensive and / or involves making hardware, so not for everyone...</span></div><div class="line" id="104252"><span class="nick" style="color:#389600"><a href="#104252" label="[10:42:52]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; but former is just booting CPU from seed, rather than running seed on your existing OS</span></div><div class="line" id="104811"><span class="nick" style="color:#8dd3c7"><a href="#104811" label="[10:48:11]">&lt;aggi&gt;</a></span><span class="message">it's not marginal, because you would need to break a circular dependency, except if you closed both eyes to not see the issue there was</span></div><div class="line" id="104841"><span class="nick" style="color:#8dd3c7"><a href="#104841" label="[10:48:41]">&lt;aggi&gt;</a></span><span class="message">hence, which firmware?</span></div><div class="line" id="104915"><span class="nick" style="color:#8dd3c7"><a href="#104915" label="[10:49:15]">&lt;aggi&gt;</a></span><span class="message">for ao486 there is SeaBIOS, yet for this you need gcc/binutils, which isn't bootstrapped yet</span></div><div class="line" id="105100"><span class="nick" style="color:#8dd3c7"><a href="#105100" label="[10:51:00]">&lt;aggi&gt;</a></span><span class="message">with anything more elaborate than 16bit you'll encounter such circular dependencies</span></div><div class="line" id="105139"><span class="nick" style="color:#8dd3c7"><a href="#105139" label="[10:51:39]">&lt;aggi&gt;</a></span><span class="message">with both, software and hardware development</span></div><div class="line" id="105226"><span class="nick" style="color:#8dd3c7"><a href="#105226" label="[10:52:26]">&lt;aggi&gt;</a></span><span class="message">i can live with it, but it's not marginal either</span></div><div class="line" id="105355"><span class="nick" style="color:#8dd3c7"><a href="#105355" label="[10:53:55]">&lt;aggi&gt;</a></span><span class="message">what is accomplished is elaborate trust, and that's good; a circular dependency however is bad and contradicts the criteria of bootstrapping</span></div><div class="line" id="105533"><span class="nick" style="color:#8dd3c7"><a href="#105533" label="[10:55:33]">&lt;aggi&gt;</a></span><span class="message">or, to rephrase this, you need utilities for bootstrapping which aren't bootstrapped at the time you need those</span></div><div class="line" id="105706"><span class="nick" style="color:#8dd3c7"><a href="#105706" label="[10:57:06]">&lt;aggi&gt;</a></span><span class="message">without 16bit system (both hardware and software), what you can accomplish then, is injecting a trustworthy seed into such circular dependency</span></div><div class="line" id="105847"><span class="nick" style="color:#8dd3c7"><a href="#105847" label="[10:58:47]">&lt;aggi&gt;</a></span><span class="message">the fact it is gcc/binutils itself involved (instead of tcc-toolchain &quot;only&quot;), is a tad bit more ironic even</span></div><div class="line" id="132757"><span class="nick" style="color:#80b1d3"><a href="#132757" label="[13:27:57]">&lt;oriansj&gt;</a></span><span class="message">aggi: one could do a BIOS is M1 for some target CPU core and one would only need to implement a dozen BIOS calls. then it would just be a one time task to convert that to hex0 and ultimately the bootstrap ROM for 1 trusted hardware bootstrap.</span></div><div class="line" id="132818"><span class="nick" style="color:#80b1d3"><a href="#132818" label="[13:28:18]">&lt;oriansj&gt;</a></span><span class="message">^is^in^</span></div><div class="line" id="142207"><span class="nick" style="color:#389600"><a href="#142207" label="[14:22:07]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Yes, FW is not bootstrapped but neither it is bootstrapped during userspace bootstrap</span></div><div class="line" id="142231"><span class="nick" style="color:#389600"><a href="#142231" label="[14:22:31]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; What I'm saying is only that removing kernel is not that hard</span></div><div class="line" id="142259"><span class="nick" style="color:#389600"><a href="#142259" label="[14:22:59]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Removing FW or hardware from bootstrap seed is significantly harder</span></div><br /></div></body></html>

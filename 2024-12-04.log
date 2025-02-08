@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-12-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="104830"><span class="nick" style="color:#389600"><a href="#104830" label="[10:48:30]">&lt;aggi&gt;</a></span><span class="message">finally, got the o1 scheduler and nptl patchset rebased onto linux-2.4.37.11, and it seems to work, musl-1.1 seems satisfied; so i can throw tcc-devutils.squashfs at it</span></div><div class="line" id="105043"><span class="nick" style="color:#389600"><a href="#105043" label="[10:50:43]">&lt;aggi&gt;</a></span><span class="message">smp isn't stable yet, but nosmp is stable, and too ioapic and usbcore get attached as these should</span></div><div class="line" id="151017"><span class="nick" style="color:#8dd3c7"><a href="#151017" label="[15:10:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;googulator&gt; Is web.libera.chat down for all?</span></div><div class="line" id="151018"><span class="nick" style="color:#8dd3c7"><a href="#151018" label="[15:10:18]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; not sure, but <a rel="nofollow" href="https://logs.guix.gnu.org/bootstrappable/2024-12-04.log">https://logs.guix.gnu.org/bootstrappable/2024-12-04.log</a>  doesn't seem to be syncing either</span></div><div class="line" id="151050"><span class="nick" style="color:#2e2a4a"><a href="#151050" label="[15:10:50]">&lt;Googulator&gt;</a></span><span class="message">bridge is a little slow today...</span></div><div class="line" id="160943"><span class="nick" style="color:#8dd3c7"><a href="#160943" label="[16:09:43]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; yep was that like 3 hours before the messages appeared on irc</span></div><div class="line" id="161017"><span class="nick" style="color:#8dd3c7"><a href="#161017" label="[16:10:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; seems quicker now. aggi congratulations on getting the backports working with the 2.4 kernel.</span></div><div class="line" id="201532"><span class="nick" style="color:#6b8072"><a href="#201532" label="[20:15:32]">&lt;mid-kid&gt;</a></span><span class="message">fossy, jackdk: the new version is here <a rel="nofollow" href="https://mid-kid.root.sx/git/mid-kid/bootstrap/src/branch/master/gentoo-2024.8/gentoo.txt">https://mid-kid.root.sx/git/mid-kid/bootstrap/src/branch/master/gentoo-2024.8/gentoo.txt</a> </span></div><div class="line" id="201553"><span class="nick" style="color:#6b8072"><a href="#201553" label="[20:15:53]">&lt;mid-kid&gt;</a></span><span class="message">significant improvement over the -2024 version</span></div><div class="line" id="201654"><span class="nick" style="color:#6b8072"><a href="#201654" label="[20:16:54]">&lt;mid-kid&gt;</a></span><span class="message">but won't work as-is due to some sources having become unavailable in the gentoo distfiles mirrors, and the https support isn't quite there</span></div><div class="line" id="201720"><span class="nick" style="color:#6b8072"><a href="#201720" label="[20:17:20]">&lt;mid-kid&gt;</a></span><span class="message">you'll have to download some manually</span></div><div class="line" id="201740"><span class="nick" style="color:#6b8072"><a href="#201740" label="[20:17:40]">&lt;mid-kid&gt;</a></span><span class="message">In the long run I want my bootstrap to be future-proof</span></div><div class="line" id="201759"><span class="nick" style="color:#6b8072"><a href="#201759" label="[20:17:59]">&lt;mid-kid&gt;</a></span><span class="message">or at least *somewhat* future-proof</span></div><div class="line" id="204612"><span class="nick" style="color:#80b1d3"><a href="#204612" label="[20:46:12]">&lt;homo&gt;</a></span><span class="message">oriansj: hi, is your fork, blynn-compiler, intended to bootstrap ghc? btw, the license of the original has changed from GPL to MIT</span></div><div class="line" id="205014"><span class="nick" style="color:#80b1d3"><a href="#205014" label="[20:50:14]">&lt;homo&gt;</a></span><span class="message">sorry, not MIT, but 3-clause BSD</span></div><div class="line" id="222518"><span class="nick" style="color:#6d2462"><a href="#222518" label="[22:25:18]">&lt;stikonas&gt;</a></span><span class="message">homo: that fork is not actively developed right now</span></div><div class="line" id="222532"><span class="nick" style="color:#6d2462"><a href="#222532" label="[22:25:32]">&lt;stikonas&gt;</a></span><span class="message">it was mostly worked on before M2-Planet was able to build mes</span></div><div class="line" id="222601"><span class="nick" style="color:#6d2462"><a href="#222601" label="[22:26:01]">&lt;stikonas&gt;</a></span><span class="message">some people thought that M2-Planet -&gt; blynn-compiler -&gt; scheme interpreter in haskell -&gt; mes might be easier than M2-Planet -&gt; mes</span></div><div class="line" id="222616"><span class="nick" style="color:#6d2462"><a href="#222616" label="[22:26:16]">&lt;stikonas&gt;</a></span><span class="message">so right now fork is not very useful</span></div><div class="line" id="222635"><span class="nick" style="color:#6d2462"><a href="#222635" label="[22:26:35]">&lt;stikonas&gt;</a></span><span class="message">original repo might be targeting bootstrapping ghc, but I guess they are nowhere close?</span></div><div class="line" id="222926"><span class="nick" style="color:#8dd3c7"><a href="#222926" label="[22:29:26]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;googulator&gt; IMO for bootstrapping Haskell, nhc98 or Yale Haskell will be a lot more useful - Haskell, in the form that it's used in modern GHC, is not well-defined enough to write an alternative implementation for (&quot;Haskell&quot; is basically &quot;whatever the latest GHC implements&quot;, and that's also what GHC's own source code targets), and I doubt blynn is targeting early Haskell versions relevant to bootstrapping old GHC</span></div><div class="line" id="223017"><span class="nick" style="color:#8dd3c7"><a href="#223017" label="[22:30:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;googulator&gt; It's a very similar problem to Rust, except that the language itself is a lot more difficult to understand</span></div><div class="line" id="223112"><span class="nick" style="color:#8dd3c7"><a href="#223112" label="[22:31:12]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;googulator&gt; but worst of all, GHC has a quite recent gap in its bootstrap story between 7.4 and 7.6</span></div><div class="line" id="223202"><span class="nick" style="color:#8dd3c7"><a href="#223202" label="[22:32:02]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;googulator&gt; not counting intermediate Git commits, nothing older than 7.6 can build 7.6 or newer, at least not in a way that results in a self-hosting compiler</span></div><div class="line" id="223221"><span class="nick" style="color:#8dd3c7"><a href="#223221" label="[22:32:21]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;googulator&gt; 7.2 and 7.4 can build 7.6, but the resulting binary can't recompile itself</span></div><div class="line" id="223340"><span class="nick" style="color:#8dd3c7"><a href="#223340" label="[22:33:40]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;googulator&gt; and already by the time of 7.x, Haskell has long left behind the idea of a standardized language with a full specification and potential for multiple independent, conformant implementations</span></div><div class="line" id="223523"><span class="nick" style="color:#8dd3c7"><a href="#223523" label="[22:35:23]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;googulator&gt; so, one needs to find a powerful enough, bootstrappable compiler for Haskell 1.2, 1.3, 1.4 or 98 that can compile old GHCs written in those Haskell versions - and then find a list of intermediate Git revisions between 7.4 and 7.6 that can bridge the gap</span></div><div class="line" id="223612"><span class="nick" style="color:#8dd3c7"><a href="#223612" label="[22:36:12]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;googulator&gt; And that's hoping that it's not an Autoconf-esque breaking commit (one that depends on its own changes for successfully compiling itself)</span></div><div class="line" id="224146"><span class="nick" style="color:#6d2462"><a href="#224146" label="[22:41:46]">&lt;stikonas&gt;</a></span><span class="message">well, one can still target some specific and newish version of GHC for bootstrapping...</span></div><div class="line" id="224224"><span class="nick" style="color:#6d2462"><a href="#224224" label="[22:42:24]">&lt;stikonas&gt;</a></span><span class="message">even if it's not well standartized</span></div><div class="line" id="224903"><span class="nick" style="color:#8dd3c7"><a href="#224903" label="[22:49:03]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;googulator&gt; Given the immense complexity of what needs to be implemented to compile a newish GHC, it seems infeasible</span></div><div class="line" id="224923"><span class="nick" style="color:#8dd3c7"><a href="#224923" label="[22:49:23]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;googulator&gt; Probably beyond even the scale of mrustc</span></div><div class="line" id="225600"><span class="nick" style="color:#8dd3c7"><a href="#225600" label="[22:56:00]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; yes, probably harder than mrustc...</span></div><div class="line" id="230631"><span class="nick" style="color:#80b1d3"><a href="#230631" label="[23:06:31]">&lt;homo&gt;</a></span><span class="message">googulator well, guix comes with hugs and nhc98, but those are not enough, for example, to run darcs :(</span></div><div class="line" id="230739"><span class="nick" style="color:#80b1d3"><a href="#230739" label="[23:07:39]">&lt;homo&gt;</a></span><span class="message">on top of that hugs is not available because for some reason gcc 4.9 fails to build, and nhc98 is built from generated C files, as nhc98 is also written in Haskell</span></div><div class="line" id="231756"><span class="nick" style="color:#80b1d3"><a href="#231756" label="[23:17:56]">&lt;homo&gt;</a></span><span class="message">also why target bootstrapping old GHC instead of the most recent one? doesn't it become much harder to bootstrap on new arch and os combination when there are so many versions?</span></div><div class="line" id="233244"><span class="nick" style="color:#234e69"><a href="#233244" label="[23:32:44]">&lt;fossy&gt;</a></span><span class="message">ahhh, that is what i was looking for mid-kid, thank you :D</span></div><br /></div></body></html>

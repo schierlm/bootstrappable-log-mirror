@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-09-16.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="111838"><span class="nick" style="color:#389600"><a href="#111838" label="[11:18:38]">&lt;Googulator&gt;</a></span><span class="message">oriansj: don't forget 8/16-bit type support; it's probably the biggest missing feature in M2</span></div><div class="line" id="111908"><span class="nick" style="color:#389600"><a href="#111908" label="[11:19:08]">&lt;Googulator&gt;</a></span><span class="message">the one that caused the most headaches for unxz</span></div><div class="line" id="133856"><span class="nick" style="color:#8dd3c7"><a href="#133856" label="[13:38:56]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; rough awk implementation of a subset of hex2 <a rel="nofollow" href="https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/m2min/hex2.awk">https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/m2min/hex2.awk</a>  . Doesn't support comments, and only supports 32 bit relative/absolute labels. To work around this I feed hex2 files through m0.awk twice (see mk_hex2_awk_full and mk_hex2_awk).</span></div><div class="line" id="134117"><span class="nick" style="color:#8dd3c7"><a href="#134117" label="[13:41:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; To work around lack of comment files I feed hex2 files through M0 a second time I mean</span></div><div class="line" id="134126"><span class="nick" style="color:#8dd3c7"><a href="#134126" label="[13:41:26]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; -files</span></div><div class="line" id="135835"><span class="nick" style="color:#8dd3c7"><a href="#135835" label="[13:58:35]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Googulator: we do have partial 8/16 bit support</span></div><div class="line" id="135913"><span class="nick" style="color:#8dd3c7"><a href="#135913" label="[13:59:13]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; <a rel="nofollow" href="https://github.com/oriansj/M2-Planet/blob/5c251e67e28e0a441589b9c3f5150758b8034998/cc_types.c#L102">https://github.com/oriansj/M2-Planet/blob/5c251e67e28e0a441589b9c3f5150758b8034998/cc_types.c#L102</a> </span></div><div class="line" id="135947"><span class="nick" style="color:#8dd3c7"><a href="#135947" label="[13:59:47]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Might be missing some corner cases</span></div><div class="line" id="140020"><span class="nick" style="color:#8dd3c7"><a href="#140020" label="[14:00:20]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; But at least you can store shorter ints in structs</span></div><div class="line" id="145928"><span class="nick" style="color:#389600"><a href="#145928" label="[14:59:28]">&lt;Googulator&gt;</a></span><span class="message">stikonas: the issue is with 8/16-bit arrays, especially writing them (we always write 32 bits)</span></div><div class="line" id="183923"><span class="nick" style="color:#2e2a4a"><a href="#183923" label="[18:39:23]">&lt;oriansj&gt;</a></span><span class="message">Googulator: I know 8bit arrays (char* ) work in M2-Planet for both reading, comparison and writing; and pointers are always 32bits</span></div><div class="line" id="203302"><span class="nick" style="color:#8dd3c7"><a href="#203302" label="[20:33:02]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Pointers are always 32 bit in M2-Planet? Even on the 64 bit backends? In C ints are typically 32 bit on both 32 bit and 64 bit, but iirc M2 uses 32 bit ints on 32 bit and 64 bit on 64 bit?</span></div><div class="line" id="203434"><span class="nick" style="color:#8dd3c7"><a href="#203434" label="[20:34:34]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I thought it was the same with pointers on M2?</span></div><div class="line" id="203734"><span class="nick" style="color:#6b8072"><a href="#203734" label="[20:37:34]">&lt;stikonas&gt;</a></span><span class="message">I think oriansj was talking about 32-bits</span></div><div class="line" id="203740"><span class="nick" style="color:#2e2a4a"><a href="#203740" label="[20:37:40]">&lt;oriansj&gt;</a></span><span class="message">cosinusoidally: pointers on M2-Planet should be thought of as 32bit because any M2-Planet program greater than 2GB will be broken as the jumps and other behavior will be wrong.</span></div><div class="line" id="203756"><span class="nick" style="color:#6b8072"><a href="#203756" label="[20:37:56]">&lt;stikonas&gt;</a></span><span class="message">well, jumps will be broken</span></div><div class="line" id="203817"><span class="nick" style="color:#6b8072"><a href="#203817" label="[20:38:17]">&lt;stikonas&gt;</a></span><span class="message">but some stuff is probably outside 32-bit? itsn't it</span></div><div class="line" id="203822"><span class="nick" style="color:#6b8072"><a href="#203822" label="[20:38:22]">&lt;stikonas&gt;</a></span><span class="message">e.g. stack...</span></div><div class="line" id="203846"><span class="nick" style="color:#2e2a4a"><a href="#203846" label="[20:38:46]">&lt;oriansj&gt;</a></span><span class="message">and M2-Planet will allocate 8bytes for storing those values</span></div><div class="line" id="203904"><span class="nick" style="color:#2e2a4a"><a href="#203904" label="[20:39:04]">&lt;oriansj&gt;</a></span><span class="message">but those are set by the kernel and not M2-Planet</span></div><div class="line" id="203908"><span class="nick" style="color:#6b8072"><a href="#203908" label="[20:39:08]">&lt;stikonas&gt;</a></span><span class="message">but yes, we can't deal with large jumps</span></div><div class="line" id="203922"><span class="nick" style="color:#6b8072"><a href="#203922" label="[20:39:22]">&lt;stikonas&gt;</a></span><span class="message">I think in the end on x86_64 we only use jmp32 instruction</span></div><div class="line" id="203928"><span class="nick" style="color:#8dd3c7"><a href="#203928" label="[20:39:28]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; but you can handle 64 bit addresses for data?</span></div><div class="line" id="203959"><span class="nick" style="color:#2e2a4a"><a href="#203959" label="[20:39:59]">&lt;oriansj&gt;</a></span><span class="message">in fact on ARMv7 is limited to 24MB for jmp limits</span></div><div class="line" id="204019"><span class="nick" style="color:#2e2a4a"><a href="#204019" label="[20:40:19]">&lt;oriansj&gt;</a></span><span class="message">only on 64bit hosts</span></div><div class="line" id="204046"><span class="nick" style="color:#6b8072"><a href="#204046" label="[20:40:46]">&lt;stikonas&gt;</a></span><span class="message">riscv is also more limited...</span></div><div class="line" id="204046"><span class="nick" style="color:#6b8072"><a href="#204046" label="[20:40:46]">&lt;stikonas&gt;</a></span><span class="message">probably for same reason</span></div><div class="line" id="204123"><span class="nick" style="color:#2e2a4a"><a href="#204123" label="[20:41:23]">&lt;oriansj&gt;</a></span><span class="message">efficient common case vs big binary support. So yeah</span></div><div class="line" id="204124"><span class="nick" style="color:#8dd3c7"><a href="#204124" label="[20:41:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; <a rel="nofollow" href="https://learn.microsoft.com/en-us/windows/win32/winprog64/virtual-address-space">https://learn.microsoft.com/en-us/windows/win32/winprog64/virtual-address-space</a>  interestingly on windows you can limit a 64 bit program to 2GB of addressable memory (which makes porting 32 bit code easier as it gets rid of a lot of pointer truncation bugs).</span></div><div class="line" id="204255"><span class="nick" style="color:#2e2a4a"><a href="#204255" label="[20:42:55]">&lt;oriansj&gt;</a></span><span class="message">basically M2-Planet is not expected to be used past GNU Mes or TCC and creating a 24MB binary via M2-Planet+mescc-tools is just a bad idea</span></div><div class="line" id="204340"><span class="nick" style="color:#2e2a4a"><a href="#204340" label="[20:43:40]">&lt;oriansj&gt;</a></span><span class="message">but 20MB is plenty of space for a pretty huge C compiler to be written</span></div><div class="line" id="204351"><span class="nick" style="color:#6b8072"><a href="#204351" label="[20:43:51]">&lt;stikonas&gt;</a></span><span class="message">also integer literals in M2-Planet are limited to 31-bit</span></div><div class="line" id="204428"><span class="nick" style="color:#6b8072"><a href="#204428" label="[20:44:28]">&lt;stikonas&gt;</a></span><span class="message">hence we have to do tricks like <a rel="nofollow" href="https://git.stikonas.eu/andrius/stage0-uefi/src/branch/main/posix-runner/posix-runner.c#L15">https://git.stikonas.eu/andrius/stage0-uefi/src/branch/main/posix-runner/posix-runner.c#L15</a> </span></div><div class="line" id="204436"><span class="nick" style="color:#6b8072"><a href="#204436" label="[20:44:36]">&lt;stikonas&gt;</a></span><span class="message">(0x60000082 + 0x60000000)</span></div><div class="line" id="204512"><span class="nick" style="color:#2e2a4a"><a href="#204512" label="[20:45:12]">&lt;oriansj&gt;</a></span><span class="message">right now the biggest thing M2-Planet makes is M2-Mesoplanet (1.3MB)</span></div><div class="line" id="204538"><span class="nick" style="color:#2e2a4a"><a href="#204538" label="[20:45:38]">&lt;oriansj&gt;</a></span><span class="message">and for x86 only makes 14MB of binaries total</span></div><div class="line" id="204722"><span class="nick" style="color:#6b8072"><a href="#204722" label="[20:47:22]">&lt;stikonas&gt;</a></span><span class="message">hmm, how come M2-Mesoplanet is so big</span></div><div class="line" id="204728"><span class="nick" style="color:#6b8072"><a href="#204728" label="[20:47:28]">&lt;stikonas&gt;</a></span><span class="message">that's even more than mes...</span></div><div class="line" id="204757"><span class="nick" style="color:#8dd3c7"><a href="#204757" label="[20:47:57]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; $ ls -lh usr/lib/gcc/i686-linux-gnu/7/cc1</span></div><div class="line" id="204757"><span class="nick" style="color:#8dd3c7"><a href="#204757" label="[20:47:57]">&lt;matrix_bridge&gt;</a></span><span class="message">-rwxr-xr-x 1 root root 22M Apr 15  2018 usr/lib/gcc/i686-linux-gnu/7/cc1</span></div><div class="line" id="204757"><span class="nick" style="color:#8dd3c7"><a href="#204757" label="[20:47:57]">&lt;matrix_bridge&gt;</a></span><span class="message">phew</span></div><div class="line" id="205046"><span class="nick" style="color:#2e2a4a"><a href="#205046" label="[20:50:46]">&lt;oriansj&gt;</a></span><span class="message">stikonas: good question, I am not sure</span></div><div class="line" id="205216"><span class="nick" style="color:#2e2a4a"><a href="#205216" label="[20:52:16]">&lt;oriansj&gt;</a></span><span class="message">perhaps a difference in M2libc (has more architectures and dumb syscalls) and meslibc (has more functions and clever syscalls)</span></div><br /></div></body></html>

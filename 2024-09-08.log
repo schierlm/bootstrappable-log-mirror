@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-09-08.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="022739"><span class="nick" style="color:#389600"><a href="#022739" label="[02:27:39]">&lt;oriansj&gt;</a></span><span class="message">I really should write up the .login_env standard and try to get it into login shells.</span></div><div class="line" id="022900"><span class="nick" style="color:#8dd3c7"><a href="#022900" label="[02:29:00]">&lt;nikolar&gt;</a></span><span class="message">?</span></div><div class="line" id="023006"><span class="nick" style="color:#389600"><a href="#023006" label="[02:30:06]">&lt;oriansj&gt;</a></span><span class="message">nikolar: <a rel="nofollow" href="http://paste.debian.net/1328768/">http://paste.debian.net/1328768/</a> </span></div><div class="line" id="023056"><span class="nick" style="color:#8dd3c7"><a href="#023056" label="[02:30:56]">&lt;nikolar&gt;</a></span><span class="message">well, good luck, i guess</span></div><div class="line" id="023201"><span class="nick" style="color:#389600"><a href="#023201" label="[02:32:01]">&lt;oriansj&gt;</a></span><span class="message">yeah, I fully expect to fail to convince anyone to change.</span></div><div class="line" id="023230"><span class="nick" style="color:#8dd3c7"><a href="#023230" label="[02:32:30]">&lt;nikolar&gt;</a></span><span class="message">i am pretty sure that's what ~/.profile is for</span></div><div class="line" id="023821"><span class="nick" style="color:#2e2a4a"><a href="#023821" label="[02:38:21]">&lt;nimaje&gt;</a></span><span class="message">that's what pam_env or login.conf is for</span></div><div class="line" id="023850"><span class="nick" style="color:#2e2a4a"><a href="#023850" label="[02:38:50]">&lt;nimaje&gt;</a></span><span class="message">well, pam_env dropped per user configs for some strange reason</span></div><div class="line" id="025048"><span class="nick" style="color:#389600"><a href="#025048" label="[02:50:48]">&lt;oriansj&gt;</a></span><span class="message">nikolar: as I understand it, bash looks for .bash_profile then .bash_login then .profile; so if .bash_profile or .bash_login exists; it'll never look in .profile unless one explicitly include a source command.</span></div><div class="line" id="025103"><span class="nick" style="color:#8dd3c7"><a href="#025103" label="[02:51:03]">&lt;nikolar&gt;</a></span><span class="message">eh fair enough</span></div><div class="line" id="025115"><span class="nick" style="color:#8dd3c7"><a href="#025115" label="[02:51:15]">&lt;nikolar&gt;</a></span><span class="message">you should use .profile instead of .bash_profile probably</span></div><div class="line" id="025230"><span class="nick" style="color:#389600"><a href="#025230" label="[02:52:30]">&lt;oriansj&gt;</a></span><span class="message">nimaje: login.conf doesn't appear to be per user but system wide.</span></div><div class="line" id="030028"><span class="nick" style="color:#389600"><a href="#030028" label="[03:00:28]">&lt;oriansj&gt;</a></span><span class="message">nimaje: looking at pam_env; looks like I need only convince distros to do: session optional pam_env.so user_envfile=.login_env and then get shells to look for an environemnt variable for overriding the default configuration locations.</span></div><div class="line" id="031611"><span class="nick" style="color:#389600"><a href="#031611" label="[03:16:11]">&lt;oriansj&gt;</a></span><span class="message">and it appears that per user settings for pam_env are disabled by default for most distros: <a rel="nofollow" href="https://superuser.com/questions/130135/why-doesnt-my-environment-variable-get-set">https://superuser.com/questions/130135/why-doesnt-my-environment-variable-get-set</a>  due to a CVE in its behavior: <a rel="nofollow" href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4708">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4708</a> </span></div><div class="line" id="031842"><span class="nick" style="color:#389600"><a href="#031842" label="[03:18:42]">&lt;oriansj&gt;</a></span><span class="message">which I am guessing has to do with PAM changing its own behavior after reading the user ~/.pam_environment file which sounds like a serious design issue.</span></div><div class="line" id="031956"><span class="nick" style="color:#389600"><a href="#031956" label="[03:19:56]">&lt;oriansj&gt;</a></span><span class="message">as it would only make sense to read user variables after a successful login and then creating the variables to pass to the user's login shell. (Which could also just read the file and get the same)</span></div><div class="line" id="063717"><span class="nick" style="color:#6b8072"><a href="#063717" label="[06:37:17]">&lt;pabs3&gt;</a></span><span class="message">from #ada &lt;Shark8&gt; ih8u2, The problem is over-reliance on AdaCore, IMO. Which is why I'm working on a bootstrap compiler on Java, and a self-hosted compiler.</span></div><div class="line" id="064100"><span class="nick" style="color:#6b8072"><a href="#064100" label="[06:41:00]">&lt;pabs3&gt;</a></span><span class="message">full discussion <a rel="nofollow" href="https://paste.debian.net/hidden/474e8bb5/">https://paste.debian.net/hidden/474e8bb5/</a> </span></div><div class="line" id="090636"><span class="nick" style="color:#2e2a4a"><a href="#090636" label="[09:06:36]">&lt;nimaje&gt;</a></span><span class="message">oriansj: the per user file is ~/.login_conf</span></div><div class="line" id="103158"><span class="nick" style="color:#2e2a4a"><a href="#103158" label="[10:31:58]">&lt;nimaje&gt;</a></span><span class="message">hm, not sure what the problem with changing ~/.pam_environment to a symlink to some other file is, that it reads that file with more priveleges too, so the user could point it to some file they can't read, so that pam_env does the reading for them?</span></div><div class="line" id="150346"><span class="nick" style="color:#80b1d3"><a href="#150346" label="[15:03:46]">&lt;kerravon&gt;</a></span><span class="message">oriansj - i guess i'm talking about the scenario where you don't trust the firmware</span></div><div class="line" id="150449"><span class="nick" style="color:#80b1d3"><a href="#150449" label="[15:04:49]">&lt;kerravon&gt;</a></span><span class="message">putting the source - and even executables - onto CF via normal means isn't an issue so long as you don't actually execute any of that code without verifying it first</span></div><div class="line" id="150608"><span class="nick" style="color:#80b1d3"><a href="#150608" label="[15:06:08]">&lt;kerravon&gt;</a></span><span class="message">and if the required executables are already sitting on the CF, then you only need to construct software to read the CF and display the bytes prior to executing those bytes</span></div><div class="line" id="150714"><span class="nick" style="color:#80b1d3"><a href="#150714" label="[15:07:14]">&lt;kerravon&gt;</a></span><span class="message">I'm using the Book 8088 as an example of something that actually traditionally has a BIOS and is presumably a simpler design that makes it difficult for there to be some booby trap in it</span></div><div class="line" id="150739"><span class="nick" style="color:#80b1d3"><a href="#150739" label="[15:07:39]">&lt;kerravon&gt;</a></span><span class="message">but using an 8088 processor in particular instead of say a 68000 seems odd if you have a choice</span></div><div class="line" id="150746"><span class="nick" style="color:#80b1d3"><a href="#150746" label="[15:07:46]">&lt;kerravon&gt;</a></span><span class="message">but i don't know of a Book 68000</span></div><div class="line" id="150846"><span class="nick" style="color:#80b1d3"><a href="#150846" label="[15:08:46]">&lt;kerravon&gt;</a></span><span class="message">actually, i just remembered - you can construct a CPU purely out of ROM chips</span></div><div class="line" id="150953"><span class="nick" style="color:#80b1d3"><a href="#150953" label="[15:09:53]">&lt;kerravon&gt;</a></span><span class="message">but i guess anything you buy new - e.g. even the CF card - with modern technology you could put a booby trap into it</span></div><div class="line" id="151013"><span class="nick" style="color:#80b1d3"><a href="#151013" label="[15:10:13]">&lt;kerravon&gt;</a></span><span class="message">and that goes for the EEPROM too</span></div><div class="line" id="151029"><span class="nick" style="color:#80b1d3"><a href="#151029" label="[15:10:29]">&lt;kerravon&gt;</a></span><span class="message">and is the 68000 chip you're using really ancient?</span></div><div class="line" id="151104"><span class="nick" style="color:#80b1d3"><a href="#151104" label="[15:11:04]">&lt;kerravon&gt;</a></span><span class="message">and what is the point of any of this when someone can just walk into your house and threaten you with a gun?</span></div><div class="line" id="151121"><span class="nick" style="color:#80b1d3"><a href="#151121" label="[15:11:21]">&lt;kerravon&gt;</a></span><span class="message">it's unclear what the objective is</span></div><div class="line" id="151235"><span class="nick" style="color:#80b1d3"><a href="#151235" label="[15:12:35]">&lt;kerravon&gt;</a></span><span class="message">i think perhaps a better objective is not absolute trust that there are no booby traps, but basically absolute trust that you know how to derive modern computing from base code</span></div><div class="line" id="151626"><span class="nick" style="color:#80b1d3"><a href="#151626" label="[15:16:26]">&lt;kerravon&gt;</a></span><span class="message">perhaps - if you were transported to a terraformed Mars, with no data, but you do have an IBM mainframe and plenty of blank punched cards, and you can take a book with you - how many punched cards do you need to hand-punch before you can switch to keyboard input?</span></div><div class="line" id="151711"><span class="nick" style="color:#80b1d3"><a href="#151711" label="[15:17:11]">&lt;kerravon&gt;</a></span><span class="message">and then at what stage can you switch to a higher level language - noting that you can switch to Sector C in 512 bytes</span></div><div class="line" id="151744"><span class="nick" style="color:#80b1d3"><a href="#151744" label="[15:17:44]">&lt;kerravon&gt;</a></span><span class="message">and we could refine that process until you have a C90 C compiler</span></div><div class="line" id="151800"><span class="nick" style="color:#80b1d3"><a href="#151800" label="[15:18:00]">&lt;kerravon&gt;</a></span><span class="message">and perhaps whichever team gets to the compiler first gets to rule Mars</span></div><div class="line" id="151828"><span class="nick" style="color:#80b1d3"><a href="#151828" label="[15:18:28]">&lt;kerravon&gt;</a></span><span class="message">so there is incentive to minimize the keyboard input at every step</span></div><div class="line" id="151853"><span class="nick" style="color:#80b1d3"><a href="#151853" label="[15:18:53]">&lt;kerravon&gt;</a></span><span class="message">and perhaps finding the optimal interim version(s) of C</span></div><div class="line" id="152705"><span class="nick" style="color:#389600"><a href="#152705" label="[15:27:05]">&lt;oriansj&gt;</a></span><span class="message">kerravon: it is fine not to trust the firmware; we always can make our own (unfortunately such work is always going to be platform specific)</span></div><div class="line" id="152856"><span class="nick" style="color:#389600"><a href="#152856" label="[15:28:56]">&lt;oriansj&gt;</a></span><span class="message">EEPROMs could be tested in a manner which would make backdoors harder to implment and easier to detect.</span></div><div class="line" id="153042"><span class="nick" style="color:#389600"><a href="#153042" label="[15:30:42]">&lt;oriansj&gt;</a></span><span class="message">as for the amount of code required to go from punched cards to keyboard, it is honestly quite minimal. SET can be done in less than 1KB (probably under 300B if someone was clever about it)</span></div><div class="line" id="153212"><span class="nick" style="color:#389600"><a href="#153212" label="[15:32:12]">&lt;oriansj&gt;</a></span><span class="message">toss in the bios routines for reading a keyboard and setting chars on a screen and you'll be done</span></div><div class="line" id="153335"><span class="nick" style="color:#389600"><a href="#153335" label="[15:33:35]">&lt;oriansj&gt;</a></span><span class="message">then it is quick to type in hex2 and M0 =&gt; cc_* =&gt; M2-Planet+mescc-tools+mescc-tools-extra =&gt; world</span></div><div class="line" id="154630"><span class="nick" style="color:#389600"><a href="#154630" label="[15:46:30]">&lt;oriansj&gt;</a></span><span class="message">but yeah the wrench problem in security is generally covered by only one honest bootstrap is required.</span></div><div class="line" id="154753"><span class="nick" style="color:#389600"><a href="#154753" label="[15:47:53]">&lt;oriansj&gt;</a></span><span class="message">and the more alien, weird and distinct bootstrap roots; the harder it becomes for anything to stay hidden.</span></div><div class="line" id="210017"><span class="nick" style="color:#6d2462"><a href="#210017" label="[21:00:17]">&lt;Googulator14&gt;</a></span><span class="message">oriansj: do we have a POSIX version of SET?</span></div><div class="line" id="212409"><span class="nick" style="color:#234e69"><a href="#212409" label="[21:24:09]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; <a rel="nofollow" href="https://github.com/oriansj/stage0/blob/master/stage1/High_level_prototypes/SET.c">https://github.com/oriansj/stage0/blob/master/stage1/High_level_prototypes/SET.c</a> </span></div><div class="line" id="231255"><span class="nick" style="color:#389600"><a href="#231255" label="[23:12:55]">&lt;oriansj&gt;</a></span><span class="message">Googulator14: yeah, SET is a very simple text editor which anyone would be able to hack together in a couple hours (even in assembly or hex0)</span></div><br /></div></body></html>

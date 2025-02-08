@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-12-11.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="044802"><span class="nick" style="color:#389600"><a href="#044802" label="[04:48:02]">&lt;oriansj&gt;</a></span><span class="message">well we are going to lean *HEAVILY* on guix to keep bootstrap chains alive after we create them for some languages. (especially those that seem not to give a flying fuck about having a proper bootstrap path)</span></div><div class="line" id="044908"><span class="nick" style="color:#389600"><a href="#044908" label="[04:49:08]">&lt;oriansj&gt;</a></span><span class="message">but yeah, languages require adults in the room keeping the bootstrap path possible and calling out the bad behavior.</span></div><div class="line" id="045248"><span class="nick" style="color:#389600"><a href="#045248" label="[04:52:48]">&lt;oriansj&gt;</a></span><span class="message">Which is really weird because even writing advanced compilers, you never need to use a boatload of language features. Like basic structures and a handful of control flow is all one really needs.</span></div><div class="line" id="045300"><span class="nick" style="color:#8dd3c7"><a href="#045300" label="[04:53:00]">&lt;unmush`&gt;</a></span><span class="message">it has occurred to me on reading this that we are essentially software etymologists</span></div><div class="line" id="050024"><span class="nick" style="color:#2e2a4a"><a href="#050024" label="[05:00:24]">&lt;homo&gt;</a></span><span class="message">somehow ghc manages to use all the features, as only previous version of ghc can compile new version of ghc</span></div><div class="line" id="115506"><span class="nick" style="color:#2e2a4a"><a href="#115506" label="[11:55:06]">&lt;homo&gt;</a></span><span class="message">I found a fix from aur for building hugs with modern gcc, now it finally works on guix <a rel="nofollow" href="https://paste.debian.net/1339304/">https://paste.debian.net/1339304/</a> </span></div><div class="line" id="115554"><span class="nick" style="color:#2e2a4a"><a href="#115554" label="[11:55:54]">&lt;homo&gt;</a></span><span class="message">surprised to see Control.Arrow in hugs, didn't know they are that old</span></div><div class="line" id="124104"><span class="nick" style="color:#2e2a4a"><a href="#124104" label="[12:41:04]">&lt;homo&gt;</a></span><span class="message">rekado: if you still have part 2 of your blog, I'm curious about bootstrapping nhc98 from hugs to have first bootstrappable compiler for personal programming</span></div><div class="line" id="124918"><span class="nick" style="color:#2e2a4a"><a href="#124918" label="[12:49:18]">&lt;homo&gt;</a></span><span class="message">also I found bug in definition of hugs package, it pulls 98-plus, but skips building those extra packages like X11, HGL, OpenAL, OpenGL, etc.</span></div><div class="line" id="125014"><span class="nick" style="color:#6b8072"><a href="#125014" label="[12:50:14]">&lt;efraim&gt;</a></span><span class="message">that might not be a bug, if it was intended to be used for bootstrapping</span></div><div class="line" id="125028"><span class="nick" style="color:#6b8072"><a href="#125028" label="[12:50:28]">&lt;efraim&gt;</a></span><span class="message">especially if those extra bits needed more inputs</span></div><div class="line" id="130704"><span class="nick" style="color:#2e2a4a"><a href="#130704" label="[13:07:04]">&lt;homo&gt;</a></span><span class="message">right, most of the libraries of 98-plus (parsec, stm, time, ...) are installed, it's only audio and graphics ones that are excluded</span></div><div class="line" id="131030"><span class="nick" style="color:#2e2a4a"><a href="#131030" label="[13:10:30]">&lt;homo&gt;</a></span><span class="message">I can change definition to include those too, but I bet there is 0 need and 0 interest in using those</span></div><div class="line" id="131943"><span class="nick" style="color:#2e2a4a"><a href="#131943" label="[13:19:43]">&lt;homo&gt;</a></span><span class="message">it's so surprising to see that in the old days cabal had build instructions for nhc98 and hugs, and base was shared between ghc, hugs and nhc98</span></div><div class="line" id="132111"><span class="nick" style="color:#2e2a4a"><a href="#132111" label="[13:21:11]">&lt;homo&gt;</a></span><span class="message">source code of hugs even includes cabal-install...</span></div><div class="line" id="134241"><span class="nick" style="color:#2e2a4a"><a href="#134241" label="[13:42:41]">&lt;homo&gt;</a></span><span class="message">pattern guards, ffi and hierarchical module names (like Data.Char) are haskell2010 additions and fortunately hugs supports them, so hugs2010 name?</span></div><div class="line" id="140446"><span class="nick" style="color:#2e2a4a"><a href="#140446" label="[14:04:46]">&lt;homo&gt;</a></span><span class="message">actually nhc98 is broken on amd64, it strictly assumes i386</span></div><div class="line" id="152734"><span class="nick" style="color:#80b1d3"><a href="#152734" label="[15:27:34]">&lt;aggi&gt;</a></span><span class="message">finally the tinycc i486-tcc-linux-musl.iso got some working squashfs.initrd with a busybox and some init scripts to mount the full root.squashfs</span></div><div class="line" id="152832"><span class="nick" style="color:#2e2a4a"><a href="#152832" label="[15:28:32]">&lt;homo&gt;</a></span><span class="message">linux can be compiled with tcc? o_O</span></div><div class="line" id="152854"><span class="nick" style="color:#80b1d3"><a href="#152854" label="[15:28:54]">&lt;aggi&gt;</a></span><span class="message">yep, a complete distribution can be (if it's sanitized from c++)</span></div><div class="line" id="152939"><span class="nick" style="color:#80b1d3"><a href="#152939" label="[15:29:39]">&lt;aggi&gt;</a></span><span class="message">although, it is not fully compliant with &quot;we do not break userspace&quot;, when spawning recent software versions atop linux-2.4 ABI</span></div><div class="line" id="153036"><span class="nick" style="color:#80b1d3"><a href="#153036" label="[15:30:36]">&lt;aggi&gt;</a></span><span class="message">for bootstrapping i'll publish a minimal initrd.squashfs version only which does not ship the full root.squashfs containing ~500 packages</span></div><div class="line" id="153149"><span class="nick" style="color:#80b1d3"><a href="#153149" label="[15:31:49]">&lt;aggi&gt;</a></span><span class="message">btw. my ISP increased upload bandwidth from 2Mbps to 10Mbps (without notification), so i can host some tiny anon ftp myself</span></div><div class="line" id="153325"><span class="nick" style="color:#2e2a4a"><a href="#153325" label="[15:33:25]">&lt;homo&gt;</a></span><span class="message">well, at least &quot;stable&quot; ABI is useful for something other than flirting with proprietary software</span></div><div class="line" id="172424"><span class="nick" style="color:#6d2462"><a href="#172424" label="[17:24:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Just wondering, could builder-hex0 be made to run under 64-bit UEFI by replacing the bits that transition down to 16-bit to do bios calls with bits that transition up to 64-bit to do UEFI calls?</span></div><div class="line" id="185412"><span class="nick" style="color:#6d2462"><a href="#185412" label="[18:54:12]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; cosinusoidally: no</span></div><div class="line" id="185446"><span class="nick" style="color:#6d2462"><a href="#185446" label="[18:54:46]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; It's a bit more complex than that</span></div><div class="line" id="185524"><span class="nick" style="color:#6d2462"><a href="#185524" label="[18:55:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I have posix-runner that implements some of that bu t it is far from complete</span></div><div class="line" id="185624"><span class="nick" style="color:#6d2462"><a href="#185624" label="[18:56:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; You can't reserve arbitrary memory in UEFI, you need to ask for allocation in malloc style...</span></div><div class="line" id="185654"><span class="nick" style="color:#6d2462"><a href="#185654" label="[18:56:54]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; And also dosome other tricks</span></div><div class="line" id="185729"><span class="nick" style="color:#6d2462"><a href="#185729" label="[18:57:29]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Next task in posix-runner would be to implement paging</span></div><div class="line" id="185750"><span class="nick" style="color:#6d2462"><a href="#185750" label="[18:57:50]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Otherwise we can only run relocatable binaries</span></div><div class="line" id="185811"><span class="nick" style="color:#6d2462"><a href="#185811" label="[18:58:11]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; (Again since we don't control arbitrary region of memory)</span></div><div class="line" id="190705"><span class="nick" style="color:#6d2462"><a href="#190705" label="[19:07:05]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Also, I haven't even properly sorted out transition to user space</span></div><div class="line" id="190732"><span class="nick" style="color:#6d2462"><a href="#190732" label="[19:07:32]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; All programs  in posix-runner.efi run in kernelspace</span></div><div class="line" id="193000"><span class="nick" style="color:#80b1d3"><a href="#193000" label="[19:30:00]">&lt;aggi&gt;</a></span><span class="message">it's a little concerning UEFI/CSM is phased out with some recent intel x86_64 hardware</span></div><div class="line" id="195606"><span class="nick" style="color:#6d2462"><a href="#195606" label="[19:56:06]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; yes, I don't have UEFI/CSM on my laptop...</span></div><div class="line" id="195616"><span class="nick" style="color:#6d2462"><a href="#195616" label="[19:56:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; hence I did a bit of work on posix-runner...</span></div><div class="line" id="195650"><span class="nick" style="color:#6d2462"><a href="#195650" label="[19:56:50]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; but it takes quite a bit of time to debug these low level OS issues</span></div><div class="line" id="212729"><span class="nick" style="color:#80b1d3"><a href="#212729" label="[21:27:29]">&lt;aggi&gt;</a></span><span class="message">i see three options to cope with uefi/csm: (1) using legacy hardware, (2) qemu, (3) switching to another ISA other than x86_64</span></div><div class="line" id="212831"><span class="nick" style="color:#80b1d3"><a href="#212831" label="[21:28:31]">&lt;aggi&gt;</a></span><span class="message">BIOS is designed for direct low-level hardware-acces, emulating 16bit real-mode for this atop uefi probably yields just that, an emulator</span></div><div class="line" id="213015"><span class="nick" style="color:#80b1d3"><a href="#213015" label="[21:30:15]">&lt;aggi&gt;</a></span><span class="message">anyway, the tiny old thinkpad i got for 30EUros seems decent for support with linux-2.4</span></div><div class="line" id="213037"><span class="nick" style="color:#80b1d3"><a href="#213037" label="[21:30:37]">&lt;aggi&gt;</a></span><span class="message">although it was cheap, it is rather difficult to acquire such a device in decent condition</span></div><div class="line" id="213150"><span class="nick" style="color:#80b1d3"><a href="#213150" label="[21:31:50]">&lt;aggi&gt;</a></span><span class="message">it's 20years old, i clocked down CPU to lowest 600MHz, 1 GiB RAM, with the tinycc distribution it's fun</span></div><div class="line" id="213254"><span class="nick" style="color:#80b1d3"><a href="#213254" label="[21:32:54]">&lt;aggi&gt;</a></span><span class="message">it seems however, proprietary vendor malice creeped into the system 20 years ago already, standards compliant vesafb is jittering video-output</span></div><div class="line" id="213341"><span class="nick" style="color:#80b1d3"><a href="#213341" label="[21:33:41]">&lt;aggi&gt;</a></span><span class="message">i tried efifb on some more modern hardware, and it sucks too, nothing changed ever since</span></div><div class="line" id="213549"><span class="nick" style="color:#80b1d3"><a href="#213549" label="[21:35:49]">&lt;aggi&gt;</a></span><span class="message">because i try keeping generic standards compliant drivers instead of vendor-specific ones</span></div><div class="line" id="213634"><span class="nick" style="color:#80b1d3"><a href="#213634" label="[21:36:34]">&lt;aggi&gt;</a></span><span class="message">it's a hit and miss, if you got decent svga video-out then</span></div><div class="line" id="213852"><span class="nick" style="color:#80b1d3"><a href="#213852" label="[21:38:52]">&lt;aggi&gt;</a></span><span class="message">anyway, usb is working, just booted the tinycc kernel bare metal today, first time; other than jittery vesafb it's ok</span></div><div class="line" id="213908"><span class="nick" style="color:#234e69"><a href="#213908" label="[21:39:08]">&lt;stikonas&gt;</a></span><span class="message">well, UEFI itself is not proprietary byt itself, I have UEFI as part of coreboot</span></div><div class="line" id="213913"><span class="nick" style="color:#234e69"><a href="#213913" label="[21:39:13]">&lt;stikonas&gt;</a></span><span class="message">but it's just different boot flow</span></div><div class="line" id="213922"><span class="nick" style="color:#234e69"><a href="#213922" label="[21:39:22]">&lt;stikonas&gt;</a></span><span class="message">so we need to write different code</span></div><div class="line" id="214338"><span class="nick" style="color:#80b1d3"><a href="#214338" label="[21:43:38]">&lt;aggi&gt;</a></span><span class="message">the issue isn't uefi secure boot (although it's bad), nor a free/open implementation of uefi with coreboot, the issue is uefi itself</span></div><div class="line" id="214502"><span class="nick" style="color:#80b1d3"><a href="#214502" label="[21:45:02]">&lt;aggi&gt;</a></span><span class="message">allthough #fsf invested significant efforts into free/open uefi implementation, uefi itself is the problem</span></div><div class="line" id="214526"><span class="nick" style="color:#234e69"><a href="#214526" label="[21:45:26]">&lt;stikonas&gt;</a></span><span class="message">well, it is a complex system</span></div><div class="line" id="214607"><span class="nick" style="color:#234e69"><a href="#214607" label="[21:46:07]">&lt;stikonas&gt;</a></span><span class="message">it does provide you with far more than BIOS though</span></div><div class="line" id="214629"><span class="nick" style="color:#234e69"><a href="#214629" label="[21:46:29]">&lt;stikonas&gt;</a></span><span class="message">but of course there is some cost of those services</span></div><div class="line" id="214653"><span class="nick" style="color:#80b1d3"><a href="#214653" label="[21:46:53]">&lt;aggi&gt;</a></span><span class="message">BIOS, bootloader and kernel duplicate too much code already</span></div><div class="line" id="214707"><span class="nick" style="color:#234e69"><a href="#214707" label="[21:47:07]">&lt;stikonas&gt;</a></span><span class="message">that happens everywhere</span></div><div class="line" id="214710"><span class="nick" style="color:#80b1d3"><a href="#214710" label="[21:47:10]">&lt;aggi&gt;</a></span><span class="message">uefi just made it worse</span></div><div class="line" id="214724"><span class="nick" style="color:#234e69"><a href="#214724" label="[21:47:24]">&lt;stikonas&gt;</a></span><span class="message">on aarch64/riscv64 u-boot and kernel also duplicate a lot of stuff</span></div><div class="line" id="214739"><span class="nick" style="color:#234e69"><a href="#214739" label="[21:47:39]">&lt;stikonas&gt;</a></span><span class="message">all those device tree files get coppied from kernel to u-boot too</span></div><div class="line" id="214750"><span class="nick" style="color:#234e69"><a href="#214750" label="[21:47:50]">&lt;stikonas&gt;</a></span><span class="message">some drivers have to be implemented in both places too</span></div><div class="line" id="214754"><span class="nick" style="color:#80b1d3"><a href="#214754" label="[21:47:54]">&lt;aggi&gt;</a></span><span class="message">yes, and the dependency graph of u-boot got rigged, with python and c++ attached</span></div><div class="line" id="214833"><span class="nick" style="color:#80b1d3"><a href="#214833" label="[21:48:33]">&lt;aggi&gt;</a></span><span class="message">this was one main reason i will abandone arm, among others</span></div><div class="line" id="214909"><span class="nick" style="color:#80b1d3"><a href="#214909" label="[21:49:09]">&lt;aggi&gt;</a></span><span class="message">and i fear risc-v is following along the flaws of arm</span></div><div class="line" id="215158"><span class="nick" style="color:#80b1d3"><a href="#215158" label="[21:51:58]">&lt;aggi&gt;</a></span><span class="message">[off-topic] <a rel="nofollow" href="https://arstechnica.com/gadgets/2024/04/after-48-years-zilog-is-killing-the-classic-standalone-z80-microprocessor-chip/">https://arstechnica.com/gadgets/2024/04/after-48-years-zilog-is-killing-the-classic-standalone-z80-microprocessor-chip/</a> </span></div><div class="line" id="220926"><span class="nick" style="color:#234e69"><a href="#220926" label="[22:09:26]">&lt;stikonas&gt;</a></span><span class="message">well, u-boot is fairly standard bootloaded on all embedded systems</span></div><br /></div></body></html>

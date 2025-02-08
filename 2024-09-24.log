@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-09-24.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="005252"><span class="nick" style="color:#389600"><a href="#005252" label="[00:52:52]">&lt;oriansj&gt;</a></span><span class="message">stikonas: merged</span></div><div class="line" id="005359"><span class="nick" style="color:#8dd3c7"><a href="#005359" label="[00:53:59]">&lt;stikonas&gt;</a></span><span class="message">thanks!</span></div><div class="line" id="014031"><span class="nick" style="color:#389600"><a href="#014031" label="[01:40:31]">&lt;oriansj&gt;</a></span><span class="message">daddy: the stage0-posix release is done</span></div><div class="line" id="014052"><span class="nick" style="color:#2e2a4a"><a href="#014052" label="[01:40:52]">&lt;daddy&gt;</a></span><span class="message">thank you!</span></div><div class="line" id="014138"><span class="nick" style="color:#2e2a4a"><a href="#014138" label="[01:41:38]">&lt;daddy&gt;</a></span><span class="message">can you get a release tarball as well? that's the part i'm having difficulty with, can't get submodules through GitHub archives</span></div><div class="line" id="022820"><span class="nick" style="color:#389600"><a href="#022820" label="[02:28:20]">&lt;oriansj&gt;</a></span><span class="message">daddy: github does that on every tag: <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/archive/refs/tags/Release_1.7.0.tar.gz">https://github.com/oriansj/stage0-posix/archive/refs/tags/Release_1.7.0.tar.gz</a> </span></div><div class="line" id="023138"><span class="nick" style="color:#2e2a4a"><a href="#023138" label="[02:31:38]">&lt;daddy&gt;</a></span><span class="message">the github one doesn't include submodules, it looks like you uploaded one manually for 1.6.0</span></div><div class="line" id="023309"><span class="nick" style="color:#2e2a4a"><a href="#023309" label="[02:33:09]">&lt;daddy&gt;</a></span><span class="message">that said, we're also considering whether we should allow use of release assets vs src assets, so this might not be how stagex moves forward in the future - we may choose to just download the submodules we need directly. if you'd rather wait until i can confirm if it's necessary, that's also fine.</span></div><div class="line" id="143406"><span class="nick" style="color:#6b8072"><a href="#143406" label="[14:34:06]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; oriansj: I think daddy wants make-dist tarballs</span></div><div class="line" id="143427"><span class="nick" style="color:#6b8072"><a href="#143427" label="[14:34:27]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; janneke added support for creating them to our makefiles</span></div><div class="line" id="143508"><span class="nick" style="color:#2e2a4a"><a href="#143508" label="[14:35:08]">&lt;daddy&gt;</a></span><span class="message">I think stagex consensus is to download all source tarballs and unpack manually so it's not as pressing an issue but it may help someone else who tries to download everything all in one go</span></div><div class="line" id="152458"><span class="nick" style="color:#80b1d3"><a href="#152458" label="[15:24:58]">&lt;Googulator&gt;</a></span><span class="message">daddy: after the XZ incident, I'd argue against preferring source tarballs to Git repositories...</span></div><div class="line" id="152637"><span class="nick" style="color:#2e2a4a"><a href="#152637" label="[15:26:37]">&lt;daddy&gt;</a></span><span class="message">Googulator: in this case, i mean the ones automatically generated by GitHub</span></div><div class="line" id="162607"><span class="nick" style="color:#6d2462"><a href="#162607" label="[16:26:07]">&lt;andydude&gt;</a></span><span class="message">What's &quot;the XZ incident&quot;?</span></div><div class="line" id="162815"><span class="nick" style="color:#234e69"><a href="#162815" label="[16:28:15]">&lt;nimaje&gt;</a></span><span class="message"> <a rel="nofollow" href="https://www.openwall.com/lists/oss-security/2024/03/29/4">https://www.openwall.com/lists/oss-security/2024/03/29/4</a>  &quot;backdoor in upstream xz/liblzma leading to ssh server compromise&quot;</span></div><div class="line" id="163021"><span class="nick" style="color:#234e69"><a href="#163021" label="[16:30:21]">&lt;nimaje&gt;</a></span><span class="message">the backdoor was added to the executable by a changed configure script (I think) (it was already in the repo as a binary &quot;test file&quot; (which was never used by the tests))</span></div><div class="line" id="163100"><span class="nick" style="color:#6c3d55"><a href="#163100" label="[16:31:00]">&lt;joostvb&gt;</a></span><span class="message"> <a rel="nofollow" href="https://en.wikipedia.org/wiki/XZ_Utils_backdoor">https://en.wikipedia.org/wiki/XZ_Utils_backdoor</a> </span></div><div class="line" id="164019"><span class="nick" style="color:#d9d9d9"><a href="#164019" label="[16:40:19]">&lt;janneke&gt;</a></span><span class="message">that's why, when i add a `dist' target to make, i also make sure the tarball will be reproducible</span></div><div class="line" id="164119"><span class="nick" style="color:#d9d9d9"><a href="#164119" label="[16:41:19]">&lt;janneke&gt;</a></span><span class="message">so they can be checksummed/signed</span></div><div class="line" id="164128"><span class="nick" style="color:#d9d9d9"><a href="#164128" label="[16:41:28]">&lt;janneke&gt;</a></span><span class="message">gitlab's tarballs are not (guaranteed to be) reproducible</span></div><div class="line" id="164133"><span class="nick" style="color:#d9d9d9"><a href="#164133" label="[16:41:33]">&lt;janneke&gt;</a></span><span class="message">and thus can be a problem</span></div><div class="line" id="164257"><span class="nick" style="color:#6d2462"><a href="#164257" label="[16:42:57]">&lt;andydude&gt;</a></span><span class="message">is there a wiki or readme for making reproducible tarballs?</span></div><div class="line" id="165304"><span class="nick" style="color:#d9d9d9"><a href="#165304" label="[16:53:04]">&lt;janneke&gt;</a></span><span class="message">ACTION hasn't seen one</span></div><div class="line" id="165405"><span class="nick" style="color:#6d2462"><a href="#165405" label="[16:54:05]">&lt;andydude&gt;</a></span><span class="message">like is there a --no-timestamps feature?</span></div><div class="line" id="170247"><span class="nick" style="color:#bc80bd"><a href="#170247" label="[17:02:47]">&lt;tobtoht_&gt;</a></span><span class="message">andydude: here is an example: <a rel="nofollow" href="https://paste.debian.net/plainh/fe30dae0">https://paste.debian.net/plainh/fe30dae0</a> </span></div><div class="line" id="171100"><span class="nick" style="color:#bc80bd"><a href="#171100" label="[17:11:00]">&lt;tobtoht_&gt;</a></span><span class="message">`git ls-files --recurse-submodules` instead of `find` if you want to package a git repo including submodules and want to exclude .gitignored files</span></div><div class="line" id="171224"><span class="nick" style="color:#bc80bd"><a href="#171224" label="[17:12:24]">&lt;tobtoht_&gt;</a></span><span class="message">`git archive` if you don't need submodules</span></div><div class="line" id="201618"><span class="nick" style="color:#6b8072"><a href="#201618" label="[20:16:18]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; tobtoht_: well, that's what make dist does there for stage0-posix</span></div><div class="line" id="201648"><span class="nick" style="color:#8dd3c7"><a href="#201648" label="[20:16:48]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/blob/8ea80b69ff33c3e1d1696b67a926ba055c03543d/makefile#L167">https://github.com/oriansj/stage0-posix/blob/8ea80b69ff33c3e1d1696b67a926ba055c03543d/makefile#L167</a> </span></div><div class="line" id="201736"><span class="nick" style="color:#6b8072"><a href="#201736" label="[20:17:36]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I can create one later today</span></div><div class="line" id="201807"><span class="nick" style="color:#3c5b35"><a href="#201807" label="[20:18:07]">&lt;lrvick&gt;</a></span><span class="message">Where is the source for kaem-optional-seed? <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds/tree/e027b7f9da2092d41d4d249c5a6e7ce5c991cf07/POSIX/x86">https://github.com/oriansj/bootstrap-seeds/tree/e027b7f9da2092d41d4d249c5a6e7ce5c991cf07/POSIX/x86</a>  ?</span></div><div class="line" id="201821"><span class="nick" style="color:#3c5b35"><a href="#201821" label="[20:18:21]">&lt;lrvick&gt;</a></span><span class="message">having trouble tracking it down</span></div><div class="line" id="202153"><span class="nick" style="color:#6b8072"><a href="#202153" label="[20:21:53]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; lrvick: same directory</span></div><div class="line" id="202206"><span class="nick" style="color:#6b8072"><a href="#202206" label="[20:22:06]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; <a rel="nofollow" href="https://github.com/oriansj/bootstrap-seeds/blob/e027b7f9da2092d41d4d249c5a6e7ce5c991cf07/POSIX/x86/kaem-minimal.hex0">https://github.com/oriansj/bootstrap-seeds/blob/e027b7f9da2092d41d4d249c5a6e7ce5c991cf07/POSIX/x86/kaem-minimal.hex0</a> </span></div><div class="line" id="202225"><span class="nick" style="color:#3c5b35"><a href="#202225" label="[20:22:25]">&lt;lrvick&gt;</a></span><span class="message">oh okay. different filename threw me off</span></div><div class="line" id="202234"><span class="nick" style="color:#3c5b35"><a href="#202234" label="[20:22:34]">&lt;lrvick&gt;</a></span><span class="message">and didn't see a make target for it, but that's fine</span></div><div class="line" id="202729"><span class="nick" style="color:#8dd3c7"><a href="#202729" label="[20:27:29]">&lt;stikonas&gt;</a></span><span class="message">oriansj: doesn't matter this time but next time before the release maybe better to replace &quot;current&quot; with a version number in <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/blob/master/CHANGELOG.org#current">https://github.com/oriansj/stage0-posix/blob/master/CHANGELOG.org#current</a> </span></div><div class="line" id="202924"><span class="nick" style="color:#8dd3c7"><a href="#202924" label="[20:29:24]">&lt;stikonas&gt;</a></span><span class="message">also apprently that make target is only good if your worktree is empty...</span></div><div class="line" id="202940"><span class="nick" style="color:#8dd3c7"><a href="#202940" label="[20:29:40]">&lt;stikonas&gt;</a></span><span class="message">just ran it in my normal dev repo and it created 8 MiB tarball</span></div><div class="line" id="202949"><span class="nick" style="color:#8dd3c7"><a href="#202949" label="[20:29:49]">&lt;stikonas&gt;</a></span><span class="message">I guess with all build artifacts...</span></div><div class="line" id="203855"><span class="nick" style="color:#8dd3c7"><a href="#203855" label="[20:38:55]">&lt;stikonas&gt;</a></span><span class="message">annoyingly to make release note page on github I have to manually reformat Changelog.org to markdown...</span></div><div class="line" id="204517"><span class="nick" style="color:#8dd3c7"><a href="#204517" label="[20:45:17]">&lt;stikonas&gt;</a></span><span class="message">ok, I've uploaded tarball with submodules to <a rel="nofollow" href="https://github.com/oriansj/stage0-posix/releases/tag/Release_1.7.0">https://github.com/oriansj/stage0-posix/releases/tag/Release_1.7.0</a> </span></div><div class="line" id="210948"><span class="nick" style="color:#af8d2f"><a href="#210948" label="[21:09:48]">&lt;ekaitz&gt;</a></span><span class="message">stikonas: what do you know about stagex?</span></div><div class="line" id="211002"><span class="nick" style="color:#8dd3c7"><a href="#211002" label="[21:10:02]">&lt;stikonas&gt;</a></span><span class="message">ekaitz: not much really</span></div><div class="line" id="211002"><span class="nick" style="color:#af8d2f"><a href="#211002" label="[21:10:02]">&lt;ekaitz&gt;</a></span><span class="message">it was mentioned to me by zig's author right now</span></div><div class="line" id="211008"><span class="nick" style="color:#af8d2f"><a href="#211008" label="[21:10:08]">&lt;ekaitz&gt;</a></span><span class="message"> <a rel="nofollow" href="https://codeberg.org/stagex/stagex">https://codeberg.org/stagex/stagex</a> </span></div><div class="line" id="211017"><span class="nick" style="color:#8dd3c7"><a href="#211017" label="[21:10:17]">&lt;stikonas&gt;</a></span><span class="message">but my understanding is that it's largely live-bootstrap in docker</span></div><div class="line" id="211027"><span class="nick" style="color:#8dd3c7"><a href="#211027" label="[21:10:27]">&lt;stikonas&gt;</a></span><span class="message">lrvick: wrote it</span></div><div class="line" id="211031"><span class="nick" style="color:#af8d2f"><a href="#211031" label="[21:10:31]">&lt;ekaitz&gt;</a></span><span class="message">yeah, that's mostly what i understood yeah</span></div><div class="line" id="211052"><span class="nick" style="color:#8dd3c7"><a href="#211052" label="[21:10:52]">&lt;stikonas&gt;</a></span><span class="message">well, live-bootstrap supports a lot of different running modes</span></div><div class="line" id="211114"><span class="nick" style="color:#8dd3c7"><a href="#211114" label="[21:11:14]">&lt;stikonas&gt;</a></span><span class="message">natively in the repo there is already qemu / baremetal, chroot, bubblewrap...</span></div><div class="line" id="211412"><span class="nick" style="color:#8dd3c7"><a href="#211412" label="[21:14:12]">&lt;stikonas&gt;</a></span><span class="message">well, there is a bit on top later there</span></div><div class="line" id="211412"><span class="nick" style="color:#8dd3c7"><a href="#211412" label="[21:14:12]">&lt;stikonas&gt;</a></span><span class="message">like switching to 64-bits</span></div><div class="line" id="211521"><span class="nick" style="color:#8dd3c7"><a href="#211521" label="[21:15:21]">&lt;stikonas&gt;</a></span><span class="message">hopefully at some point we can have native 64-bit live-bootstrap</span></div><div class="line" id="211530"><span class="nick" style="color:#8dd3c7"><a href="#211530" label="[21:15:30]">&lt;stikonas&gt;</a></span><span class="message">but we are not there yet (mostly due to mescc-&gt;tinycc transition)</span></div><div class="line" id="211608"><span class="nick" style="color:#8dd3c7"><a href="#211608" label="[21:16:08]">&lt;stikonas&gt;</a></span><span class="message">though I think while working on building gcc with tcc on riscv64 we discovered that there are some 64-bit bugs in tcc too</span></div><div class="line" id="211622"><span class="nick" style="color:#8dd3c7"><a href="#211622" label="[21:16:22]">&lt;stikonas&gt;</a></span><span class="message">I think there was some fix that got merge in tcc but only for riscv64</span></div><div class="line" id="211659"><span class="nick" style="color:#8dd3c7"><a href="#211659" label="[21:16:59]">&lt;stikonas&gt;</a></span><span class="message">probably this one <a rel="nofollow" href="https://repo.or.cz/tinycc.git/commit/8cd21e91ccee3baf15ad2f8cba9cbc4b618695a0">https://repo.or.cz/tinycc.git/commit/8cd21e91ccee3baf15ad2f8cba9cbc4b618695a0</a> </span></div><div class="line" id="211726"><span class="nick" style="color:#8dd3c7"><a href="#211726" label="[21:17:26]">&lt;stikonas&gt;</a></span><span class="message">we also don't have a release of bootstrappable tcc that works for both i386 and riscv64...</span></div><div class="line" id="211729"><span class="nick" style="color:#8dd3c7"><a href="#211729" label="[21:17:29]">&lt;stikonas&gt;</a></span><span class="message">:(</span></div><div class="line" id="211755"><span class="nick" style="color:#8dd3c7"><a href="#211755" label="[21:17:55]">&lt;stikonas&gt;</a></span><span class="message">now older snapshot only works on i386 and newer only on riscv64</span></div><div class="line" id="211827"><span class="nick" style="color:#389600"><a href="#211827" label="[21:18:27]">&lt;aggi&gt;</a></span><span class="message">are there git-tag added to those?</span></div><div class="line" id="211844"><span class="nick" style="color:#8dd3c7"><a href="#211844" label="[21:18:44]">&lt;stikonas&gt;</a></span><span class="message">probably no tag</span></div><div class="line" id="211848"><span class="nick" style="color:#8dd3c7"><a href="#211848" label="[21:18:48]">&lt;stikonas&gt;</a></span><span class="message">there are snapshots though</span></div><div class="line" id="211900"><span class="nick" style="color:#8dd3c7"><a href="#211900" label="[21:19:00]">&lt;stikonas&gt;</a></span><span class="message">let me check regarding tags</span></div><div class="line" id="211913"><span class="nick" style="color:#8dd3c7"><a href="#211913" label="[21:19:13]">&lt;stikonas&gt;</a></span><span class="message">(snapshots are at <a rel="nofollow" href="https://lilypond.org/janneke/tcc/">https://lilypond.org/janneke/tcc/</a>) </span></div><div class="line" id="212008"><span class="nick" style="color:#8dd3c7"><a href="#212008" label="[21:20:08]">&lt;stikonas&gt;</a></span><span class="message">no, <a rel="nofollow" href="https://gitlab.com/janneke/tinycc/">https://gitlab.com/janneke/tinycc/</a>  repo only has branches</span></div><div class="line" id="212010"><span class="nick" style="color:#8dd3c7"><a href="#212010" label="[21:20:10]">&lt;stikonas&gt;</a></span><span class="message">no tags...</span></div><div class="line" id="212044"><span class="nick" style="color:#8dd3c7"><a href="#212044" label="[21:20:44]">&lt;stikonas&gt;</a></span><span class="message">but you can always go back from snapshot to commit</span></div><div class="line" id="212100"><span class="nick" style="color:#8dd3c7"><a href="#212100" label="[21:21:00]">&lt;stikonas&gt;</a></span><span class="message">since (short) commit hash is in the name of the snapshot</span></div><div class="line" id="212144"><span class="nick" style="color:#8dd3c7"><a href="#212144" label="[21:21:44]">&lt;stikonas&gt;</a></span><span class="message">tcc-0.9.26-1157-gdd46e018.tar.gz means commit dd46e018</span></div><div class="line" id="212320"><span class="nick" style="color:#af8d2f"><a href="#212320" label="[21:23:20]">&lt;ekaitz&gt;</a></span><span class="message">we could ask janneke</span></div><div class="line" id="212355"><span class="nick" style="color:#af8d2f"><a href="#212355" label="[21:23:55]">&lt;ekaitz&gt;</a></span><span class="message">didn't we report that fix?</span></div><div class="line" id="212359"><span class="nick" style="color:#af8d2f"><a href="#212359" label="[21:23:59]">&lt;ekaitz&gt;</a></span><span class="message">or error at least?</span></div><div class="line" id="212654"><span class="nick" style="color:#6b8072"><a href="#212654" label="[21:26:54]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Which error?</span></div><div class="line" id="212726"><span class="nick" style="color:#6b8072"><a href="#212726" label="[21:27:26]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; i386 / riscv64 in bootstrappable tcc?</span></div><div class="line" id="212855"><span class="nick" style="color:#6b8072"><a href="#212855" label="[21:28:55]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Hmm, which commit was causing that</span></div><div class="line" id="212905"><span class="nick" style="color:#6b8072"><a href="#212905" label="[21:29:05]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Something is reverted here <a rel="nofollow" href="https://gitlab.com/janneke/tinycc/-/commits/mes-0.27/?ref_type=heads">https://gitlab.com/janneke/tinycc/-/commits/mes-0.27/?ref_type=heads</a> </span></div><div class="line" id="213027"><span class="nick" style="color:#6b8072"><a href="#213027" label="[21:30:27]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Oh yes it is this one...</span></div><div class="line" id="213042"><span class="nick" style="color:#6b8072"><a href="#213042" label="[21:30:42]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; So riscv support would not be there...</span></div><div class="line" id="213055"><span class="nick" style="color:#6b8072"><a href="#213055" label="[21:30:55]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Since it was reverted</span></div><div class="line" id="213133"><span class="nick" style="color:#af8d2f"><a href="#213133" label="[21:31:33]">&lt;ekaitz&gt;</a></span><span class="message">i meant the commit you shared</span></div><div class="line" id="213243"><span class="nick" style="color:#af8d2f"><a href="#213243" label="[21:32:43]">&lt;ekaitz&gt;</a></span><span class="message">now efraim is trying to integrate everything in guix so we can do some minieffort now to fix these things</span></div><div class="line" id="213829"><span class="nick" style="color:#6b8072"><a href="#213829" label="[21:38:29]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Indeed</span></div><br /></div></body></html>

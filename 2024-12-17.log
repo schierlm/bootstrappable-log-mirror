@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-12-17.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="205328"><span class="nick" style="color:#389600"><a href="#205328" label="[20:53:28]">&lt;unmush&gt;</a></span><span class="message">if its generated C isn't fit for human consumption, then we're not much better off than with a binary</span></div><div class="line" id="210331"><span class="nick" style="color:#8dd3c7"><a href="#210331" label="[21:03:31]">&lt;stikonas&gt;</a></span><span class="message">almost surely it won't be...</span></div><div class="line" id="210746"><span class="nick" style="color:#389600"><a href="#210746" label="[21:07:46]">&lt;unmush&gt;</a></span><span class="message">well, it did say that tasking isn't supported, so at least it will probably have one C function for each subprogram, which is a lot better than one 10000-line switch statement</span></div><div class="line" id="210848"><span class="nick" style="color:#389600"><a href="#210848" label="[21:08:48]">&lt;unmush&gt;</a></span><span class="message">but I think that &quot;no inter-subprogram exceptions&quot; might be a pretty serious incompatibility</span></div><div class="line" id="222746"><span class="nick" style="color:#2e2a4a"><a href="#222746" label="[22:27:46]">&lt;lrvick&gt;</a></span><span class="message">I mean we could get the generated c and prove that it actually works, and if it does, could spend some time making it more readable as goal #2</span></div><div class="line" id="222754"><span class="nick" style="color:#2e2a4a"><a href="#222754" label="[22:27:54]">&lt;lrvick&gt;</a></span><span class="message">I have had to do this in the past. It is not fun.</span></div><div class="line" id="222828"><span class="nick" style="color:#2e2a4a"><a href="#222828" label="[22:28:28]">&lt;lrvick&gt;</a></span><span class="message">Though, I have seen some great documented efforts of this with decompilation projects now. tooling is getting much better</span></div><div class="line" id="222849"><span class="nick" style="color:#2e2a4a"><a href="#222849" label="[22:28:49]">&lt;lrvick&gt;</a></span><span class="message">some people even using LLMs to help rename functions based on what they seem to do as a starting point.</span></div><div class="line" id="222957"><span class="nick" style="color:#2e2a4a"><a href="#222957" label="[22:29:57]">&lt;lrvick&gt;</a></span><span class="message">Thinking of projects like decoompiling Mario 64 from machine code back into human readable C</span></div><div class="line" id="223019"><span class="nick" style="color:#2e2a4a"><a href="#223019" label="[22:30:19]">&lt;lrvick&gt;</a></span><span class="message">I imagine this would be about like mrustc, except with a big head start with machine genertaed c</span></div><div class="line" id="223319"><span class="nick" style="color:#8dd3c7"><a href="#223319" label="[22:33:19]">&lt;stikonas&gt;</a></span><span class="message">well, but mrustc is properly human written</span></div><div class="line" id="223332"><span class="nick" style="color:#8dd3c7"><a href="#223332" label="[22:33:32]">&lt;stikonas&gt;</a></span><span class="message">it's C++ code that can convert rust to C</span></div><div class="line" id="223344"><span class="nick" style="color:#8dd3c7"><a href="#223344" label="[22:33:44]">&lt;stikonas&gt;</a></span><span class="message">not rust code that can convert rust to C</span></div><div class="line" id="223444"><span class="nick" style="color:#2e2a4a"><a href="#223444" label="[22:34:44]">&lt;lrvick&gt;</a></span><span class="message">Yeah. Just saying it may be easier to start with machine generated C that works as a reference and convert it to human readable, than start from 0.</span></div><div class="line" id="223458"><span class="nick" style="color:#2e2a4a"><a href="#223458" label="[22:34:58]">&lt;lrvick&gt;</a></span><span class="message">-may-. Not seen the output yet</span></div><div class="line" id="223528"><span class="nick" style="color:#2e2a4a"><a href="#223528" label="[22:35:28]">&lt;lrvick&gt;</a></span><span class="message">but looking into it more, it uses gnat-LLVM as the intermediate.</span></div><div class="line" id="223558"><span class="nick" style="color:#2e2a4a"><a href="#223558" label="[22:35:58]">&lt;lrvick&gt;</a></span><span class="message">so really need to see what the least bad llvm -&gt; human-readable-c options are these days</span></div><div class="line" id="224035"><span class="nick" style="color:#2e2a4a"><a href="#224035" label="[22:40:35]">&lt;lrvick&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/AdaCore/gnat-llvm/tree/master/llvm-interface/ccg">https://github.com/AdaCore/gnat-llvm/tree/master/llvm-interface/ccg</a>  is the core logic for the codegen as far as I acn tell</span></div><div class="line" id="224658"><span class="nick" style="color:#2e2a4a"><a href="#224658" label="[22:46:58]">&lt;lrvick&gt;</a></span><span class="message"> <a rel="nofollow" href="https://docs.adacore.com/live/wave/gnat_ccg/html/gnatccg_ug/gnat_ccg/gnat_ccg.html#examples-of-code-generation">https://docs.adacore.com/live/wave/gnat_ccg/html/gnatccg_ug/gnat_ccg/gnat_ccg.html#examples-of-code-generation</a> </span></div><div class="line" id="224728"><span class="nick" style="color:#2e2a4a"><a href="#224728" label="[22:47:28]">&lt;lrvick&gt;</a></span><span class="message">Honestly the generated C code is not nearly as bad as I would expect.</span></div><div class="line" id="224753"><span class="nick" style="color:#2e2a4a"><a href="#224753" label="[22:47:53]">&lt;lrvick&gt;</a></span><span class="message">and it has options to include the original ada code for each block as C comments, to help with human cleanup, function/var renaming etc</span></div><div class="line" id="225530"><span class="nick" style="color:#389600"><a href="#225530" label="[22:55:30]">&lt;unmush&gt;</a></span><span class="message">cleaning up the generated C may still be easier than trying to use Ada/Ed. I spent a fair bit of time trying that, and the error reporting consists of &quot;Segmentation Fault&quot;.</span></div><div class="line" id="225817"><span class="nick" style="color:#389600"><a href="#225817" label="[22:58:17]">&lt;unmush&gt;</a></span><span class="message">plus it's rather unportable and has lots of bugs, plus archaic limitations (I hope the strings for all of your program's symbols, plus 2 bytes overhead each, fit in 32kB!)</span></div><div class="line" id="225850"><span class="nick" style="color:#2e2a4a"><a href="#225850" label="[22:58:50]">&lt;lrvick&gt;</a></span><span class="message">The biggest unknown are that lots of modern ada features seem unsupported by the converter</span></div><div class="line" id="225903"><span class="nick" style="color:#2e2a4a"><a href="#225903" label="[22:59:03]">&lt;lrvick&gt;</a></span><span class="message">But maybe if we get an old enough version of gnat...</span></div><div class="line" id="231133"><span class="nick" style="color:#6b8072"><a href="#231133" label="[23:11:33]">&lt;fossy&gt;</a></span><span class="message">uh. this is unexpected, grub requires python</span></div><div class="line" id="231201"><span class="nick" style="color:#8dd3c7"><a href="#231201" label="[23:12:01]">&lt;stikonas&gt;</a></span><span class="message">fossy: oh, so python is not optional then...</span></div><div class="line" id="231204"><span class="nick" style="color:#8dd3c7"><a href="#231204" label="[23:12:04]">&lt;stikonas&gt;</a></span><span class="message">still we can move it later</span></div><div class="line" id="231211"><span class="nick" style="color:#8dd3c7"><a href="#231211" label="[23:12:11]">&lt;stikonas&gt;</a></span><span class="message">and adjust parts.rst</span></div><div class="line" id="231214"><span class="nick" style="color:#6b8072"><a href="#231214" label="[23:12:14]">&lt;fossy&gt;</a></span><span class="message">yes, and we don't need it for non-kernel-bootstrap either</span></div><div class="line" id="231221"><span class="nick" style="color:#8dd3c7"><a href="#231221" label="[23:12:21]">&lt;stikonas&gt;</a></span><span class="message">ruby could be optional though :)</span></div><div class="line" id="231311"><span class="nick" style="color:#6b8072"><a href="#231311" label="[23:13:11]">&lt;fossy&gt;</a></span><span class="message">yep</span></div><div class="line" id="231350"><span class="nick" style="color:#8dd3c7"><a href="#231350" label="[23:13:50]">&lt;stikonas&gt;</a></span><span class="message">anyway, I guess for now leave out extras...</span></div><div class="line" id="231354"><span class="nick" style="color:#8dd3c7"><a href="#231354" label="[23:13:54]">&lt;stikonas&gt;</a></span><span class="message">since we don't have any</span></div><div class="line" id="231428"><span class="nick" style="color:#6b8072"><a href="#231428" label="[23:14:28]">&lt;fossy&gt;</a></span><span class="message">yeah, i'll just close this PR for now</span></div><div class="line" id="231611"><span class="nick" style="color:#6b8072"><a href="#231611" label="[23:16:11]">&lt;fossy&gt;</a></span><span class="message">stikonas: or do we want to make python an extra that is auto-enabled if BUILD_LINUX == True?</span></div><div class="line" id="231641"><span class="nick" style="color:#8dd3c7"><a href="#231641" label="[23:16:41]">&lt;stikonas&gt;</a></span><span class="message">hmm, not sure</span></div><div class="line" id="231648"><span class="nick" style="color:#8dd3c7"><a href="#231648" label="[23:16:48]">&lt;stikonas&gt;</a></span><span class="message">python in principle could be useful for other things</span></div><div class="line" id="231704"><span class="nick" style="color:#8dd3c7"><a href="#231704" label="[23:17:04]">&lt;stikonas&gt;</a></span><span class="message">e.g. say I do chroot initramfs build without BUILD_LINUX</span></div><div class="line" id="231710"><span class="nick" style="color:#8dd3c7"><a href="#231710" label="[23:17:10]">&lt;stikonas&gt;</a></span><span class="message">but want python for future gentoo bootstrap</span></div><div class="line" id="231803"><span class="nick" style="color:#6b8072"><a href="#231803" label="[23:18:03]">&lt;fossy&gt;</a></span><span class="message">yes, and keep &quot;--extras python&quot; to do that</span></div><div class="line" id="232128"><span class="nick" style="color:#8dd3c7"><a href="#232128" label="[23:21:28]">&lt;stikonas&gt;</a></span><span class="message">well, ok, that could work</span></div><div class="line" id="232459"><span class="nick" style="color:#6b8072"><a href="#232459" label="[23:24:59]">&lt;fossy&gt;</a></span><span class="message">just unsure if the added complexity is worth it</span></div><div class="line" id="232512"><span class="nick" style="color:#6b8072"><a href="#232512" label="[23:25:12]">&lt;fossy&gt;</a></span><span class="message">i guess we want extras anyway at some point?</span></div><div class="line" id="232519"><span class="nick" style="color:#6b8072"><a href="#232519" label="[23:25:19]">&lt;fossy&gt;</a></span><span class="message">so probably is fine?</span></div><div class="line" id="232535"><span class="nick" style="color:#8dd3c7"><a href="#232535" label="[23:25:35]">&lt;stikonas&gt;</a></span><span class="message">yeah, this added complexity is what I was not sure about too</span></div><div class="line" id="232540"><span class="nick" style="color:#8dd3c7"><a href="#232540" label="[23:25:40]">&lt;stikonas&gt;</a></span><span class="message">at some point we will want</span></div><div class="line" id="232549"><span class="nick" style="color:#8dd3c7"><a href="#232549" label="[23:25:49]">&lt;stikonas&gt;</a></span><span class="message">it's just the question whether we want to add them now or later</span></div><div class="line" id="232600"><span class="nick" style="color:#8dd3c7"><a href="#232600" label="[23:26:00]">&lt;stikonas&gt;</a></span><span class="message">hmm, and also</span></div><div class="line" id="232619"><span class="nick" style="color:#8dd3c7"><a href="#232619" label="[23:26:19]">&lt;stikonas&gt;</a></span><span class="message">python seems far more crucial than most other extras...</span></div><div class="line" id="232644"><span class="nick" style="color:#6b8072"><a href="#232644" label="[23:26:44]">&lt;fossy&gt;</a></span><span class="message">yes, i tend to agree</span></div><div class="line" id="232727"><span class="nick" style="color:#6b8072"><a href="#232727" label="[23:27:27]">&lt;fossy&gt;</a></span><span class="message">ok, let's just leave it as is for now</span></div><div class="line" id="232805"><span class="nick" style="color:#8dd3c7"><a href="#232805" label="[23:28:05]">&lt;stikonas&gt;</a></span><span class="message">oh and while you are here</span></div><div class="line" id="232810"><span class="nick" style="color:#8dd3c7"><a href="#232810" label="[23:28:10]">&lt;stikonas&gt;</a></span><span class="message">do we switch to gitweb then?</span></div><div class="line" id="232814"><span class="nick" style="color:#8dd3c7"><a href="#232814" label="[23:28:14]">&lt;stikonas&gt;</a></span><span class="message">for gnulib and others</span></div><div class="line" id="232831"><span class="nick" style="color:#6b8072"><a href="#232831" label="[23:28:31]">&lt;fossy&gt;</a></span><span class="message">I suppose so</span></div><div class="line" id="232853"><span class="nick" style="color:#6b8072"><a href="#232853" label="[23:28:53]">&lt;fossy&gt;</a></span><span class="message">actually, maybe give a few days, I'll send an email to a gnulib contact if i can find one</span></div><div class="line" id="232909"><span class="nick" style="color:#6b8072"><a href="#232909" label="[23:29:09]">&lt;fossy&gt;</a></span><span class="message">but if we don't get a reply/not a useful reply then yes</span></div><div class="line" id="233349"><span class="nick" style="color:#8dd3c7"><a href="#233349" label="[23:33:49]">&lt;stikonas&gt;</a></span><span class="message">ok</span></div><div class="line" id="233505"><span class="nick" style="color:#80b1d3"><a href="#233505" label="[23:35:05]">&lt;deesix&gt;</a></span><span class="message">Thoughts on making bootstrapping.world the primary source of those files?</span></div><div class="line" id="233607"><span class="nick" style="color:#6b8072"><a href="#233607" label="[23:36:07]">&lt;fossy&gt;</a></span><span class="message">no intrinsic opposition, but would really like the files to also be available from an upstream source</span></div><div class="line" id="233618"><span class="nick" style="color:#6b8072"><a href="#233618" label="[23:36:18]">&lt;fossy&gt;</a></span><span class="message">even if bootstrapping.world is the &quot;primary&quot; source</span></div><div class="line" id="233642"><span class="nick" style="color:#8dd3c7"><a href="#233642" label="[23:36:42]">&lt;stikonas&gt;</a></span><span class="message">exactly</span></div><div class="line" id="233655"><span class="nick" style="color:#8dd3c7"><a href="#233655" label="[23:36:55]">&lt;stikonas&gt;</a></span><span class="message">and we need at least some script to test upstream sources</span></div><div class="line" id="233702"><span class="nick" style="color:#8dd3c7"><a href="#233702" label="[23:37:02]">&lt;stikonas&gt;</a></span><span class="message">since they tend to disappear from time to time</span></div><div class="line" id="234808"><span class="nick" style="color:#80b1d3"><a href="#234808" label="[23:48:08]">&lt;deesix&gt;</a></span><span class="message">Exactly, the point being that &quot;upstream&quot; changing stuff does not impact without notice.</span></div><br /></div></body></html>

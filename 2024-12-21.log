@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-12-21.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="013356"><span class="nick" style="color:#389600"><a href="#013356" label="[01:33:56]">&lt;fossy&gt;</a></span><span class="message">hmmm, this CI failure is very weird...</span></div><div class="line" id="013453"><span class="nick" style="color:#389600"><a href="#013453" label="[01:34:53]">&lt;fossy&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/actions/runs/12440157564/job/34736030912?pr=486">https://github.com/fosslinux/live-bootstrap/actions/runs/12440157564/job/34736030912?pr=486</a> </span></div><div class="line" id="013602"><span class="nick" style="color:#389600"><a href="#013602" label="[01:36:02]">&lt;fossy&gt;</a></span><span class="message">hmmmmm, Ubuntu has done some funky stuff</span></div><div class="line" id="013620"><span class="nick" style="color:#8dd3c7"><a href="#013620" label="[01:36:20]">&lt;stikonas&gt;</a></span><span class="message">yeah...</span></div><div class="line" id="013627"><span class="nick" style="color:#8dd3c7"><a href="#013627" label="[01:36:27]">&lt;stikonas&gt;</a></span><span class="message">I can see some article about taht</span></div><div class="line" id="013634"><span class="nick" style="color:#8dd3c7"><a href="#013634" label="[01:36:34]">&lt;stikonas&gt;</a></span><span class="message"> <a rel="nofollow" href="https://ubuntu.com/blog/ubuntu-23-10-restricted-unprivileged-user-namespaces">https://ubuntu.com/blog/ubuntu-23-10-restricted-unprivileged-user-namespaces</a> </span></div><div class="line" id="013639"><span class="nick" style="color:#389600"><a href="#013639" label="[01:36:39]">&lt;fossy&gt;</a></span><span class="message">seems like literally within the last two days, Github actions flipped the switch for ubuntu-latest from 22.04 to 24.04</span></div><div class="line" id="013640"><span class="nick" style="color:#8dd3c7"><a href="#013640" label="[01:36:40]">&lt;stikonas&gt;</a></span><span class="message">have you updated ubuntu in the CI?</span></div><div class="line" id="013659"><span class="nick" style="color:#8dd3c7"><a href="#013659" label="[01:36:59]">&lt;stikonas&gt;</a></span><span class="message">ok, github flipped it</span></div><div class="line" id="013705"><span class="nick" style="color:#389600"><a href="#013705" label="[01:37:05]">&lt;fossy&gt;</a></span><span class="message">we should have used a versioned ubuntu tbh but whatevs</span></div><div class="line" id="013711"><span class="nick" style="color:#8dd3c7"><a href="#013711" label="[01:37:11]">&lt;stikonas&gt;</a></span><span class="message">well, ubunt-latest being on 22.04 also doesn't make sense</span></div><div class="line" id="013744"><span class="nick" style="color:#389600"><a href="#013744" label="[01:37:44]">&lt;fossy&gt;</a></span><span class="message">ubuntu-latest on github actions is apparently &quot;latest LTS, minus a few months while we test it&quot; lol</span></div><div class="line" id="013830"><span class="nick" style="color:#8dd3c7"><a href="#013830" label="[01:38:30]">&lt;stikonas&gt;</a></span><span class="message">oh well, what do we do then?</span></div><div class="line" id="013840"><span class="nick" style="color:#8dd3c7"><a href="#013840" label="[01:38:40]">&lt;stikonas&gt;</a></span><span class="message">if user namespaces are restricted</span></div><div class="line" id="013849"><span class="nick" style="color:#8dd3c7"><a href="#013849" label="[01:38:49]">&lt;stikonas&gt;</a></span><span class="message">presumably we can't tweak system settings there</span></div><div class="line" id="014026"><span class="nick" style="color:#389600"><a href="#014026" label="[01:40:26]">&lt;fossy&gt;</a></span><span class="message"> <a rel="nofollow" href="https://etbe.coker.com.au/2024/04/24/ubuntu-24-04-bubblewrap/?">https://etbe.coker.com.au/2024/04/24/ubuntu-24-04-bubblewrap/?</a> </span></div><div class="line" id="014122"><span class="nick" style="color:#389600"><a href="#014122" label="[01:41:22]">&lt;fossy&gt;</a></span><span class="message">because presumably we can't touch sysctl, but we should be able to configure apparmor</span></div><div class="line" id="014200"><span class="nick" style="color:#8dd3c7"><a href="#014200" label="[01:42:00]">&lt;stikonas&gt;</a></span><span class="message">see also <a rel="nofollow" href="https://github.com/ocaml/opam/issues/5968">https://github.com/ocaml/opam/issues/5968</a> </span></div><div class="line" id="014225"><span class="nick" style="color:#8dd3c7"><a href="#014225" label="[01:42:25]">&lt;stikonas&gt;</a></span><span class="message">fossy: other than grub, did you script find anything?</span></div><div class="line" id="014231"><span class="nick" style="color:#8dd3c7"><a href="#014231" label="[01:42:31]">&lt;stikonas&gt;</a></span><span class="message">or still in progress?</span></div><div class="line" id="014242"><span class="nick" style="color:#389600"><a href="#014242" label="[01:42:42]">&lt;fossy&gt;</a></span><span class="message">stikonas: only done grub so far as a preliminary test</span></div><div class="line" id="014255"><span class="nick" style="color:#389600"><a href="#014255" label="[01:42:55]">&lt;fossy&gt;</a></span><span class="message">i did musl just before and found something there too, its a bit annoying</span></div><div class="line" id="014257"><span class="nick" style="color:#8dd3c7"><a href="#014257" label="[01:42:57]">&lt;stikonas&gt;</a></span><span class="message">yeah, I expect there will be a bit more</span></div><div class="line" id="014315"><span class="nick" style="color:#389600"><a href="#014315" label="[01:43:15]">&lt;fossy&gt;</a></span><span class="message"> <a rel="nofollow" href="https://git.musl-libc.org/cgit/musl/tree/src/ctype/alpha.h">https://git.musl-libc.org/cgit/musl/tree/src/ctype/alpha.h</a> </span></div><div class="line" id="014320"><span class="nick" style="color:#8dd3c7"><a href="#014320" label="[01:43:20]">&lt;stikonas&gt;</a></span><span class="message">and possibly lots of stuff in kernel</span></div><div class="line" id="014320"><span class="nick" style="color:#389600"><a href="#014320" label="[01:43:20]">&lt;fossy&gt;</a></span><span class="message">theres a few files scattered around the tree like this</span></div><div class="line" id="014346"><span class="nick" style="color:#389600"><a href="#014346" label="[01:43:46]">&lt;fossy&gt;</a></span><span class="message">and theres nil documentation on how they were generated -.-</span></div><div class="line" id="014351"><span class="nick" style="color:#389600"><a href="#014351" label="[01:43:51]">&lt;fossy&gt;</a></span><span class="message">luckily found this failry quickly <a rel="nofollow" href="https://github.com/richfelker/musl-chartable-tools">https://github.com/richfelker/musl-chartable-tools</a> </span></div><div class="line" id="014404"><span class="nick" style="color:#389600"><a href="#014404" label="[01:44:04]">&lt;fossy&gt;</a></span><span class="message">but they don't build with meslibc</span></div><div class="line" id="014420"><span class="nick" style="color:#8dd3c7"><a href="#014420" label="[01:44:20]">&lt;stikonas&gt;</a></span><span class="message">presumably we don't need unicode</span></div><div class="line" id="014423"><span class="nick" style="color:#8dd3c7"><a href="#014423" label="[01:44:23]">&lt;stikonas&gt;</a></span><span class="message">to rebuild musl</span></div><div class="line" id="014425"><span class="nick" style="color:#389600"><a href="#014425" label="[01:44:25]">&lt;fossy&gt;</a></span><span class="message">so think i'll just strip out the functionality requiring that for the first musl build, then it's trivial from there</span></div><div class="line" id="014429"><span class="nick" style="color:#8dd3c7"><a href="#014429" label="[01:44:29]">&lt;stikonas&gt;</a></span><span class="message">yeah...</span></div><div class="line" id="014429"><span class="nick" style="color:#389600"><a href="#014429" label="[01:44:29]">&lt;fossy&gt;</a></span><span class="message">yeah.</span></div><div class="line" id="015926"><span class="nick" style="color:#389600"><a href="#015926" label="[01:59:26]">&lt;fossy&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/pull/487">https://github.com/fosslinux/live-bootstrap/pull/487</a> </span></div><div class="line" id="015928"><span class="nick" style="color:#389600"><a href="#015928" label="[01:59:28]">&lt;fossy&gt;</a></span><span class="message">yeah ok this works</span></div><div class="line" id="021310"><span class="nick" style="color:#8dd3c7"><a href="#021310" label="[02:13:10]">&lt;stikonas&gt;</a></span><span class="message">ok, I guess let's merge it</span></div><div class="line" id="021314"><span class="nick" style="color:#8dd3c7"><a href="#021314" label="[02:13:14]">&lt;stikonas&gt;</a></span><span class="message">it has no functional changes anyway</span></div><br /></div></body></html>

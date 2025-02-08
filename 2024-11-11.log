@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-11-11.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="025138"><span class="nick" style="color:#389600"><a href="#025138" label="[02:51:38]">&lt;aggi&gt;</a></span><span class="message">this commit is breaking linux-2.4 kernel compilation with tcc 8e860702e44ca1279098e0fc2142ad579774b1d2</span></div><div class="line" id="025153"><span class="nick" style="color:#389600"><a href="#025153" label="[02:51:53]">&lt;aggi&gt;</a></span><span class="message">i've bisected through more than 100, not sure if there's more</span></div><div class="line" id="025245"><span class="nick" style="color:#389600"><a href="#025245" label="[02:52:45]">&lt;aggi&gt;</a></span><span class="message">git revert on some recent mob branch commit causes a merge conflict... a little pain awaits</span></div><div class="line" id="025306"><span class="nick" style="color:#389600"><a href="#025306" label="[02:53:06]">&lt;aggi&gt;</a></span><span class="message">i'll try first to manually backing out this one commit, and see if this suffices</span></div><div class="line" id="025355"><span class="nick" style="color:#389600"><a href="#025355" label="[02:53:55]">&lt;aggi&gt;</a></span><span class="message">and it seems a principle problem, tcc is/was not tested against linux-2.4 kernel compilation for several years</span></div><div class="line" id="121422"><span class="nick" style="color:#8dd3c7"><a href="#121422" label="[12:14:22]">&lt;fossy&gt;</a></span><span class="message">cosinusoidally no surprises there lol, mob seems somewhat perenially buggy in someway or another</span></div><div class="line" id="143636"><span class="nick" style="color:#2e2a4a"><a href="#143636" label="[14:36:36]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; 8e860702e44ca1279098e0fc2142ad579774b1d2 is such a typical tcc commit. No discussion on the mailing list, no code review, and introduces a subtle bug that goes unnoticed for several years.</span></div><div class="line" id="143952"><span class="nick" style="color:#2e2a4a"><a href="#143952" label="[14:39:52]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; btw I managed to figure out a simpler way to get code in and out of the live-bootstrap version of fiwix. The answer was to use the floppy drive. I had to inject a fiwix busybox binary and an approx 10 line shell script (to set up device nodes). I tried building busybox-1.01 inside live-bootstrap but it doesn't seem to like musl libc.</span></div><div class="line" id="144022"><span class="nick" style="color:#2e2a4a"><a href="#144022" label="[14:40:22]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; busybox sh works fine with an interactive terminal inside live-bootstrap</span></div><div class="line" id="144311"><span class="nick" style="color:#2e2a4a"><a href="#144311" label="[14:43:11]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I was able to build dash. Only issue I ran into was that tcc-musl is missing alloca. I had to compile tcc-0.9.27/lib/alloca86.S and link it in.</span></div><div class="line" id="144517"><span class="nick" style="color:#2e2a4a"><a href="#144517" label="[14:45:17]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; dash also seems to work fine with an interactive terminal.</span></div><div class="line" id="211848"><span class="nick" style="color:#389600"><a href="#211848" label="[21:18:48]">&lt;aggi&gt;</a></span><span class="message">ACTION sighs</span></div><div class="line" id="211903"><span class="nick" style="color:#389600"><a href="#211903" label="[21:19:03]">&lt;aggi&gt;</a></span><span class="message">commit 8e860702e44ca1279098e0fc2142ad579774b1d2 cannot easily be reverted</span></div><div class="line" id="212003"><span class="nick" style="color:#389600"><a href="#212003" label="[21:20:03]">&lt;aggi&gt;</a></span><span class="message">this is 2.5years of changes made</span></div><div class="line" id="212009"><span class="nick" style="color:#389600"><a href="#212009" label="[21:20:09]">&lt;aggi&gt;</a></span><span class="message">to tcc mob branch</span></div><div class="line" id="212058"><span class="nick" style="color:#389600"><a href="#212058" label="[21:20:58]">&lt;aggi&gt;</a></span><span class="message">i did a quick revert at some HEAD from march 2023 (didn't sync since then), but there's obviously more stuff that breaks kernel-2.4 compilation/linking</span></div><div class="line" id="212203"><span class="nick" style="color:#389600"><a href="#212203" label="[21:22:03]">&lt;aggi&gt;</a></span><span class="message">in between it is 140commits already, plus the ones until November 2024, to identify exactly which and how many were breaking linux kernel compilation/linking</span></div><div class="line" id="212235"><span class="nick" style="color:#389600"><a href="#212235" label="[21:22:35]">&lt;aggi&gt;</a></span><span class="message">i don't want to fork/branch, but rather rebased all necessary changes/reverts onto latest HEAD</span></div><div class="line" id="212508"><span class="nick" style="color:#389600"><a href="#212508" label="[21:25:08]">&lt;aggi&gt;</a></span><span class="message">it is alot of work, to follow hundreds of commits, and so far I only spotted one that broke linux kernel</span></div><div class="line" id="212528"><span class="nick" style="color:#389600"><a href="#212528" label="[21:25:28]">&lt;aggi&gt;</a></span><span class="message">and there's probably more</span></div><div class="line" id="212718"><span class="nick" style="color:#389600"><a href="#212718" label="[21:27:18]">&lt;aggi&gt;</a></span><span class="message">furthermore, since tcc is crucial to bootstrappable, the changes are related to ELF sections and linking, affecting _all_ architectures, if anytime a kernel shall be compiled/linked for any other arch than X86</span></div><div class="line" id="212814"><span class="nick" style="color:#389600"><a href="#212814" label="[21:28:14]">&lt;aggi&gt;</a></span><span class="message">that's why, i rather saw HEAD of the mob branch remaining tested against linux-2.4 kernel compilation for x86 at least</span></div><div class="line" id="212837"><span class="nick" style="color:#389600"><a href="#212837" label="[21:28:37]">&lt;aggi&gt;</a></span><span class="message">because, the changes that were breaking things, potentially affect various other test cases</span></div><div class="line" id="212902"><span class="nick" style="color:#389600"><a href="#212902" label="[21:29:02]">&lt;aggi&gt;</a></span><span class="message">recalling the musl libc.so dynamic loader segfaulting (didn't bisect yet if there was any older tcc version that was stable)</span></div><div class="line" id="213017"><span class="nick" style="color:#389600"><a href="#213017" label="[21:30:17]">&lt;aggi&gt;</a></span><span class="message">last tcc release tag for 0.9.27 is from december 2017, and if 0.9.28 was official anytime, it probably contains severe bugs</span></div><div class="line" id="213156"><span class="nick" style="color:#389600"><a href="#213156" label="[21:31:56]">&lt;aggi&gt;</a></span><span class="message">i will try something else, pulling latest git HEAD of tcc, if something got repaired since march 2023</span></div><div class="line" id="213646"><span class="nick" style="color:#389600"><a href="#213646" label="[21:36:46]">&lt;aggi&gt;</a></span><span class="message">i don't know, i could branch at a last known-good commit, to verify the complete i486-tcc-linux-musl.iso with</span></div><div class="line" id="213741"><span class="nick" style="color:#389600"><a href="#213741" label="[21:37:41]">&lt;aggi&gt;</a></span><span class="message">but i am almost certain, since it seems noone else extensively tested tcc against linux-2.4 nor the (complete) system-profile that i got</span></div><div class="line" id="213805"><span class="nick" style="color:#389600"><a href="#213805" label="[21:38:05]">&lt;aggi&gt;</a></span><span class="message">i doubt anyone else could nor would pick that up, because as said, it's 2.5years of commits to bisect/track</span></div><div class="line" id="213904"><span class="nick" style="color:#389600"><a href="#213904" label="[21:39:04]">&lt;aggi&gt;</a></span><span class="message">stikonas_: anyway, i don't know if and whom to coordinate with, and it's blocking a release of mine with a mentioned fork/branch of tcc necessary</span></div><div class="line" id="213955"><span class="nick" style="color:#389600"><a href="#213955" label="[21:39:55]">&lt;aggi&gt;</a></span><span class="message">and if i do that, i fear it is a potential dead-end, because i may not succeed tracking all those changes</span></div><div class="line" id="214043"><span class="nick" style="color:#389600"><a href="#214043" label="[21:40:43]">&lt;aggi&gt;</a></span><span class="message">in a way, forking tcc is a bigger concern than maintaining a linux-2.4 branch (that i am planning to)</span></div><div class="line" id="214200"><span class="nick" style="color:#389600"><a href="#214200" label="[21:42:00]">&lt;aggi&gt;</a></span><span class="message">and i do not feel comfortable with the idea, tcc mob branch is destabilized meanwhile bootstrapping of entire GNU/FOSS relies upon it</span></div><div class="line" id="220153"><span class="nick" style="color:#6b8072"><a href="#220153" label="[22:01:53]">&lt;stikonas_&gt;</a></span><span class="message">no, I don't think anybody really maintains linux-2.4</span></div><div class="line" id="220209"><span class="nick" style="color:#6b8072"><a href="#220209" label="[22:02:09]">&lt;stikonas_&gt;</a></span><span class="message">anyway, it's not like we depend on tcc mob for bootstrapping GNU/FOSS</span></div><div class="line" id="220220"><span class="nick" style="color:#6b8072"><a href="#220220" label="[22:02:20]">&lt;stikonas_&gt;</a></span><span class="message">tcc 0.9.27 works too</span></div><div class="line" id="220227"><span class="nick" style="color:#6b8072"><a href="#220227" label="[22:02:27]">&lt;stikonas_&gt;</a></span><span class="message">mob is only needed on riscv64</span></div><div class="line" id="220241"><span class="nick" style="color:#80b1d3"><a href="#220241" label="[22:02:41]">&lt;stikonas&gt;</a></span><span class="message">but that's because riscv64 is fairly new and was not present in tcc 0.9.27</span></div><div class="line" id="220314"><span class="nick" style="color:#80b1d3"><a href="#220314" label="[22:03:14]">&lt;stikonas&gt;</a></span><span class="message">anyway, for bootstrapping GNU/FOSS, one mostly needs C99 compiler</span></div><div class="line" id="220335"><span class="nick" style="color:#80b1d3"><a href="#220335" label="[22:03:35]">&lt;stikonas&gt;</a></span><span class="message">at the moment we mainly have tcc cause that was kind of the only compiler that was easy to bootstrap</span></div><div class="line" id="220859"><span class="nick" style="color:#389600"><a href="#220859" label="[22:08:59]">&lt;aggi&gt;</a></span><span class="message">yes, that's what I keep in mind too, riscv64 that is based upon on an otherwise destabilized mob branch</span></div><div class="line" id="221139"><span class="nick" style="color:#389600"><a href="#221139" label="[22:11:39]">&lt;aggi&gt;</a></span><span class="message">stikonas: i am less concerned about linux-2.4 than the fact i see no realistic chance to compile any later kernel version with tcc (or any other alternative toolchain such as cproc/qbe)</span></div><div class="line" id="221221"><span class="nick" style="color:#80b1d3"><a href="#221221" label="[22:12:21]">&lt;stikonas&gt;</a></span><span class="message">welll, that's cause everybody is developing linux with gcc</span></div><div class="line" id="221230"><span class="nick" style="color:#80b1d3"><a href="#221230" label="[22:12:30]">&lt;stikonas&gt;</a></span><span class="message">even clang can't easily compiler linux kernel</span></div><div class="line" id="221253"><span class="nick" style="color:#80b1d3"><a href="#221253" label="[22:12:53]">&lt;stikonas&gt;</a></span><span class="message">and clang is far more advanced C compiler then tcc or any alternative such as cproc/qbe</span></div><div class="line" id="221342"><span class="nick" style="color:#389600"><a href="#221342" label="[22:13:42]">&lt;aggi&gt;</a></span><span class="message">ok, i will fork/block at a last-known working tcc-version, keep it x86-only, and live with it</span></div><div class="line" id="221428"><span class="nick" style="color:#389600"><a href="#221428" label="[22:14:28]">&lt;aggi&gt;</a></span><span class="message">i've noticed though, there's some activity for bootstrapping riscv64, no clue how that's accomplished in practice, since they got neither a stable tcc nor kernel version for it yet</span></div><div class="line" id="221447"><span class="nick" style="color:#80b1d3"><a href="#221447" label="[22:14:47]">&lt;stikonas&gt;</a></span><span class="message">riscv64 work mostly focussed on userspace bootstrapping</span></div><div class="line" id="221500"><span class="nick" style="color:#80b1d3"><a href="#221500" label="[22:15:00]">&lt;stikonas&gt;</a></span><span class="message">so none of the kernel stuff for now</span></div><div class="line" id="221519"><span class="nick" style="color:#80b1d3"><a href="#221519" label="[22:15:19]">&lt;stikonas&gt;</a></span><span class="message">as for userspace, it is now possible to go from hex0 to GCC</span></div><div class="line" id="221532"><span class="nick" style="color:#389600"><a href="#221532" label="[22:15:32]">&lt;aggi&gt;</a></span><span class="message">allright, then they'll have to fix it on the mob branch of theirs</span></div><div class="line" id="221534"><span class="nick" style="color:#80b1d3"><a href="#221534" label="[22:15:34]">&lt;stikonas&gt;</a></span><span class="message">though it's not very well scripted yet</span></div><div class="line" id="221548"><span class="nick" style="color:#389600"><a href="#221548" label="[22:15:48]">&lt;aggi&gt;</a></span><span class="message">stikonas: i know, i tried myself to compile gcc and binutils with tcc, and it worked</span></div><div class="line" id="221602"><span class="nick" style="color:#80b1d3"><a href="#221602" label="[22:16:02]">&lt;stikonas&gt;</a></span><span class="message">well, on riscv64 there is a complication</span></div><div class="line" id="221615"><span class="nick" style="color:#80b1d3"><a href="#221615" label="[22:16:15]">&lt;stikonas&gt;</a></span><span class="message">that new GCC that has riscv64 support is written in C++</span></div><div class="line" id="221624"><span class="nick" style="color:#80b1d3"><a href="#221624" label="[22:16:24]">&lt;stikonas&gt;</a></span><span class="message">but ekaitz backported riscv64 support to GCC 4.6.4</span></div><div class="line" id="221644"><span class="nick" style="color:#389600"><a href="#221644" label="[22:16:44]">&lt;aggi&gt;</a></span><span class="message">and the riscv64-tcc resides on a destabilized/broken branch</span></div><div class="line" id="221706"><span class="nick" style="color:#80b1d3"><a href="#221706" label="[22:17:06]">&lt;stikonas&gt;</a></span><span class="message">it's not broken for riscv64...</span></div><div class="line" id="221718"><span class="nick" style="color:#80b1d3"><a href="#221718" label="[22:17:18]">&lt;stikonas&gt;</a></span><span class="message">well, it can't build linux-2.4 maybe</span></div><div class="line" id="221724"><span class="nick" style="color:#389600"><a href="#221724" label="[22:17:24]">&lt;aggi&gt;</a></span><span class="message">if you ignore kernel and various other linking issues it might have</span></div><div class="line" id="221731"><span class="nick" style="color:#80b1d3"><a href="#221731" label="[22:17:31]">&lt;stikonas&gt;</a></span><span class="message">but it's not like it supports riscv64 anyway</span></div><div class="line" id="221741"><span class="nick" style="color:#389600"><a href="#221741" label="[22:17:41]">&lt;aggi&gt;</a></span><span class="message">too musl libc.so dynamic loader segfaulted, just as said, i didn't bisect this one yet</span></div><div class="line" id="221802"><span class="nick" style="color:#80b1d3"><a href="#221802" label="[22:18:02]">&lt;stikonas&gt;</a></span><span class="message">yeah, I briefly observed libc.so segfaults when working on live-bootstrap</span></div><div class="line" id="221815"><span class="nick" style="color:#80b1d3"><a href="#221815" label="[22:18:15]">&lt;stikonas&gt;</a></span><span class="message">but since we had an option of static linking, I didn't investigate more</span></div><div class="line" id="221829"><span class="nick" style="color:#80b1d3"><a href="#221829" label="[22:18:29]">&lt;stikonas&gt;</a></span><span class="message">and by the time we really need dynamic linking (e.g. python)</span></div><div class="line" id="221837"><span class="nick" style="color:#389600"><a href="#221837" label="[22:18:37]">&lt;aggi&gt;</a></span><span class="message">ok</span></div><div class="line" id="221838"><span class="nick" style="color:#80b1d3"><a href="#221838" label="[22:18:38]">&lt;stikonas&gt;</a></span><span class="message">we have new enough binutils and gcc</span></div><div class="line" id="221845"><span class="nick" style="color:#80b1d3"><a href="#221845" label="[22:18:45]">&lt;stikonas&gt;</a></span><span class="message">so it doesn't block anything on live-bootstrap</span></div><div class="line" id="221851"><span class="nick" style="color:#80b1d3"><a href="#221851" label="[22:18:51]">&lt;stikonas&gt;</a></span><span class="message">it migth be nice to understand that segfault</span></div><div class="line" id="221905"><span class="nick" style="color:#80b1d3"><a href="#221905" label="[22:19:05]">&lt;stikonas&gt;</a></span><span class="message">but I don't think live-bootstrap itself would change the way it links</span></div><div class="line" id="221924"><span class="nick" style="color:#389600"><a href="#221924" label="[22:19:24]">&lt;aggi&gt;</a></span><span class="message">i think tcc itself is very important, to keep that stable, reliable etc.</span></div><div class="line" id="222024"><span class="nick" style="color:#389600"><a href="#222024" label="[22:20:24]">&lt;aggi&gt;</a></span><span class="message">which intersects with both, (minor) issues for live-bootstrap, and more severe issues with linux-2.4 (however that's related to &quot;kernel bootstrapping&quot;, i will salvage a known-good state of tccboot)</span></div><div class="line" id="222111"><span class="nick" style="color:#389600"><a href="#222111" label="[22:21:11]">&lt;aggi&gt;</a></span><span class="message">but ok, i will fork/block at a known-good tcc-version, and those may repair tcc who had broken it, and may need it for riscv64 -  i can't</span></div><div class="line" id="222205"><span class="nick" style="color:#389600"><a href="#222205" label="[22:22:05]">&lt;aggi&gt;</a></span><span class="message">stikonas: thanks for synchronizing reasoning about it</span></div><div class="line" id="222215"><span class="nick" style="color:#80b1d3"><a href="#222215" label="[22:22:15]">&lt;stikonas&gt;</a></span><span class="message">well, see what works for you and what you like to spend you time on</span></div><div class="line" id="222237"><span class="nick" style="color:#80b1d3"><a href="#222237" label="[22:22:37]">&lt;stikonas&gt;</a></span><span class="message">I think most people here find tcc source code itself a bit hard to work with</span></div><div class="line" id="222332"><span class="nick" style="color:#389600"><a href="#222332" label="[22:23:32]">&lt;aggi&gt;</a></span><span class="message">both linux-2.4 and i486-tcc-linux-musl.iso were a decent test setup for tcc itself</span></div><div class="line" id="222344"><span class="nick" style="color:#80b1d3"><a href="#222344" label="[22:23:44]">&lt;stikonas&gt;</a></span><span class="message">oh for sure you tested more packages with tcc than most people</span></div><div class="line" id="222440"><span class="nick" style="color:#80b1d3"><a href="#222440" label="[22:24:40]">&lt;stikonas&gt;</a></span><span class="message">I was just trying to say, only work on it, if you find interesting</span></div><div class="line" id="222451"><span class="nick" style="color:#80b1d3"><a href="#222451" label="[22:24:51]">&lt;stikonas&gt;</a></span><span class="message">s/find/find it/</span></div><div class="line" id="222726"><span class="nick" style="color:#389600"><a href="#222726" label="[22:27:26]">&lt;aggi&gt;</a></span><span class="message">that's how i will do it: stabilize what i got (since recently that's a linux-2.4 kernel), for a _complete_ distribution, converge and re-integrate this with bootstrappable</span></div><div class="line" id="222750"><span class="nick" style="color:#389600"><a href="#222750" label="[22:27:50]">&lt;aggi&gt;</a></span><span class="message">then release it, as a stable(!) baseline</span></div><br /></div></body></html>

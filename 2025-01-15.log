@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2025-01-15.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="003542"><span class="nick" style="color:#389600"><a href="#003542" label="[00:35:42]">&lt;stikonas&gt;</a></span><span class="message">rkeene: please fix m2libc for aarch64 too</span></div><div class="line" id="030106"><span class="nick" style="color:#8dd3c7"><a href="#030106" label="[03:01:06]">&lt;lrvick&gt;</a></span><span class="message">Overhauled approach for bare-bones stage0 in a container: <a rel="nofollow" href="https://codeberg.org/stagex/stagex/src/commit/2a423b5ddb9d8aeab5054fce60018d4d956724c6/packages/bootstrap/stage0/Containerfile">https://codeberg.org/stagex/stagex/src/commit/2a423b5ddb9d8aeab5054fce60018d4d956724c6/packages/bootstrap/stage0/Containerfile</a> </span></div><div class="line" id="030108"><span class="nick" style="color:#8dd3c7"><a href="#030108" label="[03:01:08]">&lt;lrvick&gt;</a></span><span class="message">thoughts welcome</span></div><div class="line" id="030302"><span class="nick" style="color:#8dd3c7"><a href="#030302" label="[03:03:02]">&lt;lrvick&gt;</a></span><span class="message">There was too much abstraction for me to reason about things so I opted to be explicit to make review easy, and so I can change m2libc/stage0-posix-x86 versions easily</span></div><div class="line" id="030419"><span class="nick" style="color:#8dd3c7"><a href="#030419" label="[03:04:19]">&lt;lrvick&gt;</a></span><span class="message">Also bulk converted all the sources to toml in one file to make those easier to maintain for our needs as well: <a rel="nofollow" href="https://codeberg.org/stagex/stagex/src/commit/2a423b5ddb9d8aeab5054fce60018d4d956724c6/packages/bootstrap/stage1/package.toml">https://codeberg.org/stagex/stagex/src/commit/2a423b5ddb9d8aeab5054fce60018d4d956724c6/packages/bootstrap/stage1/package.toml</a> </span></div><div class="line" id="030951"><span class="nick" style="color:#8dd3c7"><a href="#030951" label="[03:09:51]">&lt;lrvick&gt;</a></span><span class="message">Also <a rel="nofollow" href="https://mirrors.kernel.org/gnu/autogen/rel5.18.16/autogen-5.18.16.tar.gz">https://mirrors.kernel.org/gnu/autogen/rel5.18.16/autogen-5.18.16.tar.gz</a>  no longer matches 0c04ab2f7ce13c4a1c06c4abc7dfe75312aad89b8b0a1068e5e563787eb56632 but <a rel="nofollow" href="https://git.savannah.gnu.org/cgit/autogen.git/snapshot/autogen-5.18.16.tar.gz">https://git.savannah.gnu.org/cgit/autogen.git/snapshot/autogen-5.18.16.tar.gz</a>  does</span></div><div class="line" id="031122"><span class="nick" style="color:#389600"><a href="#031122" label="[03:11:22]">&lt;stikonas&gt;</a></span><span class="message">lrvick: but they shouldn't match</span></div><div class="line" id="031130"><span class="nick" style="color:#389600"><a href="#031130" label="[03:11:30]">&lt;stikonas&gt;</a></span><span class="message">these are different tarballs I think</span></div><div class="line" id="031137"><span class="nick" style="color:#389600"><a href="#031137" label="[03:11:37]">&lt;stikonas&gt;</a></span><span class="message">one is release the other is git snapshot</span></div><div class="line" id="031600"><span class="nick" style="color:#8dd3c7"><a href="#031600" label="[03:16:00]">&lt;lrvick&gt;</a></span><span class="message">Ah I see what happened. I was using a slug without extensions so they merged</span></div><div class="line" id="071541"><span class="nick" style="color:#2e2a4a"><a href="#071541" label="[07:15:41]">&lt;rkeene&gt;</a></span><span class="message">lrvick, Ah, you're indicating that the files are in the wrong directories, not that symlinks in other directories aren't working.  For me, for that archive (mentioned in the issue) it does preserve most of the structure but there are some long names which aren't supported (unrelated to symlinks)</span></div><div class="line" id="072043"><span class="nick" style="color:#2e2a4a"><a href="#072043" label="[07:20:43]">&lt;rkeene&gt;</a></span><span class="message">stikonas, <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/66">https://github.com/oriansj/M2libc/pull/66</a> </span></div><div class="line" id="072223"><span class="nick" style="color:#2e2a4a"><a href="#072223" label="[07:22:23]">&lt;rkeene&gt;</a></span><span class="message">lrvick, Do you have a link to the specific archive that isn't working ?  I suspect it's just long filenames</span></div><div class="line" id="072255"><span class="nick" style="color:#2e2a4a"><a href="#072255" label="[07:22:55]">&lt;rkeene&gt;</a></span><span class="message">I added some tests for &quot;untar&quot; here: <a rel="nofollow" href="https://github.com/oriansj/mescc-tools-extra/pull/26">https://github.com/oriansj/mescc-tools-extra/pull/26</a> </span></div><div class="line" id="092152"><span class="nick" style="color:#6b8072"><a href="#092152" label="[09:21:52]">&lt;fossy&gt;</a></span><span class="message">mid-kid: what's wrong with gc-8.0.4? I can download the original</span></div><div class="line" id="092159"><span class="nick" style="color:#6b8072"><a href="#092159" label="[09:21:59]">&lt;fossy&gt;</a></span><span class="message">mid-kid: feel free to test out the &quot;mirror&quot; branch too</span></div><div class="line" id="154200"><span class="nick" style="color:#8dd3c7"><a href="#154200" label="[15:42:00]">&lt;lrvick&gt;</a></span><span class="message">rkeene: the example above was from live-bootstrap</span></div><div class="line" id="175342"><span class="nick" style="color:#8dd3c7"><a href="#175342" label="[17:53:42]">&lt;lrvick&gt;</a></span><span class="message">kaem-optional-seed only seems to build the stage0 tools and exits now in root of live-bootstrap</span></div><div class="line" id="175402"><span class="nick" style="color:#8dd3c7"><a href="#175402" label="[17:54:02]">&lt;lrvick&gt;</a></span><span class="message">Has something changed that is not documented (or documented somewhere I missed?)</span></div><div class="line" id="175521"><span class="nick" style="color:#8dd3c7"><a href="#175521" label="[17:55:21]">&lt;lrvick&gt;</a></span><span class="message">Been a while since I have interacted with live-bootstrap directly, but trying to get it working as a baseline again to update our recipe in stagex</span></div><div class="line" id="175725"><span class="nick" style="color:#8dd3c7"><a href="#175725" label="[17:57:25]">&lt;lrvick&gt;</a></span><span class="message">Looks like I can manually build script-generator and call it with steps/manifest then run steps/0.sh</span></div><div class="line" id="175743"><span class="nick" style="color:#8dd3c7"><a href="#175743" label="[17:57:43]">&lt;lrvick&gt;</a></span><span class="message">but I am assuming this is not the intended path today</span></div><div class="line" id="190657"><span class="nick" style="color:#8dd3c7"><a href="#190657" label="[19:06:57]">&lt;lrvick&gt;</a></span><span class="message">ah, missed copying some files from seed, and distfiles goes in external/distfiles now</span></div><div class="line" id="190704"><span class="nick" style="color:#8dd3c7"><a href="#190704" label="[19:07:04]">&lt;lrvick&gt;</a></span><span class="message">you guys are fantastic rubber ducks :D</span></div><div class="line" id="225316"><span class="nick" style="color:#8dd3c7"><a href="#225316" label="[22:53:16]">&lt;lrvick&gt;</a></span><span class="message">I am currently building a script to walk the live-bootstrap repo and create a self-contained Containerfile which can be trivially audited and executed standalnoe without the live-bootstrap repo</span></div><div class="line" id="225338"><span class="nick" style="color:#8dd3c7"><a href="#225338" label="[22:53:38]">&lt;lrvick&gt;</a></span><span class="message">Doing this so stagex can easily stay updated from work in live-bootstrap</span></div><div class="line" id="225343"><span class="nick" style="color:#8dd3c7"><a href="#225343" label="[22:53:43]">&lt;lrvick&gt;</a></span><span class="message">but if anyone else has interest lmk</span></div><div class="line" id="225356"><span class="nick" style="color:#8dd3c7"><a href="#225356" label="[22:53:56]">&lt;lrvick&gt;</a></span><span class="message">could upstream it if useful to anyone else</span></div><br /></div></body></html>

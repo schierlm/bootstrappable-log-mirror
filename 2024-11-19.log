@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-11-19.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001248"><span class="nick" style="color:#389600"><a href="#001248" label="[00:12:48]">&lt;fossy_&gt;</a></span><span class="message">can't say i'm particularly familiar with nix/guix type systems, but if a package build changes - in any way - the whole dependency tree under it is rebuilt???</span></div><div class="line" id="001305"><span class="nick" style="color:#389600"><a href="#001305" label="[00:13:05]">&lt;fossy_&gt;</a></span><span class="message">so if say, glibc is changed, you get a pretty much near world rebuild???</span></div><div class="line" id="001741"><span class="nick" style="color:#8dd3c7"><a href="#001741" label="[00:17:41]">&lt;jackdk&gt;</a></span><span class="message">Yeah that's the point of the Nix attitude towards builds, and Guix-style grafts are one proposed solution to this problem</span></div><div class="line" id="001806"><span class="nick" style="color:#8dd3c7"><a href="#001806" label="[00:18:06]">&lt;jackdk&gt;</a></span><span class="message">That way you're never depending on accidental behaviour of a particular version</span></div><div class="line" id="003640"><span class="nick" style="color:#389600"><a href="#003640" label="[00:36:40]">&lt;fossy_&gt;</a></span><span class="message">i suppose so, but even just in the case of changing whether tests is run, you're going to have bit-for-bit identical output (hopefully) from that build -- why it couldn't at least skip over everything below it in the tree in that case?</span></div><div class="line" id="003928"><span class="nick" style="color:#2e2a4a"><a href="#003928" label="[00:39:28]">&lt;unmush&gt;</a></span><span class="message">it turns out that mechanically proving that a given change to source code results in bit-for-bit identical output is a bit challenging (that is to say, impossible in the general case)</span></div><div class="line" id="004019"><span class="nick" style="color:#6b8072"><a href="#004019" label="[00:40:19]">&lt;stikonas&gt;</a></span><span class="message">probing might be impossible</span></div><div class="line" id="004022"><span class="nick" style="color:#6b8072"><a href="#004022" label="[00:40:22]">&lt;stikonas&gt;</a></span><span class="message">but checking is not hard</span></div><div class="line" id="004029"><span class="nick" style="color:#6b8072"><a href="#004029" label="[00:40:29]">&lt;stikonas&gt;</a></span><span class="message">that's what we do in live-bootstrap</span></div><div class="line" id="004040"><span class="nick" style="color:#6b8072"><a href="#004040" label="[00:40:40]">&lt;stikonas&gt;</a></span><span class="message">where all output hashes are checked</span></div><div class="line" id="004042"><span class="nick" style="color:#2e2a4a"><a href="#004042" label="[00:40:42]">&lt;unmush&gt;</a></span><span class="message">oh, I see, you mean checking after the build</span></div><div class="line" id="004046"><span class="nick" style="color:#6b8072"><a href="#004046" label="[00:40:46]">&lt;stikonas&gt;</a></span><span class="message">of course it comes with it's own problems</span></div><div class="line" id="004100"><span class="nick" style="color:#6b8072"><a href="#004100" label="[00:41:00]">&lt;stikonas&gt;</a></span><span class="message">yeah, all the hashes are checked against the expected result of the build</span></div><div class="line" id="004109"><span class="nick" style="color:#6b8072"><a href="#004109" label="[00:41:09]">&lt;stikonas&gt;</a></span><span class="message">which is a bit of a pain during development</span></div><div class="line" id="004118"><span class="nick" style="color:#6b8072"><a href="#004118" label="[00:41:18]">&lt;stikonas&gt;</a></span><span class="message">as even a simple change means you need to re-run everything</span></div><div class="line" id="004129"><span class="nick" style="color:#6b8072"><a href="#004129" label="[00:41:29]">&lt;stikonas&gt;</a></span><span class="message">and right now we just have x86</span></div><div class="line" id="004133"><span class="nick" style="color:#2e2a4a"><a href="#004133" label="[00:41:33]">&lt;unmush&gt;</a></span><span class="message">yeah, if we used fixed-output derivations we could disable tests without rebuilds</span></div><div class="line" id="004140"><span class="nick" style="color:#6b8072"><a href="#004140" label="[00:41:40]">&lt;stikonas&gt;</a></span><span class="message">if we add other arches, that will become a bit unscalable...</span></div><div class="line" id="004207"><span class="nick" style="color:#6b8072"><a href="#004207" label="[00:42:07]">&lt;stikonas&gt;</a></span><span class="message">e.g. these are checksums for live-bootstrap: <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/steps/SHA256SUMS.pkgs">https://github.com/fosslinux/live-bootstrap/blob/master/steps/SHA256SUMS.pkgs</a> </span></div><div class="line" id="004223"><span class="nick" style="color:#6b8072"><a href="#004223" label="[00:42:23]">&lt;stikonas&gt;</a></span><span class="message">and mismatch is a hard failure...</span></div><div class="line" id="004403"><span class="nick" style="color:#8dd3c7"><a href="#004403" label="[00:44:03]">&lt;jackdk&gt;</a></span><span class="message">Yeah it's a challenge because the nix model (and presumably the guix model) are input-addressed, and changing the `doCheck = true;` flag (or guix equivalent) means that the derivation runs a different build script. content-addressed derviations where the output is hashed would help solve this AIUI</span></div><div class="line" id="004644"><span class="nick" style="color:#6b8072"><a href="#004644" label="[00:46:44]">&lt;stikonas&gt;</a></span><span class="message">yeah, but hash output is only possible in perfectly reproducible system</span></div><div class="line" id="010922"><span class="nick" style="color:#2e2a4a"><a href="#010922" label="[01:09:22]">&lt;unmush&gt;</a></span><span class="message">behold, mono commit 2729605554a10de4ebc74cc163409792885420af. This unassuming commit, somewhere between mono 5.2.0.224 and mono 5.4.0, described only as &quot;bump corefx&quot;, marks when mono stopped being self-hosting.</span></div><div class="line" id="011028"><span class="nick" style="color:#2e2a4a"><a href="#011028" label="[01:10:28]">&lt;unmush&gt;</a></span><span class="message">they started out with microsoft's compiler and they ended up with microsoft's compiler. The circle is complete.</span></div><div class="line" id="014354"><span class="nick" style="color:#389600"><a href="#014354" label="[01:43:54]">&lt;fossy_&gt;</a></span><span class="message">what is it compiled by now?</span></div><div class="line" id="014457"><span class="nick" style="color:#389600"><a href="#014457" label="[01:44:57]">&lt;fossy_&gt;</a></span><span class="message">hm, little confused, doesn't mono still require mono to build?</span></div><div class="line" id="015310"><span class="nick" style="color:#6b8072"><a href="#015310" label="[01:53:10]">&lt;stikonas&gt;</a></span><span class="message">is anybody still using mono on Linux though?</span></div><div class="line" id="015822"><span class="nick" style="color:#389600"><a href="#015822" label="[01:58:22]">&lt;fossy_&gt;</a></span><span class="message">don't you need mono as a runtime for compiled C# binaries on Linux?</span></div><div class="line" id="015827"><span class="nick" style="color:#389600"><a href="#015827" label="[01:58:27]">&lt;fossy_&gt;</a></span><span class="message">or not anymore?</span></div><div class="line" id="015948"><span class="nick" style="color:#6b8072"><a href="#015948" label="[01:59:48]">&lt;stikonas&gt;</a></span><span class="message">well, yes, you probably need</span></div><div class="line" id="020000"><span class="nick" style="color:#6b8072"><a href="#020000" label="[02:00:00]">&lt;stikonas&gt;</a></span><span class="message">but are there any useful / popular apps in C#?</span></div><div class="line" id="020241"><span class="nick" style="color:#2e2a4a"><a href="#020241" label="[02:02:41]">&lt;unmush&gt;</a></span><span class="message">as far as I can tell commit 2729605554a10de4ebc74cc163409792885420af can't be built with any earlier mono, and therefore requires roslyn in order to be built</span></div><div class="line" id="020311"><span class="nick" style="color:#2e2a4a"><a href="#020311" label="[02:03:11]">&lt;unmush&gt;</a></span><span class="message">to be clear, by &quot;mono&quot; I here mean &quot;the complete mono package, including runtime, class library, and compiler&quot;</span></div><div class="line" id="020337"><span class="nick" style="color:#2e2a4a"><a href="#020337" label="[02:03:37]">&lt;unmush&gt;</a></span><span class="message">the mono runtime is still used within microsoft's official &quot;dotnet&quot; package</span></div><div class="line" id="020701"><span class="nick" style="color:#2e2a4a"><a href="#020701" label="[02:07:01]">&lt;unmush&gt;</a></span><span class="message">so I'm not sure what to try next, patching to try to get past this hurdle or trying to package microsoft's dotnet starting from mono 5.2.0.224</span></div><div class="line" id="061528"><span class="nick" style="color:#80b1d3"><a href="#061528" label="[06:15:28]">&lt;lanodan&gt;</a></span><span class="message">there's also dotnet-sdk from microsoft instead of mono but it's much more recent (so unlikely for pnet to work) and as far as I can tell doesn't bootstraps</span></div><div class="line" id="061642"><span class="nick" style="color:#80b1d3"><a href="#061642" label="[06:16:42]">&lt;lanodan&gt;</a></span><span class="message">err, should have backlogged entirely, yeah maybe mono 5.2.0.224 -&gt; dotnet-sdk could be an interesting way</span></div><div class="line" id="061725"><span class="nick" style="color:#2e2a4a"><a href="#061725" label="[06:17:25]">&lt;unmush&gt;</a></span><span class="message">it's proving quite difficult because it seems like the first thing every single msbuild-based build system tries doing is downloading a bunch of binary blobs</span></div><div class="line" id="061747"><span class="nick" style="color:#2e2a4a"><a href="#061747" label="[06:17:47]">&lt;unmush&gt;</a></span><span class="message">doesn't even try checking whether the environment already provides what they want</span></div><div class="line" id="061819"><span class="nick" style="color:#2e2a4a"><a href="#061819" label="[06:18:19]">&lt;unmush&gt;</a></span><span class="message">roslyn requires some immutable collections thingy that mono doesn't have, so I'm going to need to go mono --&gt; corefx --&gt; roslyn</span></div><div class="line" id="062031"><span class="nick" style="color:#2e2a4a"><a href="#062031" label="[06:20:31]">&lt;unmush&gt;</a></span><span class="message">as far as I can tell (it's hard to be sure because the build systems seem to have such strong anti-packaging properties), pretty much all dotnet things depend on msbuild, including roslyn, and msbuild depends on roslyn, and msbuild depends on msbuild, and roslyn depends on corefx (which in 2020 was combined with a bunch of other stuff into dotnet-runtime).</span></div><br /></div></body></html>

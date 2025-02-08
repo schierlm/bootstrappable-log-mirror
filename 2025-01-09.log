@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2025-01-09.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="001335"><span class="nick" style="color:#389600"><a href="#001335" label="[00:13:35]">&lt;rkeene&gt;</a></span><span class="message">stikonas, To be clear I'm talking about these two PRs: (untar) <a rel="nofollow" href="https://github.com/oriansj/mescc-tools-extra/pull/25">https://github.com/oriansj/mescc-tools-extra/pull/25</a>   (M2libc) <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/62">https://github.com/oriansj/M2libc/pull/62</a> </span></div><div class="line" id="003139"><span class="nick" style="color:#8dd3c7"><a href="#003139" label="[00:31:39]">&lt;stikonas&gt;</a></span><span class="message">oh yeah, then that's fine</span></div><div class="line" id="003904"><span class="nick" style="color:#389600"><a href="#003904" label="[00:39:04]">&lt;rkeene&gt;</a></span><span class="message">For everything except knight/linux which would probably need a modification to M2-Planet (I guess that's what interprets this ?) I can implement either a working symlink or failure stub (because there's no filesystem or no filesystem support for symlinks) -- For knight/linux I'd like to leave it as a failure stub for now, since it requires some other modification to some other project</span></div><div class="line" id="010626"><span class="nick" style="color:#389600"><a href="#010626" label="[01:06:26]">&lt;rkeene&gt;</a></span><span class="message">Also, I think the definition for setting the system call for `unlink` on Linux/aarch64 is wrong:    0:   d2808048        mov     x8, #0x402                      // #1026    but as far as I can tell, on Linux/aarch64 there is no unlink system call, only unlinkat (0x23, 35) d2800468        mov     x8, #0x23                       // #35</span></div><div class="line" id="010645"><span class="nick" style="color:#8dd3c7"><a href="#010645" label="[01:06:45]">&lt;stikonas&gt;</a></span><span class="message">it could be, aarch is not well tested</span></div><div class="line" id="010731"><span class="nick" style="color:#8dd3c7"><a href="#010731" label="[01:07:31]">&lt;stikonas&gt;</a></span><span class="message">see also this old bug <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/17">https://github.com/oriansj/M2libc/pull/17</a> </span></div><div class="line" id="011000"><span class="nick" style="color:#389600"><a href="#011000" label="[01:10:00]">&lt;rkeene&gt;</a></span><span class="message">Seems like that would fix unlink -- but it was never merged in</span></div><div class="line" id="011412"><span class="nick" style="color:#8dd3c7"><a href="#011412" label="[01:14:12]">&lt;stikonas&gt;</a></span><span class="message">yeah, author disapperared...</span></div><div class="line" id="012043"><span class="nick" style="color:#389600"><a href="#012043" label="[01:20:43]">&lt;rkeene&gt;</a></span><span class="message">stikonas, I added Linux/aarch64 support and added support for returning an error on Linux/knight</span></div><div class="line" id="012053"><span class="nick" style="color:#389600"><a href="#012053" label="[01:20:53]">&lt;rkeene&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/oriansj/M2libc/pull/62">https://github.com/oriansj/M2libc/pull/62</a>    is now marked as ready to merge</span></div><div class="line" id="012213"><span class="nick" style="color:#8dd3c7"><a href="#012213" label="[01:22:13]">&lt;stikonas&gt;</a></span><span class="message">well, it's up to oriansj to merge...</span></div><div class="line" id="012228"><span class="nick" style="color:#8dd3c7"><a href="#012228" label="[01:22:28]">&lt;stikonas&gt;</a></span><span class="message">but looks fine</span></div><div class="line" id="013903"><span class="nick" style="color:#389600"><a href="#013903" label="[01:39:03]">&lt;rkeene&gt;</a></span><span class="message">oriansj, ping</span></div><br /></div></body></html>

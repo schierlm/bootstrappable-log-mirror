@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2025-01-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002813"><span class="nick" style="color:#389600"><a href="#002813" label="[00:28:13]">&lt;oriansj&gt;</a></span><span class="message">only one thing you missed stikonas:  maybe_bootstrap_error for the features cc_* doesn't support (the enum)</span></div><div class="line" id="002853"><span class="nick" style="color:#8dd3c7"><a href="#002853" label="[00:28:53]">&lt;stikonas&gt;</a></span><span class="message">oh, yeah...</span></div><div class="line" id="003037"><span class="nick" style="color:#389600"><a href="#003037" label="[00:30:37]">&lt;oriansj&gt;</a></span><span class="message">rkeene: plus crypto attracts a *TON* of crazy people.</span></div><div class="line" id="003117"><span class="nick" style="color:#8dd3c7"><a href="#003117" label="[00:31:17]">&lt;stikonas&gt;</a></span><span class="message">oh, but that's again in this cc_types.h file</span></div><div class="line" id="003124"><span class="nick" style="color:#8dd3c7"><a href="#003124" label="[00:31:24]">&lt;stikonas&gt;</a></span><span class="message">not in cc_core.c file</span></div><div class="line" id="003148"><span class="nick" style="color:#8dd3c7"><a href="#003148" label="[00:31:48]">&lt;stikonas&gt;</a></span><span class="message">so probably again need to play the same extern game...</span></div><div class="line" id="003216"><span class="nick" style="color:#389600"><a href="#003216" label="[00:32:16]">&lt;oriansj&gt;</a></span><span class="message">hmmm</span></div><div class="line" id="003401"><span class="nick" style="color:#389600"><a href="#003401" label="[00:34:01]">&lt;oriansj&gt;</a></span><span class="message">well we could just move that function into M2-Planet/cc_globals.c</span></div><div class="line" id="003516"><span class="nick" style="color:#389600"><a href="#003516" label="[00:35:16]">&lt;oriansj&gt;</a></span><span class="message">which is the first C file loaded; add it to cc_globals.h as an extern (which cc_* doesn't look at)</span></div><div class="line" id="003602"><span class="nick" style="color:#389600"><a href="#003602" label="[00:36:02]">&lt;oriansj&gt;</a></span><span class="message">then we can use maybe_bootstrap_error in all the other files to cover all C features that cc_* doesn't support without any future issues</span></div><div class="line" id="004342"><span class="nick" style="color:#2e2a4a"><a href="#004342" label="[00:43:42]">&lt;aggi&gt;</a></span><span class="message">some older version of util-linux is back on board that matches tinycc/linux24/musl if need be, got back blkid and sfdisk for scripting install scripts</span></div><div class="line" id="013337"><span class="nick" style="color:#8dd3c7"><a href="#013337" label="[01:33:37]">&lt;stikonas&gt;</a></span><span class="message">ok, M2-Planet change to add maybe_bootstrap_error pushed now</span></div><div class="line" id="013419"><span class="nick" style="color:#8dd3c7"><a href="#013419" label="[01:34:19]">&lt;stikonas&gt;</a></span><span class="message">stage0-posix is working too, but I'll first have to write changelog there</span></div><div class="line" id="013902"><span class="nick" style="color:#389600"><a href="#013902" label="[01:39:02]">&lt;oriansj&gt;</a></span><span class="message">good plan</span></div><div class="line" id="013905"><span class="nick" style="color:#389600"><a href="#013905" label="[01:39:05]">&lt;oriansj&gt;</a></span><span class="message">thank you stikonas</span></div><div class="line" id="013935"><span class="nick" style="color:#8dd3c7"><a href="#013935" label="[01:39:35]">&lt;stikonas&gt;</a></span><span class="message">well, thanks to all who contributed new features...</span></div><div class="line" id="013948"><span class="nick" style="color:#8dd3c7"><a href="#013948" label="[01:39:48]">&lt;stikonas&gt;</a></span><span class="message">I mostly just tested them</span></div><div class="line" id="014001"><span class="nick" style="color:#8dd3c7"><a href="#014001" label="[01:40:01]">&lt;stikonas&gt;</a></span><span class="message">(with a few fixes)</span></div><div class="line" id="014258"><span class="nick" style="color:#6b8072"><a href="#014258" label="[01:42:58]">&lt;rkeene&gt;</a></span><span class="message">Thank you !</span></div><div class="line" id="020730"><span class="nick" style="color:#8dd3c7"><a href="#020730" label="[02:07:30]">&lt;stikonas&gt;</a></span><span class="message">ok, pushed stage0-posix changes</span></div><div class="line" id="040439"><span class="nick" style="color:#80b1d3"><a href="#040439" label="[04:04:39]">&lt;homo&gt;</a></span><span class="message">good news, microhs is lowering language requirements just to be bootstrappable with hugs <a rel="nofollow" href="https://github.com/augustss/MicroHs/commit/2f9eab4db4e811e4c75ea370a64914abc94abf9c">https://github.com/augustss/MicroHs/commit/2f9eab4db4e811e4c75ea370a64914abc94abf9c</a>  <a rel="nofollow" href="https://github.com/augustss/MicroHs/commit/56be300c293304b37cb18db499d825621be9ec4d">https://github.com/augustss/MicroHs/commit/56be300c293304b37cb18db499d825621be9ec4d</a> </span></div><div class="line" id="040816"><span class="nick" style="color:#80b1d3"><a href="#040816" label="[04:08:16]">&lt;homo&gt;</a></span><span class="message">the rest of my patches are coming soon, there are only 2 things I am unable to fix, but Lennart will attempt to fix - crash caused by src/MicroHs/StateIO.hs and solving GHC.Types(Any) puzzle to make ghc/primTable.hs compatible with hugs</span></div><div class="line" id="041107"><span class="nick" style="color:#80b1d3"><a href="#041107" label="[04:11:07]">&lt;homo&gt;</a></span><span class="message">the last thing on todo list is that someone has to add pattern guards support to hugs, as that language requirement is not going away from microhs</span></div><div class="line" id="154249"><span class="nick" style="color:#6d2462"><a href="#154249" label="[15:42:49]">&lt;ZhouBaiden798365&gt;</a></span><span class="message">Hey guys... Joe Biden here. I've decided to step down from the White House to focus on other projects. Billionaires are a threat to democracy, so check out <a rel="nofollow" href="https://BidenCash.st">https://BidenCash.st</a>  to put them in the bullseye. Keep an eye on the CNN inauguration for a promo code!</span></div><div class="line" id="155040"><span class="nick" style="color:#234e69"><a href="#155040" label="[15:50:40]">&lt;GB717623&gt;</a></span><span class="message">Hey guys... Joe Biden here. I've decided to step down from the White House to focus on other projects. Billionaires are a threat to democracy, so check out <a rel="nofollow" href="https://BidenCash.st">https://BidenCash.st</a>  to put them in the bullseye. Keep an eye on the CNN inauguration for a promo code!</span></div><div class="line" id="164057"><span class="nick" style="color:#389600"><a href="#164057" label="[16:40:57]">&lt;oriansj&gt;</a></span><span class="message">homo: thank you for your continued work on the haskell bootstrap problem.</span></div><div class="line" id="235736"><span class="nick" style="color:#6c3d55"><a href="#235736" label="[23:57:36]">&lt;lrvick&gt;</a></span><span class="message">Anyone remember why python is in live-bootstap?</span></div><div class="line" id="235831"><span class="nick" style="color:#6c3d55"><a href="#235831" label="[23:58:31]">&lt;lrvick&gt;</a></span><span class="message">seems a lot of compile time is spent on it. Is it actually required to get gcc13 somehow?</span></div><br /></div></body></html>

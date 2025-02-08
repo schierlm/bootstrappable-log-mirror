@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2025-02-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="000234"><span class="nick" style="color:#389600"><a href="#000234" label="[00:02:34]">&lt;stikonas&gt;</a></span><span class="message">fossy: yeah, I think so</span></div><div class="line" id="000305"><span class="nick" style="color:#389600"><a href="#000305" label="[00:03:05]">&lt;stikonas&gt;</a></span><span class="message">hmm, so my download issue is intermittent</span></div><div class="line" id="000313"><span class="nick" style="color:#389600"><a href="#000313" label="[00:03:13]">&lt;stikonas&gt;</a></span><span class="message">maybe it's worth adding retry on download</span></div><div class="line" id="000331"><span class="nick" style="color:#389600"><a href="#000331" label="[00:03:31]">&lt;stikonas&gt;</a></span><span class="message">oh there is...</span></div><div class="line" id="000345"><span class="nick" style="color:#389600"><a href="#000345" label="[00:03:45]">&lt;stikonas&gt;</a></span><span class="message">so even retries=2 didn't help somehow</span></div><div class="line" id="000944"><span class="nick" style="color:#8dd3c7"><a href="#000944" label="[00:09:44]">&lt;fossy&gt;</a></span><span class="message">hm, should we up the default</span></div><div class="line" id="001115"><span class="nick" style="color:#389600"><a href="#001115" label="[00:11:15]">&lt;stikonas&gt;</a></span><span class="message">maybe 3 would make some sense</span></div><div class="line" id="001132"><span class="nick" style="color:#389600"><a href="#001132" label="[00:11:32]">&lt;stikonas&gt;</a></span><span class="message">and perhaps a short 1s sleep between retries?</span></div><div class="line" id="001138"><span class="nick" style="color:#8dd3c7"><a href="#001138" label="[00:11:38]">&lt;fossy&gt;</a></span><span class="message">oh sleep would be smart</span></div><div class="line" id="001155"><span class="nick" style="color:#389600"><a href="#001155" label="[00:11:55]">&lt;stikonas&gt;</a></span><span class="message">otherwise it might be the same transient problem</span></div><div class="line" id="001220"><span class="nick" style="color:#8dd3c7"><a href="#001220" label="[00:12:20]">&lt;fossy&gt;</a></span><span class="message">ok, there we go</span></div><div class="line" id="001351"><span class="nick" style="color:#389600"><a href="#001351" label="[00:13:51]">&lt;stikonas&gt;</a></span><span class="message">thanks</span></div><div class="line" id="001355"><span class="nick" style="color:#389600"><a href="#001355" label="[00:13:55]">&lt;stikonas&gt;</a></span><span class="message">I guess good to merge</span></div><div class="line" id="001400"><span class="nick" style="color:#8dd3c7"><a href="#001400" label="[00:14:00]">&lt;fossy&gt;</a></span><span class="message">merged :D</span></div><div class="line" id="001401"><span class="nick" style="color:#389600"><a href="#001401" label="[00:14:01]">&lt;stikonas&gt;</a></span><span class="message">I haven't set automatic updates on my mirror yet...</span></div><div class="line" id="001414"><span class="nick" style="color:#8dd3c7"><a href="#001414" label="[00:14:14]">&lt;fossy&gt;</a></span><span class="message">neither, just needs a simple cron though</span></div><div class="line" id="001417"><span class="nick" style="color:#389600"><a href="#001417" label="[00:14:17]">&lt;stikonas&gt;</a></span><span class="message">just the first 2 points from your readme...</span></div><div class="line" id="001441"><span class="nick" style="color:#389600"><a href="#001441" label="[00:14:41]">&lt;stikonas&gt;</a></span><span class="message">we'll see how frequently tarballs change...</span></div><div class="line" id="003531"><span class="nick" style="color:#389600"><a href="#003531" label="[00:35:31]">&lt;stikonas&gt;</a></span><span class="message">fossy: do we need some way to communicate list of available mirrors?</span></div><div class="line" id="005543"><span class="nick" style="color:#389600"><a href="#005543" label="[00:55:43]">&lt;stikonas&gt;</a></span><span class="message">well, I guess it will be mostly obsolete if we manage to get p2p working...</span></div><div class="line" id="011035"><span class="nick" style="color:#8dd3c7"><a href="#011035" label="[01:10:35]">&lt;fossy&gt;</a></span><span class="message">stikonas: maybe we could add a wiki page <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/wiki">https://github.com/fosslinux/live-bootstrap/wiki</a>  and let people put their mirrors there?</span></div><div class="line" id="011048"><span class="nick" style="color:#389600"><a href="#011048" label="[01:10:48]">&lt;stikonas&gt;</a></span><span class="message">yeah, that could work for now</span></div><div class="line" id="011104"><span class="nick" style="color:#389600"><a href="#011104" label="[01:11:04]">&lt;stikonas&gt;</a></span><span class="message">(hopefully we won't get spam...)</span></div><div class="line" id="011842"><span class="nick" style="color:#2e2a4a"><a href="#011842" label="[01:18:42]">&lt;ztrawhcse&gt;</a></span><span class="message">stikonas, lanodan: wearing my hat as part of the Reproducible Builds project I can confirm GNU gzip has stable (== deterministic) output and that I was personally involved in arranging that BusyBox gzip shall now produce the same output as GNU gzip. Github has used GNU gzip since forever and the only times checksums broke have been a) rare occasions when git-archive changed their tar stream</span></div><div class="line" id="011842"><span class="nick" style="color:#2e2a4a"><a href="#011842" label="[01:18:42]">&lt;ztrawhcse&gt;</a></span><span class="message">format, b) when git-archive started using an internal gzip impl which emits a different output stream than GNU gzip</span></div><div class="line" id="012045"><span class="nick" style="color:#2e2a4a"><a href="#012045" label="[01:20:45]">&lt;ztrawhcse&gt;</a></span><span class="message">fossy: git-archive is deterministic iff a) they don't change the tar stream format, which they rarely do and have a soft commitment to refrain from doing since it &quot;breaks the universe&quot;, b) the compressor is stable</span></div><div class="line" id="012102"><span class="nick" style="color:#2e2a4a"><a href="#012102" label="[01:21:02]">&lt;ztrawhcse&gt;</a></span><span class="message">in practice, this combination means there is very rarely an issue</span></div><div class="line" id="012341"><span class="nick" style="color:#389600"><a href="#012341" label="[01:23:41]">&lt;stikonas&gt;</a></span><span class="message">fossy: there is a minor bug with urls:</span></div><div class="line" id="012348"><span class="nick" style="color:#389600"><a href="#012348" label="[01:23:48]">&lt;stikonas&gt;</a></span><span class="message">/bash-5.2.15.tar.gz HTTP/1.1&quot; 200 10951843 &quot;-&quot; &quot;curl/8.5.0&quot; &quot;-&quot;</span></div><div class="line" id="012358"><span class="nick" style="color:#389600"><a href="#012358" label="[01:23:58]">&lt;stikonas&gt;</a></span><span class="message">argh, irc ate double slash</span></div><div class="line" id="012402"><span class="nick" style="color:#389600"><a href="#012402" label="[01:24:02]">&lt;stikonas&gt;</a></span><span class="message">anyway it is //bash-5.2.15.tar.gz HTTP/1.1&quot; 200 10951843 &quot;-&quot; &quot;curl/8.5.0&quot; &quot;-&quot;</span></div><div class="line" id="012413"><span class="nick" style="color:#389600"><a href="#012413" label="[01:24:13]">&lt;stikonas&gt;</a></span><span class="message">that must be in helpers.sh...</span></div><div class="line" id="012635"><span class="nick" style="color:#8dd3c7"><a href="#012635" label="[01:26:35]">&lt;fossy&gt;</a></span><span class="message">stikonas: what were you passing as your mirror argument?</span></div><div class="line" id="012640"><span class="nick" style="color:#8dd3c7"><a href="#012640" label="[01:26:40]">&lt;fossy&gt;</a></span><span class="message">does the double slash matter</span></div><div class="line" id="012648"><span class="nick" style="color:#389600"><a href="#012648" label="[01:26:48]">&lt;stikonas&gt;</a></span><span class="message">oh yes, I had shash at the end...</span></div><div class="line" id="012657"><span class="nick" style="color:#389600"><a href="#012657" label="[01:26:57]">&lt;stikonas&gt;</a></span><span class="message">it it doesn't matter...</span></div><div class="line" id="012704"><span class="nick" style="color:#389600"><a href="#012704" label="[01:27:04]">&lt;stikonas&gt;</a></span><span class="message">nginx copes with double shash just fine</span></div><div class="line" id="012842"><span class="nick" style="color:#8dd3c7"><a href="#012842" label="[01:28:42]">&lt;fossy&gt;</a></span><span class="message">i'm think let's just leave it, and if theres some weird web server out there that doesn't support it , people just need to ensure they don't use trailing slash</span></div><div class="line" id="012850"><span class="nick" style="color:#8dd3c7"><a href="#012850" label="[01:28:50]">&lt;fossy&gt;</a></span><span class="message">but i can't think of one that doesn't</span></div><div class="line" id="023152"><span class="nick" style="color:#6b8072"><a href="#023152" label="[02:31:52]">&lt;lanodan&gt;</a></span><span class="message">ztrawhcse: Oooh nice to know for busybox, guess could also check if pigz (default gzip implementation here) matches</span></div><div class="line" id="023845"><span class="nick" style="color:#2e2a4a"><a href="#023845" label="[02:38:45]">&lt;ztrawhcse&gt;</a></span><span class="message">lanodan: <a rel="nofollow" href="https://github.com/mirror/busybox/commit/c660cc1b7714fffbac95c9378ff4b73de650a6de">https://github.com/mirror/busybox/commit/c660cc1b7714fffbac95c9378ff4b73de650a6de</a> </span></div><div class="line" id="023853"><span class="nick" style="color:#2e2a4a"><a href="#023853" label="[02:38:53]">&lt;ztrawhcse&gt;</a></span><span class="message">general discussion: <a rel="nofollow" href="https://lists.reproducible-builds.org/pipermail/rb-general/2021-October/002422.html">https://lists.reproducible-builds.org/pipermail/rb-general/2021-October/002422.html</a> </span></div><br /></div></body></html>

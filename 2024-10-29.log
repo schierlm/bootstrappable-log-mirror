@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-10-29.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="024621"><span class="nick" style="color:#389600"><a href="#024621" label="[02:46:21]">&lt;fossy&gt;</a></span><span class="message">ooh interesting</span></div><div class="line" id="025414"><span class="nick" style="color:#389600"><a href="#025414" label="[02:54:14]">&lt;fossy&gt;</a></span><span class="message">hmmmmm</span></div><div class="line" id="032133"><span class="nick" style="color:#389600"><a href="#032133" label="[03:21:33]">&lt;fossy&gt;</a></span><span class="message">i'm still very conflicted on my thoughts about the hardware bootstrapping problem</span></div><div class="line" id="032258"><span class="nick" style="color:#389600"><a href="#032258" label="[03:22:58]">&lt;fossy&gt;</a></span><span class="message">i don't take the view including bootstrapping the whole fabrication process - my position is to treat the fabrication process as a black box that introduces some kind of distrust (and then on-die firmware like intel ME as a lot more distrust)</span></div><div class="line" id="032341"><span class="nick" style="color:#389600"><a href="#032341" label="[03:23:41]">&lt;fossy&gt;</a></span><span class="message">&amp; so depending on the level of distrust you're comfortable with you have different starting points</span></div><div class="line" id="032429"><span class="nick" style="color:#389600"><a href="#032429" label="[03:24:29]">&lt;fossy&gt;</a></span><span class="message">but i can't decide whether something like a fpga-emulated riscv core is sufficient (which also introduces the problem of compiling the core)</span></div><div class="line" id="032452"><span class="nick" style="color:#389600"><a href="#032452" label="[03:24:52]">&lt;fossy&gt;</a></span><span class="message">or whether actual hand-built hardware is at all worthwhile</span></div><div class="line" id="032713"><span class="nick" style="color:#8dd3c7"><a href="#032713" label="[03:27:13]">&lt;lanodan&gt;</a></span><span class="message">I think in terms of trust I'd rather use cross-compiling so it's a bit like Diverse Double Compiling, hardware edition. Although there should still be the goal of finding a trustworthy computer.</span></div><div class="line" id="033013"><span class="nick" style="color:#389600"><a href="#033013" label="[03:30:13]">&lt;fossy&gt;</a></span><span class="message">yeah, I tend to agree in terms of mitigating distrust of hardware</span></div><div class="line" id="033057"><span class="nick" style="color:#389600"><a href="#033057" label="[03:30:57]">&lt;fossy&gt;</a></span><span class="message">only really feasible for open architectures I think though</span></div><div class="line" id="033113"><span class="nick" style="color:#389600"><a href="#033113" label="[03:31:13]">&lt;fossy&gt;</a></span><span class="message">or otherwise many-impls</span></div><div class="line" id="033307"><span class="nick" style="color:#389600"><a href="#033307" label="[03:33:07]">&lt;fossy&gt;</a></span><span class="message">(some problem with DCC now, clang/gcc duopoly in the (open) compiler land makes it difficult to effectively execute DCC)</span></div><div class="line" id="033316"><span class="nick" style="color:#8dd3c7"><a href="#033316" label="[03:33:16]">&lt;lanodan&gt;</a></span><span class="message">And part of the problem is even if say you'd have a trustworthy computer but only capable of disassembling programs to check the work of less trustworthy computers, you'd then need a lot of human time for inspection.</span></div><div class="line" id="033453"><span class="nick" style="color:#389600"><a href="#033453" label="[03:34:53]">&lt;fossy&gt;</a></span><span class="message">right</span></div><div class="line" id="033526"><span class="nick" style="color:#389600"><a href="#033526" label="[03:35:26]">&lt;fossy&gt;</a></span><span class="message">these are difficult problems, that's for sure :D</span></div><br /></div></body></html>

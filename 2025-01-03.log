@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2025-01-03.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="114643"><span class="nick" style="color:#389600"><a href="#114643" label="[11:46:43]">&lt;aggi&gt;</a></span><span class="message">hello again, would appreciate some help or hint, related to autotools/automake/autoconf - which is slightly off-topic but related to requirements to keep my system profile statically linked</span></div><div class="line" id="114731"><span class="nick" style="color:#389600"><a href="#114731" label="[11:47:31]">&lt;aggi&gt;</a></span><span class="message">background to this, replacing libtool with slibtool greatly simplified this, and _all_ packages compiled</span></div><div class="line" id="114822"><span class="nick" style="color:#389600"><a href="#114822" label="[11:48:22]">&lt;aggi&gt;</a></span><span class="message">doing a few more cleanup tasks hit some iregularities (which can be circuumvented but i rather ensure autoreconf -if always passes with slibtool)</span></div><div class="line" id="114952"><span class="nick" style="color:#389600"><a href="#114952" label="[11:49:52]">&lt;aggi&gt;</a></span><span class="message">currently i am hitting some errors, which seem related to autoreconf pulling different m4 macros depending on circuumstances</span></div><div class="line" id="115131"><span class="nick" style="color:#389600"><a href="#115131" label="[11:51:31]">&lt;aggi&gt;</a></span><span class="message">for example: LIBTOOL=slibtool LIBTOOLIZE=slibtoolize AT_M4DIR=/usr/share/slibtool autoreconf -if (with a dozen builds)</span></div><div class="line" id="115201"><span class="nick" style="color:#389600"><a href="#115201" label="[11:52:01]">&lt;aggi&gt;</a></span><span class="message">-&gt; error: possibly undefined macro: AC_PROG_LIBTOOL ... or undefined macro AM_PROG_LIBTOOL etc.</span></div><div class="line" id="115231"><span class="nick" style="color:#389600"><a href="#115231" label="[11:52:31]">&lt;aggi&gt;</a></span><span class="message">anyway, slibtool, as far as re-generating configure/makefiles, seems to introduce a sanity check and barrier</span></div><div class="line" id="115245"><span class="nick" style="color:#389600"><a href="#115245" label="[11:52:45]">&lt;aggi&gt;</a></span><span class="message">which i think is relevant to the criteria for bootstrappable</span></div><div class="line" id="115417"><span class="nick" style="color:#389600"><a href="#115417" label="[11:54:17]">&lt;aggi&gt;</a></span><span class="message">i already could repair a dozen builds, and i can circuumvent problems, but it seems inconsistent and not plausible</span></div><div class="line" id="115450"><span class="nick" style="color:#389600"><a href="#115450" label="[11:54:50]">&lt;aggi&gt;</a></span><span class="message">comparing different packages, some configure.ac almost identical, one succeeds, another one doesn't</span></div><div class="line" id="115543"><span class="nick" style="color:#389600"><a href="#115543" label="[11:55:43]">&lt;aggi&gt;</a></span><span class="message">i've patched a notable amount of configure.ac/makefile.am (500ebuilds inside an overlay), but i can't wrap my brain around this still</span></div><div class="line" id="115639"><span class="nick" style="color:#389600"><a href="#115639" label="[11:56:39]">&lt;aggi&gt;</a></span><span class="message">even when autoreconf is called, macro inclusion and expansion remains mysterious, which finally is disclosed if slibtool sets a barrier</span></div><div class="line" id="115810"><span class="nick" style="color:#389600"><a href="#115810" label="[11:58:10]">&lt;aggi&gt;</a></span><span class="message">in any case, i've collected many patches already, and will publish those of cause, but i wouldn't want to release some half-baked thing with a dozen troublemakers which could block progress a day or week anytime</span></div><div class="line" id="115901"><span class="nick" style="color:#389600"><a href="#115901" label="[11:59:01]">&lt;aggi&gt;</a></span><span class="message">AC_INIT called and passed, AC_PROG_LIBTOOL remains undefined, doesn't make sense</span></div><div class="line" id="120712"><span class="nick" style="color:#389600"><a href="#120712" label="[12:07:12]">&lt;aggi&gt;</a></span><span class="message">to summarize, enforcing autoreconf -if is a mandatory criteria; it isn't sufficient for re-producibility and a few other symptoms</span></div><br /></div></body></html>

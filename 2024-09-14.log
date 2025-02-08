@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-09-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="010236"><span class="nick" style="color:#389600"><a href="#010236" label="[01:02:36]">&lt;stikonas&gt;</a></span><span class="message">oriansj: do you remember if we have a way to align data structures in M2-Planet?</span></div><div class="line" id="010305"><span class="nick" style="color:#389600"><a href="#010305" label="[01:03:05]">&lt;stikonas&gt;</a></span><span class="message">well, I guess to 4 KiB (page size)</span></div><div class="line" id="014244"><span class="nick" style="color:#389600"><a href="#014244" label="[01:42:44]">&lt;stikonas&gt;</a></span><span class="message">hmm, perhaps I don't need that... I can just align myself after memory is allocated...</span></div><div class="line" id="040444"><span class="nick" style="color:#8dd3c7"><a href="#040444" label="[04:04:44]">&lt;oriansj&gt;</a></span><span class="message">stikonas: M2-Planet doesn't yet support data alignment (implicit padding) but M1 and Hex2 both do</span></div><div class="line" id="040510"><span class="nick" style="color:#8dd3c7"><a href="#040510" label="[04:05:10]">&lt;oriansj&gt;</a></span><span class="message">just do &lt; to align to a word</span></div><div class="line" id="040538"><span class="nick" style="color:#8dd3c7"><a href="#040538" label="[04:05:38]">&lt;oriansj&gt;</a></span><span class="message">or &lt;123 to padd out 123 zero bytes</span></div><div class="line" id="040631"><span class="nick" style="color:#8dd3c7"><a href="#040631" label="[04:06:31]">&lt;oriansj&gt;</a></span><span class="message">(wouldn't be that complex to add)</span></div><div class="line" id="105234"><span class="nick" style="color:#389600"><a href="#105234" label="[10:52:34]">&lt;stikonas&gt;</a></span><span class="message">anyway, for now I don't think I need it. I can just grab dynamic memory and align myself, don't need anything global to be aligned</span></div><div class="line" id="154356"><span class="nick" style="color:#2e2a4a"><a href="#154356" label="[15:43:56]">&lt;Maja_&gt;</a></span><span class="message">hi, i am having thoughts about writing a standard ml implementation. have there been efforts around making that language bootstrappable yet?</span></div><div class="line" id="180756"><span class="nick" style="color:#389600"><a href="#180756" label="[18:07:56]">&lt;stikonas&gt;</a></span><span class="message">Maja_: nothing on this channel as far as I'm aware...</span></div><div class="line" id="182443"><span class="nick" style="color:#6b8072"><a href="#182443" label="[18:24:43]">&lt;Googulator&gt;</a></span><span class="message">OCaml is the closest to Standard ML to achieve a bootstrap; sadly it wasn't propagated to current versions</span></div><div class="line" id="220548"><span class="nick" style="color:#8dd3c7"><a href="#220548" label="[22:05:48]">&lt;oriansj&gt;</a></span><span class="message">yeah the only ML we have any sort of bootstrap is OCaml: <a rel="nofollow" href="https://github.com/Ekdohibs/camlboot">https://github.com/Ekdohibs/camlboot</a>  which uses guile which is used to generate OCaml bytecode, which is then executed by the OCaml runtime (which as far as I can tell is just a 2.6MB binary blob checked into the ocaml source repo and probably needs to be addressed to give ocaml a proper bootstrap)</span></div><div class="line" id="220825"><span class="nick" style="color:#80b1d3"><a href="#220825" label="[22:08:25]">&lt;stikonas_&gt;</a></span><span class="message">oh does it use another blob?</span></div><div class="line" id="220827"><span class="nick" style="color:#8dd3c7"><a href="#220827" label="[22:08:27]">&lt;oriansj&gt;</a></span><span class="message">Maja_: so if you could look into the OCaml runtime's bootstrap and/or extend the OCaml bootstrap to the current release, that would be extremely helpful for the ML family bootstrap.</span></div><div class="line" id="220850"><span class="nick" style="color:#80b1d3"><a href="#220850" label="[22:08:50]">&lt;stikonas_&gt;</a></span><span class="message"> <a rel="nofollow" href="https://arxiv.org/pdf/2202.09231">https://arxiv.org/pdf/2202.09231</a>  mentions something called minicomp</span></div><div class="line" id="220952"><span class="nick" style="color:#389600"><a href="#220952" label="[22:09:52]">&lt;stikonas&gt;</a></span><span class="message">isn't blob only used when you don't use camlboot?</span></div><div class="line" id="221019"><span class="nick" style="color:#2e2a4a"><a href="#221019" label="[22:10:19]">&lt;Maja_&gt;</a></span><span class="message">ah, well, I'm mostly looking at this from the perspective of &quot;hey, writing a compiler for a language with an ML-style type system would be fun&quot;, and then I realized that something like that might be useful for the bootstrappable project</span></div><div class="line" id="221037"><span class="nick" style="color:#8dd3c7"><a href="#221037" label="[22:10:37]">&lt;oriansj&gt;</a></span><span class="message">stikonas: I haven't yet found how they make the OCaml rumtime; all I have found for it is binary blobs in repos</span></div><div class="line" id="221046"><span class="nick" style="color:#389600"><a href="#221046" label="[22:10:46]">&lt;stikonas&gt;</a></span><span class="message">hmm, i'm reading that pdf now</span></div><div class="line" id="221056"><span class="nick" style="color:#389600"><a href="#221056" label="[22:10:56]">&lt;stikonas&gt;</a></span><span class="message">I think the process starts in page 6</span></div><div class="line" id="221108"><span class="nick" style="color:#389600"><a href="#221108" label="[22:11:08]">&lt;stikonas&gt;</a></span><span class="message">mplement an interpreter for OCaml, that we call interp</span></div><div class="line" id="221205"><span class="nick" style="color:#8dd3c7"><a href="#221205" label="[22:12:05]">&lt;oriansj&gt;</a></span><span class="message">Maja_: well there are a great many places where an ML compiler/interpreter would be useful; both early and late in the bootstrap. So there are lots of potentially fun places for you to make progress.</span></div><div class="line" id="221255"><span class="nick" style="color:#8dd3c7"><a href="#221255" label="[22:12:55]">&lt;oriansj&gt;</a></span><span class="message">yeah An interpreter of OCaml written in a subset of OCaml called miniml</span></div><div class="line" id="221326"><span class="nick" style="color:#8dd3c7"><a href="#221326" label="[22:13:26]">&lt;oriansj&gt;</a></span><span class="message">A compiler for miniml in written in Scheme (guile) compiles miniml to OCaml bytecode, which is then executed by the OCaml runtime.</span></div><div class="line" id="221417"><span class="nick" style="color:#8dd3c7"><a href="#221417" label="[22:14:17]">&lt;oriansj&gt;</a></span><span class="message">and A handwritten lexer for the bootstrapping of ocamllex</span></div><div class="line" id="221853"><span class="nick" style="color:#8dd3c7"><a href="#221853" label="[22:18:53]">&lt;oriansj&gt;</a></span><span class="message">and the PDF mentions &quot;The runtime, as well as ocamlrun, are implemented in C code.&quot; but when I look in the <a rel="nofollow" href="https://github.com/ocaml/ocaml">https://github.com/ocaml/ocaml</a>  ; it appears that they don't even include the C code and they just copy a blob: <a rel="nofollow" href="https://github.com/ocaml/ocaml/blob/trunk/Makefile#L690">https://github.com/ocaml/ocaml/blob/trunk/Makefile#L690</a> </span></div><div class="line" id="223154"><span class="nick" style="color:#8dd3c7"><a href="#223154" label="[22:31:54]">&lt;oriansj&gt;</a></span><span class="message">there is also a definite possiblity that I am just blind: <a rel="nofollow" href="https://github.com/ocaml/ocaml/tree/trunk/runtime">https://github.com/ocaml/ocaml/tree/trunk/runtime</a> </span></div><div class="line" id="225558"><span class="nick" style="color:#8dd3c7"><a href="#225558" label="[22:55:58]">&lt;oriansj&gt;</a></span><span class="message">and I wonder if they intended to commit interpreter/interp which is a generated binary</span></div><div class="line" id="230752"><span class="nick" style="color:#389600"><a href="#230752" label="[23:07:52]">&lt;stikonas&gt;</a></span><span class="message">ocaml probably</span></div><div class="line" id="230800"><span class="nick" style="color:#389600"><a href="#230800" label="[23:08:00]">&lt;stikonas&gt;</a></span><span class="message">I think that's how they bootstrap the next version</span></div><div class="line" id="230808"><span class="nick" style="color:#389600"><a href="#230808" label="[23:08:08]">&lt;stikonas&gt;</a></span><span class="message">hence camlboot bootstrap...</span></div><br /></div></body></html>

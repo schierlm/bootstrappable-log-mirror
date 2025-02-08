@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-12-12.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="121727"><span class="nick" style="color:#389600"><a href="#121727" label="[12:17:27]">&lt;homo&gt;</a></span><span class="message">if ghc 7.8 cannot be built with ghc 7.6, it's actually a mystery where ghc 7.8 binary comes from, sounds like every snapshot is built with previous snapshot, so ghc 7.8 was never built from ghc 7.6 to begin with...</span></div><div class="line" id="124651"><span class="nick" style="color:#389600"><a href="#124651" label="[12:46:51]">&lt;homo&gt;</a></span><span class="message">btw, speaking of rustc, it doesn't seem to be written in reasonable subset, as in guix mrustc builds rustc 1.54, then 1.55, 1.56, 1.57 and so on, that's quite a long chain</span></div><div class="line" id="130216"><span class="nick" style="color:#389600"><a href="#130216" label="[13:02:16]">&lt;homo&gt;</a></span><span class="message">I guess I misunderstood what googulator said about rustc</span></div><div class="line" id="130518"><span class="nick" style="color:#8dd3c7"><a href="#130518" label="[13:05:18]">&lt;sam_&gt;</a></span><span class="message">yeah i was confused by that comment they made too</span></div><div class="line" id="130526"><span class="nick" style="color:#8dd3c7"><a href="#130526" label="[13:05:26]">&lt;sam_&gt;</a></span><span class="message">they often use nightly feautures and such</span></div><div class="line" id="163329"><span class="nick" style="color:#2e2a4a"><a href="#163329" label="[16:33:29]">&lt;Googulator&gt;</a></span><span class="message">homo: 7.6 is the problematic release</span></div><div class="line" id="163335"><span class="nick" style="color:#2e2a4a"><a href="#163335" label="[16:33:35]">&lt;Googulator&gt;</a></span><span class="message">7.8 builds fine with 7.6</span></div><div class="line" id="163355"><span class="nick" style="color:#2e2a4a"><a href="#163355" label="[16:33:55]">&lt;Googulator&gt;</a></span><span class="message">the question is, where does 7.6's official binary come from</span></div><div class="line" id="163427"><span class="nick" style="color:#2e2a4a"><a href="#163427" label="[16:34:27]">&lt;Googulator&gt;</a></span><span class="message">because 7.0, 7.2 and 7.4 all miscompile 7.6 to produce a binary that segfaults when it tries to recompile itself</span></div><div class="line" id="163516"><span class="nick" style="color:#2e2a4a"><a href="#163516" label="[16:35:16]">&lt;Googulator&gt;</a></span><span class="message">the official 7.6 binary, meanwhile, has no problem recompiling itself</span></div><div class="line" id="163604"><span class="nick" style="color:#2e2a4a"><a href="#163604" label="[16:36:04]">&lt;Googulator&gt;</a></span><span class="message">my guess is that in implementing some new feature of 7.6, a longstanding compiler bug got triggered, causing miscompilation</span></div><div class="line" id="163700"><span class="nick" style="color:#2e2a4a"><a href="#163700" label="[16:37:00]">&lt;Googulator&gt;</a></span><span class="message">GHC folks fixed it on trunk, enabling the new feature to be built, and then in preparation for release, they cleaned up the source of 7.6 to remove reliance on features introduced after 7.0</span></div><div class="line" id="163709"><span class="nick" style="color:#2e2a4a"><a href="#163709" label="[16:37:09]">&lt;Googulator&gt;</a></span><span class="message">but not on bugs fixed after 7.0</span></div><div class="line" id="185701"><span class="nick" style="color:#6b8072"><a href="#185701" label="[18:57:01]">&lt;aggi&gt;</a></span><span class="message">another round of madness, and a tinycc-compiled strace utility with linux-2.4/musl-libc resides inside my tinyroot.squashfs</span></div><div class="line" id="185750"><span class="nick" style="color:#6b8072"><a href="#185750" label="[18:57:50]">&lt;aggi&gt;</a></span><span class="message">currently it seems, tinycc support is mostly stabilized, but re-uniting linux-2.4 with musl is causing a little trouble</span></div><div class="line" id="185804"><span class="nick" style="color:#6b8072"><a href="#185804" label="[18:58:04]">&lt;aggi&gt;</a></span><span class="message">which i need strace for</span></div><br /></div></body></html>

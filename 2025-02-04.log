@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2025-02-04.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="092547"><span class="nick" style="color:#389600"><a href="#092547" label="[09:25:47]">&lt;oriansj&gt;</a></span><span class="message">rekado: well I'll create a mirror as always (and use this to simplify my update process for <a rel="nofollow" href="https://git.sr.ht/~oriansj/sources">https://git.sr.ht/~oriansj/sources</a>  )</span></div><div class="line" id="093334"><span class="nick" style="color:#389600"><a href="#093334" label="[09:33:34]">&lt;oriansj&gt;</a></span><span class="message">shells are weird, in that some ways they shouldn't be used for programming but they feel close to what one might want (to the point that things like powershell/nushell make sense) but also are missing the unified design which would put their output into a format that would eliminate errors (like having proper database table outputs) but there have been a couple shell as spreadsheet projects out there which hint at that idea but fail to</span></div><div class="line" id="093335"><span class="nick" style="color:#389600"><a href="#093335" label="[09:33:35]">&lt;oriansj&gt;</a></span><span class="message">embrace the power that could come with it.</span></div><div class="line" id="093433"><span class="nick" style="color:#389600"><a href="#093433" label="[09:34:33]">&lt;oriansj&gt;</a></span><span class="message">probably because too much of the world refuses to comply to such a strict standard</span></div><div class="line" id="094635"><span class="nick" style="color:#389600"><a href="#094635" label="[09:46:35]">&lt;oriansj&gt;</a></span><span class="message">but perhaps I look at the 1+GB memory footprint of nushell and look at the 13.1MB footprint of havoc (a wayland st port) and the 16MB footprint of bash and think: jesus shells are bloated (even kaem is 80KB when built by M2-Planet)</span></div><div class="line" id="133521"><span class="nick" style="color:#8dd3c7"><a href="#133521" label="[13:35:21]">&lt;lanodan&gt;</a></span><span class="message">16MB for bash? The static build with glibc?</span></div><div class="line" id="133643"><span class="nick" style="color:#8dd3c7"><a href="#133643" label="[13:36:43]">&lt;lanodan&gt;</a></span><span class="message">At least mksh here sits at 361K static and that's not even size optimized and there's readline-like prompt included.</span></div><div class="line" id="134221"><span class="nick" style="color:#2e2a4a"><a href="#134221" label="[13:42:21]">&lt;mid-kid&gt;</a></span><span class="message">&lt;stikonas&gt; maybe worth switching in your instructions too?</span></div><div class="line" id="134225"><span class="nick" style="color:#2e2a4a"><a href="#134225" label="[13:42:25]">&lt;mid-kid&gt;</a></span><span class="message">sorry for the late reaction but</span></div><div class="line" id="134315"><span class="nick" style="color:#2e2a4a"><a href="#134315" label="[13:43:15]">&lt;mid-kid&gt;</a></span><span class="message">ninja isn't really a problem with the gentoo bootstrap, meson is a slight bit more complicated due to how it and python are set up in gentoo/ebuild infrastructure.</span></div><div class="line" id="134611"><span class="nick" style="color:#2e2a4a"><a href="#134611" label="[13:46:11]">&lt;mid-kid&gt;</a></span><span class="message">and neither is re2c - the gentoo bootstrap doesn't really go to great lengths like live-bootstrap and debian do to regenerate all files.</span></div><div class="line" id="134833"><span class="nick" style="color:#2e2a4a"><a href="#134833" label="[13:48:33]">&lt;mid-kid&gt;</a></span><span class="message">I've tried running samurai on my gentoo systems, it ended up segfaulting too often.</span></div><div class="line" id="134851"><span class="nick" style="color:#2e2a4a"><a href="#134851" label="[13:48:51]">&lt;mid-kid&gt;</a></span><span class="message">So I switched back. But that was 0.2, it's probably better now.</span></div><div class="line" id="154716"><span class="nick" style="color:#6b8072"><a href="#154716" label="[15:47:16]">&lt;ztrawhcse&gt;</a></span><span class="message">oriansj: I wonder how you got such a huge bash build?</span></div><div class="line" id="155631"><span class="nick" style="color:#80b1d3"><a href="#155631" label="[15:56:31]">&lt;aggi&gt;</a></span><span class="message">maybe he was referring to total memory usage reported by kernel for the entire system</span></div><div class="line" id="155730"><span class="nick" style="color:#80b1d3"><a href="#155730" label="[15:57:30]">&lt;aggi&gt;</a></span><span class="message">by coincidence, my linux24/tinycc system boots up with just that amount of memory used; for kernel, terminal multiplexer, a few shell prompts and vis editor</span></div><div class="line" id="155831"><span class="nick" style="color:#8dd3c7"><a href="#155831" label="[15:58:31]">&lt;lanodan&gt;</a></span><span class="message">Anyone here got riscv64 support for alloca.S in tcc? It's missing in mob and I'm not familiar with riscv assembly.</span></div><div class="line" id="163444"><span class="nick" style="color:#6d2462"><a href="#163444" label="[16:34:44]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; fossy: I think rootfs.py might be broken on older python, e.g. Ubuntu 22.04</span></div><div class="line" id="163529"><span class="nick" style="color:#6d2462"><a href="#163529" label="[16:35:29]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; lanodan: no, I think we tried to avoid alloca before GCC in live bootstrap</span></div><div class="line" id="163558"><span class="nick" style="color:#6d2462"><a href="#163558" label="[16:35:58]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; fossy, line 58 with fstring upsets python 3.10</span></div><div class="line" id="164022"><span class="nick" style="color:#8dd3c7"><a href="#164022" label="[16:40:22]">&lt;lanodan&gt;</a></span><span class="message">And seems like cproc has alloca so yeah, good enough for me</span></div><div class="line" id="173037"><span class="nick" style="color:#80b1d3"><a href="#173037" label="[17:30:37]">&lt;aggi&gt;</a></span><span class="message">salvaged some ancient ghostscript 7.07 version and mupdf for framebuffer console, with tinycc/static-linking; at least it does pass compiletime and pdf can be rendered</span></div><div class="line" id="173129"><span class="nick" style="color:#80b1d3"><a href="#173129" label="[17:31:29]">&lt;aggi&gt;</a></span><span class="message">it's just too much effort, ~500 builds plus kernel plus libc forked for tinycc support</span></div><div class="line" id="173140"><span class="nick" style="color:#80b1d3"><a href="#173140" label="[17:31:40]">&lt;aggi&gt;</a></span><span class="message">to do all runtime testing and bugfixing</span></div><div class="line" id="173253"><span class="nick" style="color:#80b1d3"><a href="#173253" label="[17:32:53]">&lt;aggi&gt;</a></span><span class="message">nonetheless, it's feasible, and worth the effort,... i'll have a look at some TeX implementation next</span></div><div class="line" id="173526"><span class="nick" style="color:#80b1d3"><a href="#173526" label="[17:35:26]">&lt;aggi&gt;</a></span><span class="message">i've contacted some german bank, known as &quot;eco bank&quot; (umweltbank), maybe some contracting can be arranged with them</span></div><div class="line" id="173552"><span class="nick" style="color:#80b1d3"><a href="#173552" label="[17:35:52]">&lt;aggi&gt;</a></span><span class="message">which would simplify things, if i could just git-push all stuff and not worry about any business model</span></div><div class="line" id="173651"><span class="nick" style="color:#80b1d3"><a href="#173651" label="[17:36:51]">&lt;aggi&gt;</a></span><span class="message">currently, i am a little hesitant to publish the musl-libc fork for example (it's residing inside an uncommitted git-workspace still)</span></div><div class="line" id="173729"><span class="nick" style="color:#80b1d3"><a href="#173729" label="[17:37:29]">&lt;aggi&gt;</a></span><span class="message">i'll know soon, if and how i could continue work, i've just received some more blackmail from bureaucracy</span></div><div class="line" id="173941"><span class="nick" style="color:#80b1d3"><a href="#173941" label="[17:39:41]">&lt;aggi&gt;</a></span><span class="message">as far as tinycc/static-linking support was concerned fort a complete system profile including development utilities, that's a 100% mission accomplished already</span></div><div class="line" id="174003"><span class="nick" style="color:#80b1d3"><a href="#174003" label="[17:40:03]">&lt;aggi&gt;</a></span><span class="message">all else is regular maintenance and cleanup-tasks now, to maintain a distribution built upon this</span></div><br /></div></body></html>

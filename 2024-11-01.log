@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-11-01.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="014939"><span class="nick" style="color:#389600"><a href="#014939" label="[01:49:39]">&lt;aggi&gt;</a></span><span class="message">fyi, as an intermediate solution for perl/autotools support with tcc/static-linking</span></div><div class="line" id="015025"><span class="nick" style="color:#389600"><a href="#015025" label="[01:50:25]">&lt;aggi&gt;</a></span><span class="message">1) i'll leave the perl-5.6 hackjob to bootstrappable trusting that one is stable once needed</span></div><div class="line" id="015221"><span class="nick" style="color:#389600"><a href="#015221" label="[01:52:21]">&lt;aggi&gt;</a></span><span class="message">2) approaching from the gentoo/ebuild side i hacked into perl-5.8.6 to add necessary extensions into a statically linked perl (that ignores various bootstrappable criteria to re-generate headers etc.)</span></div><div class="line" id="015243"><span class="nick" style="color:#389600"><a href="#015243" label="[01:52:43]">&lt;aggi&gt;</a></span><span class="message">   this build just succeeded and i can test autotools/automake support is functional again (which it probably is :)</span></div><div class="line" id="015342"><span class="nick" style="color:#389600"><a href="#015342" label="[01:53:42]">&lt;aggi&gt;</a></span><span class="message">3) once converging and re-integrating the tcc/static system profile towards bootstrappable i can utilize the fully sanitized perl-5.6 instead</span></div><div class="line" id="015546"><span class="nick" style="color:#389600"><a href="#015546" label="[01:55:46]">&lt;aggi&gt;</a></span><span class="message">so far so good... however... perl-compilation remains a significant issue, which raises the principle question over utilizing autotools/automake</span></div><div class="line" id="015720"><span class="nick" style="color:#389600"><a href="#015720" label="[01:57:20]">&lt;aggi&gt;</a></span><span class="message">the good news is, since perl/autotools support is available, re-writing affected ebuilds/makefiles can be done gradually, one by one, until autotools and perl can be removed entirely</span></div><div class="line" id="015812"><span class="nick" style="color:#389600"><a href="#015812" label="[01:58:12]">&lt;aggi&gt;</a></span><span class="message">the concerning aspect with those, it's the mandatory presence, perl/autotools aren't optional</span></div><div class="line" id="015846"><span class="nick" style="color:#389600"><a href="#015846" label="[01:58:46]">&lt;aggi&gt;</a></span><span class="message">since the tcc-profile of mine doesn't need gcc (and a few other trouble sources), some crucial builds already were re-integrated</span></div><div class="line" id="020117"><span class="nick" style="color:#389600"><a href="#020117" label="[02:01:17]">&lt;aggi&gt;</a></span><span class="message">for example binutils,libressl,netbsd-curses at oasis-linux side, and gcc makefile.am don't need a re-write since gcc isn't necessary</span></div><div class="line" id="020325"><span class="nick" style="color:#389600"><a href="#020325" label="[02:03:25]">&lt;aggi&gt;</a></span><span class="message">hence an i486-tcc_static-linux-musl.iso can be emitted, with a little less hazzle than being forced into gcc/perl mandatory dependencies</span></div><div class="line" id="020402"><span class="nick" style="color:#389600"><a href="#020402" label="[02:04:02]">&lt;aggi&gt;</a></span><span class="message">i'll get back to linux-2.4/tcc soon (depending on non-technical circuumstances)</span></div><div class="line" id="155124"><span class="nick" style="color:#389600"><a href="#155124" label="[15:51:24]">&lt;aggi&gt;</a></span><span class="message">some idea surrounding i486-tcc_static-linux-musl.iso:</span></div><div class="line" id="155226"><span class="nick" style="color:#389600"><a href="#155226" label="[15:52:26]">&lt;aggi&gt;</a></span><span class="message">a notable amount of troublesome pkgs could be excluded from bootstrappable/steps/, if autotools/perl/gcc can be avoided with a tcc-only system profile</span></div><div class="line" id="155349"><span class="nick" style="color:#389600"><a href="#155349" label="[15:53:49]">&lt;aggi&gt;</a></span><span class="message">then, instead, a bootable iso built upon a trusted bootstrapping path was available, and re-establishing the full GNU system-integration tooling could be done comfortably with regular LFS style scripting</span></div><div class="line" id="155421"><span class="nick" style="color:#389600"><a href="#155421" label="[15:54:21]">&lt;aggi&gt;</a></span><span class="message">i am digging into live-bootstrap currently, seeing to how my system profile can be converged and re-integrated with it</span></div><div class="line" id="155455"><span class="nick" style="color:#389600"><a href="#155455" label="[15:54:55]">&lt;aggi&gt;</a></span><span class="message">since i am having trouble with python for example, that i used with portage/crossdev for tracking the tcc system profile</span></div><div class="line" id="155547"><span class="nick" style="color:#389600"><a href="#155547" label="[15:55:47]">&lt;aggi&gt;</a></span><span class="message">i have to re-write the system-integration/packaging anyway, and i'll try to move as much as possible into the bootstrappable steps scripting</span></div><div class="line" id="155812"><span class="nick" style="color:#389600"><a href="#155812" label="[15:58:12]">&lt;aggi&gt;</a></span><span class="message">the problem i see with bison/perl/gcc, currently those are required rather early in the bootstrapping path</span></div><div class="line" id="155857"><span class="nick" style="color:#389600"><a href="#155857" label="[15:58:57]">&lt;aggi&gt;</a></span><span class="message">which too is related to the unresolved issue of kernel-bootstrapping (i could reproduce some minimals tccboot/kernel-2.4 while ago, without the need for gcc/perl/bison/...)</span></div><div class="line" id="160058"><span class="nick" style="color:#389600"><a href="#160058" label="[16:00:58]">&lt;aggi&gt;</a></span><span class="message">anyway, i'll have to stay on the gentoo/crossdev side for a little while longer</span></div><div class="line" id="160141"><span class="nick" style="color:#389600"><a href="#160141" label="[16:01:41]">&lt;aggi&gt;</a></span><span class="message">although i got a root.squashfs for i486-tcc_static-linux-musl.iso already, i can't compile and boot any kernel yet that fully passes with tcc</span></div><div class="line" id="160350"><span class="nick" style="color:#389600"><a href="#160350" label="[16:03:50]">&lt;aggi&gt;</a></span><span class="message">otherwise i don't see a showstopper, to converge and re-integrate the tcc system-profile with bootstrappable</span></div><div class="line" id="160546"><span class="nick" style="color:#389600"><a href="#160546" label="[16:05:46]">&lt;aggi&gt;</a></span><span class="message">even binutils was shown it can be re-integrated, without perl/autotools even, as oasis-linux did</span></div><div class="line" id="160604"><span class="nick" style="color:#389600"><a href="#160604" label="[16:06:04]">&lt;aggi&gt;</a></span><span class="message">since that's needed for 16bit real-mode assembly boot-code of kernel</span></div><div class="line" id="160849"><span class="nick" style="color:#389600"><a href="#160849" label="[16:08:49]">&lt;aggi&gt;</a></span><span class="message">although i would prefer a linux-2.4 for example, there could even be a chance to hack any later version (Kbuild changes since v2.5, gcc -S, linker-script support)</span></div><div class="line" id="160938"><span class="nick" style="color:#389600"><a href="#160938" label="[16:09:38]">&lt;aggi&gt;</a></span><span class="message">for linux-2.4, there would be three options: 1) JIT with tccboot, 2) AoT-compile with tcc-only, 3) AoT-compile with tcc, linking and 16bit asm with binutils</span></div><div class="line" id="161121"><span class="nick" style="color:#389600"><a href="#161121" label="[16:11:21]">&lt;aggi&gt;</a></span><span class="message">with later kernel version, only AoT compile is feasible, with the need to keep some pre-generated files (gcc -S inside Kbuild), i could live with it</span></div><div class="line" id="161239"><span class="nick" style="color:#389600"><a href="#161239" label="[16:12:39]">&lt;aggi&gt;</a></span><span class="message">the intermediate Fiwix boot isn't critical, since it's supported already with tcc, and isn't a hindrance to any linux-kernel proceeded with</span></div><div class="line" id="161432"><span class="nick" style="color:#389600"><a href="#161432" label="[16:14:32]">&lt;aggi&gt;</a></span><span class="message">your work is extraordinarily important</span></div><div class="line" id="161908"><span class="nick" style="color:#389600"><a href="#161908" label="[16:19:08]">&lt;aggi&gt;</a></span><span class="message">it's just, for example, i think perl/autotools aren't worth an order of merit, it's a huge burden to bootstrapping and system-integration</span></div><div class="line" id="162009"><span class="nick" style="color:#389600"><a href="#162009" label="[16:20:09]">&lt;aggi&gt;</a></span><span class="message">it's good i got that back on board with tcc-static, hence i can gradually re-write the packaging and makefiles to avoid it, instead of doing it all-at-once as an all-or-nothing task</span></div><div class="line" id="162046"><span class="nick" style="color:#389600"><a href="#162046" label="[16:20:46]">&lt;aggi&gt;</a></span><span class="message">since i got ~500 ebuilds on maintenance inside an overlay here, most of which i would want to keep</span></div><div class="line" id="162316"><span class="nick" style="color:#389600"><a href="#162316" label="[16:23:16]">&lt;aggi&gt;</a></span><span class="message">fyi, i got monstrosities such as gdb, ffmpeg/mplayer, mutt mailer, links/lynx, irc on board, all passing against no-c++ tracking and compiled/linked with tcc statically</span></div><div class="line" id="162456"><span class="nick" style="color:#389600"><a href="#162456" label="[16:24:56]">&lt;aggi&gt;</a></span><span class="message">and i don't see any issue to move this onto bootstrappable scripting</span></div><div class="line" id="163128"><span class="nick" style="color:#389600"><a href="#163128" label="[16:31:28]">&lt;aggi&gt;</a></span><span class="message">the benefit of crossdev scripting patched for tcc, i can quickly dependency-track, rebuild the complete system, boot and test it</span></div><div class="line" id="163246"><span class="nick" style="color:#389600"><a href="#163246" label="[16:32:46]">&lt;aggi&gt;</a></span><span class="message">i got a rather fast devdrop release-cycle, to assert things work as these should, for re-integration into less flexible steps-scriptiong of bootstrappable</span></div><div class="line" id="163625"><span class="nick" style="color:#389600"><a href="#163625" label="[16:36:25]">&lt;aggi&gt;</a></span><span class="message">since i don't need gcc anylonger, compilation time is much faster now, my distro is compiled/linked in ~2hours with i386-tcc (~500ebuilds)</span></div><div class="line" id="163711"><span class="nick" style="color:#389600"><a href="#163711" label="[16:37:11]">&lt;aggi&gt;</a></span><span class="message">and this includes somewhat slow python/portage/crossdev, once that's removed on bootstrappable side, the build-time will significantly improve further</span></div><div class="line" id="163842"><span class="nick" style="color:#389600"><a href="#163842" label="[16:38:42]">&lt;aggi&gt;</a></span><span class="message">with a tcc/no-c++/no-gcc system-profile, a _complete_ distro such as mentioned, can be emitted quickly, even on low-power x86 thin clients</span></div><div class="line" id="195413"><span class="nick" style="color:#8dd3c7"><a href="#195413" label="[19:54:13]">&lt;lrvick&gt;</a></span><span class="message">More bootstrappable shout outs: <a rel="nofollow" href="https://quorum.tkhq.xyz/posts/reproducible-builds-made-easy-introducing-stagex/">https://quorum.tkhq.xyz/posts/reproducible-builds-made-easy-introducing-stagex/</a> </span></div><br /></div></body></html>

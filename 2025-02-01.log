@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2025-02-01.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002802"><span class="nick" style="color:#389600"><a href="#002802" label="[00:28:02]">&lt;lanodan&gt;</a></span><span class="message">Yeah enough of a replacement that I'm not too worried about autotools-&gt;meson.build transitions (at least if upstream can accept possible few rare patches for muon compat), as it could simplify things</span></div><div class="line" id="003407"><span class="nick" style="color:#389600"><a href="#003407" label="[00:34:07]">&lt;lanodan&gt;</a></span><span class="message">Specially as bootstrapping autotools involves pulling historical versions of it and involves Perl which too involves pulling historical versions.</span></div><div class="line" id="005749"><span class="nick" style="color:#8dd3c7"><a href="#005749" label="[00:57:49]">&lt;stikonas&gt;</a></span><span class="message">jackdk: yeah, I'm aware of muon</span></div><div class="line" id="005804"><span class="nick" style="color:#8dd3c7"><a href="#005804" label="[00:58:04]">&lt;stikonas&gt;</a></span><span class="message">we didn't really need to use any of meson/ninja stuff in live-bootstrap yet...</span></div><div class="line" id="005813"><span class="nick" style="color:#8dd3c7"><a href="#005813" label="[00:58:13]">&lt;stikonas&gt;</a></span><span class="message">that only becomes relevant once you start bootstrapping your distro</span></div><div class="line" id="024607"><span class="nick" style="color:#2e2a4a"><a href="#024607" label="[02:46:07]">&lt;jackdk&gt;</a></span><span class="message">fair</span></div><div class="line" id="025151"><span class="nick" style="color:#8dd3c7"><a href="#025151" label="[02:51:51]">&lt;stikonas&gt;</a></span><span class="message">well, so far none of the really core system stuff uses those</span></div><div class="line" id="025222"><span class="nick" style="color:#8dd3c7"><a href="#025222" label="[02:52:22]">&lt;stikonas&gt;</a></span><span class="message">for example toolchain: compiler, binutils is autotools</span></div><div class="line" id="065247"><span class="nick" style="color:#2e2a4a"><a href="#065247" label="[06:52:47]">&lt;jackdk&gt;</a></span><span class="message">The fact that meson knows about a hard-coded list of compilers and doesn't work with tcc means that you have to go pretty far before you can start using it. for that reason, I still lean towards autotools if building projects I want in a bootstrap chain</span></div><div class="line" id="114948"><span class="nick" style="color:#6b8072"><a href="#114948" label="[11:49:48]">&lt;aggi&gt;</a></span><span class="message">since meson involes python, i recall another argument for the presence of python in modern distros</span></div><div class="line" id="115014"><span class="nick" style="color:#6b8072"><a href="#115014" label="[11:50:14]">&lt;aggi&gt;</a></span><span class="message">i would argue python does not belong into base system components, it should remain optional</span></div><div class="line" id="115208"><span class="nick" style="color:#6b8072"><a href="#115208" label="[11:52:08]">&lt;aggi&gt;</a></span><span class="message">that's how *BSD approach it btw.; inside their base system the packaging tools are implemented in C, instead of python</span></div><div class="line" id="115316"><span class="nick" style="color:#80b1d3"><a href="#115316" label="[11:53:16]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Well, you need python for any more complex scripting</span></div><div class="line" id="115327"><span class="nick" style="color:#80b1d3"><a href="#115327" label="[11:53:27]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Bash is not a good language for that</span></div><div class="line" id="115329"><span class="nick" style="color:#6b8072"><a href="#115329" label="[11:53:29]">&lt;aggi&gt;</a></span><span class="message">and many if not _all_ development utilities for a complete no-c++ profile can avoid autotools, if gcc/binutils were replaced with tinycc or any other alternative toolchain</span></div><div class="line" id="115402"><span class="nick" style="color:#6b8072"><a href="#115402" label="[11:54:02]">&lt;aggi&gt;</a></span><span class="message">stikonas: with regards to scripting languages, that's an important detail imo, shell script is the only covered by POSIX</span></div><div class="line" id="115443"><span class="nick" style="color:#6b8072"><a href="#115443" label="[11:54:43]">&lt;aggi&gt;</a></span><span class="message">M4 macros too are covered by posix, make is; python and perl are not</span></div><div class="line" id="115811"><span class="nick" style="color:#6b8072"><a href="#115811" label="[11:58:11]">&lt;aggi&gt;</a></span><span class="message">relying on components which are not covered by POSIX becomes critical, if such components are not optional</span></div><div class="line" id="120138"><span class="nick" style="color:#6b8072"><a href="#120138" label="[12:01:38]">&lt;aggi&gt;</a></span><span class="message">that's how autotools become critical, because such need Perl which is not covered by standardization</span></div><div class="line" id="120311"><span class="nick" style="color:#6b8072"><a href="#120311" label="[12:03:11]">&lt;aggi&gt;</a></span><span class="message">since such are not optional, it can be considered a violation of POSIX</span></div><div class="line" id="121805"><span class="nick" style="color:#6b8072"><a href="#121805" label="[12:18:05]">&lt;aggi&gt;</a></span><span class="message">bison/yacc got a POSIX mode switch it seems; didn't check all details yet how bootstrappable got hit by related issues</span></div><div class="line" id="122004"><span class="nick" style="color:#6b8072"><a href="#122004" label="[12:20:04]">&lt;aggi&gt;</a></span><span class="message">another detail, if bash (or oksh) set POSIXLY_CORRECT, the 'eval' method is forbidden, which too got some security implications inside build-system/makefiles</span></div><div class="line" id="165315"><span class="nick" style="color:#389600"><a href="#165315" label="[16:53:15]">&lt;lanodan&gt;</a></span><span class="message">Well a reason BSDs typically don't have Perl/Python/… in the base is more that Perl/Python aren't very useful without a lot of their surrounding ecosystem and unlike shell they're not really friendly towards using utilities as building blocks.</span></div><div class="line" id="165354"><span class="nick" style="color:#389600"><a href="#165354" label="[16:53:54]">&lt;lanodan&gt;</a></span><span class="message">(And problem of the ecosystem bit is then you'd have conflicts with ports if like a library in base is too old)</span></div><div class="line" id="183849"><span class="nick" style="color:#8dd3c7"><a href="#183849" label="[18:38:49]">&lt;stikonas&gt;</a></span><span class="message">Linux distros generally package enough of those packages to make it useful, Gentoo has no problem with python packages in portage</span></div><div class="line" id="183916"><span class="nick" style="color:#8dd3c7"><a href="#183916" label="[18:39:16]">&lt;stikonas&gt;</a></span><span class="message">anyway, I was mostly trying to say that writing non-trivial code in bash quickly gets error prone</span></div><div class="line" id="183956"><span class="nick" style="color:#8dd3c7"><a href="#183956" label="[18:39:56]">&lt;stikonas&gt;</a></span><span class="message">generally people use global variables, since otherwise it's hard to return values from functions...</span></div><div class="line" id="184032"><span class="nick" style="color:#8dd3c7"><a href="#184032" label="[18:40:32]">&lt;stikonas&gt;</a></span><span class="message">error handling is somewhat harder than in other scripting languages</span></div><div class="line" id="184446"><span class="nick" style="color:#8dd3c7"><a href="#184446" label="[18:44:46]">&lt;stikonas&gt;</a></span><span class="message">and posix sh is even more restricted than bash</span></div><div class="line" id="184505"><span class="nick" style="color:#8dd3c7"><a href="#184505" label="[18:45:05]">&lt;stikonas&gt;</a></span><span class="message">e.g. even set -o pipefail is bashism</span></div><div class="line" id="184650"><span class="nick" style="color:#8dd3c7"><a href="#184650" label="[18:46:50]">&lt;stikonas&gt;</a></span><span class="message">so if you want to stop on pipe error in posix sh, it's quite hard</span></div><div class="line" id="191645"><span class="nick" style="color:#389600"><a href="#191645" label="[19:16:45]">&lt;lanodan&gt;</a></span><span class="message">Nah set -o pipefail is a bashism no more, it's in POSIX.1-2024</span></div><div class="line" id="191756"><span class="nick" style="color:#389600"><a href="#191756" label="[19:17:56]">&lt;lanodan&gt;</a></span><span class="message">And yeah would be cool to have a better shell language for sure but so far… not really a thing, although I thought few times about using lua instead in my bootstrap-initrd.</span></div><div class="line" id="194830"><span class="nick" style="color:#8dd3c7"><a href="#194830" label="[19:48:30]">&lt;stikonas&gt;</a></span><span class="message">oh, that's good</span></div><div class="line" id="233202"><span class="nick" style="color:#80b1d3"><a href="#233202" label="[23:32:02]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; awk is a passable (but slightly quirky) scripting language that is part of posix. eg I wrote a (likely incomplete) hex2 compiler in awk <a rel="nofollow" href="https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/m2min/hex2.awk">https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/m2min/hex2.awk</a> </span></div><div class="line" id="233759"><span class="nick" style="color:#80b1d3"><a href="#233759" label="[23:37:59]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; <a rel="nofollow" href="https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/m2min/mk_hex2_awk_full_fast">https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/m2min/mk_hex2_awk_full_fast</a>  can bootstrap a very cut down version of M2-Planet using awk. It works with several different implementations of awk (but mawk/gawk are the versions most likely to work).</span></div><div class="line" id="233850"><span class="nick" style="color:#8dd3c7"><a href="#233850" label="[23:38:50]">&lt;stikonas&gt;</a></span><span class="message">well, I had to rewrite a few perl scripts in awk for perl 5.000 bootstrap</span></div><div class="line" id="233918"><span class="nick" style="color:#8dd3c7"><a href="#233918" label="[23:39:18]">&lt;stikonas&gt;</a></span><span class="message">e.g. here <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/blob/master/steps/perl-5.000/files/opcode.awk">https://github.com/fosslinux/live-bootstrap/blob/master/steps/perl-5.000/files/opcode.awk</a> </span></div><div class="line" id="233938"><span class="nick" style="color:#8dd3c7"><a href="#233938" label="[23:39:38]">&lt;stikonas&gt;</a></span><span class="message">this one is fairly simple and readable...</span></div><div class="line" id="234635"><span class="nick" style="color:#80b1d3"><a href="#234635" label="[23:46:35]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; yep, unfortunately bitwise operations like &quot;or&quot; are not part of posix awk, they are gnu extensions. If you use -W posix that script will probably fail. Not an issue for live-bootstrap though as you'll have gawk by that point. I had to implement bitwise operations in terms of other maths operations as I wanted my code to work with posix awks...</span></div><div class="line" id="234639"><span class="nick" style="color:#80b1d3"><a href="#234639" label="[23:46:39]">&lt;matrix_bridge&gt;</a></span><span class="message">... (<a rel="nofollow" href="https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/m2min/m2_lib.awk#L344">https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/m2min/m2_lib.awk#L344</a>).  I then also had to implement caching of bitwise operations to improve performance.</span></div><br /></div></body></html>

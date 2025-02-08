@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-11-10.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="030244"><span class="nick" style="color:#389600"><a href="#030244" label="[03:02:44]">&lt;oriansj&gt;</a></span><span class="message">stikonas: yeah, pity that they trimmed the Q/A session.</span></div><div class="line" id="030303"><span class="nick" style="color:#8dd3c7"><a href="#030303" label="[03:03:03]">&lt;stikonas&gt;</a></span><span class="message">yaeh...</span></div><div class="line" id="030327"><span class="nick" style="color:#8dd3c7"><a href="#030327" label="[03:03:27]">&lt;stikonas&gt;</a></span><span class="message">still, it had some nice questions</span></div><div class="line" id="160944"><span class="nick" style="color:#2e2a4a"><a href="#160944" label="[16:09:44]">&lt;aggi&gt;</a></span><span class="message">a tiny little progress with linux-2.4/tcc... i've managed to re-produce a working AoT compiled/linked minimal kernel</span></div><div class="line" id="161013"><span class="nick" style="color:#2e2a4a"><a href="#161013" label="[16:10:13]">&lt;aggi&gt;</a></span><span class="message">this time, outside an ancient slackware11 x86 buildhost</span></div><div class="line" id="161030"><span class="nick" style="color:#2e2a4a"><a href="#161030" label="[16:10:30]">&lt;aggi&gt;</a></span><span class="message">nitty gritty details, i suspect a cross-compiled tcc had issues itself</span></div><div class="line" id="161122"><span class="nick" style="color:#2e2a4a"><a href="#161122" label="[16:11:22]">&lt;aggi&gt;</a></span><span class="message">finally, i can re-cover a bunch of test-cases to bisect exactly what caused the mis-compiled linux-2.4 kernel when using tcc</span></div><div class="line" id="161155"><span class="nick" style="color:#2e2a4a"><a href="#161155" label="[16:11:55]">&lt;aggi&gt;</a></span><span class="message">this includes tccboot loader itself, however this could cover the missing &quot;kernel bootstrapping&quot; pieces</span></div><div class="line" id="165325"><span class="nick" style="color:#6b8072"><a href="#165325" label="[16:53:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; That makes sense. tcc is a massive tangle of platform specific ifdefs, and the cross compilation build are probably not very well tested.</span></div><div class="line" id="165446"><span class="nick" style="color:#6b8072"><a href="#165446" label="[16:54:46]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; The tests included by tcc itself are also just unit tests, rather than building real software packages.</span></div><div class="line" id="165637"><span class="nick" style="color:#6b8072"><a href="#165637" label="[16:56:37]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Incidentally I think live-bootstrap could actually essentially be the largest publically available &quot;integration test suite&quot; for tcc.</span></div><div class="line" id="165725"><span class="nick" style="color:#6b8072"><a href="#165725" label="[16:57:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; (as it builds a large amount of working real world software in order to bootstrap up to gcc)</span></div><div class="line" id="180138"><span class="nick" style="color:#6b8072"><a href="#180138" label="[18:01:38]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; not that much actually</span></div><div class="line" id="180245"><span class="nick" style="color:#2e2a4a"><a href="#180245" label="[18:02:45]">&lt;aggi&gt;</a></span><span class="message">i zipped ~500 ebuilds for support with tcc already, except kernel</span></div><div class="line" id="180250"><span class="nick" style="color:#6b8072"><a href="#180250" label="[18:02:50]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; perl, binutils and gcc and a few other tools such as coreutils, bash , grep awk</span></div><div class="line" id="180614"><span class="nick" style="color:#2e2a4a"><a href="#180614" label="[18:06:14]">&lt;aggi&gt;</a></span><span class="message">ideally, i can converge and fully re-integrate most of those ebuilds directly with bootstrappable, plus linux-kernel compiled with tcc</span></div><div class="line" id="180742"><span class="nick" style="color:#2e2a4a"><a href="#180742" label="[18:07:42]">&lt;aggi&gt;</a></span><span class="message">the final result would slightly differ, that is a bootable i486-tcc-linux-musl.iso without gcc for example, but this can and will bootstrap gcc</span></div><div class="line" id="180824"><span class="nick" style="color:#2e2a4a"><a href="#180824" label="[18:08:24]">&lt;aggi&gt;</a></span><span class="message">i am not sure about tccboot yet, if this could cover the missing kernel bootstrapping piece</span></div><div class="line" id="180945"><span class="nick" style="color:#2e2a4a"><a href="#180945" label="[18:09:45]">&lt;aggi&gt;</a></span><span class="message">i think a fully capable tcc distro could significantly simplify the process</span></div><div class="line" id="181043"><span class="nick" style="color:#2e2a4a"><a href="#181043" label="[18:10:43]">&lt;aggi&gt;</a></span><span class="message">it's just, i was bug hunting linux-2.4/tcc for several month, and finally got a bootable kernel emitted</span></div><div class="line" id="181108"><span class="nick" style="color:#2e2a4a"><a href="#181108" label="[18:11:08]">&lt;aggi&gt;</a></span><span class="message">currently it would be possible already, to emit a complete distro, but i'll bisect/diff/cleanup further</span></div><div class="line" id="181149"><span class="nick" style="color:#2e2a4a"><a href="#181149" label="[18:11:49]">&lt;aggi&gt;</a></span><span class="message">for example, i am testing with tcc-0.9.21 (that was the original used for kernel by Bellard himself)</span></div><div class="line" id="181401"><span class="nick" style="color:#2e2a4a"><a href="#181401" label="[18:14:01]">&lt;aggi&gt;</a></span><span class="message">later tcc-versions behave differently with linking, and a few other issues that crashed kernel</span></div><div class="line" id="181426"><span class="nick" style="color:#2e2a4a"><a href="#181426" label="[18:14:26]">&lt;aggi&gt;</a></span><span class="message">finally i can gradually cover each test-case, one by one, to see what went wrong</span></div><div class="line" id="181854"><span class="nick" style="color:#6b8072"><a href="#181854" label="[18:18:54]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Andrius Štikonas: and musl, fiwix, etc. But still a far more extensive range of software than is tested by the upstream tcc ci. In the past I've downloaded versions of tcc from mob that miscompile the make command.</span></div><div class="line" id="182202"><span class="nick" style="color:#6b8072"><a href="#182202" label="[18:22:02]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; aggi: any harm in shipping 2 versions of tcc? One for the kernel, and one for the userspace? Presumably your default version of tcc can build the version that can build the kernel?</span></div><div class="line" id="182334"><span class="nick" style="color:#2e2a4a"><a href="#182334" label="[18:23:34]">&lt;aggi&gt;</a></span><span class="message">cosinusoidally, that's the worst case</span></div><div class="line" id="182424"><span class="nick" style="color:#2e2a4a"><a href="#182424" label="[18:24:24]">&lt;aggi&gt;</a></span><span class="message">i can and will zip and archive what i got bundled for tcc-0.9.21 already, but i think it is feasible to repair tcc-0.9.27-aggi for kernel compilation too</span></div><div class="line" id="182924"><span class="nick" style="color:#6b8072"><a href="#182924" label="[18:29:24]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; how heavily patched is tcc-0.9.27-aggi ? Is that a patched version of mob, or the 2017 0.9.27 release?</span></div><div class="line" id="183729"><span class="nick" style="color:#2e2a4a"><a href="#183729" label="[18:37:29]">&lt;aggi&gt;</a></span><span class="message">cosinusoidally: i will publish this, don't worry</span></div><div class="line" id="190559"><span class="nick" style="color:#6b8072"><a href="#190559" label="[19:05:59]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Thanks, that's good to hear. I'll definitely check it out once it's available.</span></div><div class="line" id="214234"><span class="nick" style="color:#2e2a4a"><a href="#214234" label="[21:42:34]">&lt;aggi&gt;</a></span><span class="message">it's rather tricky, various tcc and kernel versions, managed to bisect my way up to kernel-2.4.37.11 and tcc-0.9.26..27</span></div><div class="line" id="214315"><span class="nick" style="color:#2e2a4a"><a href="#214315" label="[21:43:15]">&lt;aggi&gt;</a></span><span class="message">i am certain, something was broken with tcc internally on mob branch sometime in between 2017..2023</span></div><div class="line" id="214428"><span class="nick" style="color:#2e2a4a"><a href="#214428" label="[21:44:28]">&lt;aggi&gt;</a></span><span class="message">at least i got a known-working stable baseline to bisect/diff against</span></div><div class="line" id="214525"><span class="nick" style="color:#2e2a4a"><a href="#214525" label="[21:45:25]">&lt;aggi&gt;</a></span><span class="message">and i am almost certain, i can stabilize both, AoT compile and tccboot/jit</span></div><br /></div></body></html>

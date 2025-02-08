@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2025-01-14.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="023213"><span class="nick" style="color:#389600"><a href="#023213" label="[02:32:13]">&lt;stikonas&gt;</a></span><span class="message">rkeene: (cc oriansj) unlinkat on aarch64 is messed up: <a rel="nofollow" href="https://github.com/oriansj/M2libc/commit/9dc92269508651d7c4fdfa5a8f1456191cc868fa">https://github.com/oriansj/M2libc/commit/9dc92269508651d7c4fdfa5a8f1456191cc868fa</a> </span></div><div class="line" id="023239"><span class="nick" style="color:#389600"><a href="#023239" label="[02:32:39]">&lt;stikonas&gt;</a></span><span class="message">asm( statement doesnt' even close function bracket ...</span></div><div class="line" id="044254"><span class="nick" style="color:#8dd3c7"><a href="#044254" label="[04:42:54]">&lt;lrvick&gt;</a></span><span class="message">Can hex0 not run without a shell?</span></div><div class="line" id="044328"><span class="nick" style="color:#8dd3c7"><a href="#044328" label="[04:43:28]">&lt;lrvick&gt;</a></span><span class="message">Calling hex0 with an exec and it just hangs. Calling it from a shell and it works</span></div><div class="line" id="045247"><span class="nick" style="color:#8dd3c7"><a href="#045247" label="[04:52:47]">&lt;lrvick&gt;</a></span><span class="message">Specifically:</span></div><div class="line" id="045337"><span class="nick" style="color:#8dd3c7"><a href="#045337" label="[04:53:37]">&lt;lrvick&gt;</a></span><span class="message">Hangs: RUN [&quot;/hex0&quot;,&quot;/stage0-posix-x86-a15adc72f099506fb0d40c8824d7aaa97735f7c3/hex0_x86.hex0&quot;,&quot;hex0&quot;]</span></div><div class="line" id="045355"><span class="nick" style="color:#8dd3c7"><a href="#045355" label="[04:53:55]">&lt;lrvick&gt;</a></span><span class="message">However this works: RUN /hex0 /stage0-posix-x86-a15adc72f099506fb0d40c8824d7aaa97735f7c3/hex0_x86.hex0 hex0</span></div><div class="line" id="045426"><span class="nick" style="color:#8dd3c7"><a href="#045426" label="[04:54:26]">&lt;lrvick&gt;</a></span><span class="message">The former uses an exec, the latter uses /bin/sh as a shell</span></div><div class="line" id="045731"><span class="nick" style="color:#2e2a4a"><a href="#045731" label="[04:57:31]">&lt;rkeene&gt;</a></span><span class="message">stikkonas, Oops -- I think it was a merge error when cherry-picking</span></div><div class="line" id="045911"><span class="nick" style="color:#8dd3c7"><a href="#045911" label="[04:59:11]">&lt;lrvick&gt;</a></span><span class="message">Guessing I actually do need kaem minimal...</span></div><div class="line" id="052122"><span class="nick" style="color:#8dd3c7"><a href="#052122" label="[05:21:22]">&lt;lrvick&gt;</a></span><span class="message">ah needed to name my script kaem.x86. things are cooking now</span></div><div class="line" id="100731"><span class="nick" style="color:#6b8072"><a href="#100731" label="[10:07:31]">&lt;nimaje&gt;</a></span><span class="message">lrvick: would the first one basically be   execl(&quot;/hex0&quot;, &quot;/stage0-posix-x86-a15adc72f099506fb0d40c8824d7aaa97735f7c3/hex0_x86.hex0&quot;, &quot;hex0&quot;, NULL)   or    execl(&quot;/hex0&quot;, &quot;/hex0&quot;, &quot;/stage0-posix-x86-a15adc72f099506fb0d40c8824d7aaa97735f7c3/hex0_x86.hex0&quot;, &quot;hex0&quot;, NULL)   ?</span></div><div class="line" id="132551"><span class="nick" style="color:#80b1d3"><a href="#132551" label="[13:25:51]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; is the irc bridge down atm?</span></div><div class="line" id="132632"><span class="nick" style="color:#80b1d3"><a href="#132632" label="[13:26:32]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Ah my message did appear on <a rel="nofollow" href="https://logs.guix.gnu.org/bootstrappable/2025-01-14.log">https://logs.guix.gnu.org/bootstrappable/2025-01-14.log</a>  but recent irc messages don't seem to be appearing in matrix</span></div><div class="line" id="132815"><span class="nick" style="color:#80b1d3"><a href="#132815" label="[13:28:15]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I'm having another attempt at creating a simpler tcc bootstrap path <a rel="nofollow" href="https://github.com/cosinusoidally/tcc_simple">https://github.com/cosinusoidally/tcc_simple</a>  not sure if I'll have the patience to finish it, but if I do it will be a case of cc_x86 -&gt; tcc-0.9.27 in a simplified dialect -&gt; stock tcc-0.9.27</span></div><div class="line" id="132951"><span class="nick" style="color:#80b1d3"><a href="#132951" label="[13:29:51]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; <a rel="nofollow" href="https://github.com/cosinusoidally/tcc_simple/tree/master/tcc_boot_min">https://github.com/cosinusoidally/tcc_simple/tree/master/tcc_boot_min</a>  is a very cut down version of tcc-0.9.27 that is implemented in a simplified C dialect. It only implements that simplified dialect. That is complete.</span></div><div class="line" id="133121"><span class="nick" style="color:#80b1d3"><a href="#133121" label="[13:31:21]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; <a rel="nofollow" href="https://github.com/cosinusoidally/tcc_simple/tree/master/tcc_boot_max">https://github.com/cosinusoidally/tcc_simple/tree/master/tcc_boot_max</a>  will be a cut down simplified version of tcc-0.9.27 implemented in the simplified dialect but capable of building a stock tcc-0.9.27. I'm at the very early stages of the port with tcc_boot_max</span></div><div class="line" id="133200"><span class="nick" style="color:#80b1d3"><a href="#133200" label="[13:32:00]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; tbh I might get bored and instead try to port chibicc to a simplified dialect of C and then use that to build tcc.</span></div><div class="line" id="141630"><span class="nick" style="color:#80b1d3"><a href="#141630" label="[14:16:30]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; I'll reboot the bridge later this evening...</span></div><div class="line" id="141652"><span class="nick" style="color:#80b1d3"><a href="#141652" label="[14:16:52]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Hopefully that will fix sync from irc to matrix</span></div><div class="line" id="141840"><span class="nick" style="color:#6d2462"><a href="#141840" label="[14:18:40]">&lt;aggi&gt;</a></span><span class="message">i'll try something else next, because i do want nilfs2 and 64bit timestamp filesystem support, and that's not easy to backport into linux-2.4</span></div><div class="line" id="141902"><span class="nick" style="color:#6d2462"><a href="#141902" label="[14:19:02]">&lt;aggi&gt;</a></span><span class="message">tinycc-compilation/linking of some linux-2.6 series kernel</span></div><div class="line" id="141949"><span class="nick" style="color:#6d2462"><a href="#141949" label="[14:19:49]">&lt;aggi&gt;</a></span><span class="message">i refrained from this for a simple reason, that was linux-2.4 is much less lines of code in total than 2.6 got</span></div><div class="line" id="142222"><span class="nick" style="color:#6d2462"><a href="#142222" label="[14:22:22]">&lt;aggi&gt;</a></span><span class="message">concerning this fiwix would be ideal, 50K LoC with it, linux-2.4 got 4million LoC, linux-2.6 got 8million</span></div><div class="line" id="142626"><span class="nick" style="color:#6d2462"><a href="#142626" label="[14:26:26]">&lt;aggi&gt;</a></span><span class="message">not sure yet, digging into nilfs2 and kernel api revealed a significant increase in complexity at the filesystem/page-cache/block-layer with linux-2.6 series</span></div><div class="line" id="142635"><span class="nick" style="color:#80b1d3"><a href="#142635" label="[14:26:35]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Andrius Štikonas: thanks</span></div><div class="line" id="142721"><span class="nick" style="color:#80b1d3"><a href="#142721" label="[14:27:21]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; How much of those 8Mloc of lines in Linux 2.6 are drivers? Presumably the core of the kernel is much smaller?</span></div><div class="line" id="142819"><span class="nick" style="color:#6d2462"><a href="#142819" label="[14:28:19]">&lt;aggi&gt;</a></span><span class="message">of cause, nonetheless the trend is undeniable, and it's a huge gap between a sane kernel such as fiwix and any linux-2.x</span></div><div class="line" id="142850"><span class="nick" style="color:#6d2462"><a href="#142850" label="[14:28:50]">&lt;aggi&gt;</a></span><span class="message">besides drivers the filesystem stuff is scary, in particular the transition for ext2/3/4 etc. etc.</span></div><div class="line" id="142941"><span class="nick" style="color:#6d2462"><a href="#142941" label="[14:29:41]">&lt;aggi&gt;</a></span><span class="message">i am thinking of another option, to introduce a 64bit timestamp variant of ext2 filesystem, and labeling this ext2x or something, which isn't compatible with regular ext2</span></div><div class="line" id="143204"><span class="nick" style="color:#80b1d3"><a href="#143204" label="[14:32:04]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Haven't checked but presumably</span></div><div class="line" id="143214"><span class="nick" style="color:#80b1d3"><a href="#143214" label="[14:32:14]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; also a lot is networking</span></div><div class="line" id="143920"><span class="nick" style="color:#6d2462"><a href="#143920" label="[14:39:20]">&lt;aggi&gt;</a></span><span class="message">i'll finalizxe the linux-2.4/musl-libc/500ebuilds stuff, it's working; and there's enough cleanup tasks remaining before thinking about a year2038 filesystem</span></div><div class="line" id="144041"><span class="nick" style="color:#6d2462"><a href="#144041" label="[14:40:41]">&lt;aggi&gt;</a></span><span class="message">it's just i did wanted to fully migrate my development host onto the tinycc/linux-2.4 system myself soon, for extensive testing; and i formatted all my disks with nilfs2</span></div><div class="line" id="144201"><span class="nick" style="color:#6d2462"><a href="#144201" label="[14:42:01]">&lt;aggi&gt;</a></span><span class="message">i had written a tiny segment verification utility for nilfs, that greatly increased confidence into what's stored on flash memory</span></div><div class="line" id="144222"><span class="nick" style="color:#6d2462"><a href="#144222" label="[14:42:22]">&lt;aggi&gt;</a></span><span class="message">if i move my stuff onto any other filesystem that fiwix/linux2 got, i'll loose that</span></div><div class="line" id="144254"><span class="nick" style="color:#6d2462"><a href="#144254" label="[14:42:54]">&lt;aggi&gt;</a></span><span class="message">nilfs2 is a killer feature for linux kernel</span></div><div class="line" id="145614"><span class="nick" style="color:#6d2462"><a href="#145614" label="[14:56:14]">&lt;aggi&gt;</a></span><span class="message">now i remember: linux-2.6 compilation required some generated files produced from gcc -S, which complicated the whole approach with tinycc (or any other alternative toolchain)</span></div><div class="line" id="145658"><span class="nick" style="color:#6d2462"><a href="#145658" label="[14:56:58]">&lt;aggi&gt;</a></span><span class="message">if i want 64bit nilfs2 back on board, i have to cope with any complexity added by linux-2.6 series, or have to live with what i got for linux-2.4</span></div><div class="line" id="151817"><span class="nick" style="color:#6d2462"><a href="#151817" label="[15:18:17]">&lt;aggi&gt;</a></span><span class="message">nilfs2 was great for forensics too, because correctly administered it can prevent some secretly hidden filesyste i/o (otherwise i had not noticed there was some with some linux-5.x kernel)</span></div><div class="line" id="152016"><span class="nick" style="color:#6d2462"><a href="#152016" label="[15:20:16]">&lt;aggi&gt;</a></span><span class="message">moving towards linux-2.6 has some other bad taste and smell attached, that was the DirtyCoW one which i've not forgotten</span></div><div class="line" id="160543"><span class="nick" style="color:#234e69"><a href="#160543" label="[16:05:43]">&lt;mid-kid&gt;</a></span><span class="message">made the mistake of deleting my distfiles directory again...</span></div><div class="line" id="160613"><span class="nick" style="color:#234e69"><a href="#160613" label="[16:06:13]">&lt;mid-kid&gt;</a></span><span class="message">Can't get flex-2.5.11, flex-2.5.33 and gc-8.0.4</span></div><div class="line" id="160617"><span class="nick" style="color:#234e69"><a href="#160617" label="[16:06:17]">&lt;mid-kid&gt;</a></span><span class="message">on the v1.0 branch</span></div><div class="line" id="160651"><span class="nick" style="color:#8dd3c7"><a href="#160651" label="[16:06:51]">&lt;lrvick&gt;</a></span><span class="message">@nimaje should be former</span></div><div class="line" id="161251"><span class="nick" style="color:#234e69"><a href="#161251" label="[16:12:51]">&lt;mid-kid&gt;</a></span><span class="message">Managed to obtain gc-8.0.4, now flex...</span></div><div class="line" id="161735"><span class="nick" style="color:#234e69"><a href="#161735" label="[16:17:35]">&lt;mid-kid&gt;</a></span><span class="message">Found flex-2.5.33 in the debian archives: <a rel="nofollow" href="https://archive.debian.org/debian-archive/debian/pool/main/f/flex/flex_2.5.33.orig.tar.gz">https://archive.debian.org/debian-archive/debian/pool/main/f/flex/flex_2.5.33.orig.tar.gz</a> </span></div><div class="line" id="161754"><span class="nick" style="color:#234e69"><a href="#161754" label="[16:17:54]">&lt;mid-kid&gt;</a></span><span class="message">gc-8.0.4 was on archive.org: <a rel="nofollow" href="https://web.archive.org/web/20240518115554/https://www.hboehm.info/gc/gc_source/gc-8.0.4.tar.gz">https://web.archive.org/web/20240518115554/https://www.hboehm.info/gc/gc_source/gc-8.0.4.tar.gz</a> </span></div><div class="line" id="161802"><span class="nick" style="color:#234e69"><a href="#161802" label="[16:18:02]">&lt;mid-kid&gt;</a></span><span class="message">Still looking for flex-2.5.11</span></div><div class="line" id="161820"><span class="nick" style="color:#234e69"><a href="#161820" label="[16:18:20]">&lt;mid-kid&gt;</a></span><span class="message">(both of the above checksums match btw)</span></div><div class="line" id="162024"><span class="nick" style="color:#234e69"><a href="#162024" label="[16:20:24]">&lt;mid-kid&gt;</a></span><span class="message">Found flex-2.5.11 on a random ftp site: <a rel="nofollow" href="https://ftp-tel.sjtu.edu.cn/sites/ftp.openpkg.org/sources/DST/flex/flex-2.5.11.tar.gz">https://ftp-tel.sjtu.edu.cn/sites/ftp.openpkg.org/sources/DST/flex/flex-2.5.11.tar.gz</a> </span></div><div class="line" id="174735"><span class="nick" style="color:#6b8072"><a href="#174735" label="[17:47:35]">&lt;nimaje&gt;</a></span><span class="message">lrvick: well, I should have asked what argv[0] is, instead of assuming (wrong) what execl does, because I throught it would be easier to write the question that way, argv[0] should normally be the program name and is probably the easiest to get wrong when using the exec family of functions</span></div><div class="line" id="184406"><span class="nick" style="color:#80b1d3"><a href="#184406" label="[18:44:06]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Lance Vick&gt; rkeene: It would seem that symlinks extract, but directory structure is not preserved: <a rel="nofollow" href="https://dpaste.org/xVxgN/raw">https://dpaste.org/xVxgN/raw</a> </span></div><div class="line" id="193635"><span class="nick" style="color:#80b1d3"><a href="#193635" label="[19:36:35]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; cosinusoidally: bridge restarted</span></div><div class="line" id="193638"><span class="nick" style="color:#389600"><a href="#193638" label="[19:36:38]">&lt;stikonas&gt;</a></span><span class="message">testing</span></div><div class="line" id="193644"><span class="nick" style="color:#80b1d3"><a href="#193644" label="[19:36:44]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; looks like it is working</span></div><div class="line" id="222654"><span class="nick" style="color:#2e2a4a"><a href="#222654" label="[22:26:54]">&lt;rkeene&gt;</a></span><span class="message">lrvick, I'll take a look tonight</span></div><br /></div></body></html>

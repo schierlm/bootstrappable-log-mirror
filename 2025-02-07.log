@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2025-02-07.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="002008"><span class="nick" style="color:#389600"><a href="#002008" label="[00:20:08]">&lt;oriansj&gt;</a></span><span class="message">aggi: gigatron's bootstrap is worse than any other architecture (literally everything is just a firmware blob) If you wanted a simple architecture for bootstrapping Ben Eater's 8bit system isn't bad but one would want to extend it in a couple directions.</span></div><div class="line" id="002409"><span class="nick" style="color:#389600"><a href="#002409" label="[00:24:09]">&lt;oriansj&gt;</a></span><span class="message">and possibly replace the microcode eprom with hardwired logic</span></div><div class="line" id="072350"><span class="nick" style="color:#8dd3c7"><a href="#072350" label="[07:23:50]">&lt;fossy&gt;</a></span><span class="message">stikonas, Googulator: should we run shellcheck on steps/*/*.sh?</span></div><div class="line" id="072357"><span class="nick" style="color:#8dd3c7"><a href="#072357" label="[07:23:57]">&lt;fossy&gt;</a></span><span class="message">in linter</span></div><div class="line" id="145754"><span class="nick" style="color:#2e2a4a"><a href="#145754" label="[14:57:54]">&lt;aggi&gt;</a></span><span class="message">oriansj: to my understanding gigatron ttl got no bootstrap on the software side</span></div><div class="line" id="145832"><span class="nick" style="color:#2e2a4a"><a href="#145832" label="[14:58:32]">&lt;aggi&gt;</a></span><span class="message">it's firmware rom was written in assembly, which i had not seen disassembly with comment sections for yet</span></div><div class="line" id="150325"><span class="nick" style="color:#2e2a4a"><a href="#150325" label="[15:03:25]">&lt;aggi&gt;</a></span><span class="message">the gigatron control language is documented however</span></div><div class="line" id="150814"><span class="nick" style="color:#6b8072"><a href="#150814" label="[15:08:14]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; fossy: that will be problematic</span></div><div class="line" id="150825"><span class="nick" style="color:#6b8072"><a href="#150825" label="[15:08:25]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Some of the early files use bash 2</span></div><div class="line" id="150848"><span class="nick" style="color:#6b8072"><a href="#150848" label="[15:08:48]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; And shellcheck will complain a lot with suggestions about newer feature</span></div><div class="line" id="150904"><span class="nick" style="color:#6b8072"><a href="#150904" label="[15:09:04]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Well, if you disable those, maybe it could work</span></div><div class="line" id="154014"><span class="nick" style="color:#2e2a4a"><a href="#154014" label="[15:40:14]">&lt;aggi&gt;</a></span><span class="message">i got confused, GNU texinfo isn't an equivalent to TeX, it can however interoperate with TeX for maths typesetting; and GNU texinfo easily compiled with tinycc</span></div><div class="line" id="154911"><span class="nick" style="color:#2e2a4a"><a href="#154911" label="[15:49:11]">&lt;aggi&gt;</a></span><span class="message">and this is what pandoc/haskell would be needed for, to convert TeX to texinfo, for example, sigh</span></div><div class="line" id="155019"><span class="nick" style="color:#2e2a4a"><a href="#155019" label="[15:50:19]">&lt;aggi&gt;</a></span><span class="message">and any common TeX implementation itself could not be salvaged for a no-c++/tinycc profile yet</span></div><div class="line" id="155130"><span class="nick" style="color:#2e2a4a"><a href="#155130" label="[15:51:30]">&lt;aggi&gt;</a></span><span class="message">there's two scenarios, such as writing any document including math glyphs in texinfo format... don't know if GNU texinfo fully covers this for elaborate mathematical expression</span></div><div class="line" id="155212"><span class="nick" style="color:#2e2a4a"><a href="#155212" label="[15:52:12]">&lt;aggi&gt;</a></span><span class="message">another scenario would be, some TeX documents arriving to convert those into texinfo first (because i haven't got a tex implementation ready)</span></div><div class="line" id="155247"><span class="nick" style="color:#2e2a4a"><a href="#155247" label="[15:52:47]">&lt;aggi&gt;</a></span><span class="message">so, haskell, that was prominently discussed recently</span></div><div class="line" id="155552"><span class="nick" style="color:#2e2a4a"><a href="#155552" label="[15:55:52]">&lt;aggi&gt;</a></span><span class="message">at least i got pdf/ps support salvaged with tinycc for rendering into framebuffer (which wasn't trivial), texinfo is available too</span></div><div class="line" id="155829"><span class="nick" style="color:#2e2a4a"><a href="#155829" label="[15:58:29]">&lt;aggi&gt;</a></span><span class="message">i didn't bother with pandoc/haskell, and i think a tex 2 texinfo conversion tool fitting into a no-c++ profile is desireable</span></div><div class="line" id="160158"><span class="nick" style="color:#2e2a4a"><a href="#160158" label="[16:01:58]">&lt;aggi&gt;</a></span><span class="message">i am not prepared to take the haskell route, and will trust it's confirmed by bootstrappable</span></div><br /></div></body></html>

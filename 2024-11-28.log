@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-11-28.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="030426"><span class="nick" style="color:#389600"><a href="#030426" label="[03:04:26]">&lt;oriansj&gt;</a></span><span class="message">unmush: thank you for continuing to solve the mono bootstrapping problem.</span></div><div class="line" id="030636"><span class="nick" style="color:#389600"><a href="#030636" label="[03:06:36]">&lt;oriansj&gt;</a></span><span class="message">aggi: yeah, TCC definitely would need serious work to support 16bit code (or more likely just a 1-3Kloc patch to add assembler support for the handful of instructions needed to support those 2 bits of code and nothing further) but it is nice to hear that your work continues to flush out the problems in TCC Linux bootstrapping.</span></div><div class="line" id="031254"><span class="nick" style="color:#389600"><a href="#031254" label="[03:12:54]">&lt;oriansj&gt;</a></span><span class="message">pabs3: nonstop is a name I have not heard for a very long time. I would have assumed it dead already (its system level support for checkpointing is nice but a bad idea when you write applications that do checkpointing by default (like databases) and already have portable support for restart) given that the line has not been marketed in more than a decade. And the smart customers would have already migrated to fault tolerant Linux</span></div><div class="line" id="031254"><span class="nick" style="color:#389600"><a href="#031254" label="[03:12:54]">&lt;oriansj&gt;</a></span><span class="message">clusters (or VMware clusters for the less tech savy)</span></div><div class="line" id="031424"><span class="nick" style="color:#389600"><a href="#031424" label="[03:14:24]">&lt;oriansj&gt;</a></span><span class="message">But yeah, rust is well on its way to becoming the replacement for C (especially given the huge amount of federal funds for that effort)</span></div><div class="line" id="031928"><span class="nick" style="color:#389600"><a href="#031928" label="[03:19:28]">&lt;oriansj&gt;</a></span><span class="message">but seriously, any excuse to kill those old Unixes with either a BSD or Linux is well worth it in the long term for bootstrapping (as we atleast have the sources for those)</span></div><div class="line" id="061629"><span class="nick" style="color:#8dd3c7"><a href="#061629" label="[06:16:29]">&lt;aggi&gt;</a></span><span class="message">fyi, <a rel="nofollow" href="https://codeberg.org/aggi/linux-tcc">https://codeberg.org/aggi/linux-tcc</a> </span></div><div class="line" id="061836"><span class="nick" style="color:#8dd3c7"><a href="#061836" label="[06:18:36]">&lt;aggi&gt;</a></span><span class="message">and i've produced a little noise on tinycc mailing list <a rel="nofollow" href="https://lists.nongnu.org/archive/html/tinycc-devel/2024-11/msg00059.html">https://lists.nongnu.org/archive/html/tinycc-devel/2024-11/msg00059.html</a> </span></div><div class="line" id="084823"><span class="nick" style="color:#8dd3c7"><a href="#084823" label="[08:48:23]">&lt;aggi&gt;</a></span><span class="message">oriansj: i am not sure if 16bit asm support should reside inside tinycc, depending on how a &quot;kernel bootstrapping&quot; patch was implemented and when related bootcode had to be processed</span></div><div class="line" id="084849"><span class="nick" style="color:#8dd3c7"><a href="#084849" label="[08:48:49]">&lt;aggi&gt;</a></span><span class="message">for example, bootstrappable already implemented various tiny loaders/kernels/compilers/assemblers</span></div><div class="line" id="084931"><span class="nick" style="color:#8dd3c7"><a href="#084931" label="[08:49:31]">&lt;aggi&gt;</a></span><span class="message">and for kernel bootstrapping tccboot can be considered - that contains mentioned 16bit bootcode</span></div><div class="line" id="084944"><span class="nick" style="color:#8dd3c7"><a href="#084944" label="[08:49:44]">&lt;aggi&gt;</a></span><span class="message">however then it would be preferable, to avoid a circular dependency against tinycc itself</span></div><div class="line" id="085137"><span class="nick" style="color:#8dd3c7"><a href="#085137" label="[08:51:37]">&lt;aggi&gt;</a></span><span class="message">for a kernel bootstrapping path such as: M2/mescc plus any 16bit assembler which could process any (re-written) 16bit setup.S/bootsect.S for tccboot, to compile/assemble tccboot, which then could compile and load kernel JiT</span></div><div class="line" id="085206"><span class="nick" style="color:#8dd3c7"><a href="#085206" label="[08:52:06]">&lt;aggi&gt;</a></span><span class="message">*path</span></div><div class="line" id="085406"><span class="nick" style="color:#8dd3c7"><a href="#085406" label="[08:54:06]">&lt;aggi&gt;</a></span><span class="message">some earlier kernel-2.2 versions had implemented their real-mode asm with as86 compatible syntax, maybe as86 could be used, if that could be compiled with mescc</span></div><div class="line" id="085748"><span class="nick" style="color:#8dd3c7"><a href="#085748" label="[08:57:48]">&lt;aggi&gt;</a></span><span class="message">tccboot/linux-2.4.37.11 could have some advantages, such as avoiding an additional fiwix kernel stage, it got usb support, it's ready for most x86 bare metal hardware, for practical reasons</span></div><div class="line" id="085913"><span class="nick" style="color:#8dd3c7"><a href="#085913" label="[08:59:13]">&lt;aggi&gt;</a></span><span class="message">i noted the as86 setup.S/bootsect.S related task on todo, for another reasons too, since i could avoid binutils then (currently i don't need it for anything else other than kernel 16bit stuff for the i486-tcc-linux-musl.iso)</span></div><div class="line" id="151544"><span class="nick" style="color:#389600"><a href="#151544" label="[15:15:44]">&lt;oriansj&gt;</a></span><span class="message">aggi: well, I did hope to do a binutils compatible assembler and linker buildable by M2-Planet to give mescc a better ability to integrate with other C compilers.</span></div><div class="line" id="153742"><span class="nick" style="color:#8dd3c7"><a href="#153742" label="[15:37:42]">&lt;aggi&gt;</a></span><span class="message">meanwhile, i've thrown a tcc-compiled static musl linked /bin/sh at linux-2.4 and init=/bin/sh panics</span></div><div class="line" id="153747"><span class="nick" style="color:#8dd3c7"><a href="#153747" label="[15:37:47]">&lt;aggi&gt;</a></span><span class="message">ouch</span></div><div class="line" id="153908"><span class="nick" style="color:#8dd3c7"><a href="#153908" label="[15:39:08]">&lt;aggi&gt;</a></span><span class="message">intersecting this, the /bin/sh itself seems ok atop a linux-5.9, another /bin/bash from tccboot.iso/bellard works fine atop linux-2.4</span></div><div class="line" id="153956"><span class="nick" style="color:#8dd3c7"><a href="#153956" label="[15:39:56]">&lt;aggi&gt;</a></span><span class="message">meaning, it's some ABI break between linux-2.4 and linux-5.9</span></div><div class="line" id="154026"><span class="nick" style="color:#8dd3c7"><a href="#154026" label="[15:40:26]">&lt;aggi&gt;</a></span><span class="message">i did compile against linux-2.4 headers though, nonetheless, probably musl-libc does some incompatible syscall against linux-2.4</span></div><div class="line" id="154045"><span class="nick" style="color:#8dd3c7"><a href="#154045" label="[15:40:45]">&lt;aggi&gt;</a></span><span class="message">which wasn't covered by some api header</span></div><div class="line" id="161045"><span class="nick" style="color:#2e2a4a"><a href="#161045" label="[16:10:45]">&lt;unmush&gt;</a></span><span class="message">I've discovered that hashbang.sh blocked sending of outgoing email some time ago apparently (it was working when I signed up...), so here's my patch series: <a rel="nofollow" href="https://unmush.de1.hashbang.sh/misc-files/mono-series.tar.gz">https://unmush.de1.hashbang.sh/misc-files/mono-series.tar.gz</a>   and the gpg signature is at <a rel="nofollow" href="https://unmush.de1.hashbang.sh/misc-files/mono-series.tar.gz.sig">https://unmush.de1.hashbang.sh/misc-files/mono-series.tar.gz.sig</a>  and my gpg key is at <a rel="nofollow" href="https://unmush.de1.hashbang.sh/pubkey.asc">https://unmush.de1.hashbang.sh/pubkey.asc</a> </span></div><div class="line" id="162826"><span class="nick" style="color:#8dd3c7"><a href="#162826" label="[16:28:26]">&lt;aggi&gt;</a></span><span class="message">to my understanding some musl-1.1.24 linked binaries are executed atop fiwix 2.0 ABI (when kernel bootstrapping is enabled)</span></div><div class="line" id="162956"><span class="nick" style="color:#8dd3c7"><a href="#162956" label="[16:29:56]">&lt;aggi&gt;</a></span><span class="message">my /bin/oksh linked against musl-1.2.2 (with patches applied), but fails atop linux-2.4 ABI with ENOSYS for set_tid_address</span></div><div class="line" id="163001"><span class="nick" style="color:#8dd3c7"><a href="#163001" label="[16:30:01]">&lt;aggi&gt;</a></span><span class="message">weird</span></div><div class="line" id="163035"><span class="nick" style="color:#8dd3c7"><a href="#163035" label="[16:30:35]">&lt;aggi&gt;</a></span><span class="message">but ok, i'll rebuild with musl-1.1</span></div><div class="line" id="163101"><span class="nick" style="color:#8dd3c7"><a href="#163101" label="[16:31:01]">&lt;aggi&gt;</a></span><span class="message">if that's known to work atop a fiwix 2.0 ABI it too should atop linux-2.4</span></div><div class="line" id="163151"><span class="nick" style="color:#8dd3c7"><a href="#163151" label="[16:31:51]">&lt;aggi&gt;</a></span><span class="message">sorry</span></div><div class="line" id="165531"><span class="nick" style="color:#6b8072"><a href="#165531" label="[16:55:31]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; iirc Red Hat back ported nptl to the 2.4 kernel series. In theory that might help threading issues, but not sure how much work that would be to apply to your linux-tcc kernel though. But yep probably easiest to just use musl-1.1.24.</span></div><div class="line" id="165636"><span class="nick" style="color:#8dd3c7"><a href="#165636" label="[16:56:36]">&lt;aggi&gt;</a></span><span class="message">seems to be time64_t related too</span></div><div class="line" id="165748"><span class="nick" style="color:#8dd3c7"><a href="#165748" label="[16:57:48]">&lt;aggi&gt;</a></span><span class="message">thanks for the nptl hint</span></div><br /></div></body></html>

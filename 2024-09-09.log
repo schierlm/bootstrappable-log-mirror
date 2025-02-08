@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-09-09.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="094507"><span class="nick" style="color:#389600"><a href="#094507" label="[09:45:07]">&lt;pabs3&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/twolodzko/prolog-rs">https://github.com/twolodzko/prolog-rs</a>  - Prolog in Rust</span></div><div class="line" id="101447"><span class="nick" style="color:#8dd3c7"><a href="#101447" label="[10:14:47]">&lt;lanodan&gt;</a></span><span class="message">Was there issues bootstrapping prolog? (never used prolog, although often heard about it)</span></div><div class="line" id="103653"><span class="nick" style="color:#389600"><a href="#103653" label="[10:36:53]">&lt;pabs3&gt;</a></span><span class="message">ACTION not sure</span></div><div class="line" id="130537"><span class="nick" style="color:#2e2a4a"><a href="#130537" label="[13:05:37]">&lt;nimaje&gt;</a></span><span class="message">I'm pretty sure common prolog implementations aren't written in prolog (or even depend on prolog to build), so should be ok-ish to absolutly no problem to bootstrap</span></div><div class="line" id="131212"><span class="nick" style="color:#2e2a4a"><a href="#131212" label="[13:12:12]">&lt;nimaje&gt;</a></span><span class="message">swi-pl is written in c (not sure which version) and uses cmake to build</span></div><div class="line" id="183223"><span class="nick" style="color:#6b8072"><a href="#183223" label="[18:32:23]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I've written a C to awk translator program (in awk) that can take a subset of C (that is also a subset of JS) and translate it into awk. I have a minimal C compiler written in this subset (based on a heavily cut down version of M2_planet) that can serve as an initial bootstrap compiler on a bootstrap chain all the way up to tcc-0.9.27. On my machine it takes around 8 mins for awk to build the initial...</span></div><div class="line" id="183228"><span class="nick" style="color:#6b8072"><a href="#183228" label="[18:32:28]">&lt;matrix_bridge&gt;</a></span><span class="message">... C compiler.</span></div><div class="line" id="183231"><span class="nick" style="color:#6b8072"><a href="#183231" label="[18:32:31]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; The idea is to have an alternative bootstrap path on a system that only has awk (which is pretty universal on unix systems).</span></div><div class="line" id="183257"><span class="nick" style="color:#6b8072"><a href="#183257" label="[18:32:57]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; At the moment I still need a C preprocessor to strip out comments and substitute a couple of symbols, but I'm planning to replace that with another awk program.</span></div><div class="line" id="183306"><span class="nick" style="color:#6b8072"><a href="#183306" label="[18:33:06]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; <a rel="nofollow" href="https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/m2min/mk_awk_m2">https://github.com/cosinusoidally/tcc_bootstrap_alt/blob/dev/m2min/mk_awk_m2</a> </span></div><div class="line" id="183534"><span class="nick" style="color:#6b8072"><a href="#183534" label="[18:35:34]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; I also need to optimise. I have to emulate bitwise operations as posix awk doesn't support them.</span></div><div class="line" id="183615"><span class="nick" style="color:#6b8072"><a href="#183615" label="[18:36:15]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; Emulating these bitwise operations is pretty slow.</span></div><div class="line" id="183636"><span class="nick" style="color:#6b8072"><a href="#183636" label="[18:36:36]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;cosinusoidally&gt; tested on mawk from Ubuntu 18.04 and gawk from Ubuntu 22.04</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-10-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="210324"><span class="nick" style="color:#389600"><a href="#210324" label="[21:03:24]">&lt;timafrolov&gt;</a></span><span class="message">Hello! I recently became interested in bootstrappable builds and in live-bootstrap project in particular. And I am interested in adding support for RISC-V architecture to it. I've been looking at platform-dependant parts without RISC-V support and there are some obvious (builder-hex0 and Fiwix support only x86) and some other issues (e.g. gcc supports RISC-V starting from 7.1, but 4.0.4 is used in the bootstrap process).</span></div><div class="line" id="210328"><span class="nick" style="color:#389600"><a href="#210328" label="[21:03:28]">&lt;timafrolov&gt;</a></span><span class="message">Right now I am interested in trying to resolve the problem with Fiwix somehow. The obvious way is to add RISC-V support to Fiwix, but I also want to look for other kernels (preferably with multiple platform support, currently looking towards Embox OS). So I was wondering if someone knows what are the requirements for a kernel to be able to replace Fiwix in the bootstrap? Is being POSIX-compliant enough or is there something else I should look</span></div><div class="line" id="210332"><span class="nick" style="color:#389600"><a href="#210332" label="[21:03:32]">&lt;timafrolov&gt;</a></span><span class="message">P.S. Is this the right place to ask such questions or should I go somewhere else?</span></div><div class="line" id="211457"><span class="nick" style="color:#8dd3c7"><a href="#211457" label="[21:14:57]">&lt;Mikaku&gt;</a></span><span class="message">timafrolov: yes, you can replace Fiwix with any other kernel but make sure it meets the minimal requirements</span></div><div class="line" id="211701"><span class="nick" style="color:#8dd3c7"><a href="#211701" label="[21:17:01]">&lt;Mikaku&gt;</a></span><span class="message">if my memory serves well: POSIX support (indeed), Ext2 fs support, RAMdisk drive support and musl C library support. Perhaps there are others, but I think these are basic</span></div><div class="line" id="211742"><span class="nick" style="color:#389600"><a href="#211742" label="[21:17:42]">&lt;timafrolov&gt;</a></span><span class="message">Ok, thanks you very much!</span></div><div class="line" id="211803"><span class="nick" style="color:#8dd3c7"><a href="#211803" label="[21:18:03]">&lt;Mikaku&gt;</a></span><span class="message">you're welcome</span></div><div class="line" id="212016"><span class="nick" style="color:#8dd3c7"><a href="#212016" label="[21:20:16]">&lt;Mikaku&gt;</a></span><span class="message">timafrolov: I think there are some guys here currently working to add the RISC-V arch and they may give you interesting information, so stay around</span></div><div class="line" id="212853"><span class="nick" style="color:#389600"><a href="#212853" label="[21:28:53]">&lt;timafrolov&gt;</a></span><span class="message">Ok, will be glad to read anything related to topic</span></div><div class="line" id="223955"><span class="nick" style="color:#2e2a4a"><a href="#223955" label="[22:39:55]">&lt;stikonas&gt;</a></span><span class="message">oh, I just missed timafrolov...</span></div><br /></div></body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html><html><head><title>IRC channel logs</title><style>html {
+  background: #fdfdfd;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+h3 {
+  padding: .5em 0;
+  border-top: 3px dotted #ddd;
+  margin-bottom: 0;
+}
+
+form {
+  width: 400px;
+  display: flex;
+}
+
+input {
+  width: 100%;
+  display: flex;
+  border-radius: .25em 0 0 .25em;
+  border: 1px solid #aaa;
+  border-right: 0;
+  padding: 0.5em;
+}
+
+button {
+  display: flex;
+  border-radius: 0 .25em .25em 0;
+  background-color: #007bff;
+  border: 1px solid #007bff;
+  padding: .5em;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h4 {
+  margin-bottom: .5em;
+}
+
+table td {
+  padding: 0.75em;
+}
+
+table tr:hover {
+  background: #eee;
+}
+
+.year {
+  display: table;
+}
+
+.month {
+  display: table-cell;
+  padding-right: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nick {
+  padding-right: 0.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 13rem;
+  display: table-cell;
+}
+
+.nick a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.message {
+  display: table-cell;
+  padding-left: 0.6rem;
+  border-left: 2px solid #333;
+}
+
+.notice {
+  color: #859900;
+  font-style: italic;
+}
+
+.line {
+  line-height: 1.8rem;
+  display: table;
+}
+
+#logs {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+</style></head><body><h1>IRC channel logs</h1><h2>2024-12-20.log</h2><p><a href="/bootstrappable">back to list of logs</a></p><div id="logs"><div class="line" id="011004"><span class="nick" style="color:#389600"><a href="#011004" label="[01:10:04]">&lt;fossy&gt;</a></span><span class="message">hey all - i've been working on a simple tool over the last 2ish weeks that uses a number of heuristics to find pre-generated code within a tarball or codebase</span></div><div class="line" id="011006"><span class="nick" style="color:#389600"><a href="#011006" label="[01:10:06]">&lt;fossy&gt;</a></span><span class="message"> <a rel="nofollow" href="https://github.com/fosslinux/problematic-source">https://github.com/fosslinux/problematic-source</a> </span></div><div class="line" id="011021"><span class="nick" style="color:#389600"><a href="#011021" label="[01:10:21]">&lt;fossy&gt;</a></span><span class="message">it's at a point where it's catching useful things</span></div><div class="line" id="011026"><span class="nick" style="color:#389600"><a href="#011026" label="[01:10:26]">&lt;fossy&gt;</a></span><span class="message">most of them are just heuristics that i</span></div><div class="line" id="011032"><span class="nick" style="color:#389600"><a href="#011032" label="[01:10:32]">&lt;fossy&gt;</a></span><span class="message">'ve been using personally in live-bootstrap</span></div><div class="line" id="011057"><span class="nick" style="color:#389600"><a href="#011057" label="[01:10:57]">&lt;fossy&gt;</a></span><span class="message">my next goal is to run it on all live-bootstrap's sources</span></div><div class="line" id="011147"><span class="nick" style="color:#8dd3c7"><a href="#011147" label="[01:11:47]">&lt;daddy&gt;</a></span><span class="message">does pre-generated include things like `./configure`, transpiled sources, etc. or is it targeting binary blobs?</span></div><div class="line" id="011211"><span class="nick" style="color:#389600"><a href="#011211" label="[01:12:11]">&lt;fossy&gt;</a></span><span class="message">all of the above</span></div><div class="line" id="011215"><span class="nick" style="color:#8dd3c7"><a href="#011215" label="[01:12:15]">&lt;daddy&gt;</a></span><span class="message">neat.</span></div><div class="line" id="011229"><span class="nick" style="color:#389600"><a href="#011229" label="[01:12:29]">&lt;fossy&gt;</a></span><span class="message">transpiled sources it probably isn't very good at yet</span></div><div class="line" id="011555"><span class="nick" style="color:#2e2a4a"><a href="#011555" label="[01:15:55]">&lt;stikonas&gt;</a></span><span class="message">fossy: oh nice</span></div><div class="line" id="011718"><span class="nick" style="color:#2e2a4a"><a href="#011718" label="[01:17:18]">&lt;stikonas&gt;</a></span><span class="message">oh and the checks are basically plugins in <a rel="nofollow" href="https://github.com/fosslinux/problematic-source/tree/master/checks">https://github.com/fosslinux/problematic-source/tree/master/checks</a> </span></div><div class="line" id="012559"><span class="nick" style="color:#6b8072"><a href="#012559" label="[01:25:59]">&lt;lanodan&gt;</a></span><span class="message">Oh neat, also seems like it's missing something like a pyproject.toml to be installable/packageable</span></div><div class="line" id="013123"><span class="nick" style="color:#2e2a4a"><a href="#013123" label="[01:31:23]">&lt;stikonas&gt;</a></span><span class="message">isn't it setup.py?</span></div><div class="line" id="013140"><span class="nick" style="color:#2e2a4a"><a href="#013140" label="[01:31:40]">&lt;stikonas&gt;</a></span><span class="message">and then you can upload it to PyPI</span></div><div class="line" id="013342"><span class="nick" style="color:#8dd3c7"><a href="#013342" label="[01:33:42]">&lt;daddy&gt;</a></span><span class="message">you can also use pyproject.toml which i'd recommend as it's less arbitrary code execution.</span></div><div class="line" id="013417"><span class="nick" style="color:#8dd3c7"><a href="#013417" label="[01:34:17]">&lt;daddy&gt;</a></span><span class="message">hm, i think you might need setup.py anyways</span></div><div class="line" id="013504"><span class="nick" style="color:#389600"><a href="#013504" label="[01:35:04]">&lt;fossy&gt;</a></span><span class="message">yeah stikonas that was quite intentional to have the checks as a &quot;plugin&quot; type format</span></div><div class="line" id="013522"><span class="nick" style="color:#389600"><a href="#013522" label="[01:35:22]">&lt;fossy&gt;</a></span><span class="message">yeah, i haven't done any of the python packaging stuff</span></div><div class="line" id="013525"><span class="nick" style="color:#2e2a4a"><a href="#013525" label="[01:35:25]">&lt;stikonas&gt;</a></span><span class="message">I guess the reasoning was that if you don't trust arbitrary code in setup.py, why would you trust the rest of the code in the pip by the same author</span></div><div class="line" id="013545"><span class="nick" style="color:#389600"><a href="#013545" label="[01:35:45]">&lt;fossy&gt;</a></span><span class="message">isn't setup.py deprecated now?</span></div><div class="line" id="013553"><span class="nick" style="color:#389600"><a href="#013553" label="[01:35:53]">&lt;fossy&gt;</a></span><span class="message">i need to read up on the new packaging stuff</span></div><div class="line" id="013554"><span class="nick" style="color:#8dd3c7"><a href="#013554" label="[01:35:54]">&lt;daddy&gt;</a></span><span class="message">running setup.py directly is deprecated.</span></div><div class="line" id="013556"><span class="nick" style="color:#2e2a4a"><a href="#013556" label="[01:35:56]">&lt;stikonas&gt;</a></span><span class="message">I'm still using for one of the pip things I maintain</span></div><div class="line" id="013558"><span class="nick" style="color:#389600"><a href="#013558" label="[01:35:58]">&lt;fossy&gt;</a></span><span class="message">ah, okay</span></div><div class="line" id="013710"><span class="nick" style="color:#2e2a4a"><a href="#013710" label="[01:37:10]">&lt;stikonas&gt;</a></span><span class="message">(not bootstrapping related and not generally useful as it's for specific device but you can see an example of packaging <a rel="nofollow" href="https://gitlab.com/neohubapi/neohubapi/">https://gitlab.com/neohubapi/neohubapi/</a>) </span></div><div class="line" id="013737"><span class="nick" style="color:#2e2a4a"><a href="#013737" label="[01:37:37]">&lt;stikonas&gt;</a></span><span class="message">hmm, I actually still run setup.py there according to releasing readme</span></div><div class="line" id="013738"><span class="nick" style="color:#2e2a4a"><a href="#013738" label="[01:37:38]">&lt;stikonas&gt;</a></span><span class="message">hmm</span></div><div class="line" id="013740"><span class="nick" style="color:#2e2a4a"><a href="#013740" label="[01:37:40]">&lt;stikonas&gt;</a></span><span class="message">python3 setup.py bdist_wheel sdist</span></div><div class="line" id="013745"><span class="nick" style="color:#2e2a4a"><a href="#013745" label="[01:37:45]">&lt;stikonas&gt;</a></span><span class="message">am I doing it wrong then?</span></div><div class="line" id="013848"><span class="nick" style="color:#2e2a4a"><a href="#013848" label="[01:38:48]">&lt;stikonas&gt;</a></span><span class="message">by the way, is anybody familiar here with gnunet?</span></div><div class="line" id="013903"><span class="nick" style="color:#2e2a4a"><a href="#013903" label="[01:39:03]">&lt;stikonas&gt;</a></span><span class="message">I was looking at DHT implementations in C, that seems to be one of them <a rel="nofollow" href="https://en.wikipedia.org/wiki/Kademlia#Implementations">https://en.wikipedia.org/wiki/Kademlia#Implementations</a> </span></div><div class="line" id="013939"><span class="nick" style="color:#2e2a4a"><a href="#013939" label="[01:39:39]">&lt;stikonas&gt;</a></span><span class="message">but I guess more research is indeed needed if we want to create a distributed mirror for live-bootstrap sources</span></div><div class="line" id="014038"><span class="nick" style="color:#389600"><a href="#014038" label="[01:40:38]">&lt;fossy&gt;</a></span><span class="message">stikonas: my (very basic) design idea was that the user would be asked for 1 or more mirrors, and then that mirror could introduce other mirrors</span></div><div class="line" id="014049"><span class="nick" style="color:#389600"><a href="#014049" label="[01:40:49]">&lt;fossy&gt;</a></span><span class="message">but that comes with it's own set of problems, of course</span></div><div class="line" id="014100"><span class="nick" style="color:#2e2a4a"><a href="#014100" label="[01:41:00]">&lt;stikonas&gt;</a></span><span class="message">yeah, I know...</span></div><div class="line" id="014111"><span class="nick" style="color:#2e2a4a"><a href="#014111" label="[01:41:11]">&lt;stikonas&gt;</a></span><span class="message">well, I don't have anything specific in mind</span></div><div class="line" id="014119"><span class="nick" style="color:#2e2a4a"><a href="#014119" label="[01:41:19]">&lt;stikonas&gt;</a></span><span class="message">I just thought this sounds like an already solved problem</span></div><div class="line" id="014128"><span class="nick" style="color:#2e2a4a"><a href="#014128" label="[01:41:28]">&lt;stikonas&gt;</a></span><span class="message">DHT does exactly that, you start with one bootstrap node</span></div><div class="line" id="014133"><span class="nick" style="color:#2e2a4a"><a href="#014133" label="[01:41:33]">&lt;stikonas&gt;</a></span><span class="message">and then it finds more nodes</span></div><div class="line" id="014135"><span class="nick" style="color:#389600"><a href="#014135" label="[01:41:35]">&lt;fossy&gt;</a></span><span class="message">yeah, you're totally right</span></div><div class="line" id="014144"><span class="nick" style="color:#389600"><a href="#014144" label="[01:41:44]">&lt;fossy&gt;</a></span><span class="message">i hadn't really thought of that</span></div><div class="line" id="014146"><span class="nick" style="color:#2e2a4a"><a href="#014146" label="[01:41:46]">&lt;stikonas&gt;</a></span><span class="message">and can do O (log N) search hash-&gt;file</span></div><div class="line" id="014217"><span class="nick" style="color:#2e2a4a"><a href="#014217" label="[01:42:17]">&lt;stikonas&gt;</a></span><span class="message">and there are of course thigns to think about: piggy back on existing network or create own...</span></div><div class="line" id="014239"><span class="nick" style="color:#2e2a4a"><a href="#014239" label="[01:42:39]">&lt;stikonas&gt;</a></span><span class="message">former probably would let us reuse some software</span></div><div class="line" id="014251"><span class="nick" style="color:#80b1d3"><a href="#014251" label="[01:42:51]">&lt;jackdk&gt;</a></span><span class="message">I note that torrents can include HTTP seeds these days</span></div><div class="line" id="014347"><span class="nick" style="color:#6b8072"><a href="#014347" label="[01:43:47]">&lt;lanodan&gt;</a></span><span class="message">Well one of the problems of setup.py is pip got stuck executing it for dynamic dependencies: <a rel="nofollow" href="https://github.com/pypa/pip/issues/1884">https://github.com/pypa/pip/issues/1884</a> </span></div><div class="line" id="014408"><span class="nick" style="color:#80b1d3"><a href="#014408" label="[01:44:08]">&lt;jackdk&gt;</a></span><span class="message">I suppose each release of such a torrent could add/remove HTTP mirrors as people stand up/give up mirroring?</span></div><div class="line" id="014423"><span class="nick" style="color:#6b8072"><a href="#014423" label="[01:44:23]">&lt;lanodan&gt;</a></span><span class="message">(Although personally I stay away from pip)</span></div><div class="line" id="014428"><span class="nick" style="color:#2e2a4a"><a href="#014428" label="[01:44:28]">&lt;stikonas&gt;</a></span><span class="message">hmm, wouldn't it be simpler to just have something like magnet link</span></div><div class="line" id="014435"><span class="nick" style="color:#2e2a4a"><a href="#014435" label="[01:44:35]">&lt;stikonas&gt;</a></span><span class="message">so you need certain hash</span></div><div class="line" id="014454"><span class="nick" style="color:#2e2a4a"><a href="#014454" label="[01:44:54]">&lt;stikonas&gt;</a></span><span class="message">you create uri from it and search for it</span></div><div class="line" id="014501"><span class="nick" style="color:#2e2a4a"><a href="#014501" label="[01:45:01]">&lt;stikonas&gt;</a></span><span class="message">rather than comitting torrent files to repo</span></div><div class="line" id="014502"><span class="nick" style="color:#2e2a4a"><a href="#014502" label="[01:45:02]">&lt;stikonas&gt;</a></span><span class="message">hmm</span></div><div class="line" id="014556"><span class="nick" style="color:#80b1d3"><a href="#014556" label="[01:45:56]">&lt;jackdk&gt;</a></span><span class="message">I'm also unsure if it lets you say &quot;this one specific file in this torrent is available from this URI&quot;</span></div><div class="line" id="014828"><span class="nick" style="color:#2e2a4a"><a href="#014828" label="[01:48:28]">&lt;stikonas&gt;</a></span><span class="message">hmm, probably just the whole set</span></div><div class="line" id="014834"><span class="nick" style="color:#2e2a4a"><a href="#014834" label="[01:48:34]">&lt;stikonas&gt;</a></span><span class="message">though I'm unsure either</span></div><div class="line" id="014928"><span class="nick" style="color:#2e2a4a"><a href="#014928" label="[01:49:28]">&lt;stikonas&gt;</a></span><span class="message">but I was thinking it will be basically 1 torrent per file anyway</span></div><div class="line" id="014945"><span class="nick" style="color:#2e2a4a"><a href="#014945" label="[01:49:45]">&lt;stikonas&gt;</a></span><span class="message">(or equivalent of torrent in another network)</span></div><div class="line" id="015000"><span class="nick" style="color:#2e2a4a"><a href="#015000" label="[01:50:00]">&lt;stikonas&gt;</a></span><span class="message">i.e. really just a way to obtain file from hash</span></div><div class="line" id="015044"><span class="nick" style="color:#2e2a4a"><a href="#015044" label="[01:50:44]">&lt;stikonas&gt;</a></span><span class="message">well, maybe could map entries in 1 live-bootstrap &quot;sources&quot; file to &quot;torrent&quot;</span></div><div class="line" id="015109"><span class="nick" style="color:#80b1d3"><a href="#015109" label="[01:51:09]">&lt;jackdk&gt;</a></span><span class="message">I was thinking &quot;here's a torrent for all the bootstrap seeds for this particular version of the bootstrap process&quot; though I can see arguments for both</span></div><div class="line" id="015118"><span class="nick" style="color:#2e2a4a"><a href="#015118" label="[01:51:18]">&lt;stikonas&gt;</a></span><span class="message">but then each commit needs a new one...</span></div><div class="line" id="015127"><span class="nick" style="color:#2e2a4a"><a href="#015127" label="[01:51:27]">&lt;stikonas&gt;</a></span><span class="message">they'll get dead very quickly</span></div><div class="line" id="015422"><span class="nick" style="color:#2e2a4a"><a href="#015422" label="[01:54:22]">&lt;stikonas&gt;</a></span><span class="message">the big bundle for particular version might make sense for proper releases though</span></div><div class="line" id="020424"><span class="nick" style="color:#6b8072"><a href="#020424" label="[02:04:24]">&lt;lanodan&gt;</a></span><span class="message">I guess if it updates that frequently something more like usual rsync mirrors would make sense</span></div><div class="line" id="020842"><span class="nick" style="color:#6b8072"><a href="#020842" label="[02:08:42]">&lt;lanodan&gt;</a></span><span class="message">At least I already have that set up for iana, rfcs, gutenberg, tuhs: <a rel="nofollow" href="https://hacktivis.me/kopimi/mirror/">https://hacktivis.me/kopimi/mirror/</a> </span></div><div class="line" id="021328"><span class="nick" style="color:#80b1d3"><a href="#021328" label="[02:13:28]">&lt;jackdk&gt;</a></span><span class="message">With the caveat that we want people to generate and verify their own sources from upstream</span></div><div class="line" id="021602"><span class="nick" style="color:#6b8072"><a href="#021602" label="[02:16:02]">&lt;lanodan&gt;</a></span><span class="message">As in verifying tarballs origin? I guess signify wouldn't be too bad but not many projects have adopted it, and gnupg is pretty big.</span></div><div class="line" id="021930"><span class="nick" style="color:#2e2a4a"><a href="#021930" label="[02:19:30]">&lt;stikonas&gt;</a></span><span class="message">(this is by the way discussion started in <a rel="nofollow" href="https://github.com/fosslinux/live-bootstrap/issues/485">https://github.com/fosslinux/live-bootstrap/issues/485</a>) </span></div><div class="line" id="023824"><span class="nick" style="color:#80b1d3"><a href="#023824" label="[02:38:24]">&lt;jackdk&gt;</a></span><span class="message">Even just verifying that what's served by a mirror is the same as the files served from upstream</span></div><div class="line" id="082725"><span class="nick" style="color:#389600"><a href="#082725" label="[08:27:25]">&lt;fossy&gt;</a></span><span class="message">yes, and if we adopt my proposal of generating git tarballs ourselves, that too</span></div><div class="line" id="133610"><span class="nick" style="color:#6d2462"><a href="#133610" label="[13:36:10]">&lt;mid-kid&gt;</a></span><span class="message">where is the distfiles mirror for live-bootstrap?</span></div><div class="line" id="133620"><span class="nick" style="color:#6d2462"><a href="#133620" label="[13:36:20]">&lt;mid-kid&gt;</a></span><span class="message">hboehm.info is down right now</span></div><div class="line" id="133824"><span class="nick" style="color:#6d2462"><a href="#133824" label="[13:38:24]">&lt;mid-kid&gt;</a></span><span class="message">nvm it was on archive.rog</span></div><div class="line" id="133826"><span class="nick" style="color:#6d2462"><a href="#133826" label="[13:38:26]">&lt;mid-kid&gt;</a></span><span class="message">org</span></div><div class="line" id="164715"><span class="nick" style="color:#234e69"><a href="#164715" label="[16:47:15]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; <a rel="nofollow" href="https://files.bootstrapping.world/">https://files.bootstrapping.world/</a> </span></div><div class="line" id="164731"><span class="nick" style="color:#234e69"><a href="#164731" label="[16:47:31]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Might be a bit out of date, not sure</span></div><div class="line" id="164739"><span class="nick" style="color:#234e69"><a href="#164739" label="[16:47:39]">&lt;matrix_bridge&gt;</a></span><span class="message">&lt;Andrius Štikonas&gt; Though we didn't do much recently</span></div><div class="line" id="170746"><span class="nick" style="color:#6c3d55"><a href="#170746" label="[17:07:46]">&lt;aggi&gt;</a></span><span class="message">i'm thinking to boundle all necessary source distfiles with the tinycc distribution</span></div><div class="line" id="170814"><span class="nick" style="color:#6c3d55"><a href="#170814" label="[17:08:14]">&lt;aggi&gt;</a></span><span class="message">so it's possible to download some i486-tcc-linux-musl.iso and everything is contained</span></div><div class="line" id="171034"><span class="nick" style="color:#6c3d55"><a href="#171034" label="[17:10:34]">&lt;aggi&gt;</a></span><span class="message">currently i'm trying to keep various package versions in sync with both what bootstrappable got and what linux-2.4 supports</span></div><div class="line" id="171121"><span class="nick" style="color:#6c3d55"><a href="#171121" label="[17:11:21]">&lt;aggi&gt;</a></span><span class="message">and i noticed already it's not too trivial to find some old distfiles matching linux-2.4/linux-2.X abi</span></div><br /></div></body></html>
